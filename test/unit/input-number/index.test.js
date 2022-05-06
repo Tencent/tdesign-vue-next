@@ -215,7 +215,7 @@ describe('InputNumber', () => {
       });
       const inputWrapper = wrapper.findComponent(InputNumber);
       wrapper.find('input').trigger('keydown');
-      expect(inputWrapper.emitted().keydown).toBeTruthy();
+      expect(inputWrapper.props('onKeydown')).toBeTruthy();
       expect(fn).toBeCalled();
     });
 
@@ -228,7 +228,7 @@ describe('InputNumber', () => {
       });
       const inputWrapper = wrapper.findComponent(InputNumber);
       wrapper.find('input').trigger('keyup');
-      expect(inputWrapper.emitted().keyup).toBeTruthy();
+      expect(inputWrapper.props('onKeyup')).toBeTruthy();
       expect(fn).toBeCalled();
     });
 
@@ -241,7 +241,7 @@ describe('InputNumber', () => {
       });
       const inputWrapper = wrapper.findComponent(InputNumber);
       wrapper.find('input').trigger('keypress');
-      expect(inputWrapper.emitted().keypress).toBeTruthy();
+      expect(inputWrapper.props('onKeypress')).toBeTruthy();
       expect(fn).toBeCalled();
     });
   });

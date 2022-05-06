@@ -1,7 +1,7 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import Popup, { PopupProps } from '../popup/index';
+import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
 import { useAction } from '../dialog/hooks';
@@ -86,33 +86,23 @@ export default defineComponent({
       );
     };
 
-    const onPopupVisibleChange = (val: boolean, context: PopconfirmVisibleChangeContext) => {
-      setInnerVisible(val, context);
+    const onPopupVisibleChange = (val: boolean, context: PopupVisibleChangeContext) => {
+      setInnerVisible(val, context as PopconfirmVisibleChangeContext);
     };
 
     const renderTNodeContent = useContent();
-    const renderTriggerElement = () => renderTNodeContent('default', 'triggerElement');
 
-    return {
-      innerVisible,
-      innerPopupProps,
-      onPopupVisibleChange,
-      renderContent,
-      renderTriggerElement,
-    };
-  },
-  render() {
-    return (
+    return () => (
       <Popup
         ref="popup"
-        visible={this.innerVisible}
-        {...this.innerPopupProps}
-        onVisibleChange={this.onPopupVisibleChange}
+        visible={innerVisible.value}
+        {...innerPopupProps}
+        onVisibleChange={onPopupVisibleChange}
         v-slots={{
-          content: this.renderContent,
+          content: renderContent,
         }}
       >
-        {this.renderTriggerElement()}
+        {renderTNodeContent('default', 'triggerElement')}
       </Popup>
     );
   },

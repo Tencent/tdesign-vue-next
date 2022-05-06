@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance, Fragment } from 'vue';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
@@ -572,7 +572,7 @@ export default defineComponent({
     getOverlayElm(): HTMLElement {
       let r;
       try {
-        r = (this.$refs.popup as any).$refs.overlay || (this.$refs.popup as any).$refs.component.$refs.overlay;
+        r = (this.$refs.popup as any).getOverlay();
       } catch (e) {
         console.warn('TDesign Warn:', e);
       }
@@ -740,7 +740,7 @@ export default defineComponent({
             />
           </ul>
           {loading && <div class={tipsClass}>{loadingTextSlot || loadingText}</div>}
-          {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
+          {!loading && !displayOptions.length && !showCreateOption && <div class={emptyClass}>{emptySlot}</div>}
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
           ) : (
@@ -847,6 +847,8 @@ export default defineComponent({
             )}
           </div>
         </Popup>
+        {/* 当存在default slot的时候，渲染一次，拿到真实的options数据，之后将不会再渲染。抛弃在前一个commit中，函数中 render options的行为，会产生大量告警，compositionAPI重构这一块需要处理一下 */}
+        {children && !this.visible && !this.hasOptions && <div v-show={false}>{children}</div>}
       </div>
     );
   },

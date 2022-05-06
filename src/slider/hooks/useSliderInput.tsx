@@ -1,20 +1,22 @@
-import { computed, ComputedRef } from 'vue';
+import { computed, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
+
+interface useSliderInputProps {
+  inputNumberProps: boolean | TdSliderProps['inputNumberProps'];
+  max: number;
+  min: number;
+  step: number;
+  prefixName: string;
+  vertical: boolean;
+  disabled: boolean;
+}
 
 /**
  * 聚合管理inputNumber渲染逻辑
  */
-export const useSliderInput = (
-  inputNumberProps: boolean | TdSliderProps['inputNumberProps'],
-  max: number,
-  min: number,
-  step: number,
-  prefixName: string,
-  isVertical: boolean,
-  disabled: ComputedRef<boolean>,
-) => {
-  const name = prefixName;
+export const useSliderInput = (config: Ref<useSliderInputProps>) => {
+  const name = config.value.prefixName;
 
   /** 根据传入属性缓存计算inputNumber props */
   const sliderInputState = computed(() => {
@@ -24,8 +26,9 @@ export const useSliderInput = (
       inputPlaceholder: '',
       inputTheme: 'column' as InputNumberProps['theme'],
     };
-    if (typeof inputNumberProps !== 'boolean') {
-      const inputNumbeConfig = inputNumberProps as TdSliderProps['inputNumberProps'];
+    const inputProps = config.value;
+    if (typeof inputProps.inputNumberProps !== 'boolean') {
+      const inputNumbeConfig = inputProps.inputNumberProps as TdSliderProps['inputNumberProps'];
       const inputDecimalPlaces = inputNumbeConfig.decimalPlaces;
       const inputFormat = inputNumbeConfig.format;
       const inputPlaceholder = inputNumbeConfig.placeholder;
@@ -50,21 +53,21 @@ export const useSliderInput = (
     return [
       `${name}__input`,
       {
-        'is-vertical': isVertical,
+        'is-vertical': config.value.vertical,
       },
     ];
   });
 
-  const renderInputNumber = (val: number | number[], changeFn: (val: number) => void) => {
+  const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
     return (
       <InputNumber
         class={sliderNumberClass.value}
         value={val}
-        step={step}
+        step={config.value.step}
         onChange={changeFn}
-        disabled={disabled.value}
-        min={min}
-        max={max}
+        disabled={config.value.disabled}
+        min={config.value.min}
+        max={config.value.max}
         decimalPlaces={sliderInputState.value.inputDecimalPlaces}
         format={sliderInputState.value.inputFormat}
         placeholder={sliderInputState.value.inputPlaceholder}

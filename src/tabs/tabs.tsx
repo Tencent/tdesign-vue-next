@@ -34,7 +34,7 @@ export default defineComponent({
 
     // methods
     const onTabAdd = (context: { e: MouseEvent }) => {
-      props.onAdd({ e: context.e });
+      props.onAdd?.({ e: context.e });
     };
     const onTabChange = (value: TabValue) => {
       setTabValue(value);

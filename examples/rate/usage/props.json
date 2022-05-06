@@ -1,0 +1,20 @@
+[
+  {
+    "name": "allowHalf",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showText",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

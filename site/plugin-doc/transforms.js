@@ -8,7 +8,7 @@ let demoCodesImports = {};
 
 export default {
   before({ source, file }) {
-    const resouceDir = path.dirname(file);
+    const resourceDir = path.dirname(file);
     const reg = file.match(/examples\/(\w+-?\w+)\/\w+-?\w+\.md/);
     const name = reg && reg[1];
     demoImports = {};
@@ -27,7 +27,7 @@ export default {
 
     // 替换成对应 demo 文件
     source = source.replace(/\{\{\s+(.+)\s+\}\}/g, (demoStr, demoFileName) => {
-      const demoPath = path.resolve(resouceDir, `../../examples/${name}/demos/${demoFileName}.vue`);
+      const demoPath = path.resolve(resourceDir, `../../examples/${name}/demos/${demoFileName}.vue`);
       if (!fs.existsSync(demoPath)) return '\n<h3>DEMO (🚧建设中）...</h3>';
 
       return `\n::: demo demos/${demoFileName} ${name}\n:::\n`;

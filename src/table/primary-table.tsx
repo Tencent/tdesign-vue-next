@@ -20,6 +20,7 @@ import useClassName from './hooks/useClassName';
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
 const OMIT_PROPS = [
+  'dragSort',
   'defaultExpandedRowKeys',
   'columnController',
   'filterRow',
@@ -52,7 +53,7 @@ export default defineComponent({
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns } = toRefs(props);
-    const primaryTableRef = ref(null);
+    const primaryTableRef = ref<HTMLDivElement>(null);
     const { tableDraggableClasses, tableBaseClass } = useClassName();
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
@@ -119,11 +120,15 @@ export default defineComponent({
         // 添加排序图标和过滤图标
         if (item.sorter || item.filter) {
           const titleContent = renderTitle(context.slots, item, i);
+          const { ellipsisTitle } = item;
           item.title = (h, p) => {
             const sortIcon = item.sorter ? renderSortIcon(p) : null;
             const filterIcon = item.filter ? renderFilterIcon(p) : null;
-            return renderTitleWidthIcon([titleContent, sortIcon, filterIcon]);
+            // @ts-ignore 注意：此处 Vue2 和 Vue3 有所不同
+            const attach = primaryTableRef.value?.tableContentRef;
+            return renderTitleWidthIcon([titleContent, sortIcon, filterIcon], p.col, p.colIndex, ellipsisTitle, attach);
           };
+          item.ellipsisTitle = false;
         }
         if (item.children?.length) {
           item.children = getColumns(item.children);

@@ -86,6 +86,10 @@ export default {
     type: Number,
     default: undefined,
   },
+  modelValue: {
+    type: Number,
+    default: undefined,
+  },
   /** 值，非受控属性 */
   defaultValue: {
     type: Number,

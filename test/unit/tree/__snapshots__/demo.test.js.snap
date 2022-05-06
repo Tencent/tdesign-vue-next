@@ -48,7 +48,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -89,7 +89,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -130,7 +130,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -540,7 +540,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -584,7 +584,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -692,7 +692,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -1524,7 +1524,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"
@@ -2040,7 +2040,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -2081,7 +2081,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -2560,7 +2560,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -3111,7 +3111,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -3152,7 +3152,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -3733,7 +3733,7 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -3774,7 +3774,7 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -3882,7 +3882,6 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
     </span>
     <div
       class="t-input__wrap"
-      modelvalue=""
     >
       <div
         class="t-input"
@@ -4713,7 +4712,7 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -4754,7 +4753,7 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -4918,7 +4917,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -4962,7 +4961,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -7267,7 +7266,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -7308,7 +7307,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__extra"
+            class="t-input__help"
           />
         </div>
       </div>
@@ -7328,7 +7327,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
       </span>
       <div
         class="t-input__wrap"
-        modelvalue=""
       >
         <div
           class="t-input"
@@ -7999,7 +7997,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"
@@ -8535,7 +8533,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <t-cascader v-model="value1" class="t-demo-cascader" :options="options" disabled />
-    <t-cascader v-model="value2" class="t-demo-cascader" :options="options" disabled multiple />
+  <div class="tdesign-demo-block-row">
+    <t-cascader v-model="value1" :options="options" disabled />
+    <t-cascader v-model="value2" :options="options" disabled multiple />
   </div>
 </template>
 
@@ -46,8 +46,3 @@ const options = [
 const value1 = ref('1.1');
 const value2 = ref(['1.1']);
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

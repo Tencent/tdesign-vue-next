@@ -30,6 +30,7 @@ export default {
   firstDayOfWeek: {
     type: Number,
     validator(val: TdCalendarProps['firstDayOfWeek']): boolean {
+      if (!val) return true;
       return [1, 2, 3, 4, 5, 6, 7].includes(val);
     },
   },
@@ -52,8 +53,13 @@ export default {
     type: String as PropType<TdCalendarProps['mode']>,
     default: 'month' as TdCalendarProps['mode'],
     validator(val: TdCalendarProps['mode']): boolean {
+      if (!val) return true;
       return ['month', 'year'].includes(val);
     },
+  },
+  /** 控制当前面板展示月份，优先级高于 `controllerConfig.month` */
+  month: {
+    type: [String, Number] as PropType<TdCalendarProps['month']>,
   },
   /** 是否禁用单元格右键默认系统菜单 */
   preventCellContextmenu: Boolean,
@@ -66,6 +72,7 @@ export default {
     type: String as PropType<TdCalendarProps['theme']>,
     default: 'full' as TdCalendarProps['theme'],
     validator(val: TdCalendarProps['theme']): boolean {
+      if (!val) return true;
       return ['full', 'card'].includes(val);
     },
   },
@@ -76,6 +83,10 @@ export default {
   /** 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day` */
   week: {
     type: [Array, Function] as PropType<TdCalendarProps['week']>,
+  },
+  /** 控制当前面板展示年份，优先级高于 `controllerConfig.year` */
+  year: {
+    type: [String, Number] as PropType<TdCalendarProps['year']>,
   },
   /** 日历单元格点击时触发 */
   onCellClick: Function as PropType<TdCalendarProps['onCellClick']>,

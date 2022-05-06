@@ -5,6 +5,43 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.14.1 `2022-05-06` 
+### 🚀 Features
+- `Table`: 新增 API `ellipsisTitle` 用于单独控制表头的超出省略 [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+### 🐞 Bug Fixes
+- `Loading`: 使用 `attach` 的情况下，`loading` 设置为 `false`，无法隐藏半透明蒙层，[issue#693](https://github.com/Tencent/tdesign-vue-next/issues/693) [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+- `Table`: 加载状态 `loading` 会导致拖拽排序失效的问题，[issue#648](https://github.com/Tencent/tdesign-vue-next/issues/648) [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+- `Table`: TS 类型 `TableColumns[0]` 在严格模式下的使用问题 [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+- `Menu`: 使用t-submenu template #icon无效的问题 [@fengxianqi](https://github.com/fengxianqi) ([#643](https://github.com/Tencent/tdesign-vue-next/pull/643))
+- `Menu`: 修复 `expandMutex` 无法动态更新 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Input`: 修复 `onChange` 触发两次 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Tabs`: 修复 `add` 方法点击报错 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Textarea`: 修复 `autofocus` 参数更新无法聚焦 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Select`: 修复在结合 `option` 使用下的 `render` 告警 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Slider`: 将 `marks` 属性更改为响应性属性，并内部修复marks刻度节点点击事件无效问题 [@ChrisLee0211](https://github.com/ChrisLee0211)  ([#683](https://github.com/Tencent/tdesign-vue-next/pull/683))
+- `Dropdown`: 修复下拉菜单点击后报错  [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))  ([issue #711](https://github.com/Tencent/tdesign-vue-next/issue/711)) 
+- `Menu`: 使用t-submenu template #icon无效的问题 [@fengxianqi](https://github.com/fengxianqi) ([#643](https://github.com/Tencent/tdesign-vue-next/pull/643))
+
+
+## 🌈 0.14.0 `2022-04-29`
+### ❗ Breaking Changes
+- `Popup`: 去除 reference 包裹元素 [@ikeq](https://github.com/ikeq) ([#635](https://github.com/Tencent/tdesign-vue-next/pull/635))
+### 🚀 Features
+- `Pagination`: 新增 showFirstAndLastPageBtn、showPreviousAndNextBtn api [@HQ-Lin](https://github.com/HQ-Lin) ([#665](https://github.com/Tencent/tdesign-vue-next/pull/665))
+- `Pagination`: 新增 showPageSize、showPageNumber API [@HQ-Lin](https://github.com/HQ-Lin) ([#666](https://github.com/Tencent/tdesign-vue-next/pull/666))
+- `Calendar`: 日历组件修正value属性，新增了month和year属性 [@PsTiu](https://github.com/PsTiu) ([#676](https://github.com/Tencent/tdesign-vue-next/pull/676))
+### 🐞 Bug Fixes
+- `Dialog`: 修复 `alert` 类型错误 [@pengYYYYY](https://github.com/pengYYYYY) ([#645](https://github.com/Tencent/tdesign-vue-next/pull/645))
+- `Form`: 修复 help 节点状态问题 [@HQ-Lin](https://github.com/HQ-Lin) ([#656](https://github.com/Tencent/tdesign-vue-next/pull/656))
+- `Transfer`: 修复选择无效和搜索无效 [@pengYYYYY](https://github.com/pengYYYYY) ([#662](https://github.com/Tencent/tdesign-vue-next/pull/662))
+- `DataPicker`: data-picker 增加 apply 事件 [@Godlike-meteor](https://github.com/Godlike-meteor) ([#647](https://github.com/Tencent/tdesign-vue-next/pull/647))
+- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+- `TreeSelect`: 修复右侧箭头状态与清除回掉 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
+- `Input`: 修复 `suffix` 渲染问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
+- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+
+
+
 ## 🌈 0.13.0 `2022-04-22`
 
 ### BREAKING CHANGES
@@ -447,7 +484,7 @@ docClass: timeline
   * 修复 `change` 事件两次触发 ([0b65c7a](https://github.com/Tencent/tdesign-vue-next/commit/0b65c7a1852a3e03084a86226d82c7f8d5a70925))
 * Popup:
   * 修复 `mousedown` 事件无效 ([a1d3303](https://github.com/Tencent/tdesign-vue-next/commit/a1d330327b27288c362bfb5d6cb4953c764426a6))
-  * 修复 `destory on close` 事件无效 ([fde46e7](https://github.com/Tencent/tdesign-vue-next/commit/fde46e73c7c439101663c2c5591ed08ab9aca854))
+  * 修复 `destroy on close` 事件无效 ([fde46e7](https://github.com/Tencent/tdesign-vue-next/commit/fde46e73c7c439101663c2c5591ed08ab9aca854))
 * Input:
   * 修复 `size` 属性无效 ([db155b3](https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8)), ([#112](https://github.com/Tencent/tdesign-vue-next/issues/112))
   * 修复点击清除 `icon` 后无法 `focus` ([2c34e05](https://github.com/Tencent/tdesign-vue-next/commit/2c34e05cf183985ffd734e8bf14d77cbd07a041e))

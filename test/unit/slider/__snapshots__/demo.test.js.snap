@@ -31,34 +31,12 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -95,34 +73,12 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -130,34 +86,12 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -203,34 +137,12 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -270,34 +182,12 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -306,34 +196,12 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -378,34 +246,12 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -521,34 +367,12 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -556,34 +380,12 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -777,34 +579,12 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -919,34 +699,12 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -954,34 +712,12 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -1175,34 +911,12 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -1319,34 +1033,12 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -1354,34 +1046,12 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <div>
@@ -1493,34 +1163,12 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -1616,34 +1264,12 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             style="left: -50%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -1712,34 +1338,12 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             style="left: -50%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -1747,34 +1351,12 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             style="left: -50%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <div>
@@ -1849,34 +1431,12 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -1914,34 +1474,12 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -1949,34 +1487,12 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             style="left: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -2022,34 +1538,12 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -2168,34 +1662,12 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -2203,34 +1675,12 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <div>
@@ -2354,34 +1804,12 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->
@@ -2420,34 +1848,12 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <div
             class="t-slider__button-wrapper"
@@ -2455,34 +1861,12 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             style="bottom: 0%;"
             tabindex="0"
           >
+            
             <div
-              class="t-popup__reference"
-              popper-class=""
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popup__content--arrow"
-                    style="max-width: 480px;"
-                  >
-                    0
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-slider__button"
-              />
-              
-            </div>
+              class="t-slider__button"
+            />
+            <!---->
+            
           </div>
           <!---->
           <!---->

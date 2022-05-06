@@ -22,6 +22,7 @@ export default function useStyle(props: TdBaseTableProps) {
       [tableBaseClass.bordered]: bordered.value,
       [tableBaseClass.striped]: stripe.value,
       [tableBaseClass.hover]: hover.value,
+      [tableBaseClass.loading]: props.loading,
       [tableBaseClass.affixedHeader]: props.headerAffixedTop,
       [tableBaseClass.rowspanAndColspan]: props.rowspanAndColspan,
       [tableAlignClasses[verticalAlign.value]]: verticalAlign.value !== 'middle',

@@ -61,6 +61,7 @@ const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
+  onCheckedChange: Function as PropType<(event: Array<TransferValue>) => void>,
 };
 
 export default defineComponent({

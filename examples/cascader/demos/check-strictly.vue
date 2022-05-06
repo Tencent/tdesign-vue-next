@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <t-cascader v-model="value1" class="t-demo-cascader" :options="options" placeholder="请选择" check-strictly />
-    <t-cascader v-model="value2" class="t-demo-cascader" :options="options" check-strictly multiple />
+  <div class="tdesign-demo-block-row t-cascader-demo">
+    <t-cascader v-model="value1" :options="options" check-strictly />
+    <t-cascader v-model="value2" :options="options" check-strictly multiple />
   </div>
 </template>
 
@@ -102,8 +102,3 @@ const options = [
 const value1 = ref('1.2.2');
 const value2 = ref(['1.1.2.1', '2']);
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-select-collapsed">
+  <div class="tdesign-demo-block-row">
     <t-tree-select
       v-model="value"
       :data="options"

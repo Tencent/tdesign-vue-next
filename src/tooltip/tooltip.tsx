@@ -1,11 +1,9 @@
-import { defineComponent } from 'vue';
+import { computed, defineComponent, onMounted, ref, watch } from 'vue';
 import props from './props';
 import popupProps from '../popup/props';
-import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
-import { ClassName } from '../common';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { emitEvent } from '../utils/event';
+import Popup, { PopupVisibleChangeContext } from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TTooltip',
@@ -15,64 +13,56 @@ export default defineComponent({
     ...props,
   },
   emits: ['visible-change'],
-  setup() {
-    const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-    };
-  },
-  data() {
-    return {
-      timer: null,
-      tooltipVisible: false,
-    };
-  },
-  computed: {
-    tooltipOverlayClassName(): ClassName {
-      return [
-        `${this.classPrefix}-tooltip`,
-        { [`${this.classPrefix}-tooltip--${this.theme}`]: this.theme },
-        this.overlayClassName,
-      ];
-    },
-  },
-  watch: {
-    visible(visible) {
-      if (this.timer && !visible) {
-        clearTimeout(this.timer);
-        this.timer = null;
-      }
-    },
-  },
-  created() {
-    if (this.duration && this.visible) {
-      this.timer = setTimeout(() => {
-        emitEvent(this, 'visible-change', false);
-        clearTimeout(this.timer);
-        this.timer = null;
-      }, this.duration);
-    }
-  },
-  methods: {
-    onTipVisibleChange(val: boolean, ctx?: PopupVisibleChangeContext) {
-      // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
-      if (this.timer && ctx?.trigger !== 'document') return;
-      emitEvent(this, 'visible-change', val);
-    },
+  setup(props, ctx) {
+    const timer = ref(null);
 
-    getPopupProps(): PopupProps {
-      const r: PopupProps = {
-        showArrow: true,
-        ...this.$props,
-        content: () => renderTNodeJSX(this, 'content'),
-        default: () => renderContent(this, 'default', 'triggerElement'),
-        overlayClassName: this.tooltipOverlayClassName,
-        onVisibleChange: this.onTipVisibleChange,
-      };
-      return r;
-    },
-  },
-  render() {
-    return <Popup visible={this.visible} showArrow={this.showArrow} {...this.getPopupProps()} />;
+    const innerTooltipVisible = ref(props.visible || props.defaultVisible);
+    const classPrefix = usePrefixClass();
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
+
+    onMounted(() => {
+      if (props.duration && innerTooltipVisible.value) {
+        timer.value = setTimeout(() => {
+          innerTooltipVisible.value = false;
+          clearTimeout(timer.value);
+          timer.value = null;
+        }, props.duration);
+      }
+    });
+
+    const onTipVisibleChange = (val: boolean, ctx?: PopupVisibleChangeContext) => {
+      // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
+      if (timer.value && ctx?.trigger !== 'document') return;
+      innerTooltipVisible.value = val;
+    };
+
+    const tooltipOverlayClassName = computed(() => {
+      return [
+        `${classPrefix.value}-tooltip`,
+        { [`${classPrefix.value}-tooltip--${props.theme}`]: props.theme },
+        props.overlayClassName,
+      ];
+    });
+
+    const popupProps = computed(() => ({
+      ...props,
+      content: () => renderTNodeJSX('content'),
+      default: () => renderContent('default', 'triggerElement'),
+      overlayClassName: tooltipOverlayClassName.value,
+      onVisibleChange: onTipVisibleChange,
+    }));
+
+    watch(
+      () => innerTooltipVisible.value,
+      (next, prev) => {
+        if (timer.value && !innerTooltipVisible.value) {
+          clearTimeout(timer.value);
+          timer.value = null;
+        }
+      },
+    );
+
+    return () => <Popup {...popupProps.value} visible={innerTooltipVisible.value} />;
   },
 });

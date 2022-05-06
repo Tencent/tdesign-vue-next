@@ -1,0 +1,37 @@
+[
+  {
+    "name": "closeBtn",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "icon",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "info",
+    "options": [
+      {
+        "label": "info",
+        "value": "info"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "error",
+        "value": "error"
+      }
+    ]
+  }
+]

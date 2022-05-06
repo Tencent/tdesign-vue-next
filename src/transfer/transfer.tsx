@@ -28,10 +28,6 @@ const TARGET = 'target';
 
 export default defineComponent({
   name: TRANSFER_NAME,
-  components: {
-    TransferList,
-    TransferOperations,
-  },
   props: {
     ...props,
   },
@@ -65,10 +61,10 @@ export default defineComponent({
       return getTransferData(props.data, props.keys, isTreeMode.value);
     });
     const sourceList = computed(() => {
-      return filterTransferData(transferData.value, valueList.value, false, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value as TransferValue[], false, isTreeMode.value);
     });
     const targetList = computed(() => {
-      return filterTransferData(transferData.value, valueList.value, true, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value as TransferValue[], true, isTreeMode.value);
     });
     // 被选中的value
     const checkedValue = computed(() => {
@@ -96,7 +92,7 @@ export default defineComponent({
       return getTransferListOption<EmptyType>(props.empty);
     });
     const searchOption = computed(() => {
-      return getTransferListOption<SearchOption>(props.search);
+      return getTransferListOption<boolean>(props.search);
     });
     const checkAllOption = computed(() => {
       return getTransferListOption<boolean>(props.showCheckAll);
@@ -193,7 +189,7 @@ export default defineComponent({
     const renderTransferList = (listType: TransferListType) => {
       const scopedSlots = pick(slots, ['title', 'empty', 'footer', 'operation', 'transferItem', 'default', 'tree']);
       return (
-        <transfer-list
+        <TransferList
           checkboxProps={props.checkboxProps}
           transferItem={props.transferItem}
           list-type={listType}
@@ -215,7 +211,7 @@ export default defineComponent({
           isTreeMode={isTreeMode.value}
         >
           {scopedSlots}
-        </transfer-list>
+        </TransferList>
       );
     };
 
@@ -230,11 +226,11 @@ export default defineComponent({
         ]}
       >
         {renderTransferList(SOURCE)}
-        <transfer-operations
-          left-disabled={
+        <TransferOperations
+          leftDisabled={
             disabledOption.value[TARGET] || leftButtonDisabled.value || checkedValue.value[TARGET].length === 0
           }
-          right-disabled={
+          rightDisabled={
             disabledOption.value[SOURCE] || rightButtonDisabled.value || checkedValue.value[SOURCE].length === 0
           }
           operation={props.operation}

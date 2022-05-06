@@ -4,99 +4,51 @@ exports[`Select :props :bordered 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -104,99 +56,51 @@ exports[`Select :props :clearable 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -204,99 +108,51 @@ exports[`Select :props :creatable 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -304,99 +160,51 @@ exports[`Select :props :disabled 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-is-disabled t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-is-disabled t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -405,99 +213,51 @@ exports[`Select :props :labelInValue 1`] = `
   class="t-select__wrap"
   labelinvalue="false"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -505,109 +265,61 @@ exports[`Select :props :loading 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <div
-              class="t-select__loading-tips t-size-m"
-            >
-              加载中
-            </div>
-            <!---->
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
+      
+      +0
+      
+      <!---->
+    </span>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="small"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-         
-        请选择
-      </span>
-      <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <!---->
-      <!---->
-      <div
-        class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
-      >
-        <svg
-          class="t-loading__gradient t-icon-loading"
-          height="1em"
-          size="small"
-          version="1.1"
-          viewBox="0 0 14 14"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
         >
-          <foreignobject
-            height="12"
-            width="12"
-            x="1"
-            y="1"
-          >
-            <div
-              class="t-loading__gradient-conic"
-            />
-          </foreignobject>
-        </svg>
-        <!---->
-      </div>
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
     </div>
-    
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -615,115 +327,52 @@ exports[`Select :props :multiple 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <label
-                  class="t-checkbox"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    
-                    
-                  </span>
-                </label>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
     
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
       
+      +0
       
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
       <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -731,99 +380,51 @@ exports[`Select :props :placeholder 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      please select
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        please select
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -832,99 +433,51 @@ exports[`Select :props :remote 1`] = `
   class="t-select__wrap"
   remote="true"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -932,99 +485,51 @@ exports[`Select :props :reserveKeyword 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -1032,99 +537,51 @@ exports[`Select :props :size 1`] = `
 <div
   class="t-select__wrap"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-l t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-l t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-l"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              <!---->
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-l"
+    <!---->
+    <span
+      class="t-select__placeholder"
+    >
+       
+      请选择
+    </span>
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-l"
+      style="display: none;"
     >
       <!---->
-      <span
-        class="t-select__placeholder"
-      >
-         
-        请选择
-      </span>
+      
+      +0
+      
       <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-l"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <!---->
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
-    
+    </span>
+    <!---->
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
   </div>
+  <!---->
+  
+  <!---->
 </div>
 `;
 
@@ -1133,106 +590,62 @@ exports[`Select Option :props :disabled 1`] = `
   class="t-select__wrap"
   modelvalue="1"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              
-              <li
-                class="t-select-option t-is-disabled t-is-selected t-size-m"
-                title="1"
-              >
-                <span>
-                  1
-                </span>
-              </li>
-              
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <!---->
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
+      
+      +0
+      
       <!---->
-      <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <span
-        class="t-select__single"
-        title="1"
-      >
+    </span>
+    <span
+      class="t-select__single"
+      title="1"
+    >
+      1
+    </span>
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-disabled t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
         1
       </span>
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
+    </li>
     
   </div>
 </div>
@@ -1243,106 +656,62 @@ exports[`Select Option :props :label 1`] = `
   class="t-select__wrap"
   modelvalue="1"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              
-              <li
-                class="t-select-option t-is-selected t-size-m"
-                title="1"
-              >
-                <span>
-                  1
-                </span>
-              </li>
-              
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <!---->
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
+      
+      +0
+      
       <!---->
-      <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <span
-        class="t-select__single"
-        title="1"
-      >
+    </span>
+    <span
+      class="t-select__single"
+      title="1"
+    >
+      1
+    </span>
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
         1
       </span>
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
+    </li>
     
   </div>
 </div>
@@ -1353,106 +722,62 @@ exports[`Select Option :props :value 1`] = `
   class="t-select__wrap"
   modelvalue="1"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              
-              <li
-                class="t-select-option t-is-selected t-size-m"
-                title="1"
-              >
-                <span>
-                  1
-                </span>
-              </li>
-              
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <!---->
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
+      
+      +0
+      
       <!---->
-      <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
-      >
-        <!---->
-        
-        +0
-        
-        <!---->
-      </span>
-      <span
-        class="t-select__single"
-        title="1"
-      >
+    </span>
+    <span
+      class="t-select__single"
+      title="1"
+    >
+      1
+    </span>
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
         1
       </span>
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
+    </li>
     
   </div>
 </div>
@@ -1463,140 +788,96 @@ exports[`Select OptionGroup :props :value 1`] = `
   class="t-select__wrap"
   modelvalue="1"
 >
+  
   <div
-    class="t-popup__reference t-select__popup-reference"
+    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-select__dropdown narrow-scrollbar"
-        >
-          
-          <div
-            class="t-select__dropdown-inner"
-          >
-            <!---->
-            <ul
-              class="t-select__create-option t-select__list"
-              style="display: none;"
-            >
-              <li
-                class="t-select-option t-size-m t-select__create-option--special"
-                title=""
-              >
-                <span>
-                  
-                </span>
-              </li>
-            </ul>
-            <!---->
-            <li
-              class="t-select__empty t-size-m"
-            >
-              暂无数据
-            </li>
-            <ul
-              class="t-select__groups t-select__list"
-            >
-              
-              <li
-                class="t-select-option-group t-size-m t-select-option-group__divider"
-              >
-                <div
-                  class="t-select-option-group__header"
-                >
-                  num
-                </div>
-                <ul>
-                  
-                  <li
-                    class="t-select-option t-is-selected t-size-m"
-                    title="1"
-                  >
-                    <span>
-                      1
-                    </span>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li
-                class="t-select-option-group t-size-m t-select-option-group__divider"
-              >
-                <div
-                  class="t-select-option-group__header"
-                >
-                  abc
-                </div>
-                <ul>
-                  
-                  <li
-                    class="t-select-option t-size-m"
-                    title="a"
-                  >
-                    <span>
-                      a
-                    </span>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <div
-      class="t-select t-select-polyfill t-size-m"
+    <!---->
+    <!---->
+    <!---->
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m"
+      style="display: none;"
     >
       <!---->
+      
+      +0
+      
       <!---->
-      <!---->
-      <span
-        class="t-tag t-tag--default t-tag--dark t-size-m"
-        style="display: none;"
+    </span>
+    <span
+      class="t-select__single"
+      title="1"
+    >
+      1
+    </span>
+    <!---->
+    <svg
+      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option-group t-size-m t-select-option-group__divider"
+    >
+      <div
+        class="t-select-option-group__header"
       >
-        <!---->
+        num
+      </div>
+      <ul>
         
-        +0
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="1"
+        >
+          <span>
+            1
+          </span>
+        </li>
         
-        <!---->
-      </span>
-      <span
-        class="t-select__single"
-        title="1"
+      </ul>
+    </li>
+    <li
+      class="t-select-option-group t-size-m t-select-option-group__divider"
+    >
+      <div
+        class="t-select-option-group__header"
       >
-        1
-      </span>
-      <!---->
-      <svg
-        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-          stroke="black"
-          stroke-opacity="0.9"
-          stroke-width="1.3"
-        />
-      </svg>
-      <!---->
-      <!---->
-    </div>
+        abc
+      </div>
+      <ul>
+        
+        <li
+          class="t-select-option t-size-m"
+          title="a"
+        >
+          <span>
+            a
+          </span>
+        </li>
+        
+      </ul>
+    </li>
     
   </div>
 </div>
