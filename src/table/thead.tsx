@@ -1,12 +1,12 @@
-import { defineComponent, computed, SetupContext, PropType, ref } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref, h } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { RowAndColFixedPosition, getColumnFixedStyles } from './hooks/useFixed';
-import { TableColumns, ThRowspanAndColspan } from './hooks/useMultiHeader';
+import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
 import { BaseTableCol, TableRowData } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
+import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
 
 export interface TheadProps {
   // 是否固定表头
@@ -69,7 +69,7 @@ export default defineComponent({
       const thBorderMap = new Map<any, boolean>();
       const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
       return this.thList.map((row, rowIndex) => {
-        const thRow = row.map((col: TableColumns[0], index: number) => {
+        const thRow = row.map((col: BaseTableColumns[0], index: number) => {
           const rowspanAndColspan = thRowspanAndColspan.get(col);
           if (index === 0 && rowspanAndColspan.rowspan > 1) {
             for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
@@ -98,11 +98,19 @@ export default defineComponent({
           const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
+          const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           return (
             <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rowspanAndColspan}>
               <div class={this.tableBaseClass.thCellInner}>
-                {col.ellipsis ? (
-                  <TEllipsis attach={this.theadRef ? () => this.theadRef : undefined}>{innerTh}</TEllipsis>
+                {col.ellipsis && col.ellipsisTitle !== false && col.ellipsisTitle !== null ? (
+                  <TEllipsis
+                    placement="bottom"
+                    attach={this.theadRef ? () => this.theadRef : undefined}
+                    popupContent={content && (() => content)}
+                    popupProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                  >
+                    {innerTh}
+                  </TEllipsis>
                 ) : (
                   innerTh
                 )}

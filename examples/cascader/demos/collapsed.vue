@@ -1,21 +1,7 @@
 <template>
-  <div>
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      :on-remove="handleBlur"
-      multiple
-      :min-collapsed-num="1"
-    />
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      :collapsed-items="collapsedItems"
-      multiple
-      :min-collapsed-num="1"
-    />
+  <div class="tdesign-demo-block-row">
+    <t-cascader v-model="value" :options="options" :on-remove="handleBlur" multiple :min-collapsed-num="1" />
+    <t-cascader v-model="value" :options="options" :collapsed-items="collapsedItems" multiple :min-collapsed-num="1" />
     <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable :min-collapsed-num="1">
       <template #collapsedItems="{ collapsedSelectedItems, count }">
         <t-popup>
@@ -24,7 +10,7 @@
               {{ item.label }}
             </p>
           </template>
-          <span v-show="count > 0" style="color: #00a870">+{{ count }}</span>
+          <span v-show="count > 0" style="color: #00a870">+{{ count - 1 }}</span>
         </t-popup>
       </template>
     </t-cascader>
@@ -90,14 +76,9 @@ const collapsedItems = (h, { value, count }) => {
       }}
     >
       <span v-show={count > 0} style="color: #ED7B2F;">
-        +{count}
+        +{count - 1}
       </span>
     </t-popup>
   );
 };
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

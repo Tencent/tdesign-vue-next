@@ -1,12 +1,6 @@
 <template>
   <div>
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      :show-all-levels="false"
-      placeholder="请选择"
-    />
+    <t-cascader v-model="value" :options="options" :show-all-levels="false" />
   </div>
 </template>
 
@@ -50,8 +44,3 @@ const options = [
 
 const value = ref('');
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

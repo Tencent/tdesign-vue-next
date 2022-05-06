@@ -34,10 +34,12 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row t-cascader-demo"
+>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue="1.2.2"
   >
     <span
@@ -65,7 +67,7 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1.2.1,2"
   >
     <span
@@ -95,10 +97,12 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1,1.2,1.3"
   >
     <span
@@ -126,7 +130,7 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1,1.2,1.3"
   >
     <span
@@ -184,10 +188,12 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader disabledVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-is-disabled t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -216,7 +222,7 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -247,10 +253,40 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row t-cascader-demo"
+>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+    modelvalue="1.1"
+  >
+    <span
+      class="t-cascader__placeholder"
+    >
+      请选择
+    </span>
+    <svg
+      class="t-fake-arrow t-cascader__icon"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -280,10 +316,12 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader filterableVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -311,7 +349,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -344,7 +382,7 @@ exports[`Cascader Cascader keysVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -377,8 +415,8 @@ exports[`Cascader Cascader loadVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
-    modelvalue="1"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -410,7 +448,7 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -440,10 +478,12 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader multipleVue demo works fine 1`] = `
-<div>
+<div
+  class="t-cascader-demo"
+>
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -476,7 +516,7 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -506,11 +546,13 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader sizeVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   <!-- 非受控用法 -->
   
   <div
-    class="t-cascader t-size-s t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-s t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -539,7 +581,7 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   <!-- 受控+语法糖用法 -->
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue="1.1"
   >
     <span
@@ -568,7 +610,7 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   <!-- 受控用法 -->
   
   <div
-    class="t-cascader t-size-l t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-l t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -598,10 +640,12 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader triggerVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -629,7 +673,7 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -659,10 +703,12 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -690,7 +736,7 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -718,7 +764,7 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue=""
   >
     <span
@@ -748,10 +794,12 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   
   <div
-    class="t-cascader t-size-m t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
     modelvalue="1,1.1"
   >
     <span
@@ -779,7 +827,7 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
   
   
   <div
-    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
     modelvalue="1,1.1,1,1.2"
   >
     <span

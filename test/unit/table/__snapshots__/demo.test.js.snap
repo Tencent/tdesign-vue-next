@@ -336,6 +336,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -828,6 +829,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
     <div
       class="t-table__pagination"
     >
@@ -1165,6 +1167,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -1682,6 +1685,7 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <div
@@ -2203,6 +2207,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
     <div
       class="t-table__pagination"
     >
@@ -2670,6 +2675,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -2810,6 +2816,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -3172,6 +3179,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3187,7 +3195,6 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--col-draggable"
-      dragsort="col"
       style="position: relative;"
     >
       <!---->
@@ -3409,6 +3416,7 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3418,13 +3426,32 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
 <div
   class="demo-container t-table-demo-sort"
 >
+  <div>
+    <label
+      class="t-checkbox"
+    >
+      <input
+        class="t-checkbox__former"
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+         加载状态 
+        
+      </span>
+    </label>
+  </div>
   <div
     class="item"
   >
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-handler-draggable"
-      dragsort="row-handler"
       style="position: relative;"
     >
       <!---->
@@ -3521,19 +3548,21 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
               <td
                 class="t-table__handle-draggable"
               >
-                <svg
-                  class="t-icon t-icon-move"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
+                <span>
+                  <svg
+                    class="t-icon t-icon-move"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
               </td>
               <td
                 class=""
@@ -3571,19 +3600,21 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
               <td
                 class="t-table__handle-draggable"
               >
-                <svg
-                  class="t-icon t-icon-move"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
+                <span>
+                  <svg
+                    class="t-icon t-icon-move"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
               </td>
               <td
                 class=""
@@ -3621,19 +3652,21 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
               <td
                 class="t-table__handle-draggable"
               >
-                <svg
-                  class="t-icon t-icon-move"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
+                <span>
+                  <svg
+                    class="t-icon t-icon-move"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
               </td>
               <td
                 class=""
@@ -3671,19 +3704,21 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
               <td
                 class="t-table__handle-draggable"
               >
-                <svg
-                  class="t-icon t-icon-move"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
+                <span>
+                  <svg
+                    class="t-icon t-icon-move"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
               </td>
               <td
                 class=""
@@ -3720,6 +3755,12 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
           <!---->
         </table>
       </div>
+      <div
+        class="t-loading--center t-size-m t-loading"
+      >
+        <!---->
+        <!---->
+      </div>
       <!---->
       <!---->
       <!---->
@@ -3738,7 +3779,6 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-draggable"
-      dragsort="row"
       style="position: relative;"
     >
       <!---->
@@ -3961,6 +4001,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
           <!---->
         </table>
       </div>
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -4084,6 +4125,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -4212,6 +4254,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <br />
   <br />
@@ -4332,6 +4375,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -5208,15 +5252,34 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!-- !! 也可以使用具名插槽 \`expandedRow\` 自定义展开行内容 !! -->
-  <!-- &lt;template #expandedRow="{ row }"&gt;
-      &lt;div class="more-detail"&gt;
-        &lt;p class="title"&gt;&lt;b&gt;集群名称:&lt;/b&gt;&lt;/p&gt;&lt;p class="content"&gt;{{row.instance}}&lt;/p&gt;&lt;br/&gt;
-        &lt;p class="title"&gt;&lt;b&gt;管理员:&lt;/b&gt;&lt;/p&gt;&lt;p class="content"&gt;{{row.owner}}&lt;/p&gt;&lt;br/&gt;
-        &lt;p class="title"&gt;&lt;b&gt;描述:&lt;/b&gt;&lt;/p&gt;&lt;p class="content"&gt;{{row.description}}&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/template&gt; -->
+  <!-- &lt;t-table
+      row-key="id"
+      :columns="columns"
+      :data="emptyData ? [] : data"
+      :expanded-row-keys="expandedRowKeys"
+      :expanded-row="expandedRow"
+      :expand-on-row-click="expandOnRowClick"
+      :expand-icon="expandIcon"
+      table-layout="auto"
+      table-content-width="1200"
+      @expand-change="rehandleExpandChange"
+    &gt;
+      &lt;template #expandedRow="{ row }"&gt;
+        &lt;div class="more-detail"&gt;
+          &lt;p class="title"&gt;&lt;b&gt;集群名称:&lt;/b&gt;&lt;/p&gt;
+          &lt;p class="content"&gt;{{ row.instance }}&lt;/p&gt;
+          &lt;br /&gt;
+          &lt;p class="title"&gt;&lt;b&gt;管理员:&lt;/b&gt;&lt;/p&gt;
+          &lt;p class="content"&gt;{{ row.owner }}&lt;/p&gt;
+          &lt;br /&gt;
+          &lt;p class="title"&gt;&lt;b&gt;描述:&lt;/b&gt;&lt;/p&gt;
+          &lt;p class="content"&gt;{{ row.description }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/template&gt;
+    &lt;/t-table&gt; -->
 </div>
 `;
 
@@ -5756,6 +5819,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -6396,6 +6460,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -7715,6 +7780,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
   
@@ -8794,6 +8860,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
         </tfoot>
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -17928,6 +17995,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -17936,387 +18004,375 @@ exports[`Table Table lazyVue demo works fine 1`] = `
 exports[`Table Table loadingVue demo works fine 1`] = `
 <div>
   <div
-    class="t-table t-size-s"
+    class="t-table t-size-s t-table--loading"
     style="position: relative;"
   >
     <!---->
     <!---->
     <div
-      class="t-loading__parent"
+      class="t-table__content"
     >
-      
-      <div
-        class="t-table__content"
+      <!---->
+      <table
+        class="t-table--layout-fixed"
       >
-        <!---->
-        <table
-          class="t-table--layout-fixed"
+        <colgroup>
+          
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
         >
-          <colgroup>
+          
+          <tr>
             
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            
-          </colgroup>
-          <thead
-            class="t-table__header"
-          >
-            
-            <tr>
-              
-              <th
-                class="row t-table__th-type"
-                data-colkey="type"
+            <th
+              class="row t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    类型
-                    
-                  </div>
+                  
+                  类型
+                  
                 </div>
-              </th>
-              <th
-                class="test t-table__th-platform"
-                data-colkey="platform"
+              </div>
+            </th>
+            <th
+              class="test t-table__th-platform"
+              data-colkey="platform"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    平台
-                    
-                  </div>
+                  
+                  平台
+                  
                 </div>
-              </th>
-              <th
-                class="test2 t-table__th-property"
-                data-colkey="property"
+              </div>
+            </th>
+            <th
+              class="test2 t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    属性
-                    
-                  </div>
+                  
+                  属性
+                  
                 </div>
-              </th>
-              <th
-                class="test4 t-table__th-default"
-                data-colkey="default"
+              </div>
+            </th>
+            <th
+              class="test4 t-table__th-default"
+              data-colkey="default"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    默认值
-                    
-                  </div>
+                  
+                  默认值
+                  
                 </div>
-              </th>
-              <th
-                class="test3 t-table__th-needed"
-                data-colkey="needed"
+              </div>
+            </th>
+            <th
+              class="test3 t-table__th-needed"
+              data-colkey="needed"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    是否必传
-                    
-                  </div>
+                  
+                  是否必传
+                  
                 </div>
-              </th>
-              <th
-                class="row t-table__th-description"
-                data-colkey="description"
+              </div>
+            </th>
+            <th
+              class="row t-table__th-description"
+              data-colkey="description"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    说明
-                    
-                  </div>
+                  
+                  说明
+                  
                 </div>
-              </th>
-              
-            </tr>
+              </div>
+            </th>
             
-          </thead>
-          <tbody
-            class="t-table__body"
-          >
-            
-            <!---->
-            
-            
-            <!---->
-            
-          </tbody>
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
           <!---->
-        </table>
-      </div>
-      
-      <div
-        class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
-      >
-        <svg
-          class="t-loading__gradient t-icon-loading"
-          height="1em"
-          size="medium"
-          version="1.1"
-          viewBox="0 0 14 14"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <foreignobject
-            height="12"
-            width="12"
-            x="1"
-            y="1"
-          >
-            <div
-              class="t-loading__gradient-conic"
-            />
-          </foreignobject>
-        </svg>
+          
+          
+          <!---->
+          
+        </tbody>
         <!---->
-      </div>
+      </table>
+    </div>
+    <div
+      class="t-loading--center t-size-m t-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
     </div>
     <!---->
     <!---->
     <!---->
   </div>
   <div
-    class="t-table t-size-s"
+    class="t-table t-size-s t-table--loading"
     style="position: relative;"
   >
     <!---->
     <!---->
     <div
-      class="t-loading__parent"
+      class="t-table__content"
     >
-      
-      <div
-        class="t-table__content"
+      <!---->
+      <table
+        class="t-table--layout-fixed"
       >
-        <!---->
-        <table
-          class="t-table--layout-fixed"
+        <colgroup>
+          
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
         >
-          <colgroup>
+          
+          <tr>
             
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            
-          </colgroup>
-          <thead
-            class="t-table__header"
-          >
-            
-            <tr>
-              
-              <th
-                class="row t-table__th-type"
-                data-colkey="type"
+            <th
+              class="row t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    类型
-                    
-                  </div>
+                  
+                  类型
+                  
                 </div>
-              </th>
-              <th
-                class="test t-table__th-platform"
-                data-colkey="platform"
+              </div>
+            </th>
+            <th
+              class="test t-table__th-platform"
+              data-colkey="platform"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    平台
-                    
-                  </div>
+                  
+                  平台
+                  
                 </div>
-              </th>
-              <th
-                class="test2 t-table__th-property"
-                data-colkey="property"
+              </div>
+            </th>
+            <th
+              class="test2 t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    属性
-                    
-                  </div>
+                  
+                  属性
+                  
                 </div>
-              </th>
-              <th
-                class="test4 t-table__th-default"
-                data-colkey="default"
+              </div>
+            </th>
+            <th
+              class="test4 t-table__th-default"
+              data-colkey="default"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    默认值
-                    
-                  </div>
+                  
+                  默认值
+                  
                 </div>
-              </th>
-              <th
-                class="test3 t-table__th-needed"
-                data-colkey="needed"
+              </div>
+            </th>
+            <th
+              class="test3 t-table__th-needed"
+              data-colkey="needed"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    是否必传
-                    
-                  </div>
+                  
+                  是否必传
+                  
                 </div>
-              </th>
-              <th
-                class="row t-table__th-description"
-                data-colkey="description"
+              </div>
+            </th>
+            <th
+              class="row t-table__th-description"
+              data-colkey="description"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    说明
-                    
-                  </div>
+                  
+                  说明
+                  
                 </div>
-              </th>
-              
-            </tr>
+              </div>
+            </th>
             
-          </thead>
-          <tbody
-            class="t-table__body"
-          >
-            
-            <!---->
-            
-            
-            <!---->
-            
-          </tbody>
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
           <!---->
-        </table>
-      </div>
-      
-      <div
-        class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+          
+          
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <div
+      class="t-loading--center t-size-m t-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          class="t-loading__gradient t-icon-loading"
-          height="1em"
-          size="medium"
-          version="1.1"
-          viewBox="0 0 14 14"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
         >
-          <foreignobject
-            height="12"
-            width="12"
-            x="1"
-            y="1"
-          >
-            <div
-              class="t-loading__gradient-conic"
-            />
-          </foreignobject>
-        </svg>
-        <div
-          class="t-loading__text"
-        >
-          
           <div
-            class="t-table--loading-message"
-          >
-            这里使用插槽自定义加载状态
-          </div>
-          
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading__text"
+      >
+        
+        <div
+          class="t-table--loading-message"
+        >
+          这里使用插槽自定义加载状态
         </div>
+        
       </div>
     </div>
     <!---->
@@ -18324,195 +18380,189 @@ exports[`Table Table loadingVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-table t-size-s"
+    class="t-table t-size-s t-table--loading"
     style="position: relative;"
   >
     <!---->
     <!---->
     <div
-      class="t-loading__parent"
+      class="t-table__content"
     >
-      
-      <div
-        class="t-table__content"
+      <!---->
+      <table
+        class="t-table--layout-fixed"
       >
-        <!---->
-        <table
-          class="t-table--layout-fixed"
+        <colgroup>
+          
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
         >
-          <colgroup>
+          
+          <tr>
             
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            
-          </colgroup>
-          <thead
-            class="t-table__header"
-          >
-            
-            <tr>
-              
-              <th
-                class="row t-table__th-type"
-                data-colkey="type"
+            <th
+              class="row t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    类型
-                    
-                  </div>
+                  
+                  类型
+                  
                 </div>
-              </th>
-              <th
-                class="test t-table__th-platform"
-                data-colkey="platform"
+              </div>
+            </th>
+            <th
+              class="test t-table__th-platform"
+              data-colkey="platform"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    平台
-                    
-                  </div>
+                  
+                  平台
+                  
                 </div>
-              </th>
-              <th
-                class="test2 t-table__th-property"
-                data-colkey="property"
+              </div>
+            </th>
+            <th
+              class="test2 t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    属性
-                    
-                  </div>
+                  
+                  属性
+                  
                 </div>
-              </th>
-              <th
-                class="test4 t-table__th-default"
-                data-colkey="default"
+              </div>
+            </th>
+            <th
+              class="test4 t-table__th-default"
+              data-colkey="default"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    默认值
-                    
-                  </div>
+                  
+                  默认值
+                  
                 </div>
-              </th>
-              <th
-                class="test3 t-table__th-needed"
-                data-colkey="needed"
+              </div>
+            </th>
+            <th
+              class="test3 t-table__th-needed"
+              data-colkey="needed"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    是否必传
-                    
-                  </div>
+                  
+                  是否必传
+                  
                 </div>
-              </th>
-              <th
-                class="row t-table__th-description"
-                data-colkey="description"
+              </div>
+            </th>
+            <th
+              class="row t-table__th-description"
+              data-colkey="description"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__th-cell-inner"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  <div
-                    class="t-table__ellipsis t-text-ellipsis"
-                  >
-                    
-                    说明
-                    
-                  </div>
+                  
+                  说明
+                  
                 </div>
-              </th>
-              
-            </tr>
+              </div>
+            </th>
             
-          </thead>
-          <tbody
-            class="t-table__body"
-          >
-            
-            <!---->
-            
-            
-            <!---->
-            
-          </tbody>
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
           <!---->
-        </table>
-      </div>
-      
-      <div
-        class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+          
+          
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <div
+      class="t-loading--center t-size-m t-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          class="t-loading__gradient t-icon-loading"
-          height="1em"
-          size="medium"
-          version="1.1"
-          viewBox="0 0 14 14"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <foreignobject
-            height="12"
-            width="12"
-            x="1"
-            y="1"
-          >
-            <div
-              class="t-loading__gradient-conic"
-            />
-          </foreignobject>
-        </svg>
-        <div
-          class="t-loading__text"
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
         >
           <div
-            class="t-table--loading-message"
-          >
-            这里使用渲染函数定义加载状态
-          </div>
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading__text"
+      >
+        <div
+          class="t-table--loading-message"
+        >
+          这里使用渲染函数定义加载状态
         </div>
       </div>
     </div>
@@ -18784,6 +18834,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -20975,6 +21026,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
   
@@ -21352,6 +21404,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -21462,6 +21515,12 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
       </tbody>
       <!---->
     </table>
+  </div>
+  <div
+    class="t-loading--center t-size-m t-loading"
+  >
+    <!---->
+    <!---->
   </div>
   <!---->
   <!---->
@@ -21981,6 +22040,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <div
@@ -22661,6 +22721,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -23143,6 +23204,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -23447,6 +23509,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -23831,6 +23894,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -24541,6 +24605,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -25276,6 +25341,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <div

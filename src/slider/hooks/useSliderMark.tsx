@@ -1,4 +1,4 @@
-import { computed, VNode } from 'vue';
+import { computed, VNode, Ref } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { SliderMarks } from '../type';
 import { TNode } from '../../common';
@@ -22,27 +22,22 @@ interface useSliderMarkProps {
 /**
  * 聚合管理刻度值渲染逻辑
  */
-export const useSliderMark = (
-  max: number,
-  min: number,
-  marks: number[] | SliderMarks,
-  isVertical: boolean,
-  prefixName: string,
-) => {
-  const name = prefixName;
+export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
+  const name = config.value.prefixName;
   const markList = computed(() => {
-    if (!marks) {
+    const markProps = config.value;
+    if (!markProps.marks) {
       return [];
     }
     const legalMarks: Array<MarkItem> = [];
-    if (Array.isArray(marks)) {
-      const marksList = cloneDeep(marks).sort((a, b) => a - b);
-      const maxLimit = Math.max(...marksList, max);
-      const minLimit = Math.min(...marksList, min);
-      if (minLimit < min) {
+    if (Array.isArray(markProps.marks)) {
+      const marksList = cloneDeep(markProps.marks).sort((a, b) => a - b);
+      const maxLimit = Math.max(...marksList, markProps.max);
+      const minLimit = Math.min(...marksList, markProps.min);
+      if (minLimit < markProps.min) {
         log.errorOnce('TSlider', 'marks min value should >= props min');
       }
-      if (maxLimit > max) {
+      if (maxLimit > markProps.max) {
         log.errorOnce('TSlider', 'marks max value should <= props max');
       }
       marksList.forEach((item) => {
@@ -53,15 +48,15 @@ export const useSliderMark = (
         });
       });
     } else {
-      Object.keys(marks)
+      Object.keys(markProps.marks)
         .map(parseFloat)
         .sort((a, b) => a - b)
-        .filter((point) => point <= max && point >= min)
+        .filter((point) => point <= markProps.max && point >= markProps.min)
         .forEach((point) => {
           const item: MarkItem = {
             point,
-            position: ((point - min) * 100) / (max - min),
-            mark: marks[point],
+            position: ((point - markProps.min) * 100) / (markProps.max - markProps.min),
+            mark: markProps.marks[point],
           };
           legalMarks.push(item);
         });
@@ -77,7 +72,7 @@ export const useSliderMark = (
             {markList.value.map((item, index) => (
               <div
                 class={`${name}__stop ${name}__mark-stop`}
-                style={getStopStyle(item.position, isVertical)}
+                style={getStopStyle(item.position, config.value.vertical)}
                 key={index}
               />
             ))}
@@ -88,8 +83,8 @@ export const useSliderMark = (
                 mark={item.mark}
                 point={item.point}
                 key={key}
-                style={getStopStyle(item.position, isVertical)}
-                on-change-value={onChangeFn}
+                style={getStopStyle(item.position, config.value.vertical)}
+                onClickMarkPoint={onChangeFn}
               />
             ))}
           </div>

@@ -61,10 +61,10 @@ export default defineComponent({
       return getTransferData(props.data, props.keys, isTreeMode.value);
     });
     const sourceList = computed(() => {
-      return filterTransferData(transferData.value, valueList.value, false, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value as TransferValue[], false, isTreeMode.value);
     });
     const targetList = computed(() => {
-      return filterTransferData(transferData.value, valueList.value, true, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value as TransferValue[], true, isTreeMode.value);
     });
     // 被选中的value
     const checkedValue = computed(() => {

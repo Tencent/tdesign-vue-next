@@ -30,7 +30,7 @@ exports[`Message :props :closeBtn is a function, () => VNode. 1`] = `
 </div>
 `;
 
-exports[`Message :props :closeBtn is a tring, equal "关闭". 1`] = `
+exports[`Message :props :closeBtn is a string, equal "关闭". 1`] = `
 <div
   class="t-message t-is-info t-is-closable"
 >
@@ -94,7 +94,7 @@ exports[`Message :props :closeBtn is true, render default close button. 1`] = `
 </div>
 `;
 
-exports[`Message :props :default is a funtion, () => <b>这是重要信息</b> 1`] = `
+exports[`Message :props :default is a function, () => <b>这是重要信息</b> 1`] = `
 <div
   class="t-message t-is-info"
 >
@@ -148,7 +148,7 @@ exports[`Message :props :default is a string, 这是普通信息 1`] = `
 </div>
 `;
 
-exports[`Message :props :icon is a funtion, () => MoreIcon 1`] = `
+exports[`Message :props :icon is a function, () => MoreIcon 1`] = `
 <div
   class="t-message t-is-info"
 >

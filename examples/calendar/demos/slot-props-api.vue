@@ -21,7 +21,7 @@ const renderCell = (params) => {
       label: '错误事件',
     },
     {
-      value: 'waring',
+      value: 'warning',
       label: '警告事件',
     },
     {
@@ -90,7 +90,7 @@ const renderCell = (params) => {
   .error {
     background: #e34d59;
   }
-  .waring {
+  .warning {
     background: #ed7b2f;
   }
   .success {

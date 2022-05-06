@@ -10,12 +10,7 @@ exports[`Loading Loading attachVue demo works fine 1`] = `
   >
     Hello, I'm Alice. I'm going to be a front-end developer.
   </div>
-  <div
-    class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay v-transfer-dom"
-  >
-    <!---->
-    <!---->
-  </div>
+  <!---->
   <div>
     <div
       class="t-switch t-size-m"
@@ -234,7 +229,7 @@ exports[`Loading Loading indicatorSlotVue demo works fine 1`] = `
 
 exports[`Loading Loading preventScrollThroughVue demo works fine 1`] = `
 <div
-  class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay v-transfer-dom"
+  class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay"
 >
   <div
     class="t-loading--center t-size-m"

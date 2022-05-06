@@ -1,25 +1,24 @@
 import { ref, computed, watch, nextTick, toRefs } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
-import { useEmitEvent } from '../hooks/event';
 import useVModel from '../hooks/useVModel';
 
-export default function useInput(props: TdInputProps) {
+export default function useInput(props: TdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-  const emitEvent = useEmitEvent();
 
   const isHover = ref(false);
   const focused = ref(false);
   const renderType = ref(props.type);
   const inputRef = ref(null);
 
-  const showClear = computed(
-    () =>
-      (props.value && !props.disabled && props.clearable && isHover.value && !props.readonly) ||
-      props.showClearIconOnEmpty,
-  );
+  const showClear = computed(() => {
+    return (
+      ((innerValue.value && !props.disabled && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
+      isHover.value
+    );
+  });
 
   const focus = () => inputRef.value?.focus();
   const blur = () => inputRef.value?.blur();
@@ -28,13 +27,11 @@ export default function useInput(props: TdInputProps) {
     inputValue.value = innerValue.value;
     if (props.disabled || props.readonly) return;
     focused.value = true;
-    emitEvent('focus', innerValue.value, { e });
+    props.onFocus?.(innerValue.value, { e });
   };
   const emitClear = ({ e }: { e: MouseEvent }) => {
-    emitEvent('clear', { e });
-    emitEvent('change', '', { e });
-    focus();
-    emitFocus(e);
+    props.onClear?.({ e });
+    setInnerValue('');
   };
   const emitPassword = () => {
     const toggleType = renderType.value === 'password' ? 'text' : 'password';
@@ -74,20 +71,19 @@ export default function useInput(props: TdInputProps) {
       inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
-    emitEvent('blur', props.value, { e });
+    props.onBlur?.(props.value, { e });
   };
 
   const onHandleCompositionend = (e: CompositionEvent) => {
     inputValueChangeHandle(e);
-    emitEvent('compositionend', innerValue.value, { e });
+    props.onCompositionend?.(innerValue.value, { e });
   };
   const onHandleCompositionstart = (e: CompositionEvent) => {
-    emitEvent('compositionstart', innerValue.value, { e });
+    props.onCompositionstart?.(innerValue.value, { e });
   };
 
   const onRootClick = (e: MouseEvent) => {
     inputRef.value?.focus();
-    emitEvent('click', e);
   };
 
   watch(
@@ -109,6 +105,11 @@ export default function useInput(props: TdInputProps) {
     },
     { immediate: true },
   );
+
+  expose({
+    focus,
+    blur,
+  });
 
   return {
     isHover,

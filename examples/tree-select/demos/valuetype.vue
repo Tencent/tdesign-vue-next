@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-select-base">
+  <div class="tdesign-demo-block-row">
     <t-tree-select v-model="value" :data="options" clearable value-type="object" placeholder="请选择" />
     <t-tree-select
       v-model="mulValue"

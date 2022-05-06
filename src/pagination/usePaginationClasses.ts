@@ -1,5 +1,5 @@
 import { computed, Ref } from 'vue';
-import CLASSNAMES from '../utils/classnames';
+import { useCommonClassName } from '../hooks/useConfig';
 import { TdPaginationProps } from './type';
 
 export default function usePaginationClasses(
@@ -8,6 +8,8 @@ export default function usePaginationClasses(
   innerPageSize: Ref<number>,
   name: Ref<string>,
 ) {
+  const { SIZE, STATUS } = useCommonClassName();
+
   const pageCount = computed(() => {
     const c: number = Math.ceil(props.total / innerPageSize.value);
     return c > 0 ? c : 1;
@@ -15,9 +17,9 @@ export default function usePaginationClasses(
 
   const paginationClass = computed(() => [
     `${name.value}`,
-    CLASSNAMES.SIZE[props.size],
+    SIZE.value[props.size],
     {
-      [CLASSNAMES.STATUS.disabled]: props.disabled,
+      [STATUS.value.disabled]: props.disabled,
     },
   ]);
 
@@ -29,7 +31,7 @@ export default function usePaginationClasses(
     `${name.value}__btn`,
     `${name.value}__btn-prev`,
     {
-      [CLASSNAMES.STATUS.disabled]: props.disabled || innerCurrent.value === 1,
+      [STATUS.value.disabled]: props.disabled || innerCurrent.value === 1,
     },
   ]);
 
@@ -37,7 +39,7 @@ export default function usePaginationClasses(
     `${name.value}__btn`,
     `${name.value}__btn-next`,
     {
-      [CLASSNAMES.STATUS.disabled]: props.disabled || innerCurrent.value === pageCount.value,
+      [STATUS.value.disabled]: props.disabled || innerCurrent.value === pageCount.value,
     },
   ]);
 
@@ -47,7 +49,7 @@ export default function usePaginationClasses(
     `${name.value}__number`,
     `${name.value}__number--more`,
     {
-      [CLASSNAMES.STATUS.disabled]: props.disabled,
+      [STATUS.value.disabled]: props.disabled,
     },
   ]);
 
@@ -60,8 +62,8 @@ export default function usePaginationClasses(
   const getButtonClass = (index: number) => [
     `${name.value}__number`,
     {
-      [CLASSNAMES.STATUS.disabled]: props.disabled,
-      [CLASSNAMES.STATUS.current]: innerCurrent.value === index,
+      [STATUS.value.disabled]: props.disabled,
+      [STATUS.value.current]: innerCurrent.value === index,
     },
   ];
 

@@ -90,7 +90,7 @@ export default defineComponent({
       value = Number(parseFloat(`${value}`).toFixed(parentProps.precision.value));
       ctx.emit('input', value);
       nextTick(() => {
-        popupRef.value && (popupRef.value as ComponentPublicInstance).updatePopper();
+        popupRef.value && (popupRef.value as ComponentPublicInstance)?.updatePopper?.();
       });
     };
 

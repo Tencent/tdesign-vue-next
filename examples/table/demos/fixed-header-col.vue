@@ -42,7 +42,6 @@ for (let i = 0; i < 20; i++) {
     default: ['-', '0', '[]', '{}'][i % 4],
     detail: {
       position: `读取 ${i} 个数据的嵌套信息值`,
-      position1: `读取 ${i} 个数据的嵌套信息值`,
     },
     description: '数据源',
     needed: i % 4 === 0 ? '是' : '否',

@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -135,11 +135,16 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
+    watch([() => props.panels], () => {
+      nextTick(totalAdjust);
+    });
     watch([scrollLeft, () => props.placement], totalAdjust);
 
     // life times
-    useResize(debounce(totalAdjust), navsContainerRef.value);
-    onMounted(totalAdjust);
+    onMounted(() => {
+      totalAdjust();
+      useResize(debounce(totalAdjust), navsContainerRef.value);
+    });
 
     // methods
     const adjustScrollLeft = () => {
