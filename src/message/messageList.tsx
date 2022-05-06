@@ -63,7 +63,7 @@ export const MessageList = defineComponent({
       );
     };
 
-    const getListeners = (index: number, item: MessageOptions) => {
+    const getProps = (index: number, item: MessageOptions) => {
       return {
         ...item,
         onCloseBtnClick: () => remove(index),
@@ -90,7 +90,7 @@ export const MessageList = defineComponent({
       return (
         <div class="t-message__list" style={styles.value}>
           {list.value.map((item, index) => (
-            <TMessage key={item.key} style={msgStyles(item)} ref={addChild} {...getListeners(index, item)} />
+            <TMessage key={item.key} style={msgStyles(item)} ref={addChild} {...getProps(index, item)} />
           ))}
         </div>
       );
