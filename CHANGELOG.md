@@ -1,3 +1,10 @@
+---
+title: 更新日志
+spline: explain
+toc: false
+docClass: timeline
+---
+
 ### 🌈 0.14.0 2022-04-29 
 ### ❗ Breaking Changes
 - `Popup`: 去除 reference 包裹元素 [@ikeq](https://github.com/ikeq) ([#635](https://github.com/Tencent/tdesign-vue-next/pull/635))
@@ -14,13 +21,6 @@
 - `TreeSelect`: 修复右侧箭头状态与清除回掉 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
 - `Input`: 修复 `suffix` 渲染问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
 - `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
-
----
-title: 更新日志
-spline: explain
-toc: false
-docClass: timeline
----
 
 ## 🌈 0.13.0 `2022-04-22`
 
