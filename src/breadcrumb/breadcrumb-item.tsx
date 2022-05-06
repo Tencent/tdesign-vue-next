@@ -1,4 +1,4 @@
-import { defineComponent, VNode, inject, ref, computed, watchEffect, onMounted, onBeforeUpdate } from 'vue';
+import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
@@ -55,10 +55,14 @@ export default defineComponent({
     const separatorContent = separatorPropContent || separatorSlot || (
       <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
+    const { proxy } = getCurrentInstance();
     const bindEvent = (e: MouseEvent) => {
-      if (!props.href || !props.disabled) {
+      if (!props.disabled) {
         e.preventDefault();
-        const router = props.router || curRouter.value;
+        if (props.href) {
+          window.location.href = props.href;
+        }
+        const router = props.router || proxy.$root.$router;
         if (props.to && router) {
           props.replace ? router.replace(props.to) : router.push(props.to);
         }
