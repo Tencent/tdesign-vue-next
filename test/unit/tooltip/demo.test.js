@@ -6,6 +6,7 @@ import { mount } from '@vue/test-utils';
 import arrowVue from '@/examples/tooltip/demos/arrow.vue';
 import baseVue from '@/examples/tooltip/demos/base.vue';
 import durationVue from '@/examples/tooltip/demos/duration.vue';
+import mouseVue from '@/examples/tooltip/demos/mouse.vue';
 import noArrowVue from '@/examples/tooltip/demos/no-arrow.vue';
 import themeVue from '@/examples/tooltip/demos/theme.vue';
 import triggerVue from '@/examples/tooltip/demos/trigger.vue';
@@ -14,6 +15,7 @@ const mapper = {
   arrowVue,
   baseVue,
   durationVue,
+  mouseVue,
   noArrowVue,
   themeVue,
   triggerVue,
