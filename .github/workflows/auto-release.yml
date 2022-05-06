@@ -57,7 +57,8 @@ jobs:
       - name: Commit and push if needed
         run: |
           txt=$(cat CHANGELOG.md)
-          echo "${txt%%##*}${{ github.event.comment.body }}${txt##*---}" > CHANGELOG.md
+          body='${{ github.event.comment.body }}'
+          echo "${txt%%##*}${body}${txt##*---}" > CHANGELOG.md
           git add .
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
