@@ -1,13 +1,11 @@
-import { computed, defineComponent, ref, watch } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TInput from '../input';
 import props from './props';
-import { TdInputNumberProps } from './type';
 
 // hooks
 import { usePrefixClass } from '../hooks/useConfig';
-import useInputNumberAction from './useInputNumberAction';
 import useComponentComputed from './useComponentComputed';
 
 export default defineComponent({
@@ -24,10 +22,18 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-number');
 
-    const { reduceEvents, addEvents, componentWrapClasses, inputEvents, inputAttrs, displayValue, isError } =
-      useComponentComputed(COMPONENT_NAME, props);
+    const {
+      reduceEvents,
+      addEvents,
+      componentWrapClasses,
+      inputEvents,
+      inputAttrs,
+      displayValue,
+      addClasses,
+      reduceClasses,
+      handleInput,
+    } = useComponentComputed(COMPONENT_NAME, props);
 
-    const { addClasses, reduceClasses, handleInput } = useInputNumberAction(COMPONENT_NAME, props, isError);
     const decreaseIcon = computed(() =>
       props.theme === 'column' ? <chevron-down-icon size={props.size} /> : <remove-icon size={props.size} />,
     );
