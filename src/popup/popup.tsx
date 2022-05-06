@@ -247,7 +247,7 @@ export default defineComponent({
     onUnmounted(destroyPopper);
 
     watch(
-      () => props.overlayStyle,
+      () => [props.overlayStyle, overlayEl.value],
       () => {
         updateOverlayStyle();
         if (popper) {

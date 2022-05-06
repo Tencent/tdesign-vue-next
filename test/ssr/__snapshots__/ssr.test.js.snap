@@ -40521,6 +40521,14 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/duration.vue correct
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/tooltip/demos/mouse.vue correctly 1`] = `
+<div class="tdesign-tooltip-demo">
+  <!--[--><a href="#">文案比较长...</a>
+  <!---->
+  <!--]-->
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/tooltip/demos/no-arrow.vue correctly 1`] = `
 <div>
   <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 不带箭头的文字提示 <!--]--></span></button>

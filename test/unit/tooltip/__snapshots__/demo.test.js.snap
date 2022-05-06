@@ -228,6 +228,21 @@ exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
 </div>
 `;
 
+exports[`Tooltip Tooltip mouseVue demo works fine 1`] = `
+<div
+  class="tdesign-tooltip-demo"
+>
+  
+  <a
+    href="#"
+  >
+    文案比较长...
+  </a>
+  <!---->
+  
+</div>
+`;
+
 exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
 <div>
   
