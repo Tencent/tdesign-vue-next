@@ -1,11 +1,12 @@
 <template>
-  <p style="margin-bottom: 20px">
-    <label>自己指定年：</label>
-    <input v-model="year" />
-
-    <label style="margin-left: 10px">自己指定年月：</label>
-    <input v-model="month" />
-  </p>
+  <t-form layout="inline">
+    <t-form-item label="自己指定年：">
+      <t-input v-model="year" />
+    </t-form-item>
+    <t-form-item label="自己指定年月：">
+      <t-input v-model="month" />
+    </t-form-item>
+  </t-form>
   <t-calendar :value="value" :year="year" :month="month" />
 </template>
 

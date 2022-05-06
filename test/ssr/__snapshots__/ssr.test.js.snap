@@ -6514,7 +6514,52 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
 
 exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly 1`] = `
 <!--[-->
-<p style="margin-bottom:20px;"><label>自己指定年：</label><input value="1998"><label style="margin-left:10px;">自己指定年月：</label><input value="11"></p>
+<form class="t-form t-form-inline">
+  <!--[-->
+  <div class="t-form__item t-form-item__ t-form__item-with-extra">
+    <div class="t-form__label t-form__label--right" style="width:100px;"><label for>自己指定年：</label></div>
+    <div class="t-form__controls" style="margin-left:100px;">
+      <div class="t-form__controls-content">
+        <!--[-->
+        <div class="t-input__wrap">
+          <div class="t-input">
+            <!---->
+            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="1998">
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!--]-->
+        <!---->
+      </div>
+      <div class="t-input__help"></div>
+    </div>
+  </div>
+  <div class="t-form__item t-form-item__ t-form__item-with-extra">
+    <div class="t-form__label t-form__label--right" style="width:100px;"><label for>自己指定年月：</label></div>
+    <div class="t-form__controls" style="margin-left:100px;">
+      <div class="t-form__controls-content">
+        <!--[-->
+        <div class="t-input__wrap">
+          <div class="t-input">
+            <!---->
+            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="11">
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!--]-->
+        <!---->
+      </div>
+      <div class="t-input__help"></div>
+    </div>
+  </div>
+  <!--]-->
+</form>
 <div class="t-calendar t-calendar--full">
   <div class="t-calendar__control">
     <div class="t-calendar__title">
