@@ -17111,20 +17111,108 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
   data-v-app=""
 >
   
-  <p
-    style="margin-bottom: 20px;"
+  <form
+    class="t-form t-form-inline"
   >
-    <label>
-      自己指定年：
-    </label>
-    <input />
-    <label
-      style="margin-left: 10px;"
+    
+    <div
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
-      自己指定年月：
-    </label>
-    <input />
-  </p>
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          自己指定年：
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input__wrap"
+          >
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <div
+          class="t-input__help"
+        />
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__ t-form__item-with-extra"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          自己指定年月：
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input__wrap"
+          >
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <div
+          class="t-input__help"
+        />
+      </div>
+    </div>
+    
+  </form>
   <div
     class="t-calendar t-calendar--full"
   >
