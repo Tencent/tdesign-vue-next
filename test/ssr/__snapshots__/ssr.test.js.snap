@@ -27558,7 +27558,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/base.vue correctly 1`
   <div class="t-swiper">
     <div class="t-swiper__wrap t-swiper--inside">
       <div class="t-swiper__content">
-        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
           <!--[-->
           <!--]-->
         </div>
@@ -27598,7 +27598,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/current.vue correctly
   <div class="t-swiper">
     <div class="t-swiper__wrap t-swiper--inside">
       <div class="t-swiper__content">
-        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
           <!--[-->
           <!--]-->
         </div>
@@ -27639,7 +27639,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/fraction.vue correctl
   <div class="t-swiper">
     <div class="t-swiper__wrap t-swiper--inside">
       <div class="t-swiper__content">
-        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
           <!--[-->
           <!--]-->
         </div>
@@ -27666,7 +27666,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/placement.vue correct
   <div class="t-swiper">
     <div class="t-swiper__wrap t-swiper--outside">
       <div class="t-swiper__content">
-        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
           <!--[-->
           <!--]-->
         </div>
@@ -27688,7 +27688,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/size.vue correctly 1`
     <div class="t-swiper">
       <div class="t-swiper__wrap t-swiper--inside t-swiper--large">
         <div class="t-swiper__content">
-          <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+          <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
             <!--[-->
             <!--]-->
           </div>
@@ -27706,7 +27706,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/size.vue correctly 1`
     <div class="t-swiper">
       <div class="t-swiper__wrap t-swiper--inside t-swiper--small">
         <div class="t-swiper__content">
-          <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+          <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
             <!--[-->
             <!--]-->
           </div>
@@ -27727,7 +27727,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
   <div class="t-swiper">
     <div class="t-swiper__wrap t-swiper--inside t-swiper--vertical">
       <div class="t-swiper__content">
-        <div class="t-swiper__container" style="height:280px;transform:translate3d(0, -0%, 0px);transition:;">
+        <div class="t-swiper__container" style="transition:;height:280px;transform:translate3d(0, -0%, 0px);ms-transform:translate3d(0, -0%, 0px);webkit-transform:translate3d(0, -0%, 0px);">
           <!--[-->
           <!--]-->
         </div>
