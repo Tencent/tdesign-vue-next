@@ -14,7 +14,7 @@ const publicPathMap = {
 };
 
 const testConfig = {
-  include: ['test/vitetest/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  include: ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,
