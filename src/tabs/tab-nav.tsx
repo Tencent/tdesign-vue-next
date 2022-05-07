@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
+import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -11,8 +11,9 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/useListener';
+import { useResize } from '../hooks/event';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useDragSort from '../hooks/useDragSort';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;
@@ -43,6 +44,10 @@ export default defineComponent({
     onChange: tabProps.onChange,
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
+    draggable: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
@@ -54,6 +59,7 @@ export default defineComponent({
     const canToRight = ref(false);
 
     // refs
+    const panels = ref(props.panels);
     const navsContainerRef = ref();
     const navsWrapRef = ref();
     const leftOperationsRef = ref();
@@ -135,16 +141,11 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
-    watch([() => props.panels], () => {
-      nextTick(totalAdjust);
-    });
     watch([scrollLeft, () => props.placement], totalAdjust);
 
     // life times
-    onMounted(() => {
-      totalAdjust();
-      useResize(debounce(totalAdjust), navsContainerRef.value);
-    });
+    useResize(debounce(totalAdjust), navsContainerRef.value);
+    onMounted(totalAdjust);
 
     // methods
     const adjustScrollLeft = () => {
@@ -162,7 +163,7 @@ export default defineComponent({
       }
     };
     const handleAddTab = (e: MouseEvent) => {
-      props.onAdd?.({ e });
+      props.onAdd({ e });
     };
     const tabClick = (event: MouseEvent, nav: Partial<InstanceType<typeof TTabPanel>>) => {
       const { value, disabled } = nav;
@@ -174,7 +175,7 @@ export default defineComponent({
     const removeBtnClick = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
       props.onRemove({ e, value, index });
     };
-    const setActiveTab = (ref: any) => {
+    const setActiveTab = (ref: any, index: number) => {
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
         scrollLeft.value = moveActiveTabIntoView(
@@ -186,10 +187,16 @@ export default defineComponent({
         );
       }
     };
-
+    onMounted(() => {
+      if (props.draggable) {
+        useDragSort(navsWrapRef.value, (startIndex, endIndex) => {
+          [panels.value[startIndex], panels.value[endIndex]] = [panels.value[endIndex], panels.value[startIndex]];
+        });
+      }
+    });
     // renders
     const navs = computed(() => {
-      return props.panels.map((panel, index) => {
+      return panels.value.map((panel, index) => {
         let label;
         if (panel?.children?.label) {
           label = panel.children.label();
@@ -199,7 +206,8 @@ export default defineComponent({
 
         return (
           <TTabNavItem
-            ref={setActiveTab}
+            draggable={props.draggable}
+            ref={(ref: any) => setActiveTab(ref, index)}
             key={panel.value}
             index={index}
             theme={props.theme}
