@@ -35,7 +35,7 @@ import CascaderProps from '../props';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
-  name: `${name}-input-content`,
+  name: `TInputContent`,
   components: {
     Tag,
     Input,

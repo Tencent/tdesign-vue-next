@@ -19,7 +19,7 @@ import pkg from '../package.json';
 
 const name = 'tdesign';
 
-const externalDeps = Object.keys(pkg.dependencies || {}).concat([/lodash/, /@babel\/runtime/]);
+const externalDeps = Object.keys(pkg.dependencies || {}).concat([/@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const banner = `/**
  * ${name} v${pkg.version}
@@ -79,7 +79,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/css.js";',
+        body: 'import "./css.js";',
       }),
     );
   } else if (ignoreLess) {
@@ -91,7 +91,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/index.js";',
+        body: 'import "./index.js";',
       }),
     );
   }
@@ -144,7 +144,8 @@ const esConfig = {
     dir: 'es/',
     format: 'esm',
     sourcemap: true,
-    chunkFileNames: '_chunks/dep-[hash].js',
+    entryFileNames: '[name].mjs',
+    chunkFileNames: '_chunks/dep-[hash].mjs',
   },
 };
 

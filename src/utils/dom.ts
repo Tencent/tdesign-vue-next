@@ -9,7 +9,7 @@ import isString from 'lodash/isString';
 import { easeInOutCubic, EasingFunction } from './easing';
 import { ScrollContainer, ScrollContainerElement } from '../common';
 
-const isServer = typeof window === 'undefined';
+export const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
 export const on = ((): any => {
@@ -155,7 +155,7 @@ type ScrollTarget = HTMLElement | Window | Document;
  */
 export function getScroll(target: ScrollTarget, isLeft?: boolean): number {
   // node环境或者target为空
-  if (typeof window === 'undefined' || !target) {
+  if (isServer || !target) {
     return 0;
   }
   const method = isLeft ? 'scrollLeft' : 'scrollTop';
@@ -242,7 +242,7 @@ export const isNodeOverflow = (
 // 将子元素selected滚动到父元素parentEle的可视范围内
 export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLElement) => {
   // 服务端不处理
-  if (!window) return;
+  if (isServer) return;
   // selected不存在或selected父元素不为parentEle则不处理
   if (!selected || selected.offsetParent !== parentEle) {
     parentEle.scrollTop = 0;
