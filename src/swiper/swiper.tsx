@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, onUpdated, nextTick } from 'vue';
+import { defineComponent, ref, computed, watch, isVNode, onMounted, onUpdated, nextTick, cloneVNode } from 'vue';
 import { ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 import kebabCase from 'lodash/kebabCase';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -20,6 +20,8 @@ export default defineComponent({
     const prefix = usePrefixClass();
     let swiperTimer = 0;
     let swiperSwitchingTimer = 0;
+    let isBeginToEnd = false;
+    let isEndToBegin = false;
     const currentIndex = ref(props.current || props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
@@ -63,24 +65,31 @@ export default defineComponent({
         };
       }
       if (props.animation === 'slide') {
-        if (props.direction === 'vertical') {
-          return {
-            height: offsetHeight,
-            transform: `translate3d(0, -${currentIndex.value * 100}%, 0px)`,
-            transition: isSwitching.value ? `transform ${props.duration / 1000}s ease` : '',
-          };
-        }
-        return {
-          msTransform: `translate3d(-${currentIndex.value * 100}%, 0px, 0px)`,
-          WebkitTransform: `translate3d(-${currentIndex.value * 100}%, 0px, 0px)`,
-          transform: `translate3d(-${currentIndex.value * 100}%, 0px, 0px)`,
+        const style: Record<string, number | string> = {
           transition: isSwitching.value ? `transform ${props.duration / 1000}s ease` : '',
         };
+        let active = currentIndex.value;
+        if (swiperItemLength.value > 1) {
+          active += 1;
+          if (isBeginToEnd || isEndToBegin) {
+            style.transition = '';
+          }
+        }
+        if (props.direction === 'vertical') {
+          style.height = offsetHeight;
+          style.transform = `translate3d(0, -${active * 100}%, 0px)`;
+        } else {
+          style.transform = `translate3d(-${active * 100}%, 0px, 0px)`;
+        }
+        ['msTransform', 'WebkitTransform'].forEach((key) => {
+          style[key] = style.transform;
+        });
+        return style;
       }
       return {};
     });
     const swiperItems = computed(() => {
-      return swiperItemList.value.map((swiperItem, index) => {
+      const items = swiperItemList.value.map((swiperItem, index) => {
         const p = { ...props, ...swiperItem.props };
         return (
           <TSwiperItem
@@ -95,12 +104,41 @@ export default defineComponent({
           </TSwiperItem>
         );
       });
+      if (props.animation === 'slide' && items.length > 1) {
+        const first = cloneVNode(items[0]);
+        const last = cloneVNode(items[items.length - 1]);
+        items.unshift(last);
+        items.push(first);
+      }
+      return items;
     });
 
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
-      const targetIndex = index % swiperItemLength.value;
+      let targetIndex = index % swiperItemLength.value;
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
+      if (props.animation === 'slide' && swiperItemLength.value > 1) {
+        targetIndex = index;
+        isBeginToEnd = false;
+        isEndToBegin = false;
+        if (index >= swiperItemLength.value) {
+          clearTimer();
+          setTimeout(() => {
+            isEndToBegin = true;
+            currentIndex.value = 0;
+          }, props.duration);
+        }
+        if (currentIndex.value === 0) {
+          if ((swiperItemLength.value > 2 && index !== 1) || (swiperItemLength.value === 2 && index === 0)) {
+            targetIndex = -1;
+            clearTimer();
+            setTimeout(() => {
+              isBeginToEnd = true;
+              currentIndex.value = swiperItemLength.value - 1;
+            }, props.duration);
+          }
+        }
+      }
       currentIndex.value = targetIndex;
     };
     const clearTimer = () => {
@@ -165,6 +203,9 @@ export default defineComponent({
     const goPrevious = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
       if (currentIndex.value - 1 < 0) {
+        if (props.animation === 'slide' && swiperItemLength.value === 2) {
+          return swiperTo(0, context);
+        }
         return swiperTo(swiperItemLength.value - 1, context);
       }
       return swiperTo(currentIndex.value - 1, context);
