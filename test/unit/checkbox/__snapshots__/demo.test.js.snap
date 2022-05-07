@@ -1,9 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
-<div>
+exports[`Checkbox > Checkbox baseVue demo works fine 1`] = `
+<div
+  data-v-06d3e124=""
+>
   <label
     class="t-checkbox"
+    data-v-06d3e124=""
   >
     <input
       class="t-checkbox__former"
@@ -22,6 +25,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox"
+    data-v-06d3e124=""
   >
     <input
       class="t-checkbox__former"
@@ -40,6 +44,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked"
+    data-v-06d3e124=""
   >
     <input
       class="t-checkbox__former"
@@ -58,6 +63,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-disabled"
+    data-v-06d3e124=""
   >
     <input
       class="t-checkbox__former"
@@ -77,6 +83,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked t-is-disabled"
+    data-v-06d3e124=""
   >
     <input
       class="t-checkbox__former"
@@ -97,11 +104,14 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
-<div>
+exports[`Checkbox > Checkbox controlledVue demo works fine 1`] = `
+<div
+  data-v-0c1981be=""
+>
   <!-- 单个 Checkbox 受控模式 -->
   <label
     class="t-checkbox t-is-checked"
+    data-v-0c1981be=""
   >
     <input
       class="t-checkbox__former"
@@ -120,6 +130,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked"
+    data-v-0c1981be=""
   >
     <input
       class="t-checkbox__former"
@@ -138,6 +149,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox"
+    data-v-0c1981be=""
   >
     <input
       class="t-checkbox__former"
@@ -154,12 +166,19 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
       
     </span>
   </label>
-  <br />
-  <br />
-  <br />
+  <br
+    data-v-0c1981be=""
+  />
+  <br
+    data-v-0c1981be=""
+  />
+  <br
+    data-v-0c1981be=""
+  />
   <!-- 复选框框组受控模式 -->
   <div
     class="t-checkbox-group"
+    data-v-0c1981be=""
   >
     
     <label
@@ -246,7 +265,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
+exports[`Checkbox > Checkbox groupVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -609,10 +628,13 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
-<div>
+exports[`Checkbox > Checkbox linkVue demo works fine 1`] = `
+<div
+  data-v-96c46466=""
+>
   <div
     class="demo-checkbox-row-desc"
+    data-v-96c46466=""
   >
     选中值: [
   "选项二"
@@ -620,10 +642,12 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
   </div>
   <div
     class="demo-checkbox-row"
+    data-v-96c46466=""
   >
     <!-- name 非必需 -->
     <div
       class="t-checkbox-group"
+      data-v-96c46466=""
     >
       
       <label
@@ -691,9 +715,11 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
   </div>
   <div
     class="demo-checkbox-row"
+    data-v-96c46466=""
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-96c46466=""
       type="button"
     >
       <span

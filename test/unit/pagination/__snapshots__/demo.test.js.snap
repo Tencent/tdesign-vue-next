@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Pagination Pagination baseVue demo works fine 1`] = `
+exports[`Pagination > Pagination baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
@@ -401,7 +401,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination jumpVue demo works fine 1`] = `
+exports[`Pagination > Pagination jumpVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
@@ -614,7 +614,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination miniVue demo works fine 1`] = `
+exports[`Pagination > Pagination miniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
@@ -810,7 +810,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination moreVue demo works fine 1`] = `
+exports[`Pagination > Pagination moreVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
@@ -1027,7 +1027,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
+exports[`Pagination > Pagination pageNumVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
@@ -1224,7 +1224,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
+exports[`Pagination > Pagination simpleMiniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
@@ -1415,7 +1415,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination simpleVue demo works fine 1`] = `
+exports[`Pagination > Pagination simpleVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
@@ -1606,7 +1606,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Pagination Pagination totalVue demo works fine 1`] = `
+exports[`Pagination > Pagination totalVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"

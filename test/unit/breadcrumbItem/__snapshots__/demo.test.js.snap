@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
+exports[`BreadcrumbItem > BreadcrumbItem baseVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -79,7 +79,7 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
+exports[`BreadcrumbItem > BreadcrumbItem overlayVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >

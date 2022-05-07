@@ -1,13 +1,17 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker colorModeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-215b72ea=""
 >
   <div
     class="item"
+    data-v-215b72ea=""
   >
-    <h5>
+    <h5
+      data-v-215b72ea=""
+    >
       默认（单色 + 线性渐变）
     </h5>
     
@@ -60,8 +64,11 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
   </div>
   <div
     class="item"
+    data-v-215b72ea=""
   >
-    <h5>
+    <h5
+      data-v-215b72ea=""
+    >
       仅单色模式
     </h5>
     
@@ -113,12 +120,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
     
   </div>
   <div
+    data-v-215b72ea=""
     style="width: 100%;"
   />
   <div
     class="item"
+    data-v-215b72ea=""
   >
-    <h5>
+    <h5
+      data-v-215b72ea=""
+    >
       仅线性渐变模式
     </h5>
     
@@ -171,7 +182,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker enableAlphaVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -1090,7 +1101,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker panelVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -1965,16 +1976,22 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker recentColorVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-558b0aaf=""
 >
-  <div>
-    <h6>
+  <div
+    data-v-558b0aaf=""
+  >
+    <h6
+      data-v-558b0aaf=""
+    >
       预设最近使用色
     </h6>
     <div
       class="t-color-picker__panel t-is-inline"
+      data-v-558b0aaf=""
     >
       <div
         class="t-color-picker__head"
@@ -2957,12 +2974,17 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <h6>
+  <div
+    data-v-558b0aaf=""
+  >
+    <h6
+      data-v-558b0aaf=""
+    >
       完全不显示最近使用色
     </h6>
     <div
       class="t-color-picker__panel t-is-inline"
+      data-v-558b0aaf=""
     >
       <div
         class="t-color-picker__head"
@@ -3794,7 +3816,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker statusDisabledVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -3849,7 +3871,7 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker statusReadonlyVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -4727,16 +4749,22 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker swatchColorVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-6f21b350=""
 >
-  <div>
-    <h6>
+  <div
+    data-v-6f21b350=""
+  >
+    <h6
+      data-v-6f21b350=""
+    >
       自定义系统色
     </h6>
     <div
       class="t-color-picker__panel t-is-inline"
+      data-v-6f21b350=""
     >
       <div
         class="t-color-picker__head"
@@ -5184,12 +5212,17 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <h6>
+  <div
+    data-v-6f21b350=""
+  >
+    <h6
+      data-v-6f21b350=""
+    >
       完全不显示系统色
     </h6>
     <div
       class="t-color-picker__panel t-is-inline"
+      data-v-6f21b350=""
     >
       <div
         class="t-color-picker__head"
@@ -5563,7 +5596,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
+exports[`ColorPicker > ColorPicker triggerVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >

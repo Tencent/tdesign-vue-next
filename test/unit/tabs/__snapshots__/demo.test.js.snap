@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Tabs Tabs banVue demo works fine 1`] = `
+exports[`Tabs > Tabs banVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >
@@ -170,7 +170,7 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs baseVue demo works fine 1`] = `
+exports[`Tabs > Tabs baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >
@@ -397,7 +397,7 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs combinationVue demo works fine 1`] = `
+exports[`Tabs > Tabs combinationVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
   style="width: 100%;"
@@ -806,7 +806,7 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs customVue demo works fine 1`] = `
+exports[`Tabs > Tabs customVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
   style="width: 100%;"
@@ -940,7 +940,7 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs iconVue demo works fine 1`] = `
+exports[`Tabs > Tabs iconVue demo works fine 1`] = `
 <div
   class="t-demo-tabs"
 >
@@ -1139,7 +1139,7 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs operationVue demo works fine 1`] = `
+exports[`Tabs > Tabs operationVue demo works fine 1`] = `
 <div
   class="t-demo-tabs"
 >
@@ -1267,7 +1267,7 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs positionVue demo works fine 1`] = `
+exports[`Tabs > Tabs positionVue demo works fine 1`] = `
 <div
   class="t-demo-tabs"
 >
@@ -1483,7 +1483,7 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs sizeVue demo works fine 1`] = `
+exports[`Tabs > Tabs sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >
@@ -1708,7 +1708,7 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tabs Tabs themeVue demo works fine 1`] = `
+exports[`Tabs > Tabs themeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >

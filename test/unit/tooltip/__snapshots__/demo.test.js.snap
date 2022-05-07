@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip arrowVue demo works fine 1`] = `
 <div>
   
   <button
@@ -20,13 +20,15 @@ exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip baseVue demo works fine 1`] = `
 <div
   class="tdesign-tooltip-placement"
+  data-v-b4df42f8=""
 >
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top center"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -42,6 +44,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top left"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -57,6 +60,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top right"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -72,6 +76,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom center"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -87,6 +92,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom left"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -102,6 +108,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom right"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -117,6 +124,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -132,6 +140,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top-align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -147,6 +156,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom-align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -162,6 +172,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -177,6 +188,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full top-align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -192,6 +204,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full bottom-align"
+    data-v-b4df42f8=""
     type="button"
   >
     <span
@@ -207,7 +220,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip durationVue demo works fine 1`] = `
 <div>
   
   <button
@@ -228,7 +241,7 @@ exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip mouseVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip mouseVue demo works fine 1`] = `
 <div
   class="tdesign-tooltip-demo"
 >
@@ -243,7 +256,7 @@ exports[`Tooltip Tooltip mouseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip noArrowVue demo works fine 1`] = `
 <div>
   
   <button
@@ -263,7 +276,7 @@ exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip themeVue demo works fine 1`] = `
 <div
   class="tdesign-tooltip-demo"
 >
@@ -360,13 +373,15 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
+exports[`Tooltip > Tooltip triggerVue demo works fine 1`] = `
 <div
   class="tdesign-tooltip-demo"
+  data-v-3b714cd5=""
 >
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-3b714cd5=""
     type="button"
   >
     <span
@@ -382,6 +397,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap"
+    data-v-3b714cd5=""
   >
     <div
       class="t-input"
@@ -404,6 +420,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-3b714cd5=""
     type="button"
   >
     <span
@@ -419,6 +436,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-3b714cd5=""
     type="button"
   >
     <span

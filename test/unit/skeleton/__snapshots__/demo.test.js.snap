@@ -1,22 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
+exports[`Skeleton > Skeleton advanceVue demo works fine 1`] = `
 <div
   class="t-skeleton-demo"
+  data-v-00eab209=""
 >
   <section
     class="t-skeleton-demo-card"
+    data-v-00eab209=""
   >
     <div
       class="header"
+      data-v-00eab209=""
     >
       组合成网页效果
     </div>
     <div
       class="content"
+      data-v-00eab209=""
     >
       <div
         class="t-skeleton"
+        data-v-00eab209=""
       >
         
         
@@ -134,22 +139,29 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
   </section>
   <section
     class="t-skeleton-demo-card"
+    data-v-00eab209=""
   >
     <div
       class="header"
+      data-v-00eab209=""
     >
       组合成列表效果
     </div>
     <div
       class="content"
+      data-v-00eab209=""
     >
       <ul
         class="t-skeleton-demo-list"
+        data-v-00eab209=""
       >
         
-        <li>
+        <li
+          data-v-00eab209=""
+        >
           <div
             class="t-skeleton avatar"
+            data-v-00eab209=""
           >
             
             
@@ -170,6 +182,7 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
           </div>
           <div
             class="t-skeleton paragraph"
+            data-v-00eab209=""
           >
             
             
@@ -211,9 +224,12 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
             
           </div>
         </li>
-        <li>
+        <li
+          data-v-00eab209=""
+        >
           <div
             class="t-skeleton avatar"
+            data-v-00eab209=""
           >
             
             
@@ -234,6 +250,7 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
           </div>
           <div
             class="t-skeleton paragraph"
+            data-v-00eab209=""
           >
             
             
@@ -275,9 +292,12 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
             
           </div>
         </li>
-        <li>
+        <li
+          data-v-00eab209=""
+        >
           <div
             class="t-skeleton avatar"
+            data-v-00eab209=""
           >
             
             
@@ -298,6 +318,7 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
           </div>
           <div
             class="t-skeleton paragraph"
+            data-v-00eab209=""
           >
             
             
@@ -346,7 +367,7 @@ exports[`Skeleton Skeleton advanceVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Skeleton Skeleton animationVue demo works fine 1`] = `
+exports[`Skeleton > Skeleton animationVue demo works fine 1`] = `
 <div
   class="t-row t-row--start t-row--top t-skeleton-demo"
   style="margin-left: 0px; margin-right: 0px;"
@@ -504,10 +525,13 @@ exports[`Skeleton Skeleton animationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Skeleton Skeleton baseVue demo works fine 1`] = `
-<div>
+exports[`Skeleton > Skeleton baseVue demo works fine 1`] = `
+<div
+  data-v-da7fc14c=""
+>
   <div
     class="t-switch t-size-m t-is-checked mb-20"
+    data-v-da7fc14c=""
   >
     <span
       class="t-switch__handle"
@@ -520,9 +544,12 @@ exports[`Skeleton Skeleton baseVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <div>
+  <div
+    data-v-da7fc14c=""
+  >
     <div
       class="t-skeleton"
+      data-v-da7fc14c=""
     >
       
       
@@ -578,7 +605,7 @@ exports[`Skeleton Skeleton baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Skeleton Skeleton themeVue demo works fine 1`] = `
+exports[`Skeleton > Skeleton themeVue demo works fine 1`] = `
 <div
   class="t-row t-row--start t-row--top t-skeleton-demo"
   style="margin-left: 0px; margin-right: 0px;"

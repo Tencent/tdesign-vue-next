@@ -1,15 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Anchor Anchor baseVue demo works fine 1`] = `
+exports[`Anchor > Anchor baseVue demo works fine 1`] = `
 <div
   class="anchor-demo"
+  data-v-775183f2=""
   id="#default"
   style="display: flex;"
 >
   <div
+    data-v-775183f2=""
     style="flex: 1;"
   />
-  <div>
+  <div
+    data-v-775183f2=""
+  >
     
     <div
       class="t-anchor t-size-m"
@@ -28,6 +32,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
       
       <div
         class="t-anchor__item"
+        data-v-775183f2=""
       >
         <a
           class="t-anchor__item-link"
@@ -41,6 +46,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
       </div>
       <div
         class="t-anchor__item"
+        data-v-775183f2=""
       >
         <a
           class="t-anchor__item-link"
@@ -54,6 +60,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
       </div>
       <div
         class="t-anchor__item"
+        data-v-775183f2=""
       >
         <a
           class="t-anchor__item-link"
@@ -67,6 +74,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
       </div>
       <div
         class="t-anchor__item"
+        data-v-775183f2=""
       >
         <a
           class="t-anchor__item-link"
@@ -80,6 +88,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
       </div>
       <div
         class="t-anchor__item"
+        data-v-775183f2=""
       >
         <a
           class="t-anchor__item-link"
@@ -98,13 +107,15 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor containerVue demo works fine 1`] = `
+exports[`Anchor > Anchor containerVue demo works fine 1`] = `
 <div
   class="anchor-demo anchor-container-demo"
+  data-v-3471b930=""
   id="#container"
 >
   <div
     class="t-anchor t-size-m"
+    data-v-3471b930=""
     id="#default"
   >
     <div
@@ -121,6 +132,7 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
     
     <div
       class="t-anchor__item"
+      data-v-3471b930=""
     >
       <a
         class="t-anchor__item-link"
@@ -134,6 +146,7 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-3471b930=""
     >
       <a
         class="t-anchor__item-link"
@@ -147,6 +160,7 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-3471b930=""
     >
       <a
         class="t-anchor__item-link"
@@ -160,6 +174,7 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-3471b930=""
     >
       <a
         class="t-anchor__item-link"
@@ -174,34 +189,40 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
     
   </div>
   <div
+    data-v-3471b930=""
     id="anchor-container"
   >
     <div
       class="anchor-content-1"
+      data-v-3471b930=""
       id="#content-1"
     >
       anchor-content-1
     </div>
     <div
       class="anchor-content-2"
+      data-v-3471b930=""
       id="#content-2"
     >
       anchor-content-2
     </div>
     <div
       class="anchor-content-3"
+      data-v-3471b930=""
       id="#content-3"
     >
       anchor-content-3
     </div>
     <div
       class="anchor-content-4"
+      data-v-3471b930=""
       id="#content-4"
     >
       anchor-content-4
     </div>
     <div
       class="anchor-content-5"
+      data-v-3471b930=""
       id="#content-5"
     >
       anchor-content-5
@@ -210,12 +231,14 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor cursorVue demo works fine 1`] = `
+exports[`Anchor > Anchor cursorVue demo works fine 1`] = `
 <div
   class="anchor-demo"
+  data-v-5deb27b7=""
 >
   <div
     class="t-anchor t-size-m"
+    data-v-5deb27b7=""
   >
     <div
       class="t-anchor__line"
@@ -226,6 +249,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
         
         <div
           class="test-cursor"
+          data-v-5deb27b7=""
         />
         
       </div>
@@ -233,6 +257,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -246,6 +271,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -259,6 +285,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -272,6 +299,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -285,6 +313,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -298,6 +327,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -311,6 +341,7 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-5deb27b7=""
     >
       <a
         class="t-anchor__item-link"
@@ -327,13 +358,15 @@ exports[`Anchor Anchor cursorVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor largeVue demo works fine 1`] = `
+exports[`Anchor > Anchor largeVue demo works fine 1`] = `
 <div
   class="anchor-demo"
+  data-v-0ef51e6a=""
   id="#large"
 >
   <div
     class="t-anchor t-size-l"
+    data-v-0ef51e6a=""
   >
     <div
       class="t-anchor__line"
@@ -349,6 +382,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -362,6 +396,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -375,6 +410,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -388,6 +424,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -401,6 +438,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -414,6 +452,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -427,6 +466,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-0ef51e6a=""
     >
       <a
         class="t-anchor__item-link"
@@ -443,7 +483,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor multipleVue demo works fine 1`] = `
+exports[`Anchor > Anchor multipleVue demo works fine 1`] = `
 <div
   class="anchor-demo"
   id="#multiple"
@@ -560,13 +600,15 @@ exports[`Anchor Anchor multipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor smallVue demo works fine 1`] = `
+exports[`Anchor > Anchor smallVue demo works fine 1`] = `
 <div
   class="anchor-demo"
+  data-v-fdf99b94=""
   id="#small"
 >
   <div
     class="t-anchor t-size-s"
+    data-v-fdf99b94=""
   >
     <div
       class="t-anchor__line"
@@ -582,6 +624,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -595,6 +638,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -608,6 +652,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -621,6 +666,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -634,6 +680,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -647,6 +694,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -660,6 +708,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
     </div>
     <div
       class="t-anchor__item"
+      data-v-fdf99b94=""
     >
       <a
         class="t-anchor__item-link"
@@ -676,7 +725,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor Anchor targetVue demo works fine 1`] = `
+exports[`Anchor > Anchor targetVue demo works fine 1`] = `
 <div
   class="anchor-demo"
   id="#anchor-target"

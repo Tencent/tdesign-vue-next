@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Input Input addonVue demo works fine 1`] = `
+exports[`Input > Input addonVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -99,7 +99,7 @@ exports[`Input Input addonVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input alignVue demo works fine 1`] = `
+exports[`Input > Input alignVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 300px;"
@@ -164,7 +164,7 @@ exports[`Input Input alignVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input autoWidthVue demo works fine 1`] = `
+exports[`Input > Input autoWidthVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -195,7 +195,7 @@ exports[`Input Input autoWidthVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input baseVue demo works fine 1`] = `
+exports[`Input > Input baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -268,7 +268,7 @@ exports[`Input Input baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input clearableVue demo works fine 1`] = `
+exports[`Input > Input clearableVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -295,7 +295,7 @@ exports[`Input Input clearableVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input focusVue demo works fine 1`] = `
+exports[`Input > Input focusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -322,7 +322,7 @@ exports[`Input Input focusVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input formatVue demo works fine 1`] = `
+exports[`Input > Input formatVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -349,7 +349,7 @@ exports[`Input Input formatVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input groupVue demo works fine 1`] = `
+exports[`Input > Input groupVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -589,7 +589,7 @@ exports[`Input Input groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input maxLengthCountVue demo works fine 1`] = `
+exports[`Input > Input maxLengthCountVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -621,7 +621,7 @@ exports[`Input Input maxLengthCountVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input passwordVue demo works fine 1`] = `
+exports[`Input > Input passwordVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -756,7 +756,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input sizeVue demo works fine 1`] = `
+exports[`Input > Input sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -821,7 +821,7 @@ exports[`Input Input sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input statusVue demo works fine 1`] = `
+exports[`Input > Input statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"
@@ -1039,7 +1039,7 @@ exports[`Input Input statusVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input Input textareaVue demo works fine 1`] = `
+exports[`Input > Input textareaVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="max-width: 500px;"

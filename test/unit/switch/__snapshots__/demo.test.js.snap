@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Switch Switch baseVue demo works fine 1`] = `
+exports[`Switch > Switch baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -35,15 +35,18 @@ exports[`Switch Switch baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Switch Switch describeVue demo works fine 1`] = `
+exports[`Switch > Switch describeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  data-v-3bc4df8d=""
 >
   <div
     class="tdesign-demo-block-row"
+    data-v-3bc4df8d=""
   >
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -58,6 +61,7 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -73,9 +77,11 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-block-row"
+    data-v-3bc4df8d=""
   >
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -90,6 +96,7 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -105,9 +112,11 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-block-row"
+    data-v-3bc4df8d=""
   >
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -134,6 +143,7 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -161,9 +171,11 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-block-row"
+    data-v-3bc4df8d=""
   >
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -190,6 +202,7 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
+      data-v-3bc4df8d=""
     >
       <span
         class="t-switch__handle"
@@ -218,15 +231,18 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Switch Switch sizeVue demo works fine 1`] = `
+exports[`Switch > Switch sizeVue demo works fine 1`] = `
 <div
   class="switch-demo"
+  data-v-edf23a7a=""
 >
   <div
     class="tdesign-demo-block"
+    data-v-edf23a7a=""
   >
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-edf23a7a=""
     >
       <span
         class="t-switch__handle"
@@ -241,6 +257,7 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-m"
+      data-v-edf23a7a=""
     >
       <span
         class="t-switch__handle"
@@ -255,6 +272,7 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-s"
+      data-v-edf23a7a=""
     >
       <span
         class="t-switch__handle"
@@ -271,12 +289,14 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Switch Switch statusVue demo works fine 1`] = `
+exports[`Switch > Switch statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-2f27efb4=""
 >
   <div
     class="t-switch t-size-l t-is-checked"
+    data-v-2f27efb4=""
   >
     <span
       class="t-switch__handle"
@@ -291,6 +311,7 @@ exports[`Switch Switch statusVue demo works fine 1`] = `
   </div>
   <div
     class="t-switch t-size-l t-is-loading t-is-checked"
+    data-v-2f27efb4=""
   >
     <span
       class="t-switch__handle t-is-loading"
@@ -329,6 +350,7 @@ exports[`Switch Switch statusVue demo works fine 1`] = `
   </div>
   <div
     class="t-switch t-size-l t-is-disabled"
+    data-v-2f27efb4=""
     disabled="true"
   >
     <span

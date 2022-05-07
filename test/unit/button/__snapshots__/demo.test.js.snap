@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Button Button baseVue demo works fine 1`] = `
+exports[`Button > Button baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -55,7 +55,7 @@ exports[`Button Button baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button blockVue demo works fine 1`] = `
+exports[`Button > Button blockVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
   style="justify-content: center;"
@@ -116,7 +116,7 @@ exports[`Button Button blockVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button ghostVue demo works fine 1`] = `
+exports[`Button > Button ghostVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -323,15 +323,18 @@ exports[`Button Button ghostVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button groupVue demo works fine 1`] = `
+exports[`Button > Button groupVue demo works fine 1`] = `
 <div
   class="demo-button-row"
+  data-v-2b27e22b=""
 >
   <div
     class="demo-button-col"
+    data-v-2b27e22b=""
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -344,6 +347,7 @@ exports[`Button Button groupVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -357,9 +361,11 @@ exports[`Button Button groupVue demo works fine 1`] = `
   </div>
   <div
     class="demo-button-col"
+    data-v-2b27e22b=""
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -372,6 +378,7 @@ exports[`Button Button groupVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -385,9 +392,11 @@ exports[`Button Button groupVue demo works fine 1`] = `
   </div>
   <div
     class="demo-button-col"
+    data-v-2b27e22b=""
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -400,6 +409,7 @@ exports[`Button Button groupVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -412,6 +422,7 @@ exports[`Button Button groupVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-2b27e22b=""
       type="button"
     >
       <span
@@ -424,12 +435,14 @@ exports[`Button Button groupVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only"
+      data-v-2b27e22b=""
       type="button"
     >
       
       
       <svg
         class="t-icon t-icon-more"
+        data-v-2b27e22b=""
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -449,24 +462,29 @@ exports[`Button Button groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button iconVue demo works fine 1`] = `
+exports[`Button > Button iconVue demo works fine 1`] = `
 <div
   class="demo-button-icon"
+  data-v-6cd7177d=""
 >
   <div
     class="demo-button-row"
+    data-v-6cd7177d=""
   >
     <div
       class="demo-button-col"
+      data-v-6cd7177d=""
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        data-v-6cd7177d=""
         type="button"
       >
         
         
         <svg
           class="t-icon t-icon-add"
+          data-v-6cd7177d=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -490,12 +508,14 @@ exports[`Button Button iconVue demo works fine 1`] = `
       </button>
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-6cd7177d=""
         type="button"
       >
         
         
         <svg
           class="t-icon t-icon-cloud-upload"
+          data-v-6cd7177d=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -525,15 +545,18 @@ exports[`Button Button iconVue demo works fine 1`] = `
     </div>
     <div
       class="demo-button-col"
+      data-v-6cd7177d=""
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
+        data-v-6cd7177d=""
         type="button"
       >
         
         
         <svg
           class="t-icon t-icon-discount"
+          data-v-6cd7177d=""
         >
           <use
             href="#t-icon-discount"
@@ -545,12 +568,14 @@ exports[`Button Button iconVue demo works fine 1`] = `
       </button>
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
+        data-v-6cd7177d=""
         type="button"
       >
         
         
         <svg
           class="t-icon t-icon-cloud-download"
+          data-v-6cd7177d=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -575,9 +600,11 @@ exports[`Button Button iconVue demo works fine 1`] = `
     <!-- 使用 function 的形式定义 icon -->
     <div
       class="demo-button-col"
+      data-v-6cd7177d=""
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-6cd7177d=""
         type="button"
       >
         
@@ -608,7 +635,7 @@ exports[`Button Button iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button loadingVue demo works fine 1`] = `
+exports[`Button > Button loadingVue demo works fine 1`] = `
 <div
   class="button-base"
 >
@@ -695,7 +722,7 @@ exports[`Button Button loadingVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button shapeVue demo works fine 1`] = `
+exports[`Button > Button shapeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1062,7 +1089,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button sizeVue demo works fine 1`] = `
+exports[`Button > Button sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1273,7 +1300,7 @@ exports[`Button Button sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button statusVue demo works fine 1`] = `
+exports[`Button > Button statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
 >
@@ -1333,7 +1360,7 @@ exports[`Button Button statusVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button Button themeVue demo works fine 1`] = `
+exports[`Button > Button themeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >

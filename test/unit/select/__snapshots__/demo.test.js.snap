@@ -1,12 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Select Select baseVue demo works fine 1`] = `
+exports[`Select > Select baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
+  data-v-1dd75acb=""
 >
   <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
   <div
     class="t-select__wrap"
+    data-v-1dd75acb=""
     modelvalue=""
   >
     
@@ -58,6 +60,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
   <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   <div
     class="t-select__wrap"
+    data-v-1dd75acb=""
     modelvalue=""
   >
     
@@ -111,6 +114,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="云服务器"
       >
         <span>
@@ -119,6 +123,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="云数据库"
       >
         <span>
@@ -127,6 +132,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="域名注册"
       >
         <span>
@@ -135,6 +141,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="网站备案"
       >
         <span>
@@ -143,6 +150,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="对象存储"
       >
         <span>
@@ -151,6 +159,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-1dd75acb=""
         title="低代码平台"
       >
         <span>
@@ -164,7 +173,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select collapsedVue demo works fine 1`] = `
+exports[`Select > Select collapsedVue demo works fine 1`] = `
 <div>
   <!-- 选项过多时，可折叠 -->
   <div
@@ -480,7 +489,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select creatableVue demo works fine 1`] = `
+exports[`Select > Select creatableVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -550,7 +559,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select customOptionsVue demo works fine 1`] = `
+exports[`Select > Select customOptionsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-options"
 >
@@ -920,7 +929,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select customSelectedVue demo works fine 1`] = `
+exports[`Select > Select customSelectedVue demo works fine 1`] = `
 <div>
   <!-- 自定义选中项内容，valueDisplay 为渲染函数（function） -->
   <div
@@ -1228,7 +1237,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select disabledVue demo works fine 1`] = `
+exports[`Select > Select disabledVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -1363,7 +1372,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select filterableVue demo works fine 1`] = `
+exports[`Select > Select filterableVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -1499,13 +1508,15 @@ exports[`Select Select filterableVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select groupVue demo works fine 1`] = `
+exports[`Select > Select groupVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
+  data-v-98d7c816=""
 >
   <!-- 方式一：直接传 options 数据，比插槽的方式更简单 -->
   <div
     class="t-select__wrap"
+    data-v-98d7c816=""
     modelvalue=""
   >
     
@@ -1571,6 +1582,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
   <!-- 方式二：使用插槽节点 -->
   <div
     class="t-select__wrap"
+    data-v-98d7c816=""
     modelvalue=""
   >
     
@@ -1638,6 +1650,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       
       <li
         class="t-select-option-group t-size-m t-select-option-group__divider"
+        data-v-98d7c816=""
       >
         <div
           class="t-select-option-group__header"
@@ -1649,6 +1662,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项一"
           >
             <span>
@@ -1659,6 +1673,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           </li>
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项二"
           >
             <span>
@@ -1673,6 +1688,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option-group t-size-m t-select-option-group__divider"
+        data-v-98d7c816=""
       >
         <div
           class="t-select-option-group__header"
@@ -1684,6 +1700,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项三"
           >
             <span>
@@ -1694,6 +1711,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           </li>
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项四"
           >
             <span>
@@ -1704,6 +1722,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           </li>
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项五"
           >
             <span>
@@ -1718,6 +1737,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option-group t-size-m t-select-option-group__divider"
+        data-v-98d7c816=""
       >
         <div
           class="t-select-option-group__header"
@@ -1729,6 +1749,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项六"
           >
             <span>
@@ -1739,6 +1760,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           </li>
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项七"
           >
             <span>
@@ -1749,6 +1771,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           </li>
           <li
             class="t-select-option t-size-m"
+            data-v-98d7c816=""
             title="选项八"
           >
             <span>
@@ -1768,7 +1791,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select labelInValueVue demo works fine 1`] = `
+exports[`Select > Select labelInValueVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -1899,7 +1922,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select maxVue demo works fine 1`] = `
+exports[`Select > Select maxVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -1956,7 +1979,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select multipleVue demo works fine 1`] = `
+exports[`Select > Select multipleVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
 >
@@ -2588,7 +2611,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select noborderVue demo works fine 1`] = `
+exports[`Select > Select noborderVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -2644,13 +2667,15 @@ exports[`Select Select noborderVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select panelVue demo works fine 1`] = `
+exports[`Select > Select panelVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
+  data-v-98c8360c=""
 >
   <!-- 自定义面板顶部内容：如自定义搜索框。同时支持插槽和 Props(this,panelTopContent) -->
   <div
     class="t-select__wrap"
+    data-v-98c8360c=""
     modelvalue=""
   >
     
@@ -2702,6 +2727,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
   <!-- 自定义面板底部内容；如新增项 。同时支持插槽和 Props（this,panelBottomContent）-->
   <div
     class="t-select__wrap"
+    data-v-98c8360c=""
     modelvalue=""
   >
     
@@ -2755,6 +2781,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
       
       <li
         class="t-select-option t-size-m"
+        data-v-98c8360c=""
         title="云服务器"
       >
         <span>
@@ -2763,6 +2790,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-98c8360c=""
         title="云数据库"
       >
         <span>
@@ -2771,6 +2799,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
       </li>
       <li
         class="t-select-option t-size-m"
+        data-v-98c8360c=""
         title="域名注册"
       >
         <span>
@@ -2784,7 +2813,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select popupPropsVue demo works fine 1`] = `
+exports[`Select > Select popupPropsVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -2891,7 +2920,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select prefixVue demo works fine 1`] = `
+exports[`Select > Select prefixVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -2957,7 +2986,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select remoteSearchVue demo works fine 1`] = `
+exports[`Select > Select remoteSearchVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -3093,7 +3122,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select sizeVue demo works fine 1`] = `
+exports[`Select > Select sizeVue demo works fine 1`] = `
 <div>
   <div
     class="t-select__wrap"
@@ -3288,12 +3317,14 @@ exports[`Select Select sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Select Select statusVue demo works fine 1`] = `
+exports[`Select > Select statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
+  data-v-f8328a28=""
 >
   <div
     class="t-select__wrap"
+    data-v-f8328a28=""
     modelvalue=""
   >
     
@@ -3344,6 +3375,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
   </div>
   <div
     class="t-select__wrap"
+    data-v-f8328a28=""
     modelvalue=""
   >
     
@@ -3394,6 +3426,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
   </div>
   <div
     class="t-select__wrap"
+    data-v-f8328a28=""
     modelvalue=""
   >
     

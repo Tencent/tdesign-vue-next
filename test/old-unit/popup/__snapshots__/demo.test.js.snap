@@ -1,0 +1,609 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup Popup baseVue demo works fine 1`] = `
+<div>
+  <!-- 共三种方式自定义浮层内容 -->
+  <!-- 使用 content 属性渲染浮层内容 -->
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          禁用状态
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+  </div>
+  <!-- 使用 content 插槽渲染浮层内容 -->
+  <!-- slot="content" 写法不建议使用，请使用 #content 写法 -->
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        触发元素
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+  <!-- 使用 content 渲染函数输出浮层内容 -->
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        浮层内容
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`Popup Popup containerVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup-demo-block"
+  >
+    
+    <div
+      id="myPopup"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          父元素为组件本身
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+  </div>
+  <div
+    class="t-popup-demo-block"
+    id="second-popup"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        父元素为其他元素
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`Popup Popup destroyVue demo works fine 1`] = `
+<div>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      隐藏即销毁
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
+
+exports[`Popup Popup disabledVue demo works fine 1`] = `
+<div>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      禁用浮层显示
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
+
+exports[`Popup Popup placementVue demo works fine 1`] = `
+<div
+  class="container"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top center"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top left"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       top-left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top right"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       top-right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom center"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom left"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       bottom-left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom right"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       bottom-right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top-align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       left-top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom-align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       left-bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full top-align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       right-top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full bottom-align"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       right-bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
+
+exports[`Popup Popup styleVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        自定义浮层类名
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        固定浮层宽度
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        浮层最大宽度
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+  <div
+    class="t-popup-demo-base-item"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        浮层和触发元素同宽
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`Popup Popup triggerElementVue demo works fine 1`] = `
+<div>
+  <!-- 总共四种自定义触发元素的方式 -->
+  <div>
+    <div
+      class="t-popup-demo-base-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          默认插槽定义触发元素
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="t-popup-demo-base-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          具名插槽定义触发元素
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+  <br />
+  <div>
+    <div
+      class="t-popup-demo-base-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          渲染函数定义触发元素1
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="t-popup-demo-base-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          渲染函数定义触发元素2
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popup Popup triggerVue demo works fine 1`] = `
+<div
+  class="popup-demo-container"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      悬浮时触发（默认）
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      点击时触发
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input"
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="获得焦点时触发"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      右击时触发
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
+
+exports[`Popup Popup visibleVue demo works fine 1`] = `
+<div>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      点击控制浮层显示
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;

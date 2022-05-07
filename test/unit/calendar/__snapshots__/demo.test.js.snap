@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Calendar Calendar baseVue demo works fine 1`] = `
+exports[`Calendar > Calendar baseVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
 >
@@ -1224,17 +1224,23 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
-<div>
+exports[`Calendar > Calendar cardCellVue demo works fine 1`] = `
+<div
+  data-v-8d270492=""
+>
   <!-- 外部控制 -->
   <div
+    data-v-8d270492=""
     style="margin: 12px 0px;"
   >
-    <label>
+    <label
+      data-v-8d270492=""
+    >
       请选择风格：
     </label>
     <div
       class="t-select__wrap demo-select-base"
+      data-v-8d270492=""
       modelvalue="card"
     >
       
@@ -1288,6 +1294,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
         
         <li
           class="t-select-option t-size-m"
+          data-v-8d270492=""
           title="全屏风格"
         >
           <span>
@@ -1296,6 +1303,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-is-selected t-size-m"
+          data-v-8d270492=""
           title="卡片风格"
         >
           <span>
@@ -1309,6 +1317,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--card"
+    data-v-8d270492=""
   >
     <div
       class="t-calendar__control"
@@ -1917,9 +1926,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend"
+                  data-v-8d270492=""
                 >
                   30
                 </div>
@@ -1932,9 +1943,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   1
                 </div>
@@ -1947,9 +1960,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   2
                 </div>
@@ -1962,9 +1977,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   3
                 </div>
@@ -1977,9 +1994,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   4
                 </div>
@@ -1992,9 +2011,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   5
                 </div>
@@ -2007,9 +2028,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   6
                 </div>
@@ -2028,9 +2051,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   7
                 </div>
@@ -2043,9 +2068,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   8
                 </div>
@@ -2058,9 +2085,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   9
                 </div>
@@ -2073,9 +2102,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   10
                 </div>
@@ -2088,9 +2119,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   11
                 </div>
@@ -2103,9 +2136,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   12
                 </div>
@@ -2118,9 +2153,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   13
                 </div>
@@ -2139,9 +2176,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   14
                 </div>
@@ -2154,9 +2193,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   15
                 </div>
@@ -2169,9 +2210,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   16
                 </div>
@@ -2184,9 +2227,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   17
                 </div>
@@ -2199,9 +2244,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   18
                 </div>
@@ -2214,9 +2261,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   19
                 </div>
@@ -2229,9 +2278,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   20
                 </div>
@@ -2250,9 +2301,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   21
                 </div>
@@ -2265,9 +2318,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   22
                 </div>
@@ -2280,9 +2335,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   23
                 </div>
@@ -2295,9 +2352,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   24
                 </div>
@@ -2310,9 +2369,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   25
                 </div>
@@ -2325,9 +2386,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   26
                 </div>
@@ -2340,9 +2403,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   27
                 </div>
@@ -2361,9 +2426,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent activated"
+                  data-v-8d270492=""
                 >
                   28
                 </div>
@@ -2376,9 +2443,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   29
                 </div>
@@ -2391,9 +2460,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   30
                 </div>
@@ -2406,9 +2477,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend belongCurrent"
+                  data-v-8d270492=""
                 >
                   31
                 </div>
@@ -2421,9 +2494,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend"
+                  data-v-8d270492=""
                 >
                   1
                 </div>
@@ -2436,9 +2511,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend"
+                  data-v-8d270492=""
                 >
                   2
                 </div>
@@ -2451,9 +2528,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
               <div
                 class="demo-cell"
+                data-v-8d270492=""
               >
                 <div
                   class="cellAppend"
+                  data-v-8d270492=""
                 >
                   3
                 </div>
@@ -2470,16 +2549,22 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar cardVue demo works fine 1`] = `
+exports[`Calendar > Calendar cardVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
+  data-v-2629f908=""
 >
-  <div>
-    <label>
+  <div
+    data-v-2629f908=""
+  >
+    <label
+      data-v-2629f908=""
+    >
       请选择风格：
     </label>
     <div
       class="t-select__wrap demo-select-base"
+      data-v-2629f908=""
       modelvalue="card"
     >
       
@@ -2533,6 +2618,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
         
         <li
           class="t-select-option t-size-m"
+          data-v-2629f908=""
           title="全屏风格"
         >
           <span>
@@ -2541,6 +2627,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-is-selected t-size-m"
+          data-v-2629f908=""
           title="卡片风格"
         >
           <span>
@@ -2553,6 +2640,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      data-v-2629f908=""
       type="button"
     >
       <span
@@ -2564,12 +2652,17 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
       </span>
     </button>
   </div>
-  <div>
-    <label>
+  <div
+    data-v-2629f908=""
+  >
+    <label
+      data-v-2629f908=""
+    >
       日期补零：
     </label>
     <div
       class="t-switch t-size-l t-is-checked"
+      data-v-2629f908=""
     >
       <span
         class="t-switch__handle"
@@ -2585,6 +2678,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--card"
+    data-v-2629f908=""
   >
     <div
       class="t-calendar__control"
@@ -3781,7 +3875,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
+exports[`Calendar > Calendar cellAppendVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
 >
@@ -5087,9 +5181,10 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar cellVue demo works fine 1`] = `
+exports[`Calendar > Calendar cellVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
+  data-v-2012e34c=""
 >
   <div
     class="t-calendar__control"
@@ -5724,9 +5819,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 30
               </div>
@@ -5740,9 +5837,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 1
               </div>
@@ -5756,9 +5855,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 2
               </div>
@@ -5772,9 +5873,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 3
               </div>
@@ -5788,9 +5891,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 4
               </div>
@@ -5804,9 +5909,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 5
               </div>
@@ -5820,9 +5927,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 6
               </div>
@@ -5842,9 +5951,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 7
               </div>
@@ -5858,9 +5969,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 8
               </div>
@@ -5874,9 +5987,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 9
               </div>
@@ -5890,9 +6005,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 10
               </div>
@@ -5906,9 +6023,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 11
               </div>
@@ -5922,9 +6041,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 12
               </div>
@@ -5938,9 +6059,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 13
               </div>
@@ -5960,9 +6083,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 14
               </div>
@@ -5976,38 +6101,47 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 15
               </div>
               
               <div
                 class="slotWarper"
+                data-v-2012e34c=""
               >
                 
                 <div
                   class="item"
+                  data-v-2012e34c=""
                 >
                   <span
                     class="error"
+                    data-v-2012e34c=""
                   />
                    错误事件
                 </div>
                 <div
                   class="item"
+                  data-v-2012e34c=""
                 >
                   <span
                     class="warning"
+                    data-v-2012e34c=""
                   />
                    警告事件
                 </div>
                 <div
                   class="item"
+                  data-v-2012e34c=""
                 >
                   <span
                     class="success"
+                    data-v-2012e34c=""
                   />
                    正常事件
                 </div>
@@ -6015,6 +6149,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
               </div>
               <div
                 class="shadow"
+                data-v-2012e34c=""
               />
               
             </div>
@@ -6026,9 +6161,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 16
               </div>
@@ -6042,9 +6179,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 17
               </div>
@@ -6058,9 +6197,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 18
               </div>
@@ -6074,9 +6215,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 19
               </div>
@@ -6090,9 +6233,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 20
               </div>
@@ -6112,9 +6257,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 21
               </div>
@@ -6128,9 +6275,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 22
               </div>
@@ -6144,9 +6293,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 23
               </div>
@@ -6160,9 +6311,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 24
               </div>
@@ -6176,9 +6329,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 25
               </div>
@@ -6192,9 +6347,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 26
               </div>
@@ -6208,9 +6365,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 27
               </div>
@@ -6230,9 +6389,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 28
               </div>
@@ -6246,9 +6407,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 29
               </div>
@@ -6262,9 +6425,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 30
               </div>
@@ -6278,9 +6443,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 31
               </div>
@@ -6294,9 +6461,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 1
               </div>
@@ -6310,9 +6479,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 2
               </div>
@@ -6326,9 +6497,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
             <div
               class="outerWarper"
+              data-v-2012e34c=""
             >
               <div
                 class="number"
+                data-v-2012e34c=""
               >
                 3
               </div>
@@ -6345,23 +6518,34 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
+exports[`Calendar > Calendar controllerConfigVue demo works fine 1`] = `
 <div
   class="controllerConfig-demo"
+  data-v-d66b476a=""
 >
   <div
+    data-v-d66b476a=""
     style="margin: 12px 0px;"
   >
-    <fieldset>
-      <legend>
+    <fieldset
+      data-v-d66b476a=""
+    >
+      <legend
+        data-v-d66b476a=""
+      >
         控件全局
       </legend>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否显示（全部控件）：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6375,12 +6559,17 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           </div>
         </div>
       </p>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用（全部控件）：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6395,16 +6584,25 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </div>
       </p>
     </fieldset>
-    <fieldset>
-      <legend>
+    <fieldset
+      data-v-d66b476a=""
+    >
+      <legend
+        data-v-d66b476a=""
+      >
         控件局部
       </legend>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否显示“模式切换”控件：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6417,11 +6615,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“模式切换”控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6435,12 +6636,17 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           </div>
         </div>
       </p>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否显示“年份选择”控件：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6453,11 +6659,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“年份选择”控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6471,12 +6680,17 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           </div>
         </div>
       </p>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否显示“月份选择”控件：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6489,11 +6703,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“月份选择”控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6507,12 +6724,17 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           </div>
         </div>
       </p>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“隐藏周末”控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6525,11 +6747,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“显示周末”控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6542,11 +6767,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否显示“隐藏\\显示周末”控件：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6560,12 +6788,17 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           </div>
         </div>
       </p>
-      <p>
-        <label>
+      <p
+        data-v-d66b476a=""
+      >
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“今天”按钮控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6578,11 +6811,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否禁用“本月”按钮控件：
         </label>
         <div
           class="t-switch t-size-m"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6595,11 +6831,14 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
             <!---->
           </div>
         </div>
-        <label>
+        <label
+          data-v-d66b476a=""
+        >
           是否显示“今天\\本月”控件：
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
+          data-v-d66b476a=""
         >
           <span
             class="t-switch__handle"
@@ -6617,6 +6856,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--full"
+    data-v-d66b476a=""
   >
     <div
       class="t-calendar__control"
@@ -7840,16 +8080,22 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
-<div>
+exports[`Calendar > Calendar eventsPropsApiVue demo works fine 1`] = `
+<div
+  data-v-59defbfe=""
+>
   <div
+    data-v-59defbfe=""
     style="margin: 12px 0px;"
   >
-    <label>
+    <label
+      data-v-59defbfe=""
+    >
       禁用单元格右键菜单：
     </label>
     <div
       class="t-switch t-size-m"
+      data-v-59defbfe=""
     >
       <span
         class="t-switch__handle"
@@ -7865,6 +8111,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--full"
+    data-v-59defbfe=""
   >
     <div
       class="t-calendar__control"
@@ -9086,6 +9333,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
   </div>
   <div
     class="t-alert t-alert--warning"
+    data-v-59defbfe=""
   >
     <div
       class="t-alert__icon"
@@ -9125,10 +9373,13 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar eventsVue demo works fine 1`] = `
-<div>
+exports[`Calendar > Calendar eventsVue demo works fine 1`] = `
+<div
+  data-v-d1104ade=""
+>
   <div
     class="t-calendar t-calendar--full"
+    data-v-d1104ade=""
   >
     <div
       class="t-calendar__control"
@@ -10351,7 +10602,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar filterVue demo works fine 1`] = `
+exports[`Calendar > Calendar filterVue demo works fine 1`] = `
 <div>
   <div
     class="t-calendar t-calendar--full"
@@ -11415,16 +11666,22 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
-<div>
+exports[`Calendar > Calendar firstDayOfWeekVue demo works fine 1`] = `
+<div
+  data-v-93ad12d8=""
+>
   <div
+    data-v-93ad12d8=""
     style="margin: 12px 0px;"
   >
-    <label>
+    <label
+      data-v-93ad12d8=""
+    >
       日历的第一列为：
     </label>
     <div
       class="t-select__wrap demo-select-base"
+      data-v-93ad12d8=""
       modelvalue="3"
     >
       
@@ -11478,6 +11735,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周一"
         >
           <span>
@@ -11486,6 +11744,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周二"
         >
           <span>
@@ -11494,6 +11753,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-is-selected t-size-m"
+          data-v-93ad12d8=""
           title="周三"
         >
           <span>
@@ -11502,6 +11762,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周四"
         >
           <span>
@@ -11510,6 +11771,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周五"
         >
           <span>
@@ -11518,6 +11780,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周六"
         >
           <span>
@@ -11526,6 +11789,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-size-m"
+          data-v-93ad12d8=""
           title="周日"
         >
           <span>
@@ -11539,6 +11803,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--full"
+    data-v-93ad12d8=""
   >
     <div
       class="t-calendar__control"
@@ -12879,7 +13144,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar headVue demo works fine 1`] = `
+exports[`Calendar > Calendar headVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
 >
@@ -14105,16 +14370,22 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar modeVue demo works fine 1`] = `
-<div>
+exports[`Calendar > Calendar modeVue demo works fine 1`] = `
+<div
+  data-v-01b7361b=""
+>
   <div
+    data-v-01b7361b=""
     style="margin: 12px 0px;"
   >
-    <label>
+    <label
+      data-v-01b7361b=""
+    >
       可以在组件外切换成：
     </label>
     <div
       class="t-select__wrap demo-select-base"
+      data-v-01b7361b=""
       modelvalue="year"
     >
       
@@ -14168,6 +14439,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
         
         <li
           class="t-select-option t-size-m"
+          data-v-01b7361b=""
           title="日历"
         >
           <span>
@@ -14176,6 +14448,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
         </li>
         <li
           class="t-select-option t-is-selected t-size-m"
+          data-v-01b7361b=""
           title="月历"
         >
           <span>
@@ -14189,6 +14462,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
   </div>
   <div
     class="t-calendar t-calendar--full"
+    data-v-01b7361b=""
   >
     <div
       class="t-calendar__control"
@@ -14792,7 +15066,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar rangeVue demo works fine 1`] = `
+exports[`Calendar > Calendar rangeVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
 >
@@ -15916,7 +16190,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
+exports[`Calendar > Calendar slotPropsApiVue demo works fine 1`] = `
 <div
   class="t-calendar t-calendar--full"
 >
@@ -17106,7 +17380,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar valueVue demo works fine 1`] = `
+exports[`Calendar > Calendar valueVue demo works fine 1`] = `
 <div
   data-v-app=""
 >
@@ -18556,7 +18830,7 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar weekVue demo works fine 1`] = `
+exports[`Calendar > Calendar weekVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb baseVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -113,7 +113,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb customVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -191,7 +191,7 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb dropdownVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -270,7 +270,7 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb hrefVue demo works fine 1`] = `
 <div>
   <div
     class="t-breadcrumb"
@@ -462,7 +462,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb iconVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -594,7 +594,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb optionsVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
@@ -707,7 +707,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
+exports[`Breadcrumb > Breadcrumb toVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >

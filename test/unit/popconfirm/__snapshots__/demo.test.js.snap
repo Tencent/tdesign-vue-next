@@ -1,18 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
+exports[`Popconfirm > Popconfirm baseVue demo works fine 1`] = `
 <div
   class="popconfirm-demo"
+  data-v-cf08ffd0=""
 >
   <div
     class="tdesign-demo-block"
+    data-v-cf08ffd0=""
   >
     <div
       class="demo-item"
+      data-v-cf08ffd0=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        data-v-cf08ffd0=""
         type="button"
       >
         <span
@@ -29,10 +33,12 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
     <!-- 受控用法：自由控制浮层显示与否 -->
     <div
       class="demo-item"
+      data-v-cf08ffd0=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        data-v-cf08ffd0=""
         type="button"
       >
         <span
@@ -50,18 +56,21 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
+exports[`Popconfirm > Popconfirm buttonVue demo works fine 1`] = `
 <div
   class="popconfirm-demo"
+  data-v-26a50f8e=""
 >
   <!-- 和 Dialog/Drawer 组件的确认/取消 逻辑一样 -->
   <div
     class="tdesign-demo-block"
+    data-v-26a50f8e=""
   >
     <!-- 使用 props 定义按钮内容 -->
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-26a50f8e=""
       type="button"
     >
       <span
@@ -78,6 +87,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-26a50f8e=""
       type="button"
     >
       <span
@@ -94,6 +104,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-26a50f8e=""
       type="button"
     >
       <span
@@ -110,19 +121,23 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
+exports[`Popconfirm > Popconfirm describeVue demo works fine 1`] = `
 <div
   class="popconfirm-demo"
+  data-v-1b7718dc=""
 >
   <div
     class="tdesign-demo-block"
+    data-v-1b7718dc=""
   >
     <div
       class="demo-item"
+      data-v-1b7718dc=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        data-v-1b7718dc=""
         type="button"
       >
         <span
@@ -138,10 +153,12 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
     </div>
     <div
       class="demo-item"
+      data-v-1b7718dc=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+        data-v-1b7718dc=""
         type="button"
       >
         <span
@@ -159,19 +176,23 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
+exports[`Popconfirm > Popconfirm iconVue demo works fine 1`] = `
 <div
   class="popconfirm-demo"
+  data-v-59c8bc80=""
 >
   <div
     class="tdesign-demo-block"
+    data-v-59c8bc80=""
   >
     <div
       class="demo-item"
+      data-v-59c8bc80=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        data-v-59c8bc80=""
         type="button"
       >
         <span
@@ -187,10 +208,12 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     </div>
     <div
       class="demo-item"
+      data-v-59c8bc80=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+        data-v-59c8bc80=""
         type="button"
       >
         <span
@@ -206,10 +229,12 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     </div>
     <div
       class="demo-item"
+      data-v-59c8bc80=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+        data-v-59c8bc80=""
         type="button"
       >
         <span
@@ -224,17 +249,24 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
       
     </div>
   </div>
-  <br />
-  <br />
+  <br
+    data-v-59c8bc80=""
+  />
+  <br
+    data-v-59c8bc80=""
+  />
   <div
     class="tdesign-demo-block"
+    data-v-59c8bc80=""
   >
     <div
       class="demo-item"
+      data-v-59c8bc80=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-59c8bc80=""
         type="button"
       >
         <span
@@ -250,10 +282,12 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     </div>
     <div
       class="demo-item"
+      data-v-59c8bc80=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-59c8bc80=""
         type="button"
       >
         <span
@@ -271,17 +305,20 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
+exports[`Popconfirm > Popconfirm inheritVue demo works fine 1`] = `
 <div
   class="popconfirm-demo"
+  data-v-c48496f8=""
 >
   <!-- 可以使用 popupProps.placement 控制弹出方向 -->
   <div
     class="tdesign-demo-block"
+    data-v-c48496f8=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-c48496f8=""
       type="button"
     >
       <span
@@ -297,6 +334,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-c48496f8=""
       type="button"
     >
       <span

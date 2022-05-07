@@ -1,11 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Avatar Avatar adjustVue demo works fine 1`] = `
+exports[`Avatar > Avatar adjustVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-f47fb568=""
 >
   <div
     class="t-avatar t-avatar--circle"
+    data-v-f47fb568=""
   >
     <span>
       
@@ -15,6 +17,7 @@ exports[`Avatar Avatar adjustVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--circle"
+    data-v-f47fb568=""
   >
     <span>
       
@@ -24,6 +27,7 @@ exports[`Avatar Avatar adjustVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--circle"
+    data-v-f47fb568=""
   >
     <span>
       
@@ -34,12 +38,14 @@ exports[`Avatar Avatar adjustVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar baseVue demo works fine 1`] = `
+exports[`Avatar > Avatar baseVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-32d02e64=""
 >
   <div
     class="t-avatar t-avatar--circle"
+    data-v-32d02e64=""
   >
     <img
       alt=""
@@ -48,6 +54,7 @@ exports[`Avatar Avatar baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--circle"
+    data-v-32d02e64=""
   >
     <span>
       
@@ -57,6 +64,7 @@ exports[`Avatar Avatar baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--circle t-avatar__icon"
+    data-v-32d02e64=""
   >
     
     <svg
@@ -77,11 +85,13 @@ exports[`Avatar Avatar baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--circle t-avatar__icon"
+    data-v-32d02e64=""
   >
     
     
     <svg
       class="t-icon t-icon-user"
+      data-v-32d02e64=""
       fill="none"
       height="1em"
       viewBox="0 0 16 16"
@@ -100,20 +110,24 @@ exports[`Avatar Avatar baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
+exports[`Avatar > Avatar groupCascadingVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-6b9684b6=""
 >
   <div
     class="demo-avatar-block"
+    data-v-6b9684b6=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-6b9684b6=""
     >
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-6b9684b6=""
       >
         <img
           alt=""
@@ -122,6 +136,7 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-6b9684b6=""
       >
         <span>
           
@@ -131,6 +146,7 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle t-avatar__icon"
+        data-v-6b9684b6=""
       >
         
         <svg
@@ -155,14 +171,17 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
   </div>
   <div
     class="demo-avatar-block"
+    data-v-6b9684b6=""
   >
     <div
       class="t-avatar-group t-avatar--offset-left"
+      data-v-6b9684b6=""
     >
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-6b9684b6=""
       >
         <img
           alt=""
@@ -171,6 +190,7 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-6b9684b6=""
       >
         <span>
           
@@ -180,6 +200,7 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle t-avatar__icon"
+        data-v-6b9684b6=""
       >
         
         <svg
@@ -205,21 +226,25 @@ exports[`Avatar Avatar groupCascadingVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
+exports[`Avatar > Avatar groupMaxVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-19cbd02e=""
 >
   <div
     class="demo-avatar-block"
+    data-v-19cbd02e=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-19cbd02e=""
     >
       
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <img
           alt=""
@@ -228,6 +253,7 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <span>
           
@@ -251,15 +277,18 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
   </div>
   <div
     class="demo-avatar-block"
+    data-v-19cbd02e=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-19cbd02e=""
     >
       
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <img
           alt=""
@@ -268,6 +297,7 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <span>
           
@@ -306,15 +336,18 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
   </div>
   <div
     class="demo-avatar-block"
+    data-v-19cbd02e=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-19cbd02e=""
     >
       
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <img
           alt=""
@@ -323,6 +356,7 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-19cbd02e=""
       >
         <span>
           
@@ -347,20 +381,24 @@ exports[`Avatar Avatar groupMaxVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar groupVue demo works fine 1`] = `
+exports[`Avatar > Avatar groupVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-02e54e52=""
 >
   <div
     class="demo-avatar-block"
+    data-v-02e54e52=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-02e54e52=""
     >
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-02e54e52=""
       >
         <img
           alt=""
@@ -369,6 +407,7 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-02e54e52=""
       >
         <span>
           
@@ -378,6 +417,7 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle t-avatar__icon"
+        data-v-02e54e52=""
       >
         
         <svg
@@ -402,14 +442,17 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
   </div>
   <div
     class="demo-avatar-block"
+    data-v-02e54e52=""
   >
     <div
       class="t-avatar-group t-avatar--offset-right"
+      data-v-02e54e52=""
     >
       
       
       <div
         class="t-avatar t-avatar--circle"
+        data-v-02e54e52=""
       >
         <img
           alt=""
@@ -418,6 +461,7 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle"
+        data-v-02e54e52=""
       >
         <span>
           
@@ -427,6 +471,7 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-avatar t-avatar--circle t-avatar__icon"
+        data-v-02e54e52=""
       >
         
         <svg
@@ -452,12 +497,14 @@ exports[`Avatar Avatar groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar shapeVue demo works fine 1`] = `
+exports[`Avatar > Avatar shapeVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-0cd77318=""
 >
   <div
     class="t-avatar t-avatar--circle"
+    data-v-0cd77318=""
   >
     <span>
       
@@ -467,6 +514,7 @@ exports[`Avatar Avatar shapeVue demo works fine 1`] = `
   </div>
   <div
     class="t-avatar t-avatar--round"
+    data-v-0cd77318=""
   >
     <span>
       
@@ -477,15 +525,18 @@ exports[`Avatar Avatar shapeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Avatar Avatar sizeVue demo works fine 1`] = `
+exports[`Avatar > Avatar sizeVue demo works fine 1`] = `
 <div
   class="demo-avatar"
+  data-v-7fafa9fe=""
 >
   <div
     class="demo-avatar-block"
+    data-v-7fafa9fe=""
   >
     <div
       class="t-avatar t-avatar--circle"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -495,6 +546,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--circle"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -504,6 +556,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--circle"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -513,6 +566,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--circle"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -523,9 +577,11 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
   </div>
   <div
     class="demo-avatar-block"
+    data-v-7fafa9fe=""
   >
     <div
       class="t-avatar t-avatar--round"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -535,6 +591,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--round"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -544,6 +601,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--round"
+      data-v-7fafa9fe=""
     >
       <span>
         
@@ -553,6 +611,7 @@ exports[`Avatar Avatar sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-avatar t-avatar--round"
+      data-v-7fafa9fe=""
     >
       <span>
         

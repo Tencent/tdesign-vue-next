@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Grid Grid baseVue demo works fine 1`] = `
+exports[`Grid > Grid baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--grid"
 >
@@ -343,7 +343,7 @@ exports[`Grid Grid baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid flexVue demo works fine 1`] = `
+exports[`Grid > Grid flexVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--grid"
 >
@@ -460,7 +460,7 @@ exports[`Grid Grid flexVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid gutterVue demo works fine 1`] = `
+exports[`Grid > Grid gutterVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -848,7 +848,7 @@ exports[`Grid Grid gutterVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid halignVue demo works fine 1`] = `
+exports[`Grid > Grid halignVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1105,7 +1105,7 @@ exports[`Grid Grid halignVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid offsetVue demo works fine 1`] = `
+exports[`Grid > Grid offsetVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1183,7 +1183,7 @@ exports[`Grid Grid offsetVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid orderVue demo works fine 1`] = `
+exports[`Grid > Grid orderVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1237,7 +1237,7 @@ exports[`Grid Grid orderVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid responsiveVue demo works fine 1`] = `
+exports[`Grid > Grid responsiveVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1294,7 +1294,7 @@ exports[`Grid Grid responsiveVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid sortVue demo works fine 1`] = `
+exports[`Grid > Grid sortVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -1328,7 +1328,7 @@ exports[`Grid Grid sortVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Grid Grid valignVue demo works fine 1`] = `
+exports[`Grid > Grid valignVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >

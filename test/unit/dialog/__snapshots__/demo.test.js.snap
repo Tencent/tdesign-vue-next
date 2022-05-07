@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Dialog Dialog asyncVue demo works fine 1`] = `
+exports[`Dialog > Dialog asyncVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -116,13 +116,15 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog attachVue demo works fine 1`] = `
+exports[`Dialog > Dialog attachVue demo works fine 1`] = `
 <div
   class="dialog-attach-wrap"
+  data-v-34a7d0f3=""
 >
   <!-- attach挂载 -->
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-34a7d0f3=""
     type="button"
   >
     <span
@@ -135,6 +137,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-34a7d0f3=""
     type="button"
   >
     <span
@@ -147,6 +150,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-34a7d0f3=""
     type="button"
   >
     <span
@@ -159,6 +163,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-34a7d0f3=""
     type="button"
   >
     <span
@@ -169,8 +174,12 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub />
-  <transition-stub>
+  <transition-stub
+    data-v-34a7d0f3=""
+  />
+  <transition-stub
+    data-v-34a7d0f3=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -210,19 +219,29 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-34a7d0f3=""
+          >
             通过querySelect指定元素挂载
           </div>
-          <div>
+          <div
+            data-v-34a7d0f3=""
+          >
             支持原生document.querySelect选择元素
           </div>
-          <div>
+          <div
+            data-v-34a7d0f3=""
+          >
             querySelect获取到的第一个元素为挂载点
           </div>
-          <div>
+          <div
+            data-v-34a7d0f3=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-34a7d0f3=""
+          >
             我是内容
           </div>
           
@@ -257,8 +276,12 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub />
-  <transition-stub>
+  <transition-stub
+    data-v-34a7d0f3=""
+  />
+  <transition-stub
+    data-v-34a7d0f3=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--absolute"
       style="display: none;"
@@ -298,12 +321,17 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
         >
           
           <div
+            data-v-34a7d0f3=""
             slot="body"
           >
-            <div>
+            <div
+              data-v-34a7d0f3=""
+            >
               父元素（挂载元素）需要有定位属性，如：position: relative
             </div>
-            <div>
+            <div
+              data-v-34a7d0f3=""
+            >
               showInAttachedElement API 仅针对模态对话框有效
             </div>
           </div>
@@ -378,19 +406,29 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
         class="t-dialog__body"
       >
         
-        <div>
+        <div
+          data-v-34a7d0f3=""
+        >
           指定函数返回的节点为挂载点
         </div>
-        <div>
+        <div
+          data-v-34a7d0f3=""
+        >
           函数返回为DOM节点对象
         </div>
-        <div>
+        <div
+          data-v-34a7d0f3=""
+        >
           我是内容
         </div>
-        <div>
+        <div
+          data-v-34a7d0f3=""
+        >
           我是内容
         </div>
-        <div>
+        <div
+          data-v-34a7d0f3=""
+        >
           我是内容
         </div>
         
@@ -427,7 +465,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog baseVue demo works fine 1`] = `
+exports[`Dialog > Dialog baseVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -515,14 +553,21 @@ exports[`Dialog Dialog baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog customVue demo works fine 1`] = `
-<div>
-  <p>
+exports[`Dialog > Dialog customVue demo works fine 1`] = `
+<div
+  data-v-4b74f81f=""
+>
+  <p
+    data-v-4b74f81f=""
+  >
     底部按钮有两个控制属性：confirmBtn 和 cancelBtn。属性类型有多种：string | ButtonProps | TNode。
   </p>
-  <br />
+  <br
+    data-v-4b74f81f=""
+  />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-4b74f81f=""
     type="button"
   >
     <span
@@ -535,6 +580,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-4b74f81f=""
     type="button"
   >
     <span
@@ -547,6 +593,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-4b74f81f=""
     type="button"
   >
     <span
@@ -557,7 +604,9 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-4b74f81f=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -628,7 +677,9 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-4b74f81f=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -699,7 +750,9 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-4b74f81f=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -776,10 +829,13 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog dragVue demo works fine 1`] = `
-<div>
+exports[`Dialog > Dialog dragVue demo works fine 1`] = `
+<div
+  data-v-1112ade2=""
+>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-1112ade2=""
     type="button"
   >
     <span
@@ -792,6 +848,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-1112ade2=""
     type="button"
   >
     <span
@@ -804,6 +861,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-1112ade2=""
     type="button"
   >
     <span
@@ -814,8 +872,12 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
       
     </span>
   </button>
-  <br />
-  <transition-stub>
+  <br
+    data-v-1112ade2=""
+  />
+  <transition-stub
+    data-v-1112ade2=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -855,13 +917,19 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             默认点击蒙层或按ESC可关闭
           </div>
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
           
@@ -896,7 +964,9 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-1112ade2=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -934,10 +1004,14 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
           
@@ -972,7 +1046,9 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-1112ade2=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1010,10 +1086,14 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-1112ade2=""
+          >
             我是内容
           </div>
           
@@ -1051,9 +1131,13 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog iconVue demo works fine 1`] = `
-<div>
-  <transition-stub>
+exports[`Dialog > Dialog iconVue demo works fine 1`] = `
+<div
+  data-v-174192a7=""
+>
+  <transition-stub
+    data-v-174192a7=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1134,8 +1218,12 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <br />
-  <transition-stub>
+  <br
+    data-v-174192a7=""
+  />
+  <transition-stub
+    data-v-174192a7=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1216,8 +1304,12 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <br />
-  <transition-stub>
+  <br
+    data-v-174192a7=""
+  />
+  <transition-stub
+    data-v-174192a7=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1298,8 +1390,12 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <br />
-  <transition-stub>
+  <br
+    data-v-174192a7=""
+  />
+  <transition-stub
+    data-v-174192a7=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1380,9 +1476,12 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <br />
+  <br
+    data-v-174192a7=""
+  />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-174192a7=""
     type="button"
   >
     <span
@@ -1395,6 +1494,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-174192a7=""
     type="button"
   >
     <span
@@ -1407,6 +1507,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-174192a7=""
     type="button"
   >
     <span
@@ -1419,6 +1520,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-174192a7=""
     type="button"
   >
     <span
@@ -1432,10 +1534,13 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog modalVue demo works fine 1`] = `
-<div>
+exports[`Dialog > Dialog modalVue demo works fine 1`] = `
+<div
+  data-v-b073ed22=""
+>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-b073ed22=""
     type="button"
   >
     <span
@@ -1448,6 +1553,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-b073ed22=""
     type="button"
   >
     <span
@@ -1458,7 +1564,9 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-b073ed22=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -1498,13 +1606,19 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-b073ed22=""
+          >
             默认点击蒙层或按ESC可关闭
           </div>
-          <div>
+          <div
+            data-v-b073ed22=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-b073ed22=""
+          >
             我是内容
           </div>
           
@@ -1539,7 +1653,9 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-b073ed22=""
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -1577,10 +1693,14 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
           class="t-dialog__body"
         >
           
-          <div>
+          <div
+            data-v-b073ed22=""
+          >
             我是内容
           </div>
-          <div>
+          <div
+            data-v-b073ed22=""
+          >
             我是内容
           </div>
           
@@ -1618,10 +1738,13 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog pluginVue demo works fine 1`] = `
-<div>
+exports[`Dialog > Dialog pluginVue demo works fine 1`] = `
+<div
+  data-v-daabaa3e=""
+>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-daabaa3e=""
     type="button"
   >
     <span
@@ -1634,6 +1757,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-daabaa3e=""
     type="button"
   >
     <span
@@ -1646,6 +1770,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-daabaa3e=""
     type="button"
   >
     <span
@@ -1658,6 +1783,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-daabaa3e=""
     type="button"
   >
     <span
@@ -1670,6 +1796,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-daabaa3e=""
     type="button"
   >
     <span
@@ -1683,10 +1810,13 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog positionVue demo works fine 1`] = `
-<div>
+exports[`Dialog > Dialog positionVue demo works fine 1`] = `
+<div
+  data-v-6bf71c57=""
+>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-6bf71c57=""
     type="button"
   >
     <span
@@ -1699,6 +1829,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-6bf71c57=""
     type="button"
   >
     <span
@@ -1711,6 +1842,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-6bf71c57=""
     type="button"
   >
     <span
@@ -1721,7 +1853,9 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-6bf71c57=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -1792,7 +1926,9 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-6bf71c57=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -1862,7 +1998,9 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    data-v-6bf71c57=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -1936,10 +2074,13 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog Dialog warningVue demo works fine 1`] = `
-<div>
+exports[`Dialog > Dialog warningVue demo works fine 1`] = `
+<div
+  data-v-7311ac5e=""
+>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-7311ac5e=""
     type="button"
   >
     <span
@@ -1950,7 +2091,9 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-7311ac5e=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -2035,6 +2178,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-7311ac5e=""
     type="button"
   >
     <span
@@ -2045,7 +2189,9 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-7311ac5e=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -2130,6 +2276,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-7311ac5e=""
     type="button"
   >
     <span
@@ -2140,7 +2287,9 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-7311ac5e=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -2216,6 +2365,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-7311ac5e=""
     type="button"
   >
     <span
@@ -2226,7 +2376,9 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-7311ac5e=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -2302,6 +2454,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-7311ac5e=""
     type="button"
   >
     <span
@@ -2312,7 +2465,9 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
+  <transition-stub
+    data-v-7311ac5e=""
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -2330,16 +2485,20 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
         >
           <!---->
           
-          <div>
+          <div
+            data-v-7311ac5e=""
+          >
             <svg
               class="t-icon t-icon-check-circle-filled"
               color="orange"
+              data-v-7311ac5e=""
             >
               <use
                 href="#t-icon-check-circle-filled"
               />
             </svg>
             <span
+              data-v-7311ac5e=""
               style="vertical-align: middle;"
             >
               对话框标题

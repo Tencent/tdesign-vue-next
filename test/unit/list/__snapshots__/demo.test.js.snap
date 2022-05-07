@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`List List baseVue demo works fine 1`] = `
+exports[`List > List baseVue demo works fine 1`] = `
 <div
   class="t-list t-size-m"
 >
@@ -130,7 +130,7 @@ exports[`List List baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List extraVue demo works fine 1`] = `
+exports[`List > List extraVue demo works fine 1`] = `
 <div>
   <div
     class="t-list t-size-m t-list--split"
@@ -220,7 +220,7 @@ exports[`List List extraVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List headerFooterVue demo works fine 1`] = `
+exports[`List > List headerFooterVue demo works fine 1`] = `
 <div>
   <div
     class="t-list t-size-m t-list--split"
@@ -518,10 +518,13 @@ exports[`List List headerFooterVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List imageTextVue demo works fine 1`] = `
-<div>
+exports[`List > List imageTextVue demo works fine 1`] = `
+<div
+  data-v-56d29377=""
+>
   <div
     class="t-list t-size-m t-list--split"
+    data-v-56d29377=""
   >
     
     
@@ -532,6 +535,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
       
       <li
         class="t-list-item"
+        data-v-56d29377=""
       >
         <div
           class="t-list-item-main"
@@ -539,6 +543,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56d29377=""
           >
             
             <div
@@ -570,6 +575,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
       </li>
       <li
         class="t-list-item"
+        data-v-56d29377=""
       >
         <div
           class="t-list-item-main"
@@ -577,6 +583,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56d29377=""
           >
             
             <div
@@ -608,6 +615,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
       </li>
       <li
         class="t-list-item"
+        data-v-56d29377=""
       >
         <div
           class="t-list-item-main"
@@ -615,6 +623,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56d29377=""
           >
             
             <div
@@ -656,10 +665,12 @@ exports[`List List imageTextVue demo works fine 1`] = `
     
   </div>
   <div
+    data-v-56d29377=""
     style="margin-bottom: 16px;"
   />
   <div
     class="t-list t-size-m t-list--split"
+    data-v-56d29377=""
   >
     
     
@@ -670,6 +681,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
       
       <li
         class="t-list-item"
+        data-v-56d29377=""
       >
         <div
           class="t-list-item-main"
@@ -677,6 +689,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56d29377=""
           >
             
             <div
@@ -698,7 +711,9 @@ exports[`List List imageTextVue demo works fine 1`] = `
                 class="t-list-item__meta-description"
               >
                 
-                <p>
+                <p
+                  data-v-56d29377=""
+                >
                   列表内容的描述性文字
                 </p>
                 
@@ -724,7 +739,7 @@ exports[`List List imageTextVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List loadingVue demo works fine 1`] = `
+exports[`List > List loadingVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -970,10 +985,13 @@ exports[`List List loadingVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List multilineVue demo works fine 1`] = `
-<div>
+exports[`List > List multilineVue demo works fine 1`] = `
+<div
+  data-v-56546a76=""
+>
   <div
     class="t-list t-size-m t-list--split"
+    data-v-56546a76=""
   >
     
     
@@ -984,6 +1002,7 @@ exports[`List List multilineVue demo works fine 1`] = `
       
       <li
         class="t-list-item"
+        data-v-56546a76=""
       >
         <div
           class="t-list-item-main"
@@ -991,6 +1010,7 @@ exports[`List List multilineVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56546a76=""
           >
             
             <!---->
@@ -1016,6 +1036,7 @@ exports[`List List multilineVue demo works fine 1`] = `
       </li>
       <li
         class="t-list-item"
+        data-v-56546a76=""
       >
         <div
           class="t-list-item-main"
@@ -1023,6 +1044,7 @@ exports[`List List multilineVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56546a76=""
           >
             
             <!---->
@@ -1048,6 +1070,7 @@ exports[`List List multilineVue demo works fine 1`] = `
       </li>
       <li
         class="t-list-item"
+        data-v-56546a76=""
       >
         <div
           class="t-list-item-main"
@@ -1055,6 +1078,7 @@ exports[`List List multilineVue demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
+            data-v-56546a76=""
           >
             
             <!---->
@@ -1092,7 +1116,7 @@ exports[`List List multilineVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List operationVue demo works fine 1`] = `
+exports[`List > List operationVue demo works fine 1`] = `
 <div>
   <div
     class="t-list t-size-m t-list--split"
@@ -1496,7 +1520,7 @@ exports[`List List operationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List scrollVue demo works fine 1`] = `
+exports[`List > List scrollVue demo works fine 1`] = `
 <div
   class="t-list t-size-m"
   style="max-height: 200px;"
@@ -1713,7 +1737,7 @@ exports[`List List scrollVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List sizeVue demo works fine 1`] = `
+exports[`List > List sizeVue demo works fine 1`] = `
 <div>
   <div
     class="t-list t-size-s t-list--split"
@@ -1895,7 +1919,7 @@ exports[`List List sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`List List stripeVue demo works fine 1`] = `
+exports[`List > List stripeVue demo works fine 1`] = `
 <div>
   <div
     class="t-list t-size-m t-list--stripe"

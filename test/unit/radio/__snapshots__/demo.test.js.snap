@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Radio Radio baseVue demo works fine 1`] = `
+exports[`Radio > Radio baseVue demo works fine 1`] = `
 <div
   class="tdesign-radio-base"
 >
@@ -108,17 +108,22 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Radio Radio buttonVue demo works fine 1`] = `
+exports[`Radio > Radio buttonVue demo works fine 1`] = `
 <div
   class="tdesign-radio-button"
+  data-v-e6b66aa6=""
 >
-  <div>
+  <div
+    data-v-e6b66aa6=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-e6b66aa6=""
     >
       
       <label
         class="t-radio-button"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -141,6 +146,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-checked"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -163,6 +169,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-checked t-is-disabled"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -186,6 +193,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-disabled"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -211,13 +219,17 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <div>
+  <div
+    data-v-e6b66aa6=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
+      data-v-e6b66aa6=""
     >
       
       <label
         class="t-radio-button"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -240,6 +252,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-checked"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -262,6 +275,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-checked t-is-disabled"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -285,6 +299,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button t-is-disabled"
+        data-v-e6b66aa6=""
       >
         <input
           class="t-radio-button__former"
@@ -316,13 +331,17 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Radio Radio groupVue demo works fine 1`] = `
+exports[`Radio > Radio groupVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  data-v-58cf2f54=""
 >
-  <div>
+  <div
+    data-v-58cf2f54=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-58cf2f54=""
     >
       
       <label
@@ -410,9 +429,12 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <div>
+  <div
+    data-v-58cf2f54=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-58cf2f54=""
     >
       
       <label
@@ -499,13 +521,17 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <div>
+  <div
+    data-v-58cf2f54=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-58cf2f54=""
     >
       
       <label
         class="t-radio t-is-checked"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -526,6 +552,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -546,6 +573,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -566,6 +594,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio t-is-disabled"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -589,16 +618,22 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <h5>
+  <h5
+    data-v-58cf2f54=""
+  >
     可取消选中单选框组
   </h5>
-  <div>
+  <div
+    data-v-58cf2f54=""
+  >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-58cf2f54=""
     >
       
       <label
         class="t-radio t-is-checked"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -619,6 +654,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -639,6 +675,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -659,6 +696,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
+        data-v-58cf2f54=""
       >
         <input
           class="t-radio__former"
@@ -684,7 +722,7 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Radio Radio sizeVue demo works fine 1`] = `
+exports[`Radio > Radio sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -976,7 +1014,7 @@ exports[`Radio Radio sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Radio Radio typeVue demo works fine 1`] = `
+exports[`Radio > Radio typeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >

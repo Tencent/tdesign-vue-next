@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`TagInput TagInput autoWidthVue demo works fine 1`] = `
+exports[`TagInput > TagInput autoWidthVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -78,7 +78,7 @@ exports[`TagInput TagInput autoWidthVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput baseVue demo works fine 1`] = `
+exports[`TagInput > TagInput baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -294,7 +294,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
+exports[`TagInput > TagInput collapsedVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -537,7 +537,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput customTagVue demo works fine 1`] = `
+exports[`TagInput > TagInput customTagVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -753,7 +753,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput excessVue demo works fine 1`] = `
+exports[`TagInput > TagInput excessVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -905,7 +905,7 @@ exports[`TagInput TagInput excessVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput maxVue demo works fine 1`] = `
+exports[`TagInput > TagInput maxVue demo works fine 1`] = `
 <div
   style="width: 100%;"
 >
@@ -936,7 +936,7 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput sizeVue demo works fine 1`] = `
+exports[`TagInput > TagInput sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"
@@ -1142,7 +1142,7 @@ exports[`TagInput TagInput sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput statusVue demo works fine 1`] = `
+exports[`TagInput > TagInput statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 100%;"
@@ -1566,7 +1566,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TagInput TagInput themeVue demo works fine 1`] = `
+exports[`TagInput > TagInput themeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
   style="width: 80%;"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Layout Layout asideVue demo works fine 1`] = `
+exports[`Layout > Layout asideVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--layout"
 >
@@ -250,7 +250,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Layout Layout baseVue demo works fine 1`] = `
+exports[`Layout > Layout baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--base"
 >
@@ -412,7 +412,7 @@ exports[`Layout Layout baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Layout Layout combineVue demo works fine 1`] = `
+exports[`Layout > Layout combineVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--layout"
 >
@@ -778,7 +778,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Layout Layout topVue demo works fine 1`] = `
+exports[`Layout > Layout topVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--layout"
 >
