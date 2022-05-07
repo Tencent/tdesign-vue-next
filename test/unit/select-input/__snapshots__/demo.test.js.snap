@@ -1,7 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
-<div>
+exports[`SelectInput > SelectInput autocompleteVue demo works fine 1`] = `
+<div
+  data-v-c4e411f6=""
+>
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty"
@@ -31,6 +33,7 @@ exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-search"
+          data-v-c4e411f6=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -52,7 +55,7 @@ exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput autowidthMultipleVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-borderless-multiple"
   style="width: 100%;"
@@ -140,8 +143,10 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput autowidthVue demo works fine 1`] = `
-<div>
+exports[`SelectInput > SelectInput autowidthVue demo works fine 1`] = `
+<div
+  data-v-198f722a=""
+>
   <!-- :popup-props="{ trigger: 'hover' }" -->
   
   <div
@@ -176,6 +181,7 @@ exports[`SelectInput SelectInput autowidthVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-down"
+          data-v-198f722a=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -197,7 +203,7 @@ exports[`SelectInput SelectInput autowidthVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput borderlessMultipleVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-borderless-multiple"
   style="width: 100%;"
@@ -263,8 +269,10 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput borderlessVue demo works fine 1`] = `
-<div>
+exports[`SelectInput > SelectInput borderlessVue demo works fine 1`] = `
+<div
+  data-v-332e4da2=""
+>
   
   <div
     class="t-input__wrap t-select-input t-select-input--borderless"
@@ -298,7 +306,7 @@ exports[`SelectInput SelectInput borderlessVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput collapsedItemsVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-collapsed-items"
   style="width: 100%;"
@@ -557,9 +565,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput customTagVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-input-custom-tag"
+  data-v-1156689b=""
 >
   <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
   
@@ -577,9 +586,11 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
         
         <span
           class="displaySpan"
+          data-v-1156689b=""
         >
           <svg
             class="t-icon t-icon-control-platform tdesign-demo-select-input__img"
+            data-v-1156689b=""
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -612,8 +623,12 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <br />
-  <br />
+  <br
+    data-v-1156689b=""
+  />
+  <br
+    data-v-1156689b=""
+  />
   <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
   
   <div
@@ -635,9 +650,11 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
           
           <span
             class="displaySpan"
+            data-v-1156689b=""
           >
             <svg
               class="t-icon t-icon-control-platform"
+              data-v-1156689b=""
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -676,9 +693,11 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
           
           <span
             class="displaySpan"
+            data-v-1156689b=""
           >
             <svg
               class="t-icon t-icon-control-platform"
+              data-v-1156689b=""
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -725,8 +744,12 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <br />
-  <br />
+  <br
+    data-v-1156689b=""
+  />
+  <br
+    data-v-1156689b=""
+  />
   <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
   
   <div
@@ -745,15 +768,18 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
         
         <span
           class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          data-v-1156689b=""
           style="margin-right: 4px;"
         >
           <!---->
           
           <span
             class="displaySpan"
+            data-v-1156689b=""
           >
             <svg
               class="t-icon t-icon-control-platform"
+              data-v-1156689b=""
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -766,7 +792,9 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-            <span>
+            <span
+              data-v-1156689b=""
+            >
               tdesign-vue
             </span>
           </span>
@@ -787,15 +815,18 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
         </span>
         <span
           class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          data-v-1156689b=""
           style="margin-right: 4px;"
         >
           <!---->
           
           <span
             class="displaySpan"
+            data-v-1156689b=""
           >
             <svg
               class="t-icon t-icon-control-platform"
+              data-v-1156689b=""
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -808,7 +839,9 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-            <span>
+            <span
+              data-v-1156689b=""
+            >
               tdesign-react
             </span>
           </span>
@@ -829,15 +862,18 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
         </span>
         <span
           class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          data-v-1156689b=""
           style="margin-right: 4px;"
         >
           <!---->
           
           <span
             class="displaySpan"
+            data-v-1156689b=""
           >
             <svg
               class="t-icon t-icon-control-platform"
+              data-v-1156689b=""
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -850,7 +886,9 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-            <span>
+            <span
+              data-v-1156689b=""
+            >
               tdesign-mobile-vue
             </span>
           </span>
@@ -890,7 +928,7 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput excessTagsDisplayTypeVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-excess-tags-display-type"
   style="width: 100%;"
@@ -1217,8 +1255,10 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
 </div>
 `;
 
-exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
-<div>
+exports[`SelectInput > SelectInput labelSuffixVue demo works fine 1`] = `
+<div
+  data-v-4c34ee67=""
+>
   <!-- :popup-props="{ trigger: 'hover' }" -->
   <!-- 前置内容使用 label 自定义，支持同名插槽 label -->
   
@@ -1251,6 +1291,7 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-down"
+          data-v-4c34ee67=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1269,8 +1310,12 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <br />
-  <br />
+  <br
+    data-v-4c34ee67=""
+  />
+  <br
+    data-v-4c34ee67=""
+  />
   <!-- 后置内容使用 suffix 自定义，支持同名插槽 suffix -->
   
   <div
@@ -1306,6 +1351,7 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-down"
+          data-v-4c34ee67=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1327,7 +1373,7 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput multipleVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-multiple"
   style="width: 100%;"
@@ -1534,8 +1580,10 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
-<div>
+exports[`SelectInput > SelectInput singleVue demo works fine 1`] = `
+<div
+  data-v-661539b6=""
+>
   <!-- :popup-props="{ trigger: 'hover' }" -->
   
   <div
@@ -1566,6 +1614,7 @@ exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-down"
+          data-v-661539b6=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1587,7 +1636,7 @@ exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput statusVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-input-status"
 >
@@ -1821,7 +1870,7 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
+exports[`SelectInput > SelectInput widthVue demo works fine 1`] = `
 <div
   class="tdesign-demo__select-input-width"
 >

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Slider Slider baseVue demo works fine 1`] = `
+exports[`Slider > Slider baseVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -103,7 +103,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider disabledVue demo works fine 1`] = `
+exports[`Slider > Slider disabledVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -213,7 +213,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
+exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -541,7 +541,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider inputNumberVue demo works fine 1`] = `
+exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -867,7 +867,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider marksVue demo works fine 1`] = `
+exports[`Slider > Slider marksVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -1220,7 +1220,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
+exports[`Slider > Slider minAndMaxVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -1387,7 +1387,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider stepVue demo works fine 1`] = `
+exports[`Slider > Slider stepVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -1492,7 +1492,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
+exports[`Slider > Slider verticalMarksVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >
@@ -1759,7 +1759,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Slider Slider verticalVue demo works fine 1`] = `
+exports[`Slider > Slider verticalVue demo works fine 1`] = `
 <div
   class="demo-slider"
 >

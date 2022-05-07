@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Alert Alert baseVue demo works fine 1`] = `
+exports[`Alert > Alert baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -165,7 +165,7 @@ exports[`Alert Alert baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Alert Alert closeVue demo works fine 1`] = `
+exports[`Alert > Alert closeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -352,7 +352,7 @@ exports[`Alert Alert closeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Alert Alert collapseVue demo works fine 1`] = `
+exports[`Alert > Alert collapseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -428,7 +428,7 @@ exports[`Alert Alert collapseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Alert Alert iconVue demo works fine 1`] = `
+exports[`Alert > Alert iconVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -651,7 +651,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Alert Alert operationVue demo works fine 1`] = `
+exports[`Alert > Alert operationVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -720,7 +720,7 @@ exports[`Alert Alert operationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Alert Alert titleVue demo works fine 1`] = `
+exports[`Alert > Alert titleVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >

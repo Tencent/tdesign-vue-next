@@ -1,11 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Message Message baseVue demo works fine 1`] = `
+exports[`Message > Message baseVue demo works fine 1`] = `
 <div
   class="t-demo-message"
+  data-v-629ab400=""
 >
   <div
     class="t-message t-is-info"
+    data-v-629ab400=""
   >
     <svg
       class="t-icon t-icon-info-circle-filled"
@@ -31,6 +33,7 @@ exports[`Message Message baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-success"
+    data-v-629ab400=""
   >
     <svg
       class="t-icon t-icon-check-circle-filled"
@@ -56,6 +59,7 @@ exports[`Message Message baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-warning"
+    data-v-629ab400=""
   >
     <svg
       class="t-icon t-icon-error-circle-filled"
@@ -81,6 +85,7 @@ exports[`Message Message baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-error"
+    data-v-629ab400=""
   >
     <svg
       class="t-icon t-icon-error-circle-filled"
@@ -106,6 +111,7 @@ exports[`Message Message baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-question"
+    data-v-629ab400=""
   >
     <svg
       class="t-icon t-icon-help-circle-filled"
@@ -132,10 +138,13 @@ exports[`Message Message baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message closeAllVue demo works fine 1`] = `
-<div>
+exports[`Message > Message closeAllVue demo works fine 1`] = `
+<div
+  data-v-4c17962d=""
+>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-4c17962d=""
     type="button"
   >
     <span
@@ -148,6 +157,7 @@ exports[`Message Message closeAllVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-4c17962d=""
     id="t-demo-msg-close-all"
     type="button"
   >
@@ -162,12 +172,14 @@ exports[`Message Message closeAllVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message closeVue demo works fine 1`] = `
+exports[`Message > Message closeVue demo works fine 1`] = `
 <div
   class="t-demo-message"
+  data-v-59c4ba59=""
 >
   <div
     class="t-message t-is-info t-is-closable"
+    data-v-59c4ba59=""
   >
     <svg
       class="t-icon t-icon-info-circle-filled"
@@ -205,6 +217,7 @@ exports[`Message Message closeVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-info t-is-closable"
+    data-v-59c4ba59=""
   >
     <svg
       class="t-icon t-icon-info-circle-filled"
@@ -230,6 +243,7 @@ exports[`Message Message closeVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-info t-is-closable"
+    data-v-59c4ba59=""
   >
     <svg
       class="t-icon t-icon-info-circle-filled"
@@ -261,6 +275,7 @@ exports[`Message Message closeVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-info t-is-closable"
+    data-v-59c4ba59=""
   >
     <svg
       class="t-icon t-icon-info-circle-filled"
@@ -284,8 +299,11 @@ exports[`Message Message closeVue demo works fine 1`] = `
       
       <div
         class="t-message-close"
+        data-v-59c4ba59=""
       >
-        <b>
+        <b
+          data-v-59c4ba59=""
+        >
           x
         </b>
       </div>
@@ -295,12 +313,14 @@ exports[`Message Message closeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message loadingVue demo works fine 1`] = `
+exports[`Message > Message loadingVue demo works fine 1`] = `
 <div
   class="t-demo-message"
+  data-v-22522d5d=""
 >
   <div
     class="t-message t-is-loading"
+    data-v-22522d5d=""
   >
     <div
       class="t-loading--center t-size-m t-loading"
@@ -338,6 +358,7 @@ exports[`Message Message loadingVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-loading"
+    data-v-22522d5d=""
   >
     <div
       class="t-loading--center t-size-m t-loading"
@@ -375,6 +396,7 @@ exports[`Message Message loadingVue demo works fine 1`] = `
   </div>
   <div
     class="t-message t-is-loading"
+    data-v-22522d5d=""
   >
     <div
       class="t-loading--center t-size-m t-loading"
@@ -412,6 +434,7 @@ exports[`Message Message loadingVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+    data-v-22522d5d=""
     disabled=""
     type="button"
   >
@@ -426,14 +449,21 @@ exports[`Message Message loadingVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message offsetVue demo works fine 1`] = `
-<div>
-  <p>
+exports[`Message > Message offsetVue demo works fine 1`] = `
+<div
+  data-v-35786902=""
+>
+  <p
+    data-v-35786902=""
+  >
     偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
   </p>
-  <br />
+  <br
+    data-v-35786902=""
+  />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-35786902=""
     type="button"
   >
     <span
@@ -447,13 +477,17 @@ exports[`Message Message offsetVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message placementVue demo works fine 1`] = `
-<div>
+exports[`Message > Message placementVue demo works fine 1`] = `
+<div
+  data-v-6136b774=""
+>
   <div
     class="t-message-offset"
+    data-v-6136b774=""
   >
     <div
       class="t-input__wrap"
+      data-v-6136b774=""
     >
       <div
         class="t-input"
@@ -473,6 +507,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </div>
     <div
       class="t-input__wrap"
+      data-v-6136b774=""
     >
       <div
         class="t-input"
@@ -493,9 +528,11 @@ exports[`Message Message placementVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-tooltip-placement"
+    data-v-6136b774=""
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-center"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -508,6 +545,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -520,6 +558,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-left"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -532,6 +571,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-right"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -544,6 +584,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -556,6 +597,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top-left"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -568,6 +610,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top-right"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -580,6 +623,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom-left"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -592,6 +636,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom-right"
+      data-v-6136b774=""
       type="button"
     >
       <span
@@ -606,17 +651,25 @@ exports[`Message Message placementVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message pluginVue demo works fine 1`] = `
-<div>
-  <p>
+exports[`Message > Message pluginVue demo works fine 1`] = `
+<div
+  data-v-454223a2=""
+>
+  <p
+    data-v-454223a2=""
+  >
     插件调用
   </p>
-  <br />
+  <br
+    data-v-454223a2=""
+  />
   <div
     class="t-demo-message-duration"
+    data-v-454223a2=""
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -629,6 +682,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -641,6 +695,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -653,6 +708,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -665,6 +721,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -678,6 +735,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     <!-- 0 表示永远不自动消失 -->
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -690,6 +748,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -701,17 +760,27 @@ exports[`Message Message pluginVue demo works fine 1`] = `
       </span>
     </button>
   </div>
-  <br />
-  <br />
-  <p>
+  <br
+    data-v-454223a2=""
+  />
+  <br
+    data-v-454223a2=""
+  />
+  <p
+    data-v-454223a2=""
+  >
     函数式调用
   </p>
-  <br />
+  <br
+    data-v-454223a2=""
+  />
   <div
     class="t-demo-message-theme"
+    data-v-454223a2=""
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -724,6 +793,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -736,6 +806,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -748,6 +819,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -760,6 +832,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -772,6 +845,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -784,6 +858,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-454223a2=""
       type="button"
     >
       <span
@@ -795,12 +870,16 @@ exports[`Message Message pluginVue demo works fine 1`] = `
       </span>
     </button>
   </div>
-  <br />
-  <br />
+  <br
+    data-v-454223a2=""
+  />
+  <br
+    data-v-454223a2=""
+  />
 </div>
 `;
 
-exports[`Message Message toggleVue demo works fine 1`] = `
+exports[`Message > Message toggleVue demo works fine 1`] = `
 <div
   id="t-demo-message-toggle"
 >
@@ -819,7 +898,7 @@ exports[`Message Message toggleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message Message typeVue demo works fine 1`] = `
+exports[`Message > Message typeVue demo works fine 1`] = `
 <div
   class="t-demo-message"
 >

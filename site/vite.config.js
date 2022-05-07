@@ -13,12 +13,27 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
+const testConfig = {
+  include: ['test/vitetest/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  globals: true,
+  environment: 'jsdom',
+  testTimeout: 5000,
+  setupFiles: path.resolve(__dirname, '../script/test/setup.js'),
+  transformMode: {
+    web: [/\.[jt]sx$/],
+  },
+  coverage: {
+    reporter: ['text', 'json', 'html'],
+  },
+};
+
 export default ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../'),
+        '@/src': path.resolve(__dirname, '../src/'),
         '@common': path.resolve(__dirname, '../src/_common'),
         'tdesign-vue-next/es': path.resolve(__dirname, '../src'),
         'tdesign-vue-next': path.resolve(__dirname, '../src'),
@@ -51,11 +66,6 @@ export default ({ mode }) => {
       tDocPlugin(),
       VitePWA(pwaConfig),
     ],
-    test: {
-      include: ['test/vitetest/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-      globals: true,
-      environment: 'jsdom',
-      setupFiles: path.resolve(__dirname, '../script/test/setup.js'),
-    },
+    test: testConfig,
   });
 };

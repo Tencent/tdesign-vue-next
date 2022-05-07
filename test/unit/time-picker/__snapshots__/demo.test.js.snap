@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
+  data-v-4a188f99=""
 >
   
   <div
@@ -173,11 +174,14 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker clearableVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
+  data-v-c49ba8e2=""
 >
-  <h3>
+  <h3
+    data-v-c49ba8e2=""
+  >
     具备清空按钮
   </h3>
   
@@ -263,7 +267,9 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <h3>
+  <h3
+    data-v-c49ba8e2=""
+  >
     禁止清空按钮
   </h3>
   
@@ -352,7 +358,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker disabledVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -443,7 +449,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker formatVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -542,11 +548,14 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker hideClearButtonVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
+  data-v-10cc70c5=""
 >
-  <h3>
+  <h3
+    data-v-10cc70c5=""
+  >
     具备清空按钮
   </h3>
   
@@ -632,7 +641,9 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <h3>
+  <h3
+    data-v-10cc70c5=""
+  >
     禁止清空按钮
   </h3>
   
@@ -698,7 +709,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker hmVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -765,7 +776,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker hmsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -855,11 +866,14 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker keyboardVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
+  data-v-00d4aca2=""
 >
-  <h3>
+  <h3
+    data-v-00d4aca2=""
+  >
     允许输入
   </h3>
   
@@ -942,7 +956,9 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
   </div>
   <!---->
   
-  <h3>
+  <h3
+    data-v-00d4aca2=""
+  >
     禁止输入
   </h3>
   
@@ -1031,7 +1047,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker rangeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -1142,7 +1158,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker showStepsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -1209,7 +1225,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker stepVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -1299,9 +1315,10 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker twelveHourMeridianVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
+  data-v-5f0d019e=""
 >
   
   <div
@@ -1398,7 +1415,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
+exports[`TimePicker > TimePicker twelveHourVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >

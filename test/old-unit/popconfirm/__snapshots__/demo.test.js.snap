@@ -1,0 +1,314 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
+<div
+  class="popconfirm-demo"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          删除订单
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!-- 受控用法：自由控制浮层显示与否 -->
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          提交审核
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
+<div
+  class="popconfirm-demo"
+>
+  <!-- 和 Dialog/Drawer 组件的确认/取消 逻辑一样 -->
+  <div
+    class="tdesign-demo-block"
+  >
+    <!-- 使用 props 定义按钮内容 -->
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        按钮样式（属性-字符串）
+        
+      </span>
+    </button>
+    <!---->
+    
+    <!-- 通过透传按钮属性自定义按钮，cancelBtn 和 confirmBtn 值为 null 时表示不显示该按钮 -->
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        按钮样式（属性-对象）
+        
+      </span>
+    </button>
+    <!---->
+    
+    <!-- 使用插槽定义按钮内容 -->
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        按钮样式（插槽）
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
+<div
+  class="popconfirm-demo"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          自定义浮层内容
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          自定义浮层内容
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
+<div
+  class="popconfirm-demo"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          默认
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          警告
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          危险
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <div
+    class="tdesign-demo-block"
+  >
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          自定义图标（插槽）
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <div
+      class="demo-item"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          自定义图标（属性）
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
+<div
+  class="popconfirm-demo"
+>
+  <!-- 可以使用 popupProps.placement 控制弹出方向 -->
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        浮层出现在下方
+        
+      </span>
+    </button>
+    <!---->
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        浮层出现在右侧
+        
+      </span>
+    </button>
+    <!---->
+    
+  </div>
+</div>
+`;

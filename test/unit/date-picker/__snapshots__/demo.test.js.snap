@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -56,7 +56,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker customIconVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -140,13 +140,17 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
-<div>
+exports[`DatePicker > DatePicker datePresetsAltVue demo works fine 1`] = `
+<div
+  data-v-c8f820cc=""
+>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-c8f820cc=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-c8f820cc=""
       theme="primary"
     >
       
@@ -197,9 +201,11 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-c8f820cc=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-c8f820cc=""
       theme="primary"
     >
       
@@ -251,7 +257,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker datePresetsTimeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -307,7 +313,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker datePresetsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -363,7 +369,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker dateRangeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -474,7 +480,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker dateTimeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -535,13 +541,17 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
-<div>
+exports[`DatePicker > DatePicker disableDateVue demo works fine 1`] = `
+<div
+  data-v-60285748=""
+>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-60285748=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-60285748=""
       theme="primary"
     >
       
@@ -592,9 +602,11 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-60285748=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-60285748=""
       theme="primary"
     >
       
@@ -645,9 +657,11 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-60285748=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-60285748=""
       theme="primary"
     >
       
@@ -698,9 +712,11 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-60285748=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-60285748=""
       theme="primary"
     >
       
@@ -751,9 +767,11 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
   </div>
   <div
     class="tdesign-demo-item--datepicker"
+    data-v-60285748=""
   >
     <div
       class="t-date-picker t-size-m"
+      data-v-60285748=""
       theme="primary"
     >
       
@@ -805,7 +823,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker firstDayOfWeekVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -860,7 +878,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker monthVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >
@@ -916,7 +934,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
+exports[`DatePicker > DatePicker yearVue demo works fine 1`] = `
 <div
   class="tdesign-demo-item--datepicker"
 >

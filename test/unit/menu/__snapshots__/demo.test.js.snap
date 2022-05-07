@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Menu Menu closableSideVue demo works fine 1`] = `
+exports[`Menu > Menu closableSideVue demo works fine 1`] = `
 <div
   class="t-default-menu t-menu--light t-is-collapsed"
   height="550px"
@@ -149,9 +149,10 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu customHeaderVue demo works fine 1`] = `
+exports[`Menu > Menu customHeaderVue demo works fine 1`] = `
 <div
   class="t-menu t-head-menu t-menu--dark"
+  data-v-3f31ee42=""
 >
   <div
     class="t-head-menu__inner"
@@ -163,6 +164,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
+        data-v-3f31ee42=""
       >
         <!---->
         <span
@@ -175,6 +177,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
+        data-v-3f31ee42=""
       >
         <!---->
         <span
@@ -187,6 +190,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
+        data-v-3f31ee42=""
       >
         <!---->
         <span
@@ -199,6 +203,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
+        data-v-3f31ee42=""
       >
         <!---->
         <span
@@ -217,6 +222,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       
       <div
         class="demo-box"
+        data-v-3f31ee42=""
       >
         自定义内容区域
       </div>
@@ -227,7 +233,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu customSideVue demo works fine 1`] = `
+exports[`Menu > Menu customSideVue demo works fine 1`] = `
 <div
   class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
@@ -305,7 +311,7 @@ exports[`Menu Menu customSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu doubleVue demo works fine 1`] = `
+exports[`Menu > Menu doubleVue demo works fine 1`] = `
 <div
   class="box"
 >
@@ -713,7 +719,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu groupSideVue demo works fine 1`] = `
+exports[`Menu > Menu groupSideVue demo works fine 1`] = `
 <div
   class="t-default-menu t-menu--light t-is-collapsed"
   height="550px"
@@ -845,7 +851,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
+exports[`Menu > Menu headMenuDarkVue demo works fine 1`] = `
 <div
   class="t-menu t-head-menu t-menu--dark"
 >
@@ -973,7 +979,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
+exports[`Menu > Menu headMenuEmptyVue demo works fine 1`] = `
 <div
   class="t-menu t-head-menu t-menu--light"
 >
@@ -1041,7 +1047,7 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
+exports[`Menu > Menu headMenuModeTileVue demo works fine 1`] = `
 <div
   class="t-menu t-head-menu t-menu--dark"
 >
@@ -1169,7 +1175,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
+exports[`Menu > Menu headMenuTileVue demo works fine 1`] = `
 <div
   class="t-menu t-head-menu t-menu--dark"
 >
@@ -1479,7 +1485,7 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu multiSideVue demo works fine 1`] = `
+exports[`Menu > Menu multiSideVue demo works fine 1`] = `
 <div
   class="box"
 >
@@ -2287,7 +2293,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu multipleVue demo works fine 1`] = `
+exports[`Menu > Menu multipleVue demo works fine 1`] = `
 <div
   class="box"
 >
@@ -2599,7 +2605,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu popupSideVue demo works fine 1`] = `
+exports[`Menu > Menu popupSideVue demo works fine 1`] = `
 <div
   class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
@@ -2855,7 +2861,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
+exports[`Menu > Menu sideMenuWidthVue demo works fine 1`] = `
 <div
   class="t-default-menu t-menu--light"
   height="550px"
@@ -2935,7 +2941,7 @@ exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu singleSideVue demo works fine 1`] = `
+exports[`Menu > Menu singleSideVue demo works fine 1`] = `
 <div
   class="box"
 >
@@ -3497,7 +3503,7 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Menu Menu singleVue demo works fine 1`] = `
+exports[`Menu > Menu singleVue demo works fine 1`] = `
 <div>
   <div
     class="t-menu t-head-menu t-menu--light"

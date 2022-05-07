@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect baseVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-base"
+  data-v-5864777c=""
 >
   
   <div
@@ -58,9 +59,10 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect collapsedVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-52eed288=""
 >
   
   <div
@@ -217,19 +219,23 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect filterableVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-642a1a86=""
 >
   <div
     class="operation"
+    data-v-642a1a86=""
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
+      data-v-642a1a86=""
     >
       
       <label
         class="t-radio-button t-is-checked"
+        data-v-642a1a86=""
       >
         <input
           class="t-radio-button__former"
@@ -252,6 +258,7 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio-button"
+        data-v-642a1a86=""
       >
         <input
           class="t-radio-button__former"
@@ -332,9 +339,10 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect lazyVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-lazy"
+  data-v-743bfa9f=""
 >
   
   <div
@@ -390,9 +398,10 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect multipleVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-multiple"
+  data-v-9240448a=""
 >
   
   <div
@@ -473,9 +482,10 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect prefixVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-prefix"
+  data-v-1e17fc06=""
 >
   
   <div
@@ -492,6 +502,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-browse"
+          data-v-1e17fc06=""
         >
           <use
             href="#t-icon-browse"
@@ -547,9 +558,10 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect propsVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-base"
+  data-v-0e96f056=""
 >
   
   <div
@@ -605,9 +617,10 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect valuedisplayVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-12149848=""
 >
   
   <div
@@ -725,9 +738,10 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
+exports[`TreeSelect > TreeSelect valuetypeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row"
+  data-v-14218ae0=""
 >
   
   <div

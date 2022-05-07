@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Comment Comment baseVue demo works fine 1`] = `
+exports[`Comment > Comment baseVue demo works fine 1`] = `
 <div
   class="t-comment"
 >
@@ -46,9 +46,10 @@ exports[`Comment Comment baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Comment Comment listVue demo works fine 1`] = `
+exports[`Comment > Comment listVue demo works fine 1`] = `
 <div
   class="t-list t-size-m t-list--split"
+  data-v-00f337f5=""
 >
   
   
@@ -60,6 +61,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
     
     <li
       class="t-list-item"
+      data-v-00f337f5=""
     >
       <div
         class="t-list-item-main"
@@ -67,6 +69,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
         
         <div
           class="t-comment"
+          data-v-00f337f5=""
         >
           <div
             class="t-comment__inner"
@@ -108,9 +111,12 @@ exports[`Comment Comment listVue demo works fine 1`] = `
               >
                 
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-thumb-up"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-thumb-up"
@@ -118,15 +124,19 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       6
                     </span>
                   </span>
                 </li>
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-chat"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-chat"
@@ -134,6 +144,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       回复
                     </span>
@@ -151,6 +162,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
     </li>
     <li
       class="t-list-item"
+      data-v-00f337f5=""
     >
       <div
         class="t-list-item-main"
@@ -158,6 +170,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
         
         <div
           class="t-comment"
+          data-v-00f337f5=""
         >
           <div
             class="t-comment__inner"
@@ -199,9 +212,12 @@ exports[`Comment Comment listVue demo works fine 1`] = `
               >
                 
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-thumb-up"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-thumb-up"
@@ -209,15 +225,19 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       6
                     </span>
                   </span>
                 </li>
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-chat"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-chat"
@@ -225,6 +245,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       回复
                     </span>
@@ -242,6 +263,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
     </li>
     <li
       class="t-list-item"
+      data-v-00f337f5=""
     >
       <div
         class="t-list-item-main"
@@ -249,6 +271,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
         
         <div
           class="t-comment"
+          data-v-00f337f5=""
         >
           <div
             class="t-comment__inner"
@@ -290,9 +313,12 @@ exports[`Comment Comment listVue demo works fine 1`] = `
               >
                 
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-thumb-up"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-thumb-up"
@@ -300,15 +326,19 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       6
                     </span>
                   </span>
                 </li>
                 <li>
-                  <span>
+                  <span
+                    data-v-00f337f5=""
+                  >
                     <svg
                       class="t-icon t-icon-chat"
+                      data-v-00f337f5=""
                     >
                       <use
                         href="#t-icon-chat"
@@ -316,6 +346,7 @@ exports[`Comment Comment listVue demo works fine 1`] = `
                     </svg>
                     <span
                       class="action-text"
+                      data-v-00f337f5=""
                     >
                       回复
                     </span>
@@ -345,9 +376,10 @@ exports[`Comment Comment listVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Comment Comment operationVue demo works fine 1`] = `
+exports[`Comment > Comment operationVue demo works fine 1`] = `
 <div
   class="t-comment"
+  data-v-6624a820=""
 >
   <div
     class="t-comment__inner"
@@ -389,9 +421,12 @@ exports[`Comment Comment operationVue demo works fine 1`] = `
       >
         
         <li>
-          <span>
+          <span
+            data-v-6624a820=""
+          >
             <svg
               class="t-icon t-icon-thumb-up"
+              data-v-6624a820=""
             >
               <use
                 href="#t-icon-thumb-up"
@@ -399,15 +434,19 @@ exports[`Comment Comment operationVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-6624a820=""
             >
               6
             </span>
           </span>
         </li>
         <li>
-          <span>
+          <span
+            data-v-6624a820=""
+          >
             <svg
               class="t-icon t-icon-chat"
+              data-v-6624a820=""
             >
               <use
                 href="#t-icon-chat"
@@ -415,6 +454,7 @@ exports[`Comment Comment operationVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-6624a820=""
             >
               回复
             </span>
@@ -428,9 +468,10 @@ exports[`Comment Comment operationVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Comment Comment quoteVue demo works fine 1`] = `
+exports[`Comment > Comment quoteVue demo works fine 1`] = `
 <div
   class="t-comment"
+  data-v-10a57735=""
 >
   <div
     class="t-comment__inner"
@@ -472,6 +513,7 @@ exports[`Comment Comment quoteVue demo works fine 1`] = `
         
         <div
           class="t-comment"
+          data-v-10a57735=""
         >
           <div
             class="t-comment__inner"
@@ -508,9 +550,12 @@ exports[`Comment Comment quoteVue demo works fine 1`] = `
       >
         
         <li>
-          <span>
+          <span
+            data-v-10a57735=""
+          >
             <svg
               class="t-icon t-icon-thumb-up"
+              data-v-10a57735=""
             >
               <use
                 href="#t-icon-thumb-up"
@@ -518,15 +563,19 @@ exports[`Comment Comment quoteVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-10a57735=""
             >
               6
             </span>
           </span>
         </li>
         <li>
-          <span>
+          <span
+            data-v-10a57735=""
+          >
             <svg
               class="t-icon t-icon-chat"
+              data-v-10a57735=""
             >
               <use
                 href="#t-icon-chat"
@@ -534,6 +583,7 @@ exports[`Comment Comment quoteVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-10a57735=""
             >
               回复
             </span>
@@ -547,9 +597,10 @@ exports[`Comment Comment quoteVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Comment Comment replyFormVue demo works fine 1`] = `
+exports[`Comment > Comment replyFormVue demo works fine 1`] = `
 <div
   class="t-comment"
+  data-v-361d1d5e=""
 >
   <div
     class="t-comment__inner"
@@ -573,9 +624,11 @@ exports[`Comment Comment replyFormVue demo works fine 1`] = `
         
         <div
           class="form-container"
+          data-v-361d1d5e=""
         >
           <div
             class="t-textarea"
+            data-v-361d1d5e=""
           >
             <textarea
               class="t-textarea__inner narrow-scrollbar"
@@ -587,6 +640,7 @@ exports[`Comment Comment replyFormVue demo works fine 1`] = `
           </div>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary form-submit"
+            data-v-361d1d5e=""
             type="button"
           >
             <span
@@ -608,9 +662,10 @@ exports[`Comment Comment replyFormVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Comment Comment replyVue demo works fine 1`] = `
+exports[`Comment > Comment replyVue demo works fine 1`] = `
 <div
   class="t-comment"
+  data-v-4f3064a3=""
 >
   <div
     class="t-comment__inner"
@@ -652,9 +707,12 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
       >
         
         <li>
-          <span>
+          <span
+            data-v-4f3064a3=""
+          >
             <svg
               class="t-icon t-icon-thumb-up"
+              data-v-4f3064a3=""
             >
               <use
                 href="#t-icon-thumb-up"
@@ -662,15 +720,19 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-4f3064a3=""
             >
               6
             </span>
           </span>
         </li>
         <li>
-          <span>
+          <span
+            data-v-4f3064a3=""
+          >
             <svg
               class="t-icon t-icon-chat"
+              data-v-4f3064a3=""
             >
               <use
                 href="#t-icon-chat"
@@ -678,6 +740,7 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
             </svg>
             <span
               class="action-text"
+              data-v-4f3064a3=""
             >
               回复
             </span>
@@ -693,6 +756,7 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
     
     <div
       class="t-comment"
+      data-v-4f3064a3=""
     >
       <div
         class="t-comment__inner"
@@ -716,17 +780,22 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
               class="t-comment__name"
             >
               
-              <span>
+              <span
+                data-v-4f3064a3=""
+              >
                 评论作者名B
               </span>
               <svg
                 class="t-icon t-icon-caret-right-small t-size-s author-icon"
+                data-v-4f3064a3=""
               >
                 <use
                   href="#t-icon-caret-right-small"
                 />
               </svg>
-              <span>
+              <span
+                data-v-4f3064a3=""
+              >
                 评论作者名A
               </span>
               
@@ -748,9 +817,12 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
           >
             
             <li>
-              <span>
+              <span
+                data-v-4f3064a3=""
+              >
                 <svg
                   class="t-icon t-icon-thumb-up"
+                  data-v-4f3064a3=""
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -758,15 +830,19 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
                 </svg>
                 <span
                   class="action-text"
+                  data-v-4f3064a3=""
                 >
                   6
                 </span>
               </span>
             </li>
             <li>
-              <span>
+              <span
+                data-v-4f3064a3=""
+              >
                 <svg
                   class="t-icon t-icon-chat"
+                  data-v-4f3064a3=""
                 >
                   <use
                     href="#t-icon-chat"
@@ -774,6 +850,7 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
                 </svg>
                 <span
                   class="action-text"
+                  data-v-4f3064a3=""
                 >
                   回复
                 </span>

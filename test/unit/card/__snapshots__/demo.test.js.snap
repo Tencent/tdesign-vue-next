@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Card Card baseVue demo works fine 1`] = `
+exports[`Card > Card baseVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered"
   style="width: 400px;"
@@ -47,12 +47,14 @@ exports[`Card Card baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card borderedNoneVue demo works fine 1`] = `
+exports[`Card > Card borderedNoneVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block demo-card"
+  data-v-3b3c7bf8=""
 >
   <div
     class="t-card t-card--shadow-hover"
+    data-v-3b3c7bf8=""
     style="width: 400px;"
   >
     <div
@@ -77,6 +79,7 @@ exports[`Card Card borderedNoneVue demo works fine 1`] = `
       >
         
         <a
+          data-v-3b3c7bf8=""
           href="javascript:void(0)"
         >
           操作
@@ -98,7 +101,7 @@ exports[`Card Card borderedNoneVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card borderedVue demo works fine 1`] = `
+exports[`Card > Card borderedVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -120,7 +123,7 @@ exports[`Card Card borderedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card footerActionsVue demo works fine 1`] = `
+exports[`Card > Card footerActionsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -476,7 +479,7 @@ exports[`Card Card footerActionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card footerContentActionsVue demo works fine 1`] = `
+exports[`Card > Card footerContentActionsVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -579,7 +582,7 @@ exports[`Card Card footerContentActionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card footerContentVue demo works fine 1`] = `
+exports[`Card > Card footerContentVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered"
   style="width: 400px;"
@@ -646,7 +649,7 @@ exports[`Card Card footerContentVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card footerVue demo works fine 1`] = `
+exports[`Card > Card footerVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered"
   style="width: 400px;"
@@ -852,7 +855,7 @@ exports[`Card Card footerVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerAllPropsVue demo works fine 1`] = `
+exports[`Card > Card headerAllPropsVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered t-card--shadow-hover"
   style="width: 400px;"
@@ -901,7 +904,7 @@ exports[`Card Card headerAllPropsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerBorderedVue demo works fine 1`] = `
+exports[`Card > Card headerBorderedVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block demo-card"
 >
@@ -952,7 +955,7 @@ exports[`Card Card headerBorderedVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerDescriptionVue demo works fine 1`] = `
+exports[`Card > Card headerDescriptionVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered t-card--shadow-hover"
   style="width: 400px;"
@@ -997,7 +1000,7 @@ exports[`Card Card headerDescriptionVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
+exports[`Card > Card headerFooterActionsVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered"
   style="width: 400px;"
@@ -1221,7 +1224,7 @@ exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
+exports[`Card > Card headerSubtitleFooterActionsVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered"
   style="width: 400px;"
@@ -1432,7 +1435,7 @@ exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerSubtitleVue demo works fine 1`] = `
+exports[`Card > Card headerSubtitleVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered t-card--shadow-hover"
   style="width: 400px;"
@@ -1477,7 +1480,7 @@ exports[`Card Card headerSubtitleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card headerVue demo works fine 1`] = `
+exports[`Card > Card headerVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block"
 >
@@ -1528,7 +1531,7 @@ exports[`Card Card headerVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card hoverVue demo works fine 1`] = `
+exports[`Card > Card hoverVue demo works fine 1`] = `
 <div
   class="t-card t-card--bordered t-card--shadow-hover"
   style="width: 400px;"
@@ -1569,7 +1572,7 @@ exports[`Card Card hoverVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Card Card smallVue demo works fine 1`] = `
+exports[`Card > Card smallVue demo works fine 1`] = `
 <div
   class="t-card t-size-s t-card--bordered t-card--shadow-hover"
   style="width: 400px;"

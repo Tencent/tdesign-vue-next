@@ -1,16 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Popup Popup baseVue demo works fine 1`] = `
-<div>
+exports[`Popup > Popup baseVue demo works fine 1`] = `
+<div
+  data-v-108d2a8a=""
+>
   <!-- 共三种方式自定义浮层内容 -->
   <!-- 使用 content 属性渲染浮层内容 -->
   <div
     class="t-popup-demo-base-item"
+    data-v-108d2a8a=""
   >
     
-    <div>
+    <div
+      data-v-108d2a8a=""
+    >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        data-v-108d2a8a=""
         disabled=""
         type="button"
       >
@@ -30,10 +36,12 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
   <!-- slot="content" 写法不建议使用，请使用 #content 写法 -->
   <div
     class="t-popup-demo-base-item"
+    data-v-108d2a8a=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-108d2a8a=""
       type="button"
     >
       <span
@@ -50,10 +58,12 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
   <!-- 使用 content 渲染函数输出浮层内容 -->
   <div
     class="t-popup-demo-base-item"
+    data-v-108d2a8a=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-108d2a8a=""
       type="button"
     >
       <span
@@ -70,17 +80,22 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup containerVue demo works fine 1`] = `
-<div>
+exports[`Popup > Popup containerVue demo works fine 1`] = `
+<div
+  data-v-a3f0aff2=""
+>
   <div
     class="t-popup-demo-block"
+    data-v-a3f0aff2=""
   >
     
     <div
+      data-v-a3f0aff2=""
       id="myPopup"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-a3f0aff2=""
         type="button"
       >
         <span
@@ -97,11 +112,13 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup-demo-block"
+    data-v-a3f0aff2=""
     id="second-popup"
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-a3f0aff2=""
       type="button"
     >
       <span
@@ -118,7 +135,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup destroyVue demo works fine 1`] = `
+exports[`Popup > Popup destroyVue demo works fine 1`] = `
 <div>
   
   <button
@@ -138,7 +155,7 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup disabledVue demo works fine 1`] = `
+exports[`Popup > Popup disabledVue demo works fine 1`] = `
 <div>
   
   <button
@@ -159,13 +176,15 @@ exports[`Popup Popup disabledVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup placementVue demo works fine 1`] = `
+exports[`Popup > Popup placementVue demo works fine 1`] = `
 <div
   class="container"
+  data-v-0f129c6b=""
 >
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top center"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -181,6 +200,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top left"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -196,6 +216,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top right"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -211,6 +232,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom center"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -226,6 +248,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom left"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -241,6 +264,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom right"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -256,6 +280,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -271,6 +296,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top-align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -286,6 +312,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom-align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -301,6 +328,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -316,6 +344,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full top-align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -331,6 +360,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full bottom-align"
+    data-v-0f129c6b=""
     type="button"
   >
     <span
@@ -346,14 +376,18 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup styleVue demo works fine 1`] = `
-<div>
+exports[`Popup > Popup styleVue demo works fine 1`] = `
+<div
+  data-v-4c196f92=""
+>
   <div
     class="t-popup-demo-base-item"
+    data-v-4c196f92=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-4c196f92=""
       type="button"
     >
       <span
@@ -369,10 +403,12 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup-demo-base-item"
+    data-v-4c196f92=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-4c196f92=""
       type="button"
     >
       <span
@@ -388,10 +424,12 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup-demo-base-item"
+    data-v-4c196f92=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-4c196f92=""
       type="button"
     >
       <span
@@ -407,10 +445,12 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup-demo-base-item"
+    data-v-4c196f92=""
   >
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      data-v-4c196f92=""
       type="button"
     >
       <span
@@ -427,16 +467,22 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup triggerElementVue demo works fine 1`] = `
-<div>
+exports[`Popup > Popup triggerElementVue demo works fine 1`] = `
+<div
+  data-v-27e50ded=""
+>
   <!-- 总共四种自定义触发元素的方式 -->
-  <div>
+  <div
+    data-v-27e50ded=""
+  >
     <div
       class="t-popup-demo-base-item"
+      data-v-27e50ded=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-27e50ded=""
         type="button"
       >
         <span
@@ -452,10 +498,12 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
     </div>
     <div
       class="t-popup-demo-base-item"
+      data-v-27e50ded=""
     >
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        data-v-27e50ded=""
         type="button"
       >
         <span
@@ -470,10 +518,15 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
       
     </div>
   </div>
-  <br />
-  <div>
+  <br
+    data-v-27e50ded=""
+  />
+  <div
+    data-v-27e50ded=""
+  >
     <div
       class="t-popup-demo-base-item"
+      data-v-27e50ded=""
     >
       
       <button
@@ -493,6 +546,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
     </div>
     <div
       class="t-popup-demo-base-item"
+      data-v-27e50ded=""
     >
       
       <button
@@ -514,13 +568,15 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup triggerVue demo works fine 1`] = `
+exports[`Popup > Popup triggerVue demo works fine 1`] = `
 <div
   class="popup-demo-container"
+  data-v-5235c13e=""
 >
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-5235c13e=""
     type="button"
   >
     <span
@@ -536,6 +592,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-5235c13e=""
     type="button"
   >
     <span
@@ -551,6 +608,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap"
+    data-v-5235c13e=""
   >
     <div
       class="t-input"
@@ -573,6 +631,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-5235c13e=""
     type="button"
   >
     <span
@@ -588,7 +647,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup visibleVue demo works fine 1`] = `
+exports[`Popup > Popup visibleVue demo works fine 1`] = `
 <div>
   
   <button

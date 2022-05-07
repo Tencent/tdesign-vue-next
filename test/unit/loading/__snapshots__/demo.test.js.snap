@@ -1,19 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Loading Loading attachVue demo works fine 1`] = `
+exports[`Loading > Loading attachVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  data-v-04abd91f=""
 >
   <div
     class="loading-attach-demo__title"
+    data-v-04abd91f=""
     id="alice"
   >
     Hello, I'm Alice. I'm going to be a front-end developer.
   </div>
   <!---->
-  <div>
+  <div
+    data-v-04abd91f=""
+  >
     <div
       class="t-switch t-size-m"
+      data-v-04abd91f=""
     >
       <span
         class="t-switch__handle"
@@ -30,7 +35,7 @@ exports[`Loading Loading attachVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading baseVue demo works fine 1`] = `
+exports[`Loading > Loading baseVue demo works fine 1`] = `
 <div
   class="t-loading-demo"
 >
@@ -68,7 +73,7 @@ exports[`Loading Loading baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading delayVue demo works fine 1`] = `
+exports[`Loading > Loading delayVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -145,7 +150,7 @@ exports[`Loading Loading delayVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading fullscreenVue demo works fine 1`] = `
+exports[`Loading > Loading fullscreenVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -174,7 +179,7 @@ exports[`Loading Loading fullscreenVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading iconTextVue demo works fine 1`] = `
+exports[`Loading > Loading iconTextVue demo works fine 1`] = `
 <div>
   <div
     class="t-loading--center t-size-s t-loading"
@@ -208,7 +213,7 @@ exports[`Loading Loading iconTextVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading indicatorSlotVue demo works fine 1`] = `
+exports[`Loading > Loading indicatorSlotVue demo works fine 1`] = `
 <div>
   <div
     class="t-loading--center t-size-m t-loading"
@@ -227,7 +232,7 @@ exports[`Loading Loading indicatorSlotVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading preventScrollThroughVue demo works fine 1`] = `
+exports[`Loading > Loading preventScrollThroughVue demo works fine 1`] = `
 <div
   class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay"
 >
@@ -259,27 +264,35 @@ exports[`Loading Loading preventScrollThroughVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading serviceVue demo works fine 1`] = `
+exports[`Loading > Loading serviceVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  data-v-4d498c4b=""
 >
   <div
     class="loading-service-demo"
+    data-v-4d498c4b=""
     id="loading-service-demo"
   >
     Loading 挂载容器
   </div>
-  <p>
+  <p
+    data-v-4d498c4b=""
+  >
     this.$loading(true)
   </p>
-  <p>
+  <p
+    data-v-4d498c4b=""
+  >
     this.$loading({ attach: '#loading-service-demo', showOverlay: true })
   </p>
   <div
     class="tdesign-demo-block-row"
+    data-v-4d498c4b=""
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -292,6 +305,7 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -304,6 +318,7 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -315,17 +330,23 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
       </span>
     </button>
   </div>
-  <p>
+  <p
+    data-v-4d498c4b=""
+  >
     LoadingPlugin(true)
   </p>
-  <p>
+  <p
+    data-v-4d498c4b=""
+  >
     LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })
   </p>
   <div
     class="tdesign-demo-block-row"
+    data-v-4d498c4b=""
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -338,6 +359,7 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -350,6 +372,7 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-4d498c4b=""
       type="button"
     >
       <span
@@ -364,7 +387,7 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading sizeVue demo works fine 1`] = `
+exports[`Loading > Loading sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >
@@ -528,7 +551,7 @@ exports[`Loading Loading sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading textVue demo works fine 1`] = `
+exports[`Loading > Loading textVue demo works fine 1`] = `
 <div
   class="t-loading-demo"
 >
@@ -571,27 +594,39 @@ exports[`Loading Loading textVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading Loading wrapVue demo works fine 1`] = `
+exports[`Loading > Loading wrapVue demo works fine 1`] = `
 <div
   class="loading-wrap-demo"
+  data-v-76c7f924=""
 >
   <div
     class="t-loading__parent"
+    data-v-76c7f924=""
   >
     
-    <div>
+    <div
+      data-v-76c7f924=""
+    >
       this is loading component
     </div>
-    <div>
+    <div
+      data-v-76c7f924=""
+    >
       this is loading component
     </div>
-    <div>
+    <div
+      data-v-76c7f924=""
+    >
       this is loading component
     </div>
-    <div>
+    <div
+      data-v-76c7f924=""
+    >
       this is loading component
     </div>
-    <div>
+    <div
+      data-v-76c7f924=""
+    >
       this is loading component
     </div>
     
@@ -621,10 +656,15 @@ exports[`Loading Loading wrapVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <br />
-  <div>
+  <br
+    data-v-76c7f924=""
+  />
+  <div
+    data-v-76c7f924=""
+  >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-76c7f924=""
       type="button"
     >
       <span
@@ -637,6 +677,7 @@ exports[`Loading Loading wrapVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      data-v-76c7f924=""
       type="button"
     >
       <span

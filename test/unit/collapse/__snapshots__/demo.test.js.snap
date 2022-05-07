@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Collapse Collapse baseVue demo works fine 1`] = `
+exports[`Collapse > Collapse baseVue demo works fine 1`] = `
 <div
   class="tdesign-collapse"
 >
@@ -616,7 +616,7 @@ exports[`Collapse Collapse baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Collapse Collapse iconVue demo works fine 1`] = `
+exports[`Collapse > Collapse iconVue demo works fine 1`] = `
 <div
   class="tdesign-collapse"
 >
@@ -916,7 +916,7 @@ exports[`Collapse Collapse iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Collapse Collapse mutexVue demo works fine 1`] = `
+exports[`Collapse > Collapse mutexVue demo works fine 1`] = `
 <div
   class="tdesign-collapse"
 >
@@ -1130,7 +1130,7 @@ exports[`Collapse Collapse mutexVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Collapse Collapse otherVue demo works fine 1`] = `
+exports[`Collapse > Collapse otherVue demo works fine 1`] = `
 <div
   class="tdesign-collapse"
 >
@@ -1379,7 +1379,7 @@ exports[`Collapse Collapse otherVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Collapse Collapse rightSlotVue demo works fine 1`] = `
+exports[`Collapse > Collapse rightSlotVue demo works fine 1`] = `
 <div
   class="tdesign-collapse"
 >
