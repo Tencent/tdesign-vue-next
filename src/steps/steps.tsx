@@ -6,13 +6,12 @@ import { ClassName } from '../common';
 import { TdStepItemProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',
   props: { ...props },
-  emits: [UPDATE_MODEL, 'update:current'],
 
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('steps');

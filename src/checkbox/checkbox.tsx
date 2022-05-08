@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import props from './props';
 import { ClassName } from '../common';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
@@ -14,7 +14,6 @@ export default defineComponent({
     ...props,
     needRipple: Boolean,
   },
-  emits: [UPDATE_MODEL, 'update:checked'],
 
   setup(props) {
     const labelRef = ref<HTMLElement>();

@@ -25,7 +25,6 @@ const min = 1;
 export default defineComponent({
   name: 'TPagination',
   props,
-  emits: [UPDATE_MODEL, 'update:current', 'update:pageSize'],
 
   setup(props) {
     const { modelValue, pageSize, current } = toRefs(props);

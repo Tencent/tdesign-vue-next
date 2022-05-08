@@ -1,14 +1,13 @@
 import { defineComponent, toRefs, provide, computed } from 'vue';
 import props from './props';
 import { CollapseValue, TdCollapseProps, CollapsePanelValue } from './type';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCollapse',
   props,
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props: TdCollapseProps, context) {
     const componentName = usePrefixClass('collapse');

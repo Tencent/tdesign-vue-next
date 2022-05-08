@@ -1,5 +1,5 @@
 import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, ref, toRefs } from 'vue';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
@@ -20,7 +20,6 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props) {
     const baseClassName = useBaseClassName();

@@ -6,7 +6,7 @@ import props from './props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 export interface InjectTabs {
   value: Ref<TabValue>;
@@ -21,8 +21,6 @@ export default defineComponent({
   },
 
   props,
-
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');

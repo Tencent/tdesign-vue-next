@@ -6,13 +6,12 @@ import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './constants';
 
 // hooks
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
   props,
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props, { slots }) {
     /** 样式 */

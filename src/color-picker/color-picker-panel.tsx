@@ -1,5 +1,5 @@
 import { defineComponent, toRefs } from 'vue';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import props from './props';
 import ColorPanel from './panel';
 import { TdColorContext } from './interfaces';
@@ -14,7 +14,6 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props) {
     const prefix = usePrefixClass();
