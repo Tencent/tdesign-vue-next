@@ -22,7 +22,7 @@ import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/contanst';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -39,7 +39,6 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props, ctx) {
     const disabled = useFormDisabled();

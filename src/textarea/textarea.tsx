@@ -5,7 +5,7 @@ import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { ClassName } from '../common';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -24,7 +24,6 @@ function getValidAttrs(obj: object): object {
 export default defineComponent({
   name: 'TTextarea',
   props: { ...props },
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props, { attrs }) {
     const prefix = usePrefixClass();

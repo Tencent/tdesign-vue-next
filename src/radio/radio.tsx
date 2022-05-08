@@ -6,7 +6,7 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
@@ -23,7 +23,6 @@ export default defineComponent({
   name: 'TRadio',
   inheritAttrs: false,
   props: { ...props },
-  emits: [UPDATE_MODEL, 'update:checked'],
 
   setup(props, { attrs }) {
     const { checked, modelValue } = toRefs(props);

@@ -18,7 +18,7 @@ import { Color, getColorObject, GradientColorPoint } from '../utils';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../../hooks/useVModel';
+import useVModel from '../../hooks/useVModel';
 import useDefaultValue from '../../hooks/useDefaultValue';
 
 export default defineComponent({
@@ -38,7 +38,6 @@ export default defineComponent({
       type: Function,
     },
   },
-  emits: [UPDATE_MODEL, UPDATE_VALUE, 'update:recentColors'],
 
   setup(props) {
     const baseClassName = useBaseClassName();

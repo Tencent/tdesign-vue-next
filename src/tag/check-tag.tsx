@@ -2,12 +2,11 @@ import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
 import { renderContent } from '../utils/render-tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TCheckTag',
   props,
-  emits: [UPDATE_MODEL, 'update:checked'],
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tag');

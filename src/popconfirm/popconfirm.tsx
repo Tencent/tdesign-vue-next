@@ -6,12 +6,11 @@ import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
 import { useAction } from '../dialog/hooks';
 import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TPopconfirm',
   props,
-  emits: [UPDATE_MODEL, 'update:visible'],
 
   setup(props) {
     const { global } = useConfig('popconfirm');

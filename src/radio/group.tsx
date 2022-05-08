@@ -7,14 +7,12 @@ import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TRadioGroup',
   props: { ...props },
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
-
   setup(props) {
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);

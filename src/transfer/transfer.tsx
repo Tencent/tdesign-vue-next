@@ -17,7 +17,7 @@ import { getTransferListOption, getDataValues, getTransferData, filterTransferDa
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import props from './props';
 import { TNode } from '../common';
-import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -29,8 +29,6 @@ const TARGET = 'target';
 export default defineComponent({
   name: TRANSFER_NAME,
   props: { ...props },
-  // TODO: 'update:checked'
-  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props, { slots }) {
     const disabled = useFormDisabled();

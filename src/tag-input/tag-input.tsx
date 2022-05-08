@@ -11,7 +11,6 @@ import { usePrefixClass } from '../hooks/useConfig';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
-import { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
 import useDefault from '../hooks/useDefaultValue';
 
 const useComponentClassName = () => {
@@ -26,7 +25,6 @@ export default defineComponent({
   name: 'TTagInput',
 
   props: { ...props },
-  emits: [UPDATE_MODEL, UPDATE_VALUE, 'update:inputValue'],
 
   setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();

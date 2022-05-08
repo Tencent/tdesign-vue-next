@@ -15,12 +15,11 @@ import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TUpload',
   props,
-  emits: [UPDATE_MODEL, 'update:files'],
 
   setup(props, { expose }) {
     const renderTNodeContent = useContent();
