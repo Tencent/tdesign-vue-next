@@ -1,5 +1,34 @@
 :: BASE_DOC ::
 
+### 插件函数式调用
+插件调用方式一：`this.$dialog(options)`
+
+插件调用方式二：`this.$dialog.confirm(options)`
+
+插件调用方式三：`this.$dialog.alert(options)`
+
+<br />
+
+函数调用方式一：`DialogPlugin(options)`
+
+函数调用方式二：`DialogPlugin.confirm(options)`
+
+函数调用方式三：`DialogPlugin.alert(options)`
+
+<br />
+
+组件实例：`DialogInstance = this.$dialog(options)` 或者 组件实例：`DialogInstance = DialogPlugin(options)`
+
+组件实例方法-销毁弹框：`DialogInstance.destroy()`
+
+组件实例方法-隐藏弹框：`DialogInstance.hide()`
+
+组件实例方法-显示弹窗：`DialogInstance.show()`
+
+组件实例方法-更新弹框：`DialogInstance.update()`
+
+{{ plugin }}
+
 ## API
 ### Dialog Props
 
