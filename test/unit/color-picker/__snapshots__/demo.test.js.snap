@@ -254,7 +254,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
           tabindex="0"
         />
       </div>
@@ -267,7 +267,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
+          style="left: 157px; color: rgb(0, 31, 151);"
           tabindex="0"
         />
       </div>
@@ -280,7 +280,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 248px; color: rgb(0, 82, 217);"
+          style="left: 248px; color: rgb(0, 31, 151);"
           tabindex="0"
         />
       </div>
@@ -447,7 +447,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                title="82"
+                title="31"
               >
                 <!---->
                 <div
@@ -479,7 +479,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                title="217"
+                title="151"
               >
                 <!---->
                 <div
@@ -1173,7 +1173,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
           tabindex="0"
         />
       </div>
@@ -1186,7 +1186,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
+          style="left: 157px; color: rgb(0, 31, 151);"
           tabindex="0"
         />
       </div>
@@ -1354,7 +1354,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                title="82"
+                title="31"
               >
                 <!---->
                 <div
@@ -1386,7 +1386,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                title="217"
+                title="151"
               >
                 <!---->
                 <div
@@ -2052,7 +2052,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
             tabindex="0"
           />
         </div>
@@ -2065,7 +2065,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
+            style="left: 157px; color: rgb(0, 31, 151);"
             tabindex="0"
           />
         </div>
@@ -2233,7 +2233,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="82"
+                  title="31"
                 >
                   <!---->
                   <div
@@ -2265,7 +2265,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="217"
+                  title="151"
                 >
                   <!---->
                   <div
@@ -3040,7 +3040,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
             tabindex="0"
           />
         </div>
@@ -3053,7 +3053,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
+            style="left: 157px; color: rgb(0, 31, 151);"
             tabindex="0"
           />
         </div>
@@ -3221,7 +3221,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="82"
+                  title="31"
                 >
                   <!---->
                   <div
@@ -3253,7 +3253,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="217"
+                  title="151"
                 >
                   <!---->
                   <div
@@ -3932,7 +3932,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
           tabindex="0"
         />
       </div>
@@ -3945,7 +3945,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
+          style="left: 157px; color: rgb(0, 31, 151);"
           tabindex="0"
         />
       </div>
@@ -4114,7 +4114,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-is-disabled t-input-number--normal"
-                title="82"
+                title="31"
               >
                 <!---->
                 <div
@@ -4147,7 +4147,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-is-disabled t-input-number--normal"
-                title="217"
+                title="151"
               >
                 <!---->
                 <div
@@ -4814,7 +4814,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
             tabindex="0"
           />
         </div>
@@ -4827,7 +4827,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
+            style="left: 157px; color: rgb(0, 31, 151);"
             tabindex="0"
           />
         </div>
@@ -4995,7 +4995,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="82"
+                  title="31"
                 >
                   <!---->
                   <div
@@ -5027,7 +5027,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="217"
+                  title="151"
                 >
                   <!---->
                   <div
@@ -5267,7 +5267,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 31, 151); left: 248px; top: 57px;"
             tabindex="0"
           />
         </div>
@@ -5280,7 +5280,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
+            style="left: 157px; color: rgb(0, 31, 151);"
             tabindex="0"
           />
         </div>
@@ -5448,7 +5448,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="82"
+                  title="31"
                 >
                   <!---->
                   <div
@@ -5480,7 +5480,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  title="217"
+                  title="151"
                 >
                   <!---->
                   <div

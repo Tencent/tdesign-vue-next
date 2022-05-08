@@ -10460,12 +10460,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
     </div>
     <div class="t-color-picker__body">
       <!---->
-      <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+      <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
       <div class="t-color-picker__slider t-color-picker__hue">
-        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
       </div>
       <div class="t-color-picker__slider t-color-picker__alpha t-color-picker--bg-alpha">
-        <div class="t-color-picker__rail" style="background:linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 82, 217));"></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:248px;color:rgb(0, 82, 217);"></span>
+        <div class="t-color-picker__rail" style="background:linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 31, 151));"></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:248px;color:rgb(0, 31, 151);"></span>
       </div>
       <div class="t-color-picker__format">
         <div class="t-color-picker__format--item">
@@ -10517,12 +10517,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" title="82">
+              <div class="t-input-number t-size-m t-input-number--normal" title="31">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                     <!---->
                     <!---->
                     <!---->
@@ -10533,12 +10533,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" title="217">
+              <div class="t-input-number t-size-m t-input-number--normal" title="151">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                     <!---->
                     <!---->
                     <!---->
@@ -10734,9 +10734,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
     </div>
     <div class="t-color-picker__body">
       <!---->
-      <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+      <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
       <div class="t-color-picker__slider t-color-picker__hue">
-        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
       </div>
       <!---->
       <div class="t-color-picker__format">
@@ -10789,12 +10789,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" title="82">
+              <div class="t-input-number t-size-m t-input-number--normal" title="31">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                     <!---->
                     <!---->
                     <!---->
@@ -10805,12 +10805,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" title="217">
+              <div class="t-input-number t-size-m t-input-number--normal" title="151">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                     <!---->
                     <!---->
                     <!---->
@@ -10992,9 +10992,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
       </div>
       <div class="t-color-picker__body">
         <!---->
-        <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+        <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
         <div class="t-color-picker__slider t-color-picker__hue">
-          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
         </div>
         <!---->
         <div class="t-color-picker__format">
@@ -11047,12 +11047,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="31">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                       <!---->
                       <!---->
                       <!---->
@@ -11063,12 +11063,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="151">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                       <!---->
                       <!---->
                       <!---->
@@ -11268,9 +11268,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
       </div>
       <div class="t-color-picker__body">
         <!---->
-        <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+        <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
         <div class="t-color-picker__slider t-color-picker__hue">
-          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
         </div>
         <!---->
         <div class="t-color-picker__format">
@@ -11323,12 +11323,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="31">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                       <!---->
                       <!---->
                       <!---->
@@ -11339,12 +11339,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="151">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                       <!---->
                       <!---->
                       <!---->
@@ -11540,9 +11540,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
     </div>
     <div class="t-color-picker__body">
       <!---->
-      <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+      <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
       <div class="t-color-picker__slider t-color-picker__hue">
-        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+        <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
       </div>
       <!---->
       <div class="t-color-picker__format">
@@ -11595,12 +11595,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="82">
+              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="31">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-is-disabled t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="82">
+                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="31">
                     <!---->
                     <!---->
                     <!---->
@@ -11611,12 +11611,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="217">
+              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="151">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-is-disabled t-align-center">
                     <!---->
-                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="217">
+                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="151">
                     <!---->
                     <!---->
                     <!---->
@@ -11798,9 +11798,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
       </div>
       <div class="t-color-picker__body">
         <!---->
-        <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+        <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
         <div class="t-color-picker__slider t-color-picker__hue">
-          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
         </div>
         <!---->
         <div class="t-color-picker__format">
@@ -11853,12 +11853,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="31">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                       <!---->
                       <!---->
                       <!---->
@@ -11869,12 +11869,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="151">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                       <!---->
                       <!---->
                       <!---->
@@ -11947,9 +11947,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
       </div>
       <div class="t-color-picker__body">
         <!---->
-        <div class="t-color-picker__saturation" style="background:hsl(217.32718894009219, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 82, 217);left:248px;top:21px;"></span></div>
+        <div class="t-color-picker__saturation" style="background:hsl(227.68211920529802, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(0, 31, 151);left:248px;top:57px;"></span></div>
         <div class="t-color-picker__slider t-color-picker__hue">
-          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:150px;color:rgb(0, 82, 217);"></span>
+          <div class="t-color-picker__rail" style=""></div><span class="t-color-picker__thumb" role="slider" tabindex="0" style="left:157px;color:rgb(0, 31, 151);"></span>
         </div>
         <!---->
         <div class="t-color-picker__format">
@@ -12002,12 +12002,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="31">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="31">
                       <!---->
                       <!---->
                       <!---->
@@ -12018,12 +12018,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="151">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
                       <!---->
-                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="151">
                       <!---->
                       <!---->
                       <!---->
