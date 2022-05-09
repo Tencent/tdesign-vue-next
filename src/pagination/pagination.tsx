@@ -17,7 +17,7 @@ import { Option, Select } from '../select';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 
 const min = 1;
