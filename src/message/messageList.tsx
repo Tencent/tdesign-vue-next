@@ -66,7 +66,12 @@ export const MessageList = defineComponent({
     const getProps = (index: number, item: MessageOptions) => {
       return {
         ...item,
-        onCloseBtnClick: () => remove(index),
+        onCloseBtnClick: (e: any) => {
+          if (item.onCloseBtnClick) {
+            item.onCloseBtnClick(e);
+          }
+          return remove(index);
+        },
         onDurationEnd: () => {
           if (item.onDurationEnd) {
             item.onDurationEnd();
