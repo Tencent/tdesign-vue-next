@@ -1,4 +1,4 @@
-import { defineComponent, h, onMounted } from 'vue';
+import { defineComponent, h, onMounted, ref } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
@@ -14,6 +14,7 @@ export default defineComponent({
     const { classPrefix } = useConfig('classPrefix');
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
+    const timer = ref(null);
 
     const close = (e?: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
@@ -51,18 +52,29 @@ export default defineComponent({
       return <div class={`${COMPONENT_NAME.value}__content`}>{renderContent('default', 'content')}</div>;
     };
 
-    onMounted(() => {
-      if (props.duration > 0) {
-        const timer = setTimeout(() => {
-          clearTimeout(timer);
-          props.onDurationEnd?.();
-        }, props.duration);
+    const clearTimer = () => {
+      props.duration && clearTimeout(timer.value);
+    };
+
+    const setTimer = () => {
+      if (!props.duration) {
+        return;
       }
+      timer.value = Number(
+        setTimeout(() => {
+          clearTimer();
+          props.onDurationEnd?.();
+        }, props.duration),
+      );
+    };
+
+    onMounted(() => {
+      props.duration && setTimer();
     });
 
     expose({ close });
     return () => (
-      <div class={`${COMPONENT_NAME.value}`}>
+      <div class={`${COMPONENT_NAME.value}`} onMouseenter={clearTimer} onMouseleave={setTimer}>
         {renderIcon()}
         <div class={`${COMPONENT_NAME.value}__main`}>
           <div class={`${COMPONENT_NAME.value}__title__wrap`}>
