@@ -1,23 +1,30 @@
-import { defineComponent, h, onMounted, ref } from 'vue';
+import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
-import { TdNotificationProps } from './type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { fadeIn, fadeOut } from './animate';
 
 export default defineComponent({
   name: 'TNotification',
-  props,
-  setup(props: TdNotificationProps, { slots, expose }) {
+  props: {
+    ...props,
+    placement: String, // just for animation
+  },
+  setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('notification');
     const { classPrefix } = useConfig('classPrefix');
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
     const timer = ref(null);
+    const notificationRef = ref(null);
 
     const close = (e?: MouseEvent) => {
-      props.onCloseBtnClick?.({ e });
+      const dom = notificationRef.value as HTMLElement;
+      fadeOut(dom, props.placement, () => {
+        props.onCloseBtnClick?.({ e });
+      });
     };
 
     const renderIcon = () => {
@@ -63,18 +70,26 @@ export default defineComponent({
       timer.value = Number(
         setTimeout(() => {
           clearTimer();
-          props.onDurationEnd?.();
+          const dom = notificationRef.value as HTMLElement;
+          fadeOut(dom, props.placement, () => {
+            props.onDurationEnd?.();
+          });
         }, props.duration),
       );
     };
 
-    onMounted(() => {
+    onBeforeMount(() => {
       props.duration && setTimer();
+    });
+
+    onMounted(() => {
+      const dom = notificationRef.value;
+      fadeIn(dom, props.placement);
     });
 
     expose({ close });
     return () => (
-      <div class={`${COMPONENT_NAME.value}`} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div ref={notificationRef} class={`${COMPONENT_NAME.value}`} onMouseenter={clearTimer} onMouseleave={setTimer}>
         {renderIcon()}
         <div class={`${COMPONENT_NAME.value}__main`}>
           <div class={`${COMPONENT_NAME.value}__title__wrap`}>

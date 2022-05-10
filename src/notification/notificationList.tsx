@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, TransitionGroup, Ref } from 'vue';
+import { defineComponent, ref, computed, Ref } from 'vue';
 import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
 import { Styles } from '../common';
@@ -88,12 +88,10 @@ export default defineComponent({
       if (!list.value.length) return;
 
       return (
-        <div class={`${COMPONENT_NAME.value}__show-transition--${placement}`} style={styles.value}>
-          <TransitionGroup name="notification-slide-fade">
-            {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
-              <Notification ref={addChild} key={item.id} style={notificationStyles(item)} {...getProps(index, item)} />
-            ))}
-          </TransitionGroup>
+        <div class={`${COMPONENT_NAME.value}__show`} style={styles.value}>
+          {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
+            <Notification ref={addChild} key={item.id} style={notificationStyles(item)} {...getProps(index, item)} />
+          ))}
         </div>
       );
     };
