@@ -66,4 +66,6 @@ export default {
   onDragSort: Function as PropType<TdTabsProps['onDragSort']>,
   /** 删除选项卡时触发 */
   onRemove: Function as PropType<TdTabsProps['onRemove']>,
+  /** 选项卡拖拽结束时触发 */
+  onDragend: Function,
 };
