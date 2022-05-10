@@ -23707,7 +23707,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
 
 exports[`Table Table singleSortVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-block-column-large"
+  class="tdesign-demo-block-column-large demo-container"
 >
   <div>
     <label

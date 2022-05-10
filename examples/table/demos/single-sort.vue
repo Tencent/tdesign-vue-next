@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
+  <div class="tdesign-demo-block-column-large demo-container">
     <div>
       <t-checkbox v-model="hideSortTips"> 隐藏排序文本提示 </t-checkbox>
       <span style="padding-left: 16px; vertical-align: top">排序：{{ sort }}</span>
