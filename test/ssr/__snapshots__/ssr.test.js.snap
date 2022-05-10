@@ -38002,7 +38002,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correctly 1`] = `
-<div class="tdesign-demo-block-column-large">
+<div class="tdesign-demo-block-column-large demo-container">
   <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 隐藏排序文本提示 <!--]--></span></label><span style="padding-left:16px;vertical-align:top;">排序：{
   &quot;sortBy&quot;: &quot;status&quot;,
   &quot;descending&quot;: true

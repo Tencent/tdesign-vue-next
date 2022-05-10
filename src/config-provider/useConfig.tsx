@@ -50,6 +50,7 @@ export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
       return translated;
     }
     if (typeof pattern === 'function') {
+      // 重要：组件的渲染必须存在参数 h，不能移除
       if (!args.length) return pattern(h);
       return pattern(...args);
     }
