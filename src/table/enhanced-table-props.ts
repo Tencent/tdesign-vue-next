@@ -12,6 +12,10 @@ export default {
   tree: {
     type: Object as PropType<TdEnhancedTableProps['tree']>,
   },
+  /** 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider` */
+  treeExpandAndFoldIcon: {
+    type: Function as PropType<TdEnhancedTableProps['treeExpandAndFoldIcon']>,
+  },
   /** 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发 */
   onTreeExpandChange: Function as PropType<TdEnhancedTableProps['onTreeExpandChange']>,
 };
