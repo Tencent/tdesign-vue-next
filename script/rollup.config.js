@@ -19,7 +19,8 @@ import pkg from '../package.json';
 
 const name = 'tdesign';
 
-const externalDeps = Object.keys(pkg.dependencies || {}).concat([/@babel\/runtime/]);
+const esExternalDeps = Object.keys(pkg.dependencies || {});
+const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const banner = `/**
  * ${name} v${pkg.version}
@@ -79,7 +80,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./css.js";',
+        body: 'import "./style/css.js";',
       }),
     );
   } else if (ignoreLess) {
@@ -91,7 +92,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./index.js";',
+        body: 'import "./style/index.js";',
       }),
     );
   }
@@ -137,7 +138,7 @@ const esConfig = {
   input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/css.js
   treeshake: false,
-  external: externalDeps.concat(externalPeerDeps),
+  external: esExternalDeps.concat(externalPeerDeps),
   plugins: [multiInput()].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,

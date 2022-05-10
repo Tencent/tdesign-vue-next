@@ -1,4 +1,5 @@
 import { onMounted, onUnmounted, ref } from 'vue';
+import { isServer } from '../utils/dom';
 
 export const useMouse = () => {
   const x = ref(0);
@@ -9,7 +10,7 @@ export const useMouse = () => {
     y.value = e.clientY;
   };
 
-  if (window) {
+  if (!isServer) {
     onMounted(() => {
       window.addEventListener('mousemove', onMouseMove, { passive: true });
     });

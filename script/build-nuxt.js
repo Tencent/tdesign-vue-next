@@ -59,12 +59,13 @@ const createNuxtComponents = async () => {
           (value) => components[value].name && components[value].name.startsWith('T'),
         );
         const otherComponentNames = componentNames.filter(
-          (value) => componentsName.toLowerCase() !== value.toLowerCase() && value !== 'default',
+          (value) =>
+            !components.default || (componentsName.toLowerCase() !== value.toLowerCase() && value !== 'default'),
         );
 
         let importCss = '';
         let importJs = '';
-        if (fs.existsSync(path.resolve(inputComponents, dirent.name, 'style/css.js'))) {
+        if (fs.existsSync(path.resolve(inputComponents, dirent.name, 'style/index.css'))) {
           // eslint-disable-next-line no-template-curly-in-string
           importCss = `\nimport '../../${dirent.name}/style/index.css';`;
         }

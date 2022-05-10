@@ -3,6 +3,7 @@ import isObject from 'lodash/isObject';
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
 import { useListener } from '../hooks/useListener';
+import { isServer } from '../utils/dom';
 
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];
@@ -13,9 +14,9 @@ export interface RowProviderType {
  * @returns
  */
 export function useRowSize() {
-  const size = ref(calcSize(window.innerWidth));
+  const size = ref(calcSize(isServer ? 0 : window.innerWidth));
   const updateSize = () => {
-    size.value = calcSize(window.innerWidth);
+    size.value = calcSize(isServer ? 0 : window.innerWidth);
   };
 
   useListener('resize', updateSize);
