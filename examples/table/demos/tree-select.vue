@@ -79,6 +79,7 @@ const columns = [
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
     // 这种方式禁用行选中，行文本不会变灰
     checkProps: ({ row }) => ({ disabled: row.status !== 0 }),
+    // 自由调整宽度，如果发现元素看不见，请加大宽度
     width: 20,
   },
   {
@@ -114,7 +115,7 @@ const rehandleSelectChange = (value, { selectedRowData }) => {
   console.log(value, selectedRowData);
 };
 
-const expandedRowRender = (h, { row }) => <div>这是展开项数据，{row.key}</div>;
+const expandedRowRender = (h, { row }) => <div>这是展开项数据，我是 {row.key} 号</div>;
 
 const onExpandChange = (val) => {
   expandedRowKeys.value = val;

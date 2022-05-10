@@ -20,6 +20,7 @@ export default defineComponent({
   props: {
     ...props,
   },
+
   setup(props) {
     const baseClassName = useBaseClassName();
     const visible = ref(false);

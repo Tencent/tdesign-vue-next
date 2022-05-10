@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdDialogProps } from './type';
@@ -29,7 +28,7 @@ export default {
     type: [String, Boolean, Function] as PropType<TdDialogProps['closeBtn']>,
     default: true,
   },
-  /** 按下 ESC 时是否触发抽屉关闭事件 */
+  /** 按下 ESC 时是否触发对话框关闭事件 */
   closeOnEscKeydown: {
     type: Boolean,
     default: true,
@@ -39,12 +38,12 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 确认按钮。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
+  /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
     default: '',
   },
-  /** 抽屉内容，同 body */
+  /** 对话框内容，同 body */
   default: {
     type: [String, Function] as PropType<TdDialogProps['default']>,
   },
@@ -67,6 +66,7 @@ export default {
     type: String as PropType<TdDialogProps['mode']>,
     default: 'modal' as TdDialogProps['mode'],
     validator(val: TdDialogProps['mode']): boolean {
+      if (!val) return true;
       return ['modal', 'modeless', 'normal'].includes(val);
     },
   },
@@ -75,6 +75,7 @@ export default {
     type: String as PropType<TdDialogProps['placement']>,
     default: 'top' as TdDialogProps['placement'],
     validator(val: TdDialogProps['placement']): boolean {
+      if (!val) return true;
       return ['top', 'center'].includes(val);
     },
   },
@@ -83,6 +84,8 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 【开发中】仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative */
+  showInAttachedElement: Boolean,
   /** 是否显示遮罩层 */
   showOverlay: {
     type: Boolean,
@@ -93,6 +96,7 @@ export default {
     type: String as PropType<TdDialogProps['theme']>,
     default: 'default' as TdDialogProps['theme'],
     validator(val: TdDialogProps['theme']): boolean {
+      if (!val) return true;
       return ['default', 'info', 'warning', 'danger', 'success'].includes(val);
     },
   },

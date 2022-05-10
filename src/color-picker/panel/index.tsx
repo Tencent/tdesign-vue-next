@@ -38,6 +38,7 @@ export default defineComponent({
       type: Function,
     },
   },
+
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();

@@ -117,7 +117,7 @@ describe('Input', () => {
       const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.setValue('text');
-      expect(inputWrapper.emitted().change).toBeTruthy();
+      expect(inputWrapper.props('onChange')).toBeTruthy();
       expect(fn).toBeCalled();
     });
 
@@ -131,7 +131,7 @@ describe('Input', () => {
       const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.setValue('text');
-      expect(inputWrapper.emitted().change).toBeTruthy();
+      expect(inputWrapper.props('onChange')).toBeTruthy();
       expect(fn).toBeCalled();
     });
   });

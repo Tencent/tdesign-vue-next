@@ -5,8 +5,7 @@ import pick from 'lodash/pick';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../hooks/useConfig';
 import { RowspanColspan, TableRowData, BaseTableCellParams } from './type';
-import { BaseTableProps } from './interface';
-import { RowAndColFixedPosition } from './hooks/useFixed';
+import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { useTNodeJSX } from '../hooks/tnode';
 import useClassName from './hooks/useClassName';
 import baseTableProps from './base-table-props';
@@ -163,6 +162,17 @@ export default defineComponent({
     // 每次渲染清空合并单元格信息
     skipSpansMap = new Map<any, boolean>();
 
+    const properties = [
+      'rowAndColFixedPosition',
+      'scroll',
+      'tableElm',
+      'tableContentElm',
+      'trs',
+      'bufferSize',
+      'isVirtual',
+      'rowHeight',
+      'scrollType',
+    ];
     this.data?.forEach((row, rowIndex) => {
       const trProps = {
         ...pick(this.$props, TABLE_PROPS),
@@ -171,17 +181,10 @@ export default defineComponent({
         columns: this.columns,
         rowIndex,
         dataLength,
-        rowAndColFixedPosition: this.rowAndColFixedPosition,
         skipSpansMap,
+        ...pick(this.$props, properties),
         // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
         onTrRowspanOrColspan,
-        isVirtual: this.isVirtual,
-        scrollType: this.scrollType,
-        rowHeight: this.rowHeight,
-        trs: this.trs,
-        bufferSize: this.bufferSize,
-        tableElm: this.tableElm,
-        tableContentElm: this.tableContentElm,
       };
       if (this.onCellClick) {
         trProps.onCellClick = this.onCellClick;

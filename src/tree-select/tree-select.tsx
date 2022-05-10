@@ -10,9 +10,10 @@ import SelectInput from '../select-input';
 import { TagInputChangeContext } from '../tag-input';
 import { PopupProps } from '../popup';
 import { InputValue } from '../input';
+import FakeArrow from '../common-components/fake-arrow';
 
 import { IRemoveOptions, INodeOptions, ISelectInputSlot } from './interface';
-import { TreeSelectValue } from './type';
+import { TreeSelectValue, TdTreeSelectProps } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
 
@@ -25,6 +26,7 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
+
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const classPrefix = usePrefixClass();
@@ -304,10 +306,18 @@ export default defineComponent({
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
-      if (!props.multiple && treeSelectValue.value) {
-        nodeInfo.value = getSingleNodeInfo();
-      } else if (props.multiple && isArray(treeSelectValue.value)) {
-        nodeInfo.value = getMultipleNodeInfo();
+      if (!props.multiple) {
+        if (treeSelectValue.value || treeSelectValue.value === 0) {
+          nodeInfo.value = getSingleNodeInfo();
+        } else {
+          nodeInfo.value = '';
+        }
+      } else if (props.multiple) {
+        if (isArray(treeSelectValue.value)) {
+          nodeInfo.value = getMultipleNodeInfo();
+        } else {
+          nodeInfo.value = [];
+        }
       } else {
         nodeInfo.value = null;
       }
@@ -391,7 +401,7 @@ export default defineComponent({
         onExpand={treeNodeExpand}
         expandOnClickNode
         v-slots={treeSlots}
-        {...props.treeProps}
+        {...(props.treeProps as TdTreeSelectProps['treeProps'])}
       />
     );
     const SelectInputSlots: ISelectInputSlot = {
@@ -405,6 +415,16 @@ export default defineComponent({
           </p>
           {treeItem()}
         </div>
+      ),
+      suffixIcon: () => (
+        <FakeArrow
+          isActive={visible.value}
+          disabled={props.disabled}
+          overlayClassName={{
+            [`${classPrefix.value}-fake-arrow--highlight`]: visible.value,
+            [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
+          }}
+        />
       ),
     };
     if (prefixIconSlot.value) {
@@ -442,6 +462,7 @@ export default defineComponent({
 
     return () => (
       <SelectInput
+        class={`${classPrefix.value}-tree-select`}
         ref={selectInputRef}
         v-slots={SelectInputSlots}
         value={nodeInfo.value}

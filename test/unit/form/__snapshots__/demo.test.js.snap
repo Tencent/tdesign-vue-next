@@ -7,7 +7,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="right"
     >
       
       <label
@@ -76,11 +75,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <form
@@ -88,7 +87,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -110,7 +109,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -131,11 +129,13 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -157,10 +157,9 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -200,11 +199,13 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -240,7 +241,9 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -255,7 +258,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -277,7 +280,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -298,11 +300,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -324,7 +328,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -345,11 +348,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__status"
+      class="t-form__item t-form-item__status t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -386,11 +391,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -412,12 +419,10 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -438,7 +443,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -458,15 +462,18 @@ exports[`Form Form baseVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -555,11 +562,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -608,7 +617,9 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -645,7 +656,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -667,7 +677,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
@@ -696,7 +706,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -718,14 +727,14 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -747,10 +756,9 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -790,11 +798,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -816,7 +826,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -837,11 +846,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -863,12 +874,10 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -889,7 +898,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -909,15 +917,18 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1026,11 +1037,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1054,141 +1067,99 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
             class="t-select__wrap demo-select-base"
             modelvalue=""
           >
+            
             <div
-              class="t-popup__reference t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-is-selected t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          <span>
-                            
-                          </span>
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-size-m"
-                          title="计算机学院"
-                        >
-                          <span>
-                            
-                            计算机学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="软件学院"
-                        >
-                          <span>
-                            
-                            软件学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="物联网学院"
-                        >
-                          <span>
-                            
-                            物联网学院
-                            
-                          </span>
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-select-polyfill t-size-m"
+              <!---->
+              <span
+                class="t-select__placeholder"
+              >
+                 
+                请选择
+              </span>
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
               >
                 <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                   
-                  请选择
-                </span>
+                
+                +0
+                
                 <!---->
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
+              </span>
+              <!---->
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+            
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                title="计算机学院"
+              >
+                <span>
                   
-                  +0
+                  计算机学院
                   
-                  <!---->
                 </span>
-                <!---->
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="软件学院"
+              >
+                <span>
+                  
+                  软件学院
+                  
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="物联网学院"
+              >
+                <span>
+                  
+                  物联网学院
+                  
+                </span>
+              </li>
+              
               
             </div>
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1210,7 +1181,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1231,11 +1201,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1257,7 +1229,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1278,11 +1249,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -1357,7 +1330,9 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -1372,7 +1347,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__account"
+      class="t-form__item t-form-item__account t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1394,7 +1369,6 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1415,7 +1389,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
@@ -1441,10 +1417,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -1485,7 +1460,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化
         </div>
@@ -1514,10 +1489,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -1558,14 +1532,14 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           自定义异步校验方法
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -1614,7 +1588,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -1654,7 +1630,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -1676,7 +1652,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-is-disabled"
@@ -1698,11 +1673,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -1726,129 +1703,62 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             class="t-select__wrap"
             modelvalue=""
           >
+            
             <div
-              class="t-popup__reference t-select__popup-reference"
+              class="t-select t-select-polyfill t-is-disabled t-size-m t-select__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-is-disabled t-is-selected t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          <span>
-                            
-                          </span>
-                        </li>
-                      </ul>
-                      <!---->
-                      <!---->
-                      <ul
-                        class="t-select__list"
-                      >
-                        
-                        <li
-                          class="t-select-option t-is-disabled t-size-m"
-                          title="学院 A"
-                        >
-                          <span>
-                            学院 A
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-is-disabled t-size-m"
-                          title="学院 B"
-                        >
-                          <span>
-                            学院 B
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-is-disabled t-size-m"
-                          title="学院 C"
-                        >
-                          <span>
-                            学院 C
-                          </span>
-                        </li>
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-select-polyfill t-is-disabled t-size-m"
+              <!---->
+              <span
+                class="t-select__placeholder"
+              >
+                 
+                请选择
+              </span>
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
               >
                 <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                   
-                  请选择
-                </span>
+                
+                +0
+                
                 <!---->
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <!---->
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
-              
+              </span>
+              <!---->
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
             </div>
+            <!---->
+            
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__address1"
+      class="t-form__item t-form-item__address1 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -1868,198 +1778,68 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           class="t-form__controls-content"
         >
           
+          
           <div
-            class="t-popup__reference t-select-input t-select-input--empty"
+            class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
           >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
-                >
-                  
-                  <div>
-                    <p
-                      class="t-select-loading-tips t-select__right-icon-polyfill"
-                      style="display: none;"
-                    >
-                      <div
-                        class="t-select__empty"
-                      >
-                        加载中
-                      </div>
-                    </p>
-                    <div
-                      class="t-tree t-is-disabled t-tree--hoverable t-tree--transition t-tree--block-node"
-                      modelvalue=""
-                      size="medium"
-                    >
-                      <transition-group-stub>
-                        
-                        <div
-                          class="t-tree__item t-is-disabled"
-                          data-level="0"
-                          data-value="1"
-                          style="--level: 0;"
-                        >
-                          
-                          <span
-                            class="t-tree__icon t-folder-icon t-tree__icon--default"
-                            ignore="active"
-                            trigger="expand"
-                          >
-                            <svg
-                              class="t-icon t-icon-caret-right-small"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M6 5v6l4.5-3L6 5z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-tree__label t-tree__label--strictly"
-                          >
-                            <span
-                              style="position: relative;"
-                            >
-                              江苏
-                            </span>
-                          </span>
-                          
-                        </div>
-                        <div
-                          class="t-tree__item t-is-disabled"
-                          data-level="0"
-                          data-value="2"
-                          style="--level: 0;"
-                        >
-                          
-                          <span
-                            class="t-tree__icon t-folder-icon t-tree__icon--default"
-                            ignore="active"
-                            trigger="expand"
-                          >
-                            <svg
-                              class="t-icon t-icon-caret-right-small"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M6 5v6l4.5-3L6 5z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-tree__label t-tree__label--strictly"
-                          >
-                            <span
-                              style="position: relative;"
-                            >
-                              上海
-                            </span>
-                          </span>
-                          
-                        </div>
-                        <div
-                          class="t-tree__item t-is-disabled"
-                          data-level="0"
-                          data-value="3"
-                          style="--level: 0;"
-                        >
-                          
-                          <span
-                            class="t-tree__icon t-folder-icon t-tree__icon--default"
-                            ignore="active"
-                            trigger="expand"
-                          >
-                            <svg
-                              class="t-icon t-icon-caret-right-small"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M6 5v6l4.5-3L6 5z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-tree__label t-tree__label--strictly"
-                          >
-                            <span
-                              style="position: relative;"
-                            >
-                              四川
-                            </span>
-                          </span>
-                          
-                        </div>
-                        
-                      </transition-group-stub>
-                      <!---->
-                    </div>
-                  </div>
-                  
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
-            
             <div
-              class="t-input__wrap"
+              class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
             >
-              <div
-                class="t-input t-is-disabled t-is-readonly t-input--prefix"
-              >
-                <!---->
-                <div
-                  class="t-input__prefix"
-                >
-                  
-                  <!---->
-                  <!---->
-                  
-                </div>
-                <input
-                  class="t-input__inner"
-                  disabled=""
-                  placeholder=""
-                  readonly=""
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
               <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                disabled=""
+                placeholder=""
+                readonly=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <span
+                class="t-input__suffix t-input__suffix-icon"
+              >
+                
+                <svg
+                  class="t-fake-arrow"
+                  disabled="false"
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                    stroke="black"
+                    stroke-opacity="0.9"
+                    stroke-width="1.3"
+                  />
+                </svg>
+                
+              </span>
             </div>
-            
+            <!---->
           </div>
+          <!---->
+          
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__address2"
+      class="t-form__item t-form-item__address2 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -2079,73 +1859,44 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           class="t-form__controls-content"
         >
           
+          
           <div
-            class="t-popup__reference t-cascader__popup"
-            modelvalue=""
+            class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"
           >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content t-cascader__dropdown"
-                >
-                  
-                  <div
-                    class="t-cascader__panel"
-                    style="width: 0px;"
-                  >
-                    <div
-                      class="t-cascader__panel--empty"
-                    >
-                      暂无数据
-                    </div>
-                  </div>
-                  
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
-            
-            <div
-              class="t-cascader t-size-m t-is-disabled"
-              modelvalue=""
+            <span
+              class="t-cascader__placeholder"
             >
-              <span
-                class="t-cascader__placeholder"
-              >
-                请选择
-              </span>
-              <svg
-                class="t-fake-arrow t-cascader__icon t-is-disabled"
-                disabled="true"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </div>
-            
+              请选择
+            </span>
+            <svg
+              class="t-fake-arrow t-cascader__icon t-is-disabled"
+              disabled="true"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
           </div>
+          <!---->
+          
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -2167,853 +1918,63 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-date-picker t-size-m"
-            modelvalue=""
           >
+            
             <div
-              class="t-popup__reference t-date-picker__popup-reference"
+              class="t-form-controls t-date-picker__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-is-disabled t-date-picker"
-                  >
-                    <div
-                      class="t-date-picker__container"
-                    >
-                      <!---->
-                      <div
-                        class="t-date-picker__panel"
-                      >
-                        <div
-                          class="t-date-picker__header"
-                        >
-                          <span
-                            class="t-date-picker__header-title"
-                          >
-                            <!---->
-                            <button
-                              class="t-button t-size-s t-button--variant-text t-button--theme-default t-is-disabled t-date-picker__header-btn"
-                              disabled=""
-                              type="button"
-                            >
-                              <span
-                                class="t-button__text"
-                              >
-                                
-                                2020 年
-                                
-                              </span>
-                            </button>
-                            <button
-                              class="t-button t-size-s t-button--variant-text t-button--theme-default t-is-disabled t-date-picker__header-btn"
-                              disabled=""
-                              type="button"
-                            >
-                              <span
-                                class="t-button__text"
-                              >
-                                
-                                12 月
-                                
-                              </span>
-                            </button>
-                          </span>
-                          <span
-                            class="t-date-picker__header-controller"
-                          >
-                            <button
-                              class="t-button t-size-m t-button--variant-text t-button--theme-default t-is-disabled t-button--icon-only t-date-picker__header-controller__btn"
-                              disabled=""
-                              title="上个月"
-                              type="button"
-                            >
-                              
-                              
-                              <svg
-                                class="t-icon t-icon-chevron-left"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                              
-                              
-                              
-                            </button>
-                            <button
-                              class="t-button t-size-m t-button--variant-text t-button--theme-default t-is-disabled t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
-                              disabled=""
-                              title="当前"
-                              type="button"
-                            >
-                              
-                              
-                              <svg
-                                class="t-icon t-icon-round"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                              
-                              
-                              
-                            </button>
-                            <button
-                              class="t-button t-size-m t-button--variant-text t-button--theme-default t-is-disabled t-button--icon-only t-date-picker__header-controller__btn"
-                              disabled=""
-                              title="下个月"
-                              type="button"
-                            >
-                              
-                              
-                              <svg
-                                class="t-icon t-icon-chevron-right"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                              
-                              
-                              
-                            </button>
-                          </span>
-                        </div>
-                        <div
-                          class="t-date-picker--date"
-                        >
-                          <table>
-                            <thead>
-                              <tr>
-                                
-                                <th>
-                                  一
-                                </th>
-                                <th>
-                                  二
-                                </th>
-                                <th>
-                                  三
-                                </th>
-                                <th>
-                                  四
-                                </th>
-                                <th>
-                                  五
-                                </th>
-                                <th>
-                                  六
-                                </th>
-                                <th>
-                                  日
-                                </th>
-                                
-                              </tr>
-                            </thead>
-                            <tbody>
-                              
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="prev-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      30
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--first-day-of-month"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      1
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      2
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      3
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      4
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      5
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      6
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      7
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      8
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      9
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      10
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      11
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      12
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      13
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      14
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      15
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      16
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      17
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      18
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      19
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      20
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      21
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      22
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      23
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      24
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      25
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      26
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      27
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      28
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      29
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      30
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--last-day-of-month"
-                                  type="current-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      31
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      1
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      2
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      3
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              <tr>
-                                
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      4
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      5
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      6
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      7
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      8
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      9
-                                    </span>
-                                  </div>
-                                </td>
-                                <td
-                                  class="t-date-picker-cell t-date-picker__cell--additional"
-                                  type="next-month"
-                                >
-                                  <div
-                                    class="t-date-picker__cell-wrapper"
-                                  >
-                                    <span
-                                      class="t-date-picker__cell-text"
-                                    >
-                                      10
-                                    </span>
-                                  </div>
-                                </td>
-                                
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <!---->
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
               <div
-                class="t-form-controls"
+                allowinput="0"
+                class="t-input__wrap"
+                input="function () { [native code] }"
               >
                 <div
-                  allowinput="0"
-                  class="t-input__wrap"
-                  input="function () { [native code] }"
-                  modelvalue=""
+                  class="t-input t-is-disabled t-input--suffix"
                 >
-                  <div
-                    class="t-input t-is-disabled t-input--suffix"
-                  >
-                    <!---->
-                    <!---->
-                    <input
-                      class="t-input__inner"
-                      disabled=""
-                      placeholder="请选择日期"
-                      type="text"
-                    />
-                    <!---->
-                    <!---->
-                    <span
-                      class="t-input__suffix t-input__suffix-icon"
-                    >
-                      <svg
-                        class="t-icon t-icon-calendar"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                  </div>
                   <!---->
+                  <!---->
+                  <input
+                    class="t-input__inner"
+                    disabled=""
+                    placeholder="请选择日期"
+                    type="text"
+                  />
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-icon t-icon-calendar"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
                 </div>
+                <!---->
               </div>
-              
             </div>
+            <!---->
+            
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__personalProfile"
+      class="t-form__item t-form-item__personalProfile t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3049,11 +2010,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__message"
+      class="t-form__item t-form-item__message t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3091,11 +2054,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3117,12 +2082,10 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio t-is-disabled"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3144,7 +2107,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio t-is-disabled"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3165,15 +2127,18 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3265,11 +2230,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gradePoint"
+      class="t-form__item t-form-item__gradePoint t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3319,11 +2286,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__avatar"
+      class="t-form__item t-form-item__avatar t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3406,7 +2375,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               class="t-upload__dialog"
             >
               <div
-                class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+                class="t-dialog__ctx t-dialog__ctx--fixed"
                 style="display: none;"
               >
                 
@@ -3473,11 +2442,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -3528,7 +2499,9 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -3542,7 +2515,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="default"
     >
       
       <label
@@ -3562,29 +2534,14 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
         >
           
           
-          <div
-            class="t-popup__reference"
-          >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content"
-                  style="max-width: 480px;"
-                >
-                  Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
+          
+          <span>
             
              使用表单默认校验信息 
             
-          </div>
+          </span>
+          <!---->
+          
           
           
         </span>
@@ -3606,38 +2563,23 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
         >
           
           
-          <div
-            class="t-popup__reference"
-          >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content"
-                  style="max-width: 480px;"
-                >
-                  统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
+          
+          <span>
             
              表单统一配置校验信息 
             
-          </div>
+          </span>
+          <!---->
+          
           
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -3670,7 +2612,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -3692,7 +2633,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
@@ -3721,7 +2662,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -3743,14 +2683,14 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3772,10 +2712,9 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -3815,11 +2754,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3841,7 +2782,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -3862,11 +2802,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3888,12 +2830,10 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3914,7 +2854,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3934,15 +2873,18 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -4031,11 +2973,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4059,141 +3003,99 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
             class="t-select__wrap demo-select-base"
             modelvalue=""
           >
+            
             <div
-              class="t-popup__reference t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-is-selected t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          <span>
-                            
-                          </span>
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-size-m"
-                          title="计算机学院"
-                        >
-                          <span>
-                            
-                            计算机学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="软件学院"
-                        >
-                          <span>
-                            
-                            软件学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="物联网学院"
-                        >
-                          <span>
-                            
-                            物联网学院
-                            
-                          </span>
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-select-polyfill t-size-m"
+              <!---->
+              <span
+                class="t-select__placeholder"
+              >
+                 
+                请选择
+              </span>
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
               >
                 <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                   
-                  请选择
-                </span>
+                
+                +0
+                
                 <!---->
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
+              </span>
+              <!---->
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+            
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                title="计算机学院"
+              >
+                <span>
                   
-                  +0
+                  计算机学院
                   
-                  <!---->
                 </span>
-                <!---->
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="软件学院"
+              >
+                <span>
+                  
+                  软件学院
+                  
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="物联网学院"
+              >
+                <span>
+                  
+                  物联网学院
+                  
+                </span>
+              </li>
+              
               
             </div>
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4215,7 +3117,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4236,11 +3137,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -4262,7 +3165,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4283,11 +3185,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -4349,7 +3253,9 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -4364,7 +3270,6 @@ exports[`Form Form layoutVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="inline"
     >
       
       <label
@@ -4411,11 +3316,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <form
@@ -4423,7 +3328,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4444,7 +3349,6 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4465,11 +3369,13 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4490,10 +3396,9 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -4533,7 +3438,9 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -4550,7 +3457,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__account"
+      class="t-form__item t-form-item__account t-form__item-with-extra"
     >
       <!---->
       <div
@@ -4562,7 +3469,6 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--prefix"
@@ -4601,11 +3507,13 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <!---->
       <div
@@ -4617,10 +3525,9 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--prefix t-input--suffix"
+              class="t-input t-input--prefix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -4683,11 +3590,13 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <!---->
@@ -4713,7 +3622,9 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -4726,7 +3637,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="initial"
     >
       
       <label
@@ -4768,38 +3678,23 @@ exports[`Form Form resetVue demo works fine 1`] = `
         >
           
           
-          <div
-            class="t-popup__reference"
-          >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content"
-                  style="max-width: 480px;"
-                >
-                  改变表单数据后，点击重置按钮，观察数据重置情况
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
+          
+          <span>
             
              重置为初始值 
             
-          </div>
+          </span>
+          <!---->
+          
           
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -4810,7 +3705,7 @@ exports[`Form Form resetVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4832,7 +3727,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="TDesign"
           >
             <div
               class="t-input"
@@ -4853,11 +3747,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4879,7 +3775,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="12345678910"
           >
             <div
               class="t-input"
@@ -4900,11 +3795,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4993,11 +3890,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -5046,7 +3945,9 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -5059,7 +3960,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="medium"
     >
       
       <label
@@ -5106,11 +4006,11 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -5121,7 +4021,7 @@ exports[`Form Form sizeVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5143,7 +4043,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="TDesign"
           >
             <div
               class="t-input"
@@ -5164,11 +4063,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5190,7 +4091,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="12345678910"
           >
             <div
               class="t-input"
@@ -5211,11 +4111,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__status"
+      class="t-form__item t-form-item__status t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5252,11 +4154,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5282,7 +4186,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -5303,7 +4206,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -5323,15 +4225,18 @@ exports[`Form Form sizeVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5420,11 +4325,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -5473,7 +4380,9 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -5489,7 +4398,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__school"
+      class="t-form__item t-form-item__school t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -5511,7 +4420,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue="1"
           >
             
             <label
@@ -5575,11 +4483,14 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
@@ -5679,7 +4590,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
             <!-- 重点阅读：name 表示当前字段在 formData 中的路径，ruleName 表示当前字段在 rules 中的名称 -->
             <div
-              class="t-form__item t-form-item__students[0].name"
+              class="t-form__item t-form-item__students[0].name t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5701,7 +4612,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-input__wrap"
-                    modelvalue="StudentA"
                   >
                     <div
                       class="t-input"
@@ -5722,11 +4632,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[0].courseType"
+              class="t-form__item t-form-item__students[0].courseType t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5748,12 +4660,10 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-radio-group t-size-m t-radio-group__outline"
-                    modelvalue="wenke"
                   >
                     
                     <label
                       class="t-radio t-is-checked"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -5774,7 +4684,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                     </label>
                     <label
                       class="t-radio"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -5794,15 +4703,18 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    <!---->
                   </div>
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[0].course"
+              class="t-form__item t-form-item__students[0].course t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5976,11 +4888,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__"
+              class="t-form__item t-form-item__ t-form__item-with-extra"
               style="padding-top: 8px;"
             >
               <div
@@ -6029,7 +4943,9 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
           </div>
@@ -6046,7 +4962,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
             <!-- 重点阅读：name 表示当前字段在 formData 中的路径，ruleName 表示当前字段在 rules 中的名称 -->
             <div
-              class="t-form__item t-form-item__students[1].name"
+              class="t-form__item t-form-item__students[1].name t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6068,7 +4984,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-input__wrap"
-                    modelvalue="StudentB"
                   >
                     <div
                       class="t-input"
@@ -6089,11 +5004,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[1].courseType"
+              class="t-form__item t-form-item__students[1].courseType t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6115,12 +5032,10 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-radio-group t-size-m t-radio-group__outline"
-                    modelvalue="wenke"
                   >
                     
                     <label
                       class="t-radio t-is-checked"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -6141,7 +5056,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                     </label>
                     <label
                       class="t-radio"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -6161,15 +5075,18 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    <!---->
                   </div>
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[1].course"
+              class="t-form__item t-form-item__students[1].course t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6343,11 +5260,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__"
+              class="t-form__item t-form-item__ t-form__item-with-extra"
               style="padding-top: 8px;"
             >
               <div
@@ -6396,7 +5315,9 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__help"
+                />
               </div>
             </div>
           </div>
@@ -6417,7 +5338,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="default"
     >
       
       <label
@@ -6437,29 +5357,14 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
         >
           
           
-          <div
-            class="t-popup__reference"
-          >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content"
-                  style="max-width: 480px;"
-                >
-                  Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
+          
+          <span>
             
              使用表单默认校验信息 
             
-          </div>
+          </span>
+          <!---->
+          
           
           
         </span>
@@ -6481,38 +5386,23 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
         >
           
           
-          <div
-            class="t-popup__reference"
-          >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content"
-                  style="max-width: 480px;"
-                >
-                  统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
+          
+          <span>
             
              表单统一配置校验信息 
             
-          </div>
+          </span>
+          <!---->
+          
           
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -6545,7 +5435,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -6567,7 +5456,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
@@ -6596,7 +5485,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -6618,14 +5506,14 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6647,10 +5535,9 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -6690,11 +5577,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6716,7 +5605,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -6737,11 +5625,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6763,12 +5653,10 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -6789,7 +5677,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -6809,15 +5696,18 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6926,11 +5816,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -6954,141 +5846,99 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
             class="t-select__wrap demo-select-base"
             modelvalue=""
           >
+            
             <div
-              class="t-popup__reference t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-is-selected t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          <span>
-                            
-                          </span>
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-size-m"
-                          title="计算机学院"
-                        >
-                          <span>
-                            
-                            计算机学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="软件学院"
-                        >
-                          <span>
-                            
-                            软件学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="物联网学院"
-                        >
-                          <span>
-                            
-                            物联网学院
-                            
-                          </span>
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-select-polyfill t-size-m"
+              <!---->
+              <span
+                class="t-select__placeholder"
+              >
+                 
+                请选择
+              </span>
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
               >
                 <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                   
-                  请选择
-                </span>
+                
+                +0
+                
                 <!---->
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
+              </span>
+              <!---->
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+            
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                title="计算机学院"
+              >
+                <span>
                   
-                  +0
+                  计算机学院
                   
-                  <!---->
                 </span>
-                <!---->
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="软件学院"
+              >
+                <span>
+                  
+                  软件学院
+                  
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="物联网学院"
+              >
+                <span>
+                  
+                  物联网学院
+                  
+                </span>
+              </li>
+              
               
             </div>
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7110,7 +5960,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7131,11 +5980,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7157,7 +6008,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7178,11 +6028,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -7244,7 +6096,9 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -7265,7 +6119,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="true"
     >
       
       <label
@@ -7312,11 +6165,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -7326,7 +6179,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__fail"
+      class="t-form__item t-form-item__fail t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7348,7 +6201,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7369,11 +6221,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__warning"
+      class="t-form__item t-form-item__warning t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7395,7 +6249,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7416,11 +6269,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__success"
+      class="t-form__item t-form-item__success t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7442,7 +6297,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7463,11 +6317,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__success"
+      class="t-form__item t-form-item__success t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7489,7 +6345,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7510,11 +6365,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__failB"
+      class="t-form__item t-form-item__failB t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7536,7 +6393,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7557,11 +6413,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__warningB"
+      class="t-form__item t-form-item__warningB t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7583,7 +6441,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7604,11 +6461,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__loading"
+      class="t-form__item t-form-item__loading t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7630,7 +6489,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7685,12 +6543,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
     <div
-      class="t-form__item t-form-item__help"
+      class="t-form__item t-form-item__help t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7712,7 +6572,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7745,12 +6604,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             </svg>
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
     <div
-      class="t-form__item t-form-item__add0"
+      class="t-form__item t-form-item__add0 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7817,12 +6678,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -7871,7 +6734,9 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -7909,7 +6774,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7931,7 +6795,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
@@ -7981,14 +6845,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__help"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8010,10 +6874,9 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -8053,11 +6916,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8079,7 +6944,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8100,11 +6964,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8126,12 +6992,10 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -8152,7 +7016,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -8172,15 +7035,18 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8289,11 +7155,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -8316,141 +7184,99 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           <div
             class="t-select__wrap demo-select-base"
           >
+            
             <div
-              class="t-popup__reference t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          <span>
-                            
-                          </span>
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-size-m"
-                          title="计算机学院"
-                        >
-                          <span>
-                            
-                            计算机学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="软件学院"
-                        >
-                          <span>
-                            
-                            软件学院
-                            
-                          </span>
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="物联网学院"
-                        >
-                          <span>
-                            
-                            物联网学院
-                            
-                          </span>
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-select-polyfill t-size-m"
+              <!---->
+              <span
+                class="t-select__placeholder"
+              >
+                 
+                请选择
+              </span>
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
               >
                 <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                   
-                  请选择
-                </span>
+                
+                +0
+                
                 <!---->
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
+              </span>
+              <!---->
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+            
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                title="计算机学院"
+              >
+                <span>
                   
-                  +0
+                  计算机学院
                   
-                  <!---->
                 </span>
-                <!---->
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="软件学院"
+              >
+                <span>
+                  
+                  软件学院
+                  
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                title="物联网学院"
+              >
+                <span>
+                  
+                  物联网学院
+                  
+                </span>
+              </li>
+              
               
             </div>
           </div>
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8472,7 +7298,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8493,11 +7318,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8519,7 +7346,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8540,11 +7366,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -8606,7 +7434,9 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     

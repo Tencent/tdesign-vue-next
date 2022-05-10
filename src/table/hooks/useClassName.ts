@@ -17,6 +17,7 @@ export default function useClassName() {
       bordered: `${classPrefix.value}-table--bordered`,
       striped: `${classPrefix.value}-table--striped`,
       hover: `${classPrefix.value}-table--hoverable`,
+      loading: `${classPrefix.value}-table--loading`,
       rowspanAndColspan: `${classPrefix.value}-table--rowspan-colspan`,
       empty: `${classPrefix.value}-table__empty`,
       emptyRow: `${classPrefix.value}-table__empty-row`,
@@ -148,9 +149,12 @@ export default function useClassName() {
     // 拖拽功能类名
     tableDraggableClasses: {
       rowDraggable: `${classPrefix.value}-table--row-draggable`,
+      rowHandlerDraggable: `${classPrefix.value}-table--row-handler-draggable`,
       colDraggable: `${classPrefix.value}-table--col-draggable`,
       handle: `${classPrefix.value}-table__handle-draggable`,
-      ghost: `${classPrefix.value}-table__col--draggable-ghost`,
+      ghost: `${classPrefix.value}-table__ele--draggable-ghost`,
+      chosen: `${classPrefix.value}-table__ele--draggable-chosen`,
+      dragging: `${classPrefix.value}-table__ele--draggable-dragging`,
     },
 
     virtualScrollClasses: {

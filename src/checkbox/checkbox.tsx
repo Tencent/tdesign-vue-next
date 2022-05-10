@@ -6,7 +6,7 @@ import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import { CheckboxGroupInjectionKey } from './group';
+import { CheckboxGroupInjectionKey } from './constants';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -22,7 +22,13 @@ export default defineComponent({
     }
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
 
     const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
     const GroupDisabled = computed(() => {

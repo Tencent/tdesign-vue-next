@@ -1,0 +1,107 @@
+[
+  {
+    "name": "direction",
+    "type": "enum",
+    "defaultValue": "right",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hideAfterItemClick",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "bottom-left",
+    "options": [
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      },
+      {
+        "label": "top-left",
+        "value": "top-left"
+      },
+      {
+        "label": "top-right",
+        "value": "top-right"
+      },
+      {
+        "label": "bottom-left",
+        "value": "bottom-left"
+      },
+      {
+        "label": "bottom-right",
+        "value": "bottom-right"
+      },
+      {
+        "label": "left-top",
+        "value": "left-top"
+      },
+      {
+        "label": "left-bottom",
+        "value": "left-bottom"
+      },
+      {
+        "label": "right-top",
+        "value": "right-top"
+      },
+      {
+        "label": "right-bottom",
+        "value": "right-bottom"
+      }
+    ]
+  },
+  {
+    "name": "trigger",
+    "type": "enum",
+    "defaultValue": "hover",
+    "options": [
+      {
+        "label": "hover",
+        "value": "hover"
+      },
+      {
+        "label": "click",
+        "value": "click"
+      },
+      {
+        "label": "focus",
+        "value": "focus"
+      },
+      {
+        "label": "context-menu",
+        "value": "context-menu"
+      }
+    ]
+  }
+]

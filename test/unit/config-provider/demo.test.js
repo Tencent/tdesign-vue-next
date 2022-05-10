@@ -8,6 +8,7 @@ import MockDate from 'mockdate';
 import calendarVue from '@/examples/config-provider/demos/calendar.vue';
 import datePickerVue from '@/examples/config-provider/demos/date-picker.vue';
 import dialogVue from '@/examples/config-provider/demos/dialog.vue';
+import globalVue from '@/examples/config-provider/demos/global.vue';
 import othersVue from '@/examples/config-provider/demos/others.vue';
 import paginationVue from '@/examples/config-provider/demos/pagination.vue';
 import popconfirmVue from '@/examples/config-provider/demos/popconfirm.vue';
@@ -19,6 +20,7 @@ const mapper = {
   calendarVue,
   datePickerVue,
   dialogVue,
+  globalVue,
   othersVue,
   paginationVue,
   popconfirmVue,

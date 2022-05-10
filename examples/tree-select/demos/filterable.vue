@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-select-filterable">
+  <div class="tdesign-demo-block-row">
     <div class="operation">
       <t-radio-group v-model="type" variant="default-filled">
         <t-radio-button value="default"> 默认 </t-radio-button>

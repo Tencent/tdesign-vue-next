@@ -40,14 +40,17 @@ export default {
   defaultDisplayColumns: {
     type: Array as PropType<TdPrimaryTableProps['defaultDisplayColumns']>,
   },
-  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`col` 表示通过专门的 拖拽列 进行拖拽排序。`drag-col` 已废弃，请勿使用 */
+  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用 */
   dragSort: {
     type: String as PropType<TdPrimaryTableProps['dragSort']>,
-    default: 'col' as TdPrimaryTableProps['dragSort'],
     validator(val: TdPrimaryTableProps['dragSort']): boolean {
       if (!val) return true;
-      return ['row', 'col', 'drag-col'].includes(val);
+      return ['row', 'row-handler', 'col', 'drag-col'].includes(val);
     },
+  },
+  /** 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable) */
+  dragSortOptions: {
+    type: Object as PropType<TdPrimaryTableProps['dragSortOptions']>,
   },
   /** 展开行内容，泛型 T 指表格数据类型 */
   expandedRow: {
@@ -127,7 +130,7 @@ export default {
   onDataChange: Function as PropType<TdPrimaryTableProps['onDataChange']>,
   /** 确认列配置时触发 */
   onDisplayColumnsChange: Function as PropType<TdPrimaryTableProps['onDisplayColumnsChange']>,
-  /** 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据 */
+  /** 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发 */
   onDragSort: Function as PropType<TdPrimaryTableProps['onDragSort']>,
   /** 展开行发生变化时触发，泛型 T 指表格数据类型 */
   onExpandChange: Function as PropType<TdPrimaryTableProps['onExpandChange']>,

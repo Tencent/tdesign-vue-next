@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -11,7 +11,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/event';
+import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
@@ -135,11 +135,16 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
+    watch([() => props.panels], () => {
+      nextTick(totalAdjust);
+    });
     watch([scrollLeft, () => props.placement], totalAdjust);
 
     // life times
-    useResize(debounce(totalAdjust), navsContainerRef.value);
-    onMounted(totalAdjust);
+    onMounted(() => {
+      totalAdjust();
+      useResize(debounce(totalAdjust), navsContainerRef.value);
+    });
 
     // methods
     const adjustScrollLeft = () => {
@@ -157,7 +162,7 @@ export default defineComponent({
       }
     };
     const handleAddTab = (e: MouseEvent) => {
-      props.onAdd({ e });
+      props.onAdd?.({ e });
     };
     const tabClick = (event: MouseEvent, nav: Partial<InstanceType<typeof TTabPanel>>) => {
       const { value, disabled } = nav;

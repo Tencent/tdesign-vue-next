@@ -82,6 +82,7 @@ router.afterEach(() => {
     // eslint-disable-next-line no-undef
     NProgress.done();
   }
+  document.querySelector('td-stats')?.track?.();
 });
 
 export default router;

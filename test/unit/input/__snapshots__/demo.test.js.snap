@@ -221,7 +221,6 @@ exports[`Input Input baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-input__wrap"
-    modelvalue="有默认值"
   >
     <div
       class="t-input"
@@ -276,7 +275,6 @@ exports[`Input Input clearableVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
-    modelvalue="Hello TDesign"
   >
     <div
       class="t-input"
@@ -331,7 +329,6 @@ exports[`Input Input formatVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
-    modelvalue=""
   >
     <div
       class="t-input"
@@ -599,7 +596,6 @@ exports[`Input Input maxLengthCountVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
-    modelvalue=""
   >
     <div
       class="t-input t-input--suffix"
@@ -634,7 +630,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-input--prefix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -699,7 +695,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-input--prefix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"

@@ -1,25 +1,32 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
 import { renderContent } from '../utils/render-tnode';
-import CLASSNAMES from '../utils/classnames';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TCheckTag',
   props,
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tag');
+    const { SIZE } = useCommonClassName();
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
 
     const tagClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}--check`,
         `${COMPONENT_NAME.value}--default`,
-        CLASSNAMES.SIZE[props.size],
+        SIZE.value[props.size],
         {
           [`${COMPONENT_NAME.value}--checked`]: !props.disabled && innerChecked.value,
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,

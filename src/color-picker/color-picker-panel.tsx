@@ -14,6 +14,7 @@ export default defineComponent({
   props: {
     ...props,
   },
+
   setup(props) {
     const prefix = usePrefixClass();
     const { value, modelValue } = toRefs(props);

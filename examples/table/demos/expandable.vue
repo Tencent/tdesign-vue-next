@@ -12,7 +12,7 @@
 
     <div>
       <t-checkbox v-model="expandOnRowClick">允许点击行之后展开/收起</t-checkbox>
-      <t-checkbox v-model="fixedColums" style="margin-left: 32px">固定列</t-checkbox>
+      <t-checkbox v-model="fixedColumns" style="margin-left: 32px">固定列</t-checkbox>
       <t-checkbox v-model="emptyData" style="margin-left: 32px">空数据</t-checkbox>
     </div>
 
@@ -41,13 +41,31 @@
     </t-table>
 
     <!-- !! 也可以使用具名插槽 `expandedRow` 自定义展开行内容 !! -->
-    <!-- <template #expandedRow="{ row }">
-      <div class="more-detail">
-        <p class="title"><b>集群名称:</b></p><p class="content">{{row.instance}}</p><br/>
-        <p class="title"><b>管理员:</b></p><p class="content">{{row.owner}}</p><br/>
-        <p class="title"><b>描述:</b></p><p class="content">{{row.description}}</p>
-      </div>
-    </template> -->
+    <!-- <t-table
+      row-key="id"
+      :columns="columns"
+      :data="emptyData ? [] : data"
+      :expanded-row-keys="expandedRowKeys"
+      :expanded-row="expandedRow"
+      :expand-on-row-click="expandOnRowClick"
+      :expand-icon="expandIcon"
+      table-layout="auto"
+      table-content-width="1200"
+      @expand-change="rehandleExpandChange"
+    >
+      <template #expandedRow="{ row }">
+        <div class="more-detail">
+          <p class="title"><b>集群名称:</b></p>
+          <p class="content">{{ row.instance }}</p>
+          <br />
+          <p class="title"><b>管理员:</b></p>
+          <p class="content">{{ row.owner }}</p>
+          <br />
+          <p class="title"><b>描述:</b></p>
+          <p class="content">{{ row.description }}</p>
+        </div>
+      </template>
+    </t-table> -->
   </div>
 </template>
 
@@ -56,12 +74,11 @@ import { ref, watch, computed } from 'vue';
 
 import { ChevronRightCircleIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 
-const getColums = (isFixedColumn) => [
+const getColumns = (isFixedColumn) => [
   { colKey: 'instance', title: '集群名称', fixed: isFixedColumn ? 'left' : '' },
   {
     colKey: 'status',
     title: '状态',
-    cell: 'status',
   },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
@@ -97,10 +114,10 @@ const expandControl = ref('true');
 const expandIcon = ref(true);
 const expandOnRowClick = ref(true);
 const expandedRowKeys = ref(['2']);
-const fixedColums = ref(false);
+const fixedColumns = ref(false);
 const emptyData = ref(false);
 
-const columns = computed(() => getColums(fixedColums.value));
+const columns = computed(() => getColumns(fixedColumns.value));
 
 const expandedRow = (h, { row }) => (
   <div class="more-detail">

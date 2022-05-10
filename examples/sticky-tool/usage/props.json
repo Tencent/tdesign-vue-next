@@ -1,0 +1,45 @@
+[
+  {
+    "name": "collapsed",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "draggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "right-bottom",
+    "options": [
+      {
+        "label": "right-top",
+        "value": "right-top"
+      },
+      {
+        "label": "right-center",
+        "value": "right-center"
+      },
+      {
+        "label": "right-bottom",
+        "value": "right-bottom"
+      },
+      {
+        "label": "left-top",
+        "value": "left-top"
+      },
+      {
+        "label": "left-center",
+        "value": "left-center"
+      },
+      {
+        "label": "left-bottom",
+        "value": "left-bottom"
+      }
+    ]
+  }
+]

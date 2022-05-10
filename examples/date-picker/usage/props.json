@@ -1,0 +1,74 @@
+[
+  {
+    "name": "allowInput",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "enableTimePicker",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "mode",
+    "type": "enum",
+    "defaultValue": "month",
+    "options": [
+      {
+        "label": "year",
+        "value": "year"
+      },
+      {
+        "label": "month",
+        "value": "month"
+      },
+      {
+        "label": "date",
+        "value": "date"
+      }
+    ]
+  },
+  {
+    "name": "presetsPlacement",
+    "type": "enum",
+    "defaultValue": "bottom",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      }
+    ]
+  },
+  {
+    "name": "range",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

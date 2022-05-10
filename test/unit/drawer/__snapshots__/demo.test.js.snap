@@ -8,7 +8,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
     class="t-suf-container"
   >
     <div
-      class="t-drawer t-drawer--right t-drawer--attach v-transfer-dom"
+      class="t-drawer t-drawer--right t-drawer--attach"
     >
       <div
         class="t-drawer__mask"
@@ -69,7 +69,6 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
        抽屉弹出方向： 
       <div
         class="t-radio-group t-size-m t-radio-group__outline"
-        modelvalue="right"
       >
         
         <label
@@ -161,6 +160,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
           </span>
         </label>
         
+        <!---->
       </div>
     </div>
     <br />
@@ -170,7 +170,6 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
        抽屉弹出模式： 
       <div
         class="t-radio-group t-size-m t-radio-group__outline"
-        modelvalue="overlay"
       >
         
         <label
@@ -218,6 +217,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
           </span>
         </label>
         
+        <!---->
       </div>
     </div>
     <br />
@@ -241,7 +241,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
 exports[`Drawer Drawer baseVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -331,7 +331,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
 <div>
   <!-- 使用插槽自定义 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -340,7 +340,15 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
       style="width: 300px;"
     >
-      <!---->
+      <div
+        class="t-drawer__header"
+      >
+        
+        <div>
+          自定义头部
+        </div>
+        
+      </div>
       
       <div
         class="t-drawer__body narrow-scrollbar"
@@ -385,7 +393,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
   </div>
   <!-- 使用 props 自定义 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -421,7 +429,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-              confrim
+              confirm
               
             </span>
           </button>
@@ -443,7 +451,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
   </div>
   <!-- 单独定义确认/取消按钮 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -562,7 +570,7 @@ exports[`Drawer Drawer destroyVue demo works fine 1`] = `
 exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right t-drawer--without-mask v-transfer-dom"
+    class="t-drawer t-drawer--right t-drawer--without-mask"
   >
     <!---->
     <div
@@ -633,7 +641,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
 exports[`Drawer Drawer operationVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -782,7 +790,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
 <div>
   <!-- @click-cancel 和 :onClickCancel 两种写法都支持； :onClickOverlay 和 @click-overlay 两种写法都支持-->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -842,7 +850,6 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
-      modelvalue="right"
     >
       
       <label
@@ -934,6 +941,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <button
@@ -953,14 +961,12 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
 
 exports[`Drawer Drawer popupVue demo works fine 1`] = `
 <div>
-  <!---->
   <div
     class="tdesign-radio-button"
   >
      抽屉弹出模式： 
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
-      modelvalue="push"
     >
       
       <label
@@ -1008,6 +1014,7 @@ exports[`Drawer Drawer popupVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <br />
@@ -1030,7 +1037,7 @@ exports[`Drawer Drawer popupVue demo works fine 1`] = `
 exports[`Drawer Drawer sizeVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -1090,7 +1097,6 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group__outline btn-top-margin"
-      modelvalue="small"
     >
       
       <label
@@ -1226,6 +1232,7 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <button

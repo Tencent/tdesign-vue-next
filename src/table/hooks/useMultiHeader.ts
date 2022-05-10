@@ -2,14 +2,11 @@
  * 多级表头相关逻辑
  ** */
 
-import { TdBaseTableProps, RowspanColspan } from '../type';
-
-export type ThRowspanAndColspan = Map<any, RowspanColspan>;
-
-export type TableColumns = TdBaseTableProps['columns'];
+import { RowspanColspan } from '../type';
+import { BaseTableColumns, ThRowspanAndColspan } from '../interface';
 
 // 获取节点深度，即表头总层级
-export function getNodeDepth(columns: TableColumns, depthMap: Map<any, number>, depth = 1): number {
+export function getNodeDepth(columns: BaseTableColumns, depthMap: Map<any, number>, depth = 1): number {
   let maxDepth = depth;
   // 树形结构递归已有较多函数上下文，此处不使用 forEach 迭代
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -26,7 +23,7 @@ export function getNodeDepth(columns: TableColumns, depthMap: Map<any, number>, 
 }
 
 // 或当前节点的叶子结点宽度
-export function getChildrenNodeWidth(node: TableColumns[0], count = 0) {
+export function getChildrenNodeWidth(node: BaseTableColumns[0], count = 0) {
   let countNew = count;
   const childrenList = node?.children || [];
   for (let i = 0, len = childrenList.length; i < len; i++) {
@@ -41,11 +38,11 @@ export function getChildrenNodeWidth(node: TableColumns[0], count = 0) {
 }
 
 // 获取多级表头对应的 colspan 和 rowspan，以及叶子节点
-export function getThRowspanAndColspan(columns: TableColumns) {
+export function getThRowspanAndColspan(columns: BaseTableColumns) {
   const depthMap = new Map<any, number>();
   const columnsDepth = getNodeDepth(columns, depthMap);
   const rowspanAndColspanMap: ThRowspanAndColspan = new Map();
-  const loop = (nodes: TableColumns, leafColumns: TableColumns) => {
+  const loop = (nodes: BaseTableColumns, leafColumns: BaseTableColumns) => {
     for (let i = 0, len = nodes.length; i < len; i++) {
       const col = nodes[i];
       const rowspan = col.children ? 1 : columnsDepth - depthMap.get(col) + 1;
@@ -62,16 +59,16 @@ export function getThRowspanAndColspan(columns: TableColumns) {
       }
     }
   };
-  const leafColumns: TableColumns = [];
+  const leafColumns: BaseTableColumns = [];
   loop(columns, leafColumns);
   return { rowspanAndColspanMap, leafColumns };
 }
 
 // 表头渲染所需的二维数据
-export function getThList(columns: TableColumns): Array<TableColumns> {
-  const loop = (nodes: TableColumns, thRows: Array<TableColumns>) => {
-    let thRowData: TableColumns = [];
-    let children: TableColumns = [];
+export function getThList(columns: BaseTableColumns): Array<BaseTableColumns> {
+  const loop = (nodes: BaseTableColumns, thRows: Array<BaseTableColumns>) => {
+    let thRowData: BaseTableColumns = [];
+    let children: BaseTableColumns = [];
     for (let i = 0, len = nodes.length; i < len; i++) {
       const node = nodes[i];
       const thList = [node];
@@ -86,7 +83,7 @@ export function getThList(columns: TableColumns): Array<TableColumns> {
     thRows.push(thRowData);
     return thRowData;
   };
-  let list: Array<TableColumns> = [];
+  let list: Array<BaseTableColumns> = [];
   loop(columns, list);
   list = list.reverse();
   return list;

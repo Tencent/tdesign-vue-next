@@ -74,8 +74,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       readonly: !props.allowInput,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
-      showClearIconOnEmpty: Boolean(props.clearable && inputValue.value),
+      showClearIconOnEmpty: Boolean(props.clearable && (inputValue.value || displayedValue)),
     };
+
     return (
       <Input
         ref="inputRef"
@@ -85,7 +86,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onClear={onInnerClear}
         onBlur={(val: InputValue, context: { e: MouseEvent }) => {
           props.onBlur?.(value.value, { ...context, inputValue: val });
-          inputValue.value = getInputValue(value.value, keys.value);
         }}
         onEnter={(val: InputValue, context: { e: KeyboardEvent }) => {
           props.onEnter?.(value.value, { ...context, inputValue: val });

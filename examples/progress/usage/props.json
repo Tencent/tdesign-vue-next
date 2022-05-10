@@ -1,0 +1,27 @@
+[
+  {
+    "name": "label",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "line",
+    "options": [
+      {
+        "label": "line",
+        "value": "line"
+      },
+      {
+        "label": "plump",
+        "value": "plump"
+      },
+      {
+        "label": "circle",
+        "value": "circle"
+      }
+    ]
+  }
+]

@@ -1,5 +1,4 @@
 import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect } from 'vue';
-import { useEmitEvent } from '../hooks/event';
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
@@ -11,12 +10,9 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'THeadMenu',
-  components: { Tabs, TabPanel },
-  props,
-  emits: ['change', 'expand'],
+  props: { ...props },
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
-    const emitEvent = useEmitEvent();
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -44,7 +40,7 @@ export default defineComponent({
       activeValue,
       activeValues,
       select: (value: MenuValue) => {
-        emitEvent('change', value);
+        props.onChange?.(value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         const expanded = [...expandValues.value];
@@ -65,13 +61,13 @@ export default defineComponent({
             expanded.push(value);
           }
         }
-        emitEvent('expand', expanded);
+        props.onExpand?.(expanded);
       },
     });
 
     // methods
     const handleTabChange = (value: MenuValue) => {
-      emitEvent('change', value);
+      props.onChange?.(value);
     };
 
     const handleSubmenuExpand = (value: MenuValue) => {
@@ -127,11 +123,11 @@ export default defineComponent({
       return (
         <ul class={[`${this.classPrefix}-head-menu__submenu`, `${this.classPrefix}-submenu`]}>
           {
-            <t-tabs value={this.activeValue} onChange={this.handleTabChange}>
+            <Tabs value={this.activeValue} onChange={this.handleTabChange}>
               {this.submenu.map((item) => (
-                <t-tab-panel value={item.value} label={item.vnode()[0]?.children} />
+                <TabPanel value={item.value} label={item.vnode()[0]?.children} />
               ))}
-            </t-tabs>
+            </Tabs>
           }
         </ul>
       );

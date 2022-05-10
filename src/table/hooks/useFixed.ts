@@ -6,47 +6,7 @@ import { BaseTableCol, TdBaseTableProps } from '../type';
 import getScrollbarWidth from '../../_common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
 import { TDisplayNoneElementRefresh } from '../../hooks/useDestroyOnClose';
-
-export interface ColumnStickyLeftAndRight {
-  left: number[];
-  right: number[];
-  top: number[];
-  bottom?: number[];
-}
-
-export interface TableColFixedClasses {
-  left: string;
-  right: string;
-  lastLeft: string;
-  firstRight: string;
-  leftShadow: string;
-  rightShadow: string;
-}
-
-export interface TableRowFixedClasses {
-  top: string;
-  bottom: string;
-  firstBottom: string;
-  withoutBorderBottom: string;
-}
-
-export interface FixedColumnInfo {
-  left?: number;
-  right?: number;
-  top?: number;
-  bottom?: number;
-  parent?: FixedColumnInfo;
-  children?: string[];
-  width?: number;
-  height?: number;
-  col?: BaseTableCol;
-  index?: number;
-  lastLeftFixedCol?: boolean;
-  firstRightFixedCol?: boolean;
-}
-
-// 固定表头和固定列 具体的固定位置（left/top/right/bottom）
-export type RowAndColFixedPosition = Map<string | number, FixedColumnInfo>;
+import { TableColFixedClasses, TableRowFixedClasses, FixedColumnInfo, RowAndColFixedPosition } from '../interface';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(
@@ -117,6 +77,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     bordered,
   } = toRefs(props);
   const tableContentRef = ref<HTMLDivElement>();
+  // 高度超出时，自动固定表头
   const isFixedHeader = ref(false);
   const isWidthOverflow = ref(false);
   const affixHeaderRef = ref<HTMLDivElement>();
@@ -135,6 +96,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   const tableWidth = ref(0);
   const thWidthList = ref<{ [colKey: string]: number }>({});
   const isFixedColumn = ref(false);
+  const isFixedRightColumn = ref(false);
 
   const displayNoneElementRefresh = inject(TDisplayNoneElementRefresh, ref(0));
 
@@ -152,6 +114,9 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
       const col = columns[i];
       if (['left', 'right'].includes(col.fixed)) {
         isFixedColumn.value = true;
+      }
+      if (col.fixed === 'right') {
+        isFixedRightColumn.value = true;
       }
       const key = col.colKey || i;
       const columnInfo: FixedColumnInfo = { col, parent, index: i };
@@ -342,8 +307,8 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
           colMapInfo.lastLeftFixedCol = true;
         }
         const lastColMapInfo = nodes[i - 1];
-        const isParentFirstRigthFixedCol = !parent || parent?.firstRightFixedCol;
-        if (isParentFirstRigthFixedCol && colMapInfo.col.fixed === 'right' && lastColMapInfo?.col.fixed !== 'right') {
+        const isParentFirstRightFixedCol = !parent || parent?.firstRightFixedCol;
+        if (isParentFirstRightFixedCol && colMapInfo.col.fixed === 'right' && lastColMapInfo?.col.fixed !== 'right') {
           colMapInfo.firstRightFixedCol = true;
         }
       }
@@ -390,7 +355,10 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateTableWidth = () => {
     const rect = tableContentRef.value.getBoundingClientRect();
-    tableWidth.value = rect.width - scrollbarWidth.value - (props.bordered ? 1 : 0);
+    // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
+    const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
+    const fixedBordered = isFixedRightColumn.value ? 1 : 2;
+    tableWidth.value = rect.width - reduceWidth - (props.bordered ? fixedBordered : 0);
   };
 
   const updateThWidthList = (trList: HTMLCollection) => {

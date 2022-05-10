@@ -1,11 +1,9 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
-import log from '../_common/js/log';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {

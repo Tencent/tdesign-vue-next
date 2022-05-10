@@ -1,0 +1,106 @@
+[
+  {
+    "name": "closeBtn",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "closeOnEscKeydown",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "closeOnOverlayClick",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "destroyOnClose",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "footer",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "header",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "mode",
+    "type": "enum",
+    "defaultValue": "overlay",
+    "options": [
+      {
+        "label": "overlay",
+        "value": "overlay"
+      },
+      {
+        "label": "push",
+        "value": "push"
+      }
+    ]
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "right",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      }
+    ]
+  },
+  {
+    "name": "preventScrollThrough",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "showInAttachedElement",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showOverlay",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "sizeDraggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "visible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

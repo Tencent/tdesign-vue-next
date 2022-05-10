@@ -85,7 +85,7 @@ export default defineComponent({
         input: Input,
       }[column.filter.type];
       if (!component && !column?.filter?.component) return;
-      const props: { [key: string]: any } = {
+      const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
         value: this.innerFilterValue?.[column.colKey],
@@ -99,11 +99,11 @@ export default defineComponent({
             column?.filter?.component((v: any, b: any) => {
               const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
               return h(v, {
-                props: { ...props, ...tProps },
+                props: { ...filterComponentProps, ...tProps },
               });
             })
           ) : (
-            <component value={this.innerFilterValue?.[column.colKey]} {...props}></component>
+            <component value={this.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>
           )}
         </div>
       );
@@ -142,7 +142,7 @@ export default defineComponent({
     const defaultFilterIcon = this.t(this.global.filterIcon) || <FilterIcon />;
     return (
       <Popup
-        attach={this.primaryTableElement ? () => this.primaryTableElement : undefined}
+        attach={this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined}
         visible={this.filterPopupVisible}
         destroyOnClose
         trigger="click"

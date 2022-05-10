@@ -24,11 +24,10 @@ function getValidAttrs(obj: object): object {
 export default defineComponent({
   name: 'TTextarea',
   props: { ...props },
-  emits: ['update:modelValue'],
+
   setup(props, { attrs }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');
-    const TEXTAREA_WRAP_CLASS = computed(() => `${name.value}__wrap`);
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
 
@@ -42,7 +41,9 @@ export default defineComponent({
     // methods
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
-        textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        nextTick(() => {
+          textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        });
       } else if (typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
@@ -141,10 +142,21 @@ export default defineComponent({
       () => innerValue.value,
       () => adjustTextareaHeight(),
     );
+
     watch(refTextareaElem, (el) => {
       if (!el) return;
       adjustTextareaHeight();
     });
+
+    watch(
+      () => props.autofocus,
+      (val) => {
+        if (val) {
+          refTextareaElem.value.focus();
+        }
+      },
+    );
+
     onMounted(() => {
       adjustTextareaHeight();
     });

@@ -50,6 +50,10 @@ export interface TdCalendarProps {
    */
   mode?: 'month' | 'year';
   /**
+   * 控制当前面板展示月份，优先级高于 `controllerConfig.month`
+   */
+  month?: string | number;
+  /**
    * 是否禁用单元格右键默认系统菜单
    * @default false
    */
@@ -71,6 +75,10 @@ export interface TdCalendarProps {
    * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`
    */
   week?: Array<string> | TNode<CalendarWeek>;
+  /**
+   * 控制当前面板展示年份，优先级高于 `controllerConfig.year`
+   */
+  year?: string | number;
   /**
    * 日历单元格点击时触发
    */

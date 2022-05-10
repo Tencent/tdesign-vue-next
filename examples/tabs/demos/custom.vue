@@ -47,13 +47,12 @@ const addTab = () => {
   id += 1;
 };
 
-const removeTab = ({ value: val }) => {
-  const index = panelData.value.findIndex((data) => data.value === val);
+const removeTab = ({ value: val, index }) => {
   if (index < 0) return false;
   panelData.value.splice(index, 1);
   if (panelData.value.length === 0) return;
   if (value.value === val) {
-    value.value = panelData.value[index - 1].value;
+    value.value = panelData.value[Math.max(index - 1, 0)].value;
   }
 };
 </script>

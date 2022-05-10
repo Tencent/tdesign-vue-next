@@ -508,59 +508,18 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
           </svg>
         </span>
         
-        <div
-          class="t-popup__reference"
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
         >
-          <transition-stub>
-            <div
-              aria-hidden="true"
-              class="t-popup"
-              role="tooltip"
-              style="display: none;"
-            >
-              <div
-                class="t-popup__content"
-              >
-                
-                
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="margin-right: 4px;"
-                >
-                  <!---->
-                  
-                  Angular
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="margin-right: 4px;"
-                >
-                  <!---->
-                  
-                  Flutter
-                  
-                  <!---->
-                </span>
-                
-                
-                <!---->
-              </div>
-            </div>
-          </transition-stub>
+          <!---->
           
-          <span
-            class="t-tag t-tag--default t-tag--dark t-size-m"
-          >
-            <!---->
-            
-            More(2)
-            
-            <!---->
-          </span>
+          More(2)
           
-        </div>
+          <!---->
+        </span>
+        <!---->
+        
         
         
       </div>

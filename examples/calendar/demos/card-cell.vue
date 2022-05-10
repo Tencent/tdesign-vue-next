@@ -45,7 +45,7 @@ const getDateStr = (cellData) => {
 
 const getCellAppendCls = (cellData) => ({
   belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-  actived: cellData.isCurrent,
+  activated: cellData.isCurrent,
 });
 
 const handleClick = () => {
@@ -73,7 +73,7 @@ const handleClick = () => {
   padding: 2px 4px;
 }
 
-.cellAppend.actived {
+.cellAppend.activated {
   background-color: #0052d9;
   color: #ebf2ff;
 }

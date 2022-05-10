@@ -16,12 +16,13 @@ import isString from 'lodash/isString';
 import pick from 'lodash/pick';
 import get from 'lodash/get';
 import { formatRowAttributes, formatRowClassNames } from './utils';
-import { getRowFixedStyles, getColumnFixedStyles, RowAndColFixedPosition } from './hooks/useFixed';
+import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
 import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, PrimaryTableCellParams } from './type';
 import baseTableProps from './base-table-props';
 import useLazyLoad from './hooks/useLazyLoad';
+import { RowAndColFixedPosition } from './interface';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -62,18 +63,18 @@ export interface TrProps extends TrCommonProps {
   row: TableRowData;
   rowIndex: number;
   dataLength: number;
-  rowAndColFixedPosition: RowAndColFixedPosition;
+  rowAndColFixedPosition?: RowAndColFixedPosition;
   // 属性透传，引用传值，可内部改变
-  skipSpansMap: Map<any, boolean>;
-  onTrRowspanOrColspan?: (params: PrimaryTableCellParams<TableRowData>, cellSpans: RowspanColspan) => void;
-  scrollType: string;
-  isVirtual: boolean;
-  rowHeight: number;
-  trs: Map<number, object>;
-  bufferSize: number;
-  tableElm: any;
+  skipSpansMap?: Map<any, boolean>;
+  scrollType?: string;
+  isVirtual?: boolean;
+  rowHeight?: number;
+  trs?: Map<number, object>;
+  bufferSize?: number;
+  tableElm?: any;
   // HTMLDivElement
-  tableContentElm: any;
+  tableContentElm?: any;
+  onTrRowspanOrColspan?: (params: PrimaryTableCellParams<TableRowData>, cellSpans: RowspanColspan) => void;
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];

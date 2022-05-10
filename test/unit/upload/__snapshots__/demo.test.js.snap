@@ -168,7 +168,7 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
       class="t-upload__dialog"
     >
       <div
-        class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+        class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
       >
         
@@ -258,7 +258,6 @@ exports[`Upload Upload draggableVue demo works fine 1`] = `
     <div>
       <div
         class="t-radio-group t-size-m t-radio-group--filled"
-        modelvalue="file"
       >
         
         <label
@@ -305,11 +304,11 @@ exports[`Upload Upload draggableVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
   </div>
@@ -642,7 +641,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
         class="t-upload__dialog"
       >
         <div
-          class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+          class="t-dialog__ctx t-dialog__ctx--fixed"
           style="display: none;"
         >
           
@@ -758,7 +757,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
         class="t-upload__dialog"
       >
         <div
-          class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+          class="t-dialog__ctx t-dialog__ctx--fixed"
           style="display: none;"
         >
           
@@ -874,7 +873,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
         class="t-upload__dialog"
       >
         <div
-          class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+          class="t-dialog__ctx t-dialog__ctx--fixed"
           style="display: none;"
         >
           
@@ -991,7 +990,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
         class="t-upload__dialog"
       >
         <div
-          class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+          class="t-dialog__ctx t-dialog__ctx--fixed"
           style="display: none;"
         >
           
@@ -1152,7 +1151,7 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
       class="t-upload__dialog"
     >
       <div
-        class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+        class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
       >
         
@@ -1300,7 +1299,6 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="requestSuccessMethod"
     >
       
       <label
@@ -1347,11 +1345,11 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div
@@ -1464,7 +1462,7 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
         class="t-upload__dialog"
       >
         <div
-          class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+          class="t-dialog__ctx t-dialog__ctx--fixed"
           style="display: none;"
         >
           

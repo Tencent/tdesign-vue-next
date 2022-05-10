@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 alert | Object | - | 警告全局配置。TS 类型：`AlertConfig` | N
 anchor | Object | - | 锚点全局配置。TS 类型：`AnchorConfig` | N
-animation | Object | - | 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`。TS 类型：`Record<'include'|'exclude', Array<AnimationType>>` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+animation | Object | - | 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`。TS 类型：`Partial<Record<'include'|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 calendar | Object | - | 日历组件全局配置。TS 类型：`CalendarConfig` | N
 cascader | Object | - | 级联选择器全局配置。TS 类型：`CascaderConfig` | N
 classPrefix | String | t | CSS 类名前缀 | N
@@ -30,41 +30,20 @@ tree | Object | - | 树组件全局配置。TS 类型：`TreeConfig` | N
 treeSelect | Object | - | 树选择器组件全局配置。TS 类型：`TreeSelectConfig` | N
 upload | Object | - | 上传组件全局配置。TS 类型：`UploadConfig` | N
 
-### TreeConfig
+### InputConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-empty | String | - | 语言配置，“暂无数据”描述文本 | N
-folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+placeholder | String | - | 语言配置，“请输入”占位符描述文本 | N
 
-### AnchorConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-copySuccessText | String | - | 语言配置，“链接复制成功”描述文本 | N
-copyText | String | - | 语言配置，“复制链接” 描述文本 | N
-
-### AlertConfig
+### PaginationConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-collapseText | String | - | 语言配置，“收起”描述文本 | N
-expandText | String | - | 语言配置，“展开更多”描述文本 | N
-
-### ListConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-loadingMoreText | String | - | 语言配置，'点击加载更多' 描述文本 | N
-loadingText | String | - | 语言配置，'正在加载中，请稍后' 描述文本 | N
-
-### CascaderConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-empty | String | - | 语言配置，“暂无数据”描述文本 | N
-loadingText | String | - | 语言配置，“加载中”描述文本 | N
-placeholder | String | - | 语言配置，“请选择”占位描述文本 | N
+itemsPerPage | String | - | 语言配置，每页条数文本，示例：`'{size} 条/页'` | N
+jumpTo | String | - | 语言配置，页码跳转文本，示例：'跳至' | N
+page | String | - | 语言配置，“页”描述文本 | N
+total | String | - | 语言配置，数据总条数文本，示例：`'共 {total} 项数据'` | N
 
 ### CalendarConfig
 
@@ -84,44 +63,39 @@ week | String | - | 语言配置，星期描述文本，示例：`'周一,周二
 yearRadio | String | - | 语言配置，模式切换时的“年”描述文本 | N
 yearSelection | String | - | 语言配置，“年”选择描述文本，示例：`'{year} 年'` | N
 
-### UploadConfig
+### CascaderConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-cancelUploadText | String | - | 语言配置，“取消上传” 描述文本 | N
-dragger | Object | - | 语言配置，拖拽相关。示例：{ dragDropText: '释放图标', draggingText: '拖拽到此区域', clickAndDragText: '点击上方“选择文件”或将文件拖到此区域' }。TS 类型：`UploadConfigDragger` | N
-file | Object | - | 语言配置，文件信息相关。示例：{  fileNameText: '文件名', fileSizeText: '文件尺寸', fileStatusText: '状态', fileOperationText: '操作', fileOperationDateText: '上传日期' }。TS 类型：`UploadConfigFileList` | N
-progress | Object | - | 语言配置，上传进度相关。示例：{ uploadText: '上传中', waitingText: '待上传', 'failText': '上传失败', successText: '上传成功' }。TS 类型：`UploadConfigProgress` | N
-sizeLimitMessage | String | - | 语言配置，文件大小超出限制时提醒文本。示例：`'文件大小不能超过 {sizeLimit}'` | N
-triggerUploadText | Object | - | 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件',reupload: '重新上传',fileInput: '删除' }。TS 类型：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload: string, delete?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+empty | String | - | 语言配置，“暂无数据”描述文本 | N
+loadingText | String | - | 语言配置，“加载中”描述文本 | N
+placeholder | String | - | 语言配置，“请选择”占位描述文本 | N
 
-### InputConfig
+### ColorPickerConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-placeholder | String | - | 语言配置，“请输入”占位符描述文本 | N
+clearConfirmText | String | - | 语言配置，“确定清空最近使用的颜色吗？”清空颜色确认文案 | N
+recentColorTitle | String | - | 语言配置，“最近使用颜色” 区域标题文本 | N
+swatchColorTitle | String | - | 语言配置，"系统预设颜色" 区域标题文本 | N
 
-### DialogConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-cancel | Object | - | 取消按钮风格。TS 类型：`string | ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
-confirm | Object | - | 确认按钮风格。TS 类型：`string | ButtonProps` | N
-confirmBtnTheme | Object | - | 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; info: string; warning: string; danger: string; success: string; }` | N
-
-### DrawerConfig
+### TransferConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-cancel | String | - | 语言配置，“取消”描述文本。TS 类型：`string | ButtonProps` | N
-confirm | String | - | 语言配置，“确认”描述文本。TS 类型：`string | ButtonProps` | N
+empty | String | - | 语言配置，“暂无数据”空数据描述文本 | N
+placeholder | String | - | 语言配置，“请输入关键词搜索”占位符描述文本 | N
+title | String | - | 语言配置，穿梭框标题描述文本，示例：“{checked} / {total} 项” | N
 
-### FormConfig
+### TimePickerConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
-requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
+anteMeridiem | String | - | 语言配置，“上午”描述文本 | N
+confirm | String | - | 语言配置，“确定”描述文本 | N
+now | String | - | 语言配置，“此刻”描述文本 | N
+placeholder | String | - | 语言配置，"请选择时间"占位符描述文本 | N
+postMeridiem | String | - | 语言配置，“下午”描述文本 | N
 
 ### DatePickerConfig
 
@@ -150,31 +124,20 @@ weekAbbreviation | String | - | 语言配置，“周” 描述文本 | N
 weekdays | Object | - | 星期文本描述，默认值：['日', '一', '二', '三', '四', '五', '六']。TS 类型：`string[]` | N
 yearAriaLabel | String | - | 语言配置，“年” 描述文本 | N
 
-### ColorPickerConfig
+### DialogConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-clearConfirmText | String | - | 语言配置，“确定清空最近使用的颜色吗？”清空颜色确认文案 | N
-recentColorTitle | String | - | 语言配置，“最近使用颜色” 区域标题文本 | N
-swatchColorTitle | String | - | 语言配置，"系统预设颜色" 区域标题文本 | N
+cancel | Object | - | 取消按钮风格。TS 类型：`string | ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+confirm | Object | - | 确认按钮风格。TS 类型：`string | ButtonProps` | N
+confirmBtnTheme | Object | - | 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; info: string; warning: string; danger: string; success: string; }` | N
 
-### PaginationConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-itemsPerPage | String | - | 语言配置，每页条数文本，示例：`'{size} 条/页'` | N
-jumpTo | String | - | 语言配置，页码跳转文本，示例：'跳至' | N
-page | String | - | 语言配置，“页”描述文本 | N
-total | String | - | 语言配置，数据总条数文本，示例：`'共 {total} 项数据'` | N
-
-### SelectConfig
+### DrawerConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-empty | String | - | 语言配置，“暂无数据”描述文本 | N
-loadingText | String | - | 语言配置，“加载中”描述文本 | N
-placeholder | String | - | 语言配置，“请选择”占位符描述文本 | N
+cancel | String | - | 语言配置，“取消”描述文本。TS 类型：`string | ButtonProps` | N
+confirm | String | - | 语言配置，“确认”描述文本。TS 类型：`string | ButtonProps` | N
 
 ### PopconfirmConfig
 
@@ -183,12 +146,6 @@ placeholder | String | - | 语言配置，“请选择”占位符描述文本 |
 cancel | String / Object | - | 语言配置，“取消”描述文本。TS 类型：`string | ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 confirm | String / Object | - | 语言配置，“确定”描述文本。TS 类型：`string | ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; warning: string; danger: string; }` | N
-
-### StepsConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 
 ### TableConfig
 
@@ -213,29 +170,21 @@ sortCancelOperationText | String | - | 语言配置，'点击取消排序' 描�
 sortDescendingOperationText | String | - | 语言配置，'点击降序' 描述文本 | N
 sortIcon | Slot / Function | undefined | 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 
-### TagConfig
+### SelectConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+empty | String | - | 语言配置，“暂无数据”描述文本 | N
+loadingText | String | - | 语言配置，“加载中”描述文本 | N
+placeholder | String | - | 语言配置，“请选择”占位符描述文本 | N
 
-### TimePickerConfig
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-anteMeridiem | String | - | 语言配置，“上午”描述文本 | N
-confirm | String | - | 语言配置，“确定”描述文本 | N
-now | String | - | 语言配置，“此刻”描述文本 | N
-placeholder | String | - | 语言配置，"请选择时间"占位符描述文本 | N
-postMeridiem | String | - | 语言配置，“下午”描述文本 | N
-
-### TransferConfig
+### TreeConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-empty | String | - | 语言配置，“暂无数据”空数据描述文本 | N
-placeholder | String | - | 语言配置，“请输入关键词搜索”占位符描述文本 | N
-title | String | - | 语言配置，穿梭框标题描述文本，示例：“{checked} / {total} 项” | N
+empty | String | - | 语言配置，“暂无数据”描述文本 | N
+folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 
 ### TreeSelectConfig
 
@@ -244,6 +193,33 @@ title | String | - | 语言配置，穿梭框标题描述文本，示例：“{c
 empty | String | - | 语言配置，“暂无数据”描述文本 | N
 loadingText | String | - | 语言配置，“加载中”描述文本 | N
 placeholder | String | - | 语言配置，“请选择”占位符描述文本 | N
+
+### ListConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+loadingMoreText | String | - | 语言配置，'点击加载更多' 描述文本 | N
+loadingText | String | - | 语言配置，'正在加载中，请稍后' 描述文本 | N
+
+### UploadConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+cancelUploadText | String | - | 语言配置，“取消上传” 描述文本 | N
+dragger | Object | - | 语言配置，拖拽相关。示例：{ dragDropText: '释放图标', draggingText: '拖拽到此区域', clickAndDragText: '点击上方“选择文件”或将文件拖到此区域' }。TS 类型：`UploadConfigDragger` | N
+file | Object | - | 语言配置，文件信息相关。示例：{  fileNameText: '文件名', fileSizeText: '文件尺寸', fileStatusText: '状态', fileOperationText: '操作', fileOperationDateText: '上传日期' }。TS 类型：`UploadConfigFileList` | N
+progress | Object | - | 语言配置，上传进度相关。示例：{ uploadText: '上传中', waitingText: '待上传', 'failText': '上传失败', successText: '上传成功' }。TS 类型：`UploadConfigProgress` | N
+sizeLimitMessage | String | - | 语言配置，文件大小超出限制时提醒文本。示例：`'文件大小不能超过 {sizeLimit}'` | N
+triggerUploadText | Object | - | 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件',reupload: '重新上传',fileInput: '删除' }。TS 类型：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload: string, delete?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+
+### UploadConfigProgress
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+failText | String | - | 语言配置，“上传失败”文本描述 | N
+successText | String | - | 语言配置，“上传成功”文本描述 | N
+uploadingText | String | - | 语言配置，“上传中”文本描述 | N
+waitingText | String | - | 语言配置，“待上传”文本描述 | N
 
 ### UploadConfigDragger
 
@@ -263,11 +239,35 @@ fileOperationText | String | - | 语言配置，“操作” 描述文本 | N
 fileSizeText | String | - | 语言配置，“文件尺寸” 描述文本 | N
 fileStatusText | String | - | 语言配置，“状态” 描述文本 | N
 
-### UploadConfigProgress
+### FormConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-failText | String | - | 语言配置，“上传失败”文本描述 | N
-successText | String | - | 语言配置，“上传成功”文本描述 | N
-uploadingText | String | - | 语言配置，“上传中”文本描述 | N
-waitingText | String | - | 语言配置，“待上传”文本描述 | N
+errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
+
+### TagConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+
+### StepsConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+
+### AlertConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+collapseText | String | - | 语言配置，“收起”描述文本 | N
+expandText | String | - | 语言配置，“展开更多”描述文本 | N
+
+### AnchorConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+copySuccessText | String | - | 语言配置，“链接复制成功”描述文本 | N
+copyText | String | - | 语言配置，“复制链接” 描述文本 | N

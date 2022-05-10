@@ -1,0 +1,130 @@
+[
+  {
+    "name": "checkStrictly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "filterable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "lazy",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "loading",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "multiple",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "popupVisible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showAllLevels",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "large",
+        "value": "large"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "small",
+        "value": "small"
+      }
+    ]
+  },
+  {
+    "name": "trigger",
+    "type": "enum",
+    "defaultValue": "click",
+    "options": [
+      {
+        "label": "click",
+        "value": "click"
+      },
+      {
+        "label": "hover",
+        "value": "hover"
+      }
+    ]
+  },
+  {
+    "name": "valueMode",
+    "type": "enum",
+    "defaultValue": "onlyLeaf",
+    "options": [
+      {
+        "label": "onlyLeaf",
+        "value": "onlyLeaf"
+      },
+      {
+        "label": "parentFirst",
+        "value": "parentFirst"
+      },
+      {
+        "label": "all",
+        "value": "all"
+      }
+    ]
+  },
+  {
+    "name": "valueType",
+    "type": "enum",
+    "defaultValue": "single",
+    "options": [
+      {
+        "label": "single",
+        "value": "single"
+      },
+      {
+        "label": "full",
+        "value": "full"
+      }
+    ]
+  }
+]

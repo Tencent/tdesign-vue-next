@@ -12,6 +12,7 @@ import Button from '@/src/button/index.ts';
 import Loading from '@/src/loading';
 
 // every component needs four parts: props/events/slots/functions.
+jest.useFakeTimers();
 describe('Message', () => {
   // test props api
   describe(':props', () => {
@@ -60,7 +61,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':closeBtn is a tring, equal "关闭".', () => {
+    it(':closeBtn is a string, equal "关闭".', () => {
       const wrapper = mount({
         render() {
           return <Message closeBtn="关闭"></Message>;
@@ -97,7 +98,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':icon is a funtion, () => MoreIcon', () => {
+    it(':icon is a function, () => MoreIcon', () => {
       const wrapper = mount({
         render() {
           return <Message icon={() => <MoreIcon></MoreIcon>}></Message>;
@@ -107,7 +108,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':default is a funtion, () => <b>这是重要信息</b>', () => {
+    it(':default is a function, () => <b>这是重要信息</b>', () => {
       const wrapper = mount({
         render() {
           return <Message content={() => <b>这是重要信息</b>}></Message>;
@@ -128,20 +129,17 @@ describe('Message', () => {
 
   // test events
   describe('@event', () => {
-    it('@duration-end', (done) => {
-      const wrapper = mount({
-        render() {
-          return <Message duration={3000}></Message>;
+    it('@duration-end', () => {
+      const onDurationEnd = jest.fn();
+      const wrapper = mount(Message, {
+        props: {
+          onDurationEnd,
+          duration: 3000,
         },
       });
-      const msg = wrapper.findComponent(Message);
-      expect(msg.emitted()['duration-end']).toBeFalsy();
-      const timer = setTimeout(() => {
-        const msg = wrapper.findComponent(Message);
-        expect(msg.emitted()['duration-end']).toBeTruthy();
-        done();
-        clearTimeout(timer);
-      }, 3100);
+      expect(onDurationEnd).not.toBeCalled();
+      jest.runAllTimers();
+      expect(onDurationEnd).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -185,13 +183,13 @@ describe('Message', () => {
           return (
             <Message
               v-slots={{
-                closeBtn: () => <div class="custome-close-btn">x</div>,
+                closeBtn: () => <div class="custom-close-btn">x</div>,
               }}
             ></Message>
           );
         },
       });
-      expect(wrapper.find('.custome-close-btn').exists()).toBe(true);
+      expect(wrapper.find('.custom-close-btn').exists()).toBe(true);
     });
   });
 });
