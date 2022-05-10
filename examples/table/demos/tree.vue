@@ -3,6 +3,9 @@
     <div>
       <t-button theme="default" @click="setData1">重置数据</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">展开/收起可见行</t-button>
+      <t-checkbox v-model="customTreeExpandAndFoldIcon" style="margin-left: 16px; vertical-align: middle">
+        自定义折叠/展开图标
+      </t-checkbox>
     </div>
     <br />
     <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
@@ -14,6 +17,7 @@
       :data="data"
       :columns="columns"
       :tree="{ childrenKey: 'list', treeNodeColumnIndex: 1 }"
+      :tree-expand-and-fold-icon="customTreeExpandAndFoldIcon ? treeExpandAndFoldIconRender : undefined"
       :pagination="pagination"
       @page-change="onPageChange"
     ></t-enhanced-table>
@@ -35,6 +39,7 @@
 <script setup lang="jsx">
 import { ref, reactive } from 'vue';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
+import { ChevronRightIcon, ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 function getData(currentPage = 1) {
   const data = [];
@@ -200,6 +205,10 @@ const onRowToggle = () => {
     // this.$refs.table.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
   });
 };
+
+const customTreeExpandAndFoldIcon = ref(false);
+
+const treeExpandAndFoldIconRender = (h, { type }) => (type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />);
 </script>
 
 <style>
