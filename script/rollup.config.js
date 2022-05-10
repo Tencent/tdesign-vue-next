@@ -134,11 +134,13 @@ const cssConfig = {
   },
 };
 
+const exception = ['tinycolor2', 'dayjs'];
+const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
 const esConfig = {
   input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/css.js
   treeshake: false,
-  external: esExternalDeps.concat(externalPeerDeps),
+  external: esExternal,
   plugins: [multiInput()].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,
