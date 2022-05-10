@@ -42,9 +42,11 @@ export default defineComponent({
       if (props.disabled) {
         return null;
       }
+      const newProps = { ...props };
+      delete newProps.onChange;
       return (
         <ColorPanel
-          {...props}
+          {...newProps}
           disabled={props.disabled}
           value={innerValue.value}
           togglePopup={setVisible}

@@ -10440,6 +10440,54 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
     <!---->
     <!--]-->
   </div>
+  <!--[-->
+  <div class="item">
+    <h5>#F00</h5>
+    <!--[-->
+    <div class="t-color-picker__trigger">
+      <div class="t-color-picker__trigger--default">
+        <div class="t-input__wrap">
+          <div class="t-input t-input--prefix t-input--auto-width">
+            <!---->
+            <div class="t-input__prefix">
+              <!--[-->
+              <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#F00;"></span></div>
+              <!--]-->
+            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#F00"><span class="t-input__input-pre">#F00</span>
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!--]-->
+  </div>
+  <div class="item">
+    <h5>green</h5>
+    <!--[-->
+    <div class="t-color-picker__trigger">
+      <div class="t-color-picker__trigger--default">
+        <div class="t-input__wrap">
+          <div class="t-input t-input--prefix t-input--auto-width">
+            <!---->
+            <div class="t-input__prefix">
+              <!--[-->
+              <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:green;"></span></div>
+              <!--]-->
+            </div><input class="t-input__inner" placeholder="请输入" type="text" value="green"><span class="t-input__input-pre">green</span>
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!--]-->
+  </div>
+  <!--]-->
 </div>
 `;
 
@@ -17773,7 +17821,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/base.vue correctly 1`] 
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled" style="">
       <use href="#t-icon-check-circle-filled"></use>
-    </svg><svg class="t-icon t-icon-check-circle-filled t-size-m" style="">
+    </svg><svg class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <use href="#t-icon-check-circle-filled"></use>
@@ -17796,7 +17844,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 <div class="t-demo-iconfont">
   <div><svg class="t-icon t-icon-cps-icon-home-sheep" style="">
       <use href="#cps-icon-home-sheep"></use>
-    </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-m" style="">
+    </svg><svg class="t-icon t-icon-cps-icon-home-sheep" style="font-size:medium;">
       <use href="#cps-icon-home-sheep"></use>
     </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-l" style="">
       <use href="#cps-icon-home-sheep"></use>
@@ -17820,14 +17868,14 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont.vue correctly 1`] = `
 <div class="t-demo-iconfont">
   <div class="t-demo-row"><i class="t-icon t-icon-loading" style=""></i><i class="t-icon t-icon-close" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i></div><br>
-  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-m" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
+  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:medium;"></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
   <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled" style="color:red;"></i><i class="t-icon t-icon-check-circle-filled" style="color:green;"></i><i class="t-icon t-icon-check-circle-filled" style="color:orange;"></i></div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont-enhanced.vue correctly 1`] = `
 <div class="t-demo-iconfont">
-  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-m" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
+  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:medium;"></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
   <div><i class="t-icon cps-icon cps-icon-home-sheep" style="color:red;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:green;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:orange;"></i><!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 --><i class="t-icon t-icon-home" style=""></i></div><br>
 </div>
 `;
@@ -17845,7 +17893,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/single.vue correctly 1`
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-m" style="">
+    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
@@ -18354,7 +18402,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
   <div style="width:20%;">
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18371,7 +18419,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18380,7 +18428,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
     </div>
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18397,7 +18445,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18406,7 +18454,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
     </div>
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18423,7 +18471,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18482,7 +18530,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue 
 <div>
   <div class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18498,7 +18546,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue 
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18512,7 +18560,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18529,7 +18577,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18543,7 +18591,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18560,7 +18608,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18574,7 +18622,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
 <div>
   <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18591,7 +18639,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18605,7 +18653,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18622,7 +18670,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18636,7 +18684,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18653,7 +18701,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18667,7 +18715,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
 <div>
   <div class="t-input-number t-size-m t-is-controls-right t-input-number--column"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
         <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18684,7 +18732,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
         <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18743,7 +18791,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
   </div>
   <div class="t-input-number t-size-m t-input-number--row" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18760,7 +18808,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18807,7 +18855,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18824,7 +18872,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18844,7 +18892,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18861,7 +18909,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18881,7 +18929,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18898,7 +18946,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18918,7 +18966,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18935,7 +18983,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18955,7 +19003,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18972,7 +19020,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18992,7 +19040,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19009,7 +19057,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19029,7 +19077,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19046,7 +19094,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--normal">这是普通文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19066,7 +19114,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19083,7 +19131,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19103,7 +19151,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19120,7 +19168,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19140,7 +19188,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19157,7 +19205,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19179,7 +19227,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -19196,7 +19244,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -26220,7 +26268,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26237,7 +26285,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26273,7 +26321,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26290,7 +26338,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26300,7 +26348,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26317,7 +26365,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26351,7 +26399,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26368,7 +26416,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26404,7 +26452,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26421,7 +26469,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26431,7 +26479,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26448,7 +26496,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
