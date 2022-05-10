@@ -44,10 +44,8 @@ export default defineComponent({
     onChange: tabProps.onChange,
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
-    draggable: {
-      type: Boolean,
-      default: true,
-    },
+    drag: tabProps.drag,
+    onDragend: tabProps.onDragend,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
@@ -188,9 +186,10 @@ export default defineComponent({
       }
     };
     onMounted(() => {
-      if (props.draggable) {
+      if (props.drag) {
         useDragSort(navsWrapRef.value, (startIndex, endIndex) => {
           [panels.value[startIndex], panels.value[endIndex]] = [panels.value[endIndex], panels.value[startIndex]];
+          props.onDragend({ startIndex, endIndex });
         });
       }
     });
@@ -206,7 +205,7 @@ export default defineComponent({
 
         return (
           <TTabNavItem
-            draggable={props.draggable}
+            draggable={props.drag}
             ref={(ref: any) => setActiveTab(ref, index)}
             key={panel.value}
             index={index}
