@@ -5,6 +5,7 @@ import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { injectKey } from './const';
 
 export default defineComponent({
   name: 'TDropdown',
@@ -21,10 +22,12 @@ export default defineComponent({
       props.onClick?.(data, context);
     };
 
-    provide('handleMenuClick', handleMenuClick);
-    provide('maxHeight', props.maxHeight);
-    provide('maxColumnWidth', props.maxColumnWidth);
-    provide('minColumnWidth', props.minColumnWidth);
+    provide(injectKey, {
+      handleMenuClick,
+      maxHeight: props.maxHeight,
+      maxColumnWidth: props.maxColumnWidth,
+      minColumnWidth: props.minColumnWidth,
+    });
 
     return () => {
       const trigger = slots.default ? slots.default(null) : '';

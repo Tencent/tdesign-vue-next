@@ -1,10 +1,12 @@
 import { defineComponent, ref, inject } from 'vue';
+import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import itemProps from './dropdown-item-props';
 import { TNodeReturnValue } from '../common';
 import useRipple from '../hooks/useRipple';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
+import { injectKey } from './const';
 
 export default defineComponent({
   name: 'TDropdownItem',
@@ -30,10 +32,12 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const COMPONENT_NAME = usePrefixClass('dropdown__item');
     const classPrefix = usePrefixClass();
-    const handleMenuClick = inject('handleMenuClick') as Function;
+
+    const dropdownProvider = inject(injectKey);
+    const { handleMenuClick } = dropdownProvider;
 
     const renderSuffix = (): TNodeReturnValue => {
-      return props.hasChildren ? <chevron-right-icon class={`${COMPONENT_NAME.value}__item-icon`} /> : null;
+      return props.hasChildren ? <ChevronRightIcon class={`${COMPONENT_NAME.value}__item-icon`} /> : null;
     };
 
     const handleItemClick = (e: MouseEvent): void => {
