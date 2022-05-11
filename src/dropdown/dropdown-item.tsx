@@ -1,23 +1,17 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, inject } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import itemProps from './dropdown-item-props';
-import { renderContent } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
-import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDropdownItem',
   components: {
     ChevronRightIcon,
     TDivider,
-  },
-  inject: {
-    dropdown: {
-      default: undefined,
-    },
   },
   props: {
     ...itemProps,
@@ -29,60 +23,62 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    onHover: {
+      type: Function,
+    },
   },
-  emits: ['click', 'item-hover', 'hover'],
-  setup() {
+  setup(props) {
+    const renderContent = useContent();
     const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
 
     const { STATUS } = useCommonClassName();
     const COMPONENT_NAME = usePrefixClass('dropdown__item');
     const classPrefix = usePrefixClass();
+    const handleMenuClick = inject('handleMenuClick') as Function;
 
-    return { classPrefix, COMPONENT_NAME, STATUS, itemRef };
-  },
-  methods: {
-    renderSuffix(): TNodeReturnValue {
-      return this.hasChildren ? <chevron-right-icon class={`${this.COMPONENT_NAME}__item-icon`} /> : null;
-    },
-    handleItemClick(e: MouseEvent): void {
+    const renderSuffix = (): TNodeReturnValue => {
+      return props.hasChildren ? <chevron-right-icon class={`${COMPONENT_NAME.value}__item-icon`} /> : null;
+    };
+
+    const handleItemClick = (e: MouseEvent): void => {
       e.stopPropagation();
-      if (!this.hasChildren && !this.disabled) {
+      if (!props.hasChildren && !props.disabled) {
         const data = {
-          value: this.value,
-          path: this.path,
-          content: this.content,
+          value: props.value,
+          path: props.path,
+          content: props.content,
         };
-        emitEvent(this, 'click', data, { e });
-        emitEvent(this, 'item-hover', this.path);
-        this.dropdown.handleMenuClick(data, { e });
+        props.onClick?.(data, { e });
+        handleMenuClick(data, { e });
       }
-    },
-    handleMouseover(): void {
-      emitEvent(this, 'hover', this.path);
-    },
-  },
-  render() {
-    const { STATUS, COMPONENT_NAME, classPrefix } = this;
-    const classes = [
-      COMPONENT_NAME,
-      {
-        [`${classPrefix}-dropdown--suffix`]: this.hasChildren,
-        [STATUS.disabled]: this.disabled,
-        [STATUS.active]: this.active,
-      },
-    ];
+    };
 
-    return (
-      <div>
-        <div ref="itemRef" class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
-          <div class={`${COMPONENT_NAME}-content`}>
-            <span class={`${COMPONENT_NAME}-text`}>{renderContent(this, 'content', 'default')}</span>
+    const handleMouseover = (): void => {
+      props.onHover?.(props.path);
+    };
+
+    return () => {
+      const classes = [
+        COMPONENT_NAME.value,
+        {
+          [`${classPrefix.value}-dropdown--suffix`]: props.hasChildren,
+          [STATUS.value.disabled]: props.disabled,
+          [STATUS.value.active]: props.active,
+        },
+      ];
+
+      return (
+        <div>
+          <div ref={itemRef} class={classes} onClick={handleItemClick} onMouseover={handleMouseover}>
+            <div class={`${COMPONENT_NAME.value}-content`}>
+              <span class={`${COMPONENT_NAME.value}-text`}>{renderContent('content', 'default')}</span>
+            </div>
+            {renderSuffix()}
           </div>
-          {this.renderSuffix()}
+          {props.divider ? <TDivider /> : null}
         </div>
-        {this.divider ? <TDivider /> : null}
-      </div>
-    );
+      );
+    };
   },
 });
