@@ -138,7 +138,7 @@ export default defineComponent({
     };
 
     // 移动结束
-    const handleEnd = (e: MouseEvent) => {
+    const handleEnd = () => {
       if (!isDragging.value) {
         return;
       }
