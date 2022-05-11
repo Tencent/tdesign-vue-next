@@ -46,7 +46,7 @@ export default defineComponent({
       isCutOff.value = isNodeOverflow(breadcrumbText.value);
     });
     onBeforeUpdate(() => {
-      isCutOff.value = true;
+      isCutOff.value = isNodeOverflow(breadcrumbText.value);
     });
 
     const separatorPropContent = localTBreadcrumb?.separator;
