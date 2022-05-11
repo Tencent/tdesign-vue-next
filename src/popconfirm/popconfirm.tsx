@@ -103,7 +103,7 @@ export default defineComponent({
       <Popup
         ref="popup"
         visible={innerVisible.value}
-        {...innerPopupProps}
+        {...innerPopupProps.value}
         onVisibleChange={onPopupVisibleChange}
         v-slots={{
           content: renderContent,
