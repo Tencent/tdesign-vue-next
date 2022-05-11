@@ -15,7 +15,7 @@ export default defineComponent({
     ...popupProps,
     ...props,
   },
-  setup(props, ctx) {
+  setup(props) {
     const timer = ref(null);
 
     const { visible, modelValue } = toRefs(props);
@@ -89,7 +89,7 @@ export default defineComponent({
 
     watch(
       () => innerTooltipVisible.value,
-      (next, prev) => {
+      () => {
         if (timer.value && !innerTooltipVisible.value) {
           clearTimeout(timer.value);
           timer.value = null;
