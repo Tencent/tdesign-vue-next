@@ -1,7 +1,8 @@
 import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
-import { TdTabsProps } from './type';
+import content from '@src/layout/content';
+import { TdTabsProps, TabsDragSortContext, TabValue } from './type';
 import tabProps from './props';
 import tabBase from '../_common/js/tabs/base';
 
@@ -44,8 +45,8 @@ export default defineComponent({
     onChange: tabProps.onChange,
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
-    drag: tabProps.drag,
-    onDragend: tabProps.onDragend,
+    dragSort: tabProps.dragSort,
+    onDragSort: tabProps.onDragSort,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
@@ -161,7 +162,7 @@ export default defineComponent({
       }
     };
     const handleAddTab = (e: MouseEvent) => {
-      props.onAdd({ e });
+      props?.onAdd({ e });
     };
     const tabClick = (event: MouseEvent, nav: Partial<InstanceType<typeof TTabPanel>>) => {
       const { value, disabled } = nav;
@@ -173,7 +174,7 @@ export default defineComponent({
     const removeBtnClick = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
       props.onRemove({ e, value, index });
     };
-    const setActiveTab = (ref: any, index: number) => {
+    const setActiveTab = (ref: any) => {
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
         scrollLeft.value = moveActiveTabIntoView(
@@ -185,13 +186,14 @@ export default defineComponent({
         );
       }
     };
+    const onDragEnd = (content: TabsDragSortContext) => {
+      const { currentIndex, targetIndex } = content;
+      [panels.value[currentIndex], panels.value[targetIndex]] = [panels.value[targetIndex], panels.value[currentIndex]];
+      props.onDragSort?.(content);
+    };
+
     onMounted(() => {
-      if (props.drag) {
-        useDragSort(navsWrapRef.value, (startIndex, endIndex) => {
-          [panels.value[startIndex], panels.value[endIndex]] = [panels.value[endIndex], panels.value[startIndex]];
-          props.onDragend({ startIndex, endIndex });
-        });
-      }
+      useDragSort(navsWrapRef.value, onDragEnd, props);
     });
     // renders
     const navs = computed(() => {
@@ -205,8 +207,8 @@ export default defineComponent({
 
         return (
           <TTabNavItem
-            draggable={props.drag}
-            ref={(ref: any) => setActiveTab(ref, index)}
+            ref={setActiveTab}
+            draggable={props.dragSort}
             key={panel.value}
             index={index}
             theme={props.theme}
