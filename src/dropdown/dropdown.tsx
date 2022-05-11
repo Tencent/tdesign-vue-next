@@ -1,4 +1,4 @@
-import { defineComponent, VNode, provide, ref } from 'vue';
+import { defineComponent, provide, ref } from 'vue';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
@@ -8,9 +8,6 @@ import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDropdown',
-  components: {
-    DropdownMenu,
-  },
   props,
   setup(props, { attrs, slots }) {
     const renderTNode = useTNodeJSX();
@@ -30,9 +27,9 @@ export default defineComponent({
     provide('minColumnWidth', props.minColumnWidth);
 
     return () => {
-      const trigger: VNode[] | VNode | string = slots.default ? slots.default(null) : '';
+      const trigger = slots.default ? slots.default(null) : '';
 
-      const contentSlot: VNode[] | VNode | string = renderTNode('dropdown');
+      const contentSlot = renderTNode('dropdown');
 
       const popupProps = {
         ...attrs,
@@ -52,7 +49,7 @@ export default defineComponent({
           v-slots={{
             content: () =>
               contentSlot || (
-                <dropdownMenu
+                <DropdownMenu
                   options={props.options}
                   maxHeight={props.maxHeight}
                   maxColumnWidth={props.maxColumnWidth}
