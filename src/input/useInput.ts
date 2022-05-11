@@ -12,6 +12,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
   const focused = ref(false);
   const renderType = ref(props.type);
   const inputRef = ref(null);
+  const inputPreRef = ref(null);
 
   const showClear = computed(() => {
     return (
@@ -126,5 +127,6 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     handleInput,
     emitClear,
     innerValue,
+    inputPreRef,
   };
 }
