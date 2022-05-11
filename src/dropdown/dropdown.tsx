@@ -24,44 +24,46 @@ export default defineComponent({
       props.onClick?.(data, context);
     };
 
-    const trigger: VNode[] | VNode | string = slots.default ? slots.default(null) : '';
-
-    const contentSlot: VNode[] | VNode | string = renderTNode('dropdown');
-
-    const popupProps = {
-      ...attrs,
-      disabled: props.disabled,
-      placement: props.placement,
-      trigger: props.trigger,
-      overlayClassName: [COMPONENT_NAME.value, (props.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
-    };
-
     provide('handleMenuClick', handleMenuClick);
     provide('maxHeight', props.maxHeight);
     provide('maxColumnWidth', props.maxColumnWidth);
     provide('minColumnWidth', props.minColumnWidth);
 
-    return () => (
-      <Popup
-        {...props.popupProps}
-        {...popupProps}
-        destroyOnClose
-        ref={popupElem}
-        expandAnimation
-        v-slots={{
-          content: () =>
-            contentSlot || (
-              <dropdownMenu
-                options={props.options}
-                maxHeight={props.maxHeight}
-                maxColumnWidth={props.maxColumnWidth}
-                minColumnWidth={props.minColumnWidth}
-              />
-            ),
-        }}
-      >
-        {trigger}
-      </Popup>
-    );
+    return () => {
+      const trigger: VNode[] | VNode | string = slots.default ? slots.default(null) : '';
+
+      const contentSlot: VNode[] | VNode | string = renderTNode('dropdown');
+
+      const popupProps = {
+        ...attrs,
+        disabled: props.disabled,
+        placement: props.placement,
+        trigger: props.trigger,
+        overlayClassName: [COMPONENT_NAME.value, (props.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+      };
+
+      return (
+        <Popup
+          {...props.popupProps}
+          {...popupProps}
+          destroyOnClose
+          ref={popupElem}
+          expandAnimation
+          v-slots={{
+            content: () =>
+              contentSlot || (
+                <dropdownMenu
+                  options={props.options}
+                  maxHeight={props.maxHeight}
+                  maxColumnWidth={props.maxColumnWidth}
+                  minColumnWidth={props.minColumnWidth}
+                />
+              ),
+          }}
+        >
+          {trigger}
+        </Popup>
+      );
+    };
   },
 });

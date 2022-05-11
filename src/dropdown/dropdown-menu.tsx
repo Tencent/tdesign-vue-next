@@ -93,19 +93,6 @@ export default defineComponent({
       const columns: TNodeReturnValue[] = [];
       let menuItems = props.options as DropdownOption[];
       let pathPrefix = '';
-      while (menuItems && menuItems.length) {
-        // eslint-disable-next-line no-loop-func
-        const activeItem = menuItems.find((item) => isActive(item, pathPrefix, false));
-
-        columns.push(renderMenuColumn(menuItems, !!activeItem, pathPrefix));
-
-        if (activeItem) {
-          pathPrefix = `${pathPrefix}/${activeItem.value}`;
-          menuItems = activeItem.children || [];
-        } else {
-          menuItems = [];
-        }
-      }
 
       if (slots.default) {
         return (
@@ -123,6 +110,21 @@ export default defineComponent({
           </div>
         );
       }
+
+      while (menuItems && menuItems.length) {
+        // eslint-disable-next-line no-loop-func
+        const activeItem = menuItems.find((item) => isActive(item, pathPrefix, false));
+
+        columns.push(renderMenuColumn(menuItems, !!activeItem, pathPrefix));
+
+        if (activeItem) {
+          pathPrefix = `${pathPrefix}/${activeItem.value}`;
+          menuItems = activeItem.children || [];
+        } else {
+          menuItems = [];
+        }
+      }
+
       return <div class={COMPONENT_NAME.value}>{columns}</div>;
     };
   },
