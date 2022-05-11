@@ -134,6 +134,7 @@ const cssConfig = {
   },
 };
 
+// lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
 const exception = ['tinycolor2', 'dayjs'];
 const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
 const esConfig = {

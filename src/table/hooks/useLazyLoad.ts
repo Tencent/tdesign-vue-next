@@ -1,5 +1,6 @@
 import { ref, onMounted, computed, nextTick, Ref, UnwrapRef } from 'vue';
 import observe from '../../_common/js/utils/observe';
+import { isServer } from '../../utils/dom';
 
 export type UseLazyLoadParams = UnwrapRef<{
   type: 'lazy' | 'virtual';
@@ -17,7 +18,7 @@ export default function useLazyLoad(
   const isInit = ref(params.rowIndex === 0);
   const hasLazyLoadHolder = computed(() => params?.type === 'lazy' && !isInit.value);
 
-  const requestAnimationFrame = window.requestAnimationFrame || ((cb) => setTimeout(cb, 16.6));
+  const requestAnimationFrame = (!isServer && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16.6));
 
   const init = () => {
     if (!isInit.value) {

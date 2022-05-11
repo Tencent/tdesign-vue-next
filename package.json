@@ -83,7 +83,7 @@
     "jsx-to-string": "^1.4.0",
     "lodash": "^4.17.15",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "~0.0.7",
+    "tdesign-icons-vue-next": "^0.1.1",
     "tinycolor2": "^1.4.2",
     "validator": "^13.5.1"
   },

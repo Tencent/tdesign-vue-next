@@ -4,7 +4,7 @@ import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TdBaseTableProps } from '../type';
 import getScrollbarWidth from '../../_common/js/utils/getScrollbarWidth';
-import { on, off } from '../../utils/dom';
+import { isServer, on, off } from '../../utils/dom';
 import { TDisplayNoneElementRefresh } from '../../hooks/useDestroyOnClose';
 import { TableColFixedClasses, TableRowFixedClasses, FixedColumnInfo, RowAndColFixedPosition } from '../interface';
 
@@ -354,6 +354,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   };
 
   const updateTableWidth = () => {
+    if (isServer) return;
     const rect = tableContentRef.value.getBoundingClientRect();
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
@@ -380,6 +381,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   };
 
   const updateThWidthListHandler = () => {
+    if (isServer) return;
     if (notNeedThWidthList.value) return;
     const timer = setTimeout(() => {
       updateTableWidth();
@@ -434,6 +436,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   });
 
   const refreshTable = () => {
+    if (isServer) return;
     updateTableWidth();
     updateFixedHeader();
     if (!notNeedThWidthList.value) {
