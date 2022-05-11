@@ -5,6 +5,7 @@ import { TNodeReturnValue } from '../common';
 import { pxCompat } from '../utils/helper';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { injectKey } from './const';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -31,9 +32,8 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown__menu');
 
-    const maxHeight = inject('maxHeight') as number;
-    const maxColumnWidth = inject('maxColumnWidth') as number | string;
-    const minColumnWidth = inject('minColumnWidth') as number | string;
+    const dropdownProvider = inject(injectKey);
+    const { maxHeight, maxColumnWidth, minColumnWidth } = dropdownProvider;
 
     const handleHoverItem = (p: string) => {
       path.value = p;
