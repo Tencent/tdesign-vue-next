@@ -84,6 +84,7 @@ export default defineComponent({
     const navsContainerStyle = computed(() => {
       return props.addable ? { 'min-height': '48px' } : null;
     });
+
     // class
     const iconBaseClass = computed(() => {
       return {
@@ -124,6 +125,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-scrollable`]: canToLeft.value || canToRight.value,
       };
     });
+
     const navsWrapClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}__nav-wrap`,
@@ -131,15 +133,18 @@ export default defineComponent({
         { [`${classPrefix.value}-is-vertical`]: props.placement === 'left' || props.placement === 'right' },
       ];
     });
+
     const totalAdjust = () => {
       adjustArrowDisplay();
       adjustScrollLeft();
     };
     // watch
     watch([scrollLeft, () => props.placement], totalAdjust);
+
     // life times
     useResize(debounce(totalAdjust), navsContainerRef.value);
     onMounted(totalAdjust);
+
     // methods
     const adjustScrollLeft = () => {
       scrollLeft.value = calcScrollLeft(getRefs(), scrollLeft.value);
@@ -180,6 +185,7 @@ export default defineComponent({
         );
       }
     };
+
     const { setNavsWrap } = useDragSort(props);
     onMounted(() => {
       setNavsWrap(navsWrapRef.value);
@@ -193,6 +199,7 @@ export default defineComponent({
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }
+
         return (
           <TTabNavItem
             ref={setActiveTab}
@@ -260,6 +267,7 @@ export default defineComponent({
         </div>
       );
     };
+
     return () => {
       return (
         <div ref={navsContainerRef} class={[`${COMPONENT_NAME.value}__nav`]} style={navsContainerStyle.value}>
