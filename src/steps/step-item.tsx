@@ -26,6 +26,7 @@ export default defineComponent({
     // when props.value is undefined
     const index = ref(-1);
     const onStepClick = (e: MouseEvent) => {
+      if (!canClick.value) return;
       const val = props.value === undefined ? index.value : props.value;
       steps.setCurrent(val, steps.current, { e });
     };
