@@ -80,7 +80,7 @@ export default defineComponent({
         placement: props.placement,
         addable: props.addable,
         panels: panelsData,
-        drag: props.drag,
+        dragSort: props.dragSort,
       };
       return (
         <div
@@ -91,7 +91,7 @@ export default defineComponent({
         >
           <TTabNav
             {...tabNavProps}
-            onDragend={props.onDragend}
+            onDragSort={props.onDragSort}
             onChange={onTabChange}
             onAdd={onTabAdd}
             onRemove={onTabRemove}

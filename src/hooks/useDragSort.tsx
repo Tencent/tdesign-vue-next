@@ -1,4 +1,5 @@
-import { onMounted, onUnmounted } from 'vue';
+import { onUnmounted } from 'vue';
+import { TabsDragSortContext } from '../tabs/type';
 
 const traversalTabNavs = (tabNavs: HTMLDivElement[], fn: { (tabNav: any): void; (arg0: HTMLDivElement): void }) => {
   for (const itemNode of tabNavs) {
@@ -18,10 +19,7 @@ const handleTarget = (target: Element | any, tabNavs: HTMLDivElement[]): any => 
   return resultTarget;
 };
 
-export default function useDragSort(
-  navsWrap: any,
-  fn: { (startIndex: any, endIndex: any): void; (arg0: number, arg1: number): void },
-) {
+export default function useDragSort(navsWrap: any, callback: { (content: TabsDragSortContext): void }, props: any) {
   // 获取当前正在拖动的tabNav节点
   let dragged: Element;
   const enterTargets: HTMLDivElement | any[] = [];
@@ -67,14 +65,7 @@ export default function useDragSort(
       }
     }
   };
-  const drop = (
-    event: { preventDefault: () => void; target: Element },
-    fn: {
-      (startIndex: any, endIndex: any): void;
-      (arg0: number, arg1: number): void;
-      (arg0: number, arg1: number): void;
-    },
-  ) => {
+  const drop = (event: { preventDefault: () => void; target: Element }) => {
     // 阻止默认动作（如打开一些元素的链接）
     event.preventDefault();
 
@@ -91,18 +82,28 @@ export default function useDragSort(
       if (targetIndex > dragIndex) {
         target = navsWrap.children[targetIndex + 1];
       }
-      fn(dragIndex - 1, targetIndex - 1);
       navsWrap.insertBefore(dragged, target);
+
+      const currentIndex = dragIndex - 1;
+      const endIndex = targetIndex - 1;
+      callback({
+        currentIndex,
+        current: props.panels[currentIndex].value,
+        targetIndex: endIndex,
+        target: props.panels[endIndex].value,
+      });
     }
   };
-
-  navsWrap.addEventListener('dragstart', dragstart, false);
-  navsWrap.addEventListener('dragend', dragend, false);
-  navsWrap.addEventListener('dragover', dragover, false);
-  navsWrap.addEventListener('dragenter', dragenter, false);
-  document.addEventListener('dragleave', dragleave, false);
-  document.addEventListener('mousemove', dragleave, false);
-  navsWrap.addEventListener('drop', (event: { preventDefault: () => void; target: Element }) => drop(event, fn), false);
+  // tabs-item超过1个才可以拖拽
+  if (props.dragSort && props.panels.length > 1) {
+    navsWrap.addEventListener('dragstart', dragstart, false);
+    navsWrap.addEventListener('dragend', dragend, false);
+    navsWrap.addEventListener('dragover', dragover, false);
+    navsWrap.addEventListener('dragenter', dragenter, false);
+    document.addEventListener('dragleave', dragleave, false);
+    document.addEventListener('mousemove', dragleave, false);
+    navsWrap.addEventListener('drop', drop, false);
+  }
   onUnmounted(() => {
     navsWrap.removeEventListener('dragstart', dragstart);
     navsWrap.removeEventListener('dragend', dragend);

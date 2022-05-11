@@ -11,7 +11,7 @@ dragSort | Boolean | false | 是否开启拖拽调整顺序 | N
 list | Array | - | 选项卡列表。TS 类型：`Array<TdTabPanelProps>` | N
 placement | String | top | 选项卡位置。可选项：left/top/bottom/right | N
 size | String | medium | 组件尺寸。可选项：medium/large | N
-drag | Boolean | false | 是否开启拖拽功能 | N
+dragSort | Boolean | false | 是否开启拖拽功能 | N
 theme | String | normal | 选项卡风格，包含 默认风格 和 卡片风格两种。可选项：normal/card | N
 value | String / Number | - | 激活的选项卡值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TabValue` `type TabValue = string | number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
 defaultValue | String / Number | - | 激活的选项卡值。非受控属性。TS 类型：`TabValue` `type TabValue = string | number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
@@ -28,7 +28,7 @@ add | `(context: { e: MouseEvent })` | 添加选项卡时触发
 change | `(value: TabValue)` | 激活的选项卡发生变化时触发
 drag-sort | `(context: TabsDragSortContext)` | 拖拽排序时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts)。<br/>`interface TabsDragSortContext { currentIndex: number; current: TabValue; targetIndex: number; target: TabValue }`<br/>
 remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | 删除选项卡时触发
-dragend | `(value: { startIndex, endIndex })` | 选项卡拖拽结束时触发（drag=true时生效）
+dragend | `(context: { currentIndex, current, targetIndex, target}` | 选项卡拖拽结束时触发（dragSort=true时生效）
 
 ### TabPanel Props
 
