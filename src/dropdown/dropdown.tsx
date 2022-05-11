@@ -1,68 +1,61 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, provide, ref } from 'vue';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDropdown',
   components: {
     DropdownMenu,
   },
-  provide() {
-    return {
-      dropdown: this,
-    };
-  },
-  props: {
-    ...props,
-  },
-  emits: ['click', 'visibleChange'],
-  setup() {
+  props,
+  setup(props, { attrs, slots }) {
+    const renderTNode = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  methods: {
-    handleMenuClick(data: DropdownOption, context: { e: MouseEvent }) {
-      if (this.hideAfterItemClick) {
-        const { popupElem }: any = this.$refs;
-        popupElem.handleClose();
+    const popupElem = ref(null);
+
+    const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
+      if (props.hideAfterItemClick) {
+        popupElem.value.handleClose();
       }
-      emitEvent(this, 'click', data, context);
-    },
-  },
-  render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default(null) : '';
-
-    const contentSlot: VNode[] | VNode | string = renderTNodeJSX(this, 'dropdown');
-    const popupProps = {
-      ...this.$attrs,
-      disabled: this.disabled,
-      placement: this.placement,
-      trigger: this.trigger,
-      overlayClassName: [this.COMPONENT_NAME, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+      props.onClick?.(data, context);
     };
 
-    return (
+    const trigger: VNode[] | VNode | string = slots.default ? slots.default(null) : '';
+
+    const contentSlot: VNode[] | VNode | string = renderTNode('dropdown');
+
+    const popupProps = {
+      ...attrs,
+      disabled: props.disabled,
+      placement: props.placement,
+      trigger: props.trigger,
+      overlayClassName: [COMPONENT_NAME.value, (props.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+    };
+
+    provide('handleMenuClick', handleMenuClick);
+    provide('maxHeight', props.maxHeight);
+    provide('maxColumnWidth', props.maxColumnWidth);
+    provide('minColumnWidth', props.minColumnWidth);
+
+    return () => (
       <Popup
-        {...this.popupProps}
+        {...props.popupProps}
         {...popupProps}
         destroyOnClose
-        ref="popupElem"
+        ref={popupElem}
         expandAnimation
         v-slots={{
           content: () =>
             contentSlot || (
-              <dropdown-menu
-                options={this.options}
-                maxHeight={this.maxHeight}
-                maxColumnWidth={this.maxColumnWidth}
-                minColumnWidth={this.minColumnWidth}
+              <dropdownMenu
+                options={props.options}
+                maxHeight={props.maxHeight}
+                maxColumnWidth={props.maxColumnWidth}
+                minColumnWidth={props.minColumnWidth}
               />
             ),
         }}
