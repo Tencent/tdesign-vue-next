@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, ref, watch } from 'vue';
+import { computed, defineComponent, onMounted, ref, toRefs, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
 import props from './props';
 import popupProps from '../popup/props';
@@ -6,6 +6,7 @@ import Popup, { PopupVisibleChangeContext } from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useMouse } from './util';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TTooltip',
@@ -14,9 +15,17 @@ export default defineComponent({
     ...popupProps,
     ...props,
   },
-  emits: ['visible-change'],
   setup(props, ctx) {
     const timer = ref(null);
+
+    const { visible, modelValue } = toRefs(props);
+    const [innerVisible, setInnerVisible] = useVModel(
+      visible,
+      modelValue,
+      props.defaultVisible,
+      props.onVisibleChange,
+      'visible',
+    );
 
     const innerTooltipVisible = ref(props.visible || props.defaultVisible);
     const classPrefix = usePrefixClass();
@@ -41,7 +50,7 @@ export default defineComponent({
       if (val) {
         offsetX.value = x.value;
       }
-      innerTooltipVisible.value = val;
+      setInnerVisible(val, ctx);
     };
 
     const tooltipOverlayClassName = computed(() => {
@@ -88,6 +97,6 @@ export default defineComponent({
       },
     );
 
-    return () => <Popup {...popupProps.value} overlayStyle={overlayStyle.value} visible={innerTooltipVisible.value} />;
+    return () => <Popup visible={innerVisible.value} {...popupProps.value} overlayStyle={overlayStyle.value} />;
   },
 });

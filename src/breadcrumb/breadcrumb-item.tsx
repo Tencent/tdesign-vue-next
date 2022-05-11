@@ -26,10 +26,9 @@ export default defineComponent({
   name: 'TBreadcrumbItem',
   props,
   setup(props, { slots, attrs }) {
-    const breadcrumbText = ref<HTMLElement | null>(null);
+    const breadcrumbText = ref<HTMLElement>();
     const localTBreadcrumb = inject('tBreadcrumb', localTBreadcrumbOrigin);
     const themeClassName = ref(localTBreadcrumb?.theme);
-    const curRouter = ref(null);
     const isCutOff = ref(false);
     const COMPONENT_NAME = usePrefixClass('breadcrumb__item');
     const separatorClass = usePrefixClass('breadcrumb__separator');
