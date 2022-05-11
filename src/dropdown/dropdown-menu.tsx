@@ -8,9 +8,6 @@ import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDropdownMenu',
-  components: {
-    DropdownItem,
-  },
   props: {
     options: {
       type: Array,
@@ -21,11 +18,11 @@ export default defineComponent({
       default: 300,
     },
     maxColumnWidth: {
-      type: Number,
+      type: Number || String,
       default: 100,
     },
     minColumnWidth: {
-      type: Number,
+      type: Number || String,
       default: 10,
     },
   },

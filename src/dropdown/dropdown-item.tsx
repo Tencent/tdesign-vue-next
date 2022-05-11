@@ -1,5 +1,4 @@
 import { defineComponent, ref, inject } from 'vue';
-import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import itemProps from './dropdown-item-props';
 import { TNodeReturnValue } from '../common';
@@ -9,10 +8,6 @@ import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDropdownItem',
-  components: {
-    ChevronRightIcon,
-    TDivider,
-  },
   props: {
     ...itemProps,
     path: {
