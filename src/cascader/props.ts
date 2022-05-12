@@ -106,11 +106,6 @@ export default {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
     defaultValue: undefined,
   },
-  /** 选中项的值 */
-  modelValue: {
-    type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    default: (): TdCascaderProps['value'] => [],
-  },
   /** 选中项的值，非受控属性 */
   defaultValue: {
     type: [String, Number, Array] as PropType<TdCascaderProps['defaultValue']>,

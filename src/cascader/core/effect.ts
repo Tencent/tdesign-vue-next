@@ -161,19 +161,6 @@ export function handleRemoveTagEffect(
 }
 
 /**
- * 外显content点击副作用
- * @param cascaderContext
- */
-export function innerContentClickEffect(cascaderContext: CascaderContextType) {
-  const { setVisible, visible, inputVal, disabled } = cascaderContext;
-
-  if (!disabled) {
-    if (visible && inputVal) return; // input filter is active
-    setVisible(!visible);
-  }
-}
-
-/**
  * input和treeStore变化的副作用
  * @param inputVal
  * @param treeStore
