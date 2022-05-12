@@ -18,7 +18,7 @@ const testConfig = {
   include:
     process.env.NODE_ENV === 'node-ssr'
       ? ['test/ssr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
-      : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      : ['test/unit/common/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Breadcrumb <slot> <separator> 1`] = `
-<div
-  class="t-breadcrumb"
->
-  <!---->
-</div>
-`;
