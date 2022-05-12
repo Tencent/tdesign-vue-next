@@ -17,7 +17,7 @@ const publicPathMap = {
 const testConfig = {
   include:
     process.env.NODE_ENV === 'node-sr'
-      ? ['test/ssr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+      ? ['test/sr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
       : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
   environment: 'jsdom',
