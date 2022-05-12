@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import Tag from '@/src/tag/index.ts';
 import CheckTag from '@/src/tag/check-tag.tsx';
 
@@ -24,14 +25,6 @@ describe('Tag or CheckTag', () => {
       const wrapper = mount({
         render() {
           return <Tag theme={'primary'}></Tag>;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':theme:info', () => {
-      const wrapper = mount({
-        render() {
-          return <Tag theme={'info'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -87,7 +80,7 @@ describe('Tag or CheckTag', () => {
     });
 
     it(':closable', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <Tag closable onClose={fn}></Tag>;
@@ -108,7 +101,7 @@ describe('Tag or CheckTag', () => {
     });
 
     it(':disabled', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <Tag disabled onClick={fn}></Tag>;
@@ -167,50 +160,50 @@ describe('Tag or CheckTag', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':variant:plain;theme:default', () => {
+    it(':variant:light-outline;theme:default', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'default'}></Tag>;
+          return <Tag variant="light" theme={'default'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:plain;theme:primary', () => {
+    it(':variant:light-outline;theme:primary', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'primary'}></Tag>;
+          return <Tag variant="light" theme={'primary'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:plain;theme:info', () => {
+    it(':variant:light-outline;theme:info', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'info'}></Tag>;
+          return <Tag variant="light" theme={'info'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:plain;theme:warning', () => {
+    it(':variant:light-outline;theme:warning', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'warning'}></Tag>;
+          return <Tag variant="light" theme={'warning'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:plain;theme:danger', () => {
+    it(':variant:light-outline;theme:danger', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'danger'}></Tag>;
+          return <Tag variant="light" theme={'danger'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:plain;theme:success', () => {
+    it(':variant:light-outline;theme:success', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="plain" theme={'success'}></Tag>;
+          return <Tag variant="light" theme={'success'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -309,7 +302,7 @@ describe('Tag or CheckTag', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
     it(':disabled', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <CheckTag disabled onClick={fn}></CheckTag>;
@@ -333,7 +326,7 @@ describe('Tag or CheckTag', () => {
 
   describe('@event: Tag', () => {
     it('Event passthrough: click', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <Tag onClick={fn}>text</Tag>;
@@ -343,7 +336,7 @@ describe('Tag or CheckTag', () => {
       expect(fn).toHaveBeenCalled();
     });
     it('Event passthrough: close', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <Tag closable onClose={fn}></Tag>;
@@ -357,7 +350,7 @@ describe('Tag or CheckTag', () => {
 
   describe('@event: CheckTag', () => {
     it('Event passthrough: click', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return (

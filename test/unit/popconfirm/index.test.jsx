@@ -14,23 +14,4 @@ describe('Popconfirm', () => {
       expect(wrapper.exists()).toBe(true);
     });
   });
-
-  // test events
-  describe('@event', () => {
-    expect(true).toEqual(true);
-  });
-
-  // test slots
-  describe('<slot>', () => {
-    it('', () => {
-      expect(true).toEqual(true);
-    });
-  });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => {
-      expect(true).toEqual(true);
-    });
-  });
 });

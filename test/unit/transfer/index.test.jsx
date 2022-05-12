@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import Transfer from '@/src/transfer/index.ts';
 
 const data = [];
@@ -126,7 +127,7 @@ describe('Transfer', () => {
 
     describe('disabled', () => {
       it(':disabled', async () => {
-        const fn = jest.fn();
+        const fn = vi.fn();
         const wrapper = await mount({
           render() {
             return <Transfer data={data} disabled={true} on-checked-change={fn} pagination={pagination}></Transfer>;
@@ -492,7 +493,7 @@ describe('Transfer', () => {
 
   describe('Events', () => {
     it('onChange', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = await mount({
         render() {
           return <Transfer data={data} pagination={pagination} checked={checkedValue} onChange={fn} />;

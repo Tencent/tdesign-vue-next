@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import {
   CloseIcon,
   MoreIcon,
@@ -12,7 +13,7 @@ import Button from '@/src/button/index.ts';
 import Loading from '@/src/loading';
 
 // every component needs four parts: props/events/slots/functions.
-jest.useFakeTimers();
+vi.useFakeTimers();
 describe('Message', () => {
   // test props api
   describe(':props', () => {
@@ -130,7 +131,7 @@ describe('Message', () => {
   // test events
   describe('@event', () => {
     it('@duration-end', () => {
-      const onDurationEnd = jest.fn();
+      const onDurationEnd = vi.fn();
       const wrapper = mount(Message, {
         props: {
           onDurationEnd,
@@ -138,7 +139,7 @@ describe('Message', () => {
         },
       });
       expect(onDurationEnd).not.toBeCalled();
-      jest.runAllTimers();
+      vi.runAllTimers();
       expect(onDurationEnd).toHaveBeenCalledTimes(1);
     });
   });

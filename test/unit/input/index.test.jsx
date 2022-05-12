@@ -57,15 +57,6 @@ describe('Input', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':autocomplete', () => {
-      const wrapper = mount({
-        render() {
-          return <Input autocomplete={true} />;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
     it(':prefix-icon', () => {
       const wrapper = mount({
         render() {

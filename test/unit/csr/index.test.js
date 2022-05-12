@@ -6,11 +6,11 @@ import { mount } from '@vue/test-utils';
 MockDate.set('2020-12-28');
 
 function ssrSnapshotTest() {
-  const files = glob.sync('./examples/**/demos/*.vue');
+  const files = glob.sync('./examples/button/demos/*.vue');
 
   describe('csr snapshot test', () => {
     files.forEach((file) => {
-      it(`ssr test ${file}`, async () => {
+      it(`csr test ${file}`, async () => {
         const demo = await import(`../../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         const wrapper = mount(realDemoComp);

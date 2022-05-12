@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { data } from 'autoprefixer';
+import { vi } from 'vitest';
 import TreeSelect from '@/src/tree-select/index.ts';
 
 const options = [
@@ -217,7 +217,7 @@ describe('TreeSelect', () => {
   // test events
   describe('@event', () => {
     it('onBlur', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TreeSelect data={options} filterable={true} onBlur={fn} />;
@@ -229,7 +229,7 @@ describe('TreeSelect', () => {
       expect(fn).toBeCalled();
     });
     it('onClear', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const value = 'shenzhen';
       const wrapper = mount({
         render() {
@@ -241,7 +241,7 @@ describe('TreeSelect', () => {
       expect(fn).toBeCalled();
     });
     it('onFocus', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TreeSelect data={options} filterable={true} onFocus={fn} />;
@@ -252,7 +252,7 @@ describe('TreeSelect', () => {
       expect(fn).toBeCalled();
     });
     it('onRemove', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const value = ['shenzhen'];
       const wrapper = mount({
         render() {
@@ -264,7 +264,7 @@ describe('TreeSelect', () => {
       expect(fn).toBeCalled();
     });
     it('onSearch', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TreeSelect data={options} filterable={true} onSearch={fn} />;

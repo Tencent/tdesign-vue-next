@@ -75,23 +75,4 @@ describe('Calendar', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-
-  // test events
-  describe('@event', () => {
-    window.console.info('calendar test @event');
-  });
-
-  // test slots
-  describe('<slot>', () => {
-    it('', () => {
-      window.console.info('calendar test<slot>');
-    });
-  });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => {
-      window.console.info('calendar test function');
-    });
-  });
 });
