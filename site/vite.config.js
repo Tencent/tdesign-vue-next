@@ -13,8 +13,12 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
+// 单元测试相关配置
 const testConfig = {
-  include: ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  include:
+    process.env.NODE_ENV === 'node-ssr'
+      ? ['test/ssr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+      : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,

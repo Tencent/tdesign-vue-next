@@ -7,18 +7,13 @@ MockDate.set('2020-12-28');
 
 function ssrSnapshotTest() {
   const files = glob.sync('./examples/**/demos/*.vue');
+  const { createSSRApp } = config.global;
+
   describe('ssr snapshot test', () => {
-    beforeAll(() => {
-      jest.useFakeTimers();
-    });
     files.forEach((file) => {
-      if (file.indexOf('temp') > -1) {
-        return;
-      }
-      it(`renders ${file} correctly`, async () => {
-        const demo = require(`../.${file}`);
+      it(`ssr test ${file}`, async () => {
+        const demo = await import(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
-        const { createSSRApp } = config.global;
         const html = await createSSRApp(realDemoComp);
         expect(html).toMatchSnapshot();
       }, 2000);
