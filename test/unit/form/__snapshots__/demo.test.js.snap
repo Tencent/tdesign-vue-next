@@ -1861,11 +1861,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           
           <div
-<<<<<<< HEAD
-            class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"
-=======
             class="t-input__wrap t-select-input t-select-input--empty t-cascader"
->>>>>>> fix: cascader filter bug
           >
             <div
               class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"

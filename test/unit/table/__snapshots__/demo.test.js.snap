@@ -3310,12 +3310,7 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
   >
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
-<<<<<<< HEAD
       class="t-table t-table--col-draggable"
-=======
-      class="t-table"
-      dragsort="row-handler"
->>>>>>> feat: update cascader style
       style="position: relative;"
     >
       <!---->

@@ -1,4 +1,4 @@
-import { ref, computed, watch, nextTick, getCurrentInstance, toRefs } from 'vue';
+import { ref, computed, watch, nextTick, toRefs } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
 import useVModel from '../hooks/useVModel';
@@ -110,6 +110,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     focus,
     blur,
   });
+
   return {
     isHover,
     focused,

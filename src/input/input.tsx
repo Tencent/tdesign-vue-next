@@ -25,6 +25,7 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   name: 'TInput',
   props,
+
   setup(props, { slots, expose }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();

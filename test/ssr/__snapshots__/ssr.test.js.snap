@@ -9566,12 +9566,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/small.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/cascader/demos/base.vue correctly 1`] = `
 <div>
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -9579,39 +9574,21 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/base.vue correctly 
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue correctly 1`] = `
-<<<<<<< HEAD
-<<<<<<< HEAD
 <div class="tdesign-demo-block-row t-cascader-demo">
   <!--[-->
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-<div class="tdesign-demo-block-row">
-=======
-<div class="tdesign-demo-block-row t-cascader-demo">
->>>>>>> feat: add tdesign-demo-block-row
-  <!--[-->
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -9619,7 +9596,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="1 / 1.2 / 1.2.2">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
@@ -9628,19 +9605,18 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
   <!---->
   <!--]-->
   <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->1/1.1/1.1.2/1.1.2.1<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->2<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
+        <!--[-->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -9649,63 +9625,43 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
 exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+2<!--]--><!----></span>
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--[--><span style="color:#ED7B2F;">+2</span>
-        <!---->
-        <!--]-->
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader t-demo-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--[-->
-        <!--[--><span style="color:#00a870;">+2</span>
-        <!---->
         <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+  <!--[-->
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
         <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+  <!--[-->
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader t-demo-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
@@ -9719,18 +9675,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
 exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -9738,7 +9683,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" disabled readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" disabled readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
@@ -9747,19 +9692,18 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
   <!---->
   <!--]-->
   <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><!----></span>
+        <!--[-->
         <!--]-->
-      </div><input class="t-input__inner" disabled readonly placeholder type="text" value>
+      </div><input class="t-input__inner" disabled readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -9767,70 +9711,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/ellipsis.vue correctly 1`] = `
 <div class="tdesign-demo-block-row t-cascader-demo">
-<<<<<<< HEAD
   <!--[-->
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-=======
->>>>>>> feat: add tdesign-demo-block-row
-  <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[-->
-        <!---->
-        <!---->
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="当选项一数据展示文本过长时 / 子选项一">
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->当选项一数据展示文本过长时/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue correctly 1`] = `
-<div class="tdesign-demo-block-row">
-  <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
   <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
@@ -9848,92 +9729,6 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
   <!---->
   <!--]-->
   <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/keys.vue correctly 1`] = `
-<div>
-  <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[-->
-        <!---->
-        <!---->
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/load.vue correctly 1`] = `
-<div>
-  <!--[-->
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
-=======
-  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
->>>>>>> feat: add tdesign-demo-block-row
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[-->
-        <!---->
-        <!---->
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/max.vue correctly 1`] = `
-<div>
-  <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
   <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
@@ -9946,105 +9741,14 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/max.vue correctly 1
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/cascader/demos/multiple.vue correctly 1`] = `
-<div class="t-cascader-demo">
-  <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
-      <!---->
-      <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
-      <!---->
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
-    </div>
-    <!---->
-  </div>
->>>>>>> fix: cascader filter bug
-  <!---->
-  <!--]-->
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/panel.vue correctly 1`] = `
+exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
-  <div class="t-cascader__panel t-cascader--normal">
-    <!--[-->
-    <ul class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment">
-      <!--[-->
-      <li class="t-cascader__item t-is-expanded t-size-m t-cascader__item--with-icon"><span title="当选项一数据展示文本过长时" class="t-cascader__item-label t-cascader__item-label--ellipsis" role="label">当选项一数据展示文本过长时</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-expanded" style="">
-          <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
-        </svg></li>
-      <li class="t-cascader__item t-size-m t-cascader__item--with-icon"><span title="选项二" class="t-cascader__item-label t-cascader__item-label--ellipsis" role="label">选项二</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-cascader__item-icon" style="">
-          <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
-        </svg></li>
-      <!--]-->
-    </ul>
-    <ul class="t-cascader__menu narrow-scrollbar">
-      <!--[-->
-      <li class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--leaf"><span title="子选项一" class="t-cascader__item-label t-cascader__item-label--ellipsis" role="label">子选项一</span>
-        <!---->
-      </li>
-      <li class="t-cascader__item t-size-m t-cascader__item--leaf"><span title="子选项二" class="t-cascader__item-label t-cascader__item-label--ellipsis" role="label">子选项二</span>
-        <!---->
-      </li>
-      <li class="t-cascader__item t-size-m t-cascader__item--leaf"><span title="子选项三" class="t-cascader__item-label t-cascader__item-label--ellipsis" role="label">子选项三</span>
-        <!---->
-      </li>
-      <!--]-->
-    </ul>
-    <!--]-->
-  </div>
-  <div class="t-cascader__panel t-cascader--normal">
-    <!--[-->
-    <ul class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment">
-      <!--[-->
-      <li class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--with-icon"><label class="t-checkbox t-is-indeterminate" size="medium" title="当选项一数据展示文本过长时"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->当选项一数据展示文本过长时<!--]--></span></label><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-selected t-is-expanded" style="">
-          <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
-        </svg></li>
-      <li class="t-cascader__item t-size-m t-cascader__item--with-icon"><label class="t-checkbox" size="medium" title="选项二"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-cascader__item-icon" style="">
-          <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
-        </svg></li>
-      <!--]-->
-    </ul>
-    <ul class="t-cascader__menu narrow-scrollbar">
-      <!--[-->
-      <li class="t-cascader__item t-is-selected t-size-m t-cascader__item--leaf"><label class="t-checkbox t-is-checked" size="medium" title="子选项一"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->子选项一<!--]--></span></label>
-        <!---->
-      </li>
-      <li class="t-cascader__item t-size-m t-cascader__item--leaf"><label class="t-checkbox" size="medium" title="子选项二"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->子选项二<!--]--></span></label>
-        <!---->
-      </li>
-      <li class="t-cascader__item t-size-m t-cascader__item--leaf"><label class="t-checkbox" size="medium" title="子选项三"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->子选项三<!--]--></span></label>
-        <!---->
-      </li>
-      <!--]-->
-    </ul>
-    <!--]-->
-  </div>
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/cascader/demos/show-all-levels.vue correctly 1`] = `
-<div>
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
   <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
@@ -10059,7 +9763,138 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/show-all-levels.vue
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
+  <!---->
+  <!--]-->
+  <!--[-->
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/keys.vue correctly 1`] = `
+<div>
+  <!--[-->
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!---->
+        <!---->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/load.vue correctly 1`] = `
+<div>
+  <!--[-->
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!---->
+        <!---->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/max.vue correctly 1`] = `
+<div>
+  <!--[-->
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/multiple.vue correctly 1`] = `
+<div class="t-cascader-demo">
+  <!--[-->
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <!--]-->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/panel.vue correctly 1`] = `
+<div class="tdesign-demo-block-row">
+  <div class="t-cascader__panel">
+    <div class="t-cascader__panel--empty">暂无数据</div>
+  </div>
+  <div class="t-cascader__panel">
+    <div class="t-cascader__panel--empty">暂无数据</div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/cascader/demos/show-all-levels.vue correctly 1`] = `
+<div>
+  <!--[-->
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!---->
+        <!---->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
+    </div>
+    <!---->
+  </div>
   <!---->
   <!--]-->
 </div>
@@ -10069,12 +9904,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
 <div class="tdesign-demo-block-row">
   <!-- 非受控用法 -->
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-s t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -10082,23 +9912,17 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
   <!-- 受控+语法糖用法 -->
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -10106,23 +9930,17 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
   <!-- 受控用法 -->
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-l t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -10130,13 +9948,12 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -10145,17 +9962,6 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
 exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
   <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
@@ -10187,7 +9993,6 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -10196,23 +10001,6 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
 exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
   <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
@@ -10255,7 +10043,6 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -10264,18 +10051,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
 exports[`ssr snapshot test renders ./examples/cascader/demos/value-type.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <!--[-->
-<<<<<<< HEAD
-  <div class="t-cascader t-size-m t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-  <!---->
-  <!--]-->
-  <!--[-->
-  <div class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
-      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-    </svg></div>
-=======
-  <div class="t-input__wrap t-select-input t-cascader">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -10283,7 +10059,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-type.vue corr
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value="选项一 / 子选项一">
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
@@ -10292,19 +10068,18 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-type.vue corr
   <!---->
   <!--]-->
   <!--[-->
-  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader">
+  <div class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项一<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一/子选项二<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
+        <!--[-->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
+      </div><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><svg class="t-fake-arrow t-cascader__icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style=""><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg></span>
     </div>
     <!---->
   </div>
->>>>>>> fix: cascader filter bug
   <!---->
   <!--]-->
 </div>
@@ -13641,7 +13416,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     <!---->
   </div><br><br><!-- 观察 placeholder -->
   <!--[-->
-  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader" style="width:400px;">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -13658,7 +13433,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   <!---->
   <!--]--><br><br><!-- 观察空数据文本呈现 -->
   <!--[-->
-  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader" style="width:400px;">
+  <div class="t-input__wrap t-select-input t-select-input--empty t-cascader">
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -13677,11 +13452,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   <!-- <t-cascader placeholder="see loading text in Cascader" loading style="width: 400px;" /> -->
   <!-- <br><br> -->
   <!--[-->
-<<<<<<< HEAD
   <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select">
-=======
-  <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select" style="width:400px;">
->>>>>>> fix: cascader filter bug
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -13698,11 +13469,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   <!---->
   <!--]--><br><br>
   <!--[-->
-<<<<<<< HEAD
   <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select">
-=======
-  <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select" style="width:400px;">
->>>>>>> fix: cascader filter bug
     <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -13719,11 +13486,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   <!---->
   <!--]--><br><br>
   <!--[-->
-<<<<<<< HEAD
   <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select">
-=======
-  <div class="t-input__wrap t-select-input t-select-input--empty t-tree-select" style="width:400px;">
->>>>>>> fix: cascader filter bug
     <div class="t-input t-input--prefix t-input--suffix">
       <!---->
       <div class="t-input__prefix">
@@ -25585,17 +25348,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autowidth-multi
 exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue correctly 1`] = `
 <div>
   <!--[-->
-<<<<<<< HEAD
   <div class="t-input__wrap t-select-input t-select-input--borderless">
     <div class="t-input t-is-readonly t-input--prefix">
-=======
-  <div class="t-input__wrap t-select-input t-select-input--borderless" style="width:200px;">
-<<<<<<< HEAD
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
->>>>>>> fix: cascader filter bug
-=======
-    <div class="t-input t-is-readonly t-input--prefix">
->>>>>>> feat: add tdesign-demo-block-row
       <!---->
       <div class="t-input__prefix">
         <!--[-->
@@ -29593,11 +29347,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
 <div class="demo-container t-table-demo-sort">
   <div class="item">
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-<<<<<<< HEAD
     <div class="t-table t-table--col-draggable" style="position:relative;">
-=======
-    <div class="t-table" style="position:relative;" dragsort="row-handler">
->>>>>>> feat: reset input demo
       <!---->
       <!---->
       <div class="t-table__content" style="">
@@ -41892,27 +41642,27 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
   </div>
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t3" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t5" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t4" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t6" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t5" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t7" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t6" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t8" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t7" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t9" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t8" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t10" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.2</span></span>
         <!--]-->
       </div>
@@ -41926,19 +41676,19 @@ exports[`ssr snapshot test renders ./examples/tree/demos/base.vue correctly 1`] 
 <div class="tdesign-tree-base">
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item" data-value="t9" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t11" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">第一段</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t12" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t14" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">第一段</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t15" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t17" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">第一段</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t18" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t20" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">第一段</span></span>
         <!--]-->
       </div>
@@ -42214,44 +41964,44 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
   </div>
   <div class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t21" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t21"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t23" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t23"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t22" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t22"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t24" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t24"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t23" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t23"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.1<!--]--></span></label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t24" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t24"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.2<!--]--></span></label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t25" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t25"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t25" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t25"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.1<!--]--></span></label>
         <!--]-->
       </div>
       <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t26" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t26"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t26"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t27" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t27"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t27" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t27"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t28" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t28"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t28" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t28"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t29" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t29"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t29" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t29"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t30" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t30"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t30" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t30"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t31" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t31"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="t32" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t32"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
         <!--]-->
       </div>
     </div>
@@ -42281,44 +42031,44 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
   </div>
   <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t31" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t31"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t33" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t33"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t32" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t32"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t34" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t34"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t33" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t33"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.1<!--]--></span></label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t34" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t34"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.2<!--]--></span></label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t35" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t35"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t35" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t35"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.1<!--]--></span></label>
         <!--]-->
       </div>
       <div class="t-tree__item t-tree__item--open" data-value="t36" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t36"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t36"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t37" data-level="2" style="--level: 2;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t37"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t37" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t37"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t38" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t38"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t38" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t38"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t39" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t39"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t39" data-level="2" style="--level: 2;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t39"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.2<!--]--></span></label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t40" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t40"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
+      <div class="t-tree__item t-tree__item--open" data-value="t40" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t40"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t41" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t41"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t42" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t42"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
         <!--]-->
       </div>
     </div>
@@ -42396,43 +42146,43 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-all.vue correctl
   </div>
   <div class="t-tree t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t41" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t43" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t42" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t44" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t43" data-level="2" style="--level: 2;">
+      <div class="t-tree__item t-tree__item--open" data-value="t45" data-level="2" style="--level: 2;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t44" data-level="2" style="--level: 2;">
+      <div class="t-tree__item t-tree__item--open" data-value="t46" data-level="2" style="--level: 2;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1.2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t45" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t47" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t46" data-level="2" style="--level: 2;">
+      <div class="t-tree__item t-tree__item--open" data-value="t48" data-level="2" style="--level: 2;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t47" data-level="2" style="--level: 2;">
+      <div class="t-tree__item t-tree__item--open" data-value="t49" data-level="2" style="--level: 2;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2.2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t48" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t50" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t49" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t51" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t50" data-level="1" style="--level: 1;">
+      <div class="t-tree__item t-tree__item--open" data-value="t52" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.2</span></span>
         <!--]-->
       </div>
@@ -42446,27 +42196,27 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-level.vue correc
 <div class="tdesign-tree-base">
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t51" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t53" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t52" data-level="1" style="--level: 1;">
+      <div class="t-tree__item" data-value="t54" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t55" data-level="1" style="--level: 1;">
+      <div class="t-tree__item" data-value="t57" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t58" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t60" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t59" data-level="1" style="--level: 1;">
+      <div class="t-tree__item" data-value="t61" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t60" data-level="1" style="--level: 1;">
+      <div class="t-tree__item" data-value="t62" data-level="1" style="--level: 1;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.2</span></span>
         <!--]-->
       </div>
@@ -42518,11 +42268,11 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
   </div>
   <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node">
     <div>
-      <div class="t-tree__item" data-value="t61" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t63" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t68" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t70" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
@@ -42567,11 +42317,11 @@ exports[`ssr snapshot test renders ./examples/tree/demos/icon.vue correctly 1`] 
   <h3>render:</h3>
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item" data-value="t75" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t77" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"><svg class="t-icon t-icon-folder" style=""><use href="#t-icon-folder"></use></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t76" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t78" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"><svg class="t-icon t-icon-folder" style=""><use href="#t-icon-folder"></use></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
@@ -42581,11 +42331,11 @@ exports[`ssr snapshot test renders ./examples/tree/demos/icon.vue correctly 1`] 
   <h3>scope slot:</h3>
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item" data-value="t77" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t79" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"><!--[--><svg class="t-icon t-icon-caret-right" style=""><use href="#t-icon-caret-right"></use></svg><!--]--></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item" data-value="t78" data-level="0" style="--level: 0;">
+      <div class="t-tree__item" data-value="t80" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"><!--[--><svg class="t-icon t-icon-caret-right" style=""><use href="#t-icon-caret-right"></use></svg><!--]--></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
@@ -42600,28 +42350,28 @@ exports[`ssr snapshot test renders ./examples/tree/demos/label.vue correctly 1`]
   <h3>render:</h3>
   <div class="t-tree t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t79" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t79, label: 1</strong></span></span>
+      <div class="t-tree__item t-tree__item--open" data-value="t81" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t81, label: 1</strong></span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t80" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t80, label: 1.1</strong></span></span>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t81" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t81, label: 1.2</strong></span></span>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t82" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t82, label: 2</strong></span></span>
+      <div class="t-tree__item t-tree__item--open" data-value="t82" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t82, label: 1.1</strong></span></span>
         <!--]-->
       </div>
       <div class="t-tree__item t-tree__item--open" data-value="t83" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t83, label: 2.1</strong></span></span>
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t83, label: 1.2</strong></span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t84" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t84, label: 2.2</strong></span></span>
+      <div class="t-tree__item t-tree__item--open" data-value="t84" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t84, label: 2</strong></span></span>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t85" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t85, label: 2.1</strong></span></span>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t86" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative"><strong>value: t86, label: 2.2</strong></span></span>
         <!--]-->
       </div>
     </div>
@@ -42630,43 +42380,43 @@ exports[`ssr snapshot test renders ./examples/tree/demos/label.vue correctly 1`]
   <h3>scope slot:</h3>
   <div class="t-tree t-tree--checkable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t85" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t85"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1, value: t85</span>
+      <div class="t-tree__item t-tree__item--open" data-value="t87" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t87"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1, value: t87</span>
           <!--]-->
           <!--]--></span>
         </label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t86" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t86"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1.1, value: t86</span>
-          <!--]-->
-          <!--]--></span>
-        </label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t87" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t87"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1.2, value: t87</span>
-          <!--]-->
-          <!--]--></span>
-        </label>
-        <!--]-->
-      </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t88" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t88"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2, value: t88</span>
+      <div class="t-tree__item t-tree__item--open" data-value="t88" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t88"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1.1, value: t88</span>
           <!--]-->
           <!--]--></span>
         </label>
         <!--]-->
       </div>
       <div class="t-tree__item t-tree__item--open" data-value="t89" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t89"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2.1, value: t89</span>
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t89"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 1.2, value: t89</span>
           <!--]-->
           <!--]--></span>
         </label>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t90" data-level="1" style="--level: 1;">
-        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t90"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2.2, value: t90</span>
+      <div class="t-tree__item t-tree__item--open" data-value="t90" data-level="0" style="--level: 0;">
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t90"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2, value: t90</span>
+          <!--]-->
+          <!--]--></span>
+        </label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t91" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t91"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2.1, value: t91</span>
+          <!--]-->
+          <!--]--></span>
+        </label>
+        <!--]-->
+      </div>
+      <div class="t-tree__item t-tree__item--open" data-value="t92" data-level="1" style="--level: 1;">
+        <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t92"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--[--><span style="color:blue;">label: 2.2, value: t92</span>
           <!--]-->
           <!--]--></span>
         </label>
@@ -43189,11 +42939,11 @@ exports[`ssr snapshot test renders ./examples/tree/demos/load.vue correctly 1`] 
 <div class="tdesign-tree-base">
   <div class="t-tree t-tree--hoverable t-tree--transition">
     <div>
-      <div class="t-tree__item t-tree__item--open" data-value="t91" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t93" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
-      <div class="t-tree__item t-tree__item--open" data-value="t92" data-level="0" style="--level: 0;">
+      <div class="t-tree__item t-tree__item--open" data-value="t94" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>

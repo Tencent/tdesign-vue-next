@@ -3029,12 +3029,7 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
   <!-- 观察 placeholder -->
   
   <div
-<<<<<<< HEAD
-    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-=======
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
->>>>>>> fix: cascader filter bug
-    style="width: 400px;"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -3090,12 +3085,7 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
   <!-- 观察空数据文本呈现 -->
   
   <div
-<<<<<<< HEAD
-    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-=======
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
->>>>>>> fix: cascader filter bug
-    style="width: 400px;"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -3154,10 +3144,6 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
-<<<<<<< HEAD
-=======
-    style="width: 400px;"
->>>>>>> fix: cascader filter bug
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -3215,10 +3201,6 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
-<<<<<<< HEAD
-=======
-    style="width: 400px;"
->>>>>>> fix: cascader filter bug
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -3283,10 +3265,6 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
-<<<<<<< HEAD
-=======
-    style="width: 400px;"
->>>>>>> fix: cascader filter bug
   >
     <div
       class="t-input t-input--prefix t-input--suffix"
