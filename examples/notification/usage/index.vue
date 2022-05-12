@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #notification="{ configProps }"
-      ><t-notification v-bind="configProps" title="标题名称" content="这是一条消息通知"
+      ><t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true"
     /></template>
   </base-usage>
 </template>

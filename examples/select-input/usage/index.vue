@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #selectInput="{ configProps }"
-      ><t-select-input panel="暂无数据" value="" placeholder="请输入" tips="这是 tips 文本信息" v-bind="configProps"
+      ><t-select-input panel="暂无数据" tips="这是 tips 文本信息" v-bind="configProps"
     /></template>
   </base-usage>
 </template>
