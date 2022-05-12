@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`Swiper > Swiper swiperVue demo works fine 1`] = `
+exports[`Swiper > Swiper baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -33,7 +33,7 @@ exports[`Swiper > Swiper swiperVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper cardVue demo works fine 1`] = `
+exports[`Swiper > Swiper cardVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -66,7 +66,7 @@ exports[`Swiper Swiper cardVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper currentVue demo works fine 1`] = `
+exports[`Swiper > Swiper currentVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -115,7 +115,7 @@ exports[`Swiper Swiper currentVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper fadeVue demo works fine 1`] = `
+exports[`Swiper > Swiper fadeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -148,7 +148,7 @@ exports[`Swiper Swiper fadeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper > Swiper verticalVue demo works fine 1`] = `
+exports[`Swiper > Swiper fractionVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -224,7 +224,7 @@ exports[`Swiper > Swiper verticalVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper placementVue demo works fine 1`] = `
+exports[`Swiper > Swiper placementVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
@@ -257,7 +257,7 @@ exports[`Swiper Swiper placementVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper sizeVue demo works fine 1`] = `
+exports[`Swiper > Swiper sizeVue demo works fine 1`] = `
 <div>
   <div
     class="tdesign-demo-block--swiper-new"
@@ -330,7 +330,7 @@ exports[`Swiper Swiper sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Swiper Swiper verticalVue demo works fine 1`] = `
+exports[`Swiper > Swiper verticalVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block--swiper-new"
 >
