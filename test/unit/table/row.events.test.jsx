@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@/src/table/index.ts';
 
 const data = new Array(5).fill(null).map((item, index) => ({
@@ -21,7 +22,7 @@ const TABLES = [Table, BaseTable, PrimaryTable, EnhancedTable];
 TABLES.forEach((TTable) => {
   describe(TTable.name, () => {
     it('Events.onCellClick', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onCellClick={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -33,7 +34,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowClick', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowClick={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -45,7 +46,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowDblclick', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowDblclick={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -57,7 +58,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowMouseup', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowMouseup={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -69,7 +70,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowMousedown', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowMousedown={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -81,7 +82,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowMouseenter', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowMouseenter={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -93,7 +94,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowMouseleave', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowMouseleave={fn} columns={SIMPLE_COLUMNS}></TTable>;
@@ -105,7 +106,7 @@ TABLES.forEach((TTable) => {
     });
 
     it('Events.onRowMouseover', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const wrapper = mount({
         render() {
           return <TTable rowKey="index" bordered data={data} onRowMouseover={fn} columns={SIMPLE_COLUMNS}></TTable>;

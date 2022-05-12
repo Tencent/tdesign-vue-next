@@ -49,23 +49,4 @@ describe('DatePicker', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
   });
-
-  // test events
-  describe('@event', () => {
-    window.console.info('DatePicker test @event');
-  });
-
-  // test slots
-  describe('<slot>', () => {
-    it('', () => {
-      window.console.info('DatePicker test<slot>');
-    });
-  });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => {
-      window.console.info('DatePicker test function');
-    });
-  });
 });

@@ -16,7 +16,7 @@ function ssrSnapshotTest() {
         const realDemoComp = demo.default ? demo.default : demo;
         const html = await createSSRApp(realDemoComp);
         expect(html).toMatchSnapshot();
-      }, 2000);
+      });
     });
   });
 }
