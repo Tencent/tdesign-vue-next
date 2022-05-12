@@ -271,10 +271,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -315,10 +314,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -404,10 +402,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -448,10 +445,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -479,10 +475,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -523,10 +518,9 @@ exports[`Slider > Slider inputNumberVerticalVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -604,10 +598,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -648,10 +641,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -736,10 +728,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -780,10 +771,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -811,10 +801,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-down"
+              class="t-icon t-icon-chevron-down t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
@@ -855,10 +844,9 @@ exports[`Slider > Slider inputNumberVue demo works fine 1`] = `
             
             
             <svg
-              class="t-icon t-icon-chevron-up"
+              class="t-icon t-icon-chevron-up t-size-m"
               fill="none"
               height="1em"
-              style="font-size: medium;"
               viewBox="0 0 16 16"
               width="1em"
             >
