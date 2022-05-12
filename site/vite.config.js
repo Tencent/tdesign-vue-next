@@ -16,7 +16,7 @@ const publicPathMap = {
 // 单元测试相关配置
 const testConfig = {
   include:
-    process.env.NODE_ENV === 'node-ssr'
+    process.env.NODE_ENV === 'node-sr'
       ? ['test/ssr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
       : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
