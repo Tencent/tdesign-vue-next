@@ -558,13 +558,13 @@ module.exports = {
   message: {
     panelStr: `const panelList = [{label: 'message', value: 'message'}];`,
     render: {
-      message: `<t-message v-bind="configProps" :duration="0" content="这里是 Message 信息" />`,
+      message: `<t-message v-bind="configProps" content="这里是 Message 信息" />`,
     },
   },
   notification: {
     panelStr: `const panelList = [{label: 'notification', value: 'notification'}];`,
     render: {
-      notification: `<t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" />`,
+      notification: `<t-notification v-bind="configProps" title="标题名称" content="这是一条消息通知" />`,
     },
   },
   popconfirm: {
