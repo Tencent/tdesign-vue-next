@@ -78,6 +78,11 @@ export default {
   },
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
   reserveKeyword: Boolean,
+  /** 是否展示箭头 */
+  showArrow: {
+    type: Boolean,
+    default: true,
+  },
   /** 【讨论中】是否显示全选 */
   showCheckAlll: Boolean,
   /** 组件尺寸 */
