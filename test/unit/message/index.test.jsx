@@ -13,7 +13,6 @@ import Button from '@/src/button/index.ts';
 import Loading from '@/src/loading';
 
 // every component needs four parts: props/events/slots/functions.
-vi.useFakeTimers();
 describe('Message', () => {
   // test props api
   describe(':props', () => {
@@ -131,6 +130,7 @@ describe('Message', () => {
   // test events
   describe('@event', () => {
     it('@duration-end', () => {
+      vi.useFakeTimers();
       const onDurationEnd = vi.fn();
       const wrapper = mount(Message, {
         props: {
