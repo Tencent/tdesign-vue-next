@@ -11,7 +11,7 @@ function ssrSnapshotTest() {
   describe('csr snapshot test', () => {
     files.forEach((file) => {
       it(`csr test ${file}`, async () => {
-        const demo = await import(`../../.${file}`);
+        const demo = await import(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         const wrapper = mount(realDemoComp);
         expect(wrapper.element).toMatchSnapshot();
