@@ -132,8 +132,8 @@ module.exports = {
     panelStr: `const panelList = [{label: 'steps', value: 'steps'}];`,
     render: {
       steps: `
-        <t-steps :current="1" v-bind="configProps">
-          <t-step-item title="步骤1" content="提示文字" />
+      <t-steps :defaultCurrent="1" v-bind="configProps">
+        <t-step-item title="步骤1" content="提示文字" />
           <t-step-item title="步骤2" content="提示文字" />
           <t-step-item title="步骤3" content="提示文字" />
         </t-steps>
@@ -310,7 +310,7 @@ module.exports = {
   'select-input': {
     panelStr: `const panelList = [{label: 'selectInput', value: 'selectInput'}];`,
     render: {
-      selectInput: `<t-select-input panel="暂无数据" tips="这是 tips 文本信息" v-bind="configProps" />`,
+      selectInput: `<t-select-input panel="暂无数据" value="" placeholder="请输入" tips="这是 tips 文本信息" v-bind="configProps" />`,
     },
   },
   slider: {
@@ -558,13 +558,13 @@ module.exports = {
   message: {
     panelStr: `const panelList = [{label: 'message', value: 'message'}];`,
     render: {
-      message: `<t-message v-bind="configProps" :duration="0" content="这里是 Message 信息"  :closeBtn="true" />`,
+      message: `<t-message v-bind="configProps" content="这里是 Message 信息" />`,
     },
   },
   notification: {
     panelStr: `const panelList = [{label: 'notification', value: 'notification'}];`,
     render: {
-      notification: `<t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />`,
+      notification: `<t-notification v-bind="configProps" title="标题名称" content="这是一条消息通知" />`,
     },
   },
   popconfirm: {

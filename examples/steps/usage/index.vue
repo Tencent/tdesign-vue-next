@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #steps="{ configProps }"
-      ><t-steps :current="1" v-bind="configProps">
+      ><t-steps :defaultCurrent="1" v-bind="configProps">
         <t-step-item title="步骤1" content="提示文字" />
         <t-step-item title="步骤2" content="提示文字" />
         <t-step-item title="步骤3" content="提示文字" /> </t-steps
@@ -20,7 +20,7 @@ const panelList = [{ label: 'steps', value: 'steps' }];
 
 const usageCodeMap = {
   steps:
-    '\n        <t-steps :current="1" v-bind="configProps">\n          <t-step-item title="步骤1" content="提示文字" />\n          <t-step-item title="步骤2" content="提示文字" />\n          <t-step-item title="步骤3" content="提示文字" />\n        </t-steps>\n      ',
+    '\n      <t-steps :defaultCurrent="1" v-bind="configProps">\n        <t-step-item title="步骤1" content="提示文字" />\n          <t-step-item title="步骤2" content="提示文字" />\n          <t-step-item title="步骤3" content="提示文字" />\n        </t-steps>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

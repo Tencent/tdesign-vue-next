@@ -21,6 +21,25 @@
     "options": []
   },
   {
+    "name": "separator",
+    "type": "enum",
+    "defaultValue": "line",
+    "options": [
+      {
+        "label": "line",
+        "value": "line"
+      },
+      {
+        "label": "dashed",
+        "value": "dashed"
+      },
+      {
+        "label": "arrow",
+        "value": "arrow"
+      }
+    ]
+  },
+  {
     "name": "sequence",
     "type": "enum",
     "defaultValue": "positive",

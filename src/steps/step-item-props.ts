@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdStepItemProps } from '../steps/type';
@@ -32,6 +31,7 @@ export default {
     type: String as PropType<TdStepItemProps['status']>,
     default: 'default' as TdStepItemProps['status'],
     validator(val: TdStepItemProps['status']): boolean {
+      if (!val) return true;
       return ['default', 'process', 'finish', 'error'].includes(val);
     },
   },
