@@ -37,7 +37,20 @@ exports[`Steps Steps extraVue demo works fine 1`] = `
         <div
           class="t-steps-item__extra"
         >
-          <!---->
+          
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               下一步 
+              
+            </span>
+          </button>
+          
         </div>
       </div>
     </div>
@@ -492,30 +505,19 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
 >
   
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
+    props="[object Object]"
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item__icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <span
           class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+          NaN
         </span>
       </div>
       <div
@@ -524,48 +526,12 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         <div
           class="t-steps-item__title"
         >
-          步骤一
+          
         </div>
         <div
           class="t-steps-item__description"
-        >
-          这里是提示文字
-        </div>
-        <div
-          class="t-steps-item__extra"
         >
           <!---->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="t-steps-item t-steps-item--process"
-  >
-    <div
-      class="t-steps-item__inner "
-    >
-      <div
-        class="t-steps-item__icon t-steps-item--process"
-      >
-        <span
-          class="t-steps-item__icon--number"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="t-steps-item__content"
-      >
-        <div
-          class="t-steps-item__title"
-        >
-          步骤二
-        </div>
-        <div
-          class="t-steps-item__description"
-        >
-          这里是提示文字
         </div>
         <div
           class="t-steps-item__extra"
@@ -577,6 +543,7 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
   </div>
   <div
     class="t-steps-item t-steps-item--default"
+    props="[object Object]"
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
@@ -587,7 +554,7 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          3
+          NaN
         </span>
       </div>
       <div
@@ -596,12 +563,12 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         <div
           class="t-steps-item__title"
         >
-          步骤三
+          
         </div>
         <div
           class="t-steps-item__description"
         >
-          这里是提示文字
+          <!---->
         </div>
         <div
           class="t-steps-item__extra"
@@ -613,6 +580,7 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
   </div>
   <div
     class="t-steps-item t-steps-item--default"
+    props="[object Object]"
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
@@ -623,7 +591,7 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          4
+          NaN
         </span>
       </div>
       <div
@@ -632,12 +600,49 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         <div
           class="t-steps-item__title"
         >
-          步骤四
+          
         </div>
         <div
           class="t-steps-item__description"
         >
-          这里是提示文字
+          <!---->
+        </div>
+        <div
+          class="t-steps-item__extra"
+        >
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-steps-item t-steps-item--default"
+    props="[object Object]"
+  >
+    <div
+      class="t-steps-item__inner t-steps-item--clickable"
+    >
+      <div
+        class="t-steps-item__icon t-steps-item--default"
+      >
+        <span
+          class="t-steps-item__icon--number"
+        >
+          NaN
+        </span>
+      </div>
+      <div
+        class="t-steps-item__content"
+      >
+        <div
+          class="t-steps-item__title"
+        >
+          
+        </div>
+        <div
+          class="t-steps-item__description"
+        >
+          <!---->
         </div>
         <div
           class="t-steps-item__extra"
@@ -823,30 +828,19 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
   >
     
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
+      props="[object Object]"
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item__icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
             class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
+            NaN
           </span>
         </div>
         <div
@@ -855,96 +849,12 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
           <div
             class="t-steps-item__title"
           >
-            已完成的步骤
+            
           </div>
           <div
             class="t-steps-item__description"
-          >
-            点击切换步骤
-          </div>
-          <div
-            class="t-steps-item__extra"
           >
             <!---->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-steps-item t-steps-item--finish"
-    >
-      <div
-        class="t-steps-item__inner t-steps-item--clickable"
-      >
-        <div
-          class="t-steps-item__icon t-steps-item--finish"
-        >
-          <span
-            class="t-steps-item__icon--number"
-          >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="t-steps-item__content"
-        >
-          <div
-            class="t-steps-item__title"
-          >
-            进行中的步骤
-          </div>
-          <div
-            class="t-steps-item__description"
-          >
-            点击切换步骤
-          </div>
-          <div
-            class="t-steps-item__extra"
-          >
-            <!---->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-steps-item t-steps-item--process"
-    >
-      <div
-        class="t-steps-item__inner "
-      >
-        <div
-          class="t-steps-item__icon t-steps-item--process"
-        >
-          <span
-            class="t-steps-item__icon--number"
-          >
-            3
-          </span>
-        </div>
-        <div
-          class="t-steps-item__content"
-        >
-          <div
-            class="t-steps-item__title"
-          >
-            进行中的步骤
-          </div>
-          <div
-            class="t-steps-item__description"
-          >
-            这是进行中的步骤
           </div>
           <div
             class="t-steps-item__extra"
@@ -956,6 +866,7 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
     </div>
     <div
       class="t-steps-item t-steps-item--default"
+      props="[object Object]"
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
@@ -966,7 +877,7 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
           <span
             class="t-steps-item__icon--number"
           >
-            4
+            NaN
           </span>
         </div>
         <div
@@ -975,12 +886,86 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
           <div
             class="t-steps-item__title"
           >
-            已完成的步骤
+            
           </div>
           <div
             class="t-steps-item__description"
           >
-            点击切换步骤
+            <!---->
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-steps-item t-steps-item--default"
+      props="[object Object]"
+    >
+      <div
+        class="t-steps-item__inner t-steps-item--clickable"
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--default"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            NaN
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            <!---->
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-steps-item t-steps-item--default"
+      props="[object Object]"
+    >
+      <div
+        class="t-steps-item__inner t-steps-item--clickable"
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--default"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            NaN
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            <!---->
           </div>
           <div
             class="t-steps-item__extra"
