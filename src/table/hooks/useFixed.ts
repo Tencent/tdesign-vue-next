@@ -247,6 +247,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateRowAndColFixedPosition = (tableContentElm: HTMLElement, initialColumnMap: RowAndColFixedPosition) => {
     rowAndColFixedPosition.value.clear();
+    // TODO,SSR 标记处理
     const thead = tableContentElm?.querySelector('thead');
     // 处理固定列
     thead && setFixedColPosition(thead.children, initialColumnMap);
