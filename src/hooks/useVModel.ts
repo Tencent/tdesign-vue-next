@@ -25,18 +25,12 @@ export default function useVModel<T, P extends any[]>(
   }
 
   // 监听value与modelValue的变化
-  watch(
-    () => value.value,
-    (newVal) => {
-      internalValue.value = newVal;
-    },
-  );
-  watch(
-    () => modelValue.value,
-    (newVal) => {
-      internalValue.value = newVal;
-    },
-  );
+  watch(value, (newVal) => {
+    internalValue.value = newVal;
+  });
+  watch(modelValue, (newVal) => {
+    internalValue.value = newVal;
+  });
 
   return [
     internalValue,
