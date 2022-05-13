@@ -176,6 +176,15 @@ export default defineComponent({
             (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
     },
+    _showArrow(): boolean {
+      return (
+        !this.clearable ||
+        !this.isHover ||
+        this.disabled ||
+        (!this.multiple && !this.value && this.value !== 0) ||
+        (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
+      );
+    },
     canFilter(): boolean {
       return this.filterable || isFunction(this.filter);
     },
@@ -823,12 +832,15 @@ export default defineComponent({
                 onEnter={this.enter}
               />
             )}
-            {this.showArrow && !this.showLoading && (
-              <FakeArrow
-                overlayClassName={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
-                isActive={this.visible && !this.disabled}
-              />
-            )}
+            {this.showArrow
+              ? this._showArrow &&
+                !this.showLoading && (
+                  <FakeArrow
+                    overlayClassName={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
+                    isActive={this.visible && !this.disabled}
+                  />
+                )
+              : ''}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
             {this.showLoading && (
               <TLoading
