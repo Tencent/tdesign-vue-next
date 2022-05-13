@@ -25,9 +25,16 @@ const min = 1;
 export default defineComponent({
   name: 'TPagination',
   props,
+
   setup(props) {
     const { modelValue, pageSize, current } = toRefs(props);
-    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onCurrentChange);
+    const [innerCurrent, setInnerCurrent] = useVModel(
+      current,
+      modelValue,
+      props.defaultCurrent,
+      props.onCurrentChange,
+      'current',
+    );
 
     const [innerPageSize, setInnerPageSize] = useDefaultValue(
       pageSize,

@@ -54,7 +54,7 @@ export function useState(props: TdCalendarProps) {
 
   watch(
     () => props.firstDayOfWeek,
-    (v: TdCalendarProps['firstDayOfWeek']) => {
+    () => {
       state.realFirstDayOfWeek = props.firstDayOfWeek ?? global.value.firstDayOfWeek ?? 1;
     },
     { immediate: true },

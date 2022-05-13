@@ -1,7 +1,5 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode, watchEffect } from 'vue';
 import props from './props';
-import TStepItem, { StepItemExposed } from './step-item';
-import { StepsInjectionKey } from './constants';
 import { ClassName } from '../common';
 import { TdStepItemProps } from './type';
 
@@ -17,29 +15,23 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('steps');
 
     const { current, modelValue } = toRefs(props);
-    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
-
-    const stepsChildren = ref<StepItemExposed[]>([]);
-    const addItem = (instanceExposed: StepItemExposed) => {
-      instanceExposed.index.value = stepsChildren.value.length;
-      // unpack
-      stepsChildren.value.push({ index: instanceExposed.index.value });
-    };
-    const removeItem = ({ index }: StepItemExposed) => {
-      stepsChildren.value = stepsChildren.value.filter((item) => item.index !== index.value);
-    };
+    const [innerCurrent, setInnerCurrent] = useVModel(
+      current,
+      modelValue,
+      props.defaultCurrent,
+      props.onChange,
+      'current',
+    );
 
     provide(
-      StepsInjectionKey,
+      'StepsState',
       reactive({
         current: innerCurrent,
-        readonly: props.readonly,
-        theme: props.theme,
         setCurrent: setInnerCurrent,
-        addItem,
-        removeItem,
       }),
     );
+
+    provide('StepsProps', props);
 
     const indexMap = ref({});
     watchEffect(() => {
@@ -53,7 +45,10 @@ export default defineComponent({
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
+      if (itemProps.value === undefined) {
+        if (props.sequence === 'positive' && index < innerCurrent.value) return 'finish';
+        if (props.sequence === 'reverse' && index > innerCurrent.value) return 'finish';
+      }
       // value 存在，找匹配位置
       if (itemProps.value !== undefined) {
         const matchIndex = indexMap.value[innerCurrent.value];
@@ -61,7 +56,8 @@ export default defineComponent({
           console.warn('TDesign Steps Warn: The current `value` is not exist.');
           return 'default';
         }
-        if (index < matchIndex) return 'finish';
+        if (props.sequence === 'positive' && index < matchIndex) return 'finish';
+        if (props.sequence === 'reverse' && index > matchIndex) return 'finish';
       }
       const key = itemProps.value === undefined ? index : itemProps.value;
       if (key === innerCurrent.value) return 'process';
@@ -74,14 +70,15 @@ export default defineComponent({
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
         const option = node?.props;
-        option && arr.push(option as TdStepItemProps);
+        if (!option) return;
+        props.sequence === 'reverse' ? arr.unshift(option as TdStepItemProps) : arr.push(option as TdStepItemProps);
       });
       return arr;
     };
     const getOptions = () => {
       let options: Array<TdStepItemProps>;
       if (props.options?.length) {
-        options = props.options;
+        options = props.sequence === 'reverse' ? props.options.slice().reverse() : props.options;
       } else {
         const nodes: VNode[] = getChildComponentByName('TStepItem') as VNode[];
         options = getOptionListBySlots(nodes);
@@ -92,18 +89,10 @@ export default defineComponent({
     const renderContent = () => {
       let content = null;
       const options = getOptions();
-      // 优先级 slot > options
-      if (slots.default) {
-        content = getChildComponentByName('TStepItem');
-
-        content?.forEach((item: VNode, index: number) => {
-          item.props.status = handleStatus(item.props as TdStepItemProps, index);
-        });
-        return content;
-      }
-      content = options.map((item, index) => (
-        <t-step-item {...item} status={handleStatus(item, index)} key={item.value || index} />
-      ));
+      content = options.map((item, index) => {
+        const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
+        return <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
+      });
       return content;
     };
 
@@ -120,17 +109,12 @@ export default defineComponent({
       return theme;
     };
     const baseClass = computed<ClassName>(() => {
-      if (props.direction) {
-        console.warn('TDesign Steps Warn: `direction` is going to be deprecated. please use `layout` instead. ');
-      }
-      const layout = props.layout || props.direction || 'horizontal';
       return [
         COMPONENT_NAME.value,
-        `${COMPONENT_NAME.value}--${layout}`,
+        `${COMPONENT_NAME.value}--${props.layout}`,
         `${COMPONENT_NAME.value}--${handleTheme()}-anchor`,
-        {
-          [`${COMPONENT_NAME.value}--${props.sequence}`]: layout === 'vertical',
-        },
+        `${COMPONENT_NAME.value}--${props.sequence}`,
+        `${COMPONENT_NAME.value}--${props.separator}-separator`,
       ];
     });
     /** class calculate END */

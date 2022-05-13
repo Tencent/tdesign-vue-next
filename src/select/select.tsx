@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, VNode, ComponentPublicInstance, Fragment } from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';

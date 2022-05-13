@@ -44,11 +44,11 @@ docClass: timeline
 
 ## 🌈 0.13.0 `2022-04-22`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Table: 拖拽排序，`drag=sort` 表示列拖拽排序，`drag=row` 表示行拖拽排序，`drag=row-handler` 表示行手柄列拖拽排序。如果您使用了 `drag="col"` 来实现行拖拽排序，请更为使用 `drag="row-handler"`([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Drawer: 修复 `header` 属性无效问题 ([#611](https://github.com/Tencent/tdesign-vue-next/issues/611))
 * Textarea: 修复在设置自动高度后，赋值后不高度不改变的问题 ([#613](https://github.com/Tencent/tdesign-vue-next/issues/613)) 
@@ -69,7 +69,7 @@ docClass: timeline
   * 单选，报错 `e.stopPropagation is not a function`
   * 单选 和 多选触发了不应该触发的 'onChange' 事件
 
-### Features
+### 🚀  Features
 
 * Table: ([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
   * 支持简易列拖拽排序
@@ -103,7 +103,7 @@ docClass: timeline
 
 - `Transfer` 使用composition api 重构 [@btea](https://github.com/btea) ([#496](https://github.com/Tencent/tdesign-vue-next/pull/496))
 
-## 0.12.0 `2022-04-08`
+## 🌈 0.12.0 `2022-04-08`
 
 ### ❗ Breaking Changes
 
@@ -149,7 +149,7 @@ docClass: timeline
 特此感谢 tdesign-vue-next 本次版本发布的代码贡献者：
 @94dreamer @LeeJim, @S-mohan, @Zack921, @asbstty, @chaishi, @delbertbeta, @k1nz, @pengYYYYY, @shyrii and @uyarn。
 
-## 0.11.2 `2022-04-02`
+## 🌈 0.11.2 `2022-04-02`
 
 ### 🚀  Features
 
@@ -168,14 +168,14 @@ docClass: timeline
 - 修复 Pagination 跳转页输入框展示了额外 placeholder 默认内容 [@xiaosansiji](https://github.com/xiaosansiji) [(#507)](https://github.com/Tencent/tdesign-vue-next/pull/507)
 
 
-## 0.11.0 `2022-03-25`
+## 🌈 0.11.0 `2022-03-25`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Input: 外部传入 `class` 挂载至 `t-input__wrap`, 不再挂载到 `t-input` ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * textarea: 去除 `t-textarea__wrap` 层 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Dialog: 修复 `dialog` 组件点击警告 ([pr #463](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #435](https://github.com/Tencent/tdesign-vue-next/issues/435))
 * Steps: 修复 `readonly` 状态下依然可以点击 ([pr #465](https://github.com/Tencent/tdesign-vue-next/pull/465)
@@ -197,15 +197,15 @@ docClass: timeline
 * Steps: 修复 `readonly` 状态下依然可以点击 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/465))
 * Progress: `theme` 为 `plump` 且 `percentage` 为 `10` 没有展示文案 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/467)), ([@uyarn](https://github.com/uyarn))
 
-### Features
+### 🚀  Features
 
 * ColorPicker:  新增 `ColorPicker` 颜色选择器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/color-picker)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/408)), ([@S-mohan](https://github.com/S-mohan))
 * Input: 增加 `inputClass`, 挂载 `class` 到 `t-input` ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Checkbox: 使用 `compositionAPI` 重构 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@whylost](https://github.com/whylost))
 
-## 0.10.2 `2022-03-18`
+## 🌈 0.10.2 `2022-03-18`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * TimePicker: `close`、`open` 事件回调增加参数 ([pr #455](https://github.com/Tencent/tdesign-vue-next/pull/455)), ([@uyarn](https://github.com/uyarn))
 * DatePicker: 打开时间面板重置时间 ([pr #453](https://github.com/Tencent/tdesign-vue-next/pull/453)), ([@uyarn](https://github.com/uyarn))
@@ -228,7 +228,7 @@ docClass: timeline
   * 修复 `autowidth` 模式下的 `padding` 不对称
   * 修复超出滚动失效
 
-### Features
+### 🚀  Features
 
 * Switch: 使用 `compositionAPI` 重构 ([pr #434](https://github.com/Tencent/tdesign-vue-next/pull/434)), ([@zouhangwithsweet](https://github.com/zouhangwithsweet))
 * Notification: 使用 `compositionAPI` 重构 ([pr #429](https://github.com/Tencent/tdesign-vue-next/pull/429)), ([@qunbotop](https://github.com/qunbotop))
@@ -241,21 +241,21 @@ docClass: timeline
   * 增加合并上传
   * 支持国际化配置
 
-## 0.10.1 `2022-03-14`
+## 🌈 0.10.1 `2022-03-14`
 
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * TreeSelect: 修复边框样式异常和右侧图标样式异常
 
 
-## 0.10.0 `2022-03-11`
+## 🌈 0.10.0 `2022-03-11`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Input: `DOM` 结构调整，最外层调整为 `t-input__wrap`([pr #409](https://github.com/Tencent/tdesign-vue-next/pull/409)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select:
   * 修复单选下斜八度动画覆盖文字的错误 ([pr #421](https://github.com/Tencent/tdesign-vue-next/pull/421)), ([@uyarn](https://github.com/uyarn))
@@ -267,22 +267,21 @@ docClass: timeline
 * DatePicker: 修复按需引入时，按钮展示问题 ([pr #425](https://github.com/Tencent/tdesign-vue-next/pull/425)), ([issue #419](https://github.com/Tencent/tdesign-vue-next/issues/419)), ([@BuptStEve](https://github.com/BuptStEve))
 * Tree: 修复数据无法更新问题 ([pr #406](https://github.com/Tencent/tdesign-vue-next/pull/406)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Features
+### 🚀  Features
 
 * Badge: 使用 `compositionAPI` 重构组件 ([pr #402](https://github.com/Tencent/tdesign-vue-next/pull/402)), ([issue #58](https://github.com/Tencent/tdesign-vue-next/pull/58)), ([@ChrisLee0211](https://github.com/ChrisLee0211 ))
 
+## 🌈 0.9.4 `2022-03-04`
 
-## 0.9.4 `2022-03-04`
-
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * 修复在 `typescript` 严格模式下打包出错  ([issue #384](https://github.com/Tencent/tdesign-vue-next/issues/384))
 
 
-## 0.9.3 `2022-03-04`
+## 🌈 0.9.3 `2022-03-04`
 
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * DatePicker: ([pr #389](https://github.com/Tencent/tdesign-vue-next/pull/376)), ([@xiaosansiji](https://github.com/xiaosansiji))
   * 修复 `onPick` 事件配置无效
@@ -303,33 +302,33 @@ docClass: timeline
 * Breadcrumb: 修复 `disabled` 无效 ([pr #391](https://github.com/Tencent/tdesign-vue-next/pull/391)), ([issue #373](https://github.com/Tencent/tdesign-vue-next/issues/373))
 * Checkbox：修复 `value` 重复时，导致渲染 `key` 相同的报错 ([pr #387](https://github.com/Tencent/tdesign-vue-next/pull/387)),
 
-### Features
+### 🚀  Features
 
 * SelectInput:  新增 `SelectInput` 筛选器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/select-input)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/issues/330)), ([@chaishi](https://github.com/chaishi))
 * Input: 增加 `format` 属性  ([pr #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
 * 全局配置: 支持关闭斜八度波纹动画  ([pr #389](https://github.com/Tencent/tdesign-vue-next/issues/389)), ([issue 204](https://github.com/Tencent/tdesign-vue-next/issues/204)), ([@uyarn](https://github.com/uyarn))
 
-## 0.9.2 `2022-02-26`
+## 🌈 0.9.2 `2022-02-26`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * SelectInput: 修复 `src/select-input/interface.d.ts` 文件被 `tsc` 编译忽略导致的组件 `import interface` 错误
 
 
-## 0.9.1 `2022-02-25`
+## 🌈 0.9.1 `2022-02-25`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * 修复构建产物 `typescript` 声明文件路径错误
 
-## 0.9.0 `2022-02-25`
+## 🌈 0.9.0 `2022-02-25`
 
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Input: `input` 元素 `ref` 名称由 `refInputElem` 更为 `inputRef` ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Slider: ([@pengYYYYY](https://github.com/pengYYYYY))
   * 修复游标定位错乱 ([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
@@ -340,7 +339,7 @@ docClass: timeline
 * Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #299](https://github.com/Tencent/tdesign-vue-next/issues/299)), ([issue #325](https://github.com/Tencent/tdesign-vue-next/issues/325)), ([issue #316](https://github.com/Tencent/tdesign-vue-next/issues/316)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Button: 修复 `primary outline` 模式下边框展示异常的问题 ([pr #238](https://github.com/Tencent/tdesign-common/pull/238)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Features
+### 🚀  Features
 
 * TagInput: ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
   * `valueDisplay` 新增参数 `onClose`
@@ -350,10 +349,10 @@ docClass: timeline
 * 通用方法 `renderTNodeJSX` 同时支持驼峰命名的插槽，和中划线命名的插槽 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 * 使用 `compositionAPi` 重构国际化 `mixin` ([pr #356](https://github.com/Tencent/tdesign-vue-next/pull/356)), ([@yc910920](https://github.com/yc910920))
 
-## 0.8.1 `2022-02-18`
+## 🌈 0.8.1 `2022-02-18`
 
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
   * 修复 `FormItem.statusIcon` 优先级没有大于 `Form.statusIcon` 的问题
@@ -367,7 +366,7 @@ docClass: timeline
 * Dialog: 修复展开动画位置 ([pr #312](https://github.com/Tencent/tdesign-vue-next/pull/312))
 
 
-### Features
+### 🚀  Features
 
 * Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
   * 支持对象和数组嵌套的复杂数据校验，同时可以判断是数组的第几项校验不通过，
@@ -381,13 +380,13 @@ docClass: timeline
   * 新增 `onScroll` 属性，响应下拉选项滚动事件
 * TreeSelect: 增加 `t-select-warper` `class` ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
 
-## 0.8.0 `2022-01-28`
+## 🌈 0.8.0 `2022-01-28`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Tag: `variant` 可选值修改为 `dark/light/outline/light-outline`, `plain` 已废弃 ([pr #274](https://github.com/Tencent/tdesign-vue-next/pull/274)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Alert: 修复未正常展示关闭按钮 ([e8bd6ba](https://github.com/Tencent/tdesign-vue-next/commit/e8bd6ba50ce164f7976d9c28b04137c1ef5a0e05))
 * Calendar: ([@PsTiu](https://github.com/PsTiu))
@@ -408,24 +407,24 @@ docClass: timeline
 * Input: 修复输入框相关样式重复引入的问题 ([pr #182](https://github.com/Tencent/tdesign-common/pull/182)), ([@xiaosansiji](https://github.com/xiaosansiji))
 * Select/Input/InputNumber/Switch: 背景色、边框样式等与设计不一致的, 统一修复 ([pr #194](https://github.com/Tencent/tdesign-common/pull/194)), ( [@uyarn](https://github.com/uyarn))
 
-### Features
+### 🚀  Features
 
 * InputNumber: 增加 `align` 属性 ([961a8a5](https://github.com/Tencent/tdesign-vue-next/commit/961a8a540276c42e14b066c2413183f93cdd068f))
 * Button: 统一各类型按钮边框宽度 ([pr #176](https://github.com/Tencent/tdesign-common/pull/176)), ([@BigLiao](https://github.com/BigLiao))
 
-## 0.7.0 `2022-01-21`
+## 🌈 0.7.0 `2022-01-21`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * FormRule 的 `min` 和 `len` 根据一个中文等于两个字符的计算规则进行, 和 `max` 保持一致；`min` 和 `len` 在值为 Number 时, 进行数字大小的校验而非数字长度校验 ([pr #220](https://github.com/Tencent/tdesign-vue/pull/220)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select: 修复下拉面板在远程搜索时的渲染出错 ([issue #235](https://github.com/Tencent/tdesign-vue-next/issues/235)), ([pr #237](https://github.com/Tencent/tdesign-vue-next/pull/237)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Icon: 修复 ssr 渲染问题 ([pr #228](https://github.com/Tencent/tdesign-vue/pull/228)), ([@uyarn](https://github.com/uyarn))
 * 修复 `umd` 产物中未包括 `reset` 及 `css variables` 声明的问题 ([pr #236](https://github.com/Tencent/tdesign-vue-next/pull/236)), ([@xiaosansiji](https://github.com/xiaosansiji))
 
-### Features
+### 🚀  Features
 
 * Skeleton: 新增 `Skeleton` 骨架屏组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #214](https://github.com/Tencent/tdesign-vue/pull/214)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * TagInput: 新增 `TagInput` 组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131)), ([@chaishi](https://github.com/chaishi))
@@ -435,10 +434,9 @@ docClass: timeline
   * 新增懒加载、虚拟滚动特性 ([pr #155](https://github.com/Tencent/tdesign-vue-next/pull/155)), ([@Louiszhai](https://github.com/Louiszhai))
   * 新增 `onCellClick` 事件 ([pr #247](https://github.com/Tencent/tdesign-vue-next/pull/247)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-## 0.6.4 `2022-01-16`
+## 🌈 0.6.4 `2022-01-16`
 
-
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Cascader: 修复 `input` 宽度处理和过滤状态下的输入框样式 ([3f054b7](https://github.com/Tencent/tdesign-vue-next/commit/3f054b7ade7cf062f2f39a0d31b6457abb66ebd2))
 * Dropdown: 修复 `popupProps` 的 `overlayClass` 属性透传 ([98e83ce](https://github.com/Tencent/tdesign-vue-next/commit/98e83ce2323ab8cf578fff41f1b645bae785dea4))
@@ -464,7 +462,7 @@ docClass: timeline
   * 修复异步拉取数据 `maxHeight` 不生效 ([367c0dc](https://github.com/Tencent/tdesign-vue-next/commit/367c0dcdd4f54fc7a86c4b4f59104569e9372002))
   * 修复固定表头没有对齐 ([bbea4de](https://github.com/Tencent/tdesign-vue-next/commit/bbea4de85000651d29035ffb8cc3ca8db841b0d7))
 
-### Features
+### 🚀  Features
 
 * Calendar: 增加 `monthChange` 事件 ([fde826e](https://github.com/Tencent/tdesign-vue-next/commit/fde826ed62e17fd3e275824c8fa3c10a7e75afff)), ([@PsTiu](https://github.com/PsTiu))
 * Avatar: 使用 `compositionApi` 重构组件逻辑 ([1547cb9](https://github.com/Tencent/tdesign-vue-next/pull/160/commits/1547cb90b6103841280f7ead98f0ae69763c9eb6)), ([@vnues](https://github.com/vnues))
@@ -472,9 +470,9 @@ docClass: timeline
   * 增加展开动画 ([76ee15f](https://github.com/Tencent/tdesign-vue-next/pull/159/commits/76ee15f338dfce59e3ad31fab2b332c256c5484d))
   * 使用 `compositionApi` 重构组件逻辑 ([4aec957](https://github.com/Tencent/tdesign-vue-next/pull/159/commits/76ee15f338dfce59e3ad31fab2b332c256c5484d))
 
-## 0.6.3 `2022-01-06`
+## 🌈 0.6.3 `2022-01-06`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Menu:
   * 修复 `menu-item` 在不使用 `icon` 插槽的时候, 在左侧收回的时候多了一个数字 ([f801349](https://github.com/Tencent/tdesign-vue-next/commit/f80134917b20ce6400b013743628299c40db2f65)),  ([#124](https://github.com/Tencent/tdesign-vue-next/issues/124)), ([@LeeJim](https://github.com/LeeJim))
@@ -508,7 +506,7 @@ docClass: timeline
 * Tabs: 修复循环创建下的结点渲染错误 ([07d79b6](https://github.com/Tencent/tdesign-vue-next/commit/07d79b6db603e16f63870cae15b2721b7d3ffc29))
 * Upload: 修复上传文件后出现两个删除按钮 ([4296ebd](https://github.com/Tencent/tdesign-vue-next/commit/4296ebd908b6a615c8d9307d849c471906a205f9)), ([#120](https://github.com/Tencent/tdesign-vue-next/issues/120))
 
-### Features
+### 🚀  Features
 
 * Cascader:
   * 增加 `value-type` ([f7aaba2](https://github.com/Tencent/tdesign-vue-next/commit/f7aaba26804610fb9c9daec69e7b58003bf311b6))
@@ -520,13 +518,13 @@ docClass: timeline
 * Radio: 支持 `allowUnCheck` ([fa3acbf](https://github.com/Tencent/tdesign-vue-next/commit/fa3acbf199d818fe95d9b4493e641da47ebe2de5))
 * Slider: 优化 `popup` 显示行为 ([076afde](https://github.com/Tencent/tdesign-vue-next/commit/076afded5e81ab6c09600dc2e0eb97ee05a68860)), ([#117](https://github.com/Tencent/tdesign-vue-next/issues/117)), ([@vnues](https://github.com/vnues))
 
-## 0.6.0 `2021-12-22`
+## 🌈 0.6.0 `2021-12-22`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * `0.5.0` 升级至 `0.6.0` 版本 CSS BEM 规范改动列表 ([#32](https://github.com/Tencent/tdesign-vue-next/issues/32))
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Slider: 清除在 `inputNumber` 不展示的情况时的冗余外部 `dom` ([4c14567](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
 * DatePicker
@@ -548,7 +546,7 @@ docClass: timeline
 * Radio: 修复边界条件下的滚动 `bug` ([#860adfc](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/860adfc8d59f7ceaa4d55eeee7e6ab1922c0e71e))
 * Chore: 替换组件名称变量, 支持 `webstorm` 代码提示。([#cdc2582](https://github.com/Tencent/tdesign-vue-next/pull/7/commits/cdc2582325b332d29d2e96c58c4ae0646c5a0a02))
 
-### Features
+### 🚀  Features
 
 * Checkbox: 新增 `checkbox` 插槽使用 ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))
 * Table: 新增 `expandedRow` 插槽使用  ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))
@@ -556,9 +554,9 @@ docClass: timeline
 * Upload: 提取公共 `XHR` ([#82d1b0b](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/82d1b0bd757d55d6723ae04b8649610cfa60b66b))
 * DatePicker: 支持 `prefixIcon` 和 `suffixIcon` 插槽 ([#1d534c6](https://github.com/Tencent/tdesign-vue-next/pull/11/commits/1d534c6f29cdb8fc565858909e02b239a0f4887e))
 
-## 0.5.0 `2021-12-08`
+## 🌈 0.5.0 `2021-12-08`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * 从 0.5.0 版本开始, 将只在外网 `npm registry` 上发布, 请安装外网包 [tdesign-vue-next](https://www.npmjs.com/package/tdesign-vue-next)
 * LocalProvider 配置多语言方案已废弃, 请升级为 ConfigProvider。
@@ -566,7 +564,7 @@ docClass: timeline
   * 独立为 `npm` 包 `tdesign-icons-vue-next`, 项目中有直接使用 `Icon` 请升级后安装此npm包。
   * 新增 `CaretLeftSmallIcon` 等23个Icon, 移除 `ResourceListIcon`。 [@uyarn](https://github.com/uyarn)
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Slider: 修复 `inputNumber` 逻辑, 优化 `Dom` 展示处理。
 * Dialog: 修复 `DialogPlugin` 非 `methods` 问题。
@@ -579,7 +577,7 @@ docClass: timeline
   * 修复 `empty` 展示宽度过短的问题。
   * 修复 `collapsedItems` 只实现了 `render function` 未实现插槽。
 
-### Features
+### 🚀  Features
 
 * Upload:
   * 自动上传模式删除非必要上传按钮。
@@ -589,9 +587,9 @@ docClass: timeline
 * Cascader: 支持 `loading` 状态。
 * DatePicker: 支持 `firstDayOfWeek` API。
 
-## 0.4.4 `2021-11-29`
+## 🌈 0.4.4 `2021-11-29`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select: 修复直传 `options` 时 `filterable` 模式下有问题。
 * Steps: 修复 `layout` 问题。
@@ -603,7 +601,7 @@ docClass: timeline
 * MessagePlugin: 修复 `MessagePlugin` 为不可执行方法问题。
 * NotificationPlugin: 修复 `NotificationPlugin` 为不可执行方法问题。
 
-### Features
+### 🚀  Features
 
 * Steps: 组件部分逻辑重构, `direction` 即将在下个版本废弃, 请改用 `layout` API, 可选项类型不变。
 * Tree: 支持 `disableCheck` 方法。
@@ -616,9 +614,9 @@ docClass: timeline
   * `progress` 事件返回的进度不会超过 100
   * 上传成功后执行 `formatResponse`
 
-## 0.4.3 `2021-11-22`
+## 🌈 0.4.3 `2021-11-22`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Input：修复小键盘无法触发 `enter` 事件问题。
 * List: 修复 `API` 变动但 `props` 未变动的问题。
@@ -636,14 +634,14 @@ docClass: timeline
   * 调整 `step` 的逻辑 改为首位都为 `0`, 处理。
   * `clear` 事件处理冒泡。
 
-### Features
+### 🚀  Features
 
 * Avatar: 新增 `avatar` 组件。
 * Calendar：新增属性 `fillWithZero`, `ConfigProvider` 新增配置项 `fillWithZero`。
 
-## 0.4.2 `2021-11-15`
+## 🌈 0.4.2 `2021-11-15`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * DatePicker: 修复 `footer` 样式。
 * Tabs: `destroyOnHide` 逻辑修复。
@@ -654,7 +652,7 @@ docClass: timeline
 * TreeSelect: 修复 `v-model` 绑定的 `bug`。
 * Popup: 修复 `popup arrow` 定位不跟随 `content` 内容问题。
 
-### Features
+### 🚀  Features
 
 * Form:
   * 增加 `successBorder API`, 控制是否显示校验成功的边框。
@@ -668,9 +666,9 @@ docClass: timeline
 * TreeSelect: 新增 `collapsedItems API` 的参数。
 * Select: 新增 `collapsedItems API` 的参数。
 
-## 0.4.1 `2021-11-06`
+## 🌈 0.4.1 `2021-11-06`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * DatePicker:
   * 修复 `v-model` 使用场景下 `value` 未同步的问题。
@@ -684,20 +682,20 @@ docClass: timeline
 * Popup:修复组件更新时定位的问题。
 * TS: 修复 `TNode` `类型定义, MessagePlugin` 类型定义。
 
-### Features
+### 🚀  Features
 
 * Table:
   * 增加 `expandIcon` 插槽。
   * 增加表格过滤自定义。
 * 全局配置: 增加 `drawer` 和 `dialog` 的全局配置。
 
-## 0.4.0 `2021-10-29`
+## 🌈 0.4.0 `2021-10-29`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Button: `shape` 默认值由 `square` 调整为 `rectangle`, 支持正方形按钮展示, 手动设置 `shape = square` 的小伙伴请删除设置, 没有设置过 `shape` 属性的可以忽略。
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Dropdown: 修复 `item` 为函数时的渲染错误。
 * Cascader：修复 `defaultValue` 监听变化的问题, 只消费一次。
@@ -708,29 +706,29 @@ docClass: timeline
 * InputNumber：修复 `descrease` 样式问题。
 * Upload: 修复图片预览 `icon` 无法点击。
 
-### Features
+### 🚀  Features
 
 * Form: 优化 `FormItem` 提示文案展示效果。
 * Textarea: 透传外层属性。
 
-## 0.3.5 `2021-10-25`
+## 🌈 0.3.5 `2021-10-25`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Breadcrumb: 修复 `Router` 注册后, `to` 属性无法跳转到正确页面。
 * Tab: 修复点击删除 `tab` 按钮报错。
 * ToolTip: 修复显示异常。
 
-### Features
+### 🚀  Features
 
 * 新增 `Comment` 组件。
 * Select: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 * Cascader: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 * TreeSelect: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 
-## 0.3.4 `2021-10-14`
+## 🌈 0.3.4 `2021-10-14`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Steps 修复:
   * 带 `icon` 步骤条未显示 `icon`。
@@ -739,13 +737,13 @@ docClass: timeline
 * Form: `0.3.3` 版本 `rules` 校验规则失效。
 * Transfer: 处理 `disable` 选项可选的问题 && 处理重复 `key` 的 `warning`。
 
-### Features
+### 🚀  Features
 
 * 增加 `cascader` 组件的 `load` 属性, `filterable` 属性。
 
-## 0.3.3 `2021-09-29`
+## 🌈 0.3.3 `2021-09-29`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Upload 修复
   * 组件 `method prop` 不生效 && 优化 `dragger` 组件的 `slot` 性能告警。
@@ -758,7 +756,7 @@ docClass: timeline
 * 修复 `package.json`的 `peerDependencies` 锁定版本问题。
 * Select: 修复受控用法下取消勾选状态同步的问题。
 
-### Features
+### 🚀  Features
 
 * 优化打包流程 & 支持按需引入组件 & 支持自定义主题配置。
 * 新增 `Slider` 组件。
@@ -771,34 +769,34 @@ docClass: timeline
   * 新增 `sizeLimit` 属性, 表示文件大小限制, 支持 `1000` 和 `{ size: 3, unit: 'MB', message: '文件过大' }` 等方式, 支持单位有 'B' | 'KB' | 'MB' | 'GB'。
 * `FormItem` 支持 `labelWidth、labelAlign` & 调整 `labelWidth` 默认值为 `100px`。
 
-## 0.3.2 `2021-09-22`
+## 🌈 0.3.2 `2021-09-22`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * DatePicker: 组件增加日期范围的起始结束判断, 修复相关样式。
 * Table: 修复组件事件触发逻辑。
 * Pagination: 修复组件分页组件在页数小于等于 `1` 的时候不展示问题。
 * 修复 `Affix` 与 `Anchor` 结合无法定位到对应 `tab` 。
 
-### Features
+### 🚀  Features
 
 * Anchor: 增加自定义游标。
 
-## 0.3.1 `2021-09-17`
+## 🌈 0.3.1 `2021-09-17`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Transfer: 组件重构, API,修改了 `keysType` 的定义。
 * List: 组件 `asyncLoading` 缺陷修复 & `avatar` 重命名为 `image`。
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select: 修复关闭按钮失效。
 * List: 修复 `asyncLoading`逻辑缺陷。
 * Pagination: 修复受控属性问题。
 * Table: 修复加载状态, 修复异步加载, 修复分页数据绑定问题, 修复组件告警。
 
-### Features
+### 🚀  Features
 
 * Upload: 新增 `Upload` 组件。
 * DatePicker:新增 `DatePicker` 组件。
@@ -809,65 +807,62 @@ docClass: timeline
 * Dialog: 插槽支持透传 `style` 和 `className` 。
 * Table: 增加拖拽排序, 增加固定列动态变化。
 
-## 0.2.0 `2021-09-10`
+## 🌈 0.2.0 `2021-09-10`
 
-### BREAKING CHANGES
+### ❗ Breaking Changes
 
 * Radio Button: 调整组件样式 & 支持 `variant api` & `buttonStyle api` 已废弃。
 * Form: 同步组件特性, 回调函数从 `result` 修改至 `validateResult`。
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Checkbox: 修复`class` 不透传问题。
 * Drawer: 修复组件 `header=false` 和 `closeBtn=false` 不生效问题。
 
-### Features
+### 🚀  Features
 
 * Dropdown: 新增 `Dropdown` 组件。
 
-## 0.1.18 `2021-09-08`
+## 🌈 0.1.18 `2021-09-08`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select: 修复组件无边框场景下尺寸异常。
 * 修复 `cascader common` 引用路径问题。
 * Popup: 修复展开动画向上延展问题。
 
-### Features
+### 🚀  Features
 
 * Swiper: 新增 `Swiper` 组件。
 
-## 0.1.16 `2021-09-03`
+## 🌈 0.1.16 `2021-09-03`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * 修复 `package.json` 中 `typings` 文件路径
 
-### Features
+### 🚀  Features
 
 * TimePicker: 新增 `TimePicker` 组件。
 * TreeSelect: 新增 `TreeSelect` 组件。
 * Cascader: 新增 `Cascader` 组件。
 * 切换 `eslint` 规则集到 `eslint-config-airbnb-base`。
-
-### Performance Improvements
-
 * Select: 改进 `show` 规则, 提高多 `options` 下的 `dom` 性能。
 
 ## 0.1.14 `2021-09-01`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * `TypeScript` 修复引用路径问题。
 
-## 0.1.13 `2021-08-31`
+## 🌈 0.1.13 `2021-08-31`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * MenuItem:  修复组件 `to` 属性无法跳转问题。
 * Select:  修复 `close icon` 点击后冒泡问题。
 
-### Features
+### 🚀  Features
 
 * Popup: 增加下拉动效特性。
 * ToolTip: 重构组件, `UI` 与 `API` 特性同步。
@@ -875,16 +870,16 @@ docClass: timeline
 * Pagination:  重构组件, `UI` 与 `API` 特性同步。
 * InputNumber:  重构组件, `UI` 与 `API` 特性同步。
 
-## 0.1.12 `2021-08-27`
+## 🌈 0.1.12 `2021-08-27`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Select: 重构组件, `UI` 与 `API` 特性同步。
 * Dialog: 重构组件, `UI` 与 `API` 特性同步。
 * CheckBox: 修复 `Checked` 参数校验问题。
 * Tag：`UI` 样式修复。
 
-### Features
+### 🚀  Features
 
 * Affix: 新增 `Affix` 组件。
 * Anchor: 新增 `Anchor` 组件。
@@ -893,13 +888,13 @@ docClass: timeline
 * Select: 新增斜八度点击动画。
 * 子仓库 `common` 迁移到 `_common`。
 
-## 0.1.11 `2021-08-20`
+## 🌈 0.1.11 `2021-08-20`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * 修复导致vite无法热更新的问题
 
-### Features
+### 🚀  Features
 
 * 仓库开发环境及站点从 `webpack` 迁移至 `vite`。
 * Loading: 重构组件, `UI` 与 `API` 特性同步。
@@ -908,45 +903,45 @@ docClass: timeline
 * Breadcrumb: 重构组件, `UI` 与 `API` 特性同步。
 * Menu: 重构组件, `UI` 与 `API` 特性同步。
 
-## 0.1.10 `2021-08-13`
+## 🌈 0.1.10 `2021-08-13`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * 修复 `TypeScript` 引用路径问题, 迁移 `props` 至 `src` 下。
 
-## 0.1.9 `2021-08-09`
+## 🌈 0.1.9 `2021-08-09`
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
 * Tabs: 修复 `panel` 无法实时更新的问题。
 * PopConfirm: 重构组件, `UI` 与 `API` 特性同步。
 * Popup: 重构组件, `UI` 与 `API` 特性同步。
 
-### Features
+### 🚀  Features
 
 * Calendar: 新增 `Calendar` 组件。
 * Table: 新增 `Table`组件。。
 
-## 0.1.8 `2021-07-01`
+## 🌈 0.1.8 `2021-07-01`
 
-### Features
+### 🚀  Features
 
 * Menu: 新增 `Menu` 组件。
 
-## 0.1.3 `2021-06-08`
+## 🌈 0.1.3 `2021-06-08`
 
-### Features
+### 🚀  Features
 
 * Transfer: 新增 `Transfer` 组件。
 
-## 0.1.2 `2021-05-20`
+## 🌈 0.1.2 `2021-05-20`
 
-### Features
+### 🚀  Features
 
 * Pagination: 新增 `Pagination`组件。
 
-## 0.1.0 `2021-05-19`
+## 🌈 0.1.0 `2021-05-19`
 
-### Features
+### 🚀  Features
 
 * 首个测试版发布。`Upload`、`Calendar`、`Menu`、`DatePicker`、`TimePicker`、`TextArea`、`Pagination`、`Transfer` 组件除外。

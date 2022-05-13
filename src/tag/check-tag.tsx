@@ -7,12 +7,19 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TCheckTag',
   props,
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
 
     const tagClass = computed(() => {
       return [

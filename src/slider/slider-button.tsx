@@ -1,9 +1,10 @@
 import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
+import { TdSliderProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderPopup } from './hooks/useSliderPopup';
-import { sliderPropsInjectKey } from './util/contanst';
+import { sliderPropsInjectKey } from './util/constants';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -230,6 +231,7 @@ export default defineComponent({
           overlayStyle={popupProps.overlayStyle}
           overlayClassName={popupProps.overlayClassName}
           attach={popupProps.attach}
+          {...(props.tooltipProps as TdSliderProps['tooltipProps'])}
         >
           <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
         </t-popup>

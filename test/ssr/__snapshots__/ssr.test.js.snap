@@ -13230,7 +13230,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!---->
   </div><br><br><br>
-  <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive" style="width:100%;">
+  <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator" style="width:100%;">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item--clickable">
@@ -13270,7 +13270,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner t-steps-item--clickable">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">Last Step</div>
           <div class="t-steps-item__description">You haven&#39;t finish this step.</div>
@@ -17773,7 +17773,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/base.vue correctly 1`] 
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled" style="">
       <use href="#t-icon-check-circle-filled"></use>
-    </svg><svg class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
+    </svg><svg class="t-icon t-icon-check-circle-filled t-size-m" style="">
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <use href="#t-icon-check-circle-filled"></use>
@@ -17796,7 +17796,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 <div class="t-demo-iconfont">
   <div><svg class="t-icon t-icon-cps-icon-home-sheep" style="">
       <use href="#cps-icon-home-sheep"></use>
-    </svg><svg class="t-icon t-icon-cps-icon-home-sheep" style="font-size:medium;">
+    </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-m" style="">
       <use href="#cps-icon-home-sheep"></use>
     </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-l" style="">
       <use href="#cps-icon-home-sheep"></use>
@@ -17820,14 +17820,14 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont.vue correctly 1`] = `
 <div class="t-demo-iconfont">
   <div class="t-demo-row"><i class="t-icon t-icon-loading" style=""></i><i class="t-icon t-icon-close" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i></div><br>
-  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:medium;"></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
+  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-m" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
   <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled" style="color:red;"></i><i class="t-icon t-icon-check-circle-filled" style="color:green;"></i><i class="t-icon t-icon-check-circle-filled" style="color:orange;"></i></div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont-enhanced.vue correctly 1`] = `
 <div class="t-demo-iconfont">
-  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:medium;"></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
+  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-m" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
   <div><i class="t-icon cps-icon cps-icon-home-sheep" style="color:red;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:green;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:orange;"></i><!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 --><i class="t-icon t-icon-home" style=""></i></div><br>
 </div>
 `;
@@ -17845,7 +17845,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/single.vue correctly 1`
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
+    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-m" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
@@ -18354,7 +18354,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
   <div style="width:20%;">
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18371,7 +18371,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18380,7 +18380,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
     </div>
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18397,7 +18397,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18406,7 +18406,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
     </div>
     <div class="t-input-number t-size-m t-input-number--row" style="width:120px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
           <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18423,7 +18423,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
         <!---->
       </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
           <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
         </svg>
         <!--]-->
@@ -18482,7 +18482,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue 
 <div>
   <div class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18498,7 +18498,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue 
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18512,7 +18512,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18529,7 +18529,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18543,7 +18543,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18560,7 +18560,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18574,7 +18574,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
 <div>
   <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18591,7 +18591,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18605,7 +18605,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18622,7 +18622,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18636,7 +18636,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18653,7 +18653,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18667,7 +18667,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
 <div>
   <div class="t-input-number t-size-m t-is-controls-right t-input-number--column"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
         <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18684,7 +18684,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
         <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18743,7 +18743,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
   </div>
   <div class="t-input-number t-size-m t-input-number--row" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18760,7 +18760,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18807,7 +18807,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18824,7 +18824,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18844,7 +18844,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18861,7 +18861,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18881,7 +18881,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18898,7 +18898,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18918,7 +18918,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18935,7 +18935,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18955,7 +18955,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18972,7 +18972,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -18992,7 +18992,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19009,7 +19009,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <!---->
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19029,7 +19029,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19046,7 +19046,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--normal">这是普通文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19066,7 +19066,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19083,7 +19083,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19103,7 +19103,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19120,7 +19120,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19140,7 +19140,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--[-->
           <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19157,7 +19157,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
               <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
             </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
               <!--[-->
-              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+              <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
                 <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
               </svg>
               <!--]-->
@@ -19179,7 +19179,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
 <div>
   <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -19196,7 +19196,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
       <!---->
     </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path>
       </svg>
       <!--]-->
@@ -26220,7 +26220,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26237,7 +26237,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26273,7 +26273,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26290,7 +26290,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26300,7 +26300,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26317,7 +26317,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26351,7 +26351,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26368,7 +26368,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26404,7 +26404,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26421,7 +26421,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26431,7 +26431,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26448,7 +26448,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!---->
           </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fill-opacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26848,24 +26848,23 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`] = `
-<div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive steps-demos-extra" status="process">
+<div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator steps-demos-extra" status="process">
   <!--[-->
   <div class="t-steps-item t-steps-item--process">
     <div class="t-steps-item__inner">
-      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">1</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤1</div>
         <div class="t-steps-item__description">这里是提示文字</div>
         <div class="t-steps-item__extra">
-          <!--[--><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 下一步 <!--]--></span></button>
-          <!--]-->
+          <!---->
         </div>
       </div>
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
     <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">2</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤2</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -26877,7 +26876,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`
   </div>
   <div class="t-steps-item t-steps-item--default">
     <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">3</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤3</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -26889,7 +26888,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`
   </div>
   <div class="t-steps-item t-steps-item--default">
     <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤4</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -26904,7 +26903,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`] = `
-<div class="t-steps t-steps--horizontal t-steps--default-anchor">
+<div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner">
@@ -26969,7 +26968,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correctly 1`] = `
-<div class="t-steps t-steps--horizontal t-steps--dot-anchor">
+<div class="t-steps t-steps--horizontal t-steps--dot-anchor t-steps--positive t-steps--line-separator">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner">
@@ -27032,7 +27031,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 1`] = `
-<div class="t-steps t-steps--horizontal t-steps--default-anchor">
+<div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner t-steps-item--clickable">
@@ -27048,7 +27047,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 
   </div>
   <div class="t-steps-item t-steps-item--process">
     <div class="t-steps-item__inner">
-      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">2</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤二</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -27060,7 +27059,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 
   </div>
   <div class="t-steps-item t-steps-item--default">
     <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">3</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤三</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -27072,7 +27071,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 
   </div>
   <div class="t-steps-item t-steps-item--default">
     <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤四</div>
         <div class="t-steps-item__description">这里是提示文字</div>
@@ -27089,7 +27088,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 
 exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly 1`] = `
 <div>
   <!-- 如果 t-step-item 没有传入 value，则使用 index 作为唯一标识 -->
-  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item--clickable">
@@ -27107,7 +27106,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <div class="t-steps-item t-steps-item--process">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">2</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">进行中的步骤</div>
           <div class="t-steps-item__description">
@@ -27121,7 +27120,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner t-steps-item--clickable">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">3</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
           <div class="t-steps-item__description">
@@ -27135,7 +27134,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner t-steps-item--clickable">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
           <div class="t-steps-item__description">
@@ -27149,7 +27148,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <!--]-->
   </div><br><!-- 使用 options 渲染步骤条 -->
-  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item--clickable">
@@ -27177,7 +27176,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <div class="t-steps-item t-steps-item--process">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">3</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">进行中的步骤</div>
           <div class="t-steps-item__description">这是进行中的步骤</div>
@@ -27189,7 +27188,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner t-steps-item--clickable">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
           <div class="t-steps-item__description">点击切换步骤</div>
@@ -27206,7 +27205,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
 
 exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1`] = `
 <div>
-  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner">
@@ -27222,7 +27221,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     </div>
     <div class="t-steps-item t-steps-item--process">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">2</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">进行中的步骤</div>
           <div class="t-steps-item__description">这里是提示文字</div>
@@ -27234,7 +27233,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">3</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
           <div class="t-steps-item__description">这里是提示文字</div>
@@ -27246,7 +27245,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
           <div class="t-steps-item__description">这里是提示文字</div>
@@ -27259,7 +27258,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     <!--]-->
   </div>
   <div style="margin:16px 0;"></div>
-  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner">
@@ -27299,7 +27298,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     </div>
     <div class="t-steps-item t-steps-item--default">
       <div class="t-steps-item__inner">
-        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+        <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
           <div class="t-steps-item__description">这里是提示文字</div>
@@ -27317,7 +27316,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
 exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.vue correctly 1`] = `
 <div class="setps-demo">
   <div class="tdesign-demo-block">
-    <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive">
+    <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive t-steps--line-separator">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
         <div class="t-steps-item__inner">
@@ -27377,15 +27376,15 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
       </div>
       <!--]-->
     </div>
-    <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse">
+    <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse t-steps--line-separator">
       <!--[-->
-      <div class="t-steps-item t-steps-item--finish">
+      <div class="t-steps-item t-steps-item--default">
         <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--finish">
+          <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
           <div class="t-steps-item__content">
-            <div class="t-steps-item__title">已完成的步骤</div>
+            <div class="t-steps-item__title">未进行的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
             <div class="t-steps-item__extra">
               <!---->
@@ -27399,6 +27398,20 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
             <!---->
           </div>
           <div class="t-steps-item__content">
+            <div class="t-steps-item__title">未进行的步骤</div>
+            <div class="t-steps-item__description">这里是提示文字</div>
+            <div class="t-steps-item__extra">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-steps-item t-steps-item--finish">
+        <div class="t-steps-item__inner">
+          <div class="t-steps-item__icon t-steps-item--finish">
+            <!---->
+          </div>
+          <div class="t-steps-item__content">
             <div class="t-steps-item__title">进行中的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
             <div class="t-steps-item__extra">
@@ -27407,27 +27420,13 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
           </div>
         </div>
       </div>
-      <div class="t-steps-item t-steps-item--default">
+      <div class="t-steps-item t-steps-item--finish">
         <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default">
+          <div class="t-steps-item__icon t-steps-item--finish">
             <!---->
           </div>
           <div class="t-steps-item__content">
-            <div class="t-steps-item__title">未进行的步骤</div>
-            <div class="t-steps-item__description">这里是提示文字</div>
-            <div class="t-steps-item__extra">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default">
-            <!---->
-          </div>
-          <div class="t-steps-item__content">
-            <div class="t-steps-item__title">未进行的步骤</div>
+            <div class="t-steps-item__title">已完成的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
             <div class="t-steps-item__extra">
               <!---->
@@ -27444,7 +27443,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
 exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue correctly 1`] = `
 <div class="setps-demo">
   <div class="tdesign-demo-block">
-    <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive">
+    <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
         <div class="t-steps-item__inner">
@@ -27460,7 +27459,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
       </div>
       <div class="t-steps-item t-steps-item--process">
         <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+          <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">2</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">进行中的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
@@ -27472,7 +27471,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
       </div>
       <div class="t-steps-item t-steps-item--default">
         <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">3</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
@@ -27484,7 +27483,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
       </div>
       <div class="t-steps-item t-steps-item--default">
         <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
+          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
             <div class="t-steps-item__description">这里是提示文字</div>
@@ -27497,8 +27496,44 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
       <!--]-->
     </div>
     <div style="margin:16px 0;"></div>
-    <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse">
+    <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse t-steps--line-separator">
       <!--[-->
+      <div class="t-steps-item t-steps-item--default">
+        <div class="t-steps-item__inner">
+          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">4</span></div>
+          <div class="t-steps-item__content">
+            <div class="t-steps-item__title">未进行的步骤</div>
+            <div class="t-steps-item__description">这里是提示文字</div>
+            <div class="t-steps-item__extra">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-steps-item t-steps-item--process">
+        <div class="t-steps-item__inner">
+          <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">3</span></div>
+          <div class="t-steps-item__content">
+            <div class="t-steps-item__title">未进行的步骤</div>
+            <div class="t-steps-item__description">这里是提示文字</div>
+            <div class="t-steps-item__extra">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-steps-item t-steps-item--finish">
+        <div class="t-steps-item__inner">
+          <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fill-opacity="0.9"></path></svg></span></div>
+          <div class="t-steps-item__content">
+            <div class="t-steps-item__title">进行中的步骤</div>
+            <div class="t-steps-item__description">这里是提示文字</div>
+            <div class="t-steps-item__extra">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="t-steps-item t-steps-item--finish">
         <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fill-opacity="0.9"></path></svg></span></div>
@@ -27511,421 +27546,198 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
           </div>
         </div>
       </div>
-      <div class="t-steps-item t-steps-item--process">
-        <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
-          <div class="t-steps-item__content">
-            <div class="t-steps-item__title">进行中的步骤</div>
-            <div class="t-steps-item__description">这里是提示文字</div>
-            <div class="t-steps-item__extra">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
-          <div class="t-steps-item__content">
-            <div class="t-steps-item__title">未进行的步骤</div>
-            <div class="t-steps-item__description">这里是提示文字</div>
-            <div class="t-steps-item__extra">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner">
-          <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
-          <div class="t-steps-item__content">
-            <div class="t-steps-item__title">未进行的步骤</div>
-            <div class="t-steps-item__description">这里是提示文字</div>
-            <div class="t-steps-item__extra">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
       <!--]-->
     </div>
   </div>
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 1`] = `
-<div class="tdesign-demo-block--swiper">
+exports[`ssr snapshot test renders ./examples/swiper/demos/base.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.3s;">
-        <!--[-->
-        <div>
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
           <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
           <!--]-->
         </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <!--]-->
       </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
   </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/card.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.5s;">
-        <!--[-->
-        <div>
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content t-swiper-card">
+        <div class="t-swiper__container" style="height:280px;">
           <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
           <!--]-->
         </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <!--]-->
       </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
   </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/current.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 1s;">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
         <!--[-->
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
         <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 跳转到第 2 项 <!--]--></span></button></div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/fade.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content t-swiper-fade">
+        <div class="t-swiper__container" style="height:280px;">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/fraction.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <div class="t-swiper__navigation t-swiper__navigation--fraction">
+        <div class="t-swiper__arrow">
+          <div class="t-swiper__arrow-left"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
+              <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
+            </svg></div>
+          <div class="t-swiper__navigation-text-fraction">1/0</div>
+          <div class="t-swiper__arrow-right"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
+              <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
+            </svg></div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/placement.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--outside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/size.vue correctly 1`] = `
+<div>
+  <div class="tdesign-demo-block--swiper-new" style="width:1000px;">
+    <h3>large</h3>
+    <div class="t-swiper">
+      <div class="t-swiper__wrap t-swiper--inside t-swiper--large">
+        <div class="t-swiper__content">
+          <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
+            <!--[-->
+            <!--]-->
+          </div>
+        </div>
+        <ul class="t-swiper__navigation t-swiper__navigation-bars">
+          <!--[-->
+          <!--]-->
+        </ul>
+        <!---->
       </div>
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
+  </div>
+  <div class="tdesign-demo-block--swiper-new" style="width:500px;margin-top:20px;">
+    <h3>small</h3>
+    <div class="t-swiper">
+      <div class="t-swiper__wrap t-swiper--inside t-swiper--small">
+        <div class="t-swiper__content">
+          <div class="t-swiper__container" style="transition:;transform:translate3d(-0%, 0px, 0px);ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);">
+            <!--[-->
+            <!--]-->
+          </div>
+        </div>
+        <ul class="t-swiper__navigation t-swiper__navigation-bars">
+          <!--[-->
+          <!--]-->
+        </ul>
+        <!---->
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctly 1`] = `
-<div class="t-swiper">
-  <div class="t-swiper__content">
-    <div class="t-swiper__swiper-wrap--vertical" style="height:400%;transform:translate3d(0,0%,0);transition:transform 0.3s;">
-      <!--[-->
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--success">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside t-swiper--vertical">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="transition:;height:280px;transform:translate3d(0, -0%, 0px);ms-transform:translate3d(0, -0%, 0px);webkit-transform:translate3d(0, -0%, 0px);">
+          <!--[-->
+          <!--]-->
         </div>
-        <!--]-->
       </div>
-      <div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
         <!--[-->
-        <div class="t-alert t-alert--info">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
         <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--warning">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--error">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <!--]-->
+      </ul>
+      <!---->
     </div>
   </div>
-  <ul class="t-swiper__trigger-wrap">
-    <!--[-->
-    <li class="t-swiper__trigger--active"></li>
-    <li class=""></li>
-    <li class=""></li>
-    <li class=""></li>
-    <!--]-->
-  </ul>
 </div>
 `;
 
@@ -38189,8 +38001,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correctly 1`] = `
-<div class="demo-container">
-  <!-- 非受控用法：不需要传 sort，或者只需要传 defaultSort: { sortBy: 'status', descending: true }），defaultSort 仅第一次有效 -->
+<div class="tdesign-demo-block-column-large demo-container">
+  <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 隐藏排序文本提示 <!--]--></span></label><span style="padding-left:16px;vertical-align:top;">排序：{
+  &quot;sortBy&quot;: &quot;status&quot;,
+  &quot;descending&quot;: true
+}</span></div><!-- 非受控用法：不需要传 sort，或者只需要传 defaultSort: { sortBy: 'status', descending: true }），defaultSort 仅第一次有效 -->
   <!-- 非受控用法，示例代码有效，勿删 -->
   <!-- <t-table rowKey="id" :columns="columns" :data="data" @sort-change="defaultSortChange">
       <template #status="{ row }">
@@ -38200,10 +38015,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
       </template>
     </t-table> -->
   <!-- 受控用法，示例代码有效，勿删 -->
-  <p>排序：{
-    &quot;sortBy&quot;: &quot;status&quot;,
-    &quot;descending&quot;: true
-    }</p><br><br>
   <div class="t-table t-table--bordered" style="position:relative;">
     <!---->
     <!---->
@@ -38353,7 +38164,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`] = `
 <div>
-  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->重置数据<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->展开/收起可见行<!--]--></span></button></div><br><!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
+  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->重置数据<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->展开/收起可见行<!--]--></span></button><label class="t-checkbox" style="margin-left:16px;vertical-align:middle;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 自定义折叠/展开图标 <!--]--></span></label></div><br><!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
   <div class="t-table" style="position:relative;">
@@ -38447,10 +38258,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                    <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                    <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                  </svg>我是 1_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 1_1 号（第 1 页）</div>
                 <!--]-->
               </div>
             </td>
@@ -38476,10 +38284,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                    <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                    <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                  </svg>我是 2_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 2_1 号（第 1 页）</div>
                 <!--]-->
               </div>
             </td>
@@ -38505,10 +38310,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                    <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                    <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                  </svg>我是 3_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 3_1 号（第 1 页）</div>
                 <!--]-->
               </div>
             </td>
@@ -38534,10 +38336,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                    <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                    <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                  </svg>我是 4_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 4_1 号（第 1 页）</div>
                 <!--]-->
               </div>
             </td>
@@ -38704,10 +38503,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
             <td class="" style=""><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
             <td class="" style="">
-              <div class="t-table__tree-col" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                  <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                  <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                </svg>JQTest0</div>
+              <div class="t-table__tree-col" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>JQTest0</div>
             </td>
             <td class="" style="">
               <p class="status">健康</p>
@@ -38721,10 +38517,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
             <td class="" style=""><label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
             <td class="" style="">
-              <div class="t-table__tree-col" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                  <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                  <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                </svg>JQTest1</div>
+              <div class="t-table__tree-col" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>JQTest1</div>
             </td>
             <td class="" style="">
               <p class="status unhealth">异常</p>
@@ -38738,10 +38531,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
             <td class="" style=""><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
             <td class="" style="">
-              <div class="t-table__tree-col" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                  <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                  <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                </svg>JQTest2</div>
+              <div class="t-table__tree-col" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>JQTest2</div>
             </td>
             <td class="" style="">
               <p class="status">健康</p>
@@ -38755,10 +38545,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
             <td class="" style=""><label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
             <td class="" style="">
-              <div class="t-table__tree-col" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                  <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                  <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                </svg>JQTest3</div>
+              <div class="t-table__tree-col" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>JQTest3</div>
             </td>
             <td class="" style="">
               <p class="status unhealth">异常</p>
@@ -38772,10 +38559,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
             <td class="" style=""><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
             <td class="" style="">
-              <div class="t-table__tree-col" style="padding-left:1px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle t-table__tree-op-icon" style="">
-                  <path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path>
-                  <path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path>
-                </svg>JQTest4</div>
+              <div class="t-table__tree-col" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>JQTest4</div>
             </td>
             <td class="" style="">
               <p class="status">健康</p>
@@ -40356,12 +40140,11 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/range.vue correc
   <!--[-->
   <div class="t-time-picker__group t-time-picker t-size-m demos">
     <div class="t-input__wrap">
-      <div class="t-input">
+      <div class="t-input t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
         <!---->
-        <!---->
-        <!---->
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
       </div>
       <!---->
     </div>
