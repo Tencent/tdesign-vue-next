@@ -9,6 +9,5 @@ config.global.createSSRApp = (comp) => {
   const app = createApp(comp);
   app.config.globalProperties.$route = {};
   app.use(TDesign);
-  const html = renderToString(app);
-  return html;
+  return renderToString(app);
 };
