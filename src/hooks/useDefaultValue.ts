@@ -17,13 +17,10 @@ export default function useDefaultValue<T, P extends any[]>(
     internalValue.value = value.value;
   }
 
-  // 监听value与modelValue的变化
-  watch(
-    () => value.value,
-    (newVal) => {
-      internalValue.value = newVal;
-    },
-  );
+  // 监听value变化
+  watch(value, (newVal) => {
+    internalValue.value = newVal;
+  });
 
   // 非受控模式
   return [
