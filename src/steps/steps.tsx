@@ -93,18 +93,19 @@ export default defineComponent({
 
       content = options.map((item, index) => {
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
-        const propsData = {
-          ...item,
-          index: stepIndex,
-          status: handleStatus(item, index),
-        };
 
-        const stepItem = <t-step-item props={{ ...propsData }} key={item.value || index} />;
+        const stepItem = (
+          <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />
+        );
 
         if (nodes && nodes[index]) {
           const vnode = nodes[index];
           if (vnode.props) {
-            vnode.props = propsData;
+            vnode.props = {
+              ...item,
+              index: stepIndex,
+              status: handleStatus(item, index),
+            };
             return vnode;
           }
         }
