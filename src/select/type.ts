@@ -99,6 +99,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * @default false
    */
   reserveKeyword?: boolean;
+  /** 是否展示箭头
+   * @default true
+   */
+  showArrow: boolean;
   /**
    * 【讨论中】是否显示全选
    * @default false

@@ -176,15 +176,6 @@ export default defineComponent({
             (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
     },
-    showArrow(): boolean {
-      return (
-        !this.clearable ||
-        !this.isHover ||
-        this.disabled ||
-        (!this.multiple && !this.value && this.value !== 0) ||
-        (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
-      );
-    },
     canFilter(): boolean {
       return this.filterable || isFunction(this.filter);
     },
