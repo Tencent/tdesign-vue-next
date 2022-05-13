@@ -14,6 +14,7 @@ import multiInput from 'rollup-plugin-multi-input';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import staticImport from 'rollup-plugin-static-import';
 import ignoreImport from 'rollup-plugin-ignore-import';
+import copy from 'rollup-plugin-copy';
 
 import pkg from '../package.json';
 
@@ -76,11 +77,21 @@ const getPlugins = ({
   } else if (extractMultiCss) {
     plugins.push(
       staticImport({
-        include: ['src/**/style/css.js'],
+        include: ['src/**/style/css.mjs'],
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/css.js";',
+        body: 'import "./style/css.mjs";',
+      }),
+      copy({
+        targets: [
+          {
+            src: 'src/**/style/css.js',
+            dest: 'es',
+            rename: (name, extension, fullPath) => `${fullPath.substring(4, fullPath.length - 6)}${name}.mjs`,
+          },
+        ],
+        verbose: true,
       }),
     );
   } else if (ignoreLess) {
