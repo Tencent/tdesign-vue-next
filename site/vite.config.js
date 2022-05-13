@@ -16,13 +16,13 @@ const publicPathMap = {
 // 单元测试相关配置
 const testConfig = {
   include:
-    process.env.NODE_ENV === 'node-sr'
-      ? ['test/sr/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+    process.env.NODE_ENV === 'test-snap'
+      ? ['test/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
       : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,
-  setupFiles: path.resolve(__dirname, '../script/test/setup.js'),
+  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, '../script/test/ssr-setup.js') : '',
   transformMode: {
     web: [/\.[jt]sx$/],
   },
