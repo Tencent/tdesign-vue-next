@@ -44,51 +44,29 @@ const createNuxtComponents = async () => {
   if (!fs.existsSync(outputNuxtComponentsDir)) {
     fs.mkdirSync(outputNuxtComponentsDir);
   }
-  const dirs = fs.readdirSync(inputComponents, { withFileTypes: true });
-  for (const dirent of dirs) {
-    if (dirent.isDirectory()) {
-      const index = path.resolve(inputComponents, dirent.name, 'index.mjs');
-      if (!dirent.name.startsWith('_') && dirent.name !== 'nuxt' && fs.existsSync(index)) {
-        let componentsName = _.camelCase(dirent.name);
-        componentsName = componentsName.substring(0, 1).toUpperCase() + componentsName.substring(1);
+  const index = fs.readFileSync(path.resolve(inputComponents, 'index.mjs'));
+  const indexMjs = index.toString();
+  const execArray = indexMjs.match(/export \{.*} from '.*\.mjs';/g);
+  if (execArray && execArray.length > 0) {
+    execArray.forEach((value, index1, array) => {
+      const exportComponents = value.match(/export \{(.*)} from '(.*\.mjs)';/i);
+      const componentNames = exportComponents[1].split(',').map((value0) => value0.trim());
+      const componentMjs = exportComponents[2].replace('./', '');
 
-        // eslint-disable-next-line global-require,import/no-dynamic-require,no-await-in-loop
-        const components = await import(`../es/${dirent.name}/index.mjs`);
-
-        const componentNames = Object.keys(components).filter(
-          (value) => components[value].name && components[value].name.startsWith('T'),
-        );
-        const otherComponentNames = componentNames.filter(
-          (value) =>
-            !components.default || (componentsName.toLowerCase() !== value.toLowerCase() && value !== 'default'),
-        );
-
-        let importCss = '';
-        let importJs = '';
-        if (fs.existsSync(path.resolve(inputComponents, dirent.name, 'style/index.css'))) {
-          // eslint-disable-next-line no-template-curly-in-string
-          importCss = `\nimport '../../${dirent.name}/style/index.css';`;
-        }
-        const fileStr = `${banner}import '../../style/index.css';${importCss}`;
-
-        // 单组件
-        if (components.default) {
-          importJs = `\nexport { default } from '../../${dirent.name}/index.mjs';`;
-          const str = fileStr + importJs;
-
-          fs.writeFileSync(path.resolve(outputNuxtComponentsDir, `${componentsName}.mjs`), str);
-        }
-        // 多组件
-        if (otherComponentNames.length > 0) {
-          for (const otherComponentName of otherComponentNames) {
-            importJs = `\nexport { ${otherComponentName} as default } from '../../${dirent.name}/index.mjs';`;
-            const str = fileStr + importJs;
-
-            fs.writeFileSync(path.resolve(outputNuxtComponentsDir, `${otherComponentName}.mjs`), str);
-          }
+      // 多组件
+      for (const componentName of componentNames) {
+        if (componentName.startsWith('default')) {
+          const fileStr = `${banner}import '../../style/index.css';\nexport { default } from '../../${componentMjs}';`;
+          fs.writeFileSync(
+            path.resolve(outputNuxtComponentsDir, `${componentName.replace('default as ', '')}.mjs`),
+            fileStr,
+          );
+        } else {
+          const fileStr = `${banner}import '../../style/index.css';\nexport { ${componentName} as default } from '../../${componentMjs}';`;
+          fs.writeFileSync(path.resolve(outputNuxtComponentsDir, `${componentName}.mjs`), fileStr);
         }
       }
-    }
+    });
   }
 };
 
