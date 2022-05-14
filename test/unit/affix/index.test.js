@@ -1,18 +1,19 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { Affix } from '@/src/affix/index.ts';
-import { scrollTo } from '@/src/utils/dom.ts';
 
 describe('Affix', () => {
   test('_______', () => {
     expect(true).toEqual(true);
   });
 
+  jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb());
+
   describe('Test the state of the container under the window', () => {
     const wrapper = mount({
       render() {
         return (
-          <Affix>
+          <Affix offsetTop={10}>
             <div style="width: 100px; height: 20px">hello world</div>
           </Affix>
         );
@@ -25,7 +26,11 @@ describe('Affix', () => {
     });
 
     it('Test the scrolling state', async () => {
-      await scrollTo(10, { container: wrapper.vm.scrollContainer });
+      // 模拟对象在 window 的情况下滚动
+      jest.spyOn(wrapper.vm.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+      }));
+      window.dispatchEvent(new CustomEvent('scroll'));
       expect(wrapper.find('.t-affix').classes()).toContain('t-affix');
     });
   });
@@ -40,7 +45,7 @@ describe('Affix', () => {
       render() {
         return (
           <div class="container" ref="container">
-            <Affix container={this.container}>
+            <Affix container={this.container} offsetTop={10}>
               <div style="width: 100px; height: 20px">hello world</div>
             </Affix>
           </div>
@@ -56,7 +61,10 @@ describe('Affix', () => {
 
     it('Test the scrolling state', async () => {
       const affixWrapper = wrapper.findComponent(Affix);
-      await scrollTo(10, { container: affixWrapper.vm.scrollContainer });
+      jest.spyOn(affixWrapper.vm.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+      }));
+      wrapper.vm.container().dispatchEvent(new CustomEvent('scroll'));
       expect(affixWrapper.find('.t-affix').classes()).toContain('t-affix');
     });
   });

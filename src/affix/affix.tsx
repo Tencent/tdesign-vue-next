@@ -125,6 +125,7 @@ export default defineComponent({
       affixWrapRef,
       affixRef,
       handleScroll,
+      scrollContainer,
     };
   },
   render() {
