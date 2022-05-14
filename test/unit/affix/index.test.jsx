@@ -1,13 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { vi } from 'vitest';
 import { Affix } from '@/src/affix';
 import { scrollTo } from '@/src/utils/dom.ts';
 
 describe('Affix', () => {
-  test('_______', () => {
-    expect(true).toEqual(true);
-  });
-
   describe('Test the state of the container under the window', () => {
     const wrapper = mount({
       render() {
@@ -24,10 +21,11 @@ describe('Affix', () => {
       expect(wrapper.vm.scrollContainer).toBe(window);
     });
 
-    // it('Test the scrolling state', async () => {
-    //   await scrollTo(10, { container: wrapper.vm.scrollContainer });
-    //   expect(wrapper.find('.t-affix').classes()).toContain('t-affix');
-    // });
+    it('Test the scrolling state', async () => {
+      window.scrollTo = vi.fn();
+      await scrollTo(10, { container: wrapper.vm.scrollContainer });
+      expect(wrapper.find('.t-affix').classes()).toContain('t-affix');
+    });
   });
 
   describe('Test the specified container', () => {
@@ -54,10 +52,12 @@ describe('Affix', () => {
       expect(affixWrapper.vm.scrollContainer).toBe(wrapper.vm.container());
     });
 
-    // it('Test the scrolling state', async () => {
-    //   const affixWrapper = wrapper.findComponent(Affix);
-    //   await scrollTo(10, { container: affixWrapper.vm.scrollContainer });
-    //   expect(affixWrapper.find('.t-affix').classes()).toContain('t-affix');
-    // });
+    it('Test the scrolling state', async () => {
+      const affixWrapper = wrapper.findComponent(Affix);
+      window.scrollTo = vi.fn();
+
+      await scrollTo(10, { container: affixWrapper.vm.scrollContainer });
+      expect(affixWrapper.find('.t-affix').classes()).toContain('t-affix');
+    });
   });
 });

@@ -611,7 +611,7 @@ exports[`Progress > :props > :theme > :theme circle progress has t-progress__cir
         cy="56"
         fill="none"
         r="53"
-        stroke-dasharray="35.18583772020568  316.6725394818512"
+        stroke-dasharray="33.30088212805181  299.7079391524663"
         stroke-linecap="round"
         stroke-width="6"
         transform="matrix(0,-1,1,0,0,112)"
