@@ -6,7 +6,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
 
 import { useCascaderContext } from './hooks';
-import { CascaderValue } from './interface';
+import { CascaderValue, TdSelectInputProps } from './interface';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
@@ -64,6 +64,7 @@ export default defineComponent({
           allowInput={visible && props.filterable}
           min-collapsed-num={props.minCollapsedNum}
           collapsed-items={props.collapsedItems}
+          readonly={props.readonly}
           disabled={props.disabled}
           clearable={props.clearable}
           placeholder={inputPlaceholder.value}
@@ -80,7 +81,7 @@ export default defineComponent({
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
-            setVisible(val);
+            setVisible(val, context);
           }}
           onClear={({ e }) => {
             closeIconClickEffect(cascaderContext.value);
@@ -97,6 +98,7 @@ export default defineComponent({
             ),
             collapsedItems: slots.collapsedItems,
           }}
+          {...(props.selectInputProps as TdSelectInputProps)}
         />
       );
     };

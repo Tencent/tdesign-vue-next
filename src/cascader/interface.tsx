@@ -27,7 +27,7 @@ export interface CascaderContextType
   treeStore: TreeStore;
   setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => void;
   visible: boolean;
-  setVisible: (val: boolean) => void;
+  setVisible: TdSelectInputProps['onPopupVisibleChange'];
   treeNodes: TreeNode[];
   setTreeNodes: (val: CascaderValue) => void;
   inputVal: TdSelectInputProps['inputValue'];
@@ -72,5 +72,6 @@ export { TreeNode } from '../_common/js/tree/tree-node';
 export type { TreeNodeValue } from '../_common/js/tree/types';
 export type { TreeOptionData } from '../_common/js/common';
 export type { TreeNodeModel } from '../tree';
+export type { TdSelectInputProps } from '../select-input/type';
 
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];
