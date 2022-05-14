@@ -50,9 +50,12 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         dataSource.value = data;
         return;
       }
-      const newVal = cloneDeep(data);
-      dataSource.value = newVal;
+      let newVal = cloneDeep(data);
       store.value.initialTreeStore(newVal, props.columns, rowDataKeys.value);
+      if (props.tree?.defaultExpandAll) {
+        newVal = store.value.expandAll();
+      }
+      dataSource.value = newVal;
     },
     { immediate: true },
   );

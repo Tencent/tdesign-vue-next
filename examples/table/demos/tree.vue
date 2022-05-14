@@ -32,7 +32,7 @@
       :pagination="defaultPagination"
       :data="data"
       :columns="columns"
-      :tree="{ indent: 12, childrenKey: 'list' }"
+      :tree="{ indent: 12, childrenKey: 'list', defaultExpandAll: true }"
       @page-change="onPageChange"
     ></t-enhanced-table> -->
   </div>

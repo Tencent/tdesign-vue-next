@@ -491,7 +491,7 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
 
 export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> extends TdPrimaryTableProps<T> {
   /**
-   * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
+   * 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述
    */
   tree?: TableTreeConfig;
   /**
@@ -506,6 +506,14 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
 
 /** 组件实例方法 */
 export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 展开全部行
+   */
+  expandAll: () => void;
+  /**
+   * 折叠全部行
+   */
+  foldAll: () => void;
   /**
    * 树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型
    */
@@ -660,6 +668,34 @@ export interface TableColumnController {
    * @default top-right
    */
   placement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+}
+
+export interface TableTreeConfig {
+  /**
+   * 表示树形结构的行选中（多选），父子行选中是否独立
+   * @default true
+   */
+  checkStrictly?: boolean;
+  /**
+   * 树形结构子节点字段，示例：`childrenKey='list'`。一般应用在数据 `data` 的子节点字段不是 `children` 的场景
+   * @default children
+   */
+  childrenKey?: string;
+  /**
+   * 是否默认展开全部，仅默认情况有效。如果希望自由控制树形结构的展开或收起，可使用实例方法 `expandAll` 和 `foldAll`
+   * @default false
+   */
+  defaultExpandAll?: boolean;
+  /**
+   * 树结点缩进距离，单位：px
+   * @default 24
+   */
+  indent?: number;
+  /**
+   * 树结点在第几列渲染，默认为第一列
+   * @default 0
+   */
+  treeNodeColumnIndex?: number;
 }
 
 export type TableRowAttributes<T> =
@@ -820,13 +856,6 @@ export interface PrimaryTableRenderParams<T> extends PrimaryTableCellParams<T> {
 export type SorterFun<T> = (a: T, b: T) => number;
 
 export type SortType = 'desc' | 'asc' | 'all';
-
-export interface TableTreeConfig {
-  indent?: number;
-  treeNodeColumnIndex?: number;
-  childrenKey?: 'children';
-  checkStrictly?: boolean;
-}
 
 export interface TableTreeExpandChangeContext<T> {
   row: T;

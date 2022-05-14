@@ -167,7 +167,7 @@ type | String | single | `colKey` 值为 `row-select` 时表示行选中列，�
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-tree | Object | - | 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true。TS 类型：`TableTreeConfig` `interface TableTreeConfig { indent?: number; treeNodeColumnIndex?: number; childrenKey?: 'children'; checkStrictly?: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+tree | Object | - | 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述。TS 类型：`TableTreeConfig` | N
 treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' | 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 `PrimaryTableProps<T>` | \- | - | 继承 `PrimaryTableProps<T>` 中的全部 API | N
 onTreeExpandChange | Function |  | TS 类型：`(context: TableTreeExpandChangeContext<T>) => void`<br/>树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T> }`<br/> | N
@@ -182,6 +182,8 @@ tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 树形结构
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
+expandAll | \- | \- | 必需。展开全部行
+foldAll | \- | \- | 必需。折叠全部行
 getData | `(key: TableRowValue)` | `TableRowState<T>` | 必需。树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type TableRowValue = string | number`<br/>
 remove | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点
 setData | `(key: TableRowValue, newRowData: T)` | \- | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
@@ -235,3 +237,13 @@ displayType | String | auto-width | 指列配置弹框中，各列的字段平�
 fields | Array | - | 用于设置允许用户对哪些列进行显示或隐藏的控制，默认为全部字段。TS 类型：`string[]` | N
 hideTriggerButton | Boolean | false | 是否隐藏表格组件内置的“列配置”按钮 | N
 placement | String | top-right | 列配置按钮基于表格的放置位置：左上角、右上角、左下角、右下角等。可选项：top-left/top-right/bottom-left/bottom-right | N
+
+### TableTreeConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+checkStrictly | Boolean | true | 表示树形结构的行选中（多选），父子行选中是否独立 | N
+childrenKey | String | children | 树形结构子节点字段，示例：`childrenKey='list'`。一般应用在数据 `data` 的子节点字段不是 `children` 的场景 | N
+defaultExpandAll | Boolean | false | 是否默认展开全部，仅默认情况有效。如果希望自由控制树形结构的展开或收起，可使用实例方法 `expandAll` 和 `foldAll` | N
+indent | Number | 24 | 树结点缩进距离，单位：px | N
+treeNodeColumnIndex | Number | 0 | 树结点在第几列渲染，默认为第一列 | N
