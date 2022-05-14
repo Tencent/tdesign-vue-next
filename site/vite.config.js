@@ -22,7 +22,7 @@ const testConfig = {
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,
-  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, '../script/test/ssr-setup.js') : '',
+  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, '../script/test/test-setup.js') : '',
   transformMode: {
     web: [/\.[jt]sx$/],
   },

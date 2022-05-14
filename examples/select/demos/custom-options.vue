@@ -42,8 +42,8 @@ const options = [
   { label: '用户九', value: '9', description: '这是一段用户描述信息，可自定义内容' },
 ];
 
-const value1 = ref([]);
-const value2 = ref([]);
+const value1 = ref('');
+const value2 = ref('');
 const optionRender = (h, option) => (
   <div class="tdesign-demo__user-option">
     <img src="https://tdesign.gtimg.com/site/avatar.jpg" />

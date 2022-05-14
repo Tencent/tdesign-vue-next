@@ -42894,7 +42894,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
     data-v-7cc4a746=""
   />
   <div
-    class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive"
+    class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator"
     data-v-7cc4a746=""
     style="width: 100%;"
   >
@@ -43059,7 +43059,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            4
           </span>
         </div>
         <div
@@ -75206,7 +75206,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="105.55751316061705  246.30086404143975"
+              stroke-dasharray="99.90264638415542  233.10617489636263"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75260,7 +75260,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="351.85837720205683  0"
+              stroke-dasharray="333.0088212805181  0"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75314,7 +75314,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="175.92918860102841  175.92918860102841"
+              stroke-dasharray="166.50441064025904  166.50441064025904"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75385,7 +75385,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="351.85837720205683  0"
+              stroke-dasharray="333.0088212805181  0"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75451,7 +75451,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="263.89378290154264  87.96459430051421"
+              stroke-dasharray="249.75661596038856  83.25220532012952"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75517,7 +75517,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="175.92918860102841  175.92918860102841"
+              stroke-dasharray="166.50441064025904  166.50441064025904"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75581,7 +75581,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="36"
               fill="none"
               r="34"
-              stroke-dasharray="67.85840131753953  158.33626974092556"
+              stroke-dasharray="64.08849013323179  149.53981031087415"
               stroke-linecap="round"
               stroke-width="4"
               transform="matrix(0,-1,1,0,0,72)"
@@ -75635,7 +75635,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="105.55751316061705  246.30086404143975"
+              stroke-dasharray="99.90264638415542  233.10617489636263"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -75690,7 +75690,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
               cy="80"
               fill="none"
               r="77"
-              stroke-dasharray="376.99111843077515  125.66370614359172"
+              stroke-dasharray="362.8539514896211  120.95131716320704"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,160)"
@@ -75750,7 +75750,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="295.5610368497277  56.2973403523291"
+            stroke-dasharray="279.72740987563515  53.2814114048829"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,112)"
@@ -75858,7 +75858,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
             cy="100"
             fill="none"
             r="90"
-            stroke-dasharray="188.4955592153876  439.822971502571"
+            stroke-dasharray="169.64600329384882  395.8406743523139"
             stroke-linecap="round"
             stroke-width="20"
             transform="matrix(0,-1,1,0,0,200)"
@@ -75934,7 +75934,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="154.817685968905  197.04069123315185"
+            stroke-dasharray="146.52388136342796  186.48493991709014"
             stroke-linecap="round"
             stroke-width="6"
             style="stroke: #52CC8D;"
@@ -76013,7 +76013,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="154.817685968905  197.04069123315185"
+            stroke-dasharray="146.52388136342796  186.48493991709014"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,112)"
@@ -76594,7 +76594,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="105.55751316061705  246.30086404143975"
+              stroke-dasharray="99.90264638415542  233.10617489636263"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -76654,7 +76654,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="263.89378290154264  87.96459430051421"
+              stroke-dasharray="249.75661596038856  83.25220532012952"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -76714,7 +76714,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="175.92918860102841  175.92918860102841"
+              stroke-dasharray="166.50441064025904  166.50441064025904"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -76774,7 +76774,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="351.85837720205683  0"
+              stroke-dasharray="333.0088212805181  0"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -76833,7 +76833,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
             cy="36"
             fill="none"
             r="34"
-            stroke-dasharray="67.85840131753953  158.33626974092556"
+            stroke-dasharray="64.08849013323179  149.53981031087415"
             stroke-linecap="round"
             stroke-width="4"
             transform="matrix(0,-1,1,0,0,72)"
@@ -76881,7 +76881,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
             cy="80"
             fill="none"
             r="77"
-            stroke-dasharray="376.99111843077515  125.66370614359172"
+            stroke-dasharray="362.8539514896211  120.95131716320704"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,160)"
@@ -77012,7 +77012,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="281.48670176164546  70.37167544041135"
+            stroke-dasharray="266.4070570244145  66.6017642561036"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,112)"
@@ -77136,7 +77136,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="281.48670176164546  70.37167544041135"
+            stroke-dasharray="266.4070570244145  66.6017642561036"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,112)"
@@ -77297,7 +77297,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
             cy="56"
             fill="none"
             r="53"
-            stroke-dasharray="281.48670176164546  70.37167544041135"
+            stroke-dasharray="266.4070570244145  66.6017642561036"
             stroke-linecap="round"
             stroke-width="6"
             transform="matrix(0,-1,1,0,0,112)"
@@ -87442,7 +87442,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical-marks.vue
 
 exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
 <div
-  class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive steps-demos-extra"
+  class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator steps-demos-extra"
   data-v-50058391=""
   status="process"
 >
@@ -87460,7 +87460,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          1
         </span>
       </div>
       <div
@@ -87511,7 +87511,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          2
         </span>
       </div>
       <div
@@ -87548,7 +87548,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          3
         </span>
       </div>
       <div
@@ -87585,7 +87585,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          4
         </span>
       </div>
       <div
@@ -87615,7 +87615,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/steps/demos/icon.vue 1`] = `
 <div
-  class="t-steps t-steps--horizontal t-steps--default-anchor"
+  class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
 >
   
   <div
@@ -87810,7 +87810,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/icon.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/steps/demos/no-sequence.vue 1`] = `
 <div
-  class="t-steps t-steps--horizontal t-steps--dot-anchor"
+  class="t-steps t-steps--horizontal t-steps--dot-anchor t-steps--positive t-steps--line-separator"
 >
   
   <div
@@ -87947,7 +87947,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/no-sequence.vue 1`]
 
 exports[`csr snapshot test > csr test ./examples/steps/demos/options.vue 1`] = `
 <div
-  class="t-steps t-steps--horizontal t-steps--default-anchor"
+  class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
 >
   
   <div
@@ -88010,7 +88010,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/options.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          2
         </span>
       </div>
       <div
@@ -88046,7 +88046,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/options.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          3
         </span>
       </div>
       <div
@@ -88082,7 +88082,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/options.vue 1`] = `
         <span
           class="t-steps-item__icon--number"
         >
-          0
+          4
         </span>
       </div>
       <div
@@ -88114,7 +88114,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
 <div>
   <!-- 如果 t-step-item 没有传入 value，则使用 index 作为唯一标识 -->
   <div
-    class="t-steps t-steps--horizontal t-steps--default-anchor"
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
   >
     
     <div
@@ -88177,7 +88177,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            2
           </span>
         </div>
         <div
@@ -88213,7 +88213,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            3
           </span>
         </div>
         <div
@@ -88249,7 +88249,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            4
           </span>
         </div>
         <div
@@ -88278,7 +88278,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
   <br />
   <!-- 使用 options 渲染步骤条 -->
   <div
-    class="t-steps t-steps--horizontal t-steps--default-anchor"
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
   >
     
     <div
@@ -88389,7 +88389,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            3
           </span>
         </div>
         <div
@@ -88425,7 +88425,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            4
           </span>
         </div>
         <div
@@ -88457,7 +88457,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/sequence.vue 1`] = 
 exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
 <div>
   <div
-    class="t-steps t-steps--horizontal t-steps--default-anchor"
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
   >
     
     <div
@@ -88520,7 +88520,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            2
           </span>
         </div>
         <div
@@ -88556,7 +88556,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            3
           </span>
         </div>
         <div
@@ -88592,7 +88592,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            4
           </span>
         </div>
         <div
@@ -88622,7 +88622,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
     style="margin: 16px 0px;"
   />
   <div
-    class="t-steps t-steps--horizontal t-steps--default-anchor"
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
   >
     
     <div
@@ -88781,7 +88781,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
           <span
             class="t-steps-item__icon--number"
           >
-            0
+            4
           </span>
         </div>
         <div
@@ -88820,7 +88820,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
     data-v-3fc1fbf6=""
   >
     <div
-      class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive"
+      class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive t-steps--line-separator"
       data-v-3fc1fbf6=""
     >
       
@@ -88959,19 +88959,19 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
       
     </div>
     <div
-      class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse"
+      class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse t-steps--line-separator"
       data-v-3fc1fbf6=""
     >
       
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
         data-v-3fc1fbf6=""
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
@@ -88981,7 +88981,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
             <div
               class="t-steps-item__title"
             >
-              已完成的步骤
+              未进行的步骤
             </div>
             <div
               class="t-steps-item__description"
@@ -89014,6 +89014,39 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
             <div
               class="t-steps-item__title"
             >
+              未进行的步骤
+            </div>
+            <div
+              class="t-steps-item__description"
+            >
+              这里是提示文字
+            </div>
+            <div
+              class="t-steps-item__extra"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-steps-item t-steps-item--finish"
+        data-v-3fc1fbf6=""
+      >
+        <div
+          class="t-steps-item__inner "
+        >
+          <div
+            class="t-steps-item__icon t-steps-item--finish"
+          >
+            <!---->
+          </div>
+          <div
+            class="t-steps-item__content"
+          >
+            <div
+              class="t-steps-item__title"
+            >
               进行中的步骤
             </div>
             <div
@@ -89030,14 +89063,14 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--default"
+        class="t-steps-item t-steps-item--finish"
         data-v-3fc1fbf6=""
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--default"
+            class="t-steps-item__icon t-steps-item--finish"
           >
             <!---->
           </div>
@@ -89047,40 +89080,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-no-sequenc
             <div
               class="t-steps-item__title"
             >
-              未进行的步骤
-            </div>
-            <div
-              class="t-steps-item__description"
-            >
-              这里是提示文字
-            </div>
-            <div
-              class="t-steps-item__extra"
-            >
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-steps-item t-steps-item--default"
-        data-v-3fc1fbf6=""
-      >
-        <div
-          class="t-steps-item__inner "
-        >
-          <div
-            class="t-steps-item__icon t-steps-item--default"
-          >
-            <!---->
-          </div>
-          <div
-            class="t-steps-item__content"
-          >
-            <div
-              class="t-steps-item__title"
-            >
-              未进行的步骤
+              已完成的步骤
             </div>
             <div
               class="t-steps-item__description"
@@ -89111,7 +89111,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
     data-v-14241e39=""
   >
     <div
-      class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive"
+      class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator"
       data-v-14241e39=""
     >
       
@@ -89177,7 +89177,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
             <span
               class="t-steps-item__icon--number"
             >
-              0
+              2
             </span>
           </div>
           <div
@@ -89214,7 +89214,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
             <span
               class="t-steps-item__icon--number"
             >
-              0
+              3
             </span>
           </div>
           <div
@@ -89251,7 +89251,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
             <span
               class="t-steps-item__icon--number"
             >
-              0
+              4
             </span>
           </div>
           <div
@@ -89282,10 +89282,133 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
       style="margin: 16px 0px;"
     />
     <div
-      class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse"
+      class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse t-steps--line-separator"
       data-v-14241e39=""
     >
       
+      <div
+        class="t-steps-item t-steps-item--default"
+        data-v-14241e39=""
+      >
+        <div
+          class="t-steps-item__inner "
+        >
+          <div
+            class="t-steps-item__icon t-steps-item--default"
+          >
+            <span
+              class="t-steps-item__icon--number"
+            >
+              4
+            </span>
+          </div>
+          <div
+            class="t-steps-item__content"
+          >
+            <div
+              class="t-steps-item__title"
+            >
+              未进行的步骤
+            </div>
+            <div
+              class="t-steps-item__description"
+            >
+              这里是提示文字
+            </div>
+            <div
+              class="t-steps-item__extra"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-steps-item t-steps-item--process"
+        data-v-14241e39=""
+      >
+        <div
+          class="t-steps-item__inner "
+        >
+          <div
+            class="t-steps-item__icon t-steps-item--process"
+          >
+            <span
+              class="t-steps-item__icon--number"
+            >
+              3
+            </span>
+          </div>
+          <div
+            class="t-steps-item__content"
+          >
+            <div
+              class="t-steps-item__title"
+            >
+              未进行的步骤
+            </div>
+            <div
+              class="t-steps-item__description"
+            >
+              这里是提示文字
+            </div>
+            <div
+              class="t-steps-item__extra"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-steps-item t-steps-item--finish"
+        data-v-14241e39=""
+      >
+        <div
+          class="t-steps-item__inner "
+        >
+          <div
+            class="t-steps-item__icon t-steps-item--finish"
+          >
+            <span
+              class="t-steps-item__icon--number"
+            >
+              <svg
+                class="t-icon t-icon-check"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="t-steps-item__content"
+          >
+            <div
+              class="t-steps-item__title"
+            >
+              进行中的步骤
+            </div>
+            <div
+              class="t-steps-item__description"
+            >
+              这里是提示文字
+            </div>
+            <div
+              class="t-steps-item__extra"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="t-steps-item t-steps-item--finish"
         data-v-14241e39=""
@@ -89321,117 +89444,6 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
               class="t-steps-item__title"
             >
               已完成的步骤
-            </div>
-            <div
-              class="t-steps-item__description"
-            >
-              这里是提示文字
-            </div>
-            <div
-              class="t-steps-item__extra"
-            >
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-steps-item t-steps-item--process"
-        data-v-14241e39=""
-      >
-        <div
-          class="t-steps-item__inner "
-        >
-          <div
-            class="t-steps-item__icon t-steps-item--process"
-          >
-            <span
-              class="t-steps-item__icon--number"
-            >
-              0
-            </span>
-          </div>
-          <div
-            class="t-steps-item__content"
-          >
-            <div
-              class="t-steps-item__title"
-            >
-              进行中的步骤
-            </div>
-            <div
-              class="t-steps-item__description"
-            >
-              这里是提示文字
-            </div>
-            <div
-              class="t-steps-item__extra"
-            >
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-steps-item t-steps-item--default"
-        data-v-14241e39=""
-      >
-        <div
-          class="t-steps-item__inner "
-        >
-          <div
-            class="t-steps-item__icon t-steps-item--default"
-          >
-            <span
-              class="t-steps-item__icon--number"
-            >
-              0
-            </span>
-          </div>
-          <div
-            class="t-steps-item__content"
-          >
-            <div
-              class="t-steps-item__title"
-            >
-              未进行的步骤
-            </div>
-            <div
-              class="t-steps-item__description"
-            >
-              这里是提示文字
-            </div>
-            <div
-              class="t-steps-item__extra"
-            >
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-steps-item t-steps-item--default"
-        data-v-14241e39=""
-      >
-        <div
-          class="t-steps-item__inner "
-        >
-          <div
-            class="t-steps-item__icon t-steps-item--default"
-          >
-            <span
-              class="t-steps-item__icon--number"
-            >
-              0
-            </span>
-          </div>
-          <div
-            class="t-steps-item__content"
-          >
-            <div
-              class="t-steps-item__title"
-            >
-              未进行的步骤
             </div>
             <div
               class="t-steps-item__description"

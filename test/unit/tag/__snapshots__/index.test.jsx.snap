@@ -133,16 +133,6 @@ exports[`Tag or CheckTag > :Tag:props > :theme:default 1`] = `
 </span>
 `;
 
-exports[`Tag or CheckTag > :Tag:props > :theme:info 1`] = `
-<span
-  class="t-tag t-tag--info t-tag--dark t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
 exports[`Tag or CheckTag > :Tag:props > :theme:primary 1`] = `
 <span
   class="t-tag t-tag--primary t-tag--dark t-size-m"
@@ -346,66 +336,6 @@ exports[`Tag or CheckTag > :Tag:props > :variant:light-outline;theme:success 1`]
 exports[`Tag or CheckTag > :Tag:props > :variant:light-outline;theme:warning 1`] = `
 <span
   class="t-tag t-tag--warning t-tag--light t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:danger 1`] = `
-<span
-  class="t-tag t-tag--danger t-tag--plain t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:default 1`] = `
-<span
-  class="t-tag t-tag--default t-tag--plain t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:info 1`] = `
-<span
-  class="t-tag t-tag--info t-tag--plain t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:primary 1`] = `
-<span
-  class="t-tag t-tag--primary t-tag--plain t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:success 1`] = `
-<span
-  class="t-tag t-tag--success t-tag--plain t-size-m"
->
-  <!---->
-  <!---->
-  <!---->
-</span>
-`;
-
-exports[`Tag or CheckTag > :Tag:props > :variant:plain;theme:warning 1`] = `
-<span
-  class="t-tag t-tag--warning t-tag--plain t-size-m"
 >
   <!---->
   <!---->
