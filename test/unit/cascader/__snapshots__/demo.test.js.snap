@@ -4,7 +4,7 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -60,7 +60,7 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -109,7 +109,7 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -119,11 +119,53 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          1/1.1/1.1.2/1.1.2.1
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          2
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -163,7 +205,7 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -173,11 +215,42 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          +
+          2
+          
+          <!---->
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -210,7 +283,7 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -220,11 +293,41 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          style="color: rgb(237, 123, 47);"
+        >
+          +
+          2
+        </span>
+        <!---->
+        
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -257,7 +360,7 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader t-demo-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader t-demo-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -267,11 +370,42 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        
+        <span
+          style="color: rgb(0, 168, 112);"
+        >
+          +2
+        </span>
+        <!---->
+        
+        
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -311,7 +445,7 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
@@ -361,7 +495,7 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
@@ -371,12 +505,21 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <!---->
+        </span>
         
       </div>
       <input
         class="t-input__inner"
         disabled=""
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -416,7 +559,7 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -465,7 +608,7 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -475,11 +618,32 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          当选项一数据展示文本过长时/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -568,7 +732,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -578,11 +742,32 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          当选项一数据展示文本过长时/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -620,7 +805,7 @@ exports[`Cascader Cascader keysVue demo works fine 1`] = `
 <div>
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -782,7 +967,7 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -792,11 +977,32 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
@@ -827,31 +1033,6 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
   </div>
   <!---->
   
-</div>
-`;
-
-exports[`Cascader Cascader panelVue demo works fine 1`] = `
-<div
-  class="tdesign-demo-block-row"
->
-  <div
-    class="t-cascader__panel"
-  >
-    <div
-      class="t-cascader__panel--empty"
-    >
-      暂无数据
-    </div>
-  </div>
-  <div
-    class="t-cascader__panel"
-  >
-    <div
-      class="t-cascader__panel--empty"
-    >
-      暂无数据
-    </div>
-  </div>
 </div>
 `;
 
@@ -916,7 +1097,7 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   <!-- 非受控用法 -->
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
@@ -966,7 +1147,7 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   <!-- 受控+语法糖用法 -->
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -1016,7 +1197,7 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   <!-- 受控用法 -->
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
@@ -1325,7 +1506,7 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-input__wrap t-select-input t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -1374,7 +1555,7 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -1384,11 +1565,53 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
         class="t-input__prefix"
       >
         
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项二
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder="请选择"
+        placeholder=""
         readonly=""
         type="text"
       />
