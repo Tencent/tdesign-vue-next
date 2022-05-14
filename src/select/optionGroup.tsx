@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import props from './option-group-props';
 import { ClassName } from '../common';

@@ -28,9 +28,8 @@ const TARGET = 'target';
 
 export default defineComponent({
   name: TRANSFER_NAME,
-  props: {
-    ...props,
-  },
+  props: { ...props },
+
   setup(props, { slots }) {
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
@@ -118,6 +117,7 @@ export default defineComponent({
         type: listType,
       };
       // 支持v-model:checked
+      // TODO: 换成 useVModel
       props['onUpdate:checked']?.(checked);
       props.onCheckedChange?.(event);
       checkedValueList.value = checked;

@@ -16,8 +16,7 @@ const configList = ref(configJson);
 const panelList = [{ label: 'notification', value: 'notification' }];
 
 const usageCodeMap = {
-  notification:
-    '<t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />',
+  notification: '<t-notification v-bind="configProps" title="标题名称" content="这是一条消息通知" />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

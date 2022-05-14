@@ -13,9 +13,7 @@ import configJson from './props.json';
 const configList = ref(configJson);
 const panelList = [{ label: 'message', value: 'message' }];
 
-const usageCodeMap = {
-  message: '<t-message v-bind="configProps" :duration="0" content="这里是 Message 信息"  :closeBtn="true" />',
-};
+const usageCodeMap = { message: '<t-message v-bind="configProps" content="这里是 Message 信息" />' };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
 function onPanelChange(panel) {

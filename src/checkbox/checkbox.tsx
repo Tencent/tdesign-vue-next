@@ -22,7 +22,13 @@ export default defineComponent({
     }
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
 
     const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
     const GroupDisabled = computed(() => {

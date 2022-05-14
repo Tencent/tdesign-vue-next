@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, provide, computed, Ref, toRefs } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';

@@ -24,7 +24,7 @@ function getValidAttrs(obj: object): object {
 export default defineComponent({
   name: 'TTextarea',
   props: { ...props },
-  emits: ['update:modelValue'],
+
   setup(props, { attrs }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');

@@ -3,7 +3,6 @@ import { FileCopyIcon } from 'tdesign-icons-vue-next';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
-import TPopup from '../popup';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
