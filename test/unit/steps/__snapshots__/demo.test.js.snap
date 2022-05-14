@@ -1212,7 +1212,7 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
     style="margin: 16px 0px;"
   />
   <div
-    class="t-steps t-steps--horizontal t-steps--default-anchor"
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
   >
     
     <div

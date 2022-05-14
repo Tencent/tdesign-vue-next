@@ -27259,7 +27259,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     <!--]-->
   </div>
   <div style="margin:16px 0;"></div>
-  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner">
