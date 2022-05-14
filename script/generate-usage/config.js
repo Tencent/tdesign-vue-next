@@ -240,8 +240,8 @@ module.exports = {
             label: '选项二',
             value: '2',
             children: [
-              { label: '子选项一', value: '2.1' },
-              { label: '子选项二', value: '2.2' },
+              { label: '子选项三', value: '2.1' },
+              { label: '子选项四', value: '2.2' },
             ],
           },
         ]" v-bind="configProps" />

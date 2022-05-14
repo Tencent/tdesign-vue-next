@@ -71,7 +71,7 @@ export default defineComponent({
 
       const labelCont = (
         <span
-          title={node.label}
+          title={cascaderContext.inputVal ? getFullPathLabel(node) : node.label}
           ref={liRef2}
           class={[`${COMPONENT_NAME.value}-label`, `${COMPONENT_NAME.value}-label--ellipsis`]}
           role="label"

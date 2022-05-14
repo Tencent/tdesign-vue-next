@@ -1,10 +1,10 @@
-import { reactive, computed, onMounted, toRefs, nextTick, watchEffect, watch } from 'vue';
+import { reactive, computed, toRefs, watch, nextTick } from 'vue';
 import isEqual from 'lodash/isEqual';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
 import useVModel from '../hooks/useVModel';
-import { getTreeValue, getCascaderValue, isEmptyValues, valueValidate } from './core/helper';
+import { getTreeValue, getCascaderValue, isEmptyValues, isValueInvalid } from './core/helper';
 import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 
 import {
@@ -83,27 +83,12 @@ export const useContext = (props: TdCascaderProps, setInnerValue: TdCascaderProp
   };
 };
 
-// 初始化逻辑与状态受控处理
-// 内聚组件状态
+// 内聚组件核心的副作用与状态处理
 export const useCascaderContext = (props: TdCascaderProps) => {
   const disabled = useFormDisabled();
   const { value, modelValue } = toRefs(props);
-
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-
   const { cascaderContext, statusContext } = useContext(props, setInnerValue);
-
-  onMounted(() => {
-    const { setValue, multiple, valueType } = cascaderContext.value;
-    if (valueValidate(innerValue.value, cascaderContext.value)) {
-      const val: CascaderValue = multiple ? [] : '';
-      setValue(val, 'invalid-value');
-      console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
-    }
-    if (!isEmptyValues(innerValue)) {
-      statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
-    }
-  });
 
   // 更新treeNodes
   const updatedTreeNodes = () => {
@@ -115,80 +100,106 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   const updateExpend = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
-    if (!treeStore) return;
     treeStoreExpendEffect(treeStore, value, expend);
     treeStore.replaceChecked(getTreeValue(value));
   };
 
-  // 创建单个 cascader 节点
-  watchEffect(() => {
-    const { options } = props;
-    if (!options.length) return;
+  watch(
+    () => props.options,
+    () => {
+      const { options, keys } = props;
+      const { treeStore } = statusContext;
 
-    const { treeStore } = statusContext;
-    if (!treeStore) {
-      const treeStore = new TreeStore({});
-      treeStore.append(options);
-      statusContext.treeStore = treeStore;
-    } else {
-      if (treeStore.config.options === options) return;
-      treeStore.reload(options);
-      treeStore.refreshNodes();
-    }
+      if (!options.length && !treeStore) return;
 
-    nextTick(() => {
+      if (!treeStore) {
+        const treeStore = new TreeStore({
+          keys,
+          checkable: true,
+          expandMutex: true,
+          expandParent: true,
+          onLoad: () => {
+            nextTick(() => {
+              treeStore.refreshNodes();
+              updatedTreeNodes();
+            });
+          },
+        });
+        treeStore.append(options);
+        statusContext.treeStore = treeStore;
+      } else {
+        treeStore.reload(options);
+        treeStore.refreshNodes();
+      }
       updateExpend();
       updatedTreeNodes();
-    });
-  });
-
-  const update = (treeProps: any) => {
-    const { treeStore } = statusContext;
-    if (!treeStore) return;
-    treeStore.setConfig(treeProps);
-  };
-
-  watchEffect(() => {
-    const { keys, checkStrictly, lazy, load, options, valueMode = 'onlyLeaf' } = props;
-    const treeProps = {
-      keys: keys || {},
-      checkable: true,
-      checkStrictly,
-      expandMutex: true,
-      expandParent: true,
-      disabled,
-      load,
-      lazy,
-      valueMode,
-      options,
-    };
-    // console.log(treeProps);
-    // update(treeProps);
-  });
-
-  watch([innerValue], () => {
-    const { valueType, multiple } = props;
-    if (isEqual(innerValue.value, statusContext.scopeVal)) return;
-    statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
-    updateExpend();
-    updatedTreeNodes();
-  });
-
-  watch(
-    () => statusContext.inputVal,
-    () => {
-      const { inputVal, treeStore, setTreeNodes } = cascaderContext.value;
-      treeNodesEffect(inputVal, treeStore, setTreeNodes);
     },
+    { immediate: true },
+  );
+
+  // tree插件配置变化
+  watch(
+    () => {
+      const { checkStrictly, lazy, load, valueMode } = props;
+      return JSON.stringify({
+        valueMode,
+        checkStrictly,
+        lazy,
+        load,
+      });
+    },
+    () => {
+      const { treeStore } = statusContext;
+      if (!treeStore) return;
+      const { checkStrictly, lazy, load, valueMode } = props;
+      const treeProps = {
+        checkStrictly,
+        disabled,
+        load,
+        lazy,
+        valueMode,
+      };
+      treeStore.setConfig(treeProps);
+    },
+    { immediate: true },
   );
 
   watch(
-    () => statusContext.visible,
+    innerValue,
+    () => {
+      // 初始化判断 value 逻辑
+      const { setValue, multiple, valueType } = cascaderContext.value;
+
+      if (isValueInvalid(innerValue.value, cascaderContext.value)) {
+        setValue(multiple ? [] : '', 'invalid-value');
+        console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
+      }
+
+      if (!isEmptyValues(innerValue)) {
+        statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
+      }
+
+      if (!statusContext.treeStore) return;
+      updateExpend();
+      updatedTreeNodes();
+    },
+    { immediate: true },
+  );
+
+  watch(
+    () => statusContext.visible && props.filterable,
     (visible) => {
       const { setInputVal } = cascaderContext.value;
       if (visible) {
         setInputVal('');
       }
+    },
+  );
+
+  watch(
+    () => statusContext.inputVal,
+    () => {
+      updatedTreeNodes();
     },
   );
 

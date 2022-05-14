@@ -138,9 +138,9 @@ export function isEmptyValues(value: unknown): boolean {
  * 初始化数据校验
  * @param value
  * @param cascaderContext
- * @returns
+ * @returns boolean
  */
-export function valueValidate(value: CascaderValue, cascaderContext: CascaderContextType) {
+export function isValueInvalid(value: CascaderValue, cascaderContext: CascaderContextType) {
   const { multiple, showAllLevels } = cascaderContext;
   return (multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value) && !showAllLevels);
 }

@@ -53,6 +53,7 @@ export default defineComponent({
 
     return () => {
       const { setVisible, visible, inputVal, setInputVal } = cascaderContext.value;
+
       return (
         <SelectInput
           class={COMPONENT_NAME.value}
@@ -70,7 +71,7 @@ export default defineComponent({
           loading={props.loading}
           overlayClassName={overlayClassName.value}
           suffixIcon={() => renderSuffixIcon()}
-          popup-props={{ overlayStyle: panels.value.length && { width: 'auto' } }}
+          popup-props={panels.value.length ? { overlayStyle: { width: 'auto' } } : {}}
           inputProps={{ size: props.size }}
           onInputChange={(value) => {
             setInputVal(value);

@@ -10,8 +10,6 @@ import { getFullPathLabel, getTreeValue } from './helper';
  * @param trigger
  * @param node
  * @param cascaderContext
- * @param onChange
- * @param ctx
  */
 export function expendClickEffect(
   propsTrigger: CascaderProps['trigger'],
@@ -41,7 +39,7 @@ export function expendClickEffect(
 
   if (!multiple && (node.isLeaf() || checkStrictly) && trigger === 'click') {
     treeStore.resetChecked();
-    const checked = node.setChecked(!node.isChecked());
+    const checked = node.setChecked(!node.checked);
     const [value] = checked;
 
     // 非受控状态下更新状态
