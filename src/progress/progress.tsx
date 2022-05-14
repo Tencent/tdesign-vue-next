@@ -106,7 +106,7 @@ export default defineComponent({
     });
 
     const strokeDashArr = computed(() => {
-      const radius = diameter.value / 2;
+      const radius = (diameter.value - circleStrokeWidth.value) / 2;
       const perimeter = Math.PI * 2 * radius;
       const percent = props.percentage / 100;
       return `${perimeter * percent}  ${perimeter * (1 - percent)}`;

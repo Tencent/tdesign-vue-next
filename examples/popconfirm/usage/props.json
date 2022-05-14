@@ -84,11 +84,5 @@
         "value": "danger"
       }
     ]
-  },
-  {
-    "name": "visible",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

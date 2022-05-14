@@ -51,9 +51,10 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   }
 
   return new Promise((resolve) => {
+    const ins = instanceMap.get(attachEl)[hackOptions.placement];
     nextTick(() => {
-      const lastChild = tmpInstance.$refs?.notification0 as NotificationInstance;
-      resolve(lastChild);
+      const { notificationList } = ins;
+      resolve(notificationList[notificationList.length - 1]);
     });
   });
 };
