@@ -1,9 +1,10 @@
+/* eslint-disable no-param-reassign */
 import get from 'lodash/get';
 import { isRowSelectedDisabled } from '../utils';
 import { PrimaryTableCol, TableRowState, TableRowValue, TableRowData } from '../type';
 import log from '../../_common/js/log';
 
-export type TableTreeDataMap<T extends TableRowData = TableRowData> = Map<string | number, TableRowState<T>>;
+export type TableTreeDataMap = Map<string | number, TableRowState>;
 
 export interface TableRowModel<T> extends TableRowState<T> {
   setData?: (key: string | number, data: T) => void;
@@ -26,7 +27,16 @@ export interface KeysType {
  */
 class TableTreeStore<T extends TableRowData = TableRowData> {
   /** 树形结构 Map 存储 */
-  treeDataMap: TableTreeDataMap<T> = new Map();
+  treeDataMap: TableTreeDataMap = new Map();
+
+  /** 树形结构中，所有节点展开时，节点的下标 */
+  treeIndex = 0;
+
+  /** 树形结构中，所有节点展开时数据。注意节点增删改时的变化  */
+  expandedAllTreeData: TableRowState[] = [];
+
+  /** 树形结构中，所有节点折叠时数据。注意节点增删改时的变化 */
+  foldTreeData: TableRowState[] = [];
 
   constructor() {
     this.treeDataMap = new Map();
@@ -40,7 +50,10 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
    */
   initialTreeStore(dataSource: T[], columns: PrimaryTableCol[], keys: KeysType) {
     this.treeDataMap?.clear();
-    initialTreeDataMap(this.treeDataMap, dataSource, columns[0], keys);
+    this.treeIndex = 0;
+    this.foldTreeData = [];
+    this.expandedAllTreeData = [];
+    this.initialTreeDataMap(this.treeDataMap, dataSource, columns[0], keys);
   }
 
   toggleExpandData(p: { rowIndex: number; row: T }, dataSource: T[], keys: KeysType) {
@@ -54,6 +67,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       return [];
     }
     const r = this.treeDataMap.get(rowValue) || {
+      id: rowValue,
       row: p.row,
       rowIndex: p.rowIndex,
       expanded: false,
@@ -64,7 +78,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     return this.updateExpandRow(r, dataSource, keys);
   }
 
-  updateExpandRow(changeRow: TableRowState<T>, dataSource: T[], keys: KeysType) {
+  updateExpandRow(changeRow: TableRowState, dataSource: T[], keys: KeysType) {
     const { row, rowIndex, expanded } = changeRow;
     const { treeDataMap } = this;
     const childrenNodes = get(row, keys.childrenKey);
@@ -92,22 +106,25 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
    * @param key 行唯一标识
    * @returns {TableRowState} 当前行数据
    */
-  getData(key: TableRowValue): TableRowState<T> {
+  getData(key: TableRowValue): TableRowState {
     return this.treeDataMap.get(key);
   }
 
   /**
    * 更新当前行数据，并返回当前行下标
-   * @param key 当前行唯一标识值
+   * 数据的增删改，需同步调整
+   *  dataSource, treeDataMap, foldTreeData, expandedAllTreeData,
+   *  rowState.id, rowState.row, rowState.parent.row.children, rowState.parent.allChildren,
+   * @param rowValue 当前行唯一标识值
    * @param newRowData 新行数据
    * @returns {number} rowIndex 设置的行下标
    */
-  updateData(key: TableRowValue, newRowData: T, dataSource: T[], keys: KeysType): number {
-    const newKey = get(newRowData, keys.rowKey);
-    const rowState = this.treeDataMap.get(key);
+  updateData(rowValue: TableRowValue, newRowData: T, dataSource: T[], keys: KeysType): number {
+    const newRowValue = get(newRowData, keys.rowKey);
+    const rowState = this.treeDataMap.get(rowValue);
     // Map 没有查询到，或者查询到的 rowIndex 值为 -1，均表示当前数据不在 dataSource 列表中，未显示在页面中
     if (!rowState || rowState.rowIndex === -1) {
-      updateRowData(dataSource, key, newRowData, {
+      updateRowData(dataSource, rowValue, newRowData, {
         rowKey: keys.rowKey,
         childrenKey: keys.childrenKey,
       });
@@ -115,24 +132,40 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     }
     const currentRowIndex = rowState.rowIndex;
     rowState.row = newRowData;
-    this.treeDataMap.set(key, rowState);
+    rowState.id = newRowValue;
+
+    // 更新父元素中存储的当前元素值
     if (rowState.parent) {
+      // 更新直接子元素数组
       const siblings = get(rowState.parent.row, keys.childrenKey);
-      const index = siblings.findIndex((item: T) => get(item, keys.rowKey) === key);
+      const index = siblings.findIndex((item: T) => get(item, keys.rowKey) === rowValue);
       siblings[index] = newRowData;
+      // 更新全部资子元素数组
+      const currentNodeIndex = rowState.parent.allChildren.findIndex((t) => rowValue === get(t, keys.rowKey));
+      rowState.parent.allChildren[currentNodeIndex] = newRowData;
     }
-    // key 也发生了变化
-    if (key !== newKey) {
-      this.treeDataMap.set(newKey, rowState);
-      this.treeDataMap.delete(key);
-    } else {
-      this.treeDataMap.set(key, rowState);
+
+    // 从 foldTreeData 和 expandedAllTreeData 中更新数据
+    if (rowState.level === 0) {
+      const index = this.foldTreeData.findIndex((t) => t.id === rowValue);
+      this.foldTreeData[index] = rowState;
+    }
+    const index = this.expandedAllTreeData.findIndex((t) => t.id === rowValue);
+    this.expandedAllTreeData[index] = rowState;
+
+    this.treeDataMap.set(newRowValue, rowState);
+    // rowValue 也发生了变化，需移除 旧 rowValue 数据
+    if (rowValue !== newRowValue) {
+      this.treeDataMap.delete(rowValue);
     }
     return currentRowIndex;
   }
 
   /**
    * 移除指定节点
+   * 数据的增删改，需同步调整
+   *  dataSource, treeDataMap, foldTreeData, expandedAllTreeData,
+   *  rowState.id, rowState.row, rowState.parent.row.children, rowState.parent.allChildren,
    * @param key 行唯一标识
    */
   remove(key: TableRowValue, dataSource: T[], keys: KeysType): T[] {
@@ -141,6 +174,9 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       // 移除当前节点时，展开的节点的子节点需同步移除
       const removeNumber = (r.expandChildrenLength || 0) + 1;
       dataSource.splice(r.rowIndex, removeNumber);
+      const childrenKeys = r.allChildren.map((t) => get(t, keys.rowKey));
+      const allToRemovedKeys = [r.id].concat(childrenKeys);
+
       if (r.parent) {
         const siblings = get(r.parent.row, keys.childrenKey);
         const index = siblings.findIndex((item: TableRowData) => get(item, keys.rowKey) === key);
@@ -149,47 +185,67 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
           rowKey: keys.rowKey,
           childrenKey: keys.childrenKey,
         });
+
+        // 父元素的 allChildren 也需要移除当前节点的所有子节点
+        let tmpParent = r.parent;
+        while (tmpParent) {
+          tmpParent.allChildren = tmpParent.allChildren.filter((t) => !allToRemovedKeys.includes(get(t, keys.rowKey)));
+          tmpParent = tmpParent.parent;
+        }
       }
+
+      // 从 foldTreeData 和 expandedAllTreeData 中移除数据
+      if (r.level === 0) {
+        const index = this.foldTreeData.findIndex((t) => t.id === r.id);
+        this.foldTreeData.splice(index, 1);
+      }
+      this.expandedAllTreeData = this.expandedAllTreeData.filter((t) => !allToRemovedKeys.includes(t.id));
+
       this.treeDataMap.delete(key);
+
       // 更新 rowIndex 之后的下标
       updateRowIndex(this.treeDataMap, dataSource, {
         minRowIndex: r.rowIndex,
         rowKey: keys.rowKey,
       });
     } else {
-      // TODO, remove from dataSource
-      console.warn('TDesign Table Warn: Do not remove this node, which is not appreared.');
+      console.warn('TDesign Table Warn: Do not remove this node, which is not appeared.');
     }
     return dataSource;
   }
 
   /**
    * 为当前节点添加子节点，默认添加到最后一个节点
-   * @param key 当前节点唯一标识
+   * @param rowValue 当前节点唯一标识
    * @param newData 待添加的新节点
    */
-  appendTo(key: string | number, newData: T, dataSource: T[], keys: KeysType): T[] {
-    const state = this.treeDataMap.get(key);
+  appendTo(rowValue: string | number, newData: T, dataSource: T[], keys: KeysType): T[] {
+    const state = this.treeDataMap.get(rowValue);
     if (!state) {
-      console.warn(`TDesign Table Warn: ${key} is not exist.`);
+      console.warn(`TDesign Table Warn: ${rowValue} does not exist.`);
       return;
     }
     const newRowValue = get(newData, keys.rowKey);
     if (this.treeDataMap.get(newRowValue)) {
-      console.warn(`TDesign Table Warn: Duplicated Key. ${newRowValue} is already exists.`);
+      console.warn(`TDesign Table Warn: Duplicated Key. ${newRowValue} already exists.`);
       return;
     }
     const children: T[] = get(state.row, keys.childrenKey);
     // 子节点不存在，则表示为叶子节点
     const isShowNewNode = state.expanded || !children?.length;
+    const rowIndex = isShowNewNode ? state.rowIndex + (state.expandChildrenLength || 0) + 1 : -1;
     const newState = {
+      id: newRowValue,
       row: newData,
+      rowIndex,
+      treeIndex: rowIndex,
       level: state.level + 1,
-      parent: state,
-      path: [...state.path],
       expanded: false,
       expandChildrenLength: 0,
-      rowIndex: isShowNewNode ? state.rowIndex + (state.expandChildrenLength || 0) + 1 : -1,
+      disabled: false,
+      path: [...state.path],
+      allChildren: [] as T[],
+      parent: state,
     };
     newState.path = newState.path.concat(newState);
     if (children?.length) {
@@ -214,41 +270,106 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
         rowKey: keys.rowKey,
       });
     }
+
+    // 从 expandedAllTreeData 中更新数据。因 appendTo 属于子节点操作，故而 foldTreeData 无需更新
+    const index = this.expandedAllTreeData.findIndex((t) => t.id === rowValue);
+    this.expandedAllTreeData[index] = state;
+    const { expandChildrenLength } = this.expandedAllTreeData[index];
+    this.expandedAllTreeData.splice(index + expandChildrenLength, 0, newState);
+
     return dataSource;
+  }
+
+  /**
+   * 展开所有节点
+   */
+  expandAll() {
+    return this.expandedAllTreeData.map((t) => {
+      t.expandChildrenLength = t.allChildren?.length || 0;
+      t.rowIndex = t.treeIndex;
+      t.expanded = true;
+      this.treeDataMap.set(t.id, t);
+      return t.row;
+    });
+  }
+
+  /**
+   * 收起所有节点
+   */
+  foldAll() {
+    this.expandedAllTreeData.forEach((t) => {
+      t.expandChildrenLength = 0;
+      t.rowIndex = -1;
+      t.expanded = false;
+      this.treeDataMap.set(t.id, t);
+    });
+    return this.foldTreeData.map((t, i) => {
+      t.rowIndex = i;
+      this.treeDataMap.set(t.id, t);
+      return t.row;
+    });
+  }
+
+  /**
+   * 初始化树形结构 Map
+   * @param treeDataMap 树形结构 Map
+   * @param dataSource 数据源
+   * @param column 树形结构列
+   * @param keys 字段映射关系
+   * @param level 层级
+   * @param parent 父元素
+   * @returns void
+   */
+  initialTreeDataMap(
+    treeDataMap: TableTreeDataMap,
+    dataSource: T[],
+    column: PrimaryTableCol,
+    keys: KeysType,
+    level = 0,
+    parent: TableRowState = null,
+  ) {
+    for (let i = 0, len = dataSource.length; i < len; i++) {
+      const item = dataSource[i];
+      const rowValue = get(item, keys.rowKey);
+      if (rowValue === undefined) {
+        log.error('EnhancedTable', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
+        return;
+      }
+      const children = get(item, keys.childrenKey);
+      const state: TableRowState = {
+        id: rowValue,
+        row: item,
+        rowIndex: i,
+        treeIndex: this.treeIndex,
+        level,
+        expanded: false,
+        expandChildrenLength: 0,
+        disabled: isRowSelectedDisabled(column, item, i),
+        allChildren: children || [],
+        parent,
+      };
+      state.path = parent ? parent.path.concat(state) : [state];
+
+      treeDataMap.set(rowValue, state);
+
+      this.treeIndex += 1;
+      this.expandedAllTreeData.push(state);
+
+      level === 0 && this.foldTreeData.push(state);
+
+      if (children?.length) {
+        this.initialTreeDataMap(treeDataMap, children, column, keys, level + 1, state);
+        let tmpParent = parent;
+        while (tmpParent) {
+          tmpParent.allChildren = tmpParent.allChildren ? tmpParent.allChildren.concat(children) : children;
+          tmpParent = tmpParent.parent;
+        }
+      }
+    }
   }
 }
 
 export default TableTreeStore;
-
-export function initialTreeDataMap<T extends TableRowData = TableRowData>(
-  treeDataMap: TableTreeDataMap,
-  dataSource: T[],
-  column: PrimaryTableCol,
-  keys: KeysType,
-) {
-  for (let i = 0, len = dataSource.length; i < len; i++) {
-    const item = dataSource[i];
-    const rowValue = get(item, keys.rowKey);
-    if (rowValue === undefined) {
-      log.error('EnhancedTable', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
-      return;
-    }
-    const state: TableRowState = {
-      row: item,
-      rowIndex: i,
-      expanded: false,
-      level: 0,
-      expandChildrenLength: 0,
-      disabled: isRowSelectedDisabled(column, item, i),
-    };
-    state.path = [state];
-    treeDataMap.set(rowValue, state);
-    const children = get(item, keys.childrenKey);
-    if (children?.length) {
-      initialTreeDataMap(treeDataMap, children, column, keys);
-    }
-  }
-}
 
 /**
  * 更新展开的子节点数量
@@ -296,26 +417,25 @@ export function clearRowExpandLength<T>(treeDataMap: TableTreeDataMap, row: T, k
  */
 export function updateChildrenRowState<T>(
   treeDataMap: TableTreeDataMap,
-  rowState: TableRowState<T>,
+  rowState: TableRowState,
   expanded: boolean,
   keys: KeysType,
 ) {
-  const { row, level = 0, rowIndex } = rowState;
+  const { row, rowIndex } = rowState;
   const childrenNodes = get(row, keys.childrenKey);
   childrenNodes.forEach((item: T, kidRowIndex: number) => {
     const rowValue = get(item, keys.rowKey);
     const index = expanded ? rowIndex + 1 + kidRowIndex : -1;
     const curState = treeDataMap.get(rowValue);
-    const newState: TableRowState<T> = {
+    const newState: TableRowState = {
       ...curState,
       row: item,
       rowIndex: index,
       expanded: false,
       parent: rowState,
-      level: level + 1,
-      path: [],
+      // path: [],
     };
-    newState.path = newState.path.concat(newState);
+    // newState.path = newState.path.concat(newState);
     treeDataMap.set(rowValue, newState);
     // 父节点展开，子节点不一定展开；父节点收起，则所有子节点收起
     if (!expanded) {

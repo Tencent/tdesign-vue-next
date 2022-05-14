@@ -191,6 +191,20 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     dataSource.value = store.value.appendTo(key, newData, dataSource.value, rowDataKeys.value);
   }
 
+  /**
+   * 展开所有节点
+   */
+  function expandAll() {
+    dataSource.value = store.value.expandAll();
+  }
+
+  /**
+   * 收起所有节点
+   */
+  function foldAll() {
+    dataSource.value = store.value.foldAll();
+  }
+
   return {
     store,
     rowDataKeys,
@@ -201,5 +215,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     appendTo,
     formatTreeColum,
     toggleExpandData,
+    expandAll,
+    foldAll,
   };
 }

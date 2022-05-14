@@ -123,7 +123,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   rowClassName?: ClassName | ((params: RowClassNameParams<T>) => ClassName);
   /**
    * 使用 rowKey 唯一标识一行数据
-   * @default ''
+   * @default 'id'
    */
   rowKey: string;
   /**
@@ -526,6 +526,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
 
 export interface TableRowState<T extends TableRowData = TableRowData> {
   /**
+   * 当前行的所有子孙节点
+   */
+  allChildren?: T[];
+  /**
    * 表格行是否禁用选中
    * @default false
    */
@@ -539,6 +543,10 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
    * @default false
    */
   expanded: boolean;
+  /**
+   * 唯一标识
+   */
+  id: string | number;
   /**
    * 当前节点层级
    */
@@ -556,9 +564,13 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
    */
   row: T;
   /**
-   * 表格行下标
+   * 表格行下标，值为 `-1` 标识当前行未展开显示
    */
   rowIndex: number;
+  /**
+   * 表格行在树形结构全部展开后的下标，无论是否展开显示
+   */
+  treeIndex?: number;
 }
 
 export interface TableColumnFilter {

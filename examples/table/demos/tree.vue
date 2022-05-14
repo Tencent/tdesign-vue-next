@@ -3,6 +3,7 @@
     <div>
       <t-button theme="default" @click="setData1">重置数据</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">展开/收起可见行</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="onExpandAllToggle">展开/收起全部</t-button>
       <t-checkbox v-model="customTreeExpandAndFoldIcon" style="margin-left: 16px; vertical-align: middle">
         自定义折叠/展开图标
       </t-checkbox>
@@ -37,14 +38,16 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ref, reactive } from 'vue';
+import { ref, reactive /** , onMounted */ } from 'vue';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
 import { ChevronRightIcon, ChevronDownIcon } from 'tdesign-icons-vue-next';
+
+const TOTAL = 5;
 
 function getData(currentPage = 1) {
   const data = [];
   const pageInfo = `第 ${currentPage} 页`;
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < TOTAL; i++) {
     const obj = {
       id: i,
       key: `我是 ${i}_${currentPage} 号（${pageInfo}）`,
@@ -172,16 +175,17 @@ const columns = [
   },
 ];
 
+const expandAll = ref(false);
 const pagination = reactive({
   current: 1,
-  pageSize: 10,
-  total: 100,
+  pageSize: TOTAL,
+  total: TOTAL,
 });
 
 const defaultPagination = {
   defaultCurrent: 1,
-  defaultPageSize: 10,
-  total: 100,
+  defaultPageSize: TOTAL,
+  total: TOTAL,
 };
 
 const onPageChange = (pageInfo) => {
@@ -202,13 +206,23 @@ const onRowToggle = () => {
     const rowData = table.value.getData(id);
     table.value.toggleExpandData(rowData);
     // 或者
-    // this.$refs.table.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
+    // table.value.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
   });
 };
 
 const customTreeExpandAndFoldIcon = ref(false);
 
 const treeExpandAndFoldIconRender = (h, { type }) => (type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />);
+
+const onExpandAllToggle = () => {
+  expandAll.value = !expandAll.value;
+  expandAll.value ? table.value.expandAll() : table.value.foldAll();
+};
+
+// 默认展开全部。示例代码有效，勿删
+// onMounted(() => {
+//   table.value.expandAll();
+// });
 </script>
 
 <style>
