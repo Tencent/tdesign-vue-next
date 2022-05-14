@@ -3,7 +3,7 @@
     <div ref="affixContainerRef" class="affix-container-demo1">
       <div class="background">
         <t-affix
-          ref="affiexRef"
+          ref="affixRef"
           :z-index="5"
           :offset-top="50"
           :offset-bottom="50"
@@ -22,7 +22,7 @@ import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue';
 
 const affixed = ref(false);
 const affixContainerRef = ref(null);
-const affiexRef = ref(null);
+const affixRef = ref(null);
 
 const getContainer = () => affixContainerRef.value;
 
@@ -33,13 +33,12 @@ const handleFixedChange = (_affixed, { top }) => {
 
 onMounted(() => {
   nextTick(() => {
-    window.addEventListener('scroll', affiexRef.value.handleScroll);
+    window.addEventListener('scroll', affixRef.value.handleScroll);
   });
-  // console.log('affiexRef', affiexRef.value);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', affiexRef.value.handleScroll);
+  window.removeEventListener('scroll', affixRef.value.handleScroll);
 });
 </script>
 
