@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="jsx">
-import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
@@ -68,6 +68,7 @@ const globalConfig = merge(enConfig, {
     // sortAscendingOperationText: 'ascending sort',
     // sortCancelOperationText: 'cancel sort',
     // sortDescendingOperationText: 'descending sort',
+    // treeExpandAndFoldIcon: (h, { type }) => type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />,
   },
 });
 </script>

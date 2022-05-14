@@ -40,7 +40,7 @@ export default {
   defaultDisplayColumns: {
     type: Array as PropType<TdPrimaryTableProps['defaultDisplayColumns']>,
   },
-  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用 */
+  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽。`drag-col` 已废弃，请勿使用 */
   dragSort: {
     type: String as PropType<TdPrimaryTableProps['dragSort']>,
     validator(val: TdPrimaryTableProps['dragSort']): boolean {
@@ -66,7 +66,7 @@ export default {
     type: Array as PropType<TdPrimaryTableProps['defaultExpandedRowKeys']>,
     default: (): TdPrimaryTableProps['defaultExpandedRowKeys'] => [],
   },
-  /** 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效。支持全局配置 `GlobalConfigProvider` */
+  /** 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider` */
   expandIcon: {
     type: [Boolean, Function] as PropType<TdPrimaryTableProps['expandIcon']>,
     default: true,
@@ -90,6 +90,8 @@ export default {
   defaultFilterValue: {
     type: Object as PropType<TdPrimaryTableProps['defaultFilterValue']>,
   },
+  /** 隐藏排序文本提示，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `false` */
+  hideSortTips: Boolean,
   /** 是否支持多列排序 */
   multipleSort: Boolean,
   /** 选中的行，控制属性 */

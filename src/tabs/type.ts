@@ -18,6 +18,11 @@ export interface TdTabsProps {
    */
   disabled?: boolean;
   /**
+   * 是否开启拖拽调整顺序
+   * @default false
+   */
+  dragSort?: boolean;
+  /**
    * 选项卡列表
    */
   list?: Array<TdTabPanelProps>;
@@ -56,6 +61,10 @@ export interface TdTabsProps {
    * 激活的选项卡发生变化时触发
    */
   onChange?: (value: TabValue) => void;
+  /**
+   * 拖拽排序时触发
+   */
+  onDragSort?: (context: TabsDragSortContext) => void;
   /**
    * 删除选项卡时触发
    */
@@ -101,3 +110,10 @@ export interface TdTabPanelProps {
 }
 
 export type TabValue = string | number;
+
+export interface TabsDragSortContext {
+  currentIndex: number;
+  current: TabValue;
+  targetIndex: number;
+  target: TabValue;
+}

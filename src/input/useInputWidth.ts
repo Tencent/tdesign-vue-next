@@ -3,14 +3,15 @@ import { InputValue, TdInputProps } from './type';
 
 export default function useInputWidth(
   props: TdInputProps,
+  inputPreRef: Ref<HTMLInputElement>,
   inputRef: Ref<HTMLInputElement>,
   innerValue: Ref<InputValue>,
 ) {
   const composing = ref(false);
 
   const updateInputWidth = () => {
-    if (!inputRef.value) return;
-    const width = inputRef.value.offsetWidth;
+    if (!inputPreRef.value) return;
+    const width = inputPreRef.value.offsetWidth;
     inputRef.value.style.width = `${width}px`;
   };
 

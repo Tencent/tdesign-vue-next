@@ -11,12 +11,19 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TPopconfirm',
   props,
+
   setup(props) {
     const { global } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
 
     const { visible, modelValue } = toRefs(props);
-    const [innerVisible, setInnerVisible] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
+    const [innerVisible, setInnerVisible] = useVModel(
+      visible,
+      modelValue,
+      props.defaultVisible,
+      props.onVisibleChange,
+      'visible',
+    );
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -35,7 +42,7 @@ export default defineComponent({
       return {
         showArrow: props.showArrow,
         overlayClassName: COMPONENT_NAME.value,
-        trigger: 'click',
+        trigger: 'click' as PopupProps['trigger'],
         destroyOnClose: props.destroyOnClose,
         placement: props.placement,
         ...(props.popupProps as PopupProps),
@@ -94,9 +101,8 @@ export default defineComponent({
 
     return () => (
       <Popup
-        ref="popup"
         visible={innerVisible.value}
-        {...innerPopupProps}
+        {...innerPopupProps.value}
         onVisibleChange={onPopupVisibleChange}
         v-slots={{
           content: renderContent,

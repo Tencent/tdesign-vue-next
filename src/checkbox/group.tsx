@@ -1,4 +1,4 @@
-import { defineComponent, provide, VNode, computed, h, reactive, watchEffect, ref, toRefs, InjectionKey } from 'vue';
+import { defineComponent, provide, VNode, computed, h, reactive, watchEffect, ref, toRefs } from 'vue';
 import intersection from 'lodash/intersection';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
