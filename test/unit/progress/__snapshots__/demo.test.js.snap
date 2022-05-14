@@ -1,24 +1,32 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Progress Progress circleVue demo works fine 1`] = `
-<div>
-  <div>
+exports[`Progress > Progress circleVue demo works fine 1`] = `
+<div
+  data-v-6769d08e=""
+>
+  <div
+    data-v-6769d08e=""
+  >
     默认
   </div>
   <!-- 重要：strokeWidth 大小不能超过 size 的一半，否则无法渲染出环形 -->
   <div
     class="t-progress-demo-box"
+    data-v-6769d08e=""
   >
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         默认样式
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -62,14 +70,17 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         不显示数字
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -113,14 +124,17 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         自定义内容
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -165,17 +179,21 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-demo-box"
+    data-v-6769d08e=""
   >
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         进度完成
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -231,14 +249,17 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         进度状态发生重大错误
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -294,14 +315,17 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         进度被中断
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -356,22 +380,28 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-v-6769d08e=""
+  >
     默认不同尺寸
   </div>
   <div
     class="t-progress-demo-box"
+    data-v-6769d08e=""
   >
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         小尺寸
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -415,14 +445,17 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         默认尺寸
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -466,15 +499,18 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-demo-inner"
+      data-v-6769d08e=""
       style="margin-left: 60px;"
     >
       <div
         class="t-progress-demo-margin"
+        data-v-6769d08e=""
       >
         大尺寸
       </div>
       <div
         class="t-progress"
+        data-v-6769d08e=""
       >
         <!---->
         <!---->
@@ -520,14 +556,21 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress Progress customVue demo works fine 1`] = `
-<div>
-  <div>
-    <div>
+exports[`Progress > Progress customVue demo works fine 1`] = `
+<div
+  data-v-9f8aa44c=""
+>
+  <div
+    data-v-9f8aa44c=""
+  >
+    <div
+      data-v-9f8aa44c=""
+    >
       不显示标签
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <!---->
       <!---->
@@ -570,6 +613,7 @@ exports[`Progress Progress customVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <div
         class="t-progress--thin t-progress--status--undefined"
@@ -595,12 +639,16 @@ exports[`Progress Progress customVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-9f8aa44c=""
   >
-    <div>
+    <div
+      data-v-9f8aa44c=""
+    >
       自定义高度
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <div
         class="t-progress--thin t-progress--status--undefined"
@@ -623,11 +671,14 @@ exports[`Progress Progress customVue demo works fine 1`] = `
       <!---->
       <!---->
     </div>
-    <div>
+    <div
+      data-v-9f8aa44c=""
+    >
       自定义尺寸
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <!---->
       <!---->
@@ -671,12 +722,16 @@ exports[`Progress Progress customVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-9f8aa44c=""
   >
-    <div>
+    <div
+      data-v-9f8aa44c=""
+    >
       自定义颜色
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <!---->
       <div
@@ -699,6 +754,7 @@ exports[`Progress Progress customVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <!---->
       <!---->
@@ -743,12 +799,16 @@ exports[`Progress Progress customVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-9f8aa44c=""
   >
-    <div>
+    <div
+      data-v-9f8aa44c=""
+    >
       自定义内容
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <div
         class="t-progress--thin t-progress--status--undefined"
@@ -773,6 +833,7 @@ exports[`Progress Progress customVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress"
+      data-v-9f8aa44c=""
     >
       <!---->
       <!---->
@@ -817,19 +878,27 @@ exports[`Progress Progress customVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress Progress lineVue demo works fine 1`] = `
-<div>
-  <h3>
+exports[`Progress > Progress lineVue demo works fine 1`] = `
+<div
+  data-v-c2968dc6=""
+>
+  <h3
+    data-v-c2968dc6=""
+  >
     默认在线形外展示进度和状态
   </h3>
-  <div>
+  <div
+    data-v-c2968dc6=""
+  >
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       默认样式
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--undefined"
@@ -854,11 +923,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       100%
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--success"
@@ -883,11 +954,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       进度完成
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--success"
@@ -924,11 +997,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       进度状态发生重大错误
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--error"
@@ -965,11 +1040,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       进度被中断
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--warning"
@@ -1006,11 +1083,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       渐变色
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <div
         class="t-progress--thin t-progress--status--active"
@@ -1034,17 +1113,23 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <h3>
+  <h3
+    data-v-c2968dc6=""
+  >
     可以在线形内展示进度信息
   </h3>
-  <div>
+  <div
+    data-v-c2968dc6=""
+  >
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       默认样式
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <!---->
       <div
@@ -1067,11 +1152,13 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-margin"
+      data-v-c2968dc6=""
     >
       进度0-10%时数字数字位置出现在目前进度的右边区域
     </div>
     <div
       class="t-progress"
+      data-v-c2968dc6=""
     >
       <!---->
       <div
@@ -1096,18 +1183,20 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress Progress plumpVue demo works fine 1`] = `
+exports[`Progress > Progress plumpVue demo works fine 1`] = `
 <div
   data-v-app=""
 >
   
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     默认样式
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1130,11 +1219,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     进度0-10%时数字数字位置出现在目前进度的右边区域
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1157,11 +1248,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     100%
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1184,11 +1277,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     进度完成
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1211,11 +1306,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     进度状态发生重大错误
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1238,11 +1335,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     进度被中断
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1265,11 +1364,13 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-440b6b83=""
   >
     渐变色
   </div>
   <div
     class="t-progress"
+    data-v-440b6b83=""
   >
     <!---->
     <div
@@ -1294,19 +1395,26 @@ exports[`Progress Progress plumpVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress Progress sizeVue demo works fine 1`] = `
-<div>
-  <div>
+exports[`Progress > Progress sizeVue demo works fine 1`] = `
+<div
+  data-v-eb51caac=""
+>
+  <div
+    data-v-eb51caac=""
+  >
     默认
   </div>
   <div
     class="t-progress-domo-flex t-progress-domo-margin"
+    data-v-eb51caac=""
   >
     <div
       class="t-progress-domo-inner"
+      data-v-eb51caac=""
     >
       <div
         class="t-progress"
+        data-v-eb51caac=""
       >
         <!---->
         <!---->
@@ -1350,9 +1458,11 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-inner"
+      data-v-eb51caac=""
     >
       <div
         class="t-progress"
+        data-v-eb51caac=""
       >
         <!---->
         <!---->
@@ -1408,9 +1518,11 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-inner"
+      data-v-eb51caac=""
     >
       <div
         class="t-progress"
+        data-v-eb51caac=""
       >
         <!---->
         <!---->
@@ -1466,9 +1578,11 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress-domo-inner"
+      data-v-eb51caac=""
     >
       <div
         class="t-progress"
+        data-v-eb51caac=""
       >
         <!---->
         <!---->
@@ -1523,17 +1637,23 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-v-eb51caac=""
+  >
     默认不同尺寸
   </div>
   <div
     class="t-progress-domo-margin"
+    data-v-eb51caac=""
   >
-    <div>
+    <div
+      data-v-eb51caac=""
+    >
       小尺寸
     </div>
     <div
       class="t-progress"
+      data-v-eb51caac=""
     >
       <!---->
       <!---->
@@ -1574,11 +1694,14 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
         </svg>
       </div>
     </div>
-    <div>
+    <div
+      data-v-eb51caac=""
+    >
       大尺寸
     </div>
     <div
       class="t-progress"
+      data-v-eb51caac=""
     >
       <!---->
       <!---->
@@ -1623,14 +1746,21 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress Progress statusVue demo works fine 1`] = `
-<div>
-  <div>
-    <div>
+exports[`Progress > Progress statusVue demo works fine 1`] = `
+<div
+  data-v-1d49c9db=""
+>
+  <div
+    data-v-1d49c9db=""
+  >
+    <div
+      data-v-1d49c9db=""
+    >
       进度完成：
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <div
         class="t-progress--thin t-progress--status--success"
@@ -1667,6 +1797,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <div
@@ -1689,6 +1820,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <!---->
@@ -1742,12 +1874,17 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <div>
+  <div
+    data-v-1d49c9db=""
+  >
+    <div
+      data-v-1d49c9db=""
+    >
       进度状态出现重大错误（如下载的文件有损）：
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <div
         class="t-progress--thin t-progress--status--error"
@@ -1784,6 +1921,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <div
@@ -1806,6 +1944,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <!---->
@@ -1859,12 +1998,17 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <div>
+  <div
+    data-v-1d49c9db=""
+  >
+    <div
+      data-v-1d49c9db=""
+    >
       进度被中断（如失去网络连接）
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <div
         class="t-progress--thin t-progress--status--warning"
@@ -1901,6 +2045,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <div
@@ -1923,6 +2068,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <div
         class="t-progress--thin t-progress--status--warning"
@@ -1959,6 +2105,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
     </div>
     <div
       class="t-progress t-progress-domo-margin"
+      data-v-1d49c9db=""
     >
       <!---->
       <!---->
