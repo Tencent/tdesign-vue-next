@@ -43,10 +43,10 @@ export function expendClickEffect(
     const [value] = checked;
 
     // 非受控状态下更新状态
-    setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'checked', node.getModel());
+    setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'check', node.getModel());
 
     if (!checkStrictly) {
-      setVisible(false);
+      setVisible(false, {});
     }
   }
 }
@@ -82,13 +82,13 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
   }
 
   if (!multiple) {
-    setVisible(false);
+    setVisible(false, {});
   }
 
   const isSelectAll = treeNodes.every((item) => checked.indexOf(item.value) > -1);
 
   if (inputVal && isSelectAll) {
-    setVisible(false);
+    setVisible(false, {});
   }
 
   // 处理不同数据类型
@@ -102,7 +102,7 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
             .map((item) => item.value),
         );
 
-  setValue(resValue, 'checked', node.getModel());
+  setValue(resValue, 'check', node.getModel());
 }
 
 /**
@@ -112,7 +112,7 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
 export function closeIconClickEffect(cascaderContext: CascaderContextType) {
   const { setVisible, multiple, setExpend, setValue } = cascaderContext;
 
-  setVisible(false);
+  setVisible(false, {});
 
   // 手动设置的展开需要去除
   if (multiple) {
@@ -138,7 +138,7 @@ export function handleRemoveTagEffect(
   const res = newValue.splice(index, 1);
   const node = treeStore.getNodes(res[0])[0];
 
-  setValue(newValue, 'unchecked', node.getModel());
+  setValue(newValue, 'uncheck', node.getModel());
 
   const checked = node.setChecked(!node.isChecked());
   // 处理不同数据类型
@@ -152,7 +152,7 @@ export function handleRemoveTagEffect(
             .map((item) => item.value),
         );
 
-  setValue(resValue, 'unchecked', node.getModel());
+  setValue(resValue, 'uncheck', node.getModel());
   if (isFunction(onRemove)) {
     onRemove({ value: checked, node: node as any });
   }
