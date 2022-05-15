@@ -35,6 +35,7 @@ export default defineComponent({
   emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
 
   setup(props, { expose, slots }) {
+    const renderContent = useTNodeJSX();
     const { disabled } = toRefs(props);
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
@@ -47,8 +48,7 @@ export default defineComponent({
       reactive({
         ...toRefs(props),
         children,
-        disabled,
-        slots,
+        renderContent,
       }),
     );
 
@@ -135,8 +135,6 @@ export default defineComponent({
     };
 
     expose({ validate, submit, reset, clearValidate, setValidateMessage });
-
-    const renderContent = useTNodeJSX();
 
     return () => (
       <form

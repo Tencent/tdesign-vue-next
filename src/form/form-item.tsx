@@ -73,7 +73,7 @@ export default defineComponent({
     const needRequiredMark = computed(() => {
       const { requiredMark } = props;
       if (typeof requiredMark === 'boolean') return requiredMark;
-      const parentRequiredMark = form?.requiredMark === undefined ? global.value.requiredMark : form.requiredMark;
+      const parentRequiredMark = form?.requiredMark === undefined ? global.value.requiredMark : form?.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
       return Boolean(parentRequiredMark && isRequired);
     });
@@ -135,49 +135,24 @@ export default defineComponent({
       }
       return null;
     };
-    const getIcon = (
-      statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
-      slotStatusIcon: Slot,
-      props?: TdFormItemProps,
-    ): TNodeReturnValue => {
-      const resultIcon = (otherContent?: TNodeReturnValue) => (
-        <span class={CLASS_NAMES.value.status}>{otherContent}</span>
-      );
-      if (statusIcon === true) {
-        return getDefaultIcon();
-      }
-      if (typeof statusIcon === 'function') {
-        return resultIcon(statusIcon(h, props) as TNodeReturnValue);
-      }
-      if (typeof slotStatusIcon === 'function') {
-        return resultIcon(slotStatusIcon());
-      }
-      return null;
-    };
     const renderSuffixIcon = (): TNodeReturnValue => {
       const { statusIcon } = props;
       if (statusIcon === false) return;
 
-      // const slotStatusIcon = slots.statusIcon;
-      const parentStatusIcon = form?.statusIcon;
-      const parentSlotStatusIcon = form?.slots.statusIcon;
-
       let resultIcon: TNodeReturnValue = renderContent('statusIcon', {
         defaultNode: getDefaultIcon(),
       });
-      // let resultIcon: TNodeReturnValue = getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return <span className={CLASS_NAMES.value.status}>{resultIcon}</span>;
       if (resultIcon === false) return;
 
-      // TODO use renderContent   remove getIcon func
-      resultIcon = getIcon(parentStatusIcon, parentSlotStatusIcon);
+      resultIcon = form?.renderContent('statusIcon', { defaultNode: getDefaultIcon() });
       if (resultIcon) return resultIcon;
     };
     /** Suffix Icon END */
 
     /** Content Style */
     const errorClasses = computed(() => {
-      if (!form.showErrorMessage) return '';
+      if (!form?.showErrorMessage) return '';
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return props.successBorder
           ? [CLASS_NAMES.value.success, CLASS_NAMES.value.successBorder].join(' ')
@@ -244,7 +219,7 @@ export default defineComponent({
       }
     };
 
-    const errorMessages = computed<FormErrorMessage>(() => form.errorMessage ?? global.value.errorMessage);
+    const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? global.value.errorMessage);
     const innerRules = computed(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
@@ -336,7 +311,7 @@ export default defineComponent({
         helpVNode = <div class={CLASS_NAMES.value.help}>{props.help}</div>;
       }
       const list = errorList.value;
-      if (form.showErrorMessage && list?.[0]?.message) {
+      if (form?.showErrorMessage && list?.[0]?.message) {
         return <div class={CLASS_NAMES.value.extra}>{list[0].message}</div>;
       }
       if (successList.value.length) {
