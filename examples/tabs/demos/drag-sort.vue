@@ -19,6 +19,8 @@
 <script setup>
 import { ref, watch } from 'vue';
 
+const theme = ref('normal');
+
 const value = ref('first');
 
 const panelData = ref([
@@ -38,8 +40,11 @@ const panelData = ref([
     content: '选项卡2内容',
   },
 ]);
-const onDragend = (content) => {
-  // console.log(content);
+
+const onDragend = ({ currentIndex, current, targetIndex, target }) => {
+  [panelData.value[currentIndex], panelData.value[targetIndex]] = [
+    panelData.value[targetIndex],
+    panelData.value[currentIndex],
+  ];
 };
-const theme = ref('normal');
 </script>
