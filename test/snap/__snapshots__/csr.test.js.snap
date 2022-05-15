@@ -85439,12 +85439,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/base.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 12%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 12%;"
             tabindex="0"
           >
             
@@ -85481,12 +85481,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/base.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 40%; left: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 30%;"
             tabindex="0"
           >
             
@@ -85499,7 +85499,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/base.vue 1`] = `
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 70%;"
             tabindex="0"
           >
             
@@ -85544,13 +85544,13 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/disabled.vue 1`] =
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 12%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             disabled="true"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 12%;"
             tabindex="0"
           >
             
@@ -85589,13 +85589,13 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/disabled.vue 1`] =
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 40%; left: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             disabled="true"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 30%;"
             tabindex="0"
           >
             
@@ -85609,7 +85609,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/disabled.vue 1`] =
             class="t-slider__button-wrapper"
             disabled="true"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 70%;"
             tabindex="0"
           >
             
@@ -85653,12 +85653,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number.vue 1
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 12%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 12%;"
             tabindex="0"
           >
             
@@ -85771,12 +85771,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number.vue 1
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 40%; left: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 30%;"
             tabindex="0"
           >
             
@@ -85789,7 +85789,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number.vue 1
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 70%;"
             tabindex="0"
           >
             
@@ -85810,7 +85810,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number.vue 1
           class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
             type="button"
           >
             
@@ -85883,7 +85883,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number.vue 1
           class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
             type="button"
           >
             
@@ -85980,12 +85980,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number-verti
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 12%; bottom: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 12%;"
             tabindex="0"
           >
             
@@ -86099,12 +86099,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number-verti
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 40%; bottom: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 30%;"
             tabindex="0"
           >
             
@@ -86117,7 +86117,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number-verti
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 70%;"
             tabindex="0"
           >
             
@@ -86138,7 +86138,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number-verti
           class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
             type="button"
           >
             
@@ -86211,7 +86211,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/input-number-verti
           class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
             type="button"
           >
             
@@ -86307,12 +86307,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/marks.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 12%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 12%;"
             tabindex="0"
           >
             
@@ -86429,12 +86429,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/marks.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 40%; left: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 30%;"
             tabindex="0"
           >
             
@@ -86447,7 +86447,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/marks.vue 1`] = `
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 70%;"
             tabindex="0"
           >
             
@@ -86559,12 +86559,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/marks.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 10%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 10%;"
             tabindex="0"
           >
             
@@ -86660,12 +86660,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/min-and-max.vue 1`
         >
           <div
             class="t-slider__track"
-            style="width: -50%; left: 0%;"
+            style="width: 10%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: -50%;"
+            style="left: 10%;"
             tabindex="0"
           >
             
@@ -86734,12 +86734,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/min-and-max.vue 1`
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: -50%;"
+            style="width: 40%; left: 10%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: -50%;"
+            style="left: 10%;"
             tabindex="0"
           >
             
@@ -86752,7 +86752,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/min-and-max.vue 1`
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: -50%;"
+            style="left: 50%;"
             tabindex="0"
           >
             
@@ -86827,12 +86827,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/step.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 12%; left: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 12%;"
             tabindex="0"
           >
             
@@ -86870,12 +86870,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/step.vue 1`] = `
         >
           <div
             class="t-slider__track"
-            style="width: 0%; left: 0%;"
+            style="width: 40%; left: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 30%;"
             tabindex="0"
           >
             
@@ -86888,7 +86888,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/step.vue 1`] = `
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="left: 0%;"
+            style="left: 70%;"
             tabindex="0"
           >
             
@@ -86933,12 +86933,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical.vue 1`] =
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 12%; bottom: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 12%;"
             tabindex="0"
           >
             
@@ -86977,12 +86977,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical.vue 1`] =
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 40%; bottom: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 30%;"
             tabindex="0"
           >
             
@@ -86995,7 +86995,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical.vue 1`] =
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 70%;"
             tabindex="0"
           >
             
@@ -87041,12 +87041,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical-marks.vue
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 12%; bottom: 0%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 12%;"
             tabindex="0"
           >
             
@@ -87165,12 +87165,12 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical-marks.vue
         >
           <div
             class="t-slider__track"
-            style="height: 0%; bottom: 0%;"
+            style="height: 40%; bottom: 30%;"
           />
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 30%;"
             tabindex="0"
           >
             
@@ -87183,7 +87183,7 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical-marks.vue
           <div
             class="t-slider__button-wrapper"
             show-tooltip="true"
-            style="bottom: 0%;"
+            style="bottom: 70%;"
             tabindex="0"
           >
             
