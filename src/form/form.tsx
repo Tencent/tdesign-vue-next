@@ -71,7 +71,6 @@ export default defineComponent({
       if (!isArray(resArr)) return '';
       return resArr.filter((item) => !item.result)[0].message;
     };
-
     // 校验不通过时，滚动到第一个错误表单
     const scrollTo = (selector: string) => {
       const dom = formRef.value?.querySelector(selector);
@@ -83,7 +82,6 @@ export default defineComponent({
       if (!fields || !Array.isArray(fields)) return true;
       return fields.indexOf(name) !== -1;
     };
-
     const validate = async (param?: FormValidateParams): Promise<Result> => {
       const { fields, trigger = 'all' } = param || {};
       const list = children.value
@@ -103,7 +101,6 @@ export default defineComponent({
       });
       return result;
     };
-
     const submit = (e?: FormSubmitEvent) => {
       if (props.preventSubmitDefault) {
         e?.preventDefault();
@@ -128,7 +125,6 @@ export default defineComponent({
         }
       });
     };
-    // TODO: setValidateMessage
     const setValidateMessage = (validateMessage: FormValidateMessage<FormData>) => {
       const keys = Object.keys(validateMessage);
       if (!keys.length) return;
