@@ -20,7 +20,7 @@ import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
-import { getStopStyle } from './util/common';
+import { formatSlderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
 
@@ -56,8 +56,8 @@ export default defineComponent({
       prevValue: 0 as SliderValue,
       showSteps: false,
     });
-    const firstValue = ref(0);
-    const secondValue = ref(0);
+    const firstValue = ref(formatSlderValue(sliderValue.value, 'first'));
+    const secondValue = ref(formatSlderValue(sliderValue.value, 'second'));
     const dragging = ref(false);
     const sliderSize = ref(1);
 
