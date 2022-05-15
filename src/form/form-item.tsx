@@ -306,9 +306,13 @@ export default defineComponent({
       } as FormItemValidateResult<T>;
     }
 
-    // TODO
-    const setValidateMessage = (validateMessage: FormItemValidateMessage) => {
-      errorList.value = [{ ...validateMessage, result: false }];
+    const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
+      if (!validateMessage && !Array.isArray(validateMessage)) return;
+      if (validateMessage.length === 0) {
+        errorList.value = [];
+        verifyStatus.value = ValidateStatus.SUCCESS;
+      }
+      errorList.value = validateMessage.map((item) => ({ ...item, result: false }));
       verifyStatus.value = ValidateStatus.FAIL;
     };
 

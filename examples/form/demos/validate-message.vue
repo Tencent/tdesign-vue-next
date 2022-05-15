@@ -18,7 +18,7 @@
       <t-form-item label="密码" name="password">
         <t-input v-model="formData.password" type="password"></t-input>
       </t-form-item>
-      <t-form-item style="margin-left: 100px">
+      <t-form-item>
         <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
         <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
         <t-button theme="default" variant="base" @click="handleValidateMessage">设置校验信息提示</t-button>
@@ -26,8 +26,9 @@
     </t-form>
   </div>
 </template>
-<script>
-/* eslint-disable no-template-curly-in-string */
+<script setup>
+import { ref, onMounted } from 'vue';
+
 const INITIAL_DATA = {
   account: '',
   description: '',
@@ -49,43 +50,30 @@ const validateMessage = {
   ],
 };
 
-export default {
-  data() {
-    return {
-      formData: { ...INITIAL_DATA },
-      validateMessage,
-      rules: {
-        account: [{ required: true }, { min: 2 }, { max: 10, type: 'warning' }],
-        description: [{ validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' }],
-        password: [{ required: true }, { len: 8, message: '请输入 8 位密码' }],
-      },
-    };
-  },
-  mounted() {
-    this.$refs.form.setValidateMessage(validateMessage);
-  },
-  methods: {
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError }) {
-      if (validateResult === true) {
-        this.$message.success('提交成功');
-      } else {
-        console.log('Errors: ', validateResult);
-        this.$message.warning(firstError);
-      }
-    },
-    handleValidateMessage() {
-      this.$message.success('设置表单校验信息提示成功');
-      this.$refs.form.setValidateMessage(validateMessage);
-    },
-  },
+const formData = ref({ ...INITIAL_DATA });
+const rules = {
+  account: [{ required: true }, { min: 2 }, { max: 10, type: 'warning' }],
+  description: [{ validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' }],
+  password: [{ required: true }, { len: 8, message: '请输入 8 位密码' }],
+};
+const form = ref(null);
+onMounted(() => {
+  form.value.setValidateMessage(validateMessage);
+});
+
+const onReset = () => {
+  this.$message.success('重置成功');
+};
+const onSubmit = ({ validateResult, firstError }) => {
+  if (validateResult === true) {
+    this.$message.success('提交成功');
+  } else {
+    console.log('Errors: ', validateResult);
+    this.$message.warning(firstError);
+  }
+};
+const handleValidateMessage = () => {
+  this.$message.success('设置表单校验信息提示成功');
+  this.$refs.form.setValidateMessage(validateMessage);
 };
 </script>
-
-<style scoped>
-.demo-select-base {
-  width: 300px;
-}
-</style>
