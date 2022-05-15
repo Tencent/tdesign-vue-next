@@ -69,10 +69,6 @@ export interface TdTabsProps {
    * 删除选项卡时触发
    */
   onRemove?: (options: { value: TabValue; index: number; e: MouseEvent }) => void;
-  /**
-   * 选项卡拖拽结束时触发
-   */
-  onDragSort?: (context: TabsDragSortContext) => void;
 }
 
 export interface TdTabPanelProps {
