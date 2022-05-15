@@ -56604,7 +56604,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
       data-v-01218810=""
     >
       <div
-        class="t-form__label t-form__label--right"
+        class="t-form__label t-form__label--required t-form__label--right"
         style="width: 100px;"
       >
         <label
