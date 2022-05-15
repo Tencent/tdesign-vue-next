@@ -144,7 +144,7 @@ export default defineComponent({
 
     /** Content Style */
     const errorClasses = computed(() => {
-      if (!form?.showErrorMessage) return '';
+      if (!showErrorMessage.value) return '';
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return props.successBorder
           ? [CLASS_NAMES.value.success, CLASS_NAMES.value.successBorder].join(' ')
@@ -296,13 +296,18 @@ export default defineComponent({
       { deep: true },
     );
 
+    const showErrorMessage = computed(() => {
+      if (typeof props.showErrorMessage === 'boolean') return props.showErrorMessage;
+      return form?.showErrorMessage;
+    });
+
     const renderTipsInfo = (): VNode => {
       let helpVNode: VNode = <div class={CLASS_NAMES.value.help}></div>;
       if (props.help) {
         helpVNode = <div class={CLASS_NAMES.value.help}>{props.help}</div>;
       }
       const list = errorList.value;
-      if (form?.showErrorMessage && list?.[0]?.message) {
+      if (showErrorMessage.value && list?.[0]?.message) {
         return <div class={CLASS_NAMES.value.extra}>{list[0].message}</div>;
       }
       if (successList.value.length) {
