@@ -188,8 +188,8 @@ export function scrollTo(target: number, opt: ScrollTopOptions): Promise<ScrollT
       const nextScrollTop = easing(Math.min(time, duration), scrollTop, target, duration);
       if (isWindow(container)) {
         (container as Window).scrollTo(window.pageXOffset, nextScrollTop);
-      } else if (container instanceof HTMLDocument || container.constructor.name === 'HTMLDocument') {
-        (container as HTMLDocument).documentElement.scrollTop = nextScrollTop;
+      } else if (container instanceof Document || container.constructor.name === 'HTMLDocument') {
+        (container as Document).documentElement.scrollTop = nextScrollTop;
       } else {
         (container as HTMLElement).scrollTop = nextScrollTop;
       }
