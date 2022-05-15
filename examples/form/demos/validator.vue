@@ -14,6 +14,9 @@
       <t-form-item label="邮箱" name="email">
         <t-input v-model="formData.email"></t-input>
       </t-form-item>
+      <t-form-item label="年龄" name="age">
+        <t-input-number v-model="formData.age" />
+      </t-form-item>
       <t-form-item label="性别" name="gender">
         <t-radio-group v-model="formData.gender">
           <t-radio value="male">男</t-radio>
@@ -62,6 +65,10 @@ const rules = {
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
   email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
+  age: [
+    { required: true, message: '年龄必填', type: 'error' },
+    { number: true, message: '请输入数字', type: 'warning' },
+  ],
   gender: [{ required: true, message: '性别必填', type: 'warning' }],
   course: [{ required: true, message: '课程必填', type: 'warning' }],
   'content.url': [
@@ -80,6 +87,7 @@ const INITIAL_DATA = {
   account: '',
   password: '',
   email: '',
+  age: undefined,
   gender: '',
   date: '',
   content: {
