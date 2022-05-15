@@ -1,4 +1,3 @@
-export * from './event';
 export * from './icon';
 export * from './slot';
 export * from './tnode';

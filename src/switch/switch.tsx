@@ -6,12 +6,12 @@ import { TNodeReturnValue } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
-  emits: [UPDATE_MODEL],
+
   setup(props, { slots }) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('switch');

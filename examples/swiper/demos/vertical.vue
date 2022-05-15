@@ -1,17 +1,24 @@
 <template>
-  <t-swiper direction="vertical">
-    <t-swiper-item>
-      <t-alert theme="success" message="【到期提醒】" />
-    </t-swiper-item>
-    <t-swiper-item>
-      <t-alert theme="info" message="【到期提醒】" />
-    </t-swiper-item>
-    <t-swiper-item>
-      <t-alert theme="warning" message="【到期提醒】" />
-    </t-swiper-item>
-    <t-swiper-item>
-      <t-alert theme="error" message="【到期提醒】" />
-    </t-swiper-item>
-    <div>这是要被忽略的</div>
-  </t-swiper>
+  <div class="tdesign-demo-block--swiper-new">
+    <t-swiper direction="vertical" :navigation="{ showSlideBtn: 'never' }" :height="280" :autoplay="false">
+      <t-swiper-item>
+        <div class="demo-item">1</div>
+      </t-swiper-item>
+      <t-swiper-item>
+        <div class="demo-item">2</div>
+      </t-swiper-item>
+      <t-swiper-item>
+        <div class="demo-item">3</div>
+      </t-swiper-item>
+      <t-swiper-item>
+        <div class="demo-item">4</div>
+      </t-swiper-item>
+      <t-swiper-item>
+        <div class="demo-item">5</div>
+      </t-swiper-item>
+      <t-swiper-item>
+        <div class="demo-item">6</div>
+      </t-swiper-item>
+    </t-swiper>
+  </div>
 </template>

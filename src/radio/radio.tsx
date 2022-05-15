@@ -6,7 +6,7 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
@@ -23,11 +23,16 @@ export default defineComponent({
   name: 'TRadio',
   inheritAttrs: false,
   props: { ...props },
-  emits: [UPDATE_MODEL],
 
   setup(props, { attrs }) {
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
     const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
 
     const radioGroup = inject(RadioGroupInjectionKey, undefined);

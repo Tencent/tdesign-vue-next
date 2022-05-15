@@ -26,9 +26,20 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
 
   const isError = ref(false);
   const inputting = ref(false);
+  const filterValue = ref(null);
 
-  const { digitsNum, innerValue, filterValue, handleAction, clearFilterValue, handleReduce, handleAdd, userInput } =
-    useInputNumberAction(COMPONENT_NAME, props, isError);
+  const {
+    digitsNum,
+    innerValue,
+    handleAction,
+    clearFilterValue,
+    handleReduce,
+    handleAdd,
+    userInput,
+    addClasses,
+    reduceClasses,
+    handleInput,
+  } = useInputNumberAction(COMPONENT_NAME, props, isError, filterValue);
   const inputNumberTools = useInputNumberTools(props, digitsNum, isError);
   const keyboardEvents = useKeyboardEvents(props, innerValue);
 
@@ -126,6 +137,8 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
     inputEvents,
     inputAttrs,
     displayValue,
-    isError,
+    addClasses,
+    reduceClasses,
+    handleInput,
   };
 }

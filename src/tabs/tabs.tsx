@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, provide, computed, Ref, toRefs } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
@@ -34,7 +34,7 @@ export default defineComponent({
 
     // methods
     const onTabAdd = (context: { e: MouseEvent }) => {
-      props.onAdd({ e: context.e });
+      props.onAdd?.({ e: context.e });
     };
     const onTabChange = (value: TabValue) => {
       setTabValue(value);

@@ -142,7 +142,7 @@ export default defineComponent({
     const defaultFilterIcon = this.t(this.global.filterIcon) || <FilterIcon />;
     return (
       <Popup
-        attach={this.primaryTableElement ? () => this.primaryTableElement : undefined}
+        attach={this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined}
         visible={this.filterPopupVisible}
         destroyOnClose
         trigger="click"

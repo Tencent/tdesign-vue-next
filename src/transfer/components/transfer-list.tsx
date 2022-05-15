@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType, ref, computed, watch } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -8,7 +8,7 @@ import {
   TransferListType,
   TransferItemOption,
 } from '../interface';
-import { PageInfo, TdPaginationProps } from '../../pagination';
+import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
@@ -282,7 +282,7 @@ export default defineComponent({
           </div>
           {props.pagination && pageSize.value > 0 && pageTotal.value > 0 && (
             <div class={`${classPrefix.value}-transfer__list-pagination`}>
-              <t-pagination {...paginationProps.value} onChange={handlePaginationChange} />
+              <Pagination {...paginationProps.value} onChange={handlePaginationChange} />
             </div>
           )}
           {renderFooter()}

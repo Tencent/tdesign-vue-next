@@ -8,6 +8,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 export default defineComponent({
   name: 'TCollapse',
   props,
+
   setup(props: TdCollapseProps, context) {
     const componentName = usePrefixClass('collapse');
     const borderlessClass = usePrefixClass('-border-less');

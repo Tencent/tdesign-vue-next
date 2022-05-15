@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #selectInput="{ configProps }"
-      ><t-select-input panel="暂无数据" tips="这是 tips 文本信息" v-bind="configProps"
+      ><t-select-input panel="暂无数据" value="" placeholder="请输入" tips="这是 tips 文本信息" v-bind="configProps"
     /></template>
   </base-usage>
 </template>
@@ -16,7 +16,8 @@ const configList = ref(configJson);
 const panelList = [{ label: 'selectInput', value: 'selectInput' }];
 
 const usageCodeMap = {
-  selectInput: '<t-select-input panel="暂无数据" tips="这是 tips 文本信息" v-bind="configProps" />',
+  selectInput:
+    '<t-select-input panel="暂无数据" value="" placeholder="请输入" tips="这是 tips 文本信息" v-bind="configProps" />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

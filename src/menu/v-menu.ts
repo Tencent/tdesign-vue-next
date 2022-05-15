@@ -1,4 +1,4 @@
-import { VNode, Slot } from 'vue';
+import { ref, Slot } from 'vue';
 
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
@@ -51,7 +51,7 @@ export default class VMenu {
 
   cache: Set<VMenuData> = new Set();
 
-  isMutex = false;
+  isMutex = ref(false);
 
   expandValues: Set<MenuValue> = null;
 
@@ -111,7 +111,7 @@ export default class VMenu {
 
     this.expandValues.add(val);
 
-    if (!this.isMutex) {
+    if (!this.isMutex.value) {
       return [...this.expandValues];
     }
 

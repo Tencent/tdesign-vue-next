@@ -16,12 +16,13 @@ import isString from 'lodash/isString';
 import pick from 'lodash/pick';
 import get from 'lodash/get';
 import { formatRowAttributes, formatRowClassNames } from './utils';
-import { getRowFixedStyles, getColumnFixedStyles, RowAndColFixedPosition } from './hooks/useFixed';
+import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
 import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, PrimaryTableCellParams } from './type';
 import baseTableProps from './base-table-props';
 import useLazyLoad from './hooks/useLazyLoad';
+import { RowAndColFixedPosition } from './interface';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;

@@ -14,20 +14,7 @@ const localProps = {
     },
   },
 };
-interface LocalTAnchor {
-  registerLink: Function;
-  unregisterLink: Function;
-  handleScrollTo: Function;
-  handleLinkClick: Function;
-  active: string;
-}
-const localTAnchorOrigin: LocalTAnchor = {
-  registerLink: Function,
-  unregisterLink: Function,
-  handleScrollTo: Function,
-  handleLinkClick: Function,
-  active: '',
-};
+
 export default defineComponent({
   name: 'TAnchorItem',
   inject: {

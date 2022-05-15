@@ -25,13 +25,13 @@
           <label>是否显示“年份选择”控件：</label>
           <t-switch v-model="controllerConfig.year.visible" />
           <label>是否禁用“年份选择”控件：</label>
-          <t-switch v-model="controllerConfig.year.selecteProps.disabled" />
+          <t-switch v-model="controllerConfig.year.selectProps.disabled" />
         </p>
         <p>
           <label>是否显示“月份选择”控件：</label>
           <t-switch v-model="controllerConfig.month.visible" />
           <label>是否禁用“月份选择”控件：</label>
-          <t-switch v-model="controllerConfig.month.selecteProps.disabled" />
+          <t-switch v-model="controllerConfig.month.selectProps.disabled" />
         </p>
         <p>
           <label>是否禁用“隐藏周末”控件：</label>
@@ -64,7 +64,7 @@ const controllerConfig = ref({
   // 年份选择框组件相关设置
   year: {
     visible: true, // 是否显示
-    selecteProps: {
+    selectProps: {
       // 用于透传props给该select组件
       disabled: false,
       size: 'small',
@@ -73,7 +73,7 @@ const controllerConfig = ref({
   // 月份选择框组件相关设置
   month: {
     visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
-    selecteProps: {
+    selectProps: {
       // 用于透传props给该select组件
       disabled: false,
       size: 'small',

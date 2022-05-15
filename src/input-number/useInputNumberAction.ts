@@ -10,9 +10,9 @@ export default function useInputNumberAction(
   COMPONENT_NAME: Ref<string>,
   props: TdInputNumberProps,
   isError: Ref<boolean>,
+  filterValue: Ref<null | string>,
 ) {
   const { STATUS } = useCommonClassName();
-  const filterValue = ref(null);
   const userInput = ref(null);
   const { value, modelValue } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);

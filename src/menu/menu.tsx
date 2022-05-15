@@ -1,5 +1,4 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted } from 'vue';
-import { useEmitEvent } from '../hooks/event';
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
@@ -12,10 +11,8 @@ import { usePrefixClass } from '../hooks/useConfig';
 export default defineComponent({
   name: 'TMenu',
   props: { ...props },
-  emits: ['collapsed', 'change', 'expand'],
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
-    const emitEvent = useEmitEvent();
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -48,10 +45,10 @@ export default defineComponent({
 
     watchEffect(() => {
       mode.value = props.collapsed ? 'popup' : 'normal';
-      emitEvent('collapsed', mode.value);
+      props.onCollapsed?.({ collapsed: props.collapsed });
     });
 
-    const vMenu = new VMenu({ isMutex: isMutex.value, expandValues: expandValues.value });
+    const vMenu = new VMenu({ isMutex, expandValues: expandValues.value });
     provide<TdMenuInterface>('TdMenu', {
       activeValue,
       activeValues,
@@ -62,7 +59,7 @@ export default defineComponent({
       vMenu,
       select: (value: MenuValue) => {
         activeValue.value = value;
-        emitEvent('change', value);
+        props.onChange?.(value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {
@@ -76,7 +73,7 @@ export default defineComponent({
           const index = expandValues.value.indexOf(value);
           expandValues.value.splice(index, 1);
         }
-        emitEvent('expand', expandValues.value);
+        props.onExpand?.(expandValues.value);
       },
     });
 

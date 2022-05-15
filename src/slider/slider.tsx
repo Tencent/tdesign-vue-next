@@ -21,7 +21,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { getStopStyle } from './util/common';
-import { sliderPropsInjectKey } from './util/contanst';
+import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
 
 interface SliderButtonType {
@@ -39,6 +39,7 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
+
   setup(props, ctx) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');

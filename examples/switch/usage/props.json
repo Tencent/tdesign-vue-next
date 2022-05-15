@@ -29,11 +29,5 @@
         "value": "large"
       }
     ]
-  },
-  {
-    "name": "value",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

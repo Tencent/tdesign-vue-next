@@ -36,10 +36,6 @@ export default function useDragSort(props: TdPrimaryTableProps) {
     log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
   }
 
-  if (dragSort.value === 'col') {
-    log.error('Table', "dragSort='col' is going to be used as column drag, please use dragSort='row-handler' instead.");
-  }
-
   watch(
     [data, rowKey],
     ([data, rowKey]) => {

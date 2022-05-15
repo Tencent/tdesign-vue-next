@@ -19,13 +19,12 @@ import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
 
-export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
+export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
     const col = columns[i];
-    col.colKey && keys.push(col.colKey);
+    col.colKey && keys.add(col.colKey);
     if (col.children?.length) {
-      // eslint-disable-next-line no-param-reassign
-      keys = keys.concat(getColumnKeys(col.children, [...keys]));
+      getColumnKeys(col.children, keys);
     }
   }
   return keys;
@@ -37,11 +36,11 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const dialogInstance = ref<DialogInstance>(null);
 
   const enabledColKeys = computed(() => {
-    const arr = (columnController.value?.fields || [...new Set(getColumnKeys(columns.value))] || []).filter((v) => v);
+    const arr = (columnController.value?.fields || [...getColumnKeys(columns.value)] || []).filter((v) => v);
     return new Set(arr);
   });
 
-  const keys = [...new Set(getColumnKeys(columns.value))];
+  const keys = [...getColumnKeys(columns.value)];
 
   // 确认后的列配置
   const [tDisplayColumns, setTDisplayColumns] = useDefaultValue(

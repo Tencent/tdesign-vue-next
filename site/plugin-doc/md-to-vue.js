@@ -168,7 +168,7 @@ function customRender({ source, file, md }) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: path.resolve(__dirname, `../../examples/${componentName}/usage/index.vue`),
+      demoPath: path.resolve(__dirname, `../../examples/${componentName}/usage/index.vue`).replace(/\\/g, '/'),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;

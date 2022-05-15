@@ -281,9 +281,10 @@ export default defineComponent({
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
             ref="tInput"
             onFocus={this.handleTInputFocus}
-          >
-            <time-icon slot="suffix-icon"></time-icon>
-          </t-input>
+            v-slots={{
+              'suffix-icon': () => <time-icon />,
+            }}
+          ></t-input>
           <input-items
             size={this.size}
             dayjs={this.inputTime}

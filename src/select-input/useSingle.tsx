@@ -1,4 +1,4 @@
-import { SetupContext, ref, watch, computed, toRefs } from 'vue';
+import { SetupContext, ref, computed, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import { SelectInputCommonProperties } from './interface';

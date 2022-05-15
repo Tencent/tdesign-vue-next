@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
-import { useListener } from '../hooks/event';
+import { useListener } from '../hooks/useListener';
 
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];
@@ -110,7 +110,7 @@ export function parseFlex(flex: TdColProps['flex']): string {
   if (typeof flex === 'number') {
     return `${flex} ${flex} 0`;
   }
-  // 判断fle是否
+  // 判断是否是flex
   if (/^\d+(\.\d+)?(px|r?em|%)$/.test(flex)) {
     return `0 0 ${flex}`;
   }

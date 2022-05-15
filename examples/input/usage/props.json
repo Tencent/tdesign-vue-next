@@ -76,11 +76,11 @@
   {
     "name": "status",
     "type": "enum",
-    "defaultValue": "default",
+    "defaultValue": "",
     "options": [
       {
         "label": "default",
-        "value": "default"
+        "value": ""
       },
       {
         "label": "success",

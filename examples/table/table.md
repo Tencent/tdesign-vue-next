@@ -5,6 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+allowResizeColumnWidth | Boolean | false | 是否允许调整列宽 | N
 bordered | Boolean | false | 是否显示表格边框 | N
 bottomContent | String / Slot / Function | - | 表格底部内容，可以用于自定义列设置等。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 columns | Array | [] | 列配置，泛型 T 指表格数据类型。TS 类型：`Array<BaseTableCol<T>>` | N
@@ -14,15 +15,17 @@ empty | String / Slot / Function | '' | 空表格呈现样式，支持全局配�
 firstFullRow | String / Slot / Function | - | 首行内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fixedRows | Array | - | 固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行。TS 类型：`Array<number>` | N
 footData | Array | [] | 表尾数据源，泛型 T 指表格数据类型。TS 类型：`Array<T>` | N
+footerAffixedBottom | Boolean | false | 表尾吸底 | N
+footerAffixProps | Object | - | 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`AffixProps` | N
 headerAffixedTop | Boolean | false | 表头吸顶 | N
 headerAffixProps | Object | - | 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`AffixProps`，[Affix API Documents](./affix?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 height | String / Number | - | 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` | N
 hover | Boolean | false | 是否显示鼠标悬浮状态 | N
 lastFullRow | String / Slot / Function | - | 尾行内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-loading | Boolean / Slot / Function | false | 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+loading | Boolean / Slot / Function | undefined | 加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loadingProps | Object | - | 透传加载组件全部属性。TS 类型：`LoadingProps`，[Loading API Documents](./loading?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 maxHeight | String / Number | - | 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px | N
-pagination | Object | - | 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`。。TS 类型：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+pagination | Object | - | 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`。TS 类型：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowAttributes | Object / Array / Function | - | HTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]。TS 类型：`TableRowAttributes<T>` `type TableRowAttributes<T> = HTMLElementAttributes | ((params: { row: T; rowIndex: number; type: 'body' | 'foot' }) => HTMLElementAttributes) | Array<TableRowAttributes<T>>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowClassName | String / Object / Array / Function | - | 行类名，泛型 T 指表格数据类型。`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body`  表示类名作用于 `tbody` 中的元素；`params.type=body` 表示类名作用于 `tfoot` 中的元素。TS 类型：`ClassName | ((params: RowClassNameParams<T>) => ClassName)` `interface RowClassNameParams<T> { row: T; rowIndex: number; type?: 'body' | 'foot' }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowKey | String | - | 必需。使用 rowKey 唯一标识一行数据 | Y
@@ -74,7 +77,8 @@ cell | String / Function | - | 自定义单元格渲染。值类型为 Function 
 children | Array | - | 用于多级表头，泛型 T 指表格数据类型。TS 类型：`Array<BaseTableCol<T>>` | N
 className | String / Object / Array / Function | - | 列类名，值类型是 Function 使用返回值作为列类名；值类型不为 Function 时，值用于整列类名（含表头）。泛型 T 指表格数据类型。TS 类型：`ClassName | ((context: CellData<T>) => ClassName)` `interface CellData<T> extends BaseTableCellParams<T> { type: 'th' | 'td' }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 colKey | String | - | 渲染列所需字段 | N
-ellipsis | Boolean / Object / Slot / Function | false | 内容超出时，是否显示省略号。值为 `true`，则浮层默认显示单元格内容；值类型为 `Function` 则自定义浮层显示内容；值类型为 `Object`，则自动透传属性到 Popup 组件。TS 类型：`boolean | TNode<BaseTableCellParams<T>> | PopupProps`，[Popup API Documents](./popup?tab=api)。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+ellipsis | Boolean / Object / Slot / Function | false | 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性。TS 类型：`boolean | TNode<BaseTableCellParams<T>> | PopupProps`，[Popup API Documents](./popup?tab=api)。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+ellipsisTitle | Boolean / Object / Slot / Function | undefined | 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性。TS 类型：`boolean | TNode<BaseTableColParams<T>> | PopupProps` `interface BaseTableColParams<T> { col: BaseTableCol<T>; colIndex: number }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 fixed | String | left | 固定列显示位置。可选项：left/right | N
 foot | String / Function | - | 自定义表尾表尾。值类型为 Function 表示以函数形式渲染表尾内容。值类型为 string 表示使用插槽渲染，插槽名称为 `foot` 值。TS 类型：`string | TNode<{ col: BaseTableCol; colIndex: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 render | Function | - | 自定义表头或单元格，泛型 T 指表格数据类型。TS 类型：`TNode<BaseTableRenderParams<T>>` `interface BaseTableRenderParams<T> extends BaseTableCellParams<T> { type: RenderType }` `type RenderType = 'cell' | 'title'`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
@@ -92,17 +96,18 @@ defaultColumnControllerVisible | Boolean | undefined | 是否显示列配置弹�
 columns | Array | [] | 列配置，泛型 T 指表格数据类型。TS 类型：`Array<PrimaryTableCol<T>>` | N
 displayColumns | Array | - | 列配置功能中，当前显示的列。支持语法糖 `v-model:displayColumns`。TS 类型：`CheckboxGroupValue` | N
 defaultDisplayColumns | Array | - | 列配置功能中，当前显示的列。非受控属性。TS 类型：`CheckboxGroupValue` | N
-dragSort | String | - | 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用。。可选项：row/row-handler/col/drag-col | N
+dragSort | String | - | 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽。`drag-col` 已废弃，请勿使用。可选项：row/row-handler/col/drag-col | N
 dragSortOptions | Object | - | 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)。TS 类型：`SortableOptions` | N
 expandedRow | String / Slot / Function | - | 展开行内容，泛型 T 指表格数据类型。TS 类型：`TNode<TableExpandedRowParams<T>>` `interface TableExpandedRowParams<T> { row: T; index: number; columns: PrimaryTableCol<T>[] | BaseTableCol<T>[] }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 expandedRowKeys | Array | [] | 展开行。支持语法糖 `v-model:expandedRowKeys`。TS 类型：`Array<string | number>` | N
 defaultExpandedRowKeys | Array | [] | 展开行。非受控属性。TS 类型：`Array<string | number>` | N
-expandIcon | Boolean / Slot / Function | true | 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`。TS 类型：`boolean | TNode<ExpandArrowRenderParams<T>>` `interface ExpandArrowRenderParams<T> { row: T; index: number }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+expandIcon | Boolean / Slot / Function | true | 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`。TS 类型：`boolean | TNode<ExpandArrowRenderParams<T>>` `interface ExpandArrowRenderParams<T> { row: T; index: number }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 expandOnRowClick | Boolean | - | 是否允许点击行展开 | N
 filterIcon | Slot / Function | - | 自定义过滤图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filterRow | String / Slot / Function | - | 自定义过滤状态行及清空筛选等。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filterValue | Object | - | 过滤数据的值。支持语法糖 `v-model:filterValue`。TS 类型：`FilterValue` `type FilterValue = { [key: string]: any }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 defaultFilterValue | Object | - | 过滤数据的值。非受控属性。TS 类型：`FilterValue` `type FilterValue = { [key: string]: any }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+hideSortTips | Boolean | - | 隐藏排序文本提示，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `false` | N
 multipleSort | Boolean | false | 是否支持多列排序 | N
 selectedRowKeys | Array | - | 选中的行，控制属性。支持语法糖 `v-model:selectedRowKeys`。TS 类型：`Array<string | number>` | N
 defaultSelectedRowKeys | Array | - | 选中的行，控制属性。非受控属性。TS 类型：`Array<string | number>` | N
@@ -110,7 +115,7 @@ sort | Object / Array | - | 排序控制。sortBy 排序字段；descending 是�
 defaultSort | Object / Array | - | 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序。非受控属性。TS 类型：`TableSort` `type TableSort = SortInfo | Array<SortInfo>` `interface SortInfo { sortBy: string; descending: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 sortIcon | Slot / Function | - | 自定义排序图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 sortOnRowDraggable | Boolean | false | 已废弃。允许表格行拖拽时排序。请更为使用 `dragSort="row"` | N
-`Omit<BaseTableProps<T>, 'columns' | 'onCellClick'>` | - | - | 继承 `Omit<BaseTableProps<T>, 'columns' | 'onCellClick'>` 中的全部 API | N
+`Omit<BaseTableProps<T>, 'columns' | 'onCellClick'>` | \- | - | 继承 `Omit<BaseTableProps<T>, 'columns' | 'onCellClick'>` 中的全部 API | N
 onAsyncLoadingClick | Function |  | TS 类型：`(context: { status: 'loading' | 'load-more' }) => void`<br/>异步加载区域被点击时触发 | N
 onCellClick | Function |  | TS 类型：`(context: PrimaryTableCellEventContext<T>) => void`<br/>单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface PrimaryTableCellEventContext<T> { row: T; col: PrimaryTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onChange | Function |  | TS 类型：`(data: TableChangeData, context: TableChangeContext<T>) => void`<br/>分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型，`currentData` 表示变化后的数据。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableChangeData { sorter?: TableSort; filter?: FilterValue; pagination?: PaginationProps }`<br/><br/>`interface TableChangeContext<T> { trigger: TableChangeTrigger; currentData?: T[] }`<br/><br/>`type TableChangeTrigger = 'filter' | 'sorter' | 'pagination'`<br/> | N
@@ -145,7 +150,6 @@ sort-change | `(sort: TableSort, options: SortOptions<T>)` | 排序发生变化�
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-addToColumnController | Boolean | true | 【开发中】是否允许用户选择是否显示当前列，表格属性 `showColumnController` 为真时有效 | N
 cell | String / Function | - | 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型。TS 类型：`string | TNode<PrimaryTableCellParams<T>>` `interface PrimaryTableCellParams<T> { row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 checkProps | Object / Function | - | 透传参数，`colKey` 值为 `row-select` 时，配置有效。具体定义参考 Checkbox 组件 和 Radio 组件。泛型 T 指表格数据类型。TS 类型：`CheckProps<T>` `type CheckProps<T> = CheckboxProps | RadioProps | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps)` `import { CheckboxProps } from '@Checkbox'`，[Radio API Documents](./radio?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 children | Array | - | 用于多级表头，泛型 T 指表格数据类型。TS 类型：`Array<PrimaryTableCol<T>>` | N
@@ -157,14 +161,15 @@ sorter | Boolean / Function | false | 该列是否支持排序。值为 true 表
 sortType | String | all | 当前列支持排序的方式，desc 表示当前列只能进行降序排列；asc 表示当前列只能进行升序排列；all 表示当前列既可升序排列，又可以降序排列。可选项：desc/asc/all。TS 类型：`SortType` `type SortType = 'desc' | 'asc' | 'all'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 title | String / Function | - | 自定义表头渲染。值类型为 Function 表示以函数形式渲染表头。值类型为 string 表示使用插槽渲染，插槽名称为 title 的值。优先级高于 render。TS 类型：`string | TNode<{ col: PrimaryTableCol; colIndex: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 type | String | single | `colKey` 值为 `row-select` 时表示行选中列，有两种模式：单选和多选。 `type=single` 表示单选，`type=multiple` 表示多选。可选项：single/multiple | N
-`Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'>` | - | - | 继承 `Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'>` 中的全部 API | N
+`Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'>` | \- | - | 继承 `Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'>` 中的全部 API | N
 
 ### EnhancedTable Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 tree | Object | - | 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true。TS 类型：`TableTreeConfig` `interface TableTreeConfig { indent?: number; treeNodeColumnIndex?: number; childrenKey?: 'children'; checkStrictly?: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
-`PrimaryTableProps<T>` | - | - | 继承 `PrimaryTableProps<T>` 中的全部 API | N
+treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' | 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+`PrimaryTableProps<T>` | \- | - | 继承 `PrimaryTableProps<T>` 中的全部 API | N
 onTreeExpandChange | Function |  | TS 类型：`(context: TableTreeExpandChangeContext<T>) => void`<br/>树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T> }`<br/> | N
 
 ### EnhancedTable Events
@@ -178,9 +183,9 @@ tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 树形结构
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
 getData | `(key: TableRowValue)` | `TableRowState<T>` | 必需。树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type TableRowValue = string | number`<br/>
-remove | `(key: TableRowValue)` | - | 必需。树形结构中，移除指定节点
-setData | `(key: TableRowValue, newRowData: T)` | - | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
-toggleExpandData | `(p: { row: T,  rowIndex: number})` | - | 必需。展开或收起树形行
+remove | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点
+setData | `(key: TableRowValue, newRowData: T)` | \- | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
+toggleExpandData | `(p: { row: T,  rowIndex: number})` | \- | 必需。展开或收起树形行
 
 ### TableRowState
 
@@ -190,9 +195,9 @@ disabled | Boolean | false | 表格行是否禁用选中 | N
 expandChildrenLength | Number | - | 当前节点展开的子节点数量 | N
 expanded | Boolean | false | 必需。表格行是否展开 | Y
 level | Number | - | 当前节点层级。TS 类型：`number` | N
-parent | - | - | 父节点。TS 类型：`TableRowState<T>` | N
+parent | \- | - | 父节点。TS 类型：`TableRowState<T>` | N
 path | Array | - | 当前节点路径。TS 类型：`TableRowState<T>[]` | N
-row | - | - | 必需。原始表格行数据。TS 类型：`T` | Y
+row | \- | - | 必需。原始表格行数据。TS 类型：`T` | Y
 rowIndex | Number | - | 必需。表格行下标 | Y
 
 ### TableColumnFilter
@@ -202,7 +207,7 @@ rowIndex | Number | - | 必需。表格行下标 | Y
 component | Slot / Function | - | 用于自定义筛选器，只要保证自定义筛选器包含 value 属性 和 change 事件，即可像内置筛选器一样正常使用。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 list | Array | - | 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效。TS 类型：`Array<OptionData>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 props | Array | - | 用于透传筛选器属性，可以对筛选器进行任何原组件支持的属性配置。TS 类型：`FilterProps` `type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any }`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
-resetValue | - | - | 重置时设置的值，示例：'' 或 []。TS 类型：`any` | N
+resetValue | \- | - | 重置时设置的值，示例：'' 或 []。TS 类型：`any` | N
 showConfirmAndReset | Boolean | false | 是否显示重置和确认。值为真，过滤事件（filter-change）会在确定时触发；值为假，则数据变化时会立即触发过滤事件 | N
 type | String | - | 用于设置筛选器类型：单选按钮筛选器、复选框筛选器、输入框筛选器。TS 类型：`FilterType` `type FilterType = 'input' | 'single' | 'multiple'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 

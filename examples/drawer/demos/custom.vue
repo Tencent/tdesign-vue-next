@@ -49,7 +49,7 @@ const visible3 = ref(false);
 const renderFooter = () => {
   return (
     <div>
-      <t-button>confrim</t-button>
+      <t-button>confirm</t-button>
       <t-button variant="outline" onClick={() => (visible2.value = false)}>
         cancel
       </t-button>

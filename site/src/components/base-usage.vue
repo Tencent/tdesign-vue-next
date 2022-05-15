@@ -11,7 +11,7 @@
         justifyContent: 'center',
       }"
     >
-      <slot :name="item.value" :configProps="{ ...defaultProps, ...changedProps }"></slot>
+      <slot :name="item.value" :config-props="{ ...defaultProps, ...changedProps }"></slot>
     </div>
   </td-doc-usage>
 </template>
@@ -73,12 +73,12 @@ const defaultProps = ref(
 );
 
 const usageCode = computed(() => {
-  const propsStrs = Object.keys(changedProps.value)
+  const propsStr = Object.keys(changedProps.value)
     .map((name) => `${stringifyProp(name, changedProps.value[name])}`)
     .filter(Boolean);
-  const tureCode = props.code.replace(/\s*v-bind="configProps"/g, () =>
-    propsStrs.length ? `\n  ${propsStrs.join('\n  ')}` : '',
+  const trueCode = props.code.replace(/\s*v-bind="configProps"/g, () =>
+    propsStr.length ? `\n  ${propsStr.join('\n  ')}` : '',
   );
-  return tureCode;
+  return trueCode;
 });
 </script>

@@ -21,6 +21,11 @@ export default {
   duration: {
     type: Number,
   },
+  /** 浮层出现位置 */
+  placement: {
+    type: String as PropType<TdTooltipProps['placement']>,
+    default: 'top',
+  },
   /** 是否显示浮层箭头 */
   showArrow: {
     type: Boolean,

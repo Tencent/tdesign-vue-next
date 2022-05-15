@@ -35,7 +35,7 @@ jobs:
       github.event_name == 'issue_comment'
       && github.event.issue.pull_request
       && github.event.sender.login == github.event.issue.user.login
-      && startsWith(github.event.comment.body, '### 🌈 ')
+      && startsWith(github.event.comment.body, '## 🌈 ')
     steps:
       - id: comment
         shell: bash
@@ -56,7 +56,9 @@ jobs:
       - run: echo '${{ github.event.comment.body }}'
       - name: Commit and push if needed
         run: |
-          echo "$(echo '${{ github.event.comment.body }}' | cat - CHANGELOG.md)" > CHANGELOG.md
+          txt=$(cat CHANGELOG.md)
+          body='${{ github.event.comment.body }}'
+          echo "${txt%%##*}${body}${txt##*---}" > CHANGELOG.md
           git add .
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"

@@ -1,0 +1,865 @@
+// Vitest Snapshot v1
+
+exports[`Progress > :props > :color > :color is Array, equal to ["#f00", "#0ff", "#f0f"] 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :color > :color is Object, equal to { "0%": "#f00", "100%": "#0ff" } 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :color > :color is String, equal to "#aaa" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%; background: rgb(170, 170, 170);"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :label > :label is String, equal to "custom label test" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      custom label test
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :label > :label is TNode, equal to () => "tnode" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      tnode
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :label > :label is boolean, equal to false 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :label > :label is boolean, equal to true 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :percentage > :percentage is between 0 to 100, equal to 50 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 50%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      50%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :percentage > :percentage is great equal than 100, equal to 200 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--success"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 200%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      200%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :percentage > :percentage is less than 0, equal to -10 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: -10%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      -10%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :size > :size is Number, equal to 50 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :size > :size is String, equal to "large" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :size > :size is String, equal to "medium" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :size > :size is String, equal to "small" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :status > :status is active 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--active"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :status > :status is error 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--error"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      <svg
+        class="t-icon t-icon-close-circle-filled t-progress__icon"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :status > :status is success 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--success"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      <svg
+        class="t-icon t-icon-check-circle-filled t-progress__icon"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :status > :status is warning 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--warning"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      <svg
+        class="t-icon t-icon-error-circle-filled t-progress__icon"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :strokeWidth > :strokeWidth is Number, equal to 50 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="height: 50px; border-radius: 50px;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :strokeWidth > :strokeWidth is String, equal to "50px" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="height: 50px; border-radius: 50px;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme circle progress has t-progress__circle-outer and t-progress__circle-inner class 1`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <!---->
+  <div
+    class="t-progress--circle t-progress--status--undefined"
+    style="width: 112px; height: 112px; font-size: 20px;"
+  >
+    <div
+      class="t-progress__info"
+    >
+      10%
+    </div>
+    <svg
+      height="112"
+      viewBox="0 0 112 112"
+      width="112"
+    >
+      <circle
+        class="t-progress__circle-outer"
+        cx="56"
+        cy="56"
+        fill="none"
+        r="53"
+        stroke=""
+        stroke-width="6"
+      />
+      <circle
+        class="t-progress__circle-inner"
+        cx="56"
+        cy="56"
+        fill="none"
+        r="53"
+        stroke-dasharray="33.30088212805181  299.7079391524663"
+        stroke-linecap="round"
+        stroke-width="6"
+        transform="matrix(0,-1,1,0,0,112)"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme line and plump progress have t-progress__inner class 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme line and plump progress have t-progress__inner class 2`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <div
+    class="t-progress__bar t-progress--plump t-progress--under-ten"
+    style="border-radius: undefinedpx;"
+  >
+    <div
+      class="t-progress__inner"
+      style="width: 0%;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme line and plump progress have t-progress__inner class 3`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <div
+    class="t-progress__bar t-progress--plump t-progress--under-ten"
+    style="border-radius: undefinedpx;"
+  >
+    <div
+      class="t-progress__inner"
+      style="width: 10%;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      10%
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme line and plump progress have t-progress__inner class 4`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <div
+    class="t-progress__bar t-progress--plump t-progress--over-ten"
+    style="border-radius: undefinedpx;"
+  >
+    <div
+      class="t-progress__inner"
+      style="width: 11%;"
+    >
+      <div
+        class="t-progress__info"
+      >
+        11%
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme:circle 1`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <!---->
+  <div
+    class="t-progress--circle t-progress--status--undefined"
+    style="width: 112px; height: 112px; font-size: 20px;"
+  >
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+    <svg
+      height="112"
+      viewBox="0 0 112 112"
+      width="112"
+    >
+      <circle
+        class="t-progress__circle-outer"
+        cx="56"
+        cy="56"
+        fill="none"
+        r="53"
+        stroke=""
+        stroke-width="6"
+      />
+      <!---->
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme:line 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :theme > :theme:plump 1`] = `
+<div
+  class="t-progress"
+>
+  <!---->
+  <div
+    class="t-progress__bar t-progress--plump t-progress--under-ten"
+    style="border-radius: undefinedpx;"
+  >
+    <div
+      class="t-progress__inner"
+      style="width: 0%;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Progress > :props > :trackColor > :trackColor is "#aaa" 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="background-color: rgb(170, 170, 170); border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Progress > pure progress contains one class 1`] = `
+<div
+  class="t-progress"
+>
+  <div
+    class="t-progress--thin t-progress--status--undefined"
+  >
+    <div
+      class="t-progress__bar"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress__inner"
+        style="width: 0%;"
+      />
+    </div>
+    <div
+      class="t-progress__info"
+    >
+      0%
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;

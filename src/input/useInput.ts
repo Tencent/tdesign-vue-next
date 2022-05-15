@@ -12,6 +12,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
   const focused = ref(false);
   const renderType = ref(props.type);
   const inputRef = ref(null);
+  const inputPreRef = ref(null);
 
   const showClear = computed(() => {
     return (
@@ -55,7 +56,6 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
       const stringInfo = getCharacterLength(val, props.maxcharacter);
       val = typeof stringInfo === 'object' && stringInfo.characters;
     }
-    props.onChange?.(val, { e } as { e: InputEvent });
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
     nextTick(() => setInputElValue(innerValue.value));
@@ -127,5 +127,6 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     handleInput,
     emitClear,
     innerValue,
+    inputPreRef,
   };
 }

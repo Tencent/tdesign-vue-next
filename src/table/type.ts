@@ -20,6 +20,11 @@ import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '.
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
+   * 是否允许调整列宽
+   * @default false
+   */
+  allowResizeColumnWidth?: boolean;
+  /**
    * 是否显示表格边框
    * @default false
    */
@@ -62,6 +67,15 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
+   * 表尾吸底
+   * @default false
+   */
+  footerAffixedBottom?: boolean;
+  /**
+   * 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性
+   */
+  footerAffixProps?: AffixProps;
+  /**
    * 表头吸顶
    * @default false
    */
@@ -84,8 +98,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   lastFullRow?: string | TNode;
   /**
-   * 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式
-   * @default false
+   * 加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态
    */
   loading?: boolean | TNode;
   /**
@@ -97,7 +110,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   maxHeight?: string | number;
   /**
-   * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`。
+   * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`
    */
   pagination?: PaginationProps;
   /**
@@ -230,10 +243,14 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colKey?: string;
   /**
-   * 内容超出时，是否显示省略号。值为 `true`，则浮层默认显示单元格内容；值类型为 `Function` 则自定义浮层显示内容；值类型为 `Object`，则自动透传属性到 Popup 组件
+   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
    * @default false
    */
   ellipsis?: boolean | TNode<BaseTableCellParams<T>> | PopupProps;
+  /**
+   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
+   */
+  ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | PopupProps;
   /**
    * 固定列显示位置
    * @default left
@@ -289,7 +306,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用。
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽。`drag-col` 已废弃，请勿使用
    */
   dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
   /**
@@ -311,7 +328,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultExpandedRowKeys?: Array<string | number>;
   /**
-   * 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`
+   * 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`
    * @default true
    */
   expandIcon?: boolean | TNode<ExpandArrowRenderParams<T>>;
@@ -335,6 +352,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 过滤数据的值，非受控属性
    */
   defaultFilterValue?: FilterValue;
+  /**
+   * 隐藏排序文本提示，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `false`
+   */
+  hideSortTips?: boolean;
   /**
    * 是否支持多列排序
    * @default false
@@ -419,11 +440,6 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
   extends Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'> {
   /**
-   * 【开发中】是否允许用户选择是否显示当前列，表格属性 `showColumnController` 为真时有效
-   * @default true
-   */
-  addToColumnController?: boolean;
-  /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
    */
   cell?: string | TNode<PrimaryTableCellParams<T>>;
@@ -478,6 +494,10 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
    */
   tree?: TableTreeConfig;
+  /**
+   * 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`
+   */
+  treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
   /**
    * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
    */
@@ -676,6 +696,11 @@ export interface BaseTableCellParams<T> {
 
 export interface CellData<T> extends BaseTableCellParams<T> {
   type: 'th' | 'td';
+}
+
+export interface BaseTableColParams<T> {
+  col: BaseTableCol<T>;
+  colIndex: number;
 }
 
 export interface BaseTableRenderParams<T> extends BaseTableCellParams<T> {
