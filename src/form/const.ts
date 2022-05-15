@@ -1,6 +1,6 @@
 import { computed, InjectionKey } from 'vue';
 import { FormItemValidateResult } from '@src/form/form-item';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useTNodeJSX } from '../hooks';
 import { TdFormItemProps, TdFormProps, ValidateResultType, ValidateTriggerType } from './type';
 
 // 允许 Form 统一控制的表单
@@ -86,10 +86,7 @@ export const FormInjectionKey: InjectionKey<{
   requiredMark: TdFormProps['requiredMark'];
   rules: TdFormProps['rules'];
   errorMessage: TdFormProps['errorMessage'];
-  statusIcon: TdFormProps['statusIcon'];
   resetType: TdFormProps['resetType'];
-  // todo
-  slots: any;
   children: any;
-  disabled: boolean;
+  renderContent: ReturnType<typeof useTNodeJSX>;
 }> = Symbol('FormProvide');
