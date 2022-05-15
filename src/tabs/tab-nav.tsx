@@ -1,8 +1,7 @@
 import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
-import content from '@src/layout/content';
-import { TdTabsProps, TabsDragSortContext, TabValue } from './type';
+import { TdTabsProps } from './type';
 import tabProps from './props';
 import tabBase from '../_common/js/tabs/base';
 
