@@ -28,6 +28,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
   account: '',
@@ -62,18 +63,18 @@ onMounted(() => {
 });
 
 const onReset = () => {
-  this.$message.success('重置成功');
+  MessagePlugin.success('重置成功');
 };
 const onSubmit = ({ validateResult, firstError }) => {
   if (validateResult === true) {
-    this.$message.success('提交成功');
+    MessagePlugin.success('提交成功');
   } else {
     console.log('Errors: ', validateResult);
-    this.$message.warning(firstError);
+    MessagePlugin.warning(firstError);
   }
 };
 const handleValidateMessage = () => {
-  this.$message.success('设置表单校验信息提示成功');
-  this.$refs.form.setValidateMessage(validateMessage);
+  MessagePlugin.success('设置表单校验信息提示成功');
+  form.value.setValidateMessage(validateMessage);
 };
 </script>
