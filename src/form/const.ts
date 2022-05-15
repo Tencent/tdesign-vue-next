@@ -1,7 +1,7 @@
 import { computed, InjectionKey } from 'vue';
 import { FormItemValidateResult } from '@src/form/form-item';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
-import { TdFormItemProps, TdFormProps, ValidateResultType, ValidateTriggerType } from './type';
+import { FormItemValidateMessage, TdFormItemProps, TdFormProps, ValidateResultType, ValidateTriggerType } from './type';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -72,9 +72,9 @@ export type SuccessListType =
 export interface FormItemContext {
   name: TdFormItemProps['name'];
   resetHandler: () => void;
-  resetField: Promise<void>;
+  resetField: () => Promise<void>;
   validate: <T>(trigger: ValidateTriggerType) => Promise<FormItemValidateResult<T>>;
-  // setValidateMessage: ;
+  setValidateMessage: (validateMessage: FormItemValidateMessage[]) => void;
 }
 
 export const FormInjectionKey: InjectionKey<{
@@ -87,6 +87,6 @@ export const FormInjectionKey: InjectionKey<{
   rules: TdFormProps['rules'];
   errorMessage: TdFormProps['errorMessage'];
   resetType: TdFormProps['resetType'];
-  children: any;
+  children: FormItemContext[];
   renderContent: ReturnType<typeof useTNodeJSX>;
 }> = Symbol('FormProvide');

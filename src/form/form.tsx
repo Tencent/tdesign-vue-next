@@ -1,29 +1,15 @@
-import {
-  defineComponent,
-  VNode,
-  ComponentPublicInstance,
-  provide,
-  toRefs,
-  computed,
-  ref,
-  reactive,
-  onMounted,
-} from 'vue';
+import { defineComponent, provide, toRefs, computed, ref, reactive } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList, FormValidateMessage } from './type';
 import props from './props';
-import { useCLASSNAMES, FORM_CONTROL_COMPONENTS, FormInjectionKey } from './const';
-import FormItem from './form-item';
+import { useCLASSNAMES, FORM_CONTROL_COMPONENTS, FormInjectionKey, FormItemContext } from './const';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 
 import { FormDisabledProvider } from './hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent, useTNodeJSX } from '../hooks';
-
-export type FormItemInstance = InstanceType<typeof FormItem>;
+import { useTNodeJSX, usePrefixClass } from '../hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -34,7 +20,7 @@ export default defineComponent({
 
   emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
 
-  setup(props, { expose, slots }) {
+  setup(props, { expose }) {
     const renderContent = useTNodeJSX();
     const { disabled } = toRefs(props);
     provide<FormDisabledProvider>('formDisabled', {
@@ -42,7 +28,7 @@ export default defineComponent({
     });
 
     const formRef = ref<HTMLElement>(null);
-    const children = ref<FormItemInstance[]>([]);
+    const children = ref<FormItemContext[]>([]);
     provide(
       FormInjectionKey,
       reactive({

@@ -1,16 +1,13 @@
 import {
   computed,
   defineComponent,
-  getCurrentInstance,
-  h,
   inject,
   nextTick,
   onBeforeUnmount,
   onMounted,
-  onUnmounted,
   reactive,
   ref,
-  Slot,
+  toRef,
   VNode,
   watch,
 } from 'vue';
@@ -26,19 +23,14 @@ import {
   Data,
   FormErrorMessage,
   FormItemValidateMessage,
-  FormRule,
-  TdFormItemProps,
-  TdFormProps,
   ValidateTriggerType,
   ValueType,
 } from './type';
 import props from './form-item-props';
-import { ErrorListType, FormInjectionKey, SuccessListType, useCLASSNAMES } from './const';
-import Form, { FormItemInstance } from './form';
-import { ClassName, Styles, TNodeReturnValue } from '../common';
+import { ErrorListType, FormInjectionKey, FormItemContext, SuccessListType, useCLASSNAMES } from './const';
+import { ClassName, TNodeReturnValue } from '../common';
 
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -281,8 +273,8 @@ export default defineComponent({
 
     const value = computed<ValueType>(() => form?.data && lodashGet(form?.data, props.name));
     const initialValue = ref<ValueType>(undefined);
-    const context = reactive({
-      name: props.name,
+    const context: FormItemContext = reactive({
+      name: toRef(props, 'name'),
       resetHandler,
       resetField,
       validate: validateHandler,
@@ -294,8 +286,7 @@ export default defineComponent({
       form?.children.push(context);
     });
     onBeforeUnmount(() => {
-      const index = form?.children.indexOf((ctx) => ctx === context);
-      form?.children.splice(index, 1);
+      if (form) form.children = form?.children.filter((ctx) => ctx !== context);
     });
     watch(
       value,
