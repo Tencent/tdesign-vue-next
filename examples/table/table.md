@@ -167,15 +167,18 @@ type | String | single | `colKey` 值为 `row-select` 时表示行选中列，�
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+beforeDragSort | Function | - | 树形结构中，拖拽排序前控制，返回值为 `true` 则继续排序；返回值为 `false` 则中止排序还原数据。TS 类型：`(context: DragSortContext<T>) => boolean` | N
 tree | Object | - | 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述。TS 类型：`TableTreeConfig` | N
 treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' | 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 `PrimaryTableProps<T>` | \- | - | 继承 `PrimaryTableProps<T>` 中的全部 API | N
+onAbnormalDragSort | Function |  | TS 类型：`(context: TableAbnormalDragSortContext<T>) => void`<br/>异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/> | N
 onTreeExpandChange | Function |  | TS 类型：`(context: TableTreeExpandChangeContext<T>) => void`<br/>树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T> }`<br/> | N
 
 ### EnhancedTable Events
 
 名称 | 参数 | 描述
 -- | -- | --
+abnormal-drag-sort | `(context: TableAbnormalDragSortContext<T>)` | 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/>
 tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T> }`<br/>
 
 ### EnhancedTableInstanceFunctions 组件实例方法
@@ -193,7 +196,6 @@ toggleExpandData | `(p: { row: T,  rowIndex: number})` | \- | 必需。展开或
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-allChildren | Array | - | 当前行的所有子孙节点。TS 类型：`T[]` | N
 disabled | Boolean | false | 表格行是否禁用选中 | N
 expandChildrenLength | Number | - | 当前节点展开的子节点数量 | N
 expanded | Boolean | false | 必需。表格行是否展开 | Y
@@ -203,7 +205,6 @@ parent | \- | - | 父节点。TS 类型：`TableRowState<T>` | N
 path | Array | - | 当前节点路径。TS 类型：`TableRowState<T>[]` | N
 row | \- | - | 必需。原始表格行数据。TS 类型：`T` | Y
 rowIndex | Number | - | 必需。表格行下标，值为 `-1` 标识当前行未展开显示 | Y
-treeIndex | Number | - | 表格行在树形结构全部展开后的下标，无论是否展开显示 | N
 
 ### TableColumnFilter
 

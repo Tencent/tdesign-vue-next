@@ -13560,7 +13560,6 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></td>
@@ -13585,7 +13584,6 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
             <td class="" style="">C</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -27888,7 +27886,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">Eric</td>
@@ -27924,7 +27921,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
             <td class="" style="">zcroson5@virginia.edu</td>
             <!--]-->
           </tr>
-          <!--]-->
           <tr class="t-table__row--full t-table__last-full-row">
             <td colspan="3">
               <div class="" style="">
@@ -28015,7 +28011,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="custom-column-class-name t-align-center" style="" data-id="first-column">5</td>
@@ -28091,7 +28086,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28198,7 +28192,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">
@@ -28235,7 +28228,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
             <td class="" style="">render 方法渲染单元格: 1-3</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28307,7 +28299,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="row t-align-center" style="">0</td>
@@ -28383,7 +28374,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28535,7 +28525,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="row t-align-center" style="">0</td>
@@ -28611,7 +28600,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28742,7 +28730,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue corr
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="t-tdesign__custom-body-tr">
             <!--[-->
             <td class="row t-align-center" style="">0</td>
@@ -28788,7 +28775,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue corr
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28861,7 +28847,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue corr
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">标题是用插槽自定义</td>
@@ -28876,7 +28861,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue corr
             <td class="" style="">rowkey</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -28967,7 +28951,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr style="" class="">
               <!--[-->
               <td class="" style="">JQTest1</td>
@@ -29012,7 +28995,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
               <td class="" style="">1000</td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -29069,7 +29051,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr style="" class="">
               <!--[-->
               <td class="" style="">JQTest1</td>
@@ -29118,7 +29099,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
               <td class="" style="">peter</td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -29175,7 +29155,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr data-id="1" style="" class="">
               <!--[-->
               <td class="" style="">JQTest1</td>
@@ -29224,7 +29203,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
               <td class="" style="">peter</td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -29286,7 +29264,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort-handler.vue 
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr data-id="1" style="" class="">
               <!--[-->
               <td class="t-table__handle-draggable" style=""><span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style=""><path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path></svg></span></td>
@@ -29339,7 +29316,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort-handler.vue 
               <td class="" style="">peter</td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -29624,7 +29600,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
@@ -29745,7 +29720,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -29914,7 +29888,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">Eric</td>
@@ -29955,7 +29928,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
             <td class="" style="">2021-11-01</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -30051,7 +30023,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="t-align-center" style="">0</td>
@@ -30152,7 +30123,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -30229,7 +30199,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">共有</td>
@@ -30530,7 +30499,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
             <td class="" style="">数据源</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -30625,7 +30593,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="t-align-center" style="">0</td>
@@ -30926,7 +30893,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -30999,7 +30965,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr style="" class="">
               <!--[-->
               <td class="" style="">1</td>
@@ -36003,7 +35968,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
               <td style="height:48px;border:none;"></td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -36096,8 +36060,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -36190,8 +36152,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -36288,8 +36248,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -36355,7 +36313,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="test t-table__td-first-col" style="" rowspan="2">公有</td>
@@ -36410,7 +36367,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
             <td class="row" style="">描述</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -36586,7 +36542,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">0</td>
@@ -37047,7 +37002,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
             <td class="" style="">字段5</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -37142,7 +37096,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
           <tbody class="t-table__body" style="">
             <!--[-->
             <!---->
-            <!--[-->
             <tr style="" class="">
               <!--[-->
               <td class="" style="">JQTest1</td>
@@ -37199,7 +37152,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
               <td class="" style="">peter</td>
               <!--]-->
             </tr>
-            <!--]-->
             <!---->
             <!--]-->
           </tbody>
@@ -37271,7 +37223,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="row t-align-center" style="">5</td>
@@ -37352,7 +37303,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
             <td class="" style="">数据源</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -37607,7 +37557,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style=""><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
@@ -37698,7 +37647,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -37766,7 +37714,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style=""><label class="t-radio"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
@@ -37857,7 +37804,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -37917,7 +37863,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">JQTest1</td>
@@ -37986,7 +37931,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -38091,7 +38035,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="" style="">JQTest1</td>
@@ -38148,7 +38091,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
             <td class="" style="">jenny;peter</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -38165,10 +38107,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`] = `
 <div>
-  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->重置数据<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->展开/收起可见行<!--]--></span></button><label class="t-checkbox" style="margin-left:16px;vertical-align:middle;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 自定义折叠/展开图标 <!--]--></span></label></div><br><!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
+  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->重置数据<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->任意节点展开/收起<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->展开全部<!--]--></span></button><label class="t-checkbox" style="margin-left:16px;vertical-align:middle;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 自定义折叠/展开图标 <!--]--></span></label></div><br><!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
-  <div class="t-table" style="position:relative;">
+  <!-- tree.defaultExpandAll: true 默认展开全部 -->
+  <!-- this.$refs.table.dataSource 查看树形结构平铺数据 -->
+  <div class="t-table t-table--row-handler-draggable" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -38176,17 +38120,20 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
       <table class="t-table--layout-fixed" style="width:;">
         <colgroup>
           <!--[-->
-          <col style="">
-          <col style="width:220px;">
-          <col style="">
-          <col style="">
-          <col style="width:286px;">
+          <col style="width:80px;">
+          <col style="width:100px;">
+          <col style="width:180px;">
+          <col style="width:80px;">
+          <col style="width:340px;">
           <!--]-->
         </colgroup>
         <thead class="t-table__header">
           <!--[-->
           <tr>
             <!--[-->
+            <th data-colkey="drag" class="t-table__th-drag" style="">
+              <div class="t-table__th-cell-inner">排序</div>
+            </th>
             <th data-colkey="id" class="t-table__th-id" style="">
               <div class="t-table__th-cell-inner">
                 <div class="t-table__ellipsis t-text-ellipsis">
@@ -38206,9 +38153,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <th data-colkey="platform" class="t-table__th-platform" style="">
               <div class="t-table__th-cell-inner">平台</div>
             </th>
-            <th data-colkey="type" class="t-table__th-type" style="">
-              <div class="t-table__th-cell-inner">类型</div>
-            </th>
             <th data-colkey="operate" class="t-table__th-operate t-align-center" style="">
               <div class="t-table__th-cell-inner">操作</div>
             </th>
@@ -38219,9 +38163,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
-          <tr style="" class="">
+          <tr data-id="我是 0_1 号" style="" class="">
             <!--[-->
+            <td class="t-table__handle-draggable" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style="">
+                <path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path>
+              </svg></td>
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->0
@@ -38232,15 +38178,14 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
                 <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;">
-                  <!---->我是 0_1 号（第 1 页）
+                  <!---->我是 0_1 号
                 </div>
                 <!--]-->
               </div>
             </td>
             <td class="" style="">共有</td>
-            <td class="" style="">String</td>
             <td class="t-align-center" style="">
-              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
+              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->前插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->后插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
                 <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->删除<!--]--></span></button>
                 <!---->
                 <!--]-->
@@ -38248,8 +38193,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr data-id="我是 1_1 号" style="" class="">
             <!--[-->
+            <td class="t-table__handle-draggable" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style="">
+                <path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path>
+              </svg></td>
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->1
@@ -38259,14 +38207,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 1_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 1_1 号</div>
                 <!--]-->
               </div>
             </td>
             <td class="" style="">私有</td>
-            <td class="" style="">Number</td>
             <td class="t-align-center" style="">
-              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
+              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->前插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->后插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
                 <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->删除<!--]--></span></button>
                 <!---->
                 <!--]-->
@@ -38274,8 +38221,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr data-id="我是 2_1 号" style="" class="">
             <!--[-->
+            <td class="t-table__handle-draggable" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style="">
+                <path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path>
+              </svg></td>
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->2
@@ -38285,14 +38235,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 2_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 2_1 号</div>
                 <!--]-->
               </div>
             </td>
             <td class="" style="">共有</td>
-            <td class="" style="">Array</td>
             <td class="t-align-center" style="">
-              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
+              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->前插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->后插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
                 <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->删除<!--]--></span></button>
                 <!---->
                 <!--]-->
@@ -38300,8 +38249,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr data-id="我是 3_1 号" style="" class="">
             <!--[-->
+            <td class="t-table__handle-draggable" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style="">
+                <path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path>
+              </svg></td>
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->3
@@ -38311,14 +38263,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 3_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 3_1 号</div>
                 <!--]-->
               </div>
             </td>
             <td class="" style="">私有</td>
-            <td class="" style="">Object</td>
             <td class="t-align-center" style="">
-              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
+              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->前插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->后插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
                 <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->删除<!--]--></span></button>
                 <!---->
                 <!--]-->
@@ -38326,8 +38277,11 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr data-id="我是 4_1 号" style="" class="">
             <!--[-->
+            <td class="t-table__handle-draggable" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-move" style="">
+                <path fill="currentColor" d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z" fill-opacity="0.9"></path>
+              </svg></td>
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->4
@@ -38337,14 +38291,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             <td class="t-table-td--ellipsis" style="">
               <div class="t-table__ellipsis t-text-ellipsis">
                 <!--[-->
-                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 4_1 号（第 1 页）</div>
+                <div class="t-table__tree-col t-table__tree-col--inline" style="padding-left:1px;"><span class="t-table__tree-op-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style=""><path fill="currentColor" d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z" fill-opacity="0.9"></path></svg></span>我是 4_1 号</div>
                 <!--]-->
               </div>
             </td>
             <td class="" style="">共有</td>
-            <td class="" style="">String</td>
             <td class="t-align-center" style="">
-              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
+              <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->前插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->后插<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
                 <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->删除<!--]--></span></button>
                 <!---->
                 <!--]-->
@@ -38352,7 +38305,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
             </td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>
@@ -38364,13 +38316,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
     <!---->
     <div class="t-table__pagination">
       <div class="t-pagination t-size-m">
-        <div class="t-pagination__total">共 100 项数据</div>
+        <div class="t-pagination__total">共 5 项数据</div>
         <div class="t-select__wrap t-pagination__select">
           <!--[-->
           <div class="t-select t-select-polyfill t-size-m t-select__popup-reference">
             <!---->
             <!---->
-            <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+            <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
             <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
               <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
             </svg>
@@ -38382,8 +38334,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
           <div style="display:none;">
             <!--[-->
             <!--[-->
-            <li class="t-select-option t-size-m" title="5 条/页"><span>5 条/页</span></li>
-            <li class="t-select-option t-is-selected t-size-m" title="10 条/页"><span>10 条/页</span></li>
+            <li class="t-select-option t-is-selected t-size-m" title="5 条/页"><span>5 条/页</span></li>
+            <li class="t-select-option t-size-m" title="10 条/页"><span>10 条/页</span></li>
             <li class="t-select-option t-size-m" title="20 条/页"><span>20 条/页</span></li>
             <li class="t-select-option t-size-m" title="50 条/页"><span>50 条/页</span></li>
             <!--]-->
@@ -38399,21 +38351,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
           <!---->
           <!--[-->
           <li class="t-pagination__number t-is-current">1</li>
-          <li class="t-pagination__number">2</li>
-          <li class="t-pagination__number">3</li>
-          <li class="t-pagination__number">4</li>
-          <li class="t-pagination__number">5</li>
-          <li class="t-pagination__number">6</li>
-          <li class="t-pagination__number">7</li>
-          <li class="t-pagination__number">8</li>
-          <li class="t-pagination__number">9</li>
-          <li class="t-pagination__number">10</li>
           <!--]-->
           <!---->
           <!---->
         </ul>
         <!---->
-        <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
+        <div class="t-pagination__btn t-pagination__btn-next t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
         <!---->
@@ -38429,7 +38372,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
       :pagination="defaultPagination"
       :data="data"
       :columns="columns"
-      :tree="{ indent: 12, childrenKey: 'list' }"
+      :tree="{ indent: 12, childrenKey: 'list', defaultExpandAll: true }"
       @page-change="onPageChange"
     ></t-enhanced-table> -->
 </div>
@@ -38498,7 +38441,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
         <tbody class="t-table__body" style="">
           <!--[-->
           <!---->
-          <!--[-->
           <tr style="" class="">
             <!--[-->
             <td class="t-table__expandable-icon-cell" style=""><span class="t-table__expand-box t-table__row--collapsed"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fill-opacity="0.9"></path></svg></span></td>
@@ -38569,7 +38511,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
             <td class="" style="">important.</td>
             <!--]-->
           </tr>
-          <!--]-->
           <!---->
           <!--]-->
         </tbody>

@@ -491,6 +491,10 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
 
 export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> extends TdPrimaryTableProps<T> {
   /**
+   * 树形结构中，拖拽排序前控制，返回值为 `true` 则继续排序；返回值为 `false` 则中止排序还原数据
+   */
+  beforeDragSort?: (context: DragSortContext<T>) => boolean;
+  /**
    * 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述
    */
   tree?: TableTreeConfig;
@@ -498,6 +502,10 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`
    */
   treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
+  /**
+   * 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因
+   */
+  onAbnormalDragSort?: (context: TableAbnormalDragSortContext<T>) => void;
   /**
    * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
    */
@@ -533,10 +541,6 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
 }
 
 export interface TableRowState<T extends TableRowData = TableRowData> {
-  /**
-   * 当前行的所有子孙节点
-   */
-  allChildren?: T[];
   /**
    * 表格行是否禁用选中
    * @default false
@@ -575,10 +579,6 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
    * 表格行下标，值为 `-1` 标识当前行未展开显示
    */
   rowIndex: number;
-  /**
-   * 表格行在树形结构全部展开后的下标，无论是否展开显示
-   */
-  treeIndex?: number;
 }
 
 export interface TableColumnFilter {
@@ -856,6 +856,11 @@ export interface PrimaryTableRenderParams<T> extends PrimaryTableCellParams<T> {
 export type SorterFun<T> = (a: T, b: T) => number;
 
 export type SortType = 'desc' | 'asc' | 'all';
+
+export interface TableAbnormalDragSortContext<T> {
+  code: number;
+  reason: string;
+}
 
 export interface TableTreeExpandChangeContext<T> {
   row: T;
