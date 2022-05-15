@@ -5,6 +5,7 @@ import {
   nextTick,
   onBeforeUnmount,
   onMounted,
+  provide,
   reactive,
   ref,
   toRef,
@@ -27,7 +28,14 @@ import {
   ValueType,
 } from './type';
 import props from './form-item-props';
-import { ErrorListType, FormInjectionKey, FormItemContext, SuccessListType, useCLASSNAMES } from './const';
+import {
+  ErrorListType,
+  FormInjectionKey,
+  FormItemContext,
+  FormItemInjectionKey,
+  SuccessListType,
+  useCLASSNAMES,
+} from './const';
 import { ClassName, TNodeReturnValue } from '../common';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
@@ -226,6 +234,7 @@ export default defineComponent({
         trigger === 'all'
           ? innerRules.value
           : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
+      if (!rules?.length) return;
       const res = await validate(value.value, rules);
       errorList.value = res
         .filter((item) => item.result !== true)
@@ -315,6 +324,13 @@ export default defineComponent({
       }
       return helpVNode;
     };
+
+    const handleBlur = async () => {
+      await validateHandler('blur');
+    };
+    provide('formItem', {
+      handleBlur,
+    });
 
     return () => (
       <div class={classes.value}>

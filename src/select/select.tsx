@@ -51,6 +51,9 @@ export default defineComponent({
       tSelect: this,
     };
   },
+  inject: {
+    formItem: { default: undefined },
+  },
   props: { ...props },
   emits: [
     'change',
@@ -476,6 +479,7 @@ export default defineComponent({
     blur(value: string, context: { e: FocusEvent | KeyboardEvent }) {
       this.focusing = false;
       emitEvent<Parameters<TdSelectProps['onBlur']>>(this, 'blur', { value: this.value, e: context?.e });
+      this.formItem?.handleBlur();
     },
     enter(value: string, context: { e: KeyboardEvent }) {
       emitEvent<Parameters<TdSelectProps['onEnter']>>(this, 'enter', {

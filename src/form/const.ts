@@ -90,3 +90,7 @@ export const FormInjectionKey: InjectionKey<{
   children: FormItemContext[];
   renderContent: ReturnType<typeof useTNodeJSX>;
 }> = Symbol('FormProvide');
+
+export const FormItemInjectionKey: InjectionKey<{
+  handleBlur: () => Promise<void>;
+}> = Symbol('FormItemProvide');

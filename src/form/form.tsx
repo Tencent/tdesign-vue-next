@@ -18,8 +18,6 @@ export default defineComponent({
 
   props: { ...props },
 
-  emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
-
   setup(props, { expose }) {
     const renderContent = useTNodeJSX();
     const { disabled } = toRefs(props);

@@ -55,13 +55,15 @@
   </div>
 </template>
 <script setup>
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const rules = {
   account: [
-    { required: true, message: '姓名必填', type: 'error' },
-    { min: 2, message: '至少需要两个字', type: 'error' },
+    { required: true, message: '姓名必填', type: 'error', trigger: 'blur' },
+    { required: true, message: '姓名必填', type: 'error', trigger: 'change' },
+    { min: 3, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
+    { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
   email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
@@ -71,6 +73,7 @@ const rules = {
   ],
   gender: [{ required: true, message: '性别必填', type: 'warning' }],
   course: [{ required: true, message: '课程必填', type: 'warning' }],
+  college: [{ required: true, message: '学院必选', type: 'warning' }],
   'content.url': [
     { required: true, message: '个人网站必填', type: 'warning' },
     {
