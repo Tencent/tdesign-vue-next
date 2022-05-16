@@ -1,7 +1,7 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, onUpdated, nextTick, cloneVNode } from 'vue';
+import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
 import { ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
-import kebabCase from 'lodash/kebabCase';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useChildComponentSlots } from '../hooks';
 import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
@@ -16,7 +16,7 @@ const defaultNavigation: SwiperNavigation = {
 export default defineComponent({
   name: 'TSwiper',
   props: { ...props },
-  setup(props, { slots }) {
+  setup(props) {
     const prefix = usePrefixClass();
     let swiperTimer = 0;
     let swiperSwitchingTimer = 0;
@@ -25,12 +25,12 @@ export default defineComponent({
     const currentIndex = ref(props.current || props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
-    const swiperItemList = ref([]);
     const showArrow = ref(false);
     const swiperWrap = ref<HTMLElement>();
+    const getChildComponentByName = useChildComponentSlots();
 
     const swiperItemLength = computed(() => {
-      return swiperItemList.value.length;
+      return getChildComponentByName('TSwiperItem').length;
     });
     const navigationConfig = computed(() => {
       return {
@@ -89,7 +89,8 @@ export default defineComponent({
       return {};
     });
     const swiperItems = computed(() => {
-      const items = swiperItemList.value.map((swiperItem, index) => {
+      const swiperItemList = getChildComponentByName('TSwiperItem');
+      const items = swiperItemList.map((swiperItem: any, index) => {
         const p = { ...props, ...swiperItem.props };
         return (
           <TSwiperItem
@@ -158,17 +159,7 @@ export default defineComponent({
         ) as unknown as number;
       }
     };
-    const updateSwiperItems = () => {
-      const originalChildren = slots.default?.({}) || [];
-      const selfSwiperItemList = originalChildren
-        // @ts-ignore
-        .filter((swiper) => swiper.type && kebabCase(swiper.type?.name).endsWith(`${prefix.value}-swiper-item`));
-      const isUnchange =
-        selfSwiperItemList.length === swiperItemLength.value &&
-        swiperItemList.value.every((swiperItem, index) => swiperItem === selfSwiperItemList[index]);
-      if (isUnchange) return;
-      swiperItemList.value = selfSwiperItemList;
-    };
+
     const onMouseEnter = () => {
       isHovering.value = true;
       if (props.stopOnHover) {
@@ -251,7 +242,7 @@ export default defineComponent({
           </div>
         );
       }
-
+      const swiperItemList = getChildComponentByName('TSwiperItem');
       return (
         <ul
           class={[
@@ -261,7 +252,7 @@ export default defineComponent({
             },
           ]}
         >
-          {swiperItemList.value.map((_, i: number) => (
+          {swiperItemList.map((_, i: number) => (
             <li
               key={i}
               class={[
@@ -312,15 +303,8 @@ export default defineComponent({
     );
 
     onMounted(() => {
-      updateSwiperItems();
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
-    });
-
-    onUpdated(() => {
-      nextTick(() => {
-        // updateSwiperItems()
-      });
     });
 
     return () => (

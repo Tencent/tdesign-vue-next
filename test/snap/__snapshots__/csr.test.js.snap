@@ -89321,9 +89321,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-0%, 0px, 0px);"
+          style="transform: translate3d(-100%, 0px, 0px);"
         >
           
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89331,6 +89435,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
@@ -89357,6 +89491,118 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
           style="height: 280px;"
         >
           
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 1;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card t-is-active"
+            style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 1;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card"
+            style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 1;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__card t-is-active"
+            style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89364,6 +89610,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
@@ -89387,9 +89663,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = 
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-0%, 0px, 0px);"
+          style="transform: translate3d(-100%, 0px, 0px);"
         >
           
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89397,6 +89777,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = 
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
@@ -89439,6 +89849,90 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
           style="height: 280px;"
         >
           
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 1;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item t-swiper__fade"
+            style="opacity: 0;"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89446,6 +89940,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
@@ -89469,9 +89993,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] =
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-0%, 0px, 0px);"
+          style="transform: translate3d(-100%, 0px, 0px);"
         >
           
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89503,7 +90131,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] =
           >
             1
             /
-            0
+            6
           </div>
           <div
             class="t-swiper__arrow-right"
@@ -89545,9 +90173,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] 
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-0%, 0px, 0px);"
+          style="transform: translate3d(-100%, 0px, 0px);"
         >
           
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89555,6 +90287,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] 
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
@@ -89583,9 +90345,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
         >
           <div
             class="t-swiper__container"
-            style="transform: translate3d(-0%, 0px, 0px);"
+            style="transform: translate3d(-100%, 0px, 0px);"
           >
             
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                6
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                1
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                2
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                3
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                4
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                5
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                6
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-large"
+              >
+                1
+              </div>
+              
+              
+            </div>
             
           </div>
         </div>
@@ -89593,6 +90459,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
           class="t-swiper__navigation t-swiper__navigation-bars"
         >
           
+          <li
+            class="t-swiper__navigation-item t-is-active"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
           
         </ul>
         <!---->
@@ -89617,9 +90513,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
         >
           <div
             class="t-swiper__container"
-            style="transform: translate3d(-0%, 0px, 0px);"
+            style="transform: translate3d(-100%, 0px, 0px);"
           >
             
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                6
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                1
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                2
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                3
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                4
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                5
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                6
+              </div>
+              
+              
+            </div>
+            <div
+              class="t-swiper__container__item"
+            >
+              
+              
+              <div
+                class="demo-item demo-small"
+              >
+                1
+              </div>
+              
+              
+            </div>
             
           </div>
         </div>
@@ -89627,6 +90627,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
           class="t-swiper__navigation t-swiper__navigation-bars"
         >
           
+          <li
+            class="t-swiper__navigation-item t-is-active"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
+          <li
+            class="t-swiper__navigation-item"
+          >
+            <span />
+          </li>
           
         </ul>
         <!---->
@@ -89651,9 +90681,113 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/vertical.vue 1`] =
       >
         <div
           class="t-swiper__container"
-          style="height: 280px; transform: translate3d(0, -0%, 0px);"
+          style="height: 280px; transform: translate3d(0, -100%, 0px);"
         >
           
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              2
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              3
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              4
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              5
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              6
+            </div>
+            
+            
+          </div>
+          <div
+            class="t-swiper__container__item"
+          >
+            
+            
+            <div
+              class="demo-item"
+            >
+              1
+            </div>
+            
+            
+          </div>
           
         </div>
       </div>
@@ -89661,6 +90795,36 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/vertical.vue 1`] =
         class="t-swiper__navigation t-swiper__navigation-bars"
       >
         
+        <li
+          class="t-swiper__navigation-item t-is-active"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
+        <li
+          class="t-swiper__navigation-item"
+        >
+          <span />
+        </li>
         
       </ul>
       <!---->
