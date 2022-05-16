@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
@@ -14,11 +13,11 @@ export interface TdMenuProps {
    */
   collapsed?: boolean;
   /**
-   * 展开的子菜单集合
+   * 子菜单展开的导航集合
    */
   expanded?: Array<MenuValue>;
   /**
-   * 展开的子菜单集合，非受控属性
+   * 子菜单展开的导航集合，非受控属性
    */
   defaultExpanded?: Array<MenuValue>;
   /**
@@ -53,6 +52,10 @@ export interface TdMenuProps {
    */
   defaultValue?: MenuValue;
   /**
+   * 激活菜单项
+   */
+  modelValue?: MenuValue;
+  /**
    * 菜单宽度。值类型为数组时，分别表示菜单展开和折叠的宽度。[ 展开时的宽度, 折叠时的宽度 ]，示例：['200px', '80px']
    * @default '232px'
    */
@@ -61,10 +64,6 @@ export interface TdMenuProps {
    * 激活菜单项发生变化时触发
    */
   onChange?: (value: MenuValue) => void;
-  /**
-   * 侧边栏导航展开/收起发生变化时触发
-   */
-  onCollapsed?: (options: { collapsed: boolean; e?: MouseEvent }) => void;
   /**
    * 展开的菜单项发生变化时触发
    */
@@ -106,6 +105,10 @@ export interface TdHeadMenuProps {
    * 激活菜单项，非受控属性
    */
   defaultValue?: MenuValue;
+  /**
+   * 激活菜单项
+   */
+  modelValue?: MenuValue;
   /**
    * 激活菜单项发生变化时触发
    */

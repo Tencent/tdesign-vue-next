@@ -1,6 +1,13 @@
 <template>
   <div class="box">
-    <t-menu theme="light" default-value="3-2" expand-mutex :expanded="expanded" height="550px" :collapsed="collapsed">
+    <t-menu
+      v-model:expanded="expanded"
+      theme="light"
+      default-value="3-2"
+      expand-mutex
+      height="550px"
+      :collapsed="collapsed"
+    >
       <t-submenu value="3">
         <template #icon>
           <t-icon name="mail" />
@@ -51,10 +58,10 @@
     </t-menu>
 
     <t-menu
+      v-model:expanded="expanded2"
       theme="dark"
       default-value="2-1"
       style="margin-left: 50px"
-      :expanded="expanded2"
       height="550px"
       :collapsed="collapsed2"
     >
@@ -148,6 +155,6 @@ const changeCollapsed2 = () => {
   collapsed2.value = !collapsed2.value;
 };
 
-const expanded = ['2', '3'];
-const expanded2 = ['2'];
+const expanded = ref(['2', '3']);
+const expanded2 = ref(['2']);
 </script>

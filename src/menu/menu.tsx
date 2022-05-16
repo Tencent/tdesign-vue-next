@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted } from 'vue';
+import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
@@ -7,6 +7,8 @@ import VMenu from './v-menu';
 import { ClassName } from '../common';
 import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'TMenu',
@@ -39,16 +41,17 @@ export default defineComponent({
       width: props.collapsed ? '64px' : expandWidth,
     }));
 
-    const activeValue = ref(props.defaultValue || props.value);
+    const { value, modelValue, expanded } = toRefs(props);
+    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [expandValues, setExpand] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
     const activeValues = ref([]);
-    const expandValues = ref(props.expanded || []);
 
     watchEffect(() => {
       mode.value = props.collapsed ? 'popup' : 'normal';
       props.onCollapsed?.({ collapsed: props.collapsed });
     });
 
-    const vMenu = new VMenu({ isMutex, expandValues: expandValues.value });
+    const vMenu = new VMenu({ isMutex, expandValues: [...expandValues.value] });
     provide<TdMenuInterface>('TdMenu', {
       activeValue,
       activeValues,
@@ -58,22 +61,22 @@ export default defineComponent({
       isHead: false,
       vMenu,
       select: (value: MenuValue) => {
-        activeValue.value = value;
-        props.onChange?.(value);
+        setActiveValue(value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {
-          expandValues.value = vMenu.expand(value);
+          setExpand(vMenu.expand(value));
         } else if (type === 'add') {
           if (expandValues.value.indexOf(value) === -1) {
             // 可能初始expanded里包含了该value
-            expandValues.value.push(value);
+            setExpand([...expandValues.value, value]);
           }
         } else if (type === 'remove') {
           const index = expandValues.value.indexOf(value);
-          expandValues.value.splice(index, 1);
+          const tmp = [...expandValues.value];
+          tmp.splice(index, 1);
+          setExpand(tmp);
         }
-        props.onExpand?.(expandValues.value);
       },
     });
 
@@ -81,12 +84,10 @@ export default defineComponent({
     watch(
       () => props.expanded,
       (value) => {
-        expandValues.value = value;
         vMenu.expandValues = new Set(value);
       },
     );
     const updateActiveValues = (value: MenuValue) => {
-      activeValue.value = value;
       activeValues.value = vMenu.select(value);
     };
     watch(() => props.value, updateActiveValues);
