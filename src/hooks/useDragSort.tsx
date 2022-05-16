@@ -1,6 +1,6 @@
-import { onUnmounted, watch, ref, Ref } from 'vue';
+import { onUnmounted } from 'vue';
 
-const traversalTabNavs = (tabNavs: HTMLDivElement, fn: { (tabNav: any): void }) => {
+const traversalTabNavs = (tabNavs: HTMLCollection, fn: { (itemNode: any): void; (tabNav: HTMLDivElement): void }) => {
   for (const itemNode of tabNavs) {
     if (itemNode.getAttribute('draggable')) {
       fn(itemNode);
@@ -8,7 +8,7 @@ const traversalTabNavs = (tabNavs: HTMLDivElement, fn: { (tabNav: any): void }) 
   }
 };
 
-const handleTarget = (target: Element | any, tabNavs: HTMLDivElement): any => {
+const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
   let resultTarget;
   traversalTabNavs(tabNavs, (itemNode) => {
     if (itemNode.contains(target)) {
@@ -18,28 +18,24 @@ const handleTarget = (target: Element | any, tabNavs: HTMLDivElement): any => {
   return resultTarget;
 };
 
-interface HTMLDivElement extends HTMLCollection, HTMLElement {
-  children: HTMLDivElement;
-  target: HTMLElement;
-}
-
 export default function useDragSort(props: any) {
   let navsWrap: HTMLDivElement = null;
 
   // 获取当前正在拖动的tabNav节点
-  let dragged: Element;
-  const enterTargets: HTMLDivElement | any[] = [];
+  let dragged: HTMLDivElement;
+  const enterTargets: HTMLDivElement[] = [];
 
-  const dragstart = (event: { target: any }) => {
-    const { target } = event;
+  const dragstart = (event: DragEvent) => {
+    const target = event.target as HTMLDivElement;
+    // const { target } = event;
     // 保存拖动元素的引用(ref.)
     dragged = target;
     // 使其半透明
     target.style.opacity = '0.5';
   };
-  const dragend = (event: { target: any }) => {
+  const dragend = (event: DragEvent) => {
     // 重置透明度
-    event.target.style.opacity = '';
+    (event.target as HTMLDivElement).style.opacity = '';
   };
   /* 放置目标元素时触发事件 */
   const dragover = (event: DragEvent) => {
@@ -60,13 +56,14 @@ export default function useDragSort(props: any) {
   };
   // 当拖动元素离开可放置目标节点
   const dragleave = (event: DragEvent) => {
+    const target = event.target as HTMLDivElement;
     // 重置其边框
-    const { target } = event;
+    // const { target } = event;
     for (const enterTarget of enterTargets) {
       // 目标不在需要放入的节点内，则重置边框
       if (!enterTarget.contains(target)) {
         // 记录过的节点全部重置边框
-        enterTarget.firstChild.style.outline = 'none';
+        (enterTarget.firstChild as HTMLDivElement).style.outline = 'none';
       }
     }
   };
