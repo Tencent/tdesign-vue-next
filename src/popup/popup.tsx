@@ -54,7 +54,13 @@ export default defineComponent({
   },
   setup(props, { expose }) {
     const { visible, modelValue } = toRefs(props);
-    const [innerVisible, setInnerVisible] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
+    const [innerVisible, setInnerVisible] = useVModel(
+      visible,
+      modelValue,
+      props.defaultVisible,
+      props.onVisibleChange,
+      'visible',
+    );
 
     /** popperjs instance */
     let popper: ReturnType<typeof createPopper>;
