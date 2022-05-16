@@ -14,6 +14,16 @@ exports[`Swiper > :props > :animation fade 1`] = `
         class="t-swiper__container"
       >
         
+        <div
+          class="t-swiper__container__item t-swiper__fade"
+          style="opacity: 1;"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -21,6 +31,11 @@ exports[`Swiper > :props > :animation fade 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -43,6 +58,15 @@ exports[`Swiper > :props > :autoplay 1`] = `
         style="transform: translate3d(-0%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -50,6 +74,11 @@ exports[`Swiper > :props > :autoplay 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -69,9 +98,45 @@ exports[`Swiper > :props > :defaultCurrent 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-200%, 0px, 0px);"
+        style="transform: translate3d(-300%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -79,6 +144,16 @@ exports[`Swiper > :props > :defaultCurrent 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -98,9 +173,45 @@ exports[`Swiper > :props > :direction 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(0, -0%, 0px);"
+        style="transform: translate3d(0, -100%, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -108,6 +219,16 @@ exports[`Swiper > :props > :direction 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -127,9 +248,45 @@ exports[`Swiper > :props > :duration 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -137,6 +294,16 @@ exports[`Swiper > :props > :duration 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -156,9 +323,45 @@ exports[`Swiper > :props > :height 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -166,6 +369,16 @@ exports[`Swiper > :props > :height 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -185,9 +398,45 @@ exports[`Swiper > :props > :interval 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -195,6 +444,16 @@ exports[`Swiper > :props > :interval 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -214,9 +473,45 @@ exports[`Swiper > :props > :loop 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -224,6 +519,16 @@ exports[`Swiper > :props > :loop 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -243,9 +548,45 @@ exports[`Swiper > :props > :navigation 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -253,6 +594,16 @@ exports[`Swiper > :props > :navigation 1`] = `
       class="t-swiper__navigation"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -272,9 +623,45 @@ exports[`Swiper > :props > :theme 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-0%, 0px, 0px);"
+        style="transform: translate3d(-100%, 0px, 0px);"
       >
         
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -282,6 +669,16 @@ exports[`Swiper > :props > :theme 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
@@ -303,6 +700,46 @@ exports[`Swiper > :props > :type 1`] = `
         class="t-swiper__container"
       >
         
+        <div
+          class="t-swiper__container__item t-swiper__card"
+          style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 1;"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card t-is-active"
+          style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card"
+          style="transform: translateX(0px) scale(0.6325301204819277); transition: transform 0.3s ease; z-index: 1;"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card t-is-active"
+          style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+        >
+          
+          
+          1
+          
+          
+        </div>
         
       </div>
     </div>
@@ -310,6 +747,16 @@ exports[`Swiper > :props > :type 1`] = `
       class="t-swiper__navigation t-swiper__navigation-bars"
     >
       
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
       
     </ul>
     <!---->
