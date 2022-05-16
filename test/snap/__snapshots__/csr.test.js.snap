@@ -88351,6 +88351,207 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/status.vue 1`] = `
       </div>
     </div>
     <div
+      class="t-steps-item t-steps-item--finish"
+    >
+      <div
+        class="t-steps-item__inner "
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--finish"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            已完成的步骤
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            这里是提示文字
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-steps-item t-steps-item--finish"
+    >
+      <div
+        class="t-steps-item__inner "
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--finish"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            已完成的步骤
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            这里是提示文字
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-steps-item t-steps-item--finish"
+    >
+      <div
+        class="t-steps-item__inner "
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--finish"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            已完成的步骤
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            这里是提示文字
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div
+    style="margin: 16px 0px;"
+  />
+  <div
+    class="t-steps t-steps--horizontal t-steps--default-anchor t-steps--positive t-steps--line-separator"
+  >
+    
+    <div
+      class="t-steps-item t-steps-item--finish"
+    >
+      <div
+        class="t-steps-item__inner "
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--finish"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            已完成的步骤
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            这里是提示文字
+          </div>
+          <div
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       class="t-steps-item t-steps-item--process"
     >
       <div
