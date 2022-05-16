@@ -51,7 +51,7 @@ export default defineComponent({
       props.onCollapsed?.({ collapsed: props.collapsed });
     });
 
-    const vMenu = new VMenu({ isMutex, expandValues: [...expandValues.value] });
+    const vMenu = new VMenu({ isMutex, expandValues: expandValues.value ? [...expandValues.value] : [] });
     provide<TdMenuInterface>('TdMenu', {
       activeValue,
       activeValues,
