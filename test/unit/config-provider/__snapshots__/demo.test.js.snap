@@ -3580,12 +3580,7 @@ exports[`ConfigProvider > ConfigProvider othersVue demo works fine 1`] = `
     data-v-7cc4a746=""
   />
   <div
-<<<<<<< HEAD
     class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator"
-=======
-    class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive"
-    data-v-7cc4a746=""
->>>>>>> test: migrate test demo
     style="width: 100%;"
   >
     
