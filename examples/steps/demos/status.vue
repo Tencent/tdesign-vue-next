@@ -1,5 +1,12 @@
 <template>
   <div>
+    <t-steps current="FINISH" readonly>
+      <t-step-item title="已完成的步骤" content="这里是提示文字" />
+      <t-step-item title="已完成的步骤" content="这里是提示文字" />
+      <t-step-item title="已完成的步骤" content="这里是提示文字" />
+      <t-step-item title="已完成的步骤" content="这里是提示文字" />
+    </t-steps>
+    <div style="margin: 16px 0" />
     <t-steps :current="1" readonly>
       <t-step-item title="已完成的步骤" content="这里是提示文字" />
       <t-step-item title="进行中的步骤" content="这里是提示文字" />

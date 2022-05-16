@@ -3,30 +3,43 @@
     <div ref="affixContainerRef" class="affix-container-demo1">
       <div class="background">
         <t-affix
+          ref="affixRef"
           :z-index="5"
           :offset-top="50"
           :offset-bottom="50"
           :container="getContainer"
           @fixed-change="handleFixedChange"
         >
-          <t-button>FixedTop top:{{ fixedTop }}</t-button>
+          <t-button>affixed :{{ affixed }}</t-button>
         </t-affix>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="jsx">
+import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue';
 
-const fixedTop = ref(0);
+const affixed = ref(false);
 const affixContainerRef = ref(null);
+const affixRef = ref(null);
 
 const getContainer = () => affixContainerRef.value;
 
-const handleFixedChange = (affixed, { top }) => {
-  fixedTop.value = top;
+const handleFixedChange = (_affixed, { top }) => {
+  console.log('top', top);
+  affixed.value = _affixed;
 };
+
+onMounted(() => {
+  nextTick(() => {
+    window.addEventListener('scroll', affixRef.value.handleScroll);
+  });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', affixRef.value.handleScroll);
+});
 </script>
 
 <style lang="less" scoped>
