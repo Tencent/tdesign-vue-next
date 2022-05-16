@@ -341,7 +341,7 @@ export default defineComponent({
         <div
           class={prefixCls}
           ref="popperEl"
-          style={hidePopup && { visibility: 'hidden', pointerEvents: 'none' }}
+          style={[hidePopup && { visibility: 'hidden', pointerEvents: 'none' }, { zIndex: this.zIndex }]}
           vShow={innerVisible}
           onMousedown={() => {
             this.contentClicked = true;
@@ -396,8 +396,7 @@ export default defineComponent({
             <Transition
               name={this.expandAnimation ? `${prefixCls}--animation-expand` : `${prefixCls}--animation`}
               appear
-              onBeforeEnter={this.updatePopper}
-              onAfterEnter={this.updatePopper}
+              onEnter={this.updatePopper}
               onAfterLeave={this.destroyPopper}
             >
               {overlay}
