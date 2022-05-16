@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, provide } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide, reactive, toRefs } from 'vue';
 import props from './avatar-group-props';
 import { SlotReturnValue, TNodeReturnValue } from '../common';
 import Avatar from './avatar';
@@ -13,7 +13,7 @@ export default defineComponent({
   props,
 
   setup(props) {
-    provide('avatarGroup', { ...props });
+    provide('avatarGroup', props);
 
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
