@@ -1,3 +1,4 @@
+import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import Transfer from '@/src/transfer/index.ts';
@@ -38,6 +39,32 @@ describe('Transfer', () => {
           const dom = domLabels[i];
           expect(dom.className.indexOf('t-is-checked') > -1).toBe(true);
         });
+      });
+    });
+
+    describe('dynamic set checked', () => {
+      it('change checked value', async () => {
+        const wrapper = await mount({
+          setup() {
+            const checked = ref(['1', '2']);
+            const change = () => {
+              checked.value = ['3', '4', '5'];
+            };
+            return {
+              checked,
+              change,
+            };
+          },
+          render() {
+            return <Transfer data={data} v-model:checked={this.checked} />;
+          },
+        });
+        const { vm } = wrapper;
+        expect(vm.checked.length).toBe(2);
+        vm.change();
+        await nextTick();
+        expect(vm.checked.length).toBe(3);
+        expect(vm.checked[2]).toBe('5');
       });
     });
 

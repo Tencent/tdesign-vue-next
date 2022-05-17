@@ -10,7 +10,6 @@ import {
   EmptyType,
   TargetParams,
   SearchEvent,
-  SearchOption,
 } from './interface';
 
 import { getTransferListOption, getDataValues, getTransferData, filterTransferData, TRANSFER_NAME } from './utils';
@@ -45,7 +44,7 @@ export default defineComponent({
       }
       return [];
     });
-    const checkedValueList = ref(initChecked.value);
+    const checkedValueList = computed(() => initChecked.value);
     const valueList = ref(innerValue.value || []);
 
     const isTreeMode = computed(() => {
@@ -120,7 +119,6 @@ export default defineComponent({
       // TODO: 换成 useVModel
       props['onUpdate:checked']?.(checked);
       props.onCheckedChange?.(event);
-      checkedValueList.value = checked;
     };
 
     const transferTo = (toDirection: TransferListType) => {
