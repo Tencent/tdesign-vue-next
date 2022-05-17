@@ -331,7 +331,7 @@ export default defineComponent({
     const handleBlur = async () => {
       await validateHandler('blur');
     };
-    provide('formItem', {
+    provide(FormItemInjectionKey, {
       handleBlur,
     });
 
