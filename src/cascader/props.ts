@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-31 13:31:20
  * */
 
 import { TdCascaderProps } from './type';
@@ -75,6 +74,17 @@ export default {
   popupProps: {
     type: Object as PropType<TdCascaderProps['popupProps']>,
   },
+  /** 是否显示下拉框 */
+  popupVisible: {
+    type: Boolean,
+    default: undefined,
+  },
+  /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
+  readonly: Boolean,
+  /** 【开发中】透传 SelectInput 筛选器输入框组件的全部属性 */
+  selectInputProps: {
+    type: Object as PropType<TdCascaderProps['selectInputProps']>,
+  },
   /** 选中值使用完整路径，输入框在单选时也显示完整路径 */
   showAllLevels: {
     type: Boolean,
@@ -85,6 +95,7 @@ export default {
     type: String as PropType<TdCascaderProps['size']>,
     default: 'medium' as TdCascaderProps['size'],
     validator(val: TdCascaderProps['size']): boolean {
+      if (!val) return true;
       return ['large', 'medium', 'small'].includes(val);
     },
   },
@@ -93,29 +104,30 @@ export default {
     type: String as PropType<TdCascaderProps['trigger']>,
     default: 'click' as TdCascaderProps['trigger'],
     validator(val: TdCascaderProps['trigger']): boolean {
+      if (!val) return true;
       return ['click', 'hover'].includes(val);
     },
   },
   /** 选中项的值 */
   value: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    default: (): TdCascaderProps['value'] => [],
+    defaultValue: undefined,
   },
-  /** 选中项的值 */
   modelValue: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    default: (): TdCascaderProps['value'] => [],
+    defaultValue: undefined,
   },
   /** 选中项的值，非受控属性 */
   defaultValue: {
     type: [String, Number, Array] as PropType<TdCascaderProps['defaultValue']>,
     default: (): TdCascaderProps['defaultValue'] => [],
   },
-  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点 */
+  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点 */
   valueMode: {
     type: String as PropType<TdCascaderProps['valueMode']>,
     default: 'onlyLeaf' as TdCascaderProps['valueMode'],
     validator(val: TdCascaderProps['valueMode']): boolean {
+      if (!val) return true;
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },
@@ -124,6 +136,7 @@ export default {
     type: String as PropType<TdCascaderProps['valueType']>,
     default: 'single' as TdCascaderProps['valueType'],
     validator(val: TdCascaderProps['valueType']): boolean {
+      if (!val) return true;
       return ['single', 'full'].includes(val);
     },
   },
@@ -133,6 +146,8 @@ export default {
   onChange: Function as PropType<TdCascaderProps['onChange']>,
   /** 获得焦点时触发 */
   onFocus: Function as PropType<TdCascaderProps['onFocus']>,
+  /** 下拉框显示或隐藏时触发 */
+  onPopupVisibleChange: Function as PropType<TdCascaderProps['onPopupVisibleChange']>,
   /** 多选模式下，选中数据被移除时触发 */
   onRemove: Function as PropType<TdCascaderProps['onRemove']>,
 };

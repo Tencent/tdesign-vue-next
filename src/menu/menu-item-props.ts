@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdMenuItemProps } from '../menu/type';
@@ -38,6 +37,7 @@ export default {
   target: {
     type: String as PropType<TdMenuItemProps['target']>,
     validator(val: TdMenuItemProps['target']): boolean {
+      if (!val) return true;
       return ['_blank', '_self', '_parent', '_top'].includes(val);
     },
   },

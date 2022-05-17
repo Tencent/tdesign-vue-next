@@ -37,9 +37,9 @@ export default function useDragSort(props: TdPrimaryTableProps) {
   }
 
   watch(
-    [data, rowKey],
-    ([data, rowKey]) => {
-      lastRowList.value = data?.map((item) => get(item, rowKey)) || [];
+    [data],
+    ([data]) => {
+      lastRowList.value = data?.map((item) => get(item, rowKey.value)) || [];
     },
     { immediate: true },
   );
@@ -74,9 +74,9 @@ export default function useDragSort(props: TdPrimaryTableProps) {
         const { oldIndex: currentIndex, newIndex: targetIndex } = evt;
         const params: DragSortContext<TableRowData> = {
           currentIndex,
-          current: data[currentIndex],
+          current: data.value[currentIndex],
           targetIndex,
-          target: data[targetIndex],
+          target: data.value[targetIndex],
           currentData: swapDragArrayElement(props.data, currentIndex, targetIndex),
           e: evt,
           sort: 'row',

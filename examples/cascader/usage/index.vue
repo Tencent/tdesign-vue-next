@@ -16,8 +16,8 @@
             label: '选项二',
             value: '2',
             children: [
-              { label: '子选项一', value: '2.1' },
-              { label: '子选项二', value: '2.2' },
+              { label: '子选项三', value: '2.1' },
+              { label: '子选项四', value: '2.2' },
             ],
           },
         ]"
@@ -36,7 +36,7 @@ const panelList = [{ label: 'cascader', value: 'cascader' }];
 
 const usageCodeMap = {
   cascader:
-    "\n        <t-cascader :options=\"[\n          {\n            label: '选项一',\n            value: '1',\n            children: [\n              { label: '子选项一', value: '1.1' },\n              { label: '子选项二', value: '1.2' },\n            ],\n          },\n          {\n            label: '选项二',\n            value: '2',\n            children: [\n              { label: '子选项一', value: '2.1' },\n              { label: '子选项二', value: '2.2' },\n            ],\n          },\n        ]\" v-bind=\"configProps\" />\n      ",
+    "\n        <t-cascader :options=\"[\n          {\n            label: '选项一',\n            value: '1',\n            children: [\n              { label: '子选项一', value: '1.1' },\n              { label: '子选项二', value: '1.2' },\n            ],\n          },\n          {\n            label: '选项二',\n            value: '2',\n            children: [\n              { label: '子选项三', value: '2.1' },\n              { label: '子选项四', value: '2.2' },\n            ],\n          },\n        ]\" v-bind=\"configProps\" />\n      ",
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

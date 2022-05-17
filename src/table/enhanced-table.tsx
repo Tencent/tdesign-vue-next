@@ -1,9 +1,10 @@
 import { defineComponent, SetupContext, computed, ref } from 'vue';
+import omit from 'lodash/get';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
 import PrimaryTable from './primary-table';
-import { TdEnhancedTableProps, PrimaryTableCol, TableRowData } from './type';
+import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
 
@@ -17,7 +18,7 @@ export default defineComponent({
   },
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
-    const { store, dataSource, formatTreeColum, ...treeInstanceFunctions } = useTreeData(props, context);
+    const { store, dataSource, formatTreeColum, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
 
     const treeDataMap = ref(store.value.treeDataMap);
 
@@ -46,10 +47,21 @@ export default defineComponent({
       return isTreeData ? props.columns : getColumns(props.columns);
     });
 
+    const onDragSortChange = (context: DragSortContext<TableRowData>) => {
+      if (props.beforeDragSort && !props.beforeDragSort(context)) return;
+      swapData({
+        current: context.current,
+        target: context.target,
+        currentIndex: context.currentIndex,
+        targetIndex: context.targetIndex,
+      });
+    };
+
     return {
       store,
       dataSource,
       tColumns,
+      onDragSortChange,
       onInnerSelectChange,
       ...treeInstanceFunctions,
     };
@@ -63,6 +75,7 @@ export default defineComponent({
       // 树形结构不允许本地数据分页
       disableDataPage: Boolean(this.tree && Object.keys(this.tree).length),
       onSelectChange: this.onInnerSelectChange,
+      onDragSort: this.onDragSortChange,
     };
     return <PrimaryTable v-slots={this.$slots} {...props} {...this.$attrs} />;
   },
