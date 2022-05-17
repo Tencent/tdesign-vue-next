@@ -12,6 +12,7 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';
+import { useFormDisabled } from '../form/hooks';
 
 export default defineComponent({
   name: 'TCascader',
@@ -19,6 +20,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
+    const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
@@ -81,6 +83,7 @@ export default defineComponent({
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
+            if (disabled.value) return;
             setVisible(val, context);
           }}
           onClear={({ e }) => {
