@@ -43759,7 +43759,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -43886,7 +43885,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -91486,7 +91484,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -91592,7 +91589,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
             </td>
             
           </tr>
-          
           <tr
             class="t-table__row--full t-table__last-full-row"
           >
@@ -91918,7 +91914,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -92134,7 +92129,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -92411,7 +92405,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-cell.vue 1`]
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -92520,7 +92513,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-cell.vue 1`]
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -92664,7 +92656,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -92875,7 +92866,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -93387,7 +93377,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -93598,7 +93587,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -93935,7 +93923,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
         >
           
           <!---->
-          
           <tr
             class="t-tdesign__custom-body-tr"
           >
@@ -94062,7 +94049,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -94210,7 +94196,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-header.vue 1
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -94253,7 +94238,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-header.vue 1
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -94500,7 +94484,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/data-sort.vue 1`] =
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -94609,7 +94592,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/data-sort.vue 1`] =
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -94717,7 +94699,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-col-sort.vue 1
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -94846,7 +94827,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-col-sort.vue 1
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -94954,7 +94934,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort.vue 1`] =
           >
             
             <!---->
-            
             <tr
               class=""
               data-id="1"
@@ -95087,7 +95066,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort.vue 1`] =
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -95220,7 +95198,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
           >
             
             <!---->
-            
             <tr
               class=""
               data-id="1"
@@ -95429,7 +95406,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -96156,7 +96132,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -96682,7 +96657,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -97132,7 +97106,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -97263,7 +97236,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -97631,7 +97603,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -97927,7 +97898,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -98138,7 +98108,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -98979,7 +98948,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -99249,7 +99217,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -100290,7 +100257,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -100441,7 +100407,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/lazy.vue 1`] = `
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -109459,7 +109424,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/lazy.vue 1`] = `
               />
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -109623,8 +109587,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
         >
           
           <!---->
-          
-          
           <!---->
           
         </tbody>
@@ -109806,8 +109768,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
         >
           
           <!---->
-          
-          
           <!---->
           
         </tbody>
@@ -109999,8 +109959,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
         >
           
           <!---->
-          
-          
           <!---->
           
         </tbody>
@@ -110146,7 +110104,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`]
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -110301,7 +110258,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`]
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -110847,7 +110803,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multi-header.vue 1`
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -112488,7 +112443,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multi-header.vue 1`
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -112725,7 +112679,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multiple-sort.vue 1
           >
             
             <!---->
-            
             <tr
               class=""
             >
@@ -112862,7 +112815,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multiple-sort.vue 1
               </td>
               
             </tr>
-            
             <!---->
             
           </tbody>
@@ -113001,7 +112953,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -113237,7 +113188,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -113916,7 +113866,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -114279,7 +114228,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -114414,7 +114362,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -114782,7 +114729,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -114896,7 +114842,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/show-columns.vue 1`
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -115105,7 +115050,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/show-columns.vue 1`
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -115369,7 +115313,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/single-sort.vue 1`]
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -115506,7 +115449,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/single-sort.vue 1`]
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -115545,7 +115487,20 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         class="t-button__text"
       >
         
-        展开/收起可见行
+        任意节点展开/收起
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="margin-left: 16px;"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        展开全部
         
       </span>
     </button>
@@ -115573,8 +115528,14 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
   <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
+  <!-- tree.defaultExpandAll: true 默认展开全部 -->
+  <!-- this.$refs.table.dataSource 查看树形结构平铺数据 -->
   <div
-    class="t-table"
+    beforedragsort="params => {
+      console.log(params);
+      return true;
+    }"
+    class="t-table t-table--row-handler-draggable"
     style="position: relative;"
     tree="[object Object]"
   >
@@ -115589,14 +115550,20 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
       >
         <colgroup>
           
-          <col />
           <col
-            style="width: 220px;"
+            style="width: 80px;"
           />
-          <col />
-          <col />
           <col
-            style="width: 286px;"
+            style="width: 100px;"
+          />
+          <col
+            style="width: 180px;"
+          />
+          <col
+            style="width: 80px;"
+          />
+          <col
+            style="width: 340px;"
           />
           
         </colgroup>
@@ -115606,6 +115573,16 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           
           <tr>
             
+            <th
+              class="t-table__th-drag"
+              data-colkey="drag"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                排序
+              </div>
+            </th>
             <th
               class="t-table__th-id"
               data-colkey="id"
@@ -115649,16 +115626,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-type"
-              data-colkey="type"
-            >
-              <div
-                class="t-table__th-cell-inner"
-              >
-                类型
-              </div>
-            </th>
-            <th
               class="t-table__th-operate t-align-center"
               data-colkey="operate"
             >
@@ -115677,11 +115644,28 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         >
           
           <!---->
-          
           <tr
             class=""
+            data-id="我是 0_1 号"
           >
             
+            <td
+              class="t-table__handle-draggable"
+            >
+              <svg
+                class="t-icon t-icon-move"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </td>
             <td
               class="t-table-td--ellipsis"
             >
@@ -115705,7 +115689,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   style="padding-left: 1px;"
                 >
                   <!---->
-                  我是 0_1 号（第 1 页）
+                  我是 0_1 号
                 </div>
                 
               </div>
@@ -115714,11 +115698,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               class=""
             >
               共有
-            </td>
-            <td
-              class=""
-            >
-              String
             </td>
             <td
               class="t-align-center"
@@ -115735,6 +115714,30 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   >
                     
                     插入
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    前插
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    后插
                     
                   </span>
                 </button>
@@ -115783,8 +115786,26 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           </tr>
           <tr
             class=""
+            data-id="我是 1_1 号"
           >
             
+            <td
+              class="t-table__handle-draggable"
+            >
+              <svg
+                class="t-icon t-icon-move"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </td>
             <td
               class="t-table-td--ellipsis"
             >
@@ -115829,7 +115850,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                       />
                     </svg>
                   </span>
-                  我是 1_1 号（第 1 页）
+                  我是 1_1 号
                 </div>
                 
               </div>
@@ -115838,11 +115859,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               class=""
             >
               私有
-            </td>
-            <td
-              class=""
-            >
-              Number
             </td>
             <td
               class="t-align-center"
@@ -115859,6 +115875,30 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   >
                     
                     插入
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    前插
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    后插
                     
                   </span>
                 </button>
@@ -115907,8 +115947,26 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           </tr>
           <tr
             class=""
+            data-id="我是 2_1 号"
           >
             
+            <td
+              class="t-table__handle-draggable"
+            >
+              <svg
+                class="t-icon t-icon-move"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </td>
             <td
               class="t-table-td--ellipsis"
             >
@@ -115953,7 +116011,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                       />
                     </svg>
                   </span>
-                  我是 2_1 号（第 1 页）
+                  我是 2_1 号
                 </div>
                 
               </div>
@@ -115962,11 +116020,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               class=""
             >
               共有
-            </td>
-            <td
-              class=""
-            >
-              Array
             </td>
             <td
               class="t-align-center"
@@ -115983,6 +116036,30 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   >
                     
                     插入
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    前插
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    后插
                     
                   </span>
                 </button>
@@ -116031,8 +116108,26 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           </tr>
           <tr
             class=""
+            data-id="我是 3_1 号"
           >
             
+            <td
+              class="t-table__handle-draggable"
+            >
+              <svg
+                class="t-icon t-icon-move"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </td>
             <td
               class="t-table-td--ellipsis"
             >
@@ -116077,7 +116172,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                       />
                     </svg>
                   </span>
-                  我是 3_1 号（第 1 页）
+                  我是 3_1 号
                 </div>
                 
               </div>
@@ -116086,11 +116181,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               class=""
             >
               私有
-            </td>
-            <td
-              class=""
-            >
-              Object
             </td>
             <td
               class="t-align-center"
@@ -116107,6 +116197,30 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   >
                     
                     插入
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    前插
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    后插
                     
                   </span>
                 </button>
@@ -116155,8 +116269,26 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           </tr>
           <tr
             class=""
+            data-id="我是 4_1 号"
           >
             
+            <td
+              class="t-table__handle-draggable"
+            >
+              <svg
+                class="t-icon t-icon-move"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5 1a1 1 0 100 2 1 1 0 000-2zM11 1a1 1 0 100 2 1 1 0 000-2zM4 6a1 1 0 112 0 1 1 0 01-2 0zM11 5a1 1 0 100 2 1 1 0 000-2zM4 10a1 1 0 112 0 1 1 0 01-2 0zM5 13a1 1 0 100 2 1 1 0 000-2zM10 10a1 1 0 112 0 1 1 0 01-2 0zM11 13a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </td>
             <td
               class="t-table-td--ellipsis"
             >
@@ -116201,7 +116333,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                       />
                     </svg>
                   </span>
-                  我是 4_1 号（第 1 页）
+                  我是 4_1 号
                 </div>
                 
               </div>
@@ -116210,11 +116342,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               class=""
             >
               共有
-            </td>
-            <td
-              class=""
-            >
-              String
             </td>
             <td
               class="t-align-center"
@@ -116231,6 +116358,30 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   >
                     
                     插入
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    前插
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    后插
                     
                   </span>
                 </button>
@@ -116277,7 +116428,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>
@@ -116296,7 +116446,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         <div
           class="t-pagination__total"
         >
-          共 100 项数据
+          共 5 项数据
         </div>
         <div
           class="t-select__wrap t-pagination__select"
@@ -116320,9 +116470,9 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
             </span>
             <span
               class="t-select__single"
-              title="10"
+              title="5"
             >
-              10
+              5
             </span>
             <!---->
             <svg
@@ -116351,7 +116501,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
             
             
             <li
-              class="t-select-option t-size-m"
+              class="t-select-option t-is-selected t-size-m"
               title="5 条/页"
             >
               <span>
@@ -116359,7 +116509,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
               </span>
             </li>
             <li
-              class="t-select-option t-is-selected t-size-m"
+              class="t-select-option t-size-m"
               title="10 条/页"
             >
               <span>
@@ -116416,59 +116566,14 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
           >
             1
           </li>
-          <li
-            class="t-pagination__number"
-          >
-            2
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            3
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            4
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            5
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            6
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            7
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            8
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            9
-          </li>
-          <li
-            class="t-pagination__number"
-          >
-            10
-          </li>
           
           <!---->
           <!---->
         </ul>
         <!---->
         <div
-          class="t-pagination__btn t-pagination__btn-next"
-          disabled="false"
+          class="t-pagination__btn t-pagination__btn-next t-is-disabled"
+          disabled="true"
         >
           <svg
             class="t-icon t-icon-chevron-right"
@@ -116498,7 +116603,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
       :pagination="defaultPagination"
       :data="data"
       :columns="columns"
-      :tree="{ indent: 12, childrenKey: 'list' }"
+      :tree="{ indent: 12, childrenKey: 'list', defaultExpandAll: true }"
       @page-change="onPageChange"
     &gt;&lt;/t-enhanced-table&gt; -->
 </div>
@@ -116702,7 +116807,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
         >
           
           <!---->
-          
           <tr
             class=""
           >
@@ -117220,7 +117324,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
             </td>
             
           </tr>
-          
           <!---->
           
         </tbody>

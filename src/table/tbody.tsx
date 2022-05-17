@@ -126,7 +126,7 @@ export default defineComponent({
       const classes = [this.tableFullRowClasses.base, this.tableFullRowClasses[tType]];
       /** innerFullRow 和 innerFullElement 同时存在，是为了保证 固定列时，当前行不随内容进行横向滚动 */
       return (
-        <tr class={classes}>
+        <tr class={classes} key={`key-full-row-${type}`}>
           <td colspan={columnLength}>
             <div
               class={{ [this.tableFullRowClasses.innerFullRow]: isFixedToLeft }}
@@ -214,7 +214,7 @@ export default defineComponent({
       }
     });
 
-    const list = [getFullRow(columnLength, 'first-full-row'), trNodeList, getFullRow(columnLength, 'last-full-row')];
+    const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
     const isEmpty = !this.data?.length && !this.loading;
 
     const translate = `translate(0, ${this.translateY}px)`;
