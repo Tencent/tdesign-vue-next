@@ -27,7 +27,7 @@ export default defineComponent({
       if (mode.value === 'popup') {
         return popupVisible.value;
       }
-      return expandValues ? expandValues.value.includes(props.value) : false;
+      return expandValues ? expandValues.value?.includes(props.value) : false;
     });
     const isNested = ref(false); // 是否嵌套
 

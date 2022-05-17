@@ -68524,7 +68524,6 @@ exports[`csr snapshot test > csr test ./examples/menu/demos/single.vue 1`] = `
 <div>
   <div
     class="t-menu t-head-menu t-menu--light"
-    modelvalue="item2"
   >
     <div
       class="t-head-menu__inner"
@@ -68639,7 +68638,6 @@ exports[`csr snapshot test > csr test ./examples/menu/demos/single.vue 1`] = `
   <div
     class="t-menu t-head-menu t-menu--dark"
     height="120px"
-    modelvalue="item1"
   >
     <div
       class="t-head-menu__inner"
