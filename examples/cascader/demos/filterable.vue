@@ -10,7 +10,7 @@ import { ref } from 'vue';
 
 const options = [
   {
-    label: '选项一',
+    label: '当选项一数据展示文本过长时',
     value: '1',
     children: [
       {
@@ -22,7 +22,7 @@ const options = [
         value: '1.2',
       },
       {
-        label: '子选项三',
+        label: '当选项数据展示文本过长时',
         value: '1.3',
       },
     ],
@@ -36,7 +36,7 @@ const options = [
         value: '2.1',
       },
       {
-        label: '子选项二',
+        label: '当选项数据展示文本过长时',
         value: '2.2',
       },
     ],

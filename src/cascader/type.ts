@@ -2,12 +2,13 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-31 13:31:20
  * */
 
 import { CheckboxProps } from '../checkbox';
 import { PopupProps } from '../popup';
+import { SelectInputProps } from '../select-input';
 import { TreeNodeModel } from '../tree';
+import { PopupVisibleChangeContext } from '../popup';
 import { TNode, TreeOptionData, SizeEnum } from '../common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
@@ -95,6 +96,19 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   popupProps?: PopupProps;
   /**
+   * 是否显示下拉框
+   */
+  popupVisible?: boolean;
+  /**
+   * 只读状态，值为真会隐藏输入框，且无法打开下拉框
+   * @default false
+   */
+  readonly?: boolean;
+  /**
+   * 【开发中】透传 SelectInput 筛选器输入框组件的全部属性
+   */
+  selectInputProps?: SelectInputProps;
+  /**
    * 选中值使用完整路径，输入框在单选时也显示完整路径
    * @default true
    */
@@ -120,7 +134,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   defaultValue?: CascaderValue<CascaderOption>;
   /**
-   * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点
+   * 选中项的值
+   * @default []
+   */
+  modelValue?: CascaderValue<CascaderOption>;
+  /**
+   * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点
    * @default onlyLeaf
    */
   valueMode?: 'onlyLeaf' | 'parentFirst' | 'all';
@@ -142,6 +161,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
   /**
+   * 下拉框显示或隐藏时触发
+   */
+  onPopupVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
+  /**
    * 多选模式下，选中数据被移除时触发
    */
   onRemove?: (context: RemoveContext<CascaderOption>) => void;
@@ -150,7 +173,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
 export interface CascaderKeysType {
   value?: string;
   label?: string;
-  children?: string;
+  children?: string | boolean;
 }
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
@@ -160,7 +183,7 @@ export interface CascaderChangeContext<CascaderOption> {
   source: CascaderChangeSource;
 }
 
-export type CascaderChangeSource = 'invalid-value' | 'checked' | 'clear' | 'unchecked';
+export type CascaderChangeSource = 'invalid-value' | 'check' | 'clear' | 'uncheck';
 
 export interface RemoveContext<T> {
   value: CascaderValue<T>;

@@ -26,7 +26,6 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
-
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const classPrefix = usePrefixClass();
