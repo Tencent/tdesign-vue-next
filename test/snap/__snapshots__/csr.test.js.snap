@@ -22669,8 +22669,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -22716,8 +22718,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -42045,8 +42049,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -42117,8 +42123,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -50106,8 +50114,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50177,8 +50187,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50220,8 +50232,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -50278,8 +50292,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50325,8 +50341,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50367,8 +50385,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50442,8 +50462,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50536,8 +50558,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50590,8 +50614,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -50653,12 +50679,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -50706,12 +50734,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           一句话介绍自己
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -50781,8 +50811,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50830,8 +50862,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -50909,8 +50943,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51025,8 +51061,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51145,8 +51183,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51194,8 +51234,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51243,8 +51285,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51328,8 +51372,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -51386,8 +51432,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51455,12 +51503,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -51528,12 +51578,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           自定义异步校验方法
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -51586,8 +51638,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -51670,8 +51724,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51748,8 +51804,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51828,8 +51886,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51906,8 +51966,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -51983,8 +52045,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52024,8 +52088,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52067,8 +52133,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52144,8 +52212,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52241,8 +52311,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52296,8 +52368,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52451,8 +52525,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52507,8 +52583,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -52653,12 +52731,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -52706,12 +52786,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           一句话介绍自己
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -52781,8 +52863,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52830,8 +52914,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -52909,8 +52995,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53005,8 +53093,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53125,8 +53215,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53174,8 +53266,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53223,8 +53317,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53294,8 +53390,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -53418,8 +53516,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53488,8 +53588,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -53556,8 +53658,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53638,8 +53742,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53669,8 +53775,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -53793,8 +53901,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53840,8 +53950,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53934,8 +54046,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -53988,8 +54102,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -54105,8 +54221,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54152,8 +54270,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54194,8 +54314,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54269,8 +54391,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54363,8 +54487,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54417,8 +54543,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -54524,8 +54652,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -54669,8 +54799,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -54744,8 +54876,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -54923,8 +55057,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -54977,8 +55113,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
           </div>
@@ -55037,8 +55175,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -55112,8 +55252,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -55291,8 +55433,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
             <div
@@ -55345,8 +55489,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                   
                   <!---->
                 </div>
+                
                 <!---->
                 <!---->
+                
               </div>
             </div>
           </div>
@@ -55362,100 +55508,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
 `;
 
 exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue 1`] = `
-<div
-  data-v-137d1702=""
->
-  <!-- 可以使用全局 ConfigProvider errorMessage 配置规则校验结果描述，而无需给每一个表单都配置校验信息 -->
-  <div
-    data-v-137d1702=""
-  >
-    <div
-      class="t-radio-group t-size-m t-radio-group--filled"
-      data-v-137d1702=""
-    >
-      
-      <label
-        class="t-radio-button t-is-checked"
-        data-v-137d1702=""
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="default"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          
-          <span>
-            
-             使用表单默认校验信息 
-            
-          </span>
-          <!---->
-          
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-        data-v-137d1702=""
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="config"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          
-          <span>
-            
-             表单统一配置校验信息 
-            
-          </span>
-          <!---->
-          
-          
-          
-        </span>
-      </label>
-      
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
-    </div>
-  </div>
-  <br
-    data-v-137d1702=""
-  />
-  <br
-    data-v-137d1702=""
-  />
+<div>
   <!-- error-message 非必需 -->
   <form
     class="t-form"
-    data-v-137d1702=""
   >
     
     <div
       class="t-form__item t-form-item__account t-form__item-with-help"
-      data-v-137d1702=""
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -55477,7 +55537,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <div
             class="t-input__wrap"
-            data-v-137d1702=""
           >
             <div
               class="t-input"
@@ -55498,17 +55557,18 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
         <!---->
+        
       </div>
     </div>
     <div
       class="t-form__item t-form-item__description t-form__item-with-help"
-      data-v-137d1702=""
     >
       <div
         class="t-form__label t-form__label--right"
@@ -55530,7 +55590,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <div
             class="t-input__wrap"
-            data-v-137d1702=""
           >
             <div
               class="t-input"
@@ -55551,17 +55610,18 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           一句话介绍自己
         </div>
         <!---->
+        
       </div>
     </div>
     <div
       class="t-form__item t-form-item__password"
-      data-v-137d1702=""
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -55583,7 +55643,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <div
             class="t-input__wrap"
-            data-v-137d1702=""
           >
             <div
               class="t-input"
@@ -55626,476 +55685,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__email"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--required t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          邮箱
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input__wrap"
-            data-v-137d1702=""
-          >
-            <div
-              class="t-input"
-            >
-              <!---->
-              <!---->
-              <input
-                class="t-input__inner"
-                placeholder="请输入"
-                type="text"
-              />
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__gender"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--required t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          性别
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-radio-group t-size-m t-radio-group__outline"
-            data-v-137d1702=""
-          >
-            
-            <label
-              class="t-radio"
-              data-v-137d1702=""
-            >
-              <input
-                class="t-radio__former"
-                name=""
-                type="radio"
-                value="male"
-              />
-              <span
-                class="t-radio__input"
-              />
-              <span
-                class="t-radio__label"
-              >
-                
-                男
-                
-              </span>
-            </label>
-            <label
-              class="t-radio"
-              data-v-137d1702=""
-            >
-              <input
-                class="t-radio__former"
-                name=""
-                type="radio"
-                value="femal"
-              />
-              <span
-                class="t-radio__input"
-              />
-              <span
-                class="t-radio__label"
-              >
-                
-                女
-                
-              </span>
-            </label>
-            
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__course"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--required t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          课程
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-checkbox-group"
-            data-v-137d1702=""
-          >
-            
-            <label
-              class="t-checkbox"
-            >
-              <input
-                class="t-checkbox__former"
-                name=""
-                type="checkbox"
-                value="1"
-              />
-              <span
-                class="t-checkbox__input"
-              />
-              <span
-                class="t-checkbox__label"
-              >
-                
-                语文
-                
-              </span>
-            </label>
-            <label
-              class="t-checkbox"
-            >
-              <input
-                class="t-checkbox__former"
-                name=""
-                type="checkbox"
-                value="2"
-              />
-              <span
-                class="t-checkbox__input"
-              />
-              <span
-                class="t-checkbox__label"
-              >
-                
-                数学
-                
-              </span>
-            </label>
-            <label
-              class="t-checkbox"
-            >
-              <input
-                class="t-checkbox__former"
-                name=""
-                type="checkbox"
-                value="3"
-              />
-              <span
-                class="t-checkbox__input"
-              />
-              <span
-                class="t-checkbox__label"
-              >
-                
-                英语
-                
-              </span>
-            </label>
-            <label
-              class="t-checkbox"
-            >
-              <input
-                class="t-checkbox__former"
-                name=""
-                type="checkbox"
-                value="4"
-              />
-              <span
-                class="t-checkbox__input"
-              />
-              <span
-                class="t-checkbox__label"
-              >
-                
-                体育
-                
-              </span>
-            </label>
-            
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__college"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          学院
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-select__wrap demo-select-base"
-            data-v-137d1702=""
-            modelvalue=""
-          >
-            
-            <div
-              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
-            >
-              <!---->
-              <span
-                class="t-select__placeholder"
-              >
-                 
-                请选择
-              </span>
-              <!---->
-              <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
-                style="display: none;"
-              >
-                <!---->
-                
-                +0
-                
-                <!---->
-              </span>
-              <!---->
-              <!---->
-              <svg
-                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            
-            <div
-              style="display: none;"
-            >
-              
-              
-              <li
-                class="t-select-option t-size-m"
-                data-v-137d1702=""
-                title="计算机学院"
-              >
-                <span>
-                  
-                  计算机学院
-                  
-                </span>
-              </li>
-              <li
-                class="t-select-option t-size-m"
-                data-v-137d1702=""
-                title="软件学院"
-              >
-                <span>
-                  
-                  软件学院
-                  
-                </span>
-              </li>
-              <li
-                class="t-select-option t-size-m"
-                data-v-137d1702=""
-                title="物联网学院"
-              >
-                <span>
-                  
-                  物联网学院
-                  
-                </span>
-              </li>
-              
-              
-            </div>
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__date"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          入学时间
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input__wrap"
-            data-v-137d1702=""
-          >
-            <div
-              class="t-input"
-            >
-              <!---->
-              <!---->
-              <input
-                class="t-input__inner"
-                placeholder="请输入"
-                type="text"
-              />
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__content.url"
-      data-v-137d1702=""
-    >
-      <div
-        class="t-form__label t-form__label--required t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          个人网站
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input__wrap"
-            data-v-137d1702=""
-          >
-            <div
-              class="t-input"
-            >
-              <!---->
-              <!---->
-              <input
-                class="t-input__inner"
-                placeholder="请输入"
-                type="text"
-              />
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-        <!---->
+        
       </div>
     </div>
     <div
       class="t-form__item t-form-item__"
-      data-v-137d1702=""
-      style="padding-top: 8px;"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -56117,7 +55714,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            data-v-137d1702=""
             style="margin-right: 10px;"
             type="submit"
           >
@@ -56131,7 +55727,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            data-v-137d1702=""
             style="margin-right: 10px;"
             type="reset"
           >
@@ -56145,22 +55740,23 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            data-v-137d1702=""
             type="button"
           >
             <span
               class="t-button__text"
             >
               
-              清空校验结果
+              设置校验信息提示
               
             </span>
           </button>
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -56223,12 +55819,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           这是用户名字段帮助说明
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -56276,12 +55874,14 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <div
           class="t-input__help"
         >
           一句话介绍自己
         </div>
         <!---->
+        
       </div>
     </div>
     <div
@@ -56351,8 +55951,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56400,8 +56002,112 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__age"
+      data-v-01218810=""
+    >
+      <div
+        class="t-form__label t-form__label--required t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          年龄
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            data-v-01218810=""
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove t-size-m"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add t-size-m"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        
+        <!---->
+        <!---->
+        
       </div>
     </div>
     <div
@@ -56479,8 +56185,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56595,8 +56303,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56714,8 +56424,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56763,8 +56475,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56812,8 +56526,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -56883,8 +56599,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -57007,8 +56725,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57054,8 +56774,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57101,8 +56823,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57148,8 +56872,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57195,8 +56921,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57242,8 +56970,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -57323,8 +57053,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             
           </span>
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
@@ -57383,8 +57115,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             </svg>
           </span>
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -57456,8 +57190,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             
           </span>
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -57511,8 +57247,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -61752,8 +61490,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -61853,8 +61593,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -61953,8 +61695,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62053,8 +61797,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62153,8 +61899,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62253,8 +62001,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62357,8 +62107,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62461,8 +62213,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62565,8 +62319,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -62669,8 +62425,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -131660,8 +131418,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -131702,8 +131462,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -131744,8 +131506,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -132156,8 +131920,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -132199,8 +131965,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -132306,8 +132074,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -133666,8 +133436,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -133708,8 +133480,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -134191,8 +133965,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -134760,8 +134536,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -134802,8 +134580,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -135390,8 +135170,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -135432,8 +135214,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -136405,8 +136189,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -136447,8 +136233,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
@@ -136611,8 +136399,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     <div
@@ -136654,8 +136444,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           
           <!---->
         </div>
+        
         <!---->
         <!---->
+        
       </div>
     </div>
     
@@ -138968,8 +138760,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       <div
@@ -139010,8 +138804,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             
             <!---->
           </div>
+          
           <!---->
           <!---->
+          
         </div>
       </div>
       
