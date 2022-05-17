@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed } from 'vue';
+import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
 import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -10,9 +10,13 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
-    provide<RowProviderType>('rowContext', {
-      gutter: props.gutter,
-    });
+    const { gutter } = toRefs(props);
+    provide<RowProviderType>(
+      'rowContext',
+      reactive({
+        gutter,
+      }),
+    );
 
     const size = useRowSize();
 

@@ -364,20 +364,22 @@ export default defineComponent({
     const toggleDragging = (toState: boolean) => {
       dragging.value = toState;
     };
-    const provideCollect = computed(() => {
-      return {
-        max: props.max,
-        min: props.min,
-        step: props.step,
+
+    const { min, max, step } = toRefs(props);
+    provide(
+      sliderPropsInjectKey,
+      reactive({
+        min,
+        max,
+        step,
         dragging,
         toggleDragging,
         precision,
         disabled,
         resetSize,
         sliderSize,
-      };
-    });
-    provide(sliderPropsInjectKey, provideCollect.value);
+      }),
+    );
 
     return () => (
       <div class={containerClass.value} ref={sliderContainerRef}>

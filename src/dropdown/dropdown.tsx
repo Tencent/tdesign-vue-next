@@ -1,4 +1,4 @@
-import { defineComponent, provide, ref } from 'vue';
+import { defineComponent, provide, reactive, ref, toRefs } from 'vue';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
@@ -22,12 +22,16 @@ export default defineComponent({
       props.onClick?.(data, context);
     };
 
-    provide(injectKey, {
-      handleMenuClick,
-      maxHeight: props.maxHeight,
-      maxColumnWidth: props.maxColumnWidth,
-      minColumnWidth: props.minColumnWidth,
-    });
+    const { maxHeight, maxColumnWidth, minColumnWidth } = toRefs(props);
+    provide(
+      injectKey,
+      reactive({
+        handleMenuClick,
+        maxHeight,
+        maxColumnWidth,
+        minColumnWidth,
+      }),
+    );
 
     return () => {
       const trigger = slots.default ? slots.default(null) : '';

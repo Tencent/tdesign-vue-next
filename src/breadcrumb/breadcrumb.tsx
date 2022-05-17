@@ -1,4 +1,4 @@
-import { defineComponent, reactive, provide } from 'vue';
+import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
@@ -9,13 +9,14 @@ export default defineComponent({
   name: 'TBreadcrumb',
   props,
   setup(props, { slots }) {
+    const { separator, theme, maxItemWidth } = toRefs(props);
     provide(
       'tBreadcrumb',
       reactive({
-        separator: props.separator,
-        theme: props.theme,
+        separator,
+        theme,
         slots: { separator: slots.separator },
-        maxItemWidth: props.maxItemWidth,
+        maxItemWidth,
       }),
     );
     const renderTNodeJSX = useTNodeJSX();

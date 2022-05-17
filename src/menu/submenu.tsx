@@ -1,4 +1,16 @@
-import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch, Slots } from 'vue';
+import {
+  defineComponent,
+  computed,
+  inject,
+  ref,
+  provide,
+  onMounted,
+  getCurrentInstance,
+  watch,
+  Slots,
+  toRefs,
+  reactive,
+} from 'vue';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
@@ -112,15 +124,19 @@ export default defineComponent({
     });
 
     // provide
-    provide<TdSubMenuInterface>('TdSubmenu', {
-      value: props.value,
-      addMenuItem: (item: TdMenuItem) => {
-        menuItems.value.push(item);
-        if (submenu) {
-          submenu.addMenuItem(item);
-        }
-      },
-    });
+    const { value } = toRefs(props);
+    provide<TdSubMenuInterface>(
+      'TdSubmenu',
+      reactive({
+        value,
+        addMenuItem: (item: TdMenuItem) => {
+          menuItems.value.push(item);
+          if (submenu) {
+            submenu.addMenuItem(item);
+          }
+        },
+      }),
+    );
 
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
