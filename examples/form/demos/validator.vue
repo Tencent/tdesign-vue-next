@@ -73,7 +73,7 @@ const rules = {
   ],
   gender: [{ required: true, message: '性别必填', type: 'warning' }],
   course: [{ required: true, message: '课程必填', type: 'warning' }],
-  college: [{ required: true, message: '学院必选', type: 'warning' }],
+  college: [{ required: true, message: '学院必选', type: 'warning', trigger: 'blur' }],
   'content.url': [
     { required: true, message: '个人网站必填', type: 'warning' },
     {
