@@ -1,15 +1,16 @@
 import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { ClassName } from '../common';
-import useVModel from '../hooks/useVModel';
+import { FormItemInjectionKey } from '../form/const';
 
 // hooks
+import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -105,7 +106,7 @@ export default defineComponent({
       props.onFocus?.(innerValue.value, { e });
     };
 
-    const formItem = inject('formItem', undefined);
+    const formItem = inject(FormItemInjectionKey, undefined);
     const emitBlur = (e: FocusEvent) => {
       focused.value = false;
       props.onBlur?.(innerValue.value, { e });
