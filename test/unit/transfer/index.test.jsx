@@ -1,6 +1,6 @@
 import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { describe, vi } from 'vitest';
+import { vi } from 'vitest';
 import Transfer from '@/src/transfer/index.ts';
 
 const data = [];
