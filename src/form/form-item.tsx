@@ -54,21 +54,13 @@ export default defineComponent({
   name: 'TFormItem',
 
   props: { ...props },
-  setup(props, { slots, expose }) {
+  setup(props) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
     const { global } = useConfig('form');
     const form = inject(FormInjectionKey, undefined);
 
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
-    const classes = computed<ClassName>(() => [
-      CLASS_NAMES.value.formItem,
-      FORM_ITEM_CLASS_PREFIX.value + props.name,
-      {
-        [CLASS_NAMES.value.formItemWithHelp]: props.help,
-        [CLASS_NAMES.value.formItemWithExtra]: renderTipsInfo(),
-      },
-    ]);
 
     const needRequiredMark = computed(() => {
       const { requiredMark } = props;
@@ -310,20 +302,31 @@ export default defineComponent({
       return form?.showErrorMessage;
     });
 
-    const renderTipsInfo = (): VNode => {
-      let helpVNode: VNode = <div class={CLASS_NAMES.value.help}></div>;
+    const classes = computed<ClassName>(() => [
+      CLASS_NAMES.value.formItem,
+      FORM_ITEM_CLASS_PREFIX.value + props.name,
+      {
+        [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
+        [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,
+      },
+    ]);
+    const helpNode = computed<VNode>(() => {
       if (props.help) {
-        helpVNode = <div class={CLASS_NAMES.value.help}>{props.help}</div>;
+        return <div class={CLASS_NAMES.value.help}>{props.help}</div>;
       }
+      return null;
+    });
+    const extraNode = computed<VNode>(() => {
+      const getExtraNode = (content: string) => <div class={CLASS_NAMES.value.extra}>{content}</div>;
       const list = errorList.value;
       if (showErrorMessage.value && list?.[0]?.message) {
-        return <div class={CLASS_NAMES.value.extra}>{list[0].message}</div>;
+        return getExtraNode(list[0].message);
       }
       if (successList.value.length) {
-        return <div class={CLASS_NAMES.value.extra}>{successList.value[0].message}</div>;
+        return getExtraNode(successList.value[0].message);
       }
-      return helpVNode;
-    };
+      return null;
+    });
 
     const handleBlur = async () => {
       await validateHandler('blur');
@@ -340,7 +343,7 @@ export default defineComponent({
             {renderContent('default')}
             {renderSuffixIcon()}
           </div>
-          {renderTipsInfo()}
+          {[helpNode.value, extraNode.value]}
         </div>
       </div>
     );
