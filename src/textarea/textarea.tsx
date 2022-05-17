@@ -1,4 +1,4 @@
-import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs } from 'vue';
+import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import props from './props';
 import { TextareaValue } from './type';
@@ -104,9 +104,12 @@ export default defineComponent({
       focused.value = true;
       props.onFocus?.(innerValue.value, { e });
     };
+
+    const formItem = inject('formItem', undefined);
     const emitBlur = (e: FocusEvent) => {
       focused.value = false;
       props.onBlur?.(innerValue.value, { e });
+      formItem?.handleBlur();
     };
 
     // computed
