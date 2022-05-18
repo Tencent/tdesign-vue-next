@@ -54587,6 +54587,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                 
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
+                  draggable="false"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -54597,6 +54598,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                 </div>
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-size-m"
+                  draggable="false"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -118431,6 +118433,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -118444,6 +118447,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-is-disabled t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-disabled"
@@ -118457,6 +118461,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118545,6 +118550,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -118558,6 +118564,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118571,6 +118578,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118664,6 +118672,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -118677,6 +118686,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118690,6 +118700,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118829,6 +118840,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -118842,6 +118854,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118855,6 +118868,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118868,6 +118882,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118881,6 +118896,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118894,6 +118910,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118907,6 +118924,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118920,6 +118938,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118933,6 +118952,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118946,6 +118966,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118959,6 +118980,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118972,6 +118994,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118985,6 +119008,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -118998,6 +119022,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119011,6 +119036,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119024,6 +119050,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119037,6 +119064,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119050,6 +119078,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119063,6 +119092,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119076,6 +119106,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119197,6 +119228,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/custom.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
+                draggable="false"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -119219,6 +119251,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/custom.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-size-m"
+                draggable="false"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -119260,6 +119293,179 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/custom.vue 1`] = `
         </p>
         
       </div>
+      <!---->
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = `
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           常规型 
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="card"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           卡片型 
+          
+          
+        </span>
+      </label>
+      
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+    </div>
+  </div>
+  <div
+    class="t-tabs"
+  >
+    
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!---->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!---->
+          </transition-stub>
+          <!---->
+        </div>
+        
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap t-is-smooth"
+              style="transform: translate3d(0px, 0, 0);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+              
+              <div
+                class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="true"
+              >
+                <div
+                  class="t-tabs__nav-item-wrapper t-is-active"
+                >
+                  <span
+                    class="t-tabs__nav-item-text-wrapper"
+                  >
+                    选项卡1
+                  </span>
+                </div>
+              </div>
+              <div
+                class="t-tabs__nav-item t-size-m"
+                draggable="true"
+              >
+                <div
+                  class="t-tabs__nav-item-wrapper"
+                >
+                  <span
+                    class="t-tabs__nav-item-text-wrapper"
+                  >
+                    选项卡2
+                  </span>
+                </div>
+              </div>
+              <div
+                class="t-tabs__nav-item t-size-m"
+                draggable="true"
+              >
+                <div
+                  class="t-tabs__nav-item-wrapper"
+                >
+                  <span
+                    class="t-tabs__nav-item-text-wrapper"
+                  >
+                    选项卡3
+                  </span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      
+      <div
+        class="t-tab-panel"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1内容
+        </p>
+        
+      </div>
+      <!---->
       <!---->
       
     </div>
@@ -119373,6 +119579,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -119395,6 +119602,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119417,6 +119625,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119536,6 +119745,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/operation.vue 1`] = 
               
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
+                draggable="false"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -119546,6 +119756,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/operation.vue 1`] = 
               </div>
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-size-m"
+                draggable="false"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -119744,6 +119955,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
               
               <div
                 class="t-tabs__nav-item t-is-active t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
@@ -119757,6 +119969,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119770,6 +119983,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
+                draggable="false"
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
@@ -119861,6 +120075,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 
                 <div
                   class="t-tabs__nav-item t-is-active t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
@@ -119874,6 +120089,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -119887,6 +120103,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -119968,6 +120185,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 
                 <div
                   class="t-tabs__nav-item t-is-active t-size-l"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
@@ -119981,6 +120199,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-l"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -119994,6 +120213,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-l"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -120086,6 +120306,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 
                 <div
                   class="t-tabs__nav-item t-is-active t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
@@ -120099,6 +120320,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -120112,6 +120334,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
+                  draggable="false"
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
@@ -120191,6 +120414,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
+                  draggable="false"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -120201,6 +120425,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-size-m"
+                  draggable="false"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -120211,6 +120436,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-size-m"
+                  draggable="false"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
