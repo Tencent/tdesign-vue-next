@@ -41,7 +41,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 
-const collapsed = ref(true);
+const collapsed = ref(false);
 
 const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
 
