@@ -17,7 +17,7 @@ function filterEmpty(children: VNode[] = []) {
     (c) =>
       !(
         c &&
-        (c.type === Comment ||
+        ((typeof Comment !== 'undefined' && c.type === Comment) ||
           (c.type === Fragment && c.children.length === 0) ||
           (c.type === Text && (c.children as string).trim() === ''))
       ),
