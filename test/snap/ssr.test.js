@@ -14,6 +14,7 @@ function runTest() {
       it(`ssr test ${file}`, async () => {
         const demo = await import(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
+        realDemoComp.name = `test-csr-${realDemoComp.name}`;
         const html = await createSSRApp(realDemoComp);
         expect(html).toMatchSnapshot();
       });
