@@ -56335,6 +56335,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           <div
             class="t-select__wrap demo-select-base"
             data-v-01218810=""
+            modelvalue=""
           >
             
             <div

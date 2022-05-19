@@ -8,7 +8,7 @@ import {
   provide,
   reactive,
   ref,
-  toRef,
+  toRefs,
   VNode,
   watch,
 } from 'vue';
@@ -277,8 +277,9 @@ export default defineComponent({
 
     const value = computed<ValueType>(() => form?.data && lodashGet(form?.data, props.name));
     const initialValue = ref<ValueType>(undefined);
+    const { name } = toRefs(props);
     const context: FormItemContext = reactive({
-      name: toRef(props, 'name'),
+      name,
       resetHandler,
       resetField,
       validate: validateHandler,

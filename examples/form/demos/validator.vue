@@ -93,7 +93,7 @@ const INITIAL_DATA = {
   age: undefined,
   gender: '',
   course: [],
-  college: [],
+  college: '',
   date: '',
   content: {
     url: '',
@@ -105,12 +105,6 @@ const courseOptions = [
   { label: '数学', value: '2' },
   { label: '英语', value: '3' },
   { label: '体育', value: '4' },
-];
-
-const collegeOptions = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
 ];
 
 const options = [
