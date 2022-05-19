@@ -8,7 +8,7 @@ export default function useDefaultValue<T, P extends any[]>(
   onChange: ChangeHandler<T, P>,
   propsName: string,
 ): [Ref<T>, ChangeHandler<T, P>] {
-  const { emit } = getCurrentInstance();
+  const { emit, attrs } = getCurrentInstance();
   const internalValue = ref();
   internalValue.value = defaultValue;
 
@@ -26,13 +26,16 @@ export default function useDefaultValue<T, P extends any[]>(
   return [
     internalValue,
     (newValue, ...args) => {
-      if (typeof value.value !== 'undefined') {
+      if (attrs[`onUpdate:${propsName}`]) {
+        // 受控模式 v-model:propName
         emit?.(`update:${propsName}`, newValue, ...args);
-        onChange?.(newValue, ...args);
-      } else {
-        internalValue.value = newValue;
-        onChange?.(newValue, ...args);
       }
+
+      if (typeof value.value === 'undefined') {
+        internalValue.value = newValue;
+      }
+
+      onChange?.(newValue, ...args);
     },
   ];
 }
