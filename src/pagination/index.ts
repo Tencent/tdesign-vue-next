@@ -1,5 +1,5 @@
 import _Pagination from './pagination';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdPaginationProps } from './type';
 
 import './style';

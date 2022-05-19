@@ -1,5 +1,5 @@
 import _DatePicker from './date-picker';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdDatePickerProps, TdDateRangePickerProps } from './type';
 import mapProps from '../utils/map-props';
 

@@ -1,7 +1,7 @@
 import { App, Plugin, Component } from 'vue';
 
-export const withInstall = (comp: Component, alias?: string) => {
-  const componentPlugin = comp as Component & Plugin;
+function withInstall<T>(comp: T, alias?: string): T & Plugin {
+  const componentPlugin = comp as T & Component & Plugin;
 
   componentPlugin.install = (app: App, name?: string) => {
     const defaultName = componentPlugin.name.includes('-mapprops')
@@ -10,7 +10,7 @@ export const withInstall = (comp: Component, alias?: string) => {
     app.component(alias || name || defaultName, comp);
   };
 
-  return componentPlugin;
-};
+  return componentPlugin as T & Plugin;
+}
 
 export default withInstall;

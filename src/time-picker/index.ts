@@ -1,7 +1,7 @@
 import mapProps from '../utils/map-props';
 import _TimePicker from './time-picker';
 import _TimeRangePicker from './time-range-picker';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
 
 import './style';

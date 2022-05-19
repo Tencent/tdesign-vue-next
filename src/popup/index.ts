@@ -1,5 +1,5 @@
 import _Popup from './popup';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdPopupProps } from './type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Loading from './loading';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdLoadingProps } from './type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Cascader from './cascader';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 
 import './style';
 

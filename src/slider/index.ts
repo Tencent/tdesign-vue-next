@@ -1,6 +1,6 @@
 import _Slider from './slider';
 import _SliderButton from './slider-button';
-import withInstall, { WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 
 import './style';
 
