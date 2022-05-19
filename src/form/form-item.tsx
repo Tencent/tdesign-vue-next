@@ -226,7 +226,10 @@ export default defineComponent({
         trigger === 'all'
           ? innerRules.value
           : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
-      if (!rules?.length) return;
+      if (!rules?.length) {
+        resetValidating.value = false;
+        return;
+      }
       const res = await validate(value.value, rules);
       errorList.value = res
         .filter((item) => item.result !== true)
