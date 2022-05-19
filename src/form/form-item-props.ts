@@ -15,8 +15,7 @@ export default {
   },
   /** 表单项说明内容 */
   help: {
-    type: String,
-    default: '',
+    type: [String, Function] as PropType<TdFormItemProps['help']>,
   },
   /** 字段标签名称 */
   label: {
@@ -50,7 +49,7 @@ export default {
     type: Array as PropType<TdFormItemProps['rules']>,
     default: (): TdFormItemProps['rules'] => [],
   },
-  /** 校验不通过时，是否显示错误提示信息，优先级高于 Form.showErrorMessage */
+  /** 校验不通过时，是否显示错误提示信息，优先级高于 `Form.showErrorMessage` */
   showErrorMessage: {
     type: Boolean,
     default: undefined,
