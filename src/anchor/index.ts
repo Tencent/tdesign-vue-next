@@ -1,7 +1,7 @@
 import _Anchor from './anchor';
 import _AnchorItem from './anchor-item';
 import _AnchorTarget from './anchor-target';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdAnchorProps, TdAnchorTargetProps, TdAnchorItemProps } from './type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Divider from './divider';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdDividerProps } from './type';
 
 import './style';

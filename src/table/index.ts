@@ -2,7 +2,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 
 import './style';
 

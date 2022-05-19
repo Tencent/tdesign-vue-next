@@ -1,7 +1,7 @@
 import _Addon from './addon';
 import _Input from './input';
 import _InputGroup from './input-group';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdInputProps } from './type';
 
 import './style';
