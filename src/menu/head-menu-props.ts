@@ -16,6 +16,7 @@ export default {
   /** 展开的子菜单集合，非受控属性 */
   defaultExpanded: {
     type: Array as PropType<TdHeadMenuProps['defaultExpanded']>,
+    default: [],
   },
   /** 二级菜单展开方式，平铺展开和浮层展开 */
   expandType: {
