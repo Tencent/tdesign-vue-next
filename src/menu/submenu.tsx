@@ -92,9 +92,11 @@ export default defineComponent({
         popupVisible.value = true;
       }, 0);
     };
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (e: MouseEvent) => {
       setTimeout(() => {
-        if (isCursorInPopup.value) return;
+        const inPopup = (e.relatedTarget as HTMLElement)?.classList.contains(`${classPrefix.value}-menu__popup`);
+
+        if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
       }, 0);
     };
@@ -112,6 +114,9 @@ export default defineComponent({
       if (!isSubmenu(target)) {
         popupVisible.value = false;
       }
+    };
+    const handleEnterPopup = () => {
+      isCursorInPopup.value = true;
     };
 
     const handleSubmenuItemClick = () => {
@@ -159,6 +164,7 @@ export default defineComponent({
       submenuRef,
       popupVisible,
       isCursorInPopup,
+      handleEnterPopup,
       handleMouseEnter,
       handleMouseLeave,
       handleMouseLeavePopup,
@@ -173,7 +179,17 @@ export default defineComponent({
       }
       const overlayStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
       const popupWrapper = (
-        <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+        <div
+          class={[
+            // ...this.popupClass,
+            `${this.classPrefix}-menu__spacer`,
+            `${this.classPrefix}-menu__spacer--${!this.isNested ? 'top' : 'left'}`,
+          ]}
+          onMouseenter={this.handleEnterPopup}
+          onMouseleave={this.handleMouseLeavePopup}
+        >
+          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+        </div>
       );
       const popupInside = (
         <div ref="submenuRef" class={this.submenuClass}>
@@ -186,13 +202,7 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={[
-            ...this.popupClass,
-            `${this.classPrefix}-menu__spacer`,
-            `${this.classPrefix}-menu__spacer--${this.isHead ? 'top' : 'left'}`,
-          ]}
-          onEnter={() => (this.isCursorInPopup = true)}
-          onLeave={this.handleMouseLeavePopup}
+          overlayClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
           overlayStyle={overlayStyle}

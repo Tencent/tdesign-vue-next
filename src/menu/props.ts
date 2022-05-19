@@ -18,6 +18,7 @@ export default {
   /** 子菜单展开的导航集合，非受控属性 */
   defaultExpanded: {
     type: Array as PropType<TdMenuProps['defaultExpanded']>,
+    default: [],
   },
   /** 同级别互斥展开 */
   expandMutex: Boolean,

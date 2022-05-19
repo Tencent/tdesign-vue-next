@@ -70,7 +70,7 @@ export default defineComponent({
 
     // methods
     const handleTabChange = (value: MenuValue) => {
-      props.onChange?.(value);
+      setActiveValue(value);
     };
 
     const handleSubmenuExpand = (value: MenuValue) => {
@@ -80,19 +80,17 @@ export default defineComponent({
     };
 
     // watch
-    watch(
-      () => props.expanded,
-      (value) => {
-        if (mode.value === 'normal') {
-          handleSubmenuExpand(value[0]);
-        }
-      },
-    );
+    watch(expandValues, (value) => {
+      if (mode.value === 'normal') {
+        handleSubmenuExpand(value[0]);
+      }
+    });
     const updateActiveValues = (value: MenuValue) => {
       activeValues.value = vMenu.select(value);
     };
-    watch(() => props.value, updateActiveValues);
-    watch(() => props.defaultValue, updateActiveValues);
+    // watch(() => props.value, updateActiveValues);
+    // watch(() => props.defaultValue, updateActiveValues);
+    watch(activeValue, updateActiveValues);
     watch(
       () => props.expandType,
       (value) => {
