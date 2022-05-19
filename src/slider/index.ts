@@ -6,6 +6,6 @@ import './style';
 
 export * from './type';
 
-export const Slider: WithInstallType<typeof _Slider> = withInstall(_Slider);
-export const SliderButton: WithInstallType<typeof _SliderButton> = withInstall(_SliderButton);
+export const Slider = withInstall(_Slider);
+export const SliderButton = withInstall(_SliderButton);
 export default Slider;
