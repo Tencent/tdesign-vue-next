@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" value="item2" width="200px" height="550px">
+  <t-menu v-model="value" theme="light" width="200px" height="550px">
     <template #logo>
       <img
         width="136"
@@ -14,3 +14,9 @@
     <t-menu-item value="item4">菜单内容</t-menu-item>
   </t-menu>
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const value = ref('item2');
+</script>
