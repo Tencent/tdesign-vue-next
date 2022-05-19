@@ -54,7 +54,7 @@ export default defineComponent({
     const activeValues = ref([]);
 
     watchEffect(() => {
-      mode.value = props.collapsed ? 'popup' : 'normal';
+      mode.value = props.collapsed ? 'popup' : props.expandType;
       props.onCollapsed?.({ collapsed: props.collapsed });
     });
 
