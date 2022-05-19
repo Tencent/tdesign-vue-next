@@ -146,7 +146,7 @@ export default defineComponent({
               {...inputAttrs.value}
               {...inputEvents}
               ref={inputRef}
-              value={inputValue.value}
+              value={inputValue.value ?? ''}
               onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
             />
             {props.autoWidth && (
