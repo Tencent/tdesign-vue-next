@@ -51850,7 +51850,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               <input
                 class="t-input__inner"
                 disabled=""
-                placeholder=""
+                placeholder="请选择"
                 readonly=""
                 type="text"
               />
@@ -54176,6 +54176,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
   <!-- 开发中 -->
   <form
     class="t-form"
+    size="medium"
   >
     
     <div

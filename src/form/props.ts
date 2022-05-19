@@ -87,15 +87,6 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 表单尺寸 */
-  size: {
-    type: String as PropType<TdFormProps['size']>,
-    default: 'medium' as TdFormProps['size'],
-    validator(val: TdFormProps['size']): boolean {
-      if (!val) return true;
-      return ['medium', 'large'].includes(val);
-    },
-  },
   /** 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标 */
   statusIcon: {
     type: [Boolean, Function] as PropType<TdFormProps['statusIcon']>,
