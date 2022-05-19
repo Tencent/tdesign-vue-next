@@ -92,11 +92,12 @@ const INITIAL_DATA = {
   email: '',
   age: undefined,
   gender: '',
+  course: [],
+  college: [],
   date: '',
   content: {
     url: '',
   },
-  course: [],
 };
 
 const courseOptions = [
