@@ -1,9 +1,10 @@
 import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
+import { TdSliderProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderPopup } from './hooks/useSliderPopup';
-import { sliderPropsInjectKey } from './util/contanst';
+import { sliderPropsInjectKey } from './util/constants';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -87,7 +88,7 @@ export default defineComponent({
       const steps = Math.round(newPos / perStepLen);
       let value = steps * perStepLen * rangeDiff.value * 0.01;
       value += parentProps.min;
-      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision.value));
+      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision));
       ctx.emit('input', value);
       nextTick(() => {
         popupRef.value && popupRef.value.updatePopper?.();
@@ -132,7 +133,7 @@ export default defineComponent({
         parentProps.resetSize();
       }
       let diff = 0;
-      const parentSliderSize = parentProps.sliderSize.value;
+      const parentSliderSize = parentProps.sliderSize;
       if (props.vertical) {
         diff = slideButtonProps.startY - (event as MouseEvent).clientY;
       } else {
@@ -161,7 +162,7 @@ export default defineComponent({
     };
 
     function onButtonDown(event: MouseEvent | TouchEvent) {
-      if (parentProps.disabled.value) {
+      if (parentProps.disabled) {
         return;
       }
       event.preventDefault();
@@ -174,7 +175,7 @@ export default defineComponent({
     }
 
     const onKeyDown = (state: 'sub' | 'add') => {
-      if (parentProps.disabled.value) {
+      if (parentProps.disabled) {
         return;
       }
       let stepLength = (step.value / rangeDiff.value) * 100;
@@ -209,7 +210,7 @@ export default defineComponent({
         style={wrapperStyle.value}
         tabindex="0"
         show-tooltip={showTooltip.value}
-        disabled={parentProps.disabled.value}
+        disabled={parentProps.disabled}
         onmouseenter={handleMouseEnter}
         onmouseleave={handleMouseLeave}
         onmousedown={onButtonDown}
@@ -230,6 +231,7 @@ export default defineComponent({
           overlayStyle={popupProps.overlayStyle}
           overlayClassName={popupProps.overlayClassName}
           attach={popupProps.attach}
+          {...(props.tooltipProps as TdSliderProps['tooltipProps'])}
         >
           <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
         </t-popup>

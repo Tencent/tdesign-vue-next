@@ -24,12 +24,6 @@
     "options": []
   },
   {
-    "name": "lazy",
-    "type": "Boolean",
-    "defaultValue": true,
-    "options": []
-  },
-  {
     "name": "loading",
     "type": "Boolean",
     "defaultValue": false,
@@ -37,18 +31,6 @@
   },
   {
     "name": "multiple",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
-    "name": "popupVisible",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
-    "name": "readonly",
     "type": "Boolean",
     "defaultValue": false,
     "options": []

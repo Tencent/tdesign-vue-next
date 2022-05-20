@@ -62,11 +62,12 @@ export default defineComponent({
     });
     /** calculate bar style end */
 
+    const { name, disabled } = toRefs(props);
     provide(
       RadioGroupInjectionKey,
       reactive({
-        name: props.name,
-        disabled: props.disabled,
+        name,
+        disabled,
         value: innerValue,
         setValue: setInnerValue,
       }),

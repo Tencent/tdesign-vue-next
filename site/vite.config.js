@@ -13,12 +13,31 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
+// 单元测试相关配置
+const testConfig = {
+  include:
+    process.env.NODE_ENV === 'test-snap'
+      ? ['test/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+      : ['test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  globals: true,
+  environment: 'jsdom',
+  testTimeout: 5000,
+  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, '../script/test/test-setup.js') : '',
+  transformMode: {
+    web: [/\.[jt]sx$/],
+  },
+  coverage: {
+    reporter: ['text', 'json', 'html'],
+  },
+};
+
 export default ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../'),
+        '@/src': path.resolve(__dirname, '../src/'),
         '@common': path.resolve(__dirname, '../src/_common'),
         'tdesign-vue-next/es': path.resolve(__dirname, '../src'),
         'tdesign-vue-next': path.resolve(__dirname, '../src'),
@@ -38,6 +57,7 @@ export default ({ mode }) => {
     },
     plugins: [
       vue({
+        ssr: false,
         template: {
           compilerOptions: {
             isCustomElement: (tag) => tag.startsWith('td-'),
@@ -50,5 +70,6 @@ export default ({ mode }) => {
       tDocPlugin(),
       VitePWA(pwaConfig),
     ],
+    test: testConfig,
   });
 };

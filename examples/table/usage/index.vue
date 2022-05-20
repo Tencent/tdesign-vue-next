@@ -28,8 +28,8 @@
         <t-button @click="visible = true">列配置</t-button>
         <t-table
           v-bind="configProps"
-          v-model:columnControllerVisible="visible"
           row-key="index"
+          v-model:columnControllerVisible="visible"
           :data="[
             { index: 1, platform: '公用' },
             { index: 2, platform: '私有' },

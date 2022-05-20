@@ -76,10 +76,28 @@ export default defineComponent({
         this.CLASS_NAMES.formItem,
         this.FORM_ITEM_CLASS_PREFIX + this.name,
         {
-          [this.CLASS_NAMES.formItemWithHelp]: this.help,
-          [this.CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
+          [this.CLASS_NAMES.formItemWithHelp]: this.helpNode,
+          [this.CLASS_NAMES.formItemWithExtra]: this.extraNode,
         },
       ];
+    },
+    helpNode() {
+      let helpVNode: VNode = null;
+      if (this.help) {
+        helpVNode = <div class={this.CLASS_NAMES.help}>{this.help}</div>;
+      }
+      return helpVNode;
+    },
+    extraNode() {
+      const parent = this.form;
+      const list = this.errorList;
+      if (parent.showErrorMessage && list && list[0] && list[0].message) {
+        return <div class={this.CLASS_NAMES.extra}>{list[0].message}</div>;
+      }
+      if (this.successList.length) {
+        return <div class={this.CLASS_NAMES.extra}>{this.successList[0].message}</div>;
+      }
+      return null;
     },
     labelClasses() {
       const { FROM_LABEL } = this;
@@ -255,21 +273,6 @@ export default defineComponent({
         </div>
       );
     },
-    renderTipsInfo(): VNode {
-      const parent = this.form;
-      let helpVNode: VNode = <div class={this.CLASS_NAMES.help}></div>;
-      if (this.help) {
-        helpVNode = <div class={this.CLASS_NAMES.help}>{this.help}</div>;
-      }
-      const list = this.errorList;
-      if (parent.showErrorMessage && list && list[0] && list[0].message) {
-        return <div class={this.CLASS_NAMES.extra}>{list[0].message}</div>;
-      }
-      if (this.successList.length) {
-        return <div class={this.CLASS_NAMES.extra}>{this.successList[0].message}</div>;
-      }
-      return helpVNode;
-    },
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (Icon: IconConstructor) => (
         <span class={this.CLASS_NAMES.status}>
@@ -371,7 +374,8 @@ export default defineComponent({
             {this.$slots.default ? this.$slots.default() : null}
             {this.getSuffixIcon()}
           </div>
-          {this.renderTipsInfo()}
+          {this.helpNode}
+          {this.extraNode}
         </div>
       </div>
     );

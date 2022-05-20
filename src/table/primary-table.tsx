@@ -20,6 +20,7 @@ import useClassName from './hooks/useClassName';
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
 const OMIT_PROPS = [
+  'hideSortTips',
   'dragSort',
   'defaultExpandedRowKeys',
   'columnController',
@@ -30,7 +31,6 @@ const OMIT_PROPS = [
   'expandIcon',
   'onChange',
   'onAsyncLoadingClick',
-  'onChange',
   'onColumnChange',
   'onColumnControllerVisibleChange',
   'onDataChange',

@@ -96,7 +96,7 @@ export default {
   /** 使用 rowKey 唯一标识一行数据 */
   rowKey: {
     type: String,
-    default: '',
+    default: 'id',
     required: true,
   },
   /** 用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }` */

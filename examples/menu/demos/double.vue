@@ -27,7 +27,7 @@
         <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
       </template>
     </t-head-menu>
-    <t-head-menu default-value="1-1" theme="dark" :expanded="expanded2" style="margin-top: 24px">
+    <t-head-menu :default-expanded="expanded2" default-value="1-1" theme="dark" style="margin-top: 24px">
       <template #logo>
         <img width="136" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo" />
       </template>

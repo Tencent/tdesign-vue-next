@@ -1,35 +1,54 @@
 # 测试规范
 
-## 1. 概览
+## 概览
 
-### 1.1 主要script命令
+### 主要script命令
 
-```shell
-# 运行全部测试
+```bash
+## 组件单元测试与组件快照测试
 npm run test
 
-# 运行单元测试
-npm run test:unit
-
-# 运行服务端渲染测试
-npm run test:node
-
-# 运行监视模式
-npm run test:watch
-
-# 生成测试覆盖率报告
-npm run test:coverage
+## 快照更新
+npm run test:update 
 ```
 
-### 1.2 目录结构
+### 组件单元测试 `unit`
+
+```bash
+
+npm run test:unit
+
+## 开发环境
+npm run test:unit-dev
+
+## 开发环境-指定组件
+npm run test:unit-dev button
+
+## 开发环境gui
+npm run test:unit-gui
+
+## 开发环境gui-指定组件
+npm run test:unit-gui button
+
+## 生成覆盖率报告
+npm run test:unit-coverage
+```
+
+### 组件快照测试 `snap`
+
+```bash
+npm run test:snap
+```
+
+### 目录结构
 
 - test   测试目录
 |-- e2e  UI测试
 |-- unit 单元测试
-|-- ssr  服务端测试
+|-- snap  快照测试
 |-- ...
 
-## 2. 单元测试
+## 单元测试
 
 ```shell
 npm run test:unit
@@ -39,11 +58,11 @@ npm run test:unit
 - index.test.js 用于测试组件较细粒度的属性事件方法
 - demo.test.js 用于测试组件 demo 是否正常工作
 
-### 2.1 单元测试规范
+### 单元测试规范
 
 - 每个组件至少有两个单元测试文件，一个是测试源代码的单元测试文件 index.test.js，另一个则是测试组件示例代码的单元测试文件 demo.test.js
-- 用例书写请使用：[vue-test-utils](https://vue-test-utils.vuejs.org/zh/)
-- 断言库请使用：[https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
+- 用例书写请使用：[vue-test-utils](https://test-utils.vuejs.org/guide/)
+- 使用 [vitest](https://cn.vitest.dev/) 来编写单元测试
 
 #### 单元测试文件
 

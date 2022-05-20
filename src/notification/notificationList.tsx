@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, TransitionGroup, Ref } from 'vue';
+import { defineComponent, ref, computed, Ref } from 'vue';
 import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
 import { Styles } from '../common';
@@ -21,6 +21,7 @@ export default defineComponent({
     const { placement } = props as NotificationOptions;
 
     const list: Ref<NotificationOptions[]> = ref([]);
+    const notificationList = ref([]);
 
     const styles = computed(() => ({
       zIndex: DEFAULT_Z_INDEX,
@@ -58,29 +59,41 @@ export default defineComponent({
       return styles;
     };
 
-    const getListeners = (index: number) => {
+    const getProps = (index: number, item: NotificationOptions) => {
       return {
-        onCloseBtnClick: () => remove(index),
-        onDurationEnd: () => remove(index),
+        ...item,
+        onCloseBtnClick: (e: any) => {
+          if (item.onCloseBtnClick) {
+            item.onCloseBtnClick(e);
+          }
+          return remove(index);
+        },
+        onDurationEnd: () => {
+          if (item.onDurationEnd) {
+            item.onDurationEnd();
+          }
+          return remove(index);
+        },
       };
     };
 
-    expose({ add, remove, removeAll });
+    const addChild = (el: Element) => {
+      if (el) {
+        notificationList.value.push(el);
+      }
+    };
+    expose({ add, remove, removeAll, list, notificationList });
 
-    return () => (
-      <div class={`${COMPONENT_NAME.value}__show-transition--${placement}`} style={styles.value}>
-        <TransitionGroup name="notification-slide-fade">
+    return () => {
+      if (!list.value.length) return;
+
+      return (
+        <div class={`${COMPONENT_NAME.value}__show`} style={styles.value}>
           {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
-            <Notification
-              ref={`notification${index}`}
-              key={item.id}
-              style={notificationStyles(item)}
-              {...item}
-              {...getListeners(index)}
-            />
+            <Notification ref={addChild} key={item.id} style={notificationStyles(item)} {...getProps(index, item)} />
           ))}
-        </TransitionGroup>
-      </div>
-    );
+        </div>
+      );
+    };
   },
 });

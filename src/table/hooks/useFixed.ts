@@ -4,7 +4,7 @@ import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TdBaseTableProps } from '../type';
 import getScrollbarWidth from '../../_common/js/utils/getScrollbarWidth';
-import { on, off } from '../../utils/dom';
+import { isServer, on, off } from '../../utils/dom';
 import { TDisplayNoneElementRefresh } from '../../hooks/useDestroyOnClose';
 import { TableColFixedClasses, TableRowFixedClasses, FixedColumnInfo, RowAndColFixedPosition } from '../interface';
 
@@ -247,12 +247,13 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateRowAndColFixedPosition = (tableContentElm: HTMLElement, initialColumnMap: RowAndColFixedPosition) => {
     rowAndColFixedPosition.value.clear();
-    const thead = tableContentElm.querySelector('thead');
+    // TODO,SSR 标记处理
+    const thead = tableContentElm?.querySelector('thead');
     // 处理固定列
     thead && setFixedColPosition(thead.children, initialColumnMap);
     // 处理冻结行
-    const tbody = tableContentElm.querySelector('tbody');
-    const tfoot = tableContentElm.querySelector('tfoot');
+    const tbody = tableContentElm?.querySelector('tbody');
+    const tfoot = tableContentElm?.querySelector('tfoot');
     tbody && setFixedRowPosition(tbody.children, initialColumnMap, thead, tfoot);
     // 更新最终 Map
     rowAndColFixedPosition.value = initialColumnMap;
@@ -260,6 +261,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateColumnFixedShadow = (target: HTMLElement) => {
     if (!isFixedColumn.value) return;
+    if (!target) return;
     const isShowRight = target.clientWidth + target.scrollLeft < target.scrollWidth;
     showColumnShadow.left = target.scrollLeft > 0;
     showColumnShadow.right = isShowRight;
@@ -354,7 +356,9 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   };
 
   const updateTableWidth = () => {
-    const rect = tableContentRef.value.getBoundingClientRect();
+    if (isServer) return;
+    const rect = tableContentRef.value?.getBoundingClientRect();
+    if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
     const fixedBordered = isFixedRightColumn.value ? 1 : 2;
@@ -380,10 +384,12 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   };
 
   const updateThWidthListHandler = () => {
+    if (isServer) return;
     if (notNeedThWidthList.value) return;
     const timer = setTimeout(() => {
       updateTableWidth();
-      const thead = tableContentRef.value.querySelector('thead');
+      const thead = tableContentRef.value?.querySelector('thead');
+      if (!thead) return;
       updateThWidthList(thead.children);
       clearTimeout(timer);
     }, 0);
@@ -434,6 +440,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   });
 
   const refreshTable = () => {
+    if (isServer) return;
     updateTableWidth();
     updateFixedHeader();
     if (!notNeedThWidthList.value) {

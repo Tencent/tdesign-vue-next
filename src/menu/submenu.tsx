@@ -1,4 +1,16 @@
-import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch, Slots } from 'vue';
+import {
+  defineComponent,
+  computed,
+  inject,
+  ref,
+  provide,
+  onMounted,
+  getCurrentInstance,
+  watch,
+  Slots,
+  toRefs,
+  reactive,
+} from 'vue';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
@@ -27,7 +39,7 @@ export default defineComponent({
       if (mode.value === 'popup') {
         return popupVisible.value;
       }
-      return expandValues ? expandValues.value.includes(props.value) : false;
+      return expandValues ? expandValues.value?.includes(props.value) : false;
     });
     const isNested = ref(false); // 是否嵌套
 
@@ -43,6 +55,7 @@ export default defineComponent({
     ]);
     const popupClass = computed(() => [
       `${classPrefix.value}-menu__popup`,
+      `${classPrefix.value}-menu__popup--${theme.value}`,
       `${classPrefix.value}-is-${isHead ? 'horizontal' : 'vertical'}`,
       {
         [`${classPrefix.value}-is-opened`]: popupVisible.value,
@@ -80,9 +93,11 @@ export default defineComponent({
         popupVisible.value = true;
       }, 0);
     };
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (e: MouseEvent) => {
       setTimeout(() => {
-        if (isCursorInPopup.value) return;
+        const inPopup = (e.relatedTarget as HTMLElement)?.classList.contains(`${classPrefix.value}-menu__popup`);
+
+        if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
       }, 0);
     };
@@ -101,6 +116,9 @@ export default defineComponent({
         popupVisible.value = false;
       }
     };
+    const handleEnterPopup = () => {
+      isCursorInPopup.value = true;
+    };
 
     const handleSubmenuItemClick = () => {
       if (props.disabled) return;
@@ -112,15 +130,19 @@ export default defineComponent({
     });
 
     // provide
-    provide<TdSubMenuInterface>('TdSubmenu', {
-      value: props.value,
-      addMenuItem: (item: TdMenuItem) => {
-        menuItems.value.push(item);
-        if (submenu) {
-          submenu.addMenuItem(item);
-        }
-      },
-    });
+    const { value } = toRefs(props);
+    provide<TdSubMenuInterface>(
+      'TdSubmenu',
+      reactive({
+        value,
+        addMenuItem: (item: TdMenuItem) => {
+          menuItems.value.push(item);
+          if (submenu) {
+            submenu.addMenuItem(item);
+          }
+        },
+      }),
+    );
 
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
@@ -133,6 +155,7 @@ export default defineComponent({
       classPrefix,
       menuItems,
       mode,
+      theme,
       isHead,
       isNested,
       classes,
@@ -143,6 +166,7 @@ export default defineComponent({
       submenuRef,
       popupVisible,
       isCursorInPopup,
+      handleEnterPopup,
       handleMouseEnter,
       handleMouseLeave,
       handleMouseLeavePopup,
@@ -157,7 +181,17 @@ export default defineComponent({
       }
       const overlayStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
       const popupWrapper = (
-        <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+        <div
+          class={[
+            // ...this.popupClass,
+            `${this.classPrefix}-menu__spacer`,
+            `${this.classPrefix}-menu__spacer--${!this.isNested && this.head ? 'top' : 'left'}`,
+          ]}
+          onMouseenter={this.handleEnterPopup}
+          onMouseleave={this.handleMouseLeavePopup}
+        >
+          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+        </div>
       );
       const popupInside = (
         <div ref="submenuRef" class={this.submenuClass}>
@@ -170,13 +204,7 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={[
-            ...this.popupClass,
-            `${this.classPrefix}-menu__spacer`,
-            `${this.classPrefix}-menu__spacer--${this.isHead ? 'top' : 'left'}`,
-          ]}
-          onEnter={() => (this.isCursorInPopup = true)}
-          onLeave={this.handleMouseLeavePopup}
+          overlayClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
           overlayStyle={overlayStyle}

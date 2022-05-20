@@ -1,30 +1,45 @@
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed } from 'vue';
+import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h } from 'vue';
 import { AddRectangleIcon, MinusRectangleIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-import TableTreeStore from './tree-store';
-import {
-  TdEnhancedTableProps,
-  PrimaryTableCol,
-  PrimaryTableCellParams,
-  TableRowData,
-  TableRowValue,
-  TableRowState,
-} from '../type';
+import TableTreeStore, { SwapParams } from './tree-store';
+import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, TableRowValue, TableRowState } from '../type';
 import useClassName from './useClassName';
 import { renderCell } from '../tr';
+import { useConfig } from '../../hooks/useConfig';
+import { useTNodeDefault } from '../../hooks';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);
+  const { t, global } = useConfig('table');
   const store = ref(new TableTreeStore() as InstanceType<typeof TableTreeStore>);
   const treeNodeCol = ref<PrimaryTableCol>();
   const dataSource = ref<TdEnhancedTableProps['data']>([]);
   const { tableTreeClasses } = useClassName();
+  const renderTNode = useTNodeDefault();
 
   const rowDataKeys = computed(() => ({
     rowKey: props.rowKey || 'id',
     childrenKey: props.tree?.childrenKey || 'children',
   }));
+
+  const foldIcon = computed(() => {
+    const params = { type: 'fold' };
+    const defaultFoldIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
+    return renderTNode('treeExpandAndFoldIcon', {
+      defaultNode: defaultFoldIcon,
+      params,
+    });
+  });
+
+  const expandIcon = computed(() => {
+    const params = { type: 'expand' };
+    const defaultExpandIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <AddRectangleIcon />;
+    return renderTNode('treeExpandAndFoldIcon', {
+      defaultNode: defaultExpandIcon,
+      params,
+    });
+  });
 
   watch(
     [data],
@@ -35,9 +50,12 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         dataSource.value = data;
         return;
       }
-      const newVal = cloneDeep(data);
-      dataSource.value = newVal;
+      let newVal = cloneDeep(data);
       store.value.initialTreeStore(newVal, props.columns, rowDataKeys.value);
+      if (props.tree?.defaultExpandAll) {
+        newVal = store.value.expandAll(newVal, rowDataKeys.value);
+      }
+      dataSource.value = newVal;
     },
     { immediate: true },
   );
@@ -75,8 +93,8 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * @param p 行数据
    */
   function toggleExpandData(p: { row: TableRowData; rowIndex: number; trigger?: 'inner' }) {
-    dataSource.value = store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value);
-    if (p.trigger === 'inner') {
+    dataSource.value = [...store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value)];
+    if (p?.trigger === 'inner') {
       const rowValue = get(p.row, rowDataKeys.value.rowKey);
       props.onTreeExpandChange?.({
         row: p.row,
@@ -109,13 +127,15 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
       if (childrenNodes && childrenNodes instanceof Array) {
-        const IconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
-          ? MinusRectangleIcon
-          : AddRectangleIcon;
+        const iconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
+          ? foldIcon.value
+          : expandIcon.value;
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
             {!!childrenNodes.length && (
-              <IconNode class={tableTreeClasses.icon} onClick={() => toggleExpandData({ ...p, trigger: 'inner' })} />
+              <span class={tableTreeClasses.icon} onClick={() => toggleExpandData({ ...p, trigger: 'inner' })}>
+                {iconNode}
+              </span>
             )}
             {cellInfo}
           </div>
@@ -161,7 +181,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    */
   function remove(key: TableRowValue) {
     // 引用传值，可自动更新 dataSource。（dataSource 本是内部变量，可以在任何地方进行任何改变）
-    dataSource.value = store.value.remove(key, dataSource.value, rowDataKeys.value);
+    dataSource.value = [...store.value.remove(key, dataSource.value, rowDataKeys.value)];
   }
 
   /**
@@ -171,18 +191,67 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    */
   function appendTo<T>(key: TableRowValue, newData: T) {
     // 引用传值，可自动更新 dataSource。（dataSource 本是内部变量，可以在任何地方进行任何改变）
-    dataSource.value = store.value.appendTo(key, newData, dataSource.value, rowDataKeys.value);
+    dataSource.value = [...store.value.appendTo(key, newData, dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
+   * 当前节点之后，插入节点
+   */
+  function insertAfter<T>(rowValue: TableRowValue, newData: T) {
+    dataSource.value = [...store.value.insertAfter(rowValue, newData, dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
+   * 当前节点之后，插入节点
+   */
+  function insertBefore<T>(rowValue: TableRowValue, newData: T) {
+    dataSource.value = [...store.value.insertBefore(rowValue, newData, dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
+   * 展开所有节点
+   */
+  function expandAll() {
+    dataSource.value = [...store.value.expandAll(dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
+   * 收起所有节点
+   */
+  function foldAll() {
+    dataSource.value = [...store.value.foldAll(dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
+   * 交换行数据
+   */
+  function swapData(params: SwapParams<TableRowData>) {
+    const r = store.value.swapData(dataSource.value, params, rowDataKeys.value);
+    if (r.result) {
+      dataSource.value = [...r.dataSource];
+    } else {
+      const params = {
+        code: r.code,
+        reason: r.reason,
+      };
+      props.onAbnormalDragSort?.(params);
+    }
   }
 
   return {
     store,
     rowDataKeys,
     dataSource,
+    swapData,
     setData,
     getData,
     remove,
     appendTo,
+    insertAfter,
+    insertBefore,
     formatTreeColum,
     toggleExpandData,
+    expandAll,
+    foldAll,
   };
 }

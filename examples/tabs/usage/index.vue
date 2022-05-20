@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #tabs="{ configProps }"
-      ><t-tabs v-bind="configProps" :default-value="1">
+      ><t-tabs v-bind="configProps">
         <t-tab-panel :value="1" label="选项卡1">
           <p style="margin: 20px">选项卡1内容区</p>
         </t-tab-panel>

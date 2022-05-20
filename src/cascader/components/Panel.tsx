@@ -1,124 +1,101 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref, computed, watch, nextTick } from 'vue';
 
-// utils
-import { renderTNodeJSXDefault } from '../../utils/render-tnode';
-
-// common logic
-import { getPanels, expendClickEffect, valueChangeEffect } from '../utils/panel';
-
-// Component
 import Item from './Item';
-
-// type
-import { ContextType, TreeNode, CascaderContextType } from '../interface';
+import { TreeNode, CascaderContextType } from '../interface';
 import CascaderProps from '../props';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { useTNodeDefault } from '../../hooks/tnode';
+
+import { getPanels } from '../core/helper';
+import { expendClickEffect, valueChangeEffect } from '../core/effect';
 
 export default defineComponent({
-  name: 'TCascaderPanel',
+  name: 'TCascaderSubPanel',
   props: {
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
+    visible: {
+      type: Boolean,
+      default: true,
+    },
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
   },
-  emits: ['change'],
 
-  setup() {
-    const ComponentClassName = usePrefixClass('cascader');
-    const classPrefix = usePrefixClass();
-    const { global } = useConfig('cascader');
+  setup(props) {
+    const renderTNodeJSXDefault = useTNodeDefault();
+    const COMPONENT_NAME = usePrefixClass('cascader');
+    const { global, t } = useConfig('cascader');
+    const itemShow = ref(props.visible);
 
-    return { global, ComponentClassName, classPrefix };
-  },
+    const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
-  computed: {
-    panels() {
-      return getPanels(this.cascaderContext.treeNodes);
-    },
-  },
-  render() {
-    const {
-      ComponentClassName,
-      cascaderContext: { filterActive, treeNodes, inputWidth },
-      cascaderContext,
-      panels,
-    } = this;
-    const handleExpand = (ctx: ContextType, trigger: 'hover' | 'click') => {
-      const { node } = ctx;
-      const { trigger: propsTrigger, cascaderContext } = this;
-
+    const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
+      const { trigger: propsTrigger, cascaderContext } = props;
       expendClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
-    const handleChange = (ctx: ContextType) => {
-      const { node } = ctx;
-      const { cascaderContext } = this;
-
-      valueChangeEffect(node, cascaderContext);
-    };
-
-    // innerComponents
-
-    const renderEmpty = renderTNodeJSXDefault(
-      this,
-      'empty',
-      <div class={`${ComponentClassName}__panel--empty`}>{this.global.empty}</div>,
+    watch(
+      () => props.visible,
+      () => {
+        nextTick(() => {
+          itemShow.value = props.visible;
+        });
+      },
     );
 
     const renderItem = (node: TreeNode) => (
       <Item
         key={node.value}
         node={node}
-        cascaderContext={cascaderContext}
-        onClick={(ctx: ContextType) => {
-          handleExpand(ctx, 'click');
+        cascaderContext={props.cascaderContext}
+        onClick={(node: TreeNode) => {
+          handleExpand(node, 'click');
         }}
-        onMouseenter={(ctx: ContextType) => {
-          handleExpand(ctx, 'hover');
+        onMouseenter={(node: TreeNode) => {
+          handleExpand(node, 'hover');
         }}
-        onChange={handleChange}
+        onChange={(node) => {
+          valueChangeEffect(node, props.cascaderContext);
+        }}
       />
     );
 
-    const panelsContainer = panels.map((panel: TreeNode[], index: number) => (
+    const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, key = '1') => (
       <ul
         class={[
-          `${ComponentClassName}__menu`,
+          `${COMPONENT_NAME.value}__menu`,
           'narrow-scrollbar',
-          { [`${ComponentClassName}__menu--segment`]: index !== panels.length - 1 },
+          {
+            [`${COMPONENT_NAME.value}__menu--segment`]: segment,
+            [`${COMPONENT_NAME.value}__menu--filter`]: isFilter,
+          },
         ]}
-        key={index}
-      >
-        {panel.map((node: TreeNode) => renderItem(node))}
-      </ul>
-    ));
-
-    const filterPanelsContainer = (
-      <ul
-        class={[
-          `${ComponentClassName}__menu`,
-          'narrow-scrollbar',
-          `${ComponentClassName}__menu--segment`,
-          `${ComponentClassName}__menu--filter`,
-        ]}
+        key={key}
       >
         {treeNodes.map((node: TreeNode) => renderItem(node))}
       </ul>
     );
 
-    const renderPanels = filterActive ? filterPanelsContainer : panelsContainer;
+    const renderPanels = () => {
+      const { inputVal, treeNodes } = props.cascaderContext;
+      return inputVal
+        ? renderList(treeNodes, true)
+        : panels.value.map((treeNodes, index: number) =>
+            renderList(treeNodes, false, index !== panels.value.length - 1, `${COMPONENT_NAME.value}__menu${index}`),
+          );
+    };
 
-    return (
-      <div
-        class={[`${ComponentClassName}__panel`, { [`${ComponentClassName}--normal`]: panels.length }]}
-        style={{
-          width: panels.length === 0 ? `${inputWidth}px` : null,
-        }}
-      >
-        {panels && panels.length ? renderPanels : renderEmpty}
+    return () => (
+      <div class={[`${COMPONENT_NAME.value}__panel`, { [`${COMPONENT_NAME.value}--normal`]: panels.value.length }]}>
+        {panels.value.length
+          ? renderPanels()
+          : renderTNodeJSXDefault(
+              'empty',
+              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{t(global.value.empty)}</div>,
+            )}
       </div>
     );
   },

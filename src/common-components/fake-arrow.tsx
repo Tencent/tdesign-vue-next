@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed, CSSProperties } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 
 // 统一使用的翻转箭头组件
@@ -13,7 +13,7 @@ export default defineComponent({
       type: [String, Object, Array],
     },
     overlayStyle: {
-      type: Object || (String as PropType<string | object>),
+      type: Object || (String as PropType<string | CSSProperties>),
     },
   },
 

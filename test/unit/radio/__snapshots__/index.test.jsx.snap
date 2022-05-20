@@ -1,0 +1,472 @@
+// Vitest Snapshot v1
+
+exports[`Radio > :props > :checked 1`] = `
+<label
+  class="t-radio t-is-checked"
+>
+  <input
+    class="t-radio__former"
+    name=""
+    type="radio"
+  />
+  <span
+    class="t-radio__input"
+  />
+  <span
+    class="t-radio__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
+
+exports[`Radio > :props > :defaultChecked 1`] = `
+<label
+  class="t-radio t-is-checked"
+>
+  <input
+    class="t-radio__former"
+    name=""
+    type="radio"
+  />
+  <span
+    class="t-radio__input"
+  />
+  <span
+    class="t-radio__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
+
+exports[`Radio > :props > :disabled 1`] = `
+<label
+  class="t-radio t-is-disabled"
+>
+  <input
+    class="t-radio__former"
+    disabled=""
+    name=""
+    type="radio"
+  />
+  <span
+    class="t-radio__input"
+  />
+  <span
+    class="t-radio__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
+
+exports[`Radio > :props > :name 1`] = `
+<label
+  class="t-radio"
+>
+  <input
+    class="t-radio__former"
+    name="radio-name"
+    type="radio"
+  />
+  <span
+    class="t-radio__input"
+  />
+  <span
+    class="t-radio__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
+
+exports[`Radio RadioGroup > :props > :defaultValue 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-radio t-is-checked t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :disabled 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="bj"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      北京
+      
+    </span>
+  </label>
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :name 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      name="radio-name"
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name="radio-name"
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :options 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :size 1`] = `
+<div
+  class="t-radio-group t-size-s t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio-button"
+  >
+    <input
+      class="t-radio-button__former"
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio-button__input"
+    />
+    <span
+      class="t-radio-button__label"
+    >
+      
+      
+      广州
+      
+      
+    </span>
+  </label>
+  <label
+    class="t-radio-button t-is-disabled"
+  >
+    <input
+      class="t-radio-button__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio-button__input"
+    />
+    <span
+      class="t-radio-button__label"
+    >
+      
+      
+      深圳
+      
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :value 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group__outline"
+>
+  
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-radio t-is-checked t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
+
+exports[`Radio RadioGroup > :props > :variant 1`] = `
+<div
+  class="t-radio-group t-size-m t-radio-group--filled"
+>
+  
+  <label
+    class="t-radio-button"
+  >
+    <input
+      class="t-radio-button__former"
+      name=""
+      type="radio"
+      value="gz"
+    />
+    <span
+      class="t-radio-button__input"
+    />
+    <span
+      class="t-radio-button__label"
+    >
+      
+      
+      广州
+      
+      
+    </span>
+  </label>
+  <label
+    class="t-radio-button t-is-disabled"
+  >
+    <input
+      class="t-radio-button__former"
+      disabled=""
+      name=""
+      type="radio"
+      value="sz"
+    />
+    <span
+      class="t-radio-button__input"
+    />
+    <span
+      class="t-radio-button__label"
+    >
+      
+      
+      深圳
+      
+      
+    </span>
+  </label>
+  
+  <div
+    class="t-radio-group__bg-block"
+    style="width: 0px; left: 0px;"
+  />
+</div>
+`;

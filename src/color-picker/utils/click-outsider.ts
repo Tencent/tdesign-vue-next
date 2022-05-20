@@ -1,6 +1,6 @@
 import { ComponentPublicInstance, VNode } from 'vue';
 import { usePrefixClass } from '../../hooks/useConfig';
-import { on } from '../../utils/dom';
+import { isServer, on } from '../../utils/dom';
 
 type Handler = (...args: unknown[]) => unknown;
 
@@ -17,7 +17,7 @@ let startClick: MouseEvent;
 
 let uid = 0;
 
-if (window && window.document) {
+if (!isServer && window.document) {
   on(document, 'mousedown', (e: MouseEvent) => (startClick = e));
   on(document, 'mouseup', (e: MouseEvent) => {
     for (const { handler } of nodeList.values()) {

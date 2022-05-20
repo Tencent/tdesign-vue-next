@@ -35,11 +35,9 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
-    const { isHover, inputRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } = useInput(
-      props,
-      expose,
-    );
-    useInputWidth(props, inputRef, innerValue);
+    const { isHover, inputRef, inputPreRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } =
+      useInput(props, expose);
+    useInputWidth(props, inputPreRef, inputRef, innerValue);
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
     const tPlaceholder = computed(() => props.placeholder ?? global.value.placeholder);
@@ -152,7 +150,7 @@ export default defineComponent({
               onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
             />
             {props.autoWidth && (
-              <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
+              <span ref={inputPreRef} className={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}
               </span>
             )}

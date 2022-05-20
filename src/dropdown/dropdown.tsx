@@ -1,74 +1,73 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, provide, reactive, ref, toRefs } from 'vue';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
+import { injectKey } from './const';
 
 export default defineComponent({
   name: 'TDropdown',
-  components: {
-    DropdownMenu,
-  },
-  provide() {
-    return {
-      dropdown: this,
-    };
-  },
-  props: {
-    ...props,
-  },
-  emits: ['click', 'visibleChange'],
-  setup() {
+  props,
+  setup(props, { attrs, slots }) {
+    const renderTNode = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  methods: {
-    handleMenuClick(data: DropdownOption, context: { e: MouseEvent }) {
-      if (this.hideAfterItemClick) {
-        const { popupElem }: any = this.$refs;
-        popupElem.handleClose();
+    const popupElem = ref(null);
+
+    const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
+      if (props.hideAfterItemClick) {
+        popupElem.value.handleClose();
       }
-      emitEvent(this, 'click', data, context);
-    },
-  },
-  render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default(null) : '';
-
-    const contentSlot: VNode[] | VNode | string = renderTNodeJSX(this, 'dropdown');
-    const popupProps = {
-      ...this.$attrs,
-      disabled: this.disabled,
-      placement: this.placement,
-      trigger: this.trigger,
-      overlayClassName: [this.COMPONENT_NAME, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+      props.onClick?.(data, context);
     };
 
-    return (
-      <Popup
-        {...this.popupProps}
-        {...popupProps}
-        destroyOnClose
-        ref="popupElem"
-        expandAnimation
-        v-slots={{
-          content: () =>
-            contentSlot || (
-              <dropdown-menu
-                options={this.options}
-                maxHeight={this.maxHeight}
-                maxColumnWidth={this.maxColumnWidth}
-                minColumnWidth={this.minColumnWidth}
-              />
-            ),
-        }}
-      >
-        {trigger}
-      </Popup>
+    const { maxHeight, maxColumnWidth, minColumnWidth } = toRefs(props);
+    provide(
+      injectKey,
+      reactive({
+        handleMenuClick,
+        maxHeight,
+        maxColumnWidth,
+        minColumnWidth,
+      }),
     );
+
+    return () => {
+      const trigger = slots.default ? slots.default(null) : '';
+
+      const contentSlot = renderTNode('dropdown');
+
+      const popupProps = {
+        ...attrs,
+        disabled: props.disabled,
+        placement: props.placement,
+        trigger: props.trigger,
+        overlayClassName: [COMPONENT_NAME.value, (props.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+      };
+
+      return (
+        <Popup
+          {...props.popupProps}
+          {...popupProps}
+          destroyOnClose
+          ref={popupElem}
+          expandAnimation
+          v-slots={{
+            content: () =>
+              contentSlot || (
+                <DropdownMenu
+                  options={props.options}
+                  maxHeight={props.maxHeight}
+                  maxColumnWidth={props.maxColumnWidth}
+                  minColumnWidth={props.minColumnWidth}
+                />
+              ),
+          }}
+        >
+          {trigger}
+        </Popup>
+      );
+    };
   },
 });

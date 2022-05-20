@@ -160,7 +160,6 @@ export default defineComponent({
         class={this.formClass}
         onSubmit={(e) => this.submitHandler(e as MouseEvent)}
         onReset={(e) => this.resetHandler(e as MouseEvent)}
-        {...this.$attrs}
       >
         {this.$slots.default ? this.$slots.default() : []}
       </form>

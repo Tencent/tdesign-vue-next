@@ -10,7 +10,7 @@ import {
   provide,
 } from 'vue';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
+import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { SlotReturnValue } from '../common';
@@ -45,6 +45,9 @@ export default defineComponent({
      * 2. 如果是method则获取方法返回值
      */
     const getScrollContainer = () => {
+      if (isServer) {
+        return;
+      }
       const { container } = props;
       scrollContainer.value = utilsGetScrollContainer(container) as HTMLElement;
       on(scrollContainer.value, 'scroll', handleScroll);

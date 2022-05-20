@@ -111,7 +111,7 @@ export default class VMenu {
 
     this.expandValues.add(val);
 
-    if (!this.isMutex) {
+    if (!this.isMutex.value) {
       return [...this.expandValues];
     }
 

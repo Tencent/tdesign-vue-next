@@ -1,44 +1,30 @@
-import { computed, defineComponent, getCurrentInstance, h, inject, onBeforeUnmount, onMounted, Ref, ref } from 'vue';
+import { computed, defineComponent, h, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { StepsInjectionKey } from './constants';
 import props from './step-item-props';
 import { ClassName, SlotReturnValue } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks';
 
-export type StepItemExposed = {
-  index: Ref<number>;
-};
-
 export default defineComponent({
   name: 'TStepItem',
-  props: { ...props },
+  props: { ...props, index: Number },
 
-  setup(props, { expose }) {
-    const steps = inject(StepsInjectionKey, undefined);
+  setup(props) {
+    const stepsState = inject('StepsState', undefined);
+    const stepsProps = inject('StepsProps', undefined);
 
     const { global } = useConfig('steps');
     const canClick = computed(() => {
-      return props.status !== 'process' && !steps?.readonly;
+      return props.status !== 'process' && !stepsProps?.readonly;
     });
 
     // when props.value is undefined
-    const index = ref(-1);
     const onStepClick = (e: MouseEvent) => {
-      const val = props.value === undefined ? index.value : props.value;
-      steps.setCurrent(val, steps.current, { e });
+      if (!canClick.value) return;
+      const val = props.value === undefined ? props.index : props.value;
+      stepsState.setCurrent(val, stepsState.current, { e });
     };
-
-    expose({ index });
-
-    const { exposed } = getCurrentInstance();
-    onMounted(() => {
-      steps.addItem(exposed as StepItemExposed);
-    });
-    onBeforeUnmount(() => {
-      steps.removeItem(exposed as StepItemExposed);
-    });
 
     // class
     const COMPONENT_NAME = usePrefixClass('steps-item');
@@ -51,7 +37,7 @@ export default defineComponent({
     const renderContent = useContent();
     const renderIcon = () => {
       let defaultIcon;
-      if (steps.theme === 'default') {
+      if (stepsProps.theme === 'default') {
         let icon: SlotReturnValue = '';
         switch (props.status) {
           case 'finish':
@@ -65,7 +51,7 @@ export default defineComponent({
             }
             break;
           default:
-            icon = String(index.value + 1);
+            icon = String(props.index + 1);
             break;
         }
         defaultIcon = <span class={`${COMPONENT_NAME.value}__icon--number`}>{icon}</span>;

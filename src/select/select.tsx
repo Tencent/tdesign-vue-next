@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, VNode, ComponentPublicInstance, Fragment } from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
@@ -12,6 +12,7 @@ import Tag from '../tag/index';
 import FakeArrow from '../common-components/fake-arrow';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
+import OptionGroup from './optionGroup';
 
 import props from './props';
 import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
@@ -43,6 +44,7 @@ export default defineComponent({
     Tag,
     Popup,
     TOption: Option,
+    TOptionGroup: OptionGroup,
   },
   provide(): any {
     return {

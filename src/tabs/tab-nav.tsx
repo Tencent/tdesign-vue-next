@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
+import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -13,6 +13,7 @@ import TTabNavBar from './tab-nav-bar';
 // hooks
 import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useDragSort from '../hooks/useDragSort';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;
@@ -43,6 +44,8 @@ export default defineComponent({
     onChange: tabProps.onChange,
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
+    dragSort: tabProps.dragSort,
+    onDragSort: tabProps.onDragSort,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
@@ -54,6 +57,7 @@ export default defineComponent({
     const canToRight = ref(false);
 
     // refs
+    // const panels = ref(props.panels);
     const navsContainerRef = ref();
     const navsWrapRef = ref();
     const leftOperationsRef = ref();
@@ -135,16 +139,11 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
-    watch([() => props.panels], () => {
-      nextTick(totalAdjust);
-    });
     watch([scrollLeft, () => props.placement], totalAdjust);
 
     // life times
-    onMounted(() => {
-      totalAdjust();
-      useResize(debounce(totalAdjust), navsContainerRef.value);
-    });
+    useResize(debounce(totalAdjust), navsContainerRef.value);
+    onMounted(totalAdjust);
 
     // methods
     const adjustScrollLeft = () => {
@@ -187,6 +186,10 @@ export default defineComponent({
       }
     };
 
+    const { setNavsWrap } = useDragSort(props);
+    onMounted(() => {
+      setNavsWrap(navsWrapRef.value);
+    });
     // renders
     const navs = computed(() => {
       return props.panels.map((panel, index) => {
@@ -200,6 +203,7 @@ export default defineComponent({
         return (
           <TTabNavItem
             ref={setActiveTab}
+            draggable={props.dragSort}
             key={panel.value}
             index={index}
             theme={props.theme}

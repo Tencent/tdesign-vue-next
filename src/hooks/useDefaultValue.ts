@@ -1,4 +1,4 @@
-import { ref, Ref, getCurrentInstance } from 'vue';
+import { ref, Ref, getCurrentInstance, watch } from 'vue';
 import { ChangeHandler } from './useVModel';
 
 // 用于实现 v-model:propsName
@@ -12,23 +12,27 @@ export default function useDefaultValue<T, P extends any[]>(
   const internalValue = ref();
   internalValue.value = defaultValue;
 
-  // 受控模式
   if (typeof value.value !== 'undefined') {
-    return [
-      value,
-      (newValue, ...args) => {
-        emit?.(`update:${propsName}`, newValue, ...args);
-        onChange?.(newValue, ...args);
-      },
-    ];
+    // 受控模式 v-model:propName
+    internalValue.value = value.value;
   }
+
+  // 监听value变化
+  watch(value, (newVal) => {
+    internalValue.value = newVal;
+  });
 
   // 非受控模式
   return [
     internalValue,
     (newValue, ...args) => {
-      internalValue.value = newValue;
-      onChange?.(newValue, ...args);
+      if (typeof value.value !== 'undefined') {
+        emit?.(`update:${propsName}`, newValue, ...args);
+        onChange?.(newValue, ...args);
+      } else {
+        internalValue.value = newValue;
+        onChange?.(newValue, ...args);
+      }
     },
   ];
 }

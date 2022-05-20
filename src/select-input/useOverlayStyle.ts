@@ -38,7 +38,6 @@ export default function useOverlayStyle(props: TdSelectInputProps) {
   };
 
   const tOverlayStyle = computed(() => {
-    if (tOverlayStyle.value) return;
     let result: TdPopupProps['overlayStyle'] = {};
     const overlayStyle = popupProps.value?.overlayStyle || {};
     if (isFunction(overlayStyle) || (isObject(overlayStyle) && overlayStyle.width)) {

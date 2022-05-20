@@ -36,7 +36,8 @@ export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
   });
 
   // 处理正则表达式
-  const t = function <T>(pattern: T, data?: Record<string, string | number>) {
+  const t = function <T>(pattern: T, ...args: any[]) {
+    const [data] = args;
     if (typeof pattern === 'string') {
       if (!data) return pattern;
       const regular = /\{\s*([\w-]+)\s*\}/g;
@@ -49,7 +50,9 @@ export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
       return translated;
     }
     if (typeof pattern === 'function') {
-      return pattern(data ?? h);
+      // 重要：组件的渲染必须存在参数 h，不能移除
+      if (!args.length) return pattern(h);
+      return pattern(...args);
     }
     return '';
   };

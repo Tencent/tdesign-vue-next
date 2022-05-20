@@ -42,7 +42,7 @@ export default defineComponent({
       return {
         showArrow: props.showArrow,
         overlayClassName: COMPONENT_NAME.value,
-        trigger: 'click',
+        trigger: 'click' as PopupProps['trigger'],
         destroyOnClose: props.destroyOnClose,
         placement: props.placement,
         ...(props.popupProps as PopupProps),
@@ -101,9 +101,8 @@ export default defineComponent({
 
     return () => (
       <Popup
-        ref="popup"
         visible={innerVisible.value}
-        {...innerPopupProps}
+        {...innerPopupProps.value}
         onVisibleChange={onPopupVisibleChange}
         v-slots={{
           content: renderContent,
