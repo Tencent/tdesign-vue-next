@@ -139,14 +139,15 @@ export default defineComponent({
     };
 
     // provide
+    const { name, disabled } = toRefs(props);
     provide(
       CheckboxGroupInjectionKey,
       reactive({
-        name: props.name,
+        name,
         isCheckAll,
         checkedMap,
         maxExceeded,
-        disabled: props.disabled,
+        disabled,
         indeterminate,
         handleCheckboxChange,
         onCheckedChange,

@@ -1,6 +1,6 @@
 import _TdTree from './td-tree';
 import mapProps from '../utils/map-props';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdTreeProps } from './type';
 
 import './style';
@@ -8,7 +8,7 @@ import './style';
 export * from './type';
 export type TreeProps = TdTreeProps;
 
-export const Tree: WithInstallType<typeof _TdTree> = withInstall(
+export const Tree = withInstall(
   mapProps([
     {
       name: 'value',

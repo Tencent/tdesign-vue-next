@@ -1,6 +1,8 @@
-import { ref, computed, watch, nextTick, toRefs } from 'vue';
+import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
+import { FormItemInjectionKey } from '../form/const';
+
 import useVModel from '../hooks/useVModel';
 
 export default function useInput(props: TdInputProps, expose: (exposed: Record<string, any>) => void) {
@@ -66,12 +68,14 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     inputValueChangeHandle(e);
   };
 
+  const formItem = inject(FormItemInjectionKey, undefined);
   const formatAndEmitBlur = (e: FocusEvent) => {
     if (props.format) {
       inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
     props.onBlur?.(props.value, { e });
+    formItem?.handleBlur();
   };
 
   const onHandleCompositionend = (e: CompositionEvent) => {

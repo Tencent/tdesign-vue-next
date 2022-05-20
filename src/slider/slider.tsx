@@ -20,7 +20,7 @@ import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
-import { getStopStyle } from './util/common';
+import { formatSlderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
 
@@ -56,8 +56,8 @@ export default defineComponent({
       prevValue: 0 as SliderValue,
       showSteps: false,
     });
-    const firstValue = ref(0);
-    const secondValue = ref(0);
+    const firstValue = ref(formatSlderValue(sliderValue.value, 'first'));
+    const secondValue = ref(formatSlderValue(sliderValue.value, 'second'));
     const dragging = ref(false);
     const sliderSize = ref(1);
 
@@ -364,20 +364,22 @@ export default defineComponent({
     const toggleDragging = (toState: boolean) => {
       dragging.value = toState;
     };
-    const provideCollect = computed(() => {
-      return {
-        max: props.max,
-        min: props.min,
-        step: props.step,
+
+    const { min, max, step } = toRefs(props);
+    provide(
+      sliderPropsInjectKey,
+      reactive({
+        min,
+        max,
+        step,
         dragging,
         toggleDragging,
         precision,
         disabled,
         resetSize,
         sliderSize,
-      };
-    });
-    provide(sliderPropsInjectKey, provideCollect.value);
+      }),
+    );
 
     return () => (
       <div class={containerClass.value} ref={sliderContainerRef}>

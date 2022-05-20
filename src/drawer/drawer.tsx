@@ -1,7 +1,7 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { addClass, removeClass } from '../utils/dom';
+import { isServer, addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { Button as TButton } from '../button';
 import props from './props';
@@ -165,6 +165,7 @@ export default defineComponent({
     watch(
       () => props.visible,
       (value: boolean) => {
+        if (isServer) return;
         if (value && !props.showInAttachedElement) {
           props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
         } else {

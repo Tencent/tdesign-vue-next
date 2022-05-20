@@ -31,7 +31,6 @@ const OMIT_PROPS = [
   'expandIcon',
   'onChange',
   'onAsyncLoadingClick',
-  'onChange',
   'onColumnChange',
   'onColumnControllerVisibleChange',
   'onDataChange',

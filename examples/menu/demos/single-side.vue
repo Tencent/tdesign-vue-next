@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <t-menu theme="light" value="item1" style="margin-right: 40px" height="550px" @change="changeHandler">
+    <t-menu theme="light" default-value="item1" style="margin-right: 40px" height="550px" @change="changeHandler">
       <template #logo>
         <img
           width="136"
@@ -85,7 +85,7 @@
       </t-menu-item>
     </t-menu>
 
-    <t-menu theme="dark" value="dashboard" height="550px">
+    <t-menu theme="dark" default-value="dashboard" height="550px">
       <template #logo>
         <img
           width="136"

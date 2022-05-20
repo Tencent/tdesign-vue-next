@@ -1,7 +1,7 @@
 import mapProps from '../utils/map-props';
 import _TimePicker from './time-picker';
 import _TimeRangePicker from './time-range-picker';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
 
 import './style';
@@ -10,7 +10,7 @@ export * from './type';
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;
 
-export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(
+export const TimePicker = withInstall(
   mapProps([
     {
       name: 'value',
@@ -19,7 +19,7 @@ export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(
     },
   ])(_TimePicker),
 );
-export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(
+export const TimeRangePicker = withInstall(
   mapProps([
     {
       name: 'value',

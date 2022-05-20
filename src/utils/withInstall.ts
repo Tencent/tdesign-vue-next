@@ -1,16 +1,16 @@
-import { App, Plugin } from 'vue';
+import { App, Plugin, Component } from 'vue';
 
-export type WithInstallType<T> = T & Plugin;
+function withInstall<T>(comp: T, alias?: string): T & Plugin {
+  const componentPlugin = comp as T & Component & Plugin;
 
-export const withInstall = <T>(comp: T, customName?: string): T & Plugin => {
-  const c = comp as any;
-
-  c.install = (app: App, name?: string) => {
-    const defaultName = c.name.includes('-mapprops') ? c.name.replace('-mapprops', '') : c.name; // 正确命名map-props的组件
-    app.component(customName || name || defaultName, comp);
+  componentPlugin.install = (app: App, name?: string) => {
+    const defaultName = componentPlugin.name.includes('-mapprops')
+      ? componentPlugin.name.replace('-mapprops', '')
+      : componentPlugin.name; // 正确命名map-props的组件
+    app.component(alias || name || defaultName, comp);
   };
 
-  return c as T & Plugin;
-};
+  return componentPlugin as T & Plugin;
+}
 
 export default withInstall;

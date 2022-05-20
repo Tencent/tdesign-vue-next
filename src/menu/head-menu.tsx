@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect } from 'vue';
+import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect, toRefs } from 'vue';
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
@@ -7,6 +7,8 @@ import { Tabs, TabPanel } from '../tabs';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import { usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -18,9 +20,10 @@ export default defineComponent({
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
       }
     });
-    const activeValue = ref(props.defaultValue || props.value);
+    const { value, modelValue, expanded } = toRefs(props);
+    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [expandValues, setExpanded] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
     const activeValues = ref([]);
-    const expandValues = ref(props.defaultExpanded || props.expanded || []);
     const theme = computed(() => props.theme);
     const menuClass = computed(() => [
       `${classPrefix.value}-menu`,
@@ -40,7 +43,7 @@ export default defineComponent({
       activeValue,
       activeValues,
       select: (value: MenuValue) => {
-        props.onChange?.(value);
+        setActiveValue(value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         const expanded = [...expandValues.value];
@@ -61,13 +64,13 @@ export default defineComponent({
             expanded.push(value);
           }
         }
-        props.onExpand?.(expanded);
+        setExpanded(expanded);
       },
     });
 
     // methods
     const handleTabChange = (value: MenuValue) => {
-      props.onChange?.(value);
+      setActiveValue(value);
     };
 
     const handleSubmenuExpand = (value: MenuValue) => {
@@ -77,21 +80,15 @@ export default defineComponent({
     };
 
     // watch
-    watch(
-      () => props.expanded,
-      (value) => {
-        expandValues.value = value;
-        if (mode.value === 'normal') {
-          handleSubmenuExpand(value[0]);
-        }
-      },
-    );
+    watch(expandValues, (value) => {
+      if (mode.value === 'normal') {
+        handleSubmenuExpand(value[0]);
+      }
+    });
     const updateActiveValues = (value: MenuValue) => {
-      activeValue.value = value;
       activeValues.value = vMenu.select(value);
     };
-    watch(() => props.value, updateActiveValues);
-    watch(() => props.defaultValue, updateActiveValues);
+    watch(activeValue, updateActiveValues);
     watch(
       () => props.expandType,
       (value) => {

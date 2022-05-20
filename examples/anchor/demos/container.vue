@@ -1,6 +1,6 @@
 <template>
   <div :id="`${path}#container`" class="anchor-demo anchor-container-demo">
-    <t-anchor :id="`${path}#default`" container="#anchor-container">
+    <t-anchor :id="`${path}#default`" container="#anchor-container" @click="handleClick">
       <t-anchor-item :href="`#${path}#content-1`" title="content-1" />
       <t-anchor-item :href="`#${path}#content-2`" title="content-2" />
       <t-anchor-item :href="`#${path}#content-3`" title="content-3" />
@@ -21,6 +21,11 @@ import get from 'lodash/get';
 
 const { ctx } = getCurrentInstance();
 const path = computed(() => get(ctx, '$route.path', ''));
+
+const handleClick = ({ e, href, title }) => {
+  e.preventDefault();
+  console.log('click', href, title);
+};
 </script>
 <style lang="less" scoped>
 .anchor-container-demo {

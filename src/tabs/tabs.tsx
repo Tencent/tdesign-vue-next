@@ -80,6 +80,7 @@ export default defineComponent({
         placement: props.placement,
         addable: props.addable,
         panels: panelsData,
+        dragSort: props.dragSort,
       };
       return (
         <div
@@ -88,7 +89,13 @@ export default defineComponent({
             [`${classPrefix.value}-is-${props.placement}`]: true,
           }}
         >
-          <TTabNav {...tabNavProps} onChange={onTabChange} onAdd={onTabAdd} onRemove={onTabRemove} />
+          <TTabNav
+            {...tabNavProps}
+            onDragSort={props.onDragSort}
+            onChange={onTabChange}
+            onAdd={onTabAdd}
+            onRemove={onTabRemove}
+          />
         </div>
       );
     };

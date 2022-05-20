@@ -1,11 +1,11 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
-import { DeleteIcon, ErrorCircleFilledIcon, AddIcon } from 'tdesign-icons-vue-next';
+import { DeleteIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { Select as TSelect, Option as TOption } from '../../select';
 import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { useCommonClassName } from '../../hooks/useConfig';
 import baseProps from './base-props';
-import { Button as TButton, TdButtonProps } from '../../button';
+import { Button as TButton } from '../../button';
 
 export default defineComponent({
   name: 'SwatchesPanel',
@@ -43,9 +43,6 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const { t, global } = useConfig('colorPicker');
-    const { global: confirmGlobal } = useConfig('popconfirm');
-    const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
     const visiblePopConfirm = ref<boolean>(false);
@@ -79,10 +76,6 @@ export default defineComponent({
     };
 
     return {
-      t,
-      global,
-      confirmGlobal,
-      classPrefix,
       baseClassName,
       statusClassNames,
       selectedColorIndex,
@@ -94,83 +87,14 @@ export default defineComponent({
     };
   },
   render() {
-    const {
-      baseClassName,
-      statusClassNames,
-      classPrefix,
-      visiblePopConfirm,
-      t,
-      global,
-      confirmGlobal,
-      title,
-      editable,
-    } = this;
+    const { baseClassName, statusClassNames, title, editable } = this;
     const swatchesClass = `${baseClassName}__swatches`;
-    const popupBaseClassName = `${classPrefix}-popup`;
-    const popConfirmBaseClassName = `${classPrefix}-popconfirm`;
-
-    // 该方法暂时不用，后面交互讨论后再定
-    const renderConfirm = () => {
-      return (
-        <div
-          class={popupBaseClassName}
-          style={{ display: visiblePopConfirm ? '' : 'none' }}
-          role="tooltip"
-          aria-hidden="false"
-          data-popper-placement="top"
-          onClick={(e: MouseEvent) => {
-            e.stopPropagation();
-          }}
-        >
-          <div
-            class={[`${popupBaseClassName}__content`, `${popupBaseClassName}content--arrow`, popConfirmBaseClassName]}
-          >
-            <div class={`${popConfirmBaseClassName}__content`}>
-              <div class={`${popConfirmBaseClassName}__body`}>
-                <ErrorCircleFilledIcon class={`${popConfirmBaseClassName}__icon--warning`} />
-                <div class={`${popConfirmBaseClassName}__inner`}>{t(global.clearConfirmText)}</div>
-              </div>
-              <div class={`${popConfirmBaseClassName}__buttons`}>
-                <t-button
-                  size="small"
-                  content={t((confirmGlobal.cancel as TdButtonProps).content)}
-                  theme="default"
-                  class={`${popConfirmBaseClassName}__cancel`}
-                  onClick={() => this.setVisiblePopConfirm(false)}
-                />
-                <t-button
-                  content={t((confirmGlobal.confirm as TdButtonProps).content)}
-                  size="small"
-                  theme="primary"
-                  class={`${popConfirmBaseClassName}__confirm`}
-                  onClick={() => this.handleRemoveColor()}
-                />
-              </div>
-            </div>
-            <div class={`${popupBaseClassName}__arrow`}></div>
-          </div>
-        </div>
-      );
-    };
 
     const renderActions = () => {
       if (!editable) {
         return null;
       }
-      // if (this.selectedColorIndex === -1) {
-      //   return (
-      //     <div
-      //       role="button"
-      //       class={[`${baseClassName}__icon`, `${swatchesClass}--remove`]}
-      //       onClick={() => {
-      //         this.setVisiblePopConfirm(!visiblePopConfirm);
-      //       }}
-      //     >
-      //       <DeleteIcon />
-      //       {renderConfirm()}
-      //     </div>
-      //   );
-      // }
+
       return (
         <div class={`${swatchesClass}--actions`}>
           <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleAddColor()}>
@@ -199,6 +123,7 @@ export default defineComponent({
                   `${swatchesClass}--item`,
                   this.isEqualCurrentColor(color) && editable ? statusClassNames.active : '',
                 ]}
+                title={color}
                 key={color}
                 onClick={() => {
                   if (this.disabled) {
@@ -207,9 +132,9 @@ export default defineComponent({
                   this.handleClick(color);
                 }}
               >
-                <div class={[`${swatchesClass}--item__color`, `${baseClassName}--bg-alpha`]}>
+                <div class={[`${swatchesClass}--color`, `${baseClassName}--bg-alpha`]}>
                   <span
-                    class={`${swatchesClass}--item__inner`}
+                    class={`${swatchesClass}--inner`}
                     style={{
                       background: color,
                     }}

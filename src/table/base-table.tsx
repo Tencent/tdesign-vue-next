@@ -191,13 +191,6 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
 
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
-    const colgroup = (
-      <colgroup>
-        {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-          <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-        ))}
-      </colgroup>
-    );
 
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
@@ -206,7 +199,11 @@ export default defineComponent({
         class={{ [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableWidth}px` }}>
-          {colgroup}
+          <colgroup>
+            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
+            ))}
+          </colgroup>
           <THead
             v-slots={this.$slots}
             isFixedHeader={this.isFixedHeader}
@@ -259,7 +256,11 @@ export default defineComponent({
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
-          {colgroup}
+          <colgroup>
+            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
+            ))}
+          </colgroup>
           <THead
             v-slots={this.$slots}
             isFixedHeader={this.isFixedHeader}

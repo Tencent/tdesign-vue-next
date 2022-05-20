@@ -14,12 +14,14 @@ import multiInput from 'rollup-plugin-multi-input';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import staticImport from 'rollup-plugin-static-import';
 import ignoreImport from 'rollup-plugin-ignore-import';
+import copy from 'rollup-plugin-copy';
 
 import pkg from '../package.json';
 
 const name = 'tdesign';
 
-const externalDeps = Object.keys(pkg.dependencies || {}).concat([/lodash/, /@babel\/runtime/]);
+const esExternalDeps = Object.keys(pkg.dependencies || {});
+const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const banner = `/**
  * ${name} v${pkg.version}
@@ -75,11 +77,21 @@ const getPlugins = ({
   } else if (extractMultiCss) {
     plugins.push(
       staticImport({
-        include: ['src/**/style/css.js'],
+        include: ['src/**/style/css.mjs'],
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/css.js";',
+        body: 'import "./style/css.mjs";',
+      }),
+      copy({
+        targets: [
+          {
+            src: 'src/**/style/css.js',
+            dest: 'es',
+            rename: (name, extension, fullPath) => `${fullPath.substring(4, fullPath.length - 6)}${name}.mjs`,
+          },
+        ],
+        verbose: true,
       }),
     );
   } else if (ignoreLess) {
@@ -133,18 +145,22 @@ const cssConfig = {
   },
 };
 
+// lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
+const exception = ['tinycolor2', 'dayjs'];
+const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
 const esConfig = {
   input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/css.js
   treeshake: false,
-  external: externalDeps.concat(externalPeerDeps),
+  external: esExternal,
   plugins: [multiInput()].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,
     dir: 'es/',
     format: 'esm',
     sourcemap: true,
-    chunkFileNames: '_chunks/dep-[hash].js',
+    entryFileNames: '[name].mjs',
+    chunkFileNames: '_chunks/dep-[hash].mjs',
   },
 };
 

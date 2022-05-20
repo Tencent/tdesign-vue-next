@@ -123,7 +123,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   rowClassName?: ClassName | ((params: RowClassNameParams<T>) => ClassName);
   /**
    * 使用 rowKey 唯一标识一行数据
-   * @default ''
+   * @default 'id'
    */
   rowKey: string;
   /**
@@ -491,13 +491,21 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
 
 export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> extends TdPrimaryTableProps<T> {
   /**
-   * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
+   * 树形结构中，拖拽排序前控制，返回值为 `true` 则继续排序；返回值为 `false` 则中止排序还原数据
+   */
+  beforeDragSort?: (context: DragSortContext<T>) => boolean;
+  /**
+   * 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述
    */
   tree?: TableTreeConfig;
   /**
    * 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`
    */
   treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
+  /**
+   * 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因
+   */
+  onAbnormalDragSort?: (context: TableAbnormalDragSortContext<T>) => void;
   /**
    * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
    */
@@ -506,6 +514,14 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
 
 /** 组件实例方法 */
 export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 展开全部行
+   */
+  expandAll: () => void;
+  /**
+   * 折叠全部行
+   */
+  foldAll: () => void;
   /**
    * 树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型
    */
@@ -540,6 +556,10 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
    */
   expanded: boolean;
   /**
+   * 唯一标识
+   */
+  id: string | number;
+  /**
    * 当前节点层级
    */
   level?: number;
@@ -556,7 +576,7 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
    */
   row: T;
   /**
-   * 表格行下标
+   * 表格行下标，值为 `-1` 标识当前行未展开显示
    */
   rowIndex: number;
 }
@@ -648,6 +668,34 @@ export interface TableColumnController {
    * @default top-right
    */
   placement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+}
+
+export interface TableTreeConfig {
+  /**
+   * 表示树形结构的行选中（多选），父子行选中是否独立
+   * @default true
+   */
+  checkStrictly?: boolean;
+  /**
+   * 树形结构子节点字段，示例：`childrenKey='list'`。一般应用在数据 `data` 的子节点字段不是 `children` 的场景
+   * @default children
+   */
+  childrenKey?: string;
+  /**
+   * 是否默认展开全部，仅默认情况有效。如果希望自由控制树形结构的展开或收起，可使用实例方法 `expandAll` 和 `foldAll`
+   * @default false
+   */
+  defaultExpandAll?: boolean;
+  /**
+   * 树结点缩进距离，单位：px
+   * @default 24
+   */
+  indent?: number;
+  /**
+   * 树结点在第几列渲染，默认为第一列
+   * @default 0
+   */
+  treeNodeColumnIndex?: number;
 }
 
 export type TableRowAttributes<T> =
@@ -809,11 +857,9 @@ export type SorterFun<T> = (a: T, b: T) => number;
 
 export type SortType = 'desc' | 'asc' | 'all';
 
-export interface TableTreeConfig {
-  indent?: number;
-  treeNodeColumnIndex?: number;
-  childrenKey?: 'children';
-  checkStrictly?: boolean;
+export interface TableAbnormalDragSortContext<T> {
+  code: number;
+  reason: string;
 }
 
 export interface TableTreeExpandChangeContext<T> {

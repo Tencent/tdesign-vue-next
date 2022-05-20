@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdMenuProps } from './type';
@@ -11,13 +10,15 @@ import { PropType } from 'vue';
 export default {
   /** 是否收起菜单 */
   collapsed: Boolean,
-  /** 展开的子菜单集合 */
+  /** 子菜单展开的导航集合 */
   expanded: {
     type: Array as PropType<TdMenuProps['expanded']>,
+    default: undefined,
   },
-  /** 展开的子菜单集合，非受控属性 */
+  /** 子菜单展开的导航集合，非受控属性 */
   defaultExpanded: {
     type: Array as PropType<TdMenuProps['defaultExpanded']>,
+    default: [],
   },
   /** 同级别互斥展开 */
   expandMutex: Boolean,
@@ -26,6 +27,7 @@ export default {
     type: String as PropType<TdMenuProps['expandType']>,
     default: 'normal' as TdMenuProps['expandType'],
     validator(val: TdMenuProps['expandType']): boolean {
+      if (!val) return true;
       return ['normal', 'popup'].includes(val);
     },
   },
@@ -42,12 +44,18 @@ export default {
     type: String as PropType<TdMenuProps['theme']>,
     default: 'light' as TdMenuProps['theme'],
     validator(val: TdMenuProps['theme']): boolean {
+      if (!val) return true;
       return ['light', 'dark'].includes(val);
     },
   },
   /** 激活菜单项 */
   value: {
     type: [String, Number] as PropType<TdMenuProps['value']>,
+    default: undefined,
+  },
+  modelValue: {
+    type: [String, Number] as PropType<TdMenuProps['value']>,
+    default: undefined,
   },
   /** 激活菜单项，非受控属性 */
   defaultValue: {
@@ -60,8 +68,6 @@ export default {
   },
   /** 激活菜单项发生变化时触发 */
   onChange: Function as PropType<TdMenuProps['onChange']>,
-  /** 侧边栏导航展开/收起发生变化时触发 */
-  onCollapsed: Function as PropType<TdMenuProps['onCollapsed']>,
   /** 展开的菜单项发生变化时触发 */
   onExpand: Function as PropType<TdMenuProps['onExpand']>,
 };

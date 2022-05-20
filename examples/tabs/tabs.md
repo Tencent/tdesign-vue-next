@@ -11,6 +11,7 @@ dragSort | Boolean | false | 是否开启拖拽调整顺序 | N
 list | Array | - | 选项卡列表。TS 类型：`Array<TdTabPanelProps>` | N
 placement | String | top | 选项卡位置。可选项：left/top/bottom/right | N
 size | String | medium | 组件尺寸。可选项：medium/large | N
+dragSort | Boolean | false | 是否开启拖拽功能 | N
 theme | String | normal | 选项卡风格，包含 默认风格 和 卡片风格两种。可选项：normal/card | N
 value | String / Number | - | 激活的选项卡值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TabValue` `type TabValue = string | number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
 defaultValue | String / Number | - | 激活的选项卡值。非受控属性。TS 类型：`TabValue` `type TabValue = string | number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
