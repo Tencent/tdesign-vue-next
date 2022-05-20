@@ -34076,480 +34076,520 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
             
             <li
               class="t-color-picker__swatches--item"
+              title="#ECF2FE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(236, 242, 254);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D4E3FC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(212, 227, 252);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BBD3FB"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(187, 211, 251);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#96BBF8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(150, 187, 248);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#699EF5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(105, 158, 245);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#4787F0"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(71, 135, 240);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#266FE8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(38, 111, 232);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0052D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 82, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0034B5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 52, 181);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#001F97"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 31, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FDECEE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(253, 236, 238);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9D7D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 215, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F8B9BE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(248, 185, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F78D94"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 141, 148);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F36D78"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(243, 109, 120);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E34D59"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(227, 77, 89);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#C9353F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(201, 53, 63);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#B11F26"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(177, 31, 38);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#951114"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(149, 17, 20);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#680506"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(104, 5, 6);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FEF3E6"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(254, 243, 230);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9E0C7"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 224, 199);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F7C797"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 199, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F2995F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(242, 153, 95);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#ED7B2F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(237, 123, 47);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D35A21"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(211, 90, 33);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BA431B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(186, 67, 27);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#9E3610"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(158, 54, 16);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#842B0B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(132, 43, 11);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#5A1907"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(90, 25, 7);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E8F8F2"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(232, 248, 242);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BCEBDC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(188, 235, 220);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#85DBBE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(133, 219, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#48C79C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(72, 199, 156);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#00A870"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 168, 112);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#078D5C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(7, 141, 92);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#067945"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(6, 121, 69);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#056334"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(5, 99, 52);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#044F2A"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(4, 79, 42);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#033017"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(3, 48, 23);"
                 />
               </div>
@@ -34951,480 +34991,520 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
             
             <li
               class="t-color-picker__swatches--item"
+              title="#ECF2FE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(236, 242, 254);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D4E3FC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(212, 227, 252);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BBD3FB"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(187, 211, 251);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#96BBF8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(150, 187, 248);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#699EF5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(105, 158, 245);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#4787F0"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(71, 135, 240);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#266FE8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(38, 111, 232);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0052D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 82, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0034B5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 52, 181);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#001F97"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 31, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FDECEE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(253, 236, 238);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9D7D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 215, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F8B9BE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(248, 185, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F78D94"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 141, 148);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F36D78"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(243, 109, 120);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E34D59"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(227, 77, 89);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#C9353F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(201, 53, 63);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#B11F26"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(177, 31, 38);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#951114"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(149, 17, 20);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#680506"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(104, 5, 6);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FEF3E6"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(254, 243, 230);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9E0C7"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 224, 199);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F7C797"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 199, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F2995F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(242, 153, 95);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#ED7B2F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(237, 123, 47);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D35A21"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(211, 90, 33);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BA431B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(186, 67, 27);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#9E3610"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(158, 54, 16);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#842B0B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(132, 43, 11);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#5A1907"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(90, 25, 7);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E8F8F2"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(232, 248, 242);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BCEBDC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(188, 235, 220);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#85DBBE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(133, 219, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#48C79C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(72, 199, 156);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#00A870"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 168, 112);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#078D5C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(7, 141, 92);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#067945"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(6, 121, 69);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#056334"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(5, 99, 52);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#044F2A"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(4, 79, 42);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#033017"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(3, 48, 23);"
                 />
               </div>
@@ -35840,94 +35920,102 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
               
               <li
                 class="t-color-picker__swatches--item"
+                title="red"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: red;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="green"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: green;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="yellow"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: yellow;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="blue"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: blue;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="purple"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: purple;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="linear-gradient(to right, #fa709a 0%, #fee140 100%)"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="linear-gradient(45deg, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%)"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                   />
                 </div>
               </li>
@@ -35951,480 +36039,520 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
               
               <li
                 class="t-color-picker__swatches--item"
+                title="#ECF2FE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(236, 242, 254);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#D4E3FC"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(212, 227, 252);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BBD3FB"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(187, 211, 251);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#96BBF8"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(150, 187, 248);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#699EF5"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(105, 158, 245);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#4787F0"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(71, 135, 240);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#266FE8"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(38, 111, 232);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#0052D9"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 82, 217);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#0034B5"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 52, 181);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#001F97"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 31, 151);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#FDECEE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(253, 236, 238);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F9D7D9"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(249, 215, 217);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F8B9BE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(248, 185, 190);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F78D94"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(247, 141, 148);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F36D78"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(243, 109, 120);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#E34D59"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(227, 77, 89);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#C9353F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(201, 53, 63);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#B11F26"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(177, 31, 38);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#951114"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(149, 17, 20);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#680506"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(104, 5, 6);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#FEF3E6"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(254, 243, 230);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F9E0C7"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(249, 224, 199);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F7C797"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(247, 199, 151);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F2995F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(242, 153, 95);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#ED7B2F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(237, 123, 47);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#D35A21"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(211, 90, 33);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BA431B"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(186, 67, 27);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#9E3610"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(158, 54, 16);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#842B0B"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(132, 43, 11);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#5A1907"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(90, 25, 7);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#E8F8F2"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(232, 248, 242);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BCEBDC"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(188, 235, 220);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#85DBBE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(133, 219, 190);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#48C79C"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(72, 199, 156);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#00A870"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 168, 112);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#078D5C"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(7, 141, 92);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#067945"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(6, 121, 69);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#056334"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(5, 99, 52);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#044F2A"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(4, 79, 42);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#033017"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(3, 48, 23);"
                   />
                 </div>
@@ -36790,480 +36918,520 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
               
               <li
                 class="t-color-picker__swatches--item"
+                title="#ECF2FE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(236, 242, 254);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#D4E3FC"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(212, 227, 252);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BBD3FB"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(187, 211, 251);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#96BBF8"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(150, 187, 248);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#699EF5"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(105, 158, 245);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#4787F0"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(71, 135, 240);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#266FE8"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(38, 111, 232);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#0052D9"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 82, 217);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#0034B5"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 52, 181);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#001F97"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 31, 151);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#FDECEE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(253, 236, 238);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F9D7D9"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(249, 215, 217);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F8B9BE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(248, 185, 190);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F78D94"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(247, 141, 148);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F36D78"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(243, 109, 120);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#E34D59"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(227, 77, 89);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#C9353F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(201, 53, 63);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#B11F26"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(177, 31, 38);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#951114"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(149, 17, 20);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#680506"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(104, 5, 6);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#FEF3E6"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(254, 243, 230);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F9E0C7"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(249, 224, 199);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F7C797"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(247, 199, 151);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#F2995F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(242, 153, 95);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#ED7B2F"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(237, 123, 47);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#D35A21"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(211, 90, 33);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BA431B"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(186, 67, 27);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#9E3610"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(158, 54, 16);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#842B0B"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(132, 43, 11);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#5A1907"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(90, 25, 7);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#E8F8F2"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(232, 248, 242);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#BCEBDC"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(188, 235, 220);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#85DBBE"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(133, 219, 190);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#48C79C"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(72, 199, 156);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#00A870"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(0, 168, 112);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#078D5C"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(7, 141, 92);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#067945"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(6, 121, 69);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#056334"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(5, 99, 52);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#044F2A"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(4, 79, 42);"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="#033017"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: rgb(3, 48, 23);"
                   />
                 </div>
@@ -37724,480 +37892,520 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
             
             <li
               class="t-color-picker__swatches--item"
+              title="#ECF2FE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(236, 242, 254);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D4E3FC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(212, 227, 252);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BBD3FB"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(187, 211, 251);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#96BBF8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(150, 187, 248);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#699EF5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(105, 158, 245);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#4787F0"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(71, 135, 240);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#266FE8"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(38, 111, 232);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0052D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 82, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#0034B5"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 52, 181);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#001F97"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 31, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FDECEE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(253, 236, 238);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9D7D9"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 215, 217);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F8B9BE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(248, 185, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F78D94"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 141, 148);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F36D78"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(243, 109, 120);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E34D59"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(227, 77, 89);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#C9353F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(201, 53, 63);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#B11F26"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(177, 31, 38);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#951114"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(149, 17, 20);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#680506"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(104, 5, 6);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#FEF3E6"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(254, 243, 230);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F9E0C7"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(249, 224, 199);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F7C797"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(247, 199, 151);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#F2995F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(242, 153, 95);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#ED7B2F"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(237, 123, 47);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#D35A21"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(211, 90, 33);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BA431B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(186, 67, 27);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#9E3610"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(158, 54, 16);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#842B0B"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(132, 43, 11);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#5A1907"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(90, 25, 7);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#E8F8F2"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(232, 248, 242);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#BCEBDC"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(188, 235, 220);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#85DBBE"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(133, 219, 190);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#48C79C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(72, 199, 156);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#00A870"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(0, 168, 112);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#078D5C"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(7, 141, 92);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#067945"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(6, 121, 69);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#056334"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(5, 99, 52);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#044F2A"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(4, 79, 42);"
                 />
               </div>
             </li>
             <li
               class="t-color-picker__swatches--item"
+              title="#033017"
             >
               <div
-                class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                class="t-color-picker__swatches--color t-color-picker--bg-alpha"
               >
                 <span
-                  class="t-color-picker__swatches--item__inner"
+                  class="t-color-picker__swatches--inner"
                   style="background: rgb(3, 48, 23);"
                 />
               </div>
@@ -38609,60 +38817,65 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
               
               <li
                 class="t-color-picker__swatches--item"
+                title="red"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: red;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="green"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: green;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="yellow"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: yellow;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="blue"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: blue;"
                   />
                 </div>
               </li>
               <li
                 class="t-color-picker__swatches--item"
+                title="purple"
               >
                 <div
-                  class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"
+                  class="t-color-picker__swatches--color t-color-picker--bg-alpha"
                 >
                   <span
-                    class="t-color-picker__swatches--item__inner"
+                    class="t-color-picker__swatches--inner"
                     style="background: purple;"
                   />
                 </div>
