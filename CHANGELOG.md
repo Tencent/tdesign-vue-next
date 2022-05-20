@@ -17,7 +17,6 @@ docClass: timeline
 - `Cascader`: 增加 `popupVisible`, `readonly`, `selectInputProps`, `onPopupVisibleChange` 属性，具体描述查看文档 @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
 - `nuxt`: 修复在nuxt3中的适配问题，可参考案例 [tdesign-vue-next-nuxt-starter](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter) @yixiaco ([#726](https://github.com/Tencent/tdesign-vue-next/pull/726))
 - `Form`: 使用 `CompositionAPI` 重构 `Form` 组件 ([issue #58](https://github.com/Tencent/tdesign-vue-next/issues/58)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
-- `Form`: Form 支持 `formControlledComponents` 属性 (**WIP**) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `Tabs`: 添加拖拽功能 @GitHub-Mr-Chen ([#744](https://github.com/Tencent/tdesign-vue-next/pull/744))
 - `Anchor`: 增加 demo 演示功能 @ontheroad1992 ([#804](https://github.com/Tencent/tdesign-vue-next/pull/804))
 
