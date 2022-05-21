@@ -384,11 +384,13 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
         if (!parentExpanded) {
           newData.push(item);
         }
+        this.treeDataMap.set(rowValue, state);
         if (children?.length && !originalExpanded) {
           // 同步更新父元素的展开数量
           let tmpParent = parent;
           while (tmpParent?.row) {
             tmpParent.expandChildrenLength += children.length;
+            this.treeDataMap.set(tmpParent.id, tmpParent);
             tmpParent = tmpParent.parent;
           }
           // 继续子元素
@@ -417,7 +419,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       }
       const children = get(item, keys.childrenKey);
       if (children?.length) {
-        this.expandAll(children, keys);
+        this.foldAll(children, keys);
       }
     }
     return newData;

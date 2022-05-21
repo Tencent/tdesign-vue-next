@@ -116422,7 +116422,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
   <!-- tree.defaultExpandAll: true 默认展开全部 -->
-  <!-- this.$refs.table.dataSource 查看树形结构平铺数据 -->
+  <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
   <div
     beforedragsort="params => {
       console.log(params);

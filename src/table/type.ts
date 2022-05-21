@@ -866,6 +866,7 @@ export interface TableTreeExpandChangeContext<T> {
   row: T;
   rowIndex: number;
   rowState: TableRowState<T>;
+  trigger?: 'expand-fold-icon';
 }
 
 export type TableRowValue = string | number;
