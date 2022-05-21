@@ -12,7 +12,7 @@ import { useTNodeDefault } from '../../hooks';
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);
   const { t, global } = useConfig('table');
-  const store = ref(new TableTreeStore() as InstanceType<typeof TableTreeStore>);
+  const store = ref(new TableTreeStore());
   const treeNodeCol = ref<PrimaryTableCol>();
   const dataSource = ref<TdEnhancedTableProps['data']>([]);
   const { tableTreeClasses } = useClassName();
@@ -39,6 +39,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       defaultNode: defaultExpandIcon,
       params,
     });
+  });
+
+  const checkedColumn = computed(() => columns.value.find((col) => col.colKey === 'row-select'));
+
+  watch(checkedColumn, (column) => {
+    if (!store.value) return;
+    store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
   watch(

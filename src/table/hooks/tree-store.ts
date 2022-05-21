@@ -469,6 +469,25 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     }
   }
 
+  // column.checkProps 和 column.disabled 会影响行的禁用状态，因此当列发生变化时，需要重置禁用状态
+  updateDisabledState(dataSource: T[], column: PrimaryTableCol, keys: KeysType) {
+    for (let i = 0, len = dataSource.length; i < len; i++) {
+      const item = dataSource[i];
+      const rowValue = get(item, keys.rowKey);
+      if (rowValue === undefined) {
+        log.error('EnhancedTable', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
+        return;
+      }
+      const state = this.treeDataMap.get(rowValue);
+      state.disabled = isRowSelectedDisabled(column, item, i);
+      this.treeDataMap.set(rowValue, state);
+      const children = get(item, keys.childrenKey);
+      if (children?.length) {
+        this.updateDisabledState(children, column, keys);
+      }
+    }
+  }
+
   /**
    * 校验数据合法性
    */
