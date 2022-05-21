@@ -1,15 +1,15 @@
 import { ref, Ref, getCurrentInstance, watch } from 'vue';
 
-export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
+export type ChangeHandler<T> = (value: T, ...args: any) => void;
 
-export default function useVModel<T, P extends any[]>(
+export default function useVModel<T, P extends (...args: any) => void>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  onChange: P,
   propName = 'value',
   // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
-): [Ref<T>, ChangeHandler<T, P>] {
+): [Ref<T>, ChangeHandler<T>] {
   const { emit, attrs } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 
