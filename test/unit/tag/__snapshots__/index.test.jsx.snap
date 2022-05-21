@@ -183,9 +183,9 @@ exports[`Tag or CheckTag > :Tag:props > :variant:dark;theme:default 1`] = `
 </span>
 `;
 
-exports[`Tag or CheckTag > :Tag:props > :variant:dark;theme:info 1`] = `
+exports[`Tag or CheckTag > :Tag:props > :variant:dark;theme:default 2`] = `
 <span
-  class="t-tag t-tag--info t-tag--dark t-size-m"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -243,9 +243,9 @@ exports[`Tag or CheckTag > :Tag:props > :variant:light;theme:default 1`] = `
 </span>
 `;
 
-exports[`Tag or CheckTag > :Tag:props > :variant:light;theme:info 1`] = `
+exports[`Tag or CheckTag > :Tag:props > :variant:light;theme:default 2`] = `
 <span
-  class="t-tag t-tag--info t-tag--light t-size-m"
+  class="t-tag t-tag--default t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -303,9 +303,9 @@ exports[`Tag or CheckTag > :Tag:props > :variant:light-outline;theme:default 1`]
 </span>
 `;
 
-exports[`Tag or CheckTag > :Tag:props > :variant:light-outline;theme:info 1`] = `
+exports[`Tag or CheckTag > :Tag:props > :variant:light-outline;theme:default 2`] = `
 <span
-  class="t-tag t-tag--info t-tag--light t-size-m"
+  class="t-tag t-tag--default t-tag--light t-size-m"
 >
   <!---->
   <!---->
