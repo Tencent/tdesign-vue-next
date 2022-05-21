@@ -127,10 +127,10 @@ describe('Tag or CheckTag', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:dark;theme:info', () => {
+    it(':variant:dark;theme:default', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="dark" theme={'info'}></Tag>;
+          return <Tag variant="dark" theme={'default'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -176,10 +176,10 @@ describe('Tag or CheckTag', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:light-outline;theme:info', () => {
+    it(':variant:light-outline;theme:default', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="light" theme={'info'}></Tag>;
+          return <Tag variant="light" theme={'default'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -224,10 +224,10 @@ describe('Tag or CheckTag', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':variant:light;theme:info', () => {
+    it(':variant:light;theme:default', () => {
       const wrapper = mount({
         render() {
-          return <Tag variant="light" theme={'info'}></Tag>;
+          return <Tag variant="light" theme={'default'}></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
