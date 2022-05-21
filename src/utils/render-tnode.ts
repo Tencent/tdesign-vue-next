@@ -27,7 +27,7 @@ export function getDefaultNode(options?: OptionsType) {
 }
 
 export function getParams(options?: OptionsType) {
-  return isObject(options) && 'params' in options ? options.params : null;
+  return isObject(options) && 'params' in options ? options.params : {};
 }
 
 // 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay
