@@ -130292,7 +130292,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
 exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] = `
 <div>
   <div
-    checked-value=""
     class="t-transfer t-transfer__search"
     theme="primary"
   >

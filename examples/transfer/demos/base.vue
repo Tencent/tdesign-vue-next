@@ -5,7 +5,7 @@
       :data="list"
       :checked="checked"
       @change="onChange"
-      @checkedChange="handleCheckedChange"
+      @checked-change="handleCheckedChange"
     />
   </div>
 </template>
