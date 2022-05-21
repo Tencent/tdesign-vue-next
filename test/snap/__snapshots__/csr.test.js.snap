@@ -44243,6 +44243,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/popconfir
   <div
     class="t-drawer t-drawer--right"
     data-v-90404d6e=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -48590,6 +48591,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/attach-parent.vue 
     <div
       class="t-drawer t-drawer--right t-drawer--attach"
       data-v-abecafc6=""
+      tabindex="0"
     >
       <div
         class="t-drawer__mask"
@@ -48845,6 +48847,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/base.vue 1`] = `
   <div
     class="t-drawer t-drawer--right"
     data-v-038ee394=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -48938,6 +48941,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 使用插槽自定义 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49000,6 +49004,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 使用 props 自定义 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49058,6 +49063,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 单独定义确认/取消按钮 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49177,6 +49183,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/no-mask.vue 1`] = 
 <div>
   <div
     class="t-drawer t-drawer--right t-drawer--without-mask"
+    tabindex="0"
   >
     <!---->
     <div
@@ -49251,6 +49258,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
   <div
     class="t-drawer t-drawer--right"
     data-v-0aadc15c=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49416,6 +49424,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/placement.vue 1`] 
   <div
     class="t-drawer t-drawer--right"
     data-v-69152460=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49675,6 +49684,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/size.vue 1`] = `
   <div
     class="t-drawer t-drawer--right"
     data-v-d15f6134=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
