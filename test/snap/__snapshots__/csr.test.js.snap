@@ -75803,7 +75803,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -76178,7 +76178,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 72px; height: 72px; font-size: 14px;"
         >
           <div
@@ -76232,7 +76232,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -76287,7 +76287,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 160px; height: 160px; font-size: 36px;"
         >
           <div
@@ -76347,7 +76347,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76388,11 +76388,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76423,7 +76422,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
@@ -76455,7 +76454,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 200px; height: 200px; font-size: 45px;"
       >
         <div
@@ -76507,8 +76506,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76531,7 +76529,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76583,11 +76581,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76610,7 +76607,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76673,11 +76670,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       data-v-c2968dc6=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76708,7 +76704,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76739,7 +76734,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76782,7 +76776,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76825,7 +76818,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76868,7 +76860,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76905,8 +76896,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76934,8 +76924,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--under-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76972,8 +76961,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
   >
     <!---->
     <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten"
-      style="border-radius: undefinedpx;"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
     >
       <div
         class="t-progress__inner"
@@ -77001,8 +76989,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
   >
     <!---->
     <div
-      class="t-progress__bar t-progress--plump t-progress--under-ten"
-      style="border-radius: undefinedpx;"
+      class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
     >
       <div
         class="t-progress__inner"
@@ -77031,7 +77018,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77060,7 +77046,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77089,7 +77074,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77118,7 +77102,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77147,7 +77130,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--active"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77191,7 +77173,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -77430,7 +77412,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 72px; height: 72px; font-size: 14px;"
       >
         <div
@@ -77478,7 +77460,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 160px; height: 160px; font-size: 36px;"
       >
         <div
@@ -77539,7 +77521,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77574,7 +77555,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77663,7 +77643,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77698,7 +77677,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77787,7 +77765,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77822,7 +77799,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77847,7 +77823,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
