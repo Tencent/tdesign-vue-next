@@ -21,6 +21,6 @@ describe('Tooltip', () => {
   });
 
   it('equals theme to primary', () => {
-    expect(cmp.vm.theme).toEqual('primary');
+    expect(cmp.props().theme).toEqual('primary');
   });
 });
