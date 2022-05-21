@@ -192,11 +192,12 @@ export default defineComponent({
     // to fix Computed property "showArrow" is already defined in Props.
     innerShowArrow(): boolean {
       return (
-        !this.clearable ||
-        !this.isHover ||
-        this.disabled ||
-        (!this.multiple && !this.value && this.value !== 0) ||
-        (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
+        this.showArrow &&
+        (!this.clearable ||
+          !this.isHover ||
+          this.disabled ||
+          (!this.multiple && !this.value && this.value !== 0) ||
+          (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length))))
       );
     },
     canFilter(): boolean {
@@ -478,6 +479,10 @@ export default defineComponent({
       emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value, { trigger });
     },
     createOption(value: string) {
+      this.$nextTick(() => {
+        this.searchInput = '';
+        this.showCreateOption = false;
+      });
       emitEvent<Parameters<TdSelectProps['onCreate']>>(this, 'create', value);
     },
     debounceOnRemote: debounce(function (this: any) {
@@ -534,9 +539,6 @@ export default defineComponent({
         case 'Enter':
           if (this.showCreateOption) {
             this.createOption(this.searchInput);
-            this.$nextTick(() => {
-              this.searchInput = '';
-            });
           }
           this.hoverOptions[this.hoverIndex] &&
             this.onOptionClick(this.hoverOptions[this.hoverIndex][this.realValue], e);
