@@ -9,11 +9,12 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData } from './type';
+import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
+import EditableCell from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 
@@ -129,6 +130,10 @@ export default defineComponent({
             return renderTitleWidthIcon([titleContent, sortIcon, filterIcon], p.col, p.colIndex, ellipsisTitle, attach);
           };
           item.ellipsisTitle = false;
+        }
+        // 如果是单元格可编辑状态
+        if (item.edit?.component) {
+          item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => <EditableCell {...p} />;
         }
         if (item.children?.length) {
           item.children = getColumns(item.children);

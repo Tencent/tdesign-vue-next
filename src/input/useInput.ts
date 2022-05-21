@@ -43,6 +43,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
 
   const setInputElValue = (v: InputValue = '') => {
     const inputEl = inputRef.value as HTMLInputElement;
+    if (!inputEl) return;
     const sV = String(v);
     if (!inputEl.value) {
       return;

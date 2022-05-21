@@ -10,7 +10,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import TInput from '../input/index';
 import Tag from '../tag/index';
 import FakeArrow from '../common-components/fake-arrow';
-import Popup, { PopupProps } from '../popup/index';
+import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import Option from './option';
 import OptionGroup from './optionGroup';
 
@@ -68,6 +68,7 @@ export default defineComponent({
     'create',
     'search',
     'visible-change',
+    'popup-visible-change',
   ],
   setup() {
     const disabled = useFormDisabled();
@@ -181,7 +182,8 @@ export default defineComponent({
             (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
     },
-    showArrow(): boolean {
+    // to fix Computed property "showArrow" is already defined in Props.
+    innerShowArrow(): boolean {
       return (
         !this.clearable ||
         !this.isHover ||
@@ -351,8 +353,7 @@ export default defineComponent({
       }
       return false;
     },
-    visibleChange(val: boolean) {
-      emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
+    visibleChange(val: boolean, context: PopupVisibleChangeContext) {
       this.visible = val;
       if (!val) {
         this.searchInput = '';
@@ -360,6 +361,13 @@ export default defineComponent({
       }
       val && this.monitorWidth();
       val && this.canFilter && this.doFocus();
+      // 事件重复，需讨论移除其中一个
+      emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
+      emitEvent<Parameters<TdSelectProps['onPopupVisibleChange']>>(this, 'popup-visible-change', val, context);
+      // 点击空白处，按下 ESC 键，还需触发退出事件。以作为本次编辑结束的标记
+      if (!val && ['document', 'keydown-esc'].includes(context.trigger)) {
+        emitEvent<Parameters<TdSelectProps['onAbort']>>(this, 'abort', context);
+      }
     },
     onOptionClick(value: string | number, e: MouseEvent | KeyboardEvent) {
       if (this.value !== value) {
@@ -837,7 +845,7 @@ export default defineComponent({
                 onEnter={this.enter}
               />
             )}
-            {this.showArrow && !this.showLoading && (
+            {this.innerShowArrow && !this.showLoading && (
               <FakeArrow
                 overlayClassName={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
                 isActive={this.visible && !this.disabled}

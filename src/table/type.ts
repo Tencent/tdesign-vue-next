@@ -17,6 +17,7 @@ import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
 import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '../common';
+import { VueElement } from 'vue';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
@@ -439,6 +440,15 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
   extends Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'> {
+  edit?: {
+    component: VueElement;
+    props: {
+      [key: string]: any;
+    };
+    // 触发什么事件之后关闭编辑态，默认为 onChange
+    abortOnEvent: string;
+    // abortEditOnchange: boolean;
+  };
   /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
    */
