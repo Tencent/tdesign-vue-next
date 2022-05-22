@@ -187,10 +187,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   valueType?: 'value' | 'object';
   /**
-   * 点击空白处，退出编辑态时触发
-   */
-  onAbort?: (context: PopupVisibleChangeContext) => void;
-  /**
    * 输入框失去焦点时触发
    */
   onBlur?: (context: { value: SelectValue; e: FocusEvent | KeyboardEvent }) => void;

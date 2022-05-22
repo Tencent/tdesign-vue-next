@@ -588,7 +588,6 @@ exports[`Select > :props > :size 1`] = `
 exports[`Select Option > :props > :disabled 1`] = `
 <div
   class="t-select__wrap"
-  modelvalue="1"
 >
   
   <div
@@ -654,7 +653,6 @@ exports[`Select Option > :props > :disabled 1`] = `
 exports[`Select Option > :props > :label 1`] = `
 <div
   class="t-select__wrap"
-  modelvalue="1"
 >
   
   <div
@@ -720,7 +718,6 @@ exports[`Select Option > :props > :label 1`] = `
 exports[`Select Option > :props > :value 1`] = `
 <div
   class="t-select__wrap"
-  modelvalue="1"
 >
   
   <div
@@ -786,7 +783,6 @@ exports[`Select Option > :props > :value 1`] = `
 exports[`Select OptionGroup > :props > :value 1`] = `
 <div
   class="t-select__wrap"
-  modelvalue="1"
 >
   
   <div

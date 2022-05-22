@@ -161,8 +161,6 @@ export default {
       return ['value', 'object'].includes(val);
     },
   },
-  /** 点击空白处，退出编辑态时触发 */
-  onAbort: Function as PropType<TdSelectProps['onAbort']>,
   /** 输入框失去焦点时触发 */
   onBlur: Function as PropType<TdSelectProps['onBlur']>,
   /** 选中值变化时触发，`context. trigger` 表示触发变化的来源 */

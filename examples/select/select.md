@@ -42,7 +42,6 @@ value | String / Number / Object / Array | - | 选中值。支持语法糖 `v-mo
 defaultValue | String / Number / Object / Array | - | 选中值。非受控属性。TS 类型：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string | number | T | Array<SelectValue<T>>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 valueDisplay | String / Slot / Function | - | 自定义选中项呈现方式。TS 类型：`string | TNode<{ value: SelectValue; onClose: (index: number, item?: any) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 valueType | String | value | 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。。可选项：value/object | N
-onAbort | Function |  | TS 类型：`(context: PopupVisibleChangeContext) => void`<br/>点击空白处，退出编辑态时触发 | N
 onBlur | Function |  | TS 类型：`(context: { value: SelectValue; e: FocusEvent | KeyboardEvent }) => void`<br/>输入框失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: SelectValue, context: { trigger: SelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent }) => void`<br/>选中值变化时触发，`context. trigger` 表示触发变化的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck'`<br/> | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击清除按钮时触发 | N
@@ -59,7 +58,6 @@ onVisibleChange | Function |  | TS 类型：`(visible: boolean) => void`<br/>下
 
 名称 | 参数 | 描述
 -- | -- | --
-abort | `(context: PopupVisibleChangeContext)` | 点击空白处，退出编辑态时触发
 blur | `(context: { value: SelectValue; e: FocusEvent | KeyboardEvent })` | 输入框失去焦点时触发
 change | `(value: SelectValue, context: { trigger: SelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent })` | 选中值变化时触发，`context. trigger` 表示触发变化的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck'`<br/>
 clear | `(context: { e: MouseEvent })` | 点击清除按钮时触发

@@ -364,10 +364,6 @@ export default defineComponent({
       // 事件重复，需讨论移除其中一个
       emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
       emitEvent<Parameters<TdSelectProps['onPopupVisibleChange']>>(this, 'popup-visible-change', val, context);
-      // 点击空白处，按下 ESC 键，还需触发退出事件。以作为本次编辑结束的标记
-      if (!val && ['document', 'keydown-esc'].includes(context.trigger)) {
-        emitEvent<Parameters<TdSelectProps['onAbort']>>(this, 'abort', context);
-      }
     },
     onOptionClick(value: string | number, e: MouseEvent | KeyboardEvent) {
       if (this.value !== value) {
