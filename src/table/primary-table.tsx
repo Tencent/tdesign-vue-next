@@ -17,6 +17,7 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { renderCell } from './tr';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -133,7 +134,10 @@ export default defineComponent({
         }
         // 如果是单元格可编辑状态
         if (item.edit?.component) {
-          item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => <EditableCell {...p} />;
+          const oldCell = item.cell;
+          item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
+            return <EditableCell {...p} oldCell={oldCell} v-slots={context.slots} />;
+          };
         }
         if (item.children?.length) {
           item.children = getColumns(item.children);

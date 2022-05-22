@@ -32,7 +32,9 @@ const columns = computed(() => [
     colKey: 'firstName',
     align: align.value,
     edit: {
+      // 支持任意组件。需保证组件包含 `value` 和 `onChange` 两个属性，且 onChange 的第一个参数值为 new value。
       component: Input,
+      abortOnEvent: 'onBlur',
       // props, 透传全部属性到 Input 组件
       props: {
         clearable: true,
@@ -41,7 +43,6 @@ const columns = computed(() => [
           MessagePlugin.success('Success');
         },
       },
-      abortOnEvent: 'onBlur',
     },
   },
   {
