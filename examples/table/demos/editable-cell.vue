@@ -100,6 +100,7 @@ const columns = computed(() => [
           { label: 'H', value: 'H' },
         ],
       },
+      // abortEditOnEvent: ['onChange'],
       onEdited: (context) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);
         console.log('Edit Letters:', context);

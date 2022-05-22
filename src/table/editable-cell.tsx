@@ -53,7 +53,6 @@ export default defineComponent({
       return node;
     });
 
-    const outsideOnChange = computed(() => col.value.edit?.props?.onChange);
     const componentProps = computed(() => {
       const { edit } = col.value;
       if (!edit) return {};
@@ -114,36 +113,42 @@ export default defineComponent({
 
     const listeners = computed<{ [key: string]: Function }>(() => {
       const { edit } = col.value;
-      if (
-        !isEdit.value ||
-        !edit ||
-        isAbortEditOnChange.value ||
-        !edit.abortEditOnEvent ||
-        !edit.abortEditOnEvent.length
-      )
-        return {};
+      if (!isEdit.value) return;
+      if (!edit?.abortEditOnEvent?.length) return {};
       // 自定义退出编辑态的事件
       const tListeners = {};
       edit.abortEditOnEvent.forEach((itemEvent) => {
+        if (itemEvent === 'onChange') return;
         const outsideAbortEvent = edit.props[itemEvent];
-        const abortEditBefore = (...args: any) => {
-          outsideAbortEvent?.(editValue.value, ...args);
+        tListeners[itemEvent] = (...args: any) => {
+          updateAndSaveAbort(
+            outsideAbortEvent,
+            {
+              trigger: itemEvent,
+              newRowData: currentRow.value,
+              rowIndex: props.rowIndex,
+            },
+            ...args,
+          );
         };
-        tListeners[itemEvent] = abortEditBefore;
       });
 
       return tListeners;
     });
 
-    const onEditChange = (val: any) => {
+    const onEditChange = (val: any, ...args: any) => {
       editValue.value = val;
       if (isAbortEditOnChange.value) {
         const outsideAbortEvent = col.value.edit?.onEdited;
-        updateAndSaveAbort(outsideAbortEvent, {
-          trigger: 'onChange',
-          newRowData: currentRow.value,
-          rowIndex: props.rowIndex,
-        });
+        updateAndSaveAbort(
+          outsideAbortEvent,
+          {
+            trigger: 'onChange',
+            newRowData: currentRow.value,
+            rowIndex: props.rowIndex,
+          },
+          ...args,
+        );
       }
     };
 

@@ -16,9 +16,8 @@ import { InputProps } from '../input';
 import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
-import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '../common';
-import { VueElement } from 'vue';
 import { FormRule } from '../form';
+import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes, ComponentType } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
@@ -441,17 +440,6 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
   extends Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'> {
-  edit?: {
-    component: VueElement;
-    props: {
-      [key: string]: any;
-    };
-    // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
-    abortEditOnEvent: string[];
-    // 编辑完成，退出编辑态后触发
-    onEdited: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
-    rules: FormRule[];
-  };
   /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
    */
@@ -473,6 +461,10 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    * 是否禁用行选中，`colKey` 值为 `row-select` 时，配置有效
    */
   disabled?: (options: { row: T; rowIndex: number }) => boolean;
+  /**
+   * 可编辑单元格配置项，具体属性参考文档 `TableEditableCellConfig` 描述
+   */
+  edit?: TableEditableCellConfig<T>;
   /**
    * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，自定义过滤组件需要包含参数 value 和事件 change
    */
@@ -681,6 +673,29 @@ export interface TableColumnController {
    * @default top-right
    */
   placement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+}
+
+export interface TableEditableCellConfig<T extends TableRowData = TableRowData> {
+  /**
+   * 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态。示例：`abortEditOnEvent: ['onChange']`
+   */
+  abortEditOnEvent?: string[];
+  /**
+   * 组件定义，如：`Input` `Select`
+   */
+  component?: ComponentType;
+  /**
+   * 编辑完成后，退出编辑模式时触发
+   */
+  onEdited?: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
+  /**
+   * 透传给组件 `edit.component` 的属性
+   */
+  props?: { [key: string]: any };
+  /**
+   * 校验规则
+   */
+  rules?: FormRule[];
 }
 
 export interface TableTreeConfig {
