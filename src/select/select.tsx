@@ -15,7 +15,14 @@ import Option from './option';
 import OptionGroup from './optionGroup';
 
 import props from './props';
-import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
+import {
+  SelectOption,
+  TdOptionProps,
+  SelectValue,
+  TdSelectProps,
+  SelectOptionGroup,
+  SelectValueChangeTrigger,
+} from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
@@ -374,7 +381,7 @@ export default defineComponent({
               this.removeTag(index, { e });
             } else {
               this.value.push(this.realOptions.filter((item) => get(item, this.realValue) === value)[0]);
-              this.emitChange(this.value);
+              this.emitChange(this.value, 'check');
             }
           } else {
             const index = this.value.indexOf(value);
@@ -382,11 +389,11 @@ export default defineComponent({
               this.removeTag(index, { e });
             } else {
               this.value.push(value);
-              this.emitChange(this.value);
+              this.emitChange(this.value, 'check');
             }
           }
         } else {
-          this.emitChange(value);
+          this.emitChange(value, 'check');
         }
       }
       if (!this.multiple) {
@@ -409,7 +416,7 @@ export default defineComponent({
       const removeOption = this.realOptions.filter((item) => get(item, this.realValue) === val);
       const tempValue = this.value instanceof Array ? [].concat(this.value) : [];
       tempValue.splice(index, 1);
-      this.emitChange(tempValue);
+      this.emitChange(tempValue, 'tag-remove');
       emitEvent(this, 'remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
@@ -418,9 +425,9 @@ export default defineComponent({
     clearSelect(e: MouseEvent) {
       e.stopPropagation();
       if (this.multiple) {
-        this.emitChange([]);
+        this.emitChange([], 'clear');
       } else {
-        this.emitChange('');
+        this.emitChange('', 'clear');
       }
       this.focusing = false;
       this.searchInput = '';
@@ -452,7 +459,7 @@ export default defineComponent({
         }
       });
     },
-    emitChange(val: SelectValue | Array<SelectValue>) {
+    emitChange(val: SelectValue | Array<SelectValue>, trigger: SelectValueChangeTrigger) {
       let value: SelectValue | Array<SelectValue> | Array<TdOptionProps> | TdOptionProps;
       if (this.labelInValue) {
         if (Array.isArray(val)) {
@@ -468,7 +475,7 @@ export default defineComponent({
       } else {
         value = val;
       }
-      emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value);
+      emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value, { trigger });
     },
     createOption(value: string) {
       emitEvent<Parameters<TdSelectProps['onCreate']>>(this, 'create', value);
