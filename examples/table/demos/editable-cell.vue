@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
-    <t-table row-key="key" :columns="columns" :data="data" :bordered="bordered" />
+    <t-table row-key="key" :columns="columns" :data="data" bordered />
   </div>
 </template>
 
@@ -25,24 +25,34 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 }));
 
 const align = ref('left');
+const data = ref([...initData]);
 
 const columns = computed(() => [
   {
     title: 'FirstName',
     colKey: 'firstName',
     align: align.value,
+    // 编辑状态相关配置，全部集中在 edit
     edit: {
-      // 支持任意组件。需保证组件包含 `value` 和 `onChange` 两个属性，且 onChange 的第一个参数值为 new value。
+      // 1. 支持任意组件。需保证组件包含 `value` 和 `onChange` 两个属性，且 onChange 的第一个参数值为 new value。
+      // 2. 如果希望支持校验，组件还需包含 `status` 和 `tips` 属性。具体 API 含义参考 Input 组件
       component: Input,
-      abortOnEvent: 'onBlur',
       // props, 透传全部属性到 Input 组件
       props: {
         clearable: true,
-        onBlur: (val, context) => {
-          console.log('edit firstName:', val, context);
-          MessagePlugin.success('Success');
-        },
+        autofocus: true,
       },
+      // 编辑完成，退出编辑态后触发
+      onEdited: (context) => {
+        data.value.splice(context.rowIndex, 1, context.newRowData);
+        console.log('Edit firstName:', context);
+        MessagePlugin.success('Success');
+      },
+      // 校验规则，此处同 Form 表单
+      rules: [
+        { required: true, message: '不能为空' },
+        { max: 10, message: '字符数量不能超过 10', type: 'warning' },
+      ],
     },
   },
   {
@@ -53,16 +63,20 @@ const columns = computed(() => [
       // props, 透传全部属性到 Select 组件
       props: {
         clearable: true,
-        onChange: (context) => {
-          console.log('edit Framework:', context);
-          MessagePlugin.success('Success');
-        },
         options: [
           { label: 'Vue', value: 'Vue' },
           { label: 'React', value: 'React' },
           { label: 'Miniprogram', value: 'Miniprogram' },
           { label: 'Flutter', value: 'Flutter' },
         ],
+      },
+      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
+      abortEditOnEvent: ['onChange'],
+      // 编辑完成，退出编辑态后触发
+      onEdited: (context) => {
+        data.value.splice(context.rowIndex, 1, context.newRowData);
+        console.log('Edit Framework:', context);
+        MessagePlugin.success('Success');
       },
     },
   },
@@ -72,15 +86,10 @@ const columns = computed(() => [
     cell: (h, { row }) => row.letters.join('、'),
     edit: {
       component: Select,
-      abortOnEvent: 'onAbort',
       // props, 透传全部属性到 Select 组件
       props: {
         multiple: true,
-        minCollapsedNum: 1,
-        onAbort: (context) => {
-          console.log('edit Framework:', context);
-          MessagePlugin.success('Success');
-        },
+        minCollapsedNum: 4,
         options: [
           { label: 'A', value: 'A' },
           { label: 'B', value: 'B' },
@@ -90,6 +99,11 @@ const columns = computed(() => [
           { label: 'G', value: 'G' },
           { label: 'H', value: 'H' },
         ],
+      },
+      onEdited: (context) => {
+        data.value.splice(context.rowIndex, 1, context.newRowData);
+        console.log('Edit Letters:', context);
+        MessagePlugin.success('Success');
       },
     },
   },
@@ -101,52 +115,15 @@ const columns = computed(() => [
       component: DatePicker,
       props: {
         mode: 'date',
-        onChange: (context) => {
-          console.log('edit Framework:', context);
-          MessagePlugin.success('Success');
-        },
+      },
+      onEdited: (context) => {
+        data.value.splice(context.rowIndex, 1, context.newRowData);
+        console.log('Edit Date:', context);
+        MessagePlugin.success('Success');
       },
     },
   },
 ]);
-
-const filterValue = ref({});
-const data = ref([...initData]);
-const bordered = ref(true);
-
-const request = (filters) => {
-  const timer = setTimeout(() => {
-    clearTimeout(timer);
-    const newData = initData.filter((item) => {
-      let result = true;
-      if (filters.firstName) {
-        result = item.firstName === filters.firstName;
-      }
-      if (result && filters.lastName && filters.lastName.length) {
-        result = filters.lastName.includes(item.lastName);
-      }
-      if (result && filters.email) {
-        result = item.email.indexOf(filters.email) !== -1;
-      }
-      if (result && filters.createTime) {
-        result = item.createTime === filters.createTime;
-      }
-      return result;
-    });
-    data.value = newData;
-  }, 100);
-};
-
-const onFilterChange = (filters) => {
-  filterValue.value = filters;
-  console.log(filters);
-  request(filters);
-};
-
-const setFilters = () => {
-  filterValue.value = {};
-  data.value = [...initData];
-};
 </script>
 <style scoped>
 .table-operations {

@@ -18,6 +18,7 @@ import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
 import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '../common';
 import { VueElement } from 'vue';
+import { FormRule } from '../form';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
@@ -445,9 +446,11 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
     props: {
       [key: string]: any;
     };
-    // 触发什么事件之后关闭编辑态，默认为 onChange
-    abortOnEvent: string;
-    // abortEditOnchange: boolean;
+    // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
+    abortEditOnEvent: string[];
+    // 编辑完成，退出编辑态后触发
+    onEdited: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
+    rules: FormRule[];
   };
   /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型

@@ -5,6 +5,7 @@ import { Edit1Icon } from 'tdesign-icons-vue-next';
 import { TableRowData, PrimaryTableCol } from './type';
 import useClassName from './hooks/useClassName';
 import { renderCell } from './tr';
+import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 
 export interface EditableCellProps {
@@ -27,9 +28,11 @@ export default defineComponent({
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
+    const { tableBaseClass } = useClassName();
+    const tableEditableCellRef = ref(null);
     const isEdit = ref(false);
     const editValue = ref();
-    const { tableBaseClass } = useClassName();
+    const errorList = ref();
 
     const currentRow = computed(() => {
       const newRow = { ...row.value };
@@ -41,7 +44,6 @@ export default defineComponent({
       const node = renderCell(
         {
           row: currentRow.value,
-          // @ts-ignore
           col: { ...col.value, cell: props.oldCell },
           rowIndex: props.rowIndex,
           colIndex: props.colIndex,
@@ -59,42 +61,125 @@ export default defineComponent({
       // to remove warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
       delete editProps.onChange;
       delete editProps.value;
-      delete editProps[edit.abortOnEvent];
+      edit.abortEditOnEvent?.forEach((item) => {
+        delete editProps[item];
+      });
       return editProps;
     });
 
     const isAbortEditOnChange = computed(() => {
       const { edit } = col.value;
       if (!edit) return false;
-      return Boolean(!edit.abortOnEvent || edit.abortOnEvent === 'onChange');
+      return Boolean(edit.abortEditOnEvent?.includes('onChange'));
     });
+
+    const validateEdit = () => {
+      return new Promise((resolve) => {
+        if (!col.value.edit?.rules) {
+          resolve(true);
+          return;
+        }
+        validate(editValue.value, col.value.edit?.rules).then((result) => {
+          errorList.value = result?.filter((t) => !t.result);
+          if (!errorList.value || !errorList.value.length) {
+            resolve(true);
+          } else {
+            resolve(errorList);
+          }
+        });
+      });
+    };
+
+    const isSame = (a: any, b: any) => {
+      if (typeof a === 'object' && typeof b === 'object') {
+        return JSON.stringify(a) === JSON.stringify(b);
+      }
+      return a === b;
+    };
+
+    const updateAndSaveAbort = (outsideAbortEvent: Function, ...args: any) => {
+      validateEdit().then((result) => {
+        if (result !== true) return;
+        // 相同的值无需触发变化
+        if (!isSame(editValue.value, get(row.value, col.value.colKey))) {
+          outsideAbortEvent?.(...args);
+        }
+        // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
+        const timer = setTimeout(() => {
+          isEdit.value = false;
+          clearTimeout(timer);
+        }, 0);
+      });
+    };
 
     const listeners = computed<{ [key: string]: Function }>(() => {
       const { edit } = col.value;
-      if (!isEdit.value || !edit || isAbortEditOnChange.value || !edit.abortOnEvent) return {};
-      let outsideAbortEvent = edit.props[edit.abortOnEvent];
-      const tListeners = {
-        [edit.abortOnEvent]: (...args: any) => {
-          listeners.value[edit.abortOnEvent] = null;
-          outsideAbortEvent?.(...args);
-          outsideAbortEvent = null;
-          // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
-          const timer = setTimeout(() => {
-            isEdit.value = false;
-            clearTimeout(timer);
-          }, 0);
-        },
-      };
+      if (
+        !isEdit.value ||
+        !edit ||
+        isAbortEditOnChange.value ||
+        !edit.abortEditOnEvent ||
+        !edit.abortEditOnEvent.length
+      )
+        return {};
+      // 自定义退出编辑态的事件
+      const tListeners = {};
+      edit.abortEditOnEvent.forEach((itemEvent) => {
+        const outsideAbortEvent = edit.props[itemEvent];
+        const abortEditBefore = (...args: any) => {
+          outsideAbortEvent?.(editValue.value, ...args);
+        };
+        tListeners[itemEvent] = abortEditBefore;
+      });
+
       return tListeners;
     });
+
+    const onEditChange = (val: any) => {
+      editValue.value = val;
+      if (isAbortEditOnChange.value) {
+        const outsideAbortEvent = col.value.edit?.onEdited;
+        updateAndSaveAbort(outsideAbortEvent, {
+          trigger: 'onChange',
+          newRowData: currentRow.value,
+          rowIndex: props.rowIndex,
+        });
+      }
+    };
+
+    const documentClickHandler = (e: PointerEvent) => {
+      if (!col.value.edit || !col.value.edit.component) return;
+      if (!isEdit.value || !tableEditableCellRef.value?.$el) return;
+      // @ts-ignore
+      if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
+      const outsideAbortEvent = col.value.edit.onEdited;
+      updateAndSaveAbort(outsideAbortEvent, {
+        trigger: 'document',
+        newRowData: currentRow.value,
+        rowIndex: props.rowIndex,
+      });
+    };
 
     watch(
       row,
       (row) => {
-        editValue.value = get(row, col.value.colKey);
+        let val = get(row, col.value.colKey);
+        if (typeof val === 'object') {
+          val = val instanceof Array ? [...val] : { ...val };
+        }
+        editValue.value = val;
       },
       { immediate: true },
     );
+
+    watch(isEdit, (isEdit) => {
+      if (!col.value.edit || !col.value.edit.component) return;
+      if (isEdit) {
+        document.addEventListener('click', documentClickHandler);
+      } else {
+        document.removeEventListener('click', documentClickHandler);
+      }
+    });
 
     return {
       editValue,
@@ -102,9 +187,11 @@ export default defineComponent({
       tableBaseClass,
       cellNode,
       isAbortEditOnChange,
-      outsideOnChange,
       listeners,
       componentProps,
+      tableEditableCellRef,
+      errorList,
+      onEditChange,
     };
   },
 
@@ -113,8 +200,9 @@ export default defineComponent({
       return (
         <div
           class={this.tableBaseClass.cellEditable}
-          onClick={() => {
+          onClick={(e: MouseEvent) => {
             this.isEdit = true;
+            e.stopPropagation();
           }}
         >
           {this.cellNode}
@@ -128,19 +216,19 @@ export default defineComponent({
       log.error('Table', 'edit.component is required.');
       return null;
     }
+    const errorMessage = this.errorList?.[0]?.message;
     return (
-      <component
-        {...this.componentProps}
-        {...this.listeners}
-        value={this.editValue}
-        onChange={(val: any) => {
-          this.editValue = val;
-          this.outsideOnChange?.(val);
-          if (this.isAbortEditOnChange) {
-            this.isEdit = false;
-          }
-        }}
-      />
+      <div class={this.tableBaseClass.cellEditWrap}>
+        <component
+          ref="tableEditableCellRef"
+          status={errorMessage ? this.errorList?.[0]?.type || 'error' : undefined}
+          tips={errorMessage}
+          {...this.componentProps}
+          {...this.listeners}
+          value={this.editValue}
+          onChange={this.onEditChange}
+        />
+      </div>
     );
   },
 });
