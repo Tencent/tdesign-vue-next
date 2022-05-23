@@ -20,7 +20,6 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -291,7 +290,6 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -1362,7 +1360,6 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -1633,7 +1630,6 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -2424,7 +2420,6 @@ exports[`Calendar > :props > :mode 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -3029,7 +3024,6 @@ exports[`Calendar > :props > :range 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -3200,7 +3194,6 @@ exports[`Calendar > :props > :range 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -4153,7 +4146,6 @@ exports[`Calendar > :props > :theme 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -4424,7 +4416,6 @@ exports[`Calendar > :props > :theme 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -5351,7 +5342,6 @@ exports[`Calendar > :props > :value 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -5622,7 +5612,6 @@ exports[`Calendar > :props > :value 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
