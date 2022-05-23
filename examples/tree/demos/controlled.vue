@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-demo-block-row">
     <t-addon prepend="checked:">
       <t-input :value="allChecked" />
     </t-addon>

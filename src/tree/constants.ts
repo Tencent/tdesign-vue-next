@@ -21,7 +21,7 @@ export const useCLASSNAMES = () => {
       treeList: `${tree}__list`,
       treeNode: `${tree}__item`,
       treeNodeOpen: `${tree}__item--open`,
-      treeHoverable: `${tree}--hoverable`,
+      treeHoverAble: `${tree}--hoverable`,
       treeCheckable: `${tree}--checkable`,
       treeLabel: `${tree}__label`,
       treeLabelStrictly: `${tree}__label--strictly`,

@@ -1,14 +1,19 @@
 import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
 import pick from 'lodash/pick';
+import TreeItem from './tree-item';
+
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
-import TreeItem from './tree-item';
-import props from './props';
+
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { ClassName, TNodeReturnValue, TreeOptionData } from '../common';
+import { TreeOptionData } from '../common';
+import props from './props';
 import { TdTreeProps } from './type';
+import { getMark, getNode, emitEvent } from './util';
+
 import { useConfig } from '../hooks/useConfig';
+import { useCLASSNAMES } from './constants';
 
 import {
   TypeTdTreeProps,
@@ -19,12 +24,9 @@ import {
   TypeTreeNodeModel,
   TypeTargetNode,
 } from './interface';
-import { useCLASSNAMES } from './constants';
-import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
   name: 'TTree',
-  components: { TransitionGroup },
   props,
   setup() {
     const CLASS_NAMES = useCLASSNAMES();
@@ -58,14 +60,14 @@ export default defineComponent({
     };
   },
   computed: {
-    classList(): ClassName {
+    classList() {
       const list: Array<string> = [this.CLASS_NAMES.tree];
       const { disabled, hover, transition, checkable, expandOnClickNode } = this;
       if (disabled) {
         list.push(this.CLASS_NAMES.disabled);
       }
       if (hover) {
-        list.push(this.CLASS_NAMES.treeHoverable);
+        list.push(this.CLASS_NAMES.treeHoverAble);
       }
       if (checkable) {
         list.push(this.CLASS_NAMES.treeCheckable);
@@ -507,8 +509,7 @@ export default defineComponent({
     Object.assign(treeScope, scopeProps);
     treeScope.scopedSlots = $slots;
 
-    let emptyNode: TNodeReturnValue = null;
-    let treeNodeList = null;
+    let emptyNode = null;
 
     if (treeNodes.length <= 0) {
       const useLocale = !this.empty && !this.$slots.empty;
@@ -519,20 +520,16 @@ export default defineComponent({
       );
     }
 
-    treeNodeList = (
-      <transition-group
-        name={this.CLASS_NAMES.treeNodeToggle}
-        tag="div"
-        enter-active-class={this.CLASS_NAMES.treeNodeEnter}
-        leave-active-class={this.CLASS_NAMES.treeNodeLeave}
-      >
-        {treeNodes}
-      </transition-group>
-    );
-
     return (
       <div class={classList}>
-        {treeNodeList}
+        <TransitionGroup
+          name={this.CLASS_NAMES.treeNodeToggle}
+          tag="div"
+          enter-active-class={this.CLASS_NAMES.treeNodeEnter}
+          leave-active-class={this.CLASS_NAMES.treeNodeLeave}
+        >
+          {treeNodes}
+        </TransitionGroup>
         {emptyNode}
       </div>
     );
