@@ -185,7 +185,7 @@ export default defineComponent({
           class={[
             // ...this.popupClass,
             `${this.classPrefix}-menu__spacer`,
-            `${this.classPrefix}-menu__spacer--${!this.isNested && this.head ? 'top' : 'left'}`,
+            `${this.classPrefix}-menu__spacer--${!this.isNested && this.isHead ? 'top' : 'left'}`,
           ]}
           onMouseenter={this.handleEnterPopup}
           onMouseleave={this.handleMouseLeavePopup}

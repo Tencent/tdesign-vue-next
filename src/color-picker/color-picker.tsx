@@ -11,16 +11,9 @@ import { useBaseClassName } from './hooks';
 
 export default defineComponent({
   name: 'TColorPicker',
-  components: {
-    TPopup,
-    ColorPanel,
-    DefaultTrigger,
-  },
-  inheritAttrs: false,
   props: {
     ...props,
   },
-
   setup(props) {
     const baseClassName = useBaseClassName();
     const visible = ref(false);
@@ -81,12 +74,12 @@ export default defineComponent({
       },
     };
     return (
-      <t-popup {...popProps} content={this.renderPopupContent}>
+      <TPopup {...popProps} content={this.renderPopupContent}>
         <div className={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
           {renderTNodeJSXDefault(
             this,
             'default',
-            <default-trigger
+            <DefaultTrigger
               color={this.innerValue}
               disabled={disabled}
               input-props={this.inputProps}
@@ -94,7 +87,7 @@ export default defineComponent({
             />,
           )}
         </div>
-      </t-popup>
+      </TPopup>
     );
   },
 });

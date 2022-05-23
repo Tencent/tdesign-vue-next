@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-transfer v-model="targetValue" theme="primary" :data="list" :checked-value="checkedValue" :search="true" />
+    <t-transfer v-model="targetValue" theme="primary" :data="list" :search="true" />
   </div>
 </template>
 <script setup>
@@ -15,5 +15,4 @@ for (let i = 0; i < 20; i++) {
 }
 
 const targetValue = ref([]);
-const checkedValue = ref([]);
 </script>

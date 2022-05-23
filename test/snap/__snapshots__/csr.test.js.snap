@@ -5257,7 +5257,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -5528,7 +5527,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -6477,7 +6475,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
     <div
       class="t-select__wrap demo-select-base"
       data-v-2629f908=""
-      modelvalue="card"
     >
       
       <div
@@ -6608,7 +6605,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -6879,7 +6875,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -7804,7 +7799,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
     <div
       class="t-select__wrap demo-select-base"
       data-v-8d270492=""
-      modelvalue="card"
     >
       
       <div
@@ -7898,7 +7892,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -8169,7 +8162,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -9133,7 +9125,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -9404,7 +9395,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -10469,7 +10459,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -10740,7 +10729,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -12111,7 +12099,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -12382,7 +12369,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -13341,7 +13327,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -13612,7 +13597,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -14595,7 +14579,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -14866,7 +14849,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -15860,7 +15842,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -16131,7 +16112,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -16919,7 +16899,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
     <div
       class="t-select__wrap demo-select-base"
       data-v-93ad12d8=""
-      modelvalue="3"
     >
       
       <div
@@ -17058,7 +17037,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -17329,7 +17307,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
         >
           <div
             class="t-select__wrap"
-            modelvalue="12"
           >
             
             <div
@@ -18403,7 +18380,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -18674,7 +18650,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -19623,7 +19598,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
     <div
       class="t-select__wrap demo-select-base"
       data-v-01b7361b=""
-      modelvalue="year"
     >
       
       <div
@@ -19717,7 +19691,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
         >
           <div
             class="t-select__wrap"
-            modelvalue="2020"
           >
             
             <div
@@ -20323,7 +20296,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -20494,7 +20466,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -21449,7 +21420,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -21720,7 +21690,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -22745,7 +22714,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
         >
           <div
             class="t-select__wrap"
-            modelvalue="1998"
           >
             
             <div
@@ -23016,7 +22984,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
         >
           <div
             class="t-select__wrap"
-            modelvalue="11"
           >
             
             <div
@@ -24098,7 +24065,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="2020"
             >
               
               <div
@@ -24369,7 +24335,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="12"
             >
               
               <div
@@ -25326,7 +25291,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="2020"
             >
               
               <div
@@ -25597,7 +25561,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="12"
             >
               
               <div
@@ -26540,7 +26503,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="2020"
             >
               
               <div
@@ -26811,7 +26773,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
           >
             <div
               class="t-select__wrap"
-              modelvalue="12"
             >
               
               <div
@@ -33766,7 +33727,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
         >
           <div
             class="t-select__wrap"
-            modelvalue="RGB"
           >
             
             <div
@@ -34713,7 +34673,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
         >
           <div
             class="t-select__wrap"
-            modelvalue="RGB"
           >
             
             <div
@@ -35638,7 +35597,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           >
             <div
               class="t-select__wrap"
-              modelvalue="RGB"
             >
               
               <div
@@ -36679,7 +36637,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           >
             <div
               class="t-select__wrap"
-              modelvalue="RGB"
             >
               
               <div
@@ -37611,7 +37568,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
         >
           <div
             class="t-select__wrap"
-            modelvalue="RGB"
           >
             
             <div
@@ -38539,7 +38495,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           >
             <div
               class="t-select__wrap"
-              modelvalue="RGB"
             >
               
               <div
@@ -39002,7 +38957,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           >
             <div
               class="t-select__wrap"
-              modelvalue="RGB"
             >
               
               <div
@@ -40215,7 +40169,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
       >
         <div
           class="t-select__wrap"
-          modelvalue="2020"
         >
           
           <div
@@ -40486,7 +40439,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
       >
         <div
           class="t-select__wrap"
-          modelvalue="12"
         >
           
           <div
@@ -44291,6 +44243,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/popconfir
   <div
     class="t-drawer t-drawer--right"
     data-v-90404d6e=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -48638,6 +48591,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/attach-parent.vue 
     <div
       class="t-drawer t-drawer--right t-drawer--attach"
       data-v-abecafc6=""
+      tabindex="0"
     >
       <div
         class="t-drawer__mask"
@@ -48893,6 +48847,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/base.vue 1`] = `
   <div
     class="t-drawer t-drawer--right"
     data-v-038ee394=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -48986,6 +48941,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 使用插槽自定义 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49048,6 +49004,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 使用 props 自定义 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49106,6 +49063,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
   <!-- 单独定义确认/取消按钮 -->
   <div
     class="t-drawer t-drawer--right"
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49225,6 +49183,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/no-mask.vue 1`] = 
 <div>
   <div
     class="t-drawer t-drawer--right t-drawer--without-mask"
+    tabindex="0"
   >
     <!---->
     <div
@@ -49299,6 +49258,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
   <div
     class="t-drawer t-drawer--right"
     data-v-0aadc15c=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49464,6 +49424,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/placement.vue 1`] 
   <div
     class="t-drawer t-drawer--right"
     data-v-69152460=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -49723,6 +49684,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/size.vue 1`] = `
   <div
     class="t-drawer t-drawer--right"
     data-v-d15f6134=""
+    tabindex="0"
   >
     <div
       class="t-drawer__mask"
@@ -50186,7 +50148,28 @@ exports[`csr snapshot test > csr test ./examples/dropdown/demos/slot.vue 1`] = `
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./examples/dropdown/demos/split.vue 1`] = ``;
+exports[`csr snapshot test > csr test ./examples/dropdown/demos/split.vue 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-3bbc8c25=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       下拉菜单 
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
 
 exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
 <div
@@ -51305,7 +51288,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           <div
             class="t-select__wrap demo-select-base"
             data-v-d73f2e70=""
-            modelvalue=""
           >
             
             <div
@@ -51966,7 +51948,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           
           <div
             class="t-select__wrap"
-            modelvalue=""
           >
             
             <div
@@ -53337,7 +53318,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           <div
             class="t-select__wrap demo-select-base"
             data-v-0ef92f00=""
-            modelvalue=""
           >
             
             <div
@@ -56548,7 +56528,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           <div
             class="t-select__wrap demo-select-base"
             data-v-01218810=""
-            modelvalue=""
           >
             
             <div
@@ -75824,7 +75803,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -76199,7 +76178,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 72px; height: 72px; font-size: 14px;"
         >
           <div
@@ -76253,7 +76232,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -76308,7 +76287,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/circle.vue 1`] =
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 160px; height: 160px; font-size: 36px;"
         >
           <div
@@ -76368,7 +76347,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76409,11 +76388,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76444,7 +76422,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
@@ -76476,7 +76454,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 200px; height: 200px; font-size: 45px;"
       >
         <div
@@ -76528,8 +76506,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76552,7 +76529,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76604,11 +76581,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       data-v-9f8aa44c=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76631,7 +76607,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/custom.vue 1`] =
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
@@ -76694,11 +76670,10 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       data-v-c2968dc6=""
     >
       <div
-        class="t-progress--thin t-progress--status--undefined"
+        class="t-progress--thin t-progress--status--default"
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76729,7 +76704,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76760,7 +76734,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76803,7 +76776,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76846,7 +76818,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76889,7 +76860,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -76926,8 +76896,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76955,8 +76924,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/line.vue 1`] = `
     >
       <!---->
       <div
-        class="t-progress__bar t-progress--plump t-progress--under-ten"
-        style="border-radius: undefinedpx;"
+        class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
       >
         <div
           class="t-progress__inner"
@@ -76993,8 +76961,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
   >
     <!---->
     <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten"
-      style="border-radius: undefinedpx;"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
     >
       <div
         class="t-progress__inner"
@@ -77022,8 +76989,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
   >
     <!---->
     <div
-      class="t-progress__bar t-progress--plump t-progress--under-ten"
-      style="border-radius: undefinedpx;"
+      class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
     >
       <div
         class="t-progress__inner"
@@ -77052,7 +77018,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77081,7 +77046,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77110,7 +77074,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77139,7 +77102,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77168,7 +77130,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/plump.vue 1`] = 
     <!---->
     <div
       class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--active"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -77212,7 +77173,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
         <!---->
         <!---->
         <div
-          class="t-progress--circle t-progress--status--undefined"
+          class="t-progress--circle t-progress--status--default"
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
@@ -77451,7 +77412,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 72px; height: 72px; font-size: 14px;"
       >
         <div
@@ -77499,7 +77460,7 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/size.vue 1`] = `
       <!---->
       <!---->
       <div
-        class="t-progress--circle t-progress--status--undefined"
+        class="t-progress--circle t-progress--status--default"
         style="width: 160px; height: 160px; font-size: 36px;"
       >
         <div
@@ -77560,7 +77521,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77595,7 +77555,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77684,7 +77643,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77719,7 +77677,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77808,7 +77765,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -77843,7 +77799,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       <!---->
       <div
         class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="t-progress__inner"
@@ -77868,7 +77823,6 @@ exports[`csr snapshot test > csr test ./examples/progress/demos/status.vue 1`] =
       >
         <div
           class="t-progress__bar"
-          style="border-radius: undefinedpx;"
         >
           <div
             class="t-progress__inner"
@@ -79735,7 +79689,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-1dd75acb=""
-    modelvalue=""
   >
     
     <div
@@ -79787,7 +79740,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-1dd75acb=""
-    modelvalue=""
   >
     
     <div
@@ -79904,7 +79856,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   <!-- 选项过多时，可折叠 -->
   <div
     class="t-select__wrap"
-    modelvalue="1,3"
   >
     
     <div
@@ -80008,7 +79959,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   <!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
   <div
     class="t-select__wrap"
-    modelvalue="1,3"
   >
     
     <div
@@ -80112,7 +80062,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
   <div
     class="t-select__wrap"
-    modelvalue="1,3"
   >
     
     <div
@@ -80219,7 +80168,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px;"
   >
     
@@ -80292,7 +80240,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
   <!-- 方式一：使用 options 自定义下拉选项内容 -->
   <div
     class="t-select__wrap"
-    modelvalue=""
   >
     
     <div
@@ -80345,7 +80292,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
   <!-- 方式二：使用插槽自定义下拉选项内容 -->
   <div
     class="t-select__wrap"
-    modelvalue=""
   >
     
     <div
@@ -80660,7 +80606,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   <!-- 自定义选中项内容，valueDisplay 为渲染函数（function） -->
   <div
     class="t-select__wrap"
-    modelvalue="1,2,3"
   >
     
     <div
@@ -80781,7 +80726,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
   <div
     class="t-select__wrap"
-    modelvalue="4,5,6,7"
   >
     
     <div
@@ -80915,7 +80859,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   <br />
   <div
     class="t-select__wrap"
-    modelvalue="1"
   >
     
     <div
@@ -80967,7 +80910,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block; margin-right: 20px;"
   >
     
@@ -81018,7 +80960,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
   </div>
   <div
     class="t-select__wrap"
-    modelvalue="shanghai,beijing"
     style="width: 200px; display: inline-block;"
   >
     
@@ -81102,7 +81043,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block; margin: 0px 20px 20px 0px;"
   >
     
@@ -81167,7 +81107,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
   </div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 400px; display: inline-block;"
   >
     
@@ -81243,7 +81182,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-98d7c816=""
-    modelvalue=""
   >
     
     <div
@@ -81309,7 +81247,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-98d7c816=""
-    modelvalue=""
   >
     
     <div
@@ -81521,7 +81458,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
 <div>
   <div
     class="t-select__wrap"
-    modelvalue="[object Object]"
     style="width: 200px; display: inline-block; margin-right: 20px;"
   >
     
@@ -81572,7 +81508,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
   </div>
   <div
     class="t-select__wrap"
-    modelvalue="[object Object]"
     style="width: 200px; display: inline-block;"
   >
     
@@ -81652,7 +81587,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px;"
   >
     
@@ -81712,7 +81646,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
   <div
     class="t-select__wrap"
-    modelvalue="1,3"
   >
     
     <div
@@ -81817,7 +81750,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   <div
     class="t-select__wrap"
-    modelvalue="1,2,3,4,5,6"
   >
     
     <div
@@ -82179,7 +82111,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   <!-- 超出 2 个的选中项折叠，如果想要自定义折叠项，参考下文「自定义折叠的选中项」 -->
   <div
     class="t-select__wrap"
-    modelvalue="3,5,6,2"
   >
     
     <div
@@ -82341,7 +82272,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/noborder.vue 1`] =
 <div>
   <div
     class="t-select__wrap"
-    modelvalue="1"
     style="width: 200px;"
   >
     
@@ -82402,7 +82332,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-98c8360c=""
-    modelvalue=""
   >
     
     <div
@@ -82454,7 +82383,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-98c8360c=""
-    modelvalue=""
   >
     
     <div
@@ -82543,7 +82471,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
 <div>
   <div
     class="t-select__wrap"
-    modelvalue="1"
     style="width: 200px; display: inline-block;"
   >
     
@@ -82594,7 +82521,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
   </div>
   <div
     class="t-select__wrap"
-    modelvalue="1"
     style="width: 200px; display: inline-block; margin-left: 20px;"
   >
     
@@ -82650,7 +82576,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/prefix.vue 1`] = `
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px;"
   >
     
@@ -82716,7 +82641,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block; margin: 0px 20px 20px 0px;"
   >
     
@@ -82781,7 +82705,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
   </div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 400px; display: inline-block;"
   >
     
@@ -82852,7 +82775,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
 <div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block; margin-right: 20px;"
   >
     
@@ -82940,7 +82862,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
   </div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block; margin-right: 20px;"
   >
     
@@ -82991,7 +82912,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
   </div>
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 200px; display: inline-block;"
   >
     
@@ -83051,7 +82971,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-f8328a28=""
-    modelvalue=""
   >
     
     <div
@@ -83102,7 +83021,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-f8328a28=""
-    modelvalue=""
   >
     
     <div
@@ -83153,7 +83071,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   <div
     class="t-select__wrap"
     data-v-f8328a28=""
-    modelvalue=""
   >
     
     <div
@@ -96315,6 +96232,672 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
       <!---->
       <!---->
     </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1`] = `
+<div
+  data-v-19baa05a=""
+>
+  <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
+  <div
+    class="t-table t-table--bordered"
+    data-v-19baa05a=""
+    style="position: relative;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-table__content"
+    >
+      <!---->
+      <table
+        class="t-table--layout-fixed"
+      >
+        <colgroup>
+          
+          <col />
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
+        >
+          
+          <tr>
+            
+            <th
+              class="t-table__th-firstName"
+              data-colkey="firstName"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                FirstName
+              </div>
+            </th>
+            <th
+              class="t-table__th-framework"
+              data-colkey="framework"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                Framework
+              </div>
+            </th>
+            <th
+              class="t-table__th-letters"
+              data-colkey="letters"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                Letters
+              </div>
+            </th>
+            <th
+              class="t-table__th-createTime"
+              data-colkey="createTime"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                Date
+              </div>
+            </th>
+            
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Eric
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Vue
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                A
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                2021-11-01
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Gilberta
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                React
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                B、E
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                2021-12-01
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Heriberto
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Miniprogram
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                C
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                2022-01-01
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Lazarus
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Flutter
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                D、G、H
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                2022-02-01
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Eric
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                Vue
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                A
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              <div
+                class="t-table__cell--editable"
+              >
+                2021-11-01
+                <svg
+                  class="t-icon t-icon-edit-1"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 12px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    opacity="0.9"
+                  >
+                    <path
+                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </td>
+            
+          </tr>
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -116422,7 +117005,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
   <!-- tree.defaultExpandAll: true 默认展开全部 -->
-  <!-- this.$refs.table.dataSource 查看树形结构平铺数据 -->
+  <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
   <div
     beforedragsort="params => {
       console.log(params);
@@ -129709,7 +130292,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
 exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] = `
 <div>
   <div
-    checked-value=""
     class="t-transfer t-transfer__search"
     theme="primary"
   >

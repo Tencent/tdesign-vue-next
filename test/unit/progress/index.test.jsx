@@ -75,7 +75,7 @@ describe('Progress', () => {
       it(':theme circle progress has t-progress__circle-outer and t-progress__circle-inner class', () => {
         const wrapper = mount({
           render() {
-            return <Progress theme={'circle'} percentage={'10'}></Progress>;
+            return <Progress theme={'circle'} percentage={10}></Progress>;
           },
         });
         const outerClass = wrapper.element.querySelector('.t-progress__circle-outer');

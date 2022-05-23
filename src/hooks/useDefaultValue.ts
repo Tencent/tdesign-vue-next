@@ -2,12 +2,12 @@ import { ref, Ref, getCurrentInstance, watch } from 'vue';
 import { ChangeHandler } from './useVModel';
 
 // 用于实现 v-model:propsName
-export default function useDefaultValue<T, P extends any[]>(
+export default function useDefaultValue<T, P extends (...args: any) => void>(
   value: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  onChange: P,
   propsName: string,
-): [Ref<T>, ChangeHandler<T, P>] {
+): [Ref<T>, ChangeHandler<T>] {
   const { emit, attrs } = getCurrentInstance();
   const internalValue = ref();
   internalValue.value = defaultValue;

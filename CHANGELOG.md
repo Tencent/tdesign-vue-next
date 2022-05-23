@@ -5,6 +5,23 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.15.1 `2022-05-23` 
+### 🚀 Features
+- `Table`: 支持可编辑单元格的表格 ([issue#614](https://github.com/Tencent/tdesign-vue-next/issues/614)) @chaishi ([#846](https://github.com/Tencent/tdesign-vue-next/pull/846))
+- `Select`: 新增事件 `onPopupVisibleChange` @chaishi ([#846](https://github.com/Tencent/tdesign-vue-next/pull/846))
+- `Select`: 新增 `onChange` 事件参数，`trigger`，用于表示当次变化的触发来源 @chaishi ([#846](https://github.com/Tencent/tdesign-vue-next/pull/846))
+### 🐞 Bug Fixes
+- `test`: renderTNode 默认参数和 tag 组件单元测试用例修复 @pengYYYYY ([#841](https://github.com/Tencent/tdesign-vue-next/pull/841))
+- `Table`: EnhancedTable，树形结构中，可选中表格禁用行勾选问题：动态设置选中列时，禁用失效 ([issue#822](https://github.com/Tencent/tdesign-vue-next/issues/822)) @chaishi ([#842](https://github.com/Tencent/tdesign-vue-next/pull/842))
+- `Table`: EnhancedTable，树形结构中，toggleExpandData 和 expandAll/FoldAll 混合使用时，树形结构展开有误 ([issue#839](https://github.com/Tencent/tdesign-vue-next/issues/839)) @chaishi ([#842](https://github.com/Tencent/tdesign-vue-next/pull/842))
+- `Slider`: 修复slider部分tooltip属性设置无法生效问题 @ChrisLee0211 ([#844](https://github.com/Tencent/tdesign-vue-next/pull/844))
+- `Input`: 清除操作触发了非必要事件 `onBlur`，移除  ([issue#845](https://github.com/Tencent/tdesign-vue-next/issues/845)) @chaishi ([#846](https://github.com/Tencent/tdesign-vue-next/pull/846))
+- `Drawer`: 修复按键 `ESC` 关闭无法触发 ([issue #834](https://github.com/Tencent/tdesign-vue-next/issues/834)) @pengYYYYY ([#840](https://github.com/Tencent/tdesign-vue-next/pull/840))
+- `Select`: 修复使用 `creatable` 创建新条目时，会出现额外空选项  ([issue #835](https://github.com/Tencent/tdesign-vue-next/issues/835)) @pengYYYYY ([#840](https://github.com/Tencent/tdesign-vue-next/pull/840))
+- `Select`: 修复 `showArrow` 属性设置为  `false`，右侧箭头依然显示 ([issue #706](https://github.com/Tencent/tdesign-vue-next/issues/706)) @pengYYYYY ([#840](https://github.com/Tencent/tdesign-vue-next/pull/840))
+- `Progress`: 修复 `theme` 动态变化错误  ([issue #820](https://github.com/Tencent/tdesign-vue-next/issues/820)) @pengYYYYY ([#840](https://github.com/Tencent/tdesign-vue-next/pull/840))
+- `Transfer`: 修复 `transfer` 选中态无法点击 @pengYYYYY ([#840](https://github.com/Tencent/tdesign-vue-next/pull/840))
+
 ## 🌈 0.15.0 `2022-05-20` 
 ### ❗ Breaking Changes
 - `Cascader`:  基于`select-input`组件重构，文本过长省略使用原生 `title` 展示全文本，不再使用 `tooltip` @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
