@@ -2,21 +2,14 @@ import { defineComponent, computed, toRefs, ref } from 'vue';
 import pick from 'lodash/pick';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import {
-  TransferListType,
-  TransferItemOption,
-  CheckedOptions,
-  TransferValue,
-  EmptyType,
-  TargetParams,
-  SearchEvent,
-} from './interface';
+import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
 
 import { getTransferListOption, getDataValues, getTransferData, filterTransferData, TRANSFER_NAME } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import props from './props';
 import { TNode } from '../common';
 import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -33,18 +26,9 @@ export default defineComponent({
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
     const { t, global } = useConfig('transfer');
-    const { value, modelValue } = toRefs(props);
+    const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const initChecked = computed(() => {
-      if (props.checked && props.checked.length) {
-        return props.checked;
-      }
-      if (props.defaultChecked && props.defaultChecked.length) {
-        return props.defaultChecked;
-      }
-      return [];
-    });
-    const checkedValueList = computed(() => initChecked.value);
+    const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
     const valueList = ref(innerValue.value || []);
 
     const isTreeMode = computed(() => {
@@ -67,8 +51,8 @@ export default defineComponent({
     // 被选中的value
     const checkedValue = computed(() => {
       return {
-        [SOURCE]: getDataValues(sourceList.value, checkedValueList.value, { isTreeMode: isTreeMode.value }),
-        [TARGET]: getDataValues(targetList.value, checkedValueList.value, { isTreeMode: isTreeMode.value }),
+        [SOURCE]: getDataValues(sourceList.value, innerChecked.value, { isTreeMode: isTreeMode.value }),
+        [TARGET]: getDataValues(targetList.value, innerChecked.value, { isTreeMode: isTreeMode.value }),
       };
     });
     const hasFooter = computed(() => {
@@ -115,9 +99,8 @@ export default defineComponent({
         targetChecked,
         type: listType,
       };
-      // 支持v-model:checked
-      // TODO: 换成 useVModel
-      props['onUpdate:checked']?.(checked);
+      // TODO onCheckedChange 参数有点不合理
+      innerChecked.value = checked;
       props.onCheckedChange?.(event);
     };
 
@@ -158,16 +141,7 @@ export default defineComponent({
     const transferToLeft = () => {
       transferTo(SOURCE);
     };
-    const filterMethod = (
-      transferList: Array<TransferItemOption>,
-      targetValueList: Array<TransferValue>,
-      needMatch: boolean,
-    ): Array<TransferItemOption> => {
-      return transferList.filter((item) => {
-        const isMatch = targetValueList.includes(item.value);
-        return needMatch ? isMatch : !isMatch;
-      });
-    };
+
     const handleScroll = (e: Event, listType: TransferListType) => {
       const target = e.target as HTMLElement;
       const bottomDistance = target.scrollHeight - target.scrollTop - target.clientHeight;

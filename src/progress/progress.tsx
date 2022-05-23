@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties } from 'vue';
 import {
   CloseCircleFilledIcon,
   CheckCircleFilledIcon,
@@ -23,16 +23,20 @@ export default defineComponent({
       if (props.percentage >= 100) {
         return 'success';
       }
-      return props.status;
+      return props.status || 'default';
     });
 
     const trackBgStyle = computed(() => {
-      const height = typeof props.strokeWidth === 'string' ? props.strokeWidth : `${props.strokeWidth}px`;
-      return {
-        height,
-        backgroundColor: props.trackColor,
-        borderRadius: height,
-      };
+      const style: CSSProperties = {};
+      if (props.strokeWidth) {
+        const height = typeof props.strokeWidth === 'string' ? props.strokeWidth : `${props.strokeWidth}px`;
+        style.height = height;
+        style.borderRadius = height;
+      }
+      if (props.trackColor) {
+        style.backgroundColor = props.trackColor;
+      }
+      return style;
     });
 
     const barStyle = computed(() => {

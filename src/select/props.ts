@@ -113,7 +113,12 @@ export default {
   selectInputProps: {
     type: Object as PropType<TdSelectProps['selectInputProps']>,
   },
-  /** 是否显示右侧箭头，默认显示 */
+  /** 【讨论中】是否显示全选 */
+  showCheckAlll: Boolean,
+  /**
+   * 是否显示右侧箭头，默认显示
+   * @default true
+   */
   showArrow: {
     type: Boolean,
     default: true,
