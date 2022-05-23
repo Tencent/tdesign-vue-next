@@ -50138,7 +50138,28 @@ exports[`csr snapshot test > csr test ./examples/dropdown/demos/slot.vue 1`] = `
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./examples/dropdown/demos/split.vue 1`] = ``;
+exports[`csr snapshot test > csr test ./examples/dropdown/demos/split.vue 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    data-v-3bbc8c25=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       下拉菜单 
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
 
 exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
 <div
