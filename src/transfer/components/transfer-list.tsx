@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType, ref, computed } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed, watch } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -134,6 +134,13 @@ export default defineComponent({
 
     const totalCount = computed(() => {
       return getLefCount(props.dataSource);
+    });
+
+    watch(totalCount, (val) => {
+      if (val <= (currentPage.value - 1) * pageSize.value) {
+        const lastPage = Math.ceil(val / pageSize.value);
+        defaultCurrent.value = lastPage;
+      }
     });
 
     const handlePaginationChange = (pageInfo: PageInfo) => {
