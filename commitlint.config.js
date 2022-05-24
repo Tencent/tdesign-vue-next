@@ -8,12 +8,13 @@ const packages = fs
   .map((dirent) => dirent.name);
 
 // precomputed scope
-const scopeComplete = execSync("git status -s | grep 'src' 2> /dev/null")
+const scopeComplete = execSync('git status --porcelain || true')
   .toString()
   .trim()
   .split('\n')
   .find((r) => r.indexOf('M  ') !== -1)
-  ?.match(/src\/(\S*)\//)?.[1];
+  ?.replace(/(\/)/g, '%%')
+  ?.match(/src%%((\w|-)*)/)?.[1];
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
