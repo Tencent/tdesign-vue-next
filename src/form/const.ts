@@ -72,7 +72,7 @@ export type SuccessListType =
 export interface FormItemContext {
   name: TdFormItemProps['name'];
   resetHandler: () => void;
-  resetField: () => Promise<void>;
+  resetField: (resetType?: 'initial' | 'empty') => Promise<void>;
   validate: <T>(trigger: ValidateTriggerType) => Promise<FormItemValidateResult<T>>;
   setValidateMessage: (validateMessage: FormItemValidateMessage[]) => void;
 }

@@ -3,7 +3,14 @@ import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
-import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList, FormValidateMessage } from './type';
+import {
+  FormValidateResult,
+  TdFormProps,
+  FormValidateParams,
+  ValidateResultList,
+  FormValidateMessage,
+  FormResetParams,
+} from './type';
 import props from './props';
 import { useCLASSNAMES, FORM_CONTROL_COMPONENTS, FormInjectionKey, FormItemContext } from './const';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
@@ -25,7 +32,7 @@ export default defineComponent({
       disabled,
     });
 
-    const formRef = ref<HTMLElement>(null);
+    const formRef = ref<HTMLFormElement>(null);
     const children = ref<FormItemContext[]>([]);
 
     const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType } =
@@ -96,7 +103,7 @@ export default defineComponent({
       });
       return result;
     };
-    const submit = (e?: FormSubmitEvent) => {
+    const submitHandler = (e?: FormSubmitEvent) => {
       if (props.preventSubmitDefault) {
         e?.preventDefault();
         e?.stopPropagation();
@@ -105,13 +112,25 @@ export default defineComponent({
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
     };
-    const reset = (e?: FormResetEvent) => {
+    const submit = () => {
+      formRef.value.submit();
+    };
+
+    const resetParams = ref<FormResetParams>();
+    const resetHandler = (e?: FormResetEvent) => {
       if (props.preventSubmitDefault) {
         e?.preventDefault();
         e?.stopPropagation();
       }
-      children.value.filter((child: any) => isFunction(child.resetField)).forEach((child: any) => child.resetField());
+      children.value
+        .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
+        .forEach((child) => child.resetField(resetParams.value?.type));
+      resetParams.value = undefined;
       props.onReset?.({ e });
+    };
+    const reset = (params?: FormResetParams) => {
+      resetParams.value = params;
+      formRef.value.reset();
     };
     const clearValidate = (fields?: Array<string>) => {
       children.value.forEach((child) => {
@@ -132,12 +151,7 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage });
 
     return () => (
-      <form
-        ref={formRef}
-        class={formClass.value}
-        onSubmit={(e) => submit(e as MouseEvent)}
-        onReset={(e) => reset(e as MouseEvent)}
-      >
+      <form ref={formRef} class={formClass.value} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
         {renderContent('default')}
       </form>
     );
