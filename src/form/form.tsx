@@ -111,7 +111,7 @@ export default defineComponent({
         e?.stopPropagation();
       }
       children.value.filter((child: any) => isFunction(child.resetField)).forEach((child: any) => child.resetField());
-      props.onReset({ e });
+      props.onReset?.({ e });
     };
     const clearValidate = (fields?: Array<string>) => {
       children.value.forEach((child) => {
