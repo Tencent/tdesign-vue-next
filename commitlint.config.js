@@ -3,8 +3,9 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const packages = fs
-  .readdirSync(path.resolve(__dirname, 'src'))
-  .filter((r) => ['.DS_Store', '_common'].indexOf(r) === -1);
+  .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name);
 
 // precomputed scope
 const scopeComplete = execSync("git status -s | grep 'src' 2> /dev/null")
