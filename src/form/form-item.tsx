@@ -195,13 +195,14 @@ export default defineComponent({
       }
       return emptyValue;
     };
-    const resetField = async () => {
+    const resetField = async (resetType?: 'initial' | 'empty') => {
       if (!props.name) return;
-      if (form?.resetType === 'empty') {
-        lodashSet(form?.data, props.name, getEmptyValue());
-      }
-      if (form?.resetType === 'initial') {
-        lodashSet(form?.data, props.name, initialValue.value);
+      if (resetType !== undefined) {
+        resetType === 'empty' && lodashSet(form?.data, props.name, getEmptyValue());
+        resetType === 'initial' && lodashSet(form?.data, props.name, initialValue.value);
+      } else {
+        form?.resetType === 'empty' && lodashSet(form?.data, props.name, getEmptyValue());
+        form?.resetType === 'initial' && lodashSet(form?.data, props.name, initialValue.value);
       }
       await nextTick();
       if (resetValidating.value) {
