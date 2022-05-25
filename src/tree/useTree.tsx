@@ -98,11 +98,11 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
 
     if (shouldExpand) {
       const tnode = getNode(treeStore.value, node);
-      return setExpanded(tnode, !tnode.isExpanded(), ctx);
+      setExpanded(tnode, !tnode.isExpanded(), ctx);
     }
     if (shouldActive) {
       const tnode = getNode(treeStore.value, node);
-      return setActived(tnode, !tnode.isActived(), ctx);
+      setActived(tnode, !tnode.isActived(), ctx);
     }
 
     props.onClick?.(ctx);

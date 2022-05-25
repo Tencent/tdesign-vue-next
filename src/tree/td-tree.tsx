@@ -16,6 +16,7 @@ export default defineComponent({
     const { global, t } = useConfig('tree');
     const CLASS_NAMES = useCLASSNAMES();
 
+    // 向子组件传递的状态
     const statusContext = computed(() => {
       const { checkProps, empty, icon, label, line, operations } = props;
       return {
@@ -29,7 +30,10 @@ export default defineComponent({
       };
     });
 
+    // tree核心逻辑
     const { treeStore, treeNodes } = useTree(props, statusContext);
+
+    // 导出方法
     useExposeFunc(treeStore, expose);
 
     const classList = computed(() => [
