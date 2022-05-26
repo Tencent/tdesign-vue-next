@@ -16,7 +16,6 @@ import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
-import { ClassName } from '../common';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
 
@@ -77,7 +76,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-opened`]: isOpen.value,
       },
     ]);
-    const arrowClass: ClassName = computed(() => [
+    const arrowClass = computed(() => [
       {
         [`${classPrefix.value}-fake-arrow--active`]: isOpen.value,
       },

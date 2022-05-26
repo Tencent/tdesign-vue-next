@@ -1,8 +1,7 @@
-import { ComponentPublicInstance, defineComponent, provide, reactive, toRefs } from 'vue';
+import { defineComponent, provide, RendererNode } from 'vue';
 import props from './avatar-group-props';
-import { SlotReturnValue, TNodeReturnValue } from '../common';
 import Avatar from './avatar';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
@@ -14,23 +13,27 @@ export default defineComponent({
 
   setup(props) {
     provide('avatarGroup', props);
+    const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
 
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
 
-    const renderIcon = (context: ComponentPublicInstance) => {
-      return isIcon(context) && typeof props.collapseAvatar !== 'string' ? props.collapseAvatar : null;
+    const isIcon = () => {
+      const content = renderTNodeJSX('collapseAvatar');
+      return content;
     };
 
-    const renderEllipsisAvatar = (
-      context: ComponentPublicInstance,
-      children: Array<TNodeReturnValue>,
-    ): Array<TNodeReturnValue> => {
+    const renderIcon = () => {
+      return isIcon() && typeof props.collapseAvatar !== 'string' ? props.collapseAvatar : null;
+    };
+
+    const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
       if (children?.length > props.max) {
-        const content = setEllipsisContent(context, children);
+        const content = setEllipsisContent(children);
         const outAvatar = children.slice(0, props.max);
         outAvatar.push(
-          <Avatar size={props.size} icon={renderIcon(context)}>
+          <Avatar size={props.size} icon={renderIcon()}>
             {content}
           </Avatar>,
         );
@@ -39,11 +42,11 @@ export default defineComponent({
       return [children];
     };
 
-    const setEllipsisContent = (context: ComponentPublicInstance, children: Array<TNodeReturnValue>) => {
+    const setEllipsisContent = (children: Array<RendererNode>) => {
       let content = '';
       if (props.collapseAvatar) {
-        if (!isIcon(context)) {
-          content = renderContent(context, 'collapseAvatar', 'content');
+        if (!isIcon()) {
+          content = renderContent('collapseAvatar', 'content');
         }
       } else {
         content = `+${children.length - props.max}`;
@@ -51,35 +54,22 @@ export default defineComponent({
       return content;
     };
 
-    const isIcon = (context: ComponentPublicInstance) => {
-      const content = renderTNodeJSX(context, 'collapseAvatar');
-      return content;
-    };
+    return () => {
+      const children = renderTNodeJSX('default');
+      const { cascading, max } = props;
+      const groupClass = [
+        `${COMPONENT_NAME.value}`,
+        {
+          [`${AVATAR_NAME.value}--offset-right`]: cascading === 'right-up',
+          [`${AVATAR_NAME.value}--offset-left`]: cascading === 'left-up',
+        },
+      ];
+      let content = [children];
 
-    return {
-      AVATAR_NAME,
-      COMPONENT_NAME,
-      renderEllipsisAvatar,
-      isIcon,
-      setEllipsisContent,
+      if (max && max >= 0) {
+        content = [renderEllipsisAvatar(children)];
+      }
+      return <div class={groupClass}>{content}</div>;
     };
-  },
-  render() {
-    const { AVATAR_NAME } = this;
-    const children: TNodeReturnValue = renderTNodeJSX(this, 'default');
-    const { cascading, max } = this.$props;
-    const groupClass = [
-      `${this.COMPONENT_NAME}`,
-      {
-        [`${AVATAR_NAME}--offset-right`]: cascading === 'right-up',
-        [`${AVATAR_NAME}--offset-left`]: cascading === 'left-up',
-      },
-    ];
-    let content = [children];
-
-    if (max && max >= 0) {
-      content = [this.renderEllipsisAvatar(this, children as SlotReturnValue[])];
-    }
-    return <div class={groupClass}>{content}</div>;
   },
 });

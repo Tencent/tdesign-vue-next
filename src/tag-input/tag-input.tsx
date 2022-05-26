@@ -130,7 +130,7 @@ export default defineComponent({
       <TInput
         ref="tagInputRef"
         readonly={this.readonly}
-        {...this.inputProps}
+        {...(this.inputProps as TdTagInputProps['inputProps'])}
         value={this.tInputValue}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}

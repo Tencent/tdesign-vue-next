@@ -15,6 +15,7 @@ import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
+import { TdAnchorProps } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { AnchorInjectionKey } from './constants';
 
@@ -27,7 +28,7 @@ export interface Anchor extends ComponentPublicInstance {
 export default defineComponent({
   name: 'TAnchor',
   props,
-  setup(props, { slots, attrs }) {
+  setup(props: TdAnchorProps, { slots, attrs }) {
     const anchorRef = ref<HTMLElement | null>(null);
     const links = ref<string[]>([]);
     const active = ref('');

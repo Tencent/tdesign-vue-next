@@ -1,8 +1,7 @@
-import { computed, defineComponent, nextTick, onUpdated, toRefs, ref, watch } from 'vue';
+import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { isServer, addClass, removeClass } from '../utils/dom';
-import { ClassName, Styles } from '../common';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
@@ -34,7 +33,7 @@ export default defineComponent({
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     const drawerEle = ref<HTMLElement | null>(null);
-    const drawerClasses = computed<ClassName>(() => {
+    const drawerClasses = computed(() => {
       return [
         't-drawer',
         `t-drawer--${props.placement}`,
@@ -65,7 +64,7 @@ export default defineComponent({
       };
     });
 
-    const wrapperClasses = computed<ClassName>(() => {
+    const wrapperClasses = computed(() => {
       return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${props.placement}`];
     });
 
@@ -77,7 +76,7 @@ export default defineComponent({
       return [props.mode, props.placement].join();
     });
 
-    const footerStyle = computed<Styles>(() => {
+    const footerStyle = computed(() => {
       return {
         display: 'flex',
         justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',

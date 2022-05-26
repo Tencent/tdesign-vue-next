@@ -6,7 +6,6 @@ import { scrollSelectedIntoView } from '../utils/dom';
 import props from './option-props';
 import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
-import { ClassName } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -70,7 +69,7 @@ export default defineComponent({
       }
       return false;
     },
-    classes(): ClassName {
+    classes() {
       return [
         `${this.selectName}-option`,
         {

@@ -2,7 +2,6 @@ import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
-import { TNodeReturnValue } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
@@ -21,7 +20,7 @@ export default defineComponent({
     );
     const renderTNodeJSX = useTNodeJSX();
     return () => {
-      let content: TNodeReturnValue = renderTNodeJSX('default');
+      let content = renderTNodeJSX('default');
       if (props.options && props.options.length) {
         content = props.options.map((option: TdBreadcrumbItemProps, index: number) => (
           <BreadcrumbItem {...option} key={index}>

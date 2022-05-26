@@ -1,9 +1,8 @@
-import { ref, toRefs, computed } from 'vue';
+import { ref, toRefs, computed, CSSProperties } from 'vue';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
-import { Styles } from '../common';
 
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
@@ -19,7 +18,7 @@ export default function useOverlayStyle(props: TdSelectInputProps) {
       popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
         ? popupElement.offsetWidth
         : triggerElement.offsetWidth;
-    let otherOverlayStyle: Styles = {};
+    let otherOverlayStyle: CSSProperties = {};
     if (popupProps.value && typeof popupProps.value.overlayStyle === 'object' && !popupProps.value.overlayStyle.width) {
       otherOverlayStyle = popupProps.value.overlayStyle;
     }

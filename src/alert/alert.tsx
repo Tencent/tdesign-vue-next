@@ -23,7 +23,7 @@ export default defineComponent({
     const renderIconTNode = useIcon();
     // alert的dom引用
     const ele = ref<HTMLElement | null>(null);
-    // descriptiond的dom引用
+    // description的dom引用
     const description = ref<HTMLElement | null>(null);
     // desc高度
     const descHeight = ref(0);

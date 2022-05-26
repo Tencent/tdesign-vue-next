@@ -36,7 +36,6 @@ import {
   SuccessListType,
   useCLASSNAMES,
 } from './const';
-import { ClassName, TNodeReturnValue } from '../common';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 
@@ -86,7 +85,7 @@ export default defineComponent({
       },
     ]);
 
-    const renderLabel = (): TNodeReturnValue => {
+    const renderLabel = () => {
       if (Number(labelWidth.value) === 0) return;
 
       let labelStyle = {};
@@ -127,11 +126,11 @@ export default defineComponent({
       }
       return null;
     };
-    const renderSuffixIcon = (): TNodeReturnValue => {
+    const renderSuffixIcon = () => {
       const { statusIcon } = props;
       if (statusIcon === false) return;
 
-      let resultIcon: TNodeReturnValue = renderContent('statusIcon', {
+      let resultIcon = renderContent('statusIcon', {
         defaultNode: getDefaultIcon(),
       });
       if (resultIcon) return <span className={CLASS_NAMES.value.status}>{resultIcon}</span>;
@@ -307,7 +306,7 @@ export default defineComponent({
       return form?.showErrorMessage;
     });
 
-    const classes = computed<ClassName>(() => [
+    const classes = computed(() => [
       CLASS_NAMES.value.formItem,
       FORM_ITEM_CLASS_PREFIX.value + props.name,
       {

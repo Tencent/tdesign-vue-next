@@ -4,7 +4,6 @@ import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
-import { ClassName } from '../common';
 import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
@@ -43,7 +42,7 @@ export default defineComponent({
       return [format(width), '64px'];
     });
 
-    const styles: ClassName = computed(() => ({
+    const styles = computed(() => ({
       height: '100%',
       width: props.collapsed ? expandWidth.value[1] : expandWidth.value[0],
     }));
