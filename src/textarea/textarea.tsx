@@ -3,7 +3,6 @@ import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
-import { ClassName } from '../common';
 import { FormItemInjectionKey } from '../form/const';
 
 // hooks
@@ -114,7 +113,7 @@ export default defineComponent({
     };
 
     // computed
-    const textareaClasses = computed<ClassName>(() => {
+    const textareaClasses = computed(() => {
       return [
         name.value,
         {

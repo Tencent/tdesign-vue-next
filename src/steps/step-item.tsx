@@ -2,7 +2,7 @@ import { computed, defineComponent, h, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import props from './step-item-props';
-import { ClassName, SlotReturnValue } from '../common';
+import { SlotReturnValue } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks';
 
@@ -28,9 +28,9 @@ export default defineComponent({
 
     // class
     const COMPONENT_NAME = usePrefixClass('steps-item');
-    const statusClass: ClassName = computed(() => ({ [`${COMPONENT_NAME.value}--${props.status}`]: props.status }));
-    const baseClass: ClassName = computed(() => [COMPONENT_NAME.value, statusClass.value]);
-    const iconClass: ClassName = computed(() => [`${COMPONENT_NAME.value}__icon`, statusClass.value]);
+    const statusClass = computed(() => ({ [`${COMPONENT_NAME.value}--${props.status}`]: props.status }));
+    const baseClass = computed(() => [COMPONENT_NAME.value, statusClass.value]);
+    const iconClass = computed(() => [`${COMPONENT_NAME.value}__icon`, statusClass.value]);
 
     // render
     const renderTNodeJSX = useTNodeJSX();

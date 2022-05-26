@@ -1,6 +1,5 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode, watchEffect } from 'vue';
 import props from './props';
-import { ClassName } from '../common';
 import { TdStepItemProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
@@ -11,7 +10,7 @@ export default defineComponent({
   name: 'TSteps',
   props: { ...props },
 
-  setup(props, { slots }) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('steps');
 
     const { current, modelValue } = toRefs(props);
@@ -127,7 +126,7 @@ export default defineComponent({
       });
       return theme;
     };
-    const baseClass = computed<ClassName>(() => {
+    const baseClass = computed(() => {
       return [
         COMPONENT_NAME.value,
         `${COMPONENT_NAME.value}--${props.layout}`,

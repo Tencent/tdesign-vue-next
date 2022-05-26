@@ -46,7 +46,7 @@ export function formatRowClassNames(
   rowClassNames: TdBaseTableProps['rowClassName'],
   params: RowClassNameParams<TableRowData>,
   rowKey: string,
-): ClassName {
+) {
   const rowClassList = rowClassNames instanceof Array ? rowClassNames : [rowClassNames];
   const { row, rowIndex } = params;
   // 自定义行类名

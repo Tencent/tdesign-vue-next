@@ -12,8 +12,8 @@ import {
   FormResetParams,
 } from './type';
 import props from './props';
-import { useCLASSNAMES, FORM_CONTROL_COMPONENTS, FormInjectionKey, FormItemContext } from './const';
-import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
+import { useCLASSNAMES, FormInjectionKey, FormItemContext } from './const';
+import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider } from './hooks';
 import { useTNodeJSX, usePrefixClass } from '../hooks';
@@ -56,7 +56,7 @@ export default defineComponent({
 
     const COMPONENT_NAME = usePrefixClass('form');
     const CLASS_NAMES = useCLASSNAMES();
-    const formClass = computed<ClassName>(() => [
+    const formClass = computed(() => [
       CLASS_NAMES.value.form,
       { [`${COMPONENT_NAME.value}-inline`]: props.layout === 'inline' },
     ]);

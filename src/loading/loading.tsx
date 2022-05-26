@@ -1,10 +1,9 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties } from 'vue';
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import props from './props';
-import { Styles } from '../common';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
@@ -49,7 +48,7 @@ export default defineComponent({
 
     // loading style
     const styles = computed(() => {
-      const styles: Styles = {};
+      const styles: CSSProperties = {};
       if (props.zIndex !== undefined) {
         styles.zIndex = props.zIndex;
       }

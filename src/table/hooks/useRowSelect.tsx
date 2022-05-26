@@ -16,7 +16,6 @@ import { filterDataByIds, isRowSelectedDisabled } from '../utils';
 import useClassName from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
-import { ClassName } from '../../common';
 import log from '../../_common/js/log';
 
 export default function useRowSelect(props: TdPrimaryTableProps) {
@@ -42,7 +41,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   watch(
     [data, columns, tSelectedRowKeys, selectColumn, rowKey],
     () => {
-      const disabledRowFunc = (p: RowClassNameParams<TableRowData>): ClassName =>
+      const disabledRowFunc = (p: RowClassNameParams<TableRowData>) =>
         selectColumn.value.disabled(p) ? tableSelectedClasses.disabled : '';
       const disabledRowClass = selectColumn.value?.disabled ? disabledRowFunc : undefined;
       const selected = new Set(tSelectedRowKeys.value);
