@@ -29,7 +29,7 @@ export default defineComponent({
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
-    const valueList = ref(innerValue.value || []);
+    const valueList = computed(() => innerValue.value);
 
     const isTreeMode = computed(() => {
       const treeSlot = slots.tree;
@@ -129,7 +129,6 @@ export default defineComponent({
         type: toDirection,
         movedValue: selfCheckedValue,
       };
-      valueList.value = newTargetValue;
       setInnerValue(newTargetValue, params);
     };
 
