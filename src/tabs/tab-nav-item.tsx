@@ -84,6 +84,7 @@ export default defineComponent({
           >
             <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
           </div>
+          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
         </div>
       );
     };
