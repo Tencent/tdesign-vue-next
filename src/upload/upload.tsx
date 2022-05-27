@@ -188,6 +188,7 @@ export default defineComponent({
           files={uploadValue.value}
           loadingFile={uploadCtx.loadingFile}
           showUploadProgress={props.showUploadProgress}
+          placeholder={props.placeholder}
           multiple={props.multiple}
           max={props.max}
           disabled={disabled.value}

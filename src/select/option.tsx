@@ -6,7 +6,6 @@ import { scrollSelectedIntoView } from '../utils/dom';
 import props from './option-props';
 import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
-import { ClassName } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -70,7 +69,7 @@ export default defineComponent({
       }
       return false;
     },
-    classes(): ClassName {
+    classes() {
       return [
         `${this.selectName}-option`,
         {
@@ -83,21 +82,6 @@ export default defineComponent({
     },
     isCreatedOption(): boolean {
       return this.tSelect.creatable && this.value === this.tSelect.searchInput;
-    },
-    show(): boolean {
-      /**
-       * 此属性主要用于slots生成options时显示控制，直传options由select进行显示控制
-       * create的option，始终显示
-       * canFilter只显示待匹配的选项
-       */
-      if (!this.tSelect) return false;
-      if (this.isCreatedOption) return true;
-      if (this.tSelect.canFilter && this.tSelect.searchInput !== '') {
-        return this.tSelect.filterOptions.some(
-          (option: SelectOption) => get(option, this.tSelect.realValue) === this.value,
-        );
-      }
-      return true;
     },
     labelText(): string {
       return this.label || String(this.value);
@@ -158,13 +142,12 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const { classes, labelText, selected, disabled, multiLimitDisabled, show } = this;
+    const { classes, labelText, selected, disabled, multiLimitDisabled } = this;
     const children = renderContent(this, 'default', 'content');
     const optionChild = children || labelText;
     return (
       <li
         ref="liRef"
-        v-show={show}
         class={classes}
         title={labelText}
         onMouseenter={() => this.mouseEvent(true)}

@@ -245,7 +245,7 @@ export default defineComponent({
               </div>
             ) : null}
           </transition>
-          {props.theme === 'card' && props.addable ? (
+          {props.addable ? (
             <div class={addIconClass.value} onClick={handleAddTab}>
               <AddIcon></AddIcon>
             </div>

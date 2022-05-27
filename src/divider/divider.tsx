@@ -1,37 +1,35 @@
 import { defineComponent } from 'vue';
 import props from './props';
-import { renderContent } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TDivider',
 
   props: { ...props },
 
-  setup() {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('divider');
-    return {
-      COMPONENT_NAME,
+    const renderContent = useContent();
+    return () => {
+      const { theme, dashed, align } = props;
+      const children = renderContent('default', 'content');
+
+      const dividerClassNames = [
+        `${COMPONENT_NAME.value}`,
+        [`${COMPONENT_NAME.value}--${theme}`],
+        {
+          [`${COMPONENT_NAME.value}--dashed`]: !!dashed,
+          [`${COMPONENT_NAME.value}--with-text`]: !!children,
+          [`${COMPONENT_NAME.value}--with-text-${align}`]: !!children,
+        },
+      ];
+
+      return (
+        <div class={dividerClassNames}>
+          {children && <span class={`${COMPONENT_NAME.value}__inner-text`}>{children}</span>}
+        </div>
+      );
     };
-  },
-  render() {
-    const { theme, dashed, align, COMPONENT_NAME } = this;
-    const children = renderContent(this, 'default', 'content');
-
-    const dividerClassNames = [
-      `${COMPONENT_NAME}`,
-      [`${COMPONENT_NAME}--${theme}`],
-      {
-        [`${COMPONENT_NAME}--dashed`]: !!dashed,
-        [`${COMPONENT_NAME}--with-text`]: !!children,
-        [`${COMPONENT_NAME}--with-text-${align}`]: !!children,
-      },
-    ];
-
-    return (
-      <div class={dividerClassNames} {...this.$attrs}>
-        {children && <span class={`${COMPONENT_NAME}__inner-text`}>{children}</span>}
-      </div>
-    );
   },
 });

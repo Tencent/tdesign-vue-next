@@ -1,6 +1,5 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import props from './props';
-import { ClassName } from '../common';
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
@@ -60,7 +59,7 @@ export default defineComponent({
     /** 样式计算相关逻辑 */
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('checkbox');
-    const labelClasses = computed<ClassName>(() => [
+    const labelClasses = computed(() => [
       `${COMPONENT_NAME.value}`,
       {
         [`${classPrefix.value}-is-checked`]: selfChecked.value,

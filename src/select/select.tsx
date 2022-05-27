@@ -23,7 +23,6 @@ import {
   SelectOptionGroup,
   SelectValueChangeTrigger,
 } from './type';
-import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 // hooks
@@ -105,7 +104,7 @@ export default defineComponent({
       defaultProps: {
         trigger: 'click',
         placement: 'bottom-left' as string,
-        overlayClassName: '' as ClassName,
+        overlayClassName: '',
         overlayStyle: {},
       } as PopupProps,
       focusing: false, // filterable时，输入框是否在focus中
@@ -119,7 +118,7 @@ export default defineComponent({
     };
   },
   computed: {
-    classes(): ClassName {
+    classes() {
       return [
         `${this.COMPONENT_NAME}`,
         `${this.COMPONENT_NAME}-polyfill`, // 基于select-input改造时需要移除，polyfill代码，同时移除common中此类名
@@ -136,7 +135,7 @@ export default defineComponent({
       const { popupObject } = this;
       return `${popupObject.overlayClassName} ${this.COMPONENT_NAME}__dropdown narrow-scrollbar`;
     },
-    tipsClass(): ClassName {
+    tipsClass() {
       return [
         `${this.COMPONENT_NAME}__loading-tips`,
         {
@@ -144,7 +143,7 @@ export default defineComponent({
         },
       ];
     },
-    emptyClass(): ClassName {
+    emptyClass() {
       return [
         `${this.COMPONENT_NAME}__empty`,
         {

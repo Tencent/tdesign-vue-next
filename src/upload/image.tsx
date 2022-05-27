@@ -23,6 +23,7 @@ export default defineComponent({
       },
     },
     showUploadProgress: props.showUploadProgress,
+    placeholder: props.placeholder,
     multiple: props.multiple,
     max: props.max,
     disabled: props.disabled,
@@ -96,7 +97,7 @@ export default defineComponent({
         ) : (
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <AddIcon />
-            <p class={`${prefix.value}-size-s`}>{global.value.triggerUploadText.image}</p>
+            <p class={`${prefix.value}-size-s`}>{props.placeholder || global.value.triggerUploadText.image}</p>
           </div>
         )}
       </li>

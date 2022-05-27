@@ -1,10 +1,10 @@
-import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent } from 'vue';
+import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAffix',
@@ -12,11 +12,13 @@ export default defineComponent({
   emits: ['fixedChange'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('affix');
+    const renderTNodeJSX = useTNodeJSX();
 
     const affixWrapRef = ref<HTMLElement>(null);
     const affixRef = ref<HTMLElement>(null);
     const placeholderEL = ref(document.createElement('div')); // 占位节点
     const ticking = ref(false);
+    const binded = ref(false);
 
     const scrollContainer = ref<ScrollContainerElement>();
 
@@ -87,6 +89,22 @@ export default defineComponent({
       }
     };
 
+    const bindScroll = async () => {
+      await nextTick();
+      if (binded.value) return;
+      scrollContainer.value = getScrollContainer(props.container);
+      on(scrollContainer.value, 'scroll', handleScroll);
+      on(window, 'resize', handleScroll);
+      binded.value = true;
+    };
+
+    const unbindScroll = () => {
+      if (!scrollContainer.value || !binded.value) return;
+      off(scrollContainer.value, 'scroll', handleScroll);
+      off(window, 'resize', handleScroll);
+      binded.value = false;
+    };
+
     watch(
       () => props.offsetTop,
       () => {
@@ -108,30 +126,28 @@ export default defineComponent({
       },
     );
 
-    onMounted(async () => {
-      await nextTick();
-      scrollContainer.value = getScrollContainer(props.container);
-      on(scrollContainer.value, 'scroll', handleScroll);
-      on(window, 'resize', handleScroll);
-    });
+    onMounted(bindScroll);
 
-    onBeforeUnmount(() => {
-      if (!scrollContainer.value) return;
-      off(scrollContainer.value, 'scroll', handleScroll);
-      off(window, 'resize', handleScroll);
-    });
+    onActivated(bindScroll);
+
+    onDeactivated(unbindScroll);
+
+    onBeforeUnmount(unbindScroll);
 
     return {
       affixWrapRef,
       affixRef,
+      bindScroll,
+      unbindScroll,
       handleScroll,
       scrollContainer,
+      renderTNodeJSX,
     };
   },
   render() {
     return (
       <div ref="affixWrapRef">
-        <div ref="affixRef">{renderTNodeJSX(this, 'default')}</div>
+        <div ref="affixRef">{this.renderTNodeJSX('default')}</div>
       </div>
     );
   },

@@ -1,9 +1,8 @@
-import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, ref, toRefs } from 'vue';
+import { defineComponent, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
-import { useClickOutsider } from './utils/click-outsider';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
 import { TdColorContext } from './interfaces';
@@ -23,13 +22,6 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
 
     const refTrigger = ref<HTMLElement>();
-    const refColorPanel = ref<ComponentPublicInstance>();
-
-    const { addClickOutsider, removeClickOutsider } = useClickOutsider();
-    onMounted(() => addClickOutsider([refTrigger.value, refColorPanel.value], () => setVisible(false)));
-    onBeforeUnmount(() => {
-      removeClickOutsider();
-    });
 
     const renderPopupContent = () => {
       if (props.disabled) {
@@ -44,7 +36,6 @@ export default defineComponent({
           value={innerValue.value}
           togglePopup={setVisible}
           onChange={(value: string, context: TdColorContext) => setInnerValue(value, context)}
-          ref="refColorPanel"
         />
       );
     };
@@ -54,7 +45,6 @@ export default defineComponent({
       innerValue,
       visible,
       refTrigger,
-      refColorPanel,
       renderPopupContent,
       setVisible,
       setInnerValue,
@@ -71,6 +61,16 @@ export default defineComponent({
       visible: this.visible,
       overlayStyle: {
         padding: 0,
+      },
+      onVisibleChange: (
+        visible: boolean,
+        context: {
+          trigger: string;
+        },
+      ) => {
+        if (context.trigger === 'document') {
+          this.setVisible(false);
+        }
       },
     };
     return (

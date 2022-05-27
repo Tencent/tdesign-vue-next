@@ -11,3 +11,4 @@ jobs:
     secrets:
       TDESIGN_SURGE_TOKEN: ${{ secrets.TDESIGN_SURGE_TOKEN }}
       TDESIGN_NPM_TOKEN: ${{ secrets.TDESIGN_NPM_TOKEN }}
+      PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
