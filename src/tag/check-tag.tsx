@@ -1,8 +1,8 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
-import { renderContent } from '../utils/render-tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
+import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TCheckTag',
@@ -11,6 +11,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();
+    const renderContent = useContent();
 
     const { checked, modelValue } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
@@ -41,19 +42,15 @@ export default defineComponent({
       }
     };
 
-    return {
-      tagClass,
-      handleClick,
-    };
-  },
-  render() {
-    // 标签内容
-    const tagContent = renderContent(this, 'default', 'content');
+    return () => {
+      // 标签内容
+      const tagContent = renderContent('default', 'content');
 
-    return (
-      <span class={this.tagClass} onClick={this.handleClick}>
-        {tagContent}
-      </span>
-    );
+      return (
+        <span class={tagClass.value} onClick={handleClick}>
+          {tagContent}
+        </span>
+      );
+    };
   },
 });

@@ -1,8 +1,9 @@
 import { computed, defineComponent, inject } from 'vue';
 import props from './col-props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../hooks/useConfig';
+
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
+import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TCol',
@@ -13,6 +14,7 @@ export default defineComponent({
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('col');
+    const renderTNodeJSX = useTNodeJSX();
     const rowContext = inject<RowProviderType>('rowContext', Object.create(null));
 
     const size = useRowSize();
@@ -31,20 +33,13 @@ export default defineComponent({
       return colStyle;
     });
 
-    return {
-      size,
-      colClasses,
-      colStyle,
+    return () => {
+      const { tag: TAG } = props;
+      return (
+        <TAG class={colClasses.value} style={colStyle.value}>
+          {renderTNodeJSX('default')}
+        </TAG>
+      );
     };
-  },
-
-  render() {
-    const { colStyle, tag: TAG, colClasses } = this;
-
-    return (
-      <TAG class={colClasses} style={colStyle}>
-        {renderTNodeJSX(this, 'default')}
-      </TAG>
-    );
   },
 });

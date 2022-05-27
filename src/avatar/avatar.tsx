@@ -1,14 +1,16 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
 import props from './props';
 import { TdAvatarProps } from './type';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAvatar',
   props,
   setup(props: TdAvatarProps) {
     const COMPONENT_NAME = usePrefixClass('avatar');
+    const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
     const { SIZE } = useCommonClassName();
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
@@ -76,55 +78,37 @@ export default defineComponent({
       });
     });
 
-    return {
-      COMPONENT_NAME,
-      SIZE,
-      avatar,
-      avatarChild,
-      isImgExist,
-      gap,
-      sizeValue,
-      scale,
-      customAvatarSize,
-      customImageSize,
-      customCharacterSize,
-      isCustomSize,
-      handleImgLoadError,
-      setScaleParams,
+    return () => {
+      let content = renderContent('default', 'content');
+      const icon = renderTNodeJSX('icon');
+      const isIconOnly = icon && !content;
+      const { shape, image, alt } = props;
+      const avatarClass = [
+        `${COMPONENT_NAME.value}`,
+        SIZE[sizeValue.value],
+        {
+          [`${COMPONENT_NAME.value}--circle`]: shape === 'circle',
+          [`${COMPONENT_NAME.value}--round`]: shape === 'round',
+          [`${COMPONENT_NAME.value}__icon`]: !!isIconOnly,
+        },
+      ];
+      content = (
+        <span ref={avatarChild} style={{ ...customCharacterSize.value }}>
+          {content}
+        </span>
+      );
+      if (icon) {
+        content = [icon, !isIconOnly ? content : ''];
+      }
+
+      if (image && isImgExist.value) {
+        content = <img style={{ ...customImageSize.value }} src={image} alt={alt} onError={handleImgLoadError}></img>;
+      }
+      return (
+        <div ref={avatar} class={avatarClass} style={{ ...customAvatarSize.value }}>
+          {content}
+        </div>
+      );
     };
-  },
-
-  render() {
-    const { COMPONENT_NAME, SIZE } = this;
-    let content = renderContent(this, 'default', 'content');
-    const icon = renderTNodeJSX(this, 'icon');
-    const isIconOnly = icon && !content;
-    const { shape, image, alt } = this.$props;
-    const avatarClass = [
-      `${COMPONENT_NAME}`,
-      SIZE[this.sizeValue],
-      {
-        [`${COMPONENT_NAME}--circle`]: shape === 'circle',
-        [`${COMPONENT_NAME}--round`]: shape === 'round',
-        [`${COMPONENT_NAME}__icon`]: !!isIconOnly,
-      },
-    ];
-    content = (
-      <span ref="avatarChild" style={{ ...this.customCharacterSize }}>
-        {content}
-      </span>
-    );
-    if (icon) {
-      content = [icon, !isIconOnly ? content : ''];
-    }
-
-    if (image && this.isImgExist) {
-      content = <img style={{ ...this.customImageSize }} src={image} alt={alt} onError={this.handleImgLoadError}></img>;
-    }
-    return (
-      <div ref="avatar" class={avatarClass} style={{ ...this.customAvatarSize }}>
-        {content}
-      </div>
-    );
   },
 });

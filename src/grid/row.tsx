@@ -1,8 +1,8 @@
 import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
 import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TRow',
@@ -11,6 +11,8 @@ export default defineComponent({
 
   setup(props) {
     const { gutter } = toRefs(props);
+    const renderTNodeJSX = useTNodeJSX();
+
     provide<RowProviderType>(
       'rowContext',
       reactive({
@@ -25,20 +27,13 @@ export default defineComponent({
 
     const rowStyle = computed(() => calcRowStyle(props.gutter, size.value));
 
-    return {
-      rowStyle,
-      size,
-      rowClasses,
+    return () => {
+      const { tag: TAG } = props;
+      return (
+        <TAG class={rowClasses.value} style={rowStyle.value}>
+          {renderTNodeJSX('default')}
+        </TAG>
+      );
     };
-  },
-
-  render() {
-    const { tag: TAG, rowClasses, rowStyle } = this;
-
-    return (
-      <TAG class={rowClasses} style={rowStyle}>
-        {renderTNodeJSX(this, 'default')}
-      </TAG>
-    );
   },
 });
