@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.15.2 `2022-05-27` 
+### 🐞 Bug Fixes
+- `ColorPicker`: 修复 `color-picker-panel` 使用 `v-model` 值没有正确更新 @pengYYYYY ([#843](https://github.com/Tencent/tdesign-vue-next/pull/843))
+- `Form`: 修复表单重置 `onReset` 不传会报错 ([issue #860](https://github.com/Tencent/tdesign-vue-next/issues/860)), ([issue #856](https://github.com/Tencent/tdesign-vue-next/issues/856)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
+- `Upload`: 修复 `placeholder` 在 `image` 模式下不生效 ([issue #853](https://github.com/Tencent/tdesign-vue-next/issues/853)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
+- `Transfer`: 修复列表数量变化时的页码展示问题 @BigLiao ([#864](https://github.com/Tencent/tdesign-vue-next/pull/864))
+- `Form`: 修复实例方法 `reset` 参数不生效的问题 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))
+- `Form`: `reset` 和 `submit` 现在会调用原生 `form` 中的方法 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))
+- `Affix`: 兼容`<keep-alive/>`场景 @kerwin612 ([#870](https://github.com/Tencent/tdesign-vue-next/pull/870))
+- `Tabs`: 修复选项卡新增和删除在normal风格下无效 ([issue #865](https://github.com/Tencent/tdesign-vue/issues/865)) @pengYYYYY ([#880](https://github.com/Tencent/tdesign-vue-next/pull/880))
+- `ColorPicker`:  点击panel会关闭的问题 ([issue#878](https://github.com/Tencent/tdesign-vue-next/issues/878)) @S-mohan ([#885](https://github.com/Tencent/tdesign-vue-next/pull/885))
+- `Select`: 修复 `option` 显示问题 ([issue #799](https://github.com/Tencent/tdesign-vue-next/issues/799)) @pengYYYYY ([#887](https://github.com/Tencent/tdesign-vue-next/pull/887))
+- `Affix`: 兼容`<keep-alive/>`场景 @kerwin612 ([#870](https://github.com/Tencent/tdesign-vue-next/pull/870))
+
+
 ## 🌈 0.15.1 `2022-05-23` 
 ### 🚀 Features
 - `Table`: 支持可编辑单元格的表格 ([issue#614](https://github.com/Tencent/tdesign-vue-next/issues/614)) @chaishi ([#846](https://github.com/Tencent/tdesign-vue-next/pull/846))
