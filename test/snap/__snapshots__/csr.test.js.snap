@@ -119040,6 +119040,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
                     选项卡1
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-is-disabled t-size-m"
@@ -119054,6 +119055,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
                     选项卡2
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119068,6 +119070,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
                     选项卡3
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -119157,6 +119160,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡1
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119171,6 +119175,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡2
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119185,6 +119190,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡3
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -119279,6 +119285,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡一
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119293,6 +119300,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡二
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119307,6 +119315,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
                     选项卡三
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -119447,6 +119456,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡2
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119461,6 +119471,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡3
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119475,6 +119486,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡4
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119489,6 +119501,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡5
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119503,6 +119516,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡6
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119517,6 +119531,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡7
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119531,6 +119546,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡8
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119545,6 +119561,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡9
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119559,6 +119576,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡10
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119573,6 +119591,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡11
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119587,6 +119606,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡12
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119601,6 +119621,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡13
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119615,6 +119636,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡14
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119629,6 +119651,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡15
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119643,6 +119666,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡16
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119657,6 +119681,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡17
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119671,6 +119696,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡18
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119685,6 +119711,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡19
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119699,6 +119726,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡20
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -119713,6 +119741,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                     选项卡21
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -120011,6 +120040,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
                     选项卡1
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120025,6 +120055,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
                     选项卡2
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120039,6 +120070,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
                     选项卡3
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -120195,6 +120227,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
                     
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120218,6 +120251,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
                     
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120241,6 +120275,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
                     
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -120562,6 +120597,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
                     选项卡1
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120576,6 +120612,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
                     选项卡2
                   </span>
                 </div>
+                <!---->
               </div>
               <div
                 class="t-tabs__nav-item t-size-m"
@@ -120590,6 +120627,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
                     选项卡3
                   </span>
                 </div>
+                <!---->
               </div>
               
             </div>
@@ -120682,6 +120720,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡1
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
@@ -120696,6 +120735,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡2
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
@@ -120710,6 +120750,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡3
                     </span>
                   </div>
+                  <!---->
                 </div>
                 
               </div>
@@ -120792,6 +120833,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡1
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-l"
@@ -120806,6 +120848,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡2
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-l"
@@ -120820,6 +120863,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
                       选项卡3
                     </span>
                   </div>
+                  <!---->
                 </div>
                 
               </div>
@@ -120913,6 +120957,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                       选项卡1
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
@@ -120927,6 +120972,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                       选项卡2
                     </span>
                   </div>
+                  <!---->
                 </div>
                 <div
                   class="t-tabs__nav-item t-size-m"
@@ -120941,6 +120987,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
                       选项卡3
                     </span>
                   </div>
+                  <!---->
                 </div>
                 
               </div>
