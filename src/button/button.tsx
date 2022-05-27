@@ -46,7 +46,7 @@ export default defineComponent({
       const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
       const iconOnly = icon && !buttonContent;
 
-      buttonContent = buttonContent ? <span class={`${COMPONENT_NAME}__text`}>{buttonContent}</span> : '';
+      buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
       if (icon) {
         buttonContent = [icon, buttonContent];
       }
@@ -54,9 +54,9 @@ export default defineComponent({
       return (
         <button
           ref="btnRef"
-          class={[...buttonClass.value, { [`${COMPONENT_NAME}--icon-only`]: iconOnly }]}
+          class={[...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }]}
           type={props.type}
-          disabled={props.disabled}
+          disabled={isDisabled.value}
           {...attrs}
           onClick={props.onClick}
         >
