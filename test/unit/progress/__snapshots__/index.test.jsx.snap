@@ -5,11 +5,10 @@ exports[`Progress > :props > :color > :color is Array, equal to ["#f00", "#0ff",
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -32,11 +31,10 @@ exports[`Progress > :props > :color > :color is Object, equal to { "0%": "#f00",
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -59,11 +57,10 @@ exports[`Progress > :props > :color > :color is String, equal to "#aaa" 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -86,11 +83,10 @@ exports[`Progress > :props > :label > :label is String, equal to "custom label t
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -113,11 +109,10 @@ exports[`Progress > :props > :label > :label is TNode, equal to () => "tnode" 1`
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -140,11 +135,10 @@ exports[`Progress > :props > :label > :label is boolean, equal to false 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -167,11 +161,10 @@ exports[`Progress > :props > :label > :label is boolean, equal to true 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -194,11 +187,10 @@ exports[`Progress > :props > :percentage > :percentage is between 0 to 100, equa
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -225,7 +217,6 @@ exports[`Progress > :props > :percentage > :percentage is great equal than 100, 
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -248,11 +239,10 @@ exports[`Progress > :props > :percentage > :percentage is less than 0, equal to 
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -275,11 +265,10 @@ exports[`Progress > :props > :size > :size is Number, equal to 50 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -302,11 +291,10 @@ exports[`Progress > :props > :size > :size is String, equal to "large" 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -329,11 +317,10 @@ exports[`Progress > :props > :size > :size is String, equal to "medium" 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -356,11 +343,10 @@ exports[`Progress > :props > :size > :size is String, equal to "small" 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -387,7 +373,6 @@ exports[`Progress > :props > :status > :status is active 1`] = `
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -414,7 +399,6 @@ exports[`Progress > :props > :status > :status is error 1`] = `
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -453,7 +437,6 @@ exports[`Progress > :props > :status > :status is success 1`] = `
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -492,7 +475,6 @@ exports[`Progress > :props > :status > :status is warning 1`] = `
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -527,7 +509,7 @@ exports[`Progress > :props > :strokeWidth > :strokeWidth is Number, equal to 50 
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
@@ -554,7 +536,7 @@ exports[`Progress > :props > :strokeWidth > :strokeWidth is String, equal to "50
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
@@ -583,7 +565,7 @@ exports[`Progress > :props > :theme > :theme circle progress has t-progress__cir
   <!---->
   <!---->
   <div
-    class="t-progress--circle t-progress--status--undefined"
+    class="t-progress--circle t-progress--status--default"
     style="width: 112px; height: 112px; font-size: 20px;"
   >
     <div
@@ -626,11 +608,10 @@ exports[`Progress > :props > :theme > :theme line and plump progress have t-prog
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -654,8 +635,7 @@ exports[`Progress > :props > :theme > :theme line and plump progress have t-prog
 >
   <!---->
   <div
-    class="t-progress__bar t-progress--plump t-progress--under-ten"
-    style="border-radius: undefinedpx;"
+    class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
   >
     <div
       class="t-progress__inner"
@@ -679,8 +659,7 @@ exports[`Progress > :props > :theme > :theme line and plump progress have t-prog
 >
   <!---->
   <div
-    class="t-progress__bar t-progress--plump t-progress--under-ten"
-    style="border-radius: undefinedpx;"
+    class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
   >
     <div
       class="t-progress__inner"
@@ -704,8 +683,7 @@ exports[`Progress > :props > :theme > :theme line and plump progress have t-prog
 >
   <!---->
   <div
-    class="t-progress__bar t-progress--plump t-progress--over-ten"
-    style="border-radius: undefinedpx;"
+    class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
   >
     <div
       class="t-progress__inner"
@@ -730,7 +708,7 @@ exports[`Progress > :props > :theme > :theme:circle 1`] = `
   <!---->
   <!---->
   <div
-    class="t-progress--circle t-progress--status--undefined"
+    class="t-progress--circle t-progress--status--default"
     style="width: 112px; height: 112px; font-size: 20px;"
   >
     <div
@@ -763,11 +741,10 @@ exports[`Progress > :props > :theme > :theme:line 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"
@@ -791,8 +768,7 @@ exports[`Progress > :props > :theme > :theme:plump 1`] = `
 >
   <!---->
   <div
-    class="t-progress__bar t-progress--plump t-progress--under-ten"
-    style="border-radius: undefinedpx;"
+    class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
   >
     <div
       class="t-progress__inner"
@@ -815,11 +791,11 @@ exports[`Progress > :props > :trackColor > :trackColor is "#aaa" 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="background-color: rgb(170, 170, 170); border-radius: undefinedpx;"
+      style="background-color: rgb(170, 170, 170);"
     >
       <div
         class="t-progress__inner"
@@ -842,11 +818,10 @@ exports[`Progress > pure progress contains one class 1`] = `
   class="t-progress"
 >
   <div
-    class="t-progress--thin t-progress--status--undefined"
+    class="t-progress--thin t-progress--status--default"
   >
     <div
       class="t-progress__bar"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="t-progress__inner"

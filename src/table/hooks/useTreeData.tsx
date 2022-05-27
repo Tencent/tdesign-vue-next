@@ -12,7 +12,7 @@ import { useTNodeDefault } from '../../hooks';
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);
   const { t, global } = useConfig('table');
-  const store = ref(new TableTreeStore() as InstanceType<typeof TableTreeStore>);
+  const store = ref(new TableTreeStore());
   const treeNodeCol = ref<PrimaryTableCol>();
   const dataSource = ref<TdEnhancedTableProps['data']>([]);
   const { tableTreeClasses } = useClassName();
@@ -39,6 +39,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       defaultNode: defaultExpandIcon,
       params,
     });
+  });
+
+  const checkedColumn = computed(() => columns.value.find((col) => col.colKey === 'row-select'));
+
+  watch(checkedColumn, (column) => {
+    if (!store.value) return;
+    store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
   watch(
@@ -92,16 +99,16 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * 组件实例方法，展开或收起某一行
    * @param p 行数据
    */
-  function toggleExpandData(p: { row: TableRowData; rowIndex: number; trigger?: 'inner' }) {
+  function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon') {
     dataSource.value = [...store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value)];
-    if (p?.trigger === 'inner') {
-      const rowValue = get(p.row, rowDataKeys.value.rowKey);
-      props.onTreeExpandChange?.({
-        row: p.row,
-        rowIndex: p.rowIndex,
-        rowState: store.value?.treeDataMap?.get(rowValue),
-      });
-    }
+    const rowValue = get(p.row, rowDataKeys.value.rowKey);
+    const rowState = store.value?.treeDataMap?.get(rowValue);
+    props.onTreeExpandChange?.({
+      row: p.row,
+      rowIndex: p.rowIndex,
+      rowState,
+      trigger,
+    });
   }
 
   function getTreeNodeColumnCol() {
@@ -133,7 +140,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
             {!!childrenNodes.length && (
-              <span class={tableTreeClasses.icon} onClick={() => toggleExpandData({ ...p, trigger: 'inner' })}>
+              <span class={tableTreeClasses.icon} onClick={() => toggleExpandData(p, 'expand-fold-icon')}>
                 {iconNode}
               </span>
             )}

@@ -10,7 +10,7 @@ import { injectKey } from './const';
 export default defineComponent({
   name: 'TDropdown',
   props,
-  setup(props, { attrs, slots }) {
+  setup(props: TdDropdownProps, { attrs, slots }) {
     const renderTNode = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
     const popupElem = ref(null);

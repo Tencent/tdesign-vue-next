@@ -41,7 +41,7 @@ export default defineComponent({
     }
 
     function toggle() {
-      if (props.disabled || props.loading) {
+      if (disabled.value || props.loading) {
         return;
       }
       handleToggle();
@@ -110,8 +110,7 @@ export default defineComponent({
       }
       return null;
     });
-
-    const renderContent = () => {
+    return () => {
       let switchContent: VNodeChild;
       let loadingContent: TNodeReturnValue;
       if (props.loading) {
@@ -127,13 +126,5 @@ export default defineComponent({
         </div>
       );
     };
-
-    return {
-      renderContent,
-    };
-  },
-
-  render() {
-    return this.renderContent();
   },
 });

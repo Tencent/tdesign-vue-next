@@ -10,13 +10,19 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import TInput from '../input/index';
 import Tag from '../tag/index';
 import FakeArrow from '../common-components/fake-arrow';
-import Popup, { PopupProps } from '../popup/index';
+import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import Option from './option';
 import OptionGroup from './optionGroup';
 
 import props from './props';
-import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
-import { ClassName } from '../common';
+import {
+  SelectOption,
+  TdOptionProps,
+  SelectValue,
+  TdSelectProps,
+  SelectOptionGroup,
+  SelectValueChangeTrigger,
+} from './type';
 import { emitEvent } from '../utils/event';
 
 // hooks
@@ -51,6 +57,9 @@ export default defineComponent({
       tSelect: this,
     };
   },
+  inject: {
+    formItem: { default: undefined },
+  },
   props: { ...props },
   emits: [
     'change',
@@ -65,6 +74,7 @@ export default defineComponent({
     'create',
     'search',
     'visible-change',
+    'popup-visible-change',
   ],
   setup() {
     const disabled = useFormDisabled();
@@ -94,7 +104,7 @@ export default defineComponent({
       defaultProps: {
         trigger: 'click',
         placement: 'bottom-left' as string,
-        overlayClassName: '' as ClassName,
+        overlayClassName: '',
         overlayStyle: {},
       } as PopupProps,
       focusing: false, // filterable时，输入框是否在focus中
@@ -108,7 +118,7 @@ export default defineComponent({
     };
   },
   computed: {
-    classes(): ClassName {
+    classes() {
       return [
         `${this.COMPONENT_NAME}`,
         `${this.COMPONENT_NAME}-polyfill`, // 基于select-input改造时需要移除，polyfill代码，同时移除common中此类名
@@ -125,7 +135,7 @@ export default defineComponent({
       const { popupObject } = this;
       return `${popupObject.overlayClassName} ${this.COMPONENT_NAME}__dropdown narrow-scrollbar`;
     },
-    tipsClass(): ClassName {
+    tipsClass() {
       return [
         `${this.COMPONENT_NAME}__loading-tips`,
         {
@@ -133,7 +143,7 @@ export default defineComponent({
         },
       ];
     },
-    emptyClass(): ClassName {
+    emptyClass() {
       return [
         `${this.COMPONENT_NAME}__empty`,
         {
@@ -178,13 +188,15 @@ export default defineComponent({
             (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
     },
-    showArrow(): boolean {
+    // to fix Computed property "showArrow" is already defined in Props.
+    innerShowArrow(): boolean {
       return (
-        !this.clearable ||
-        !this.isHover ||
-        this.disabled ||
-        (!this.multiple && !this.value && this.value !== 0) ||
-        (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
+        this.showArrow &&
+        (!this.clearable ||
+          !this.isHover ||
+          this.disabled ||
+          (!this.multiple && !this.value && this.value !== 0) ||
+          (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length))))
       );
     },
     canFilter(): boolean {
@@ -348,8 +360,7 @@ export default defineComponent({
       }
       return false;
     },
-    visibleChange(val: boolean) {
-      emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
+    visibleChange(val: boolean, context: PopupVisibleChangeContext) {
       this.visible = val;
       if (!val) {
         this.searchInput = '';
@@ -357,6 +368,9 @@ export default defineComponent({
       }
       val && this.monitorWidth();
       val && this.canFilter && this.doFocus();
+      // 事件重复，需讨论移除其中一个
+      emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
+      emitEvent<Parameters<TdSelectProps['onPopupVisibleChange']>>(this, 'popup-visible-change', val, context);
     },
     onOptionClick(value: string | number, e: MouseEvent | KeyboardEvent) {
       if (this.value !== value) {
@@ -367,7 +381,7 @@ export default defineComponent({
               this.removeTag(index, { e });
             } else {
               this.value.push(this.realOptions.filter((item) => get(item, this.realValue) === value)[0]);
-              this.emitChange(this.value);
+              this.emitChange(this.value, 'check');
             }
           } else {
             const index = this.value.indexOf(value);
@@ -375,11 +389,11 @@ export default defineComponent({
               this.removeTag(index, { e });
             } else {
               this.value.push(value);
-              this.emitChange(this.value);
+              this.emitChange(this.value, 'check');
             }
           }
         } else {
-          this.emitChange(value);
+          this.emitChange(value, 'check');
         }
       }
       if (!this.multiple) {
@@ -402,7 +416,7 @@ export default defineComponent({
       const removeOption = this.realOptions.filter((item) => get(item, this.realValue) === val);
       const tempValue = this.value instanceof Array ? [].concat(this.value) : [];
       tempValue.splice(index, 1);
-      this.emitChange(tempValue);
+      this.emitChange(tempValue, 'tag-remove');
       emitEvent(this, 'remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
@@ -411,9 +425,9 @@ export default defineComponent({
     clearSelect(e: MouseEvent) {
       e.stopPropagation();
       if (this.multiple) {
-        this.emitChange([]);
+        this.emitChange([], 'clear');
       } else {
-        this.emitChange('');
+        this.emitChange('', 'clear');
       }
       this.focusing = false;
       this.searchInput = '';
@@ -445,7 +459,7 @@ export default defineComponent({
         }
       });
     },
-    emitChange(val: SelectValue | Array<SelectValue>) {
+    emitChange(val: SelectValue | Array<SelectValue>, trigger: SelectValueChangeTrigger) {
       let value: SelectValue | Array<SelectValue> | Array<TdOptionProps> | TdOptionProps;
       if (this.labelInValue) {
         if (Array.isArray(val)) {
@@ -461,9 +475,13 @@ export default defineComponent({
       } else {
         value = val;
       }
-      emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value);
+      emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value, { trigger });
     },
     createOption(value: string) {
+      this.$nextTick(() => {
+        this.searchInput = '';
+        this.showCreateOption = false;
+      });
       emitEvent<Parameters<TdSelectProps['onCreate']>>(this, 'create', value);
     },
     debounceOnRemote: debounce(function (this: any) {
@@ -520,9 +538,6 @@ export default defineComponent({
         case 'Enter':
           if (this.showCreateOption) {
             this.createOption(this.searchInput);
-            this.$nextTick(() => {
-              this.searchInput = '';
-            });
           }
           this.hoverOptions[this.hoverIndex] &&
             this.onOptionClick(this.hoverOptions[this.hoverIndex][this.realValue], e);
@@ -834,7 +849,7 @@ export default defineComponent({
                 onEnter={this.enter}
               />
             )}
-            {this.showArrow && !this.showLoading && (
+            {this.innerShowArrow && !this.showLoading && (
               <FakeArrow
                 overlayClassName={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
                 isActive={this.visible && !this.disabled}

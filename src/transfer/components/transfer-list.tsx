@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType, ref, computed } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed, watch } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -10,7 +10,7 @@ import {
 } from '../interface';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
-import { getLeefCount, getDataValues } from '../utils';
+import { getLefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
@@ -121,9 +121,7 @@ export default defineComponent({
           }
         : {};
     });
-    const hasFooter = computed(() => {
-      return !!slots.default;
-    });
+
     const isAllChecked = computed(() => {
       return (
         props.checkedValue.length > 0 &&
@@ -135,7 +133,14 @@ export default defineComponent({
     });
 
     const totalCount = computed(() => {
-      return getLeefCount(props.dataSource);
+      return getLefCount(props.dataSource);
+    });
+
+    watch(totalCount, (val) => {
+      if (val <= (currentPage.value - 1) * pageSize.value) {
+        const lastPage = Math.ceil(val / pageSize.value);
+        defaultCurrent.value = lastPage;
+      }
     });
 
     const handlePaginationChange = (pageInfo: PageInfo) => {

@@ -74,11 +74,6 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   showErrorMessage?: boolean;
   /**
-   * 表单尺寸
-   * @default medium
-   */
-  size?: 'medium' | 'large';
-  /**
    * 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标
    */
   statusIcon?: boolean | TNode<TdFormItemProps>;
@@ -122,7 +117,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
   /**
    * 校验函数，泛型 `FormData` 表示表单数据 TS 类型。<br/>【关于参数】`params.fields` 表示校验字段，如果设置了 `fields`，本次校验将仅对这些字段进行校验。`params.trigger` 表示本次触发校验的范围，'blur' 表示只触发校验规则设定为 trigger='blur' 的字段，'change' 表示只触发校验规则设定为 trigger='change' 的字段，默认触发全范围校验。<br />【关于返回值】返回值为 true 表示校验通过；如果校验不通过，返回值为校验结果列表
    */
-  validate?: (params?: FormValidateParams) => FormValidateResult<FormData>;
+  validate?: (params?: FormValidateParams) => Promise<FormValidateResult<FormData>>;
 }
 
 export interface TdFormItemProps {
@@ -133,9 +128,8 @@ export interface TdFormItemProps {
   for?: string;
   /**
    * 表单项说明内容
-   * @default ''
    */
-  help?: string;
+  help?: string | TNode;
   /**
    * 字段标签名称
    * @default ''
@@ -151,7 +145,6 @@ export interface TdFormItemProps {
   labelWidth?: string | number;
   /**
    * 表单字段名称
-   * @default ''
    */
   name?: string;
   /**
@@ -344,7 +337,7 @@ export type ErrorList = Array<FormRule>;
 
 export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
 
-export interface FormResetParams {
+export interface FormResetParams<FormData extends Record<string, unknown> = Record<string, unknown>> {
   type: 'initial' | 'empty';
   fields?: Array<keyof FormData>;
 }

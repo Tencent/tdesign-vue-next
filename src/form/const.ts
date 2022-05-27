@@ -1,5 +1,7 @@
-import { computed } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { computed, InjectionKey } from 'vue';
+import { FormItemValidateResult } from '@src/form/form-item';
+import { usePrefixClass, useTNodeJSX } from '../hooks';
+import { FormItemValidateMessage, TdFormItemProps, TdFormProps, ValidateResultType, ValidateTriggerType } from './type';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -50,3 +52,45 @@ export const useCLASSNAMES = () => {
     };
   });
 };
+
+export type ErrorListType =
+  | {
+      result: false;
+      message: string;
+      type: 'error' | 'warning';
+    }
+  | ValidateResultType;
+
+export type SuccessListType =
+  | {
+      result: true;
+      message: string;
+      type: 'success';
+    }
+  | ValidateResultType;
+
+export interface FormItemContext {
+  name: TdFormItemProps['name'];
+  resetHandler: () => void;
+  resetField: (resetType?: 'initial' | 'empty') => Promise<void>;
+  validate: <T>(trigger: ValidateTriggerType) => Promise<FormItemValidateResult<T>>;
+  setValidateMessage: (validateMessage: FormItemValidateMessage[]) => void;
+}
+
+export const FormInjectionKey: InjectionKey<{
+  showErrorMessage: TdFormProps['showErrorMessage'];
+  labelWidth: TdFormProps['labelWidth'];
+  labelAlign: TdFormProps['labelAlign'];
+  data: TdFormProps['data'];
+  colon: TdFormProps['colon'];
+  requiredMark: TdFormProps['requiredMark'];
+  rules: TdFormProps['rules'];
+  errorMessage: TdFormProps['errorMessage'];
+  resetType: TdFormProps['resetType'];
+  children: FormItemContext[];
+  renderContent: ReturnType<typeof useTNodeJSX>;
+}> = Symbol('FormProvide');
+
+export const FormItemInjectionKey: InjectionKey<{
+  handleBlur: () => Promise<void>;
+}> = Symbol('FormItemProvide');

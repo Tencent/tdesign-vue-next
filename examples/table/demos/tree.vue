@@ -15,7 +15,7 @@
     <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
     <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
     <!-- tree.defaultExpandAll: true 默认展开全部 -->
-    <!-- this.$refs.table.dataSource 查看树形结构平铺数据 -->
+    <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
     <t-enhanced-table
       ref="table"
       row-key="key"
@@ -28,6 +28,7 @@
       :before-drag-sort="beforeDragSort"
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
+      @tree-expand-change="onTreeExpandChange"
     ></t-enhanced-table>
 
     <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
@@ -268,6 +269,10 @@ const onAbnormalDragSort = (params) => {
   if (params.code === 1001) {
     MessagePlugin.warning('不同层级的元素，不允许调整顺序');
   }
+};
+
+const onTreeExpandChange = (context) => {
+  console.log(context.rowState.expanded ? '展开' : '收起', context);
 };
 
 // 应用于需要阻止拖拽排序的场景。如：当子节点存在时，则不允许调整顺序。

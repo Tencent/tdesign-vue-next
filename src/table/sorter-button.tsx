@@ -86,7 +86,7 @@ export default defineComponent({
         <Tooltip
           content={tips}
           placement="right"
-          {...this.tooltipProps}
+          {...(this.tooltipProps as TooltipProps)}
           showArrow={false}
           class={this.tableSortClasses.iconDirection[direction]}
         >

@@ -1,5 +1,5 @@
 import _DatePicker from './date-picker';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdDatePickerProps, TdDateRangePickerProps } from './type';
 import mapProps from '../utils/map-props';
 
@@ -9,7 +9,7 @@ export * from './type';
 export type DatePickerProps = TdDatePickerProps;
 export type DateRangePickerProps = TdDateRangePickerProps;
 
-export const DatePicker: WithInstallType<typeof _DatePicker> = withInstall(
+export const DatePicker = withInstall(
   mapProps([
     {
       name: 'value',

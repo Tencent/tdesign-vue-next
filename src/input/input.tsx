@@ -80,7 +80,12 @@ export default defineComponent({
 
       if (showClear.value) {
         suffixIcon = (
-          <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitClear} />
+          <CloseCircleFilledIcon
+            ref={inputHandle.clearIconRef}
+            class={`${COMPONENT_NAME.value}__suffix-clear`}
+            onClick={inputHandle.emitClear}
+            onMousedown={inputHandle.onClearIconMousedown}
+          />
         );
       }
 
@@ -146,7 +151,7 @@ export default defineComponent({
               {...inputAttrs.value}
               {...inputEvents}
               ref={inputRef}
-              value={inputValue.value}
+              value={inputValue.value ?? ''}
               onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
             />
             {props.autoWidth && (

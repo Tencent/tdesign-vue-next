@@ -7,6 +7,7 @@ on:
 jobs:
   compressed-size:
     runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'release/')
     steps:
       - uses: actions/checkout@v3
         with:

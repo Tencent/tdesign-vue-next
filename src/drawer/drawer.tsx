@@ -2,7 +2,6 @@ import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue'
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { isServer, addClass, removeClass } from '../utils/dom';
-import { ClassName, Styles } from '../common';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
@@ -14,17 +13,10 @@ type FooterButtonType = 'confirm' | 'cancel';
 
 export default defineComponent({
   name: 'TDrawer',
-
-  components: {
-    CloseIcon,
-    TButton,
-  },
-
   directives: {
     TransferDom,
   },
   props,
-  // TODO update:visible 是否是受控的
   emits: ['update:visible'],
   setup(props, context) {
     const { global } = useConfig('drawer');
@@ -41,7 +33,7 @@ export default defineComponent({
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     const drawerEle = ref<HTMLElement | null>(null);
-    const drawerClasses = computed<ClassName>(() => {
+    const drawerClasses = computed(() => {
       return [
         't-drawer',
         `t-drawer--${props.placement}`,
@@ -72,7 +64,7 @@ export default defineComponent({
       };
     });
 
-    const wrapperClasses = computed<ClassName>(() => {
+    const wrapperClasses = computed(() => {
       return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${props.placement}`];
     });
 
@@ -84,7 +76,7 @@ export default defineComponent({
       return [props.mode, props.placement].join();
     });
 
-    const footerStyle = computed<Styles>(() => {
+    const footerStyle = computed(() => {
       return {
         display: 'flex',
         justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
@@ -119,14 +111,14 @@ export default defineComponent({
       const theme = isCancel ? 'default' : 'primary';
       const isApiObject = typeof btnApi === 'object';
       return (
-        <t-button
+        <TButton
           theme={theme}
           onClick={clickAction}
           props={isApiObject ? btnApi : {}}
           class={`${COMPONENT_NAME.value}-${btnType}`}
         >
           {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
-        </t-button>
+        </TButton>
       );
     };
     const isUseDefault = (btnApi: FooterButton) => {
@@ -224,18 +216,19 @@ export default defineComponent({
   render() {
     const { COMPONENT_NAME } = this;
     if (this.destroyOnClose && !this.visible) return;
-    const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
+    const defaultCloseBtn = <CloseIcon class="t-submenu-icon"></CloseIcon>;
     const body = renderContent(this, 'body', 'default');
     const headerContent = renderTNodeJSX(this, 'header');
     const defaultFooter = this.getDefaultFooter();
     return (
       <div
+        ref="drawerEle"
         class={this.drawerClasses}
         style={{ zIndex: this.zIndex }}
         onKeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
         {...this.$attrs}
-        ref="drawerEle"
+        tabindex={0}
       >
         {this.showOverlay && <div class={`${COMPONENT_NAME}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>

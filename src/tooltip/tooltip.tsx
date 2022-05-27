@@ -15,8 +15,9 @@ export default defineComponent({
     ...popupProps,
     ...props,
   },
-  setup(props) {
+  setup(props, ctx) {
     const timer = ref(null);
+    const popupRef = ref(null);
 
     const { visible, modelValue } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(
@@ -97,6 +98,19 @@ export default defineComponent({
       },
     );
 
-    return () => <Popup visible={innerVisible.value} {...popupProps.value} overlayStyle={overlayStyle.value} />;
+    const onPopupUpdate = () => {
+      popupRef.value?.updatePopper?.();
+    };
+
+    /**
+     * 透传更新popup实例方法，供外部调用
+     */
+    ctx.expose({
+      updatePopper: onPopupUpdate,
+    });
+
+    return () => (
+      <Popup ref={popupRef} visible={innerVisible.value} {...popupProps.value} overlayStyle={overlayStyle.value} />
+    );
   },
 });

@@ -14,6 +14,8 @@ export default function useClassName() {
       tdLastRow: `${classPrefix.value}-table__td-last-row`,
       tdFirstCol: `${classPrefix.value}-table__td-first-col`,
       thCellInner: `${classPrefix.value}-table__th-cell-inner`,
+      cellEditable: `${classPrefix.value}-table__cell--editable`,
+      cellEditWrap: `${classPrefix.value}-table__cell-wrap`,
       bordered: `${classPrefix.value}-table--bordered`,
       striped: `${classPrefix.value}-table--striped`,
       hover: `${classPrefix.value}-table--hoverable`,

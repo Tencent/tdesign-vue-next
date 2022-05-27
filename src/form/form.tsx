@@ -1,104 +1,93 @@
-import { defineComponent, VNode, ComponentPublicInstance, provide, toRefs } from 'vue';
+import { defineComponent, provide, toRefs, computed, ref, reactive } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
-import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList } from './type';
+import isFunction from 'lodash/isFunction';
+import {
+  FormValidateResult,
+  TdFormProps,
+  FormValidateParams,
+  ValidateResultList,
+  FormValidateMessage,
+  FormResetParams,
+} from './type';
 import props from './props';
-import { useCLASSNAMES, FORM_CONTROL_COMPONENTS } from './const';
-import FormItem from './form-item';
-import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
-import { emitEvent } from '../utils/event';
+import { useCLASSNAMES, FormInjectionKey, FormItemContext } from './const';
+import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider } from './hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-
-export type FormItemInstance = InstanceType<typeof FormItem>;
+import { useTNodeJSX, usePrefixClass } from '../hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
 export default defineComponent({
   name: 'TForm',
-  provide(): { form: ComponentPublicInstance } {
-    return {
-      form: this,
-    };
-  },
 
   props: { ...props },
 
-  emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
-
-  setup(props) {
+  setup(props, { expose }) {
+    const renderContent = useTNodeJSX();
     const { disabled } = toRefs(props);
-    const COMPONENT_NAME = usePrefixClass('form');
-
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
     });
+
+    const formRef = ref<HTMLFormElement>(null);
+    const children = ref<FormItemContext[]>([]);
+
+    const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType } =
+      toRefs(props);
+    provide(
+      FormInjectionKey,
+      reactive({
+        showErrorMessage,
+        labelWidth,
+        labelAlign,
+        data,
+        colon,
+        requiredMark,
+        rules,
+        errorMessage,
+        resetType,
+        children,
+        renderContent,
+      }),
+    );
+
+    const COMPONENT_NAME = usePrefixClass('form');
     const CLASS_NAMES = useCLASSNAMES();
+    const formClass = computed(() => [
+      CLASS_NAMES.value.form,
+      { [`${COMPONENT_NAME.value}-inline`]: props.layout === 'inline' },
+    ]);
+
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
 
-    return {
-      CLASS_NAMES,
-      COMPONENT_NAME,
-      FORM_ITEM_CLASS_PREFIX,
-    };
-  },
-
-  data() {
-    return {
-      children: [] as Array<FormItemInstance>,
-    };
-  },
-
-  computed: {
-    formClass(): ClassName {
-      return [
-        this.CLASS_NAMES.form,
-        {
-          [`${this.COMPONENT_NAME}-inline`]: this.layout === 'inline',
-        },
-      ];
-    },
-    controlledComponents(): string[] {
-      let fields = FORM_CONTROL_COMPONENTS;
-      if (this.formControlledComponents?.length) {
-        fields = fields.concat(this.formControlledComponents);
-      }
-      return fields;
-    },
-  },
-
-  methods: {
-    getFirstError(result: Result) {
+    const getFirstError = (result: Result) => {
       if (isBoolean(result)) return '';
       const [firstKey] = Object.keys(result);
-      if (this.scrollToFirstError) {
-        this.scrollTo(`.${this.FORM_ITEM_CLASS_PREFIX + firstKey}`);
+      if (props.scrollToFirstError) {
+        scrollTo(`.${FORM_ITEM_CLASS_PREFIX.value + firstKey}`);
       }
       const resArr = result[firstKey] as ValidateResultList;
       if (!isArray(resArr)) return '';
       return resArr.filter((item) => !item.result)[0].message;
-    },
+    };
     // 校验不通过时，滚动到第一个错误表单
-    scrollTo(selector: string) {
-      const dom = this.$el.querySelector(selector);
-      // eslint-disable-next-line no-undef
-      const behavior = this.scrollToFirstError as ScrollBehavior;
+    const scrollTo = (selector: string) => {
+      const dom = formRef.value?.querySelector(selector);
+      const behavior = props.scrollToFirstError;
       dom && dom.scrollIntoView({ behavior });
-    },
-    isFunction(val: unknown) {
-      return typeof val === 'function';
-    },
-    needValidate(name: string, fields: string[]) {
+    };
+
+    const needValidate = (name: string, fields: string[] | undefined) => {
       if (!fields || !Array.isArray(fields)) return true;
       return fields.indexOf(name) !== -1;
-    },
-    // 对外方法，该方法会触发表单组件错误信息显示
-    async validate(param?: FormValidateParams): Promise<Result> {
+    };
+    const validate = async (param?: FormValidateParams): Promise<Result> => {
       const { fields, trigger = 'all' } = param || {};
-      const list = this.children
-        .filter((child) => this.isFunction(child.validate) && this.needValidate(child.name, fields))
+      const list = children.value
+        .filter((child) => isFunction(child.validate) && needValidate(child.name, fields))
         .map((child) => child.validate(trigger));
       const arr = await Promise.all(list);
       const r = arr.reduce((r, err) => Object.assign(r || {}, err), {});
@@ -108,60 +97,62 @@ export default defineComponent({
         }
       });
       const result = isEmpty(r) ? true : r;
-      emitEvent(this, 'validate', {
+      props.onValidate?.({
         validateResult: result,
-        firstError: this.getFirstError(result),
+        firstError: getFirstError(result),
       });
       return result;
-    },
-    submitHandler(e?: FormSubmitEvent) {
-      if (this.preventSubmitDefault) {
-        e && e.preventDefault();
-        e && e.stopPropagation();
+    };
+    const submitHandler = (e?: FormSubmitEvent) => {
+      if (props.preventSubmitDefault) {
+        e?.preventDefault();
+        e?.stopPropagation();
       }
-      this.validate().then((r) => {
-        emitEvent(this, 'submit', {
-          validateResult: r,
-          firstError: this.getFirstError(r),
-          e,
-        });
+      validate().then((r) => {
+        props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
-    },
-    resetHandler(e?: FormResetEvent) {
-      if (this.preventSubmitDefault) {
-        e && e.preventDefault();
-        e && e.stopPropagation();
-      }
+    };
+    const submit = () => {
+      formRef.value.submit();
+    };
 
-      this.children.filter((child: any) => this.isFunction(child.resetField)).map((child: any) => child.resetField());
-      emitEvent(this, 'reset', { e });
-    },
-    clearValidate(fields?: Array<string>) {
-      this.children.forEach((child) => {
-        if (this.isFunction(child.resetHandler) && this.needValidate(child.name, fields)) {
+    const resetParams = ref<FormResetParams>();
+    const resetHandler = (e?: FormResetEvent) => {
+      if (props.preventSubmitDefault) {
+        e?.preventDefault();
+        e?.stopPropagation();
+      }
+      children.value
+        .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
+        .forEach((child) => child.resetField(resetParams.value?.type));
+      resetParams.value = undefined;
+      props.onReset?.({ e });
+    };
+    const reset = (params?: FormResetParams) => {
+      resetParams.value = params;
+      formRef.value.reset();
+    };
+    const clearValidate = (fields?: Array<string>) => {
+      children.value.forEach((child) => {
+        if (isFunction(child.resetHandler) && needValidate(child.name, fields)) {
           child.resetHandler();
         }
       });
-    },
-    // If there is no reset button in form, this function can be used
-    reset() {
-      this.resetHandler();
-    },
-    // If there is no submit button in form, this function can be used
-    submit() {
-      this.submitHandler();
-    },
-  },
+    };
+    const setValidateMessage = (validateMessage: FormValidateMessage<FormData>) => {
+      const keys = Object.keys(validateMessage);
+      if (!keys.length) return;
+      const list = children.value
+        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(child.name))
+        .map((child) => child.setValidateMessage(validateMessage[child.name]));
+      Promise.all(list);
+    };
 
-  render(): VNode {
-    return (
-      <form
-        ref="form"
-        class={this.formClass}
-        onSubmit={(e) => this.submitHandler(e as MouseEvent)}
-        onReset={(e) => this.resetHandler(e as MouseEvent)}
-      >
-        {this.$slots.default ? this.$slots.default() : []}
+    expose({ validate, submit, reset, clearValidate, setValidateMessage });
+
+    return () => (
+      <form ref={formRef} class={formClass.value} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
+        {renderContent('default')}
       </form>
     );
   },

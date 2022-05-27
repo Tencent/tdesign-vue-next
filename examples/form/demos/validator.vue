@@ -14,6 +14,9 @@
       <t-form-item label="邮箱" name="email">
         <t-input v-model="formData.email"></t-input>
       </t-form-item>
+      <t-form-item label="年龄" name="age">
+        <t-input-number v-model="formData.age" />
+      </t-form-item>
       <t-form-item label="性别" name="gender">
         <t-radio-group v-model="formData.gender">
           <t-radio value="male">男</t-radio>
@@ -52,18 +55,25 @@
   </div>
 </template>
 <script setup>
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const rules = {
   account: [
-    { required: true, message: '姓名必填', type: 'error' },
-    { min: 2, message: '至少需要两个字', type: 'error' },
+    { required: true, message: '姓名必填', type: 'error', trigger: 'blur' },
+    { required: true, message: '姓名必填', type: 'error', trigger: 'change' },
+    { min: 3, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
+    { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
   email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
+  age: [
+    { required: true, message: '年龄必填', type: 'error' },
+    { number: true, message: '请输入数字', type: 'warning' },
+  ],
   gender: [{ required: true, message: '性别必填', type: 'warning' }],
   course: [{ required: true, message: '课程必填', type: 'warning' }],
+  college: [{ required: true, message: '学院必选', type: 'warning', trigger: 'blur' }],
   'content.url': [
     { required: true, message: '个人网站必填', type: 'warning' },
     {
@@ -80,12 +90,14 @@ const INITIAL_DATA = {
   account: '',
   password: '',
   email: '',
+  age: undefined,
   gender: '',
+  course: [],
+  college: '',
   date: '',
   content: {
     url: '',
   },
-  course: [],
 };
 
 const courseOptions = [
@@ -93,12 +105,6 @@ const courseOptions = [
   { label: '数学', value: '2' },
   { label: '英语', value: '3' },
   { label: '体育', value: '4' },
-];
-
-const collegeOptions = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
 ];
 
 const options = [

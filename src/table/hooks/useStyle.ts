@@ -1,6 +1,5 @@
 import { computed, toRefs } from 'vue';
 import { TdBaseTableProps } from '../type';
-import { ClassName, Styles } from '../../common';
 import useClassName from './useClassName';
 import useCommonClassName from '../../hooks/useCommonClassName';
 
@@ -15,7 +14,7 @@ export default function useStyle(props: TdBaseTableProps) {
   const { tableBaseClass, tableAlignClasses } = useClassName();
   const { sizeClassNames } = useCommonClassName();
 
-  const tableClasses = computed<ClassName>(() => [
+  const tableClasses = computed(() => [
     tableBaseClass.table,
     {
       [sizeClassNames[size.value]]: size.value !== 'medium',
@@ -29,12 +28,12 @@ export default function useStyle(props: TdBaseTableProps) {
     },
   ]);
 
-  const tableContentStyles = computed<Styles>(() => ({
+  const tableContentStyles = computed(() => ({
     height: formatCSSUnit(height.value),
     maxHeight: formatCSSUnit(maxHeight.value),
   }));
 
-  const tableElementStyles = computed<Styles>(() => ({
+  const tableElementStyles = computed(() => ({
     width: formatCSSUnit(tableContentWidth.value),
   }));
 

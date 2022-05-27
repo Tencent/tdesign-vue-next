@@ -1,16 +1,18 @@
 import { computed, defineComponent, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import useRipple from '../hooks/useRipple';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TButton',
   inheritAttrs: false,
   props,
-  setup(props) {
+  setup(props, { attrs }) {
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
     const disabled = useFormDisabled();
@@ -39,36 +41,28 @@ export default defineComponent({
       },
     ]);
 
-    return {
-      COMPONENT_NAME,
-      disabled: isDisabled,
-      mergeTheme,
-      buttonClass,
-      btnRef,
+    return () => {
+      let buttonContent = renderContent('default', 'content');
+      const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
+      const iconOnly = icon && !buttonContent;
+
+      buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
+      if (icon) {
+        buttonContent = [icon, buttonContent];
+      }
+
+      return (
+        <button
+          ref="btnRef"
+          class={[...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }]}
+          type={props.type}
+          disabled={isDisabled.value}
+          {...attrs}
+          onClick={props.onClick}
+        >
+          {buttonContent}
+        </button>
+      );
     };
-  },
-  render() {
-    const { COMPONENT_NAME } = this;
-    let buttonContent = renderContent(this, 'default', 'content');
-    const icon = this.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX(this, 'icon');
-    const iconOnly = icon && !buttonContent;
-
-    buttonContent = buttonContent ? <span class={`${COMPONENT_NAME}__text`}>{buttonContent}</span> : '';
-    if (icon) {
-      buttonContent = [icon, buttonContent];
-    }
-
-    return (
-      <button
-        ref="btnRef"
-        class={[...this.buttonClass, { [`${COMPONENT_NAME}--icon-only`]: iconOnly }]}
-        type={this.type}
-        disabled={this.disabled}
-        {...this.$attrs}
-        onClick={this.onClick}
-      >
-        {buttonContent}
-      </button>
-    );
   },
 });

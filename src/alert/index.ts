@@ -1,5 +1,5 @@
 import _Alert from './alert';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdAlertProps } from './type';
 
 import './style';
@@ -7,5 +7,5 @@ import './style';
 export * from './type';
 export type AlertProps = TdAlertProps;
 
-export const Alert: WithInstallType<typeof _Alert> = withInstall(_Alert);
+export const Alert = withInstall(_Alert);
 export default Alert;

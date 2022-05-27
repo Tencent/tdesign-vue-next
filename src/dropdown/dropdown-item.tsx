@@ -2,7 +2,6 @@ import { defineComponent, ref, inject } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import itemProps from './dropdown-item-props';
-import { TNodeReturnValue } from '../common';
 import useRipple from '../hooks/useRipple';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
@@ -36,7 +35,7 @@ export default defineComponent({
     const dropdownProvider = inject(injectKey);
     const { handleMenuClick } = dropdownProvider;
 
-    const renderSuffix = (): TNodeReturnValue => {
+    const renderSuffix = () => {
       return props.hasChildren ? <ChevronRightIcon class={`${COMPONENT_NAME.value}__item-icon`} /> : null;
     };
 

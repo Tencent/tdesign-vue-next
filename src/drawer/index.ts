@@ -1,5 +1,5 @@
 import _Drawer from './drawer';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdDrawerProps } from './type';
 
 import './style';
@@ -7,5 +7,5 @@ import './style';
 export * from './type';
 export type DrawerProps = TdDrawerProps;
 
-export const Drawer: WithInstallType<typeof _Drawer> = withInstall(_Drawer);
+export const Drawer = withInstall(_Drawer);
 export default Drawer;

@@ -1,5 +1,5 @@
 import _TagInput from './tag-input';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdTagInputProps } from './type';
 
 import './style';
@@ -7,6 +7,6 @@ import './style';
 export * from './type';
 export type TagInputProps = TdTagInputProps;
 
-export const TagInput: WithInstallType<typeof _TagInput> = withInstall(_TagInput);
+export const TagInput = withInstall(_TagInput);
 
 export default TagInput;

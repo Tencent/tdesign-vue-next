@@ -79,6 +79,8 @@ export default defineComponent({
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
+    const inputPlaceholder = computed(() => props.placeholder || global.value.placeholder);
+
     const popupClass = computed(() => {
       return `${popupObject.value.overlayClassName} ${classPrefix.value}-select__dropdown-inner ${classPrefix.value}-select__dropdown narrow-scrollbar`;
     });
@@ -469,7 +471,7 @@ export default defineComponent({
         loading={props.loading}
         disabled={tDisabled.value}
         clearable={props.clearable}
-        placeholder={props.placeholder}
+        placeholder={inputPlaceholder.value}
         allowInput={showFilter.value}
         popupVisible={visible.value}
         minCollapsedNum={props.minCollapsedNum}

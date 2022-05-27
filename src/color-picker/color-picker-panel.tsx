@@ -5,22 +5,13 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TColorPickerPanel',
-  components: {
-    ColorPanel,
-  },
-  inheritAttrs: false,
   props: {
     ...props,
   },
-
-  setup() {
+  setup(props, { attrs }) {
     const prefix = usePrefixClass();
-    return {
-      prefix,
-    };
-  },
-  render() {
-    const { prefix } = this;
-    return <color-panel {...this.$props} popupProps={null} close-btn={false} class={`${prefix}-is-inline`} />;
+    return () => (
+      <ColorPanel {...{ ...props, ...attrs }} popupProps={null} close-btn={false} class={`${prefix.value}-is-inline`} />
+    );
   },
 });

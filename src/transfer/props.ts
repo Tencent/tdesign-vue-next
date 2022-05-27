@@ -16,7 +16,7 @@ export default {
   /** 数据列表选中项 */
   checked: {
     type: Array as PropType<TdTransferProps['checked']>,
-    default: (): TdTransferProps['checked'] => [],
+    default: undefined,
   },
   /** 数据列表选中项，非受控属性 */
   defaultChecked: {

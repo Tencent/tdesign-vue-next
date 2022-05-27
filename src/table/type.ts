@@ -16,7 +16,8 @@ import { InputProps } from '../input';
 import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
-import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '../common';
+import { FormRule } from '../form';
+import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes, ComponentType } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
@@ -461,6 +462,10 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    */
   disabled?: (options: { row: T; rowIndex: number }) => boolean;
   /**
+   * 可编辑单元格配置项，具体属性参考文档 `TableEditableCellConfig` 描述
+   */
+  edit?: TableEditableCellConfig<T>;
+  /**
    * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，自定义过滤组件需要包含参数 value 和事件 change
    */
   filter?: TableColumnFilter;
@@ -670,6 +675,29 @@ export interface TableColumnController {
   placement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
+export interface TableEditableCellConfig<T extends TableRowData = TableRowData> {
+  /**
+   * 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态。示例：`abortEditOnEvent: ['onChange']`
+   */
+  abortEditOnEvent?: string[];
+  /**
+   * 组件定义，如：`Input` `Select`
+   */
+  component?: ComponentType;
+  /**
+   * 编辑完成后，退出编辑模式时触发
+   */
+  onEdited?: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
+  /**
+   * 透传给组件 `edit.component` 的属性
+   */
+  props?: { [key: string]: any };
+  /**
+   * 校验规则
+   */
+  rules?: FormRule[];
+}
+
 export interface TableTreeConfig {
   /**
    * 表示树形结构的行选中（多选），父子行选中是否独立
@@ -866,6 +894,7 @@ export interface TableTreeExpandChangeContext<T> {
   row: T;
   rowIndex: number;
   rowState: TableRowState<T>;
+  trigger?: 'expand-fold-icon';
 }
 
 export type TableRowValue = string | number;

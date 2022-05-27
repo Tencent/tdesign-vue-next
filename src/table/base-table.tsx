@@ -292,7 +292,7 @@ export default defineComponent({
         text={customLoadingText ? () => customLoadingText : undefined}
         attach={this.tableRef ? () => this.tableRef : undefined}
         showOverlay
-        {...this.loadingProps}
+        {...(this.loadingProps as BaseTableProps['loadingProps'])}
       ></Loading>
     );
 
@@ -305,7 +305,11 @@ export default defineComponent({
 
         {!!(this.isVirtual || this.headerAffixedTop) &&
           (this.headerAffixedTop ? (
-            <Affix offsetTop={0} {...this.headerAffixProps} onFixedChange={this.onFixedChange}>
+            <Affix
+              offsetTop={0}
+              {...(this.headerAffixProps as BaseTableProps['headerAffixProps'])}
+              onFixedChange={this.onFixedChange}
+            >
               {affixedHeader}
             </Affix>
           ) : (

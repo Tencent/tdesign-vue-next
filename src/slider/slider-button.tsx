@@ -1,15 +1,14 @@
 import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
-import TPopup from '../popup/index';
-import { TdSliderProps } from './type';
+import TTooltip from '../tooltip/index';
 
 import { usePrefixClass } from '../hooks/useConfig';
-import { useSliderPopup } from './hooks/useSliderPopup';
+import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
 
 export default defineComponent({
   name: 'TSliderButton',
   components: {
-    TPopup,
+    TTooltip,
   },
   props: {
     value: {
@@ -20,10 +19,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    popupClass: {
-      type: String,
-      default: '',
-    },
     tooltipProps: {
       type: [Boolean, Object],
       default: true,
@@ -32,11 +27,10 @@ export default defineComponent({
   emits: ['input'],
   setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
-    const { popupRef, popupProps, togglePopup, showTooltip, placement } = useSliderPopup(
+    const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(
       props.tooltipProps,
       props.vertical,
     );
-
     const parentProps = inject(sliderPropsInjectKey);
     const buttonRef = ref();
 
@@ -91,17 +85,17 @@ export default defineComponent({
       value = Number(parseFloat(`${value}`).toFixed(parentProps.precision));
       ctx.emit('input', value);
       nextTick(() => {
-        popupRef.value && popupRef.value.updatePopper?.();
+        tooltipRef.value && tooltipRef.value.updatePopper?.();
       });
     };
 
     const handleMouseEnter = () => {
       (buttonRef.value as ComponentPublicInstance).focus();
-      togglePopup(true);
+      toggleTooltip(true);
     };
     const handleMouseLeave = () => {
       if (!slideButtonProps.dragging) {
-        togglePopup(false);
+        toggleTooltip(false);
       }
     };
 
@@ -148,7 +142,7 @@ export default defineComponent({
       if (slideButtonProps.dragging) {
         setTimeout(() => {
           slideButtonProps.dragging = false;
-          togglePopup(false);
+          toggleTooltip(false);
           if (!slideButtonProps.isClick) {
             setPosition(slideButtonProps.newPos);
           }
@@ -219,22 +213,9 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        <t-popup
-          visible={popupProps.visible}
-          ref={popupRef}
-          popper-class={props.popupClass}
-          disabled={!showTooltip.value}
-          content={String(props.value)}
-          placement={placement.value}
-          trigger={popupProps.trigger}
-          showArrow={popupProps.showArrow}
-          overlayStyle={popupProps.overlayStyle}
-          overlayClassName={popupProps.overlayClassName}
-          attach={popupProps.attach}
-          {...(props.tooltipProps as TdSliderProps['tooltipProps'])}
-        >
+        <t-tooltip ref={tooltipRef} disabled={!showTooltip.value} content={String(props.value)} {...tooltipProps.value}>
           <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
-        </t-popup>
+        </t-tooltip>
       </div>
     );
   },

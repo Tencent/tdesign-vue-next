@@ -1,16 +1,16 @@
 import { ref, Ref, getCurrentInstance, watch } from 'vue';
 
-export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
+export type ChangeHandler<T> = (value: T, ...args: any) => void;
 
-export default function useVModel<T, P extends any[]>(
+export default function useVModel<T, P extends (...args: any) => void>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  onChange: P,
   propName = 'value',
   // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
-): [Ref<T>, ChangeHandler<T, P>] {
-  const { emit } = getCurrentInstance();
+): [Ref<T>, ChangeHandler<T>] {
+  const { emit, attrs } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 
   // 非受控模式,defaultValue 只消费一次
@@ -35,18 +35,19 @@ export default function useVModel<T, P extends any[]>(
   return [
     internalValue,
     (newValue, ...args) => {
-      // 受控模式 v-model:propName
-      if (typeof value.value !== 'undefined') {
+      if (attrs[`onUpdate:${propName}`]) {
+        // 受控模式 v-model:propName
         emit?.(`update:${propName}`, newValue, ...args);
-        onChange?.(newValue, ...args);
-      } else if (typeof modelValue.value !== 'undefined') {
+      } else if (attrs['onUpdate:modelValue']) {
         // 受控模式:modelValue v-model
         emit?.(`update:modelValue`, newValue, ...args);
-        onChange?.(newValue, ...args);
-      } else {
-        internalValue.value = newValue;
-        onChange?.(newValue, ...args);
       }
+
+      if (typeof value.value === 'undefined' && typeof modelValue.value === 'undefined') {
+        internalValue.value = newValue;
+      }
+
+      onChange?.(newValue, ...args);
     },
   ];
 }
