@@ -11,7 +11,6 @@ import {
 } from 'tdesign-icons-vue-next';
 import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
 import props from './props';
@@ -19,6 +18,7 @@ import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
+import { useTNodeJSX } from '../hooks/tnode';
 
 const min = 1;
 
@@ -28,6 +28,7 @@ export default defineComponent({
 
   setup(props) {
     const { modelValue, pageSize, current } = toRefs(props);
+    const renderTNodeJSX = useTNodeJSX();
     const [innerCurrent, setInnerCurrent] = useVModel(
       current,
       modelValue,
@@ -190,6 +191,7 @@ export default defineComponent({
     };
 
     return {
+      renderTNodeJSX,
       global,
       t,
       ...paginationClasses,
@@ -213,7 +215,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { pageCount, innerPageSize, innerCurrent } = this;
+    const { pageCount, innerPageSize, innerCurrent, renderTNodeJSX } = this;
     const { total, pageSizeOptions, size, disabled, showJumper } = this.$props;
 
     if (pageCount < 1) return null;
@@ -221,11 +223,7 @@ export default defineComponent({
     return (
       <div class={this.paginationClass}>
         {/* 数据统计区 */}
-        {renderTNodeJSX(
-          this,
-          'totalContent',
-          <div class={this.totalClass}>{this.t(this.global.total, { total })}</div>,
-        )}
+        {renderTNodeJSX('totalContent', <div class={this.totalClass}>{this.t(this.global.total, { total })}</div>)}
 
         {/* 分页器 */}
         {this.showPageSize && pageSizeOptions.length > 0 && (

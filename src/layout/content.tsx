@@ -1,16 +1,13 @@
 import { defineComponent } from 'vue';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TContent',
   setup() {
-    const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-    };
-  },
-  render() {
-    return <main class={`${this.classPrefix}-layout__content`}>{renderTNodeJSX(this, 'default')}</main>;
+    const COMPONENT_NAME = usePrefixClass('layout__content');
+    const renderTNodeJSX = useTNodeJSX();
+
+    return () => <main class={COMPONENT_NAME.value}>{renderTNodeJSX('default')}</main>;
   },
 });

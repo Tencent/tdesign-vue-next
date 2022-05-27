@@ -3,8 +3,8 @@ import isFunction from 'lodash/isFunction';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAffix',
@@ -12,6 +12,7 @@ export default defineComponent({
   emits: ['fixedChange'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('affix');
+    const renderTNodeJSX = useTNodeJSX();
 
     const affixWrapRef = ref<HTMLElement>(null);
     const affixRef = ref<HTMLElement>(null);
@@ -140,12 +141,13 @@ export default defineComponent({
       unbindScroll,
       handleScroll,
       scrollContainer,
+      renderTNodeJSX,
     };
   },
   render() {
     return (
       <div ref="affixWrapRef">
-        <div ref="affixRef">{renderTNodeJSX(this, 'default')}</div>
+        <div ref="affixRef">{this.renderTNodeJSX('default')}</div>
       </div>
     );
   },

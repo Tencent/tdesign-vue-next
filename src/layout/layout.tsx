@@ -1,6 +1,6 @@
 import { defineComponent, computed, provide, ref, Ref } from 'vue';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export type LayoutProvideType = {
   hasSide: Ref<boolean>;
@@ -11,7 +11,7 @@ export default defineComponent({
 
   setup() {
     const hasSide = ref(false);
-
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('layout');
     const classes = computed(() => [
       COMPONENT_NAME.value,
@@ -22,12 +22,6 @@ export default defineComponent({
 
     provide('layout', { hasSide });
 
-    return {
-      classes,
-    };
-  },
-
-  render() {
-    return <section class={this.classes}>{renderTNodeJSX(this, 'default')}</section>;
+    return () => <section class={classes.value}>{renderTNodeJSX('default')}</section>;
   },
 });

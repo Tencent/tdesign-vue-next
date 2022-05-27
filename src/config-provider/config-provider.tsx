@@ -1,6 +1,6 @@
 import { defineComponent, PropType, provide, computed } from 'vue';
 import { GlobalConfigProvider } from './type';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TConfigProvider',
@@ -16,13 +16,14 @@ export default defineComponent({
         return props.globalConfig;
       }),
     );
-  },
+    const renderTNodeJSX = useTNodeJSX();
 
-  render() {
-    const defaultNode = renderTNodeJSX(this, 'default');
-    if (defaultNode.length === 1) {
-      return defaultNode[0];
-    }
-    return <div>{defaultNode}</div>;
+    return () => {
+      const defaultNode = renderTNodeJSX('default');
+      if (defaultNode.length === 1) {
+        return defaultNode[0];
+      }
+      return <div>{defaultNode}</div>;
+    };
   },
 });

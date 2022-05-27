@@ -1,17 +1,18 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import props from './aside-props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../hooks/useConfig';
 import { LayoutProvideType } from './layout';
+import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAside',
 
   props,
 
-  setup() {
+  setup(props) {
     const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
-    const classPrefix = usePrefixClass();
+    const COMPONENT_NAME = usePrefixClass('layout__sider');
+    const renderTNodeJSX = useTNodeJSX();
     if (!hasSide) return;
 
     onMounted(() => {
@@ -21,18 +22,14 @@ export default defineComponent({
     onUnmounted(() => {
       hasSide.value = false;
     });
-    return {
-      classPrefix,
-    };
-  },
 
-  render() {
-    const { classPrefix } = this;
-    const styles = this.width ? { width: this.width } : {};
-    return (
-      <aside class={`${classPrefix}-layout__sider`} style={styles}>
-        {renderTNodeJSX(this, 'default')}
-      </aside>
-    );
+    return () => {
+      const styles = props.width ? { width: props.width } : {};
+      return (
+        <aside class={COMPONENT_NAME.value} style={styles}>
+          {renderTNodeJSX('default')}
+        </aside>
+      );
+    };
   },
 });

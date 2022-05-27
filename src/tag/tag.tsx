@@ -1,8 +1,8 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import props from './props';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TTag',
@@ -10,6 +10,8 @@ export default defineComponent({
   setup(props) {
     const { global: tagGlobalConfig } = useConfig('tag');
     const COMPONENT_NAME = usePrefixClass('tag');
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const { SIZE } = useCommonClassName();
 
     const tagClass = computed(() => {
@@ -26,6 +28,7 @@ export default defineComponent({
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
+
     const tagStyle = computed<Record<string, string>>(() => {
       return props.maxWidth ? { maxWidth: `${props.maxWidth}px` } : {};
     });
@@ -43,34 +46,27 @@ export default defineComponent({
       return <CloseIcon onClick={({ e }: { e: MouseEvent }) => props.onClose?.({ e })} class={iconClassName} />;
     };
 
-    return {
-      COMPONENT_NAME,
-      tagClass,
-      tagStyle,
-      getCloseIcon,
-      handleClick,
-    };
-  },
-  render() {
-    // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
-    const closeIcon = this.getCloseIcon();
-    // 标签内容
-    const tagContent = renderContent(this, 'default', 'content');
-    // 图标
-    const icon = renderTNodeJSX(this, 'icon');
+    return () => {
+      // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
+      const closeIcon = getCloseIcon();
+      // 标签内容
+      const tagContent = renderContent('default', 'content');
+      // 图标
+      const icon = renderTNodeJSX('icon');
 
-    return (
-      <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
-        {icon}
-        {this.maxWidth ? (
-          <span style={this.tagStyle} class={`${this.COMPONENT_NAME}--text`}>
-            {tagContent}
-          </span>
-        ) : (
-          tagContent
-        )}
-        {closeIcon}
-      </span>
-    );
+      return (
+        <span class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
+          {icon}
+          {props.maxWidth ? (
+            <span style={tagStyle.value} class={`${COMPONENT_NAME.value}--text`}>
+              {tagContent}
+            </span>
+          ) : (
+            tagContent
+          )}
+          {closeIcon}
+        </span>
+      );
+    };
   },
 });

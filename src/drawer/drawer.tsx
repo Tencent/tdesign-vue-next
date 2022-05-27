@@ -5,9 +5,9 @@ import { isServer, addClass, removeClass } from '../utils/dom';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -20,6 +20,8 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props, context) {
     const { global } = useConfig('drawer');
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
 
     const LOCK_CLASS = usePrefixClass('drawer--lock');
@@ -194,6 +196,8 @@ export default defineComponent({
 
     return {
       COMPONENT_NAME,
+      renderTNodeJSX,
+      renderContent,
       drawerEle,
       drawerClasses,
       wrapperStyles,
@@ -214,11 +218,11 @@ export default defineComponent({
   },
 
   render() {
-    const { COMPONENT_NAME } = this;
+    const { COMPONENT_NAME, renderContent, renderTNodeJSX } = this;
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <CloseIcon class="t-submenu-icon"></CloseIcon>;
-    const body = renderContent(this, 'body', 'default');
-    const headerContent = renderTNodeJSX(this, 'header');
+    const body = renderContent('body', 'default');
+    const headerContent = renderTNodeJSX('header');
     const defaultFooter = this.getDefaultFooter();
     return (
       <div
@@ -235,13 +239,11 @@ export default defineComponent({
           {headerContent && <div class={`${COMPONENT_NAME}__header`}>{headerContent}</div>}
           {this.closeBtn && (
             <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
-              {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
+              {renderTNodeJSX('closeBtn', defaultCloseBtn)}
             </div>
           )}
           <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>
-          {this.footer && (
-            <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
-          )}
+          {this.footer && <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>}
         </div>
       </div>
     );

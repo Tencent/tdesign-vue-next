@@ -1,10 +1,10 @@
 import { h, defineComponent } from 'vue';
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
-import { renderContent } from '../utils/render-tnode';
 import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useContent } from '../hooks/tnode';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],
@@ -56,8 +56,9 @@ export default defineComponent({
 
   props: { ...props },
 
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('skeleton');
+    const renderContent = useContent();
     const getColItemClass = (obj: SkeletonRowColObj) => [
       `${COMPONENT_NAME.value}__col`,
       `${COMPONENT_NAME.value}--type-${obj.type || 'text'}`,
@@ -88,35 +89,30 @@ export default defineComponent({
       return rowCol.map((item) => <div class={getBlockClass()}>{renderCols(item)}</div>);
     };
 
-    return {
-      COMPONENT_NAME,
-      renderRowCol,
+    return () => {
+      const content = renderContent('default', 'content');
+
+      if (slots.default && !props.loading) {
+        return <div>{content}</div>;
+      }
+
+      if (!props.loading) {
+        return;
+      }
+
+      const children = [];
+      if (props.theme) {
+        children.push(renderRowCol(ThemeMap[props.theme]));
+      }
+      if (props.rowCol) {
+        children.push(renderRowCol(props.rowCol));
+      }
+      if (!props.theme && !props.rowCol) {
+        // 什么都不传时，传入默认 rowCol
+        children.push(renderRowCol([1, 1, 1, { width: '70%' }]));
+      }
+
+      return <div class={COMPONENT_NAME.value}>{children}</div>;
     };
-  },
-
-  render() {
-    const content = renderContent(this, 'default', 'content');
-
-    if (this.$slots.default && !this.loading) {
-      return <div>{content}</div>;
-    }
-
-    if (!this.loading) {
-      return;
-    }
-
-    const children = [];
-    if (this.theme) {
-      children.push(this.renderRowCol(ThemeMap[this.theme]));
-    }
-    if (this.rowCol) {
-      children.push(this.renderRowCol(this.rowCol));
-    }
-    if (!this.theme && !this.rowCol) {
-      // 什么都不传时，传入默认 rowCol
-      children.push(this.renderRowCol([1, 1, 1, { width: '70%' }]));
-    }
-
-    return <div class={this.COMPONENT_NAME}>{children}</div>;
   },
 });

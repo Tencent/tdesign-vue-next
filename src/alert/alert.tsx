@@ -8,10 +8,10 @@ import {
 } from 'tdesign-icons-vue-next';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAlert',
@@ -19,6 +19,7 @@ export default defineComponent({
   setup(props) {
     const { global, classPrefix } = useConfig('alert');
     const COMPONENT_NAME = usePrefixClass('alert');
+    const renderTNodeJSX = useTNodeJSX();
 
     const renderIconTNode = useIcon();
     // alert的dom引用
@@ -62,12 +63,12 @@ export default defineComponent({
     };
 
     const renderTitle = (context: ComponentPublicInstance) => {
-      const titleContent = renderTNodeJSX(context, 'title');
+      const titleContent = renderTNodeJSX('title');
       return titleContent ? <div class={`${COMPONENT_NAME.value}__title`}> {titleContent}</div> : null;
     };
 
     const renderMessage = (context: ComponentPublicInstance) => {
-      const operationContent = renderTNodeJSX(context, 'operation');
+      const operationContent = renderTNodeJSX('operation');
       return (
         <div class={`${COMPONENT_NAME.value}__message`}>
           {renderDescription(context)}
@@ -79,9 +80,9 @@ export default defineComponent({
     const renderDescription = (context: ComponentPublicInstance) => {
       let messageContent;
 
-      messageContent = renderTNodeJSX(context, 'default');
+      messageContent = renderTNodeJSX('default');
       if (!messageContent) {
-        messageContent = renderTNodeJSX(context, 'message');
+        messageContent = renderTNodeJSX('message');
       }
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
