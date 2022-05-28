@@ -53,7 +53,7 @@ export default defineComponent({
 
       return (
         <button
-          ref="btnRef"
+          ref={btnRef}
           class={[...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }]}
           type={props.type}
           disabled={isDisabled.value}
