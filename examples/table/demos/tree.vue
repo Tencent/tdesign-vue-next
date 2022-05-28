@@ -28,6 +28,7 @@
       :before-drag-sort="beforeDragSort"
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
+      @drag-sort="onDragSort"
       @tree-expand-change="onTreeExpandChange"
     ></t-enhanced-table>
 
@@ -275,10 +276,14 @@ const onTreeExpandChange = (context) => {
   console.log(context.rowState.expanded ? '展开' : '收起', context);
 };
 
+const onDragSort = (params) => {
+  console.log('onDragSort:', params);
+};
+
 // 应用于需要阻止拖拽排序的场景。如：当子节点存在时，则不允许调整顺序。
 // 返回值为 true，允许拖拽排序；返回值 为 false，则阻止拖拽排序
 const beforeDragSort = (params) => {
-  console.log(params);
+  console.log('beforeDragSort:', params);
   return true;
 };
 </script>
