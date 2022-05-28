@@ -193,7 +193,7 @@ export default defineComponent({
       const trNode = (
         <TrElement
           v-slots={this.$slots}
-          key={get(row, this.rowKey || 'id')}
+          key={`${get(row, this.rowKey || 'id')}__${rowIndex}`}
           {...trProps}
           onRowMounted={this.handleRowMounted}
         ></TrElement>
