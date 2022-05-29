@@ -17,7 +17,6 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
-import { renderCell } from './tr';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -54,7 +53,7 @@ export default defineComponent({
 
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
-    const { columns } = toRefs(props);
+    const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref<HTMLDivElement>(null);
     const { tableDraggableClasses, tableBaseClass } = useClassName();
     // 自定义列配置功能
@@ -167,90 +166,70 @@ export default defineComponent({
       props.onChange?.(...changeParams);
     };
 
-    return {
-      tColumns,
-      showExpandedRow,
-      tRowClassNames,
-      hasEmptyCondition,
-      primaryTableRef,
-      tRowAttributes,
-      primaryTableClasses,
-      renderTNode,
-      renderColumnController,
-      renderExpandedRow,
-      onInnerExpandRowClick,
-      renderFirstFilterRow,
-      renderAsyncLoading,
-      onInnerPageChange,
-    };
-  },
+    return () => {
+      const formatNode = (
+        api: string,
+        renderInnerNode: Function,
+        condition: boolean,
+        extra?: { reverse?: boolean },
+      ) => {
+        if (!condition) return props[api];
+        const innerNode = renderInnerNode(h);
+        const propsNode = renderTNode(api);
+        if (innerNode && !propsNode) return () => innerNode;
+        if (propsNode && !innerNode) return () => propsNode;
+        if (innerNode && propsNode) {
+          return () =>
+            extra?.reverse ? (
+              <div>
+                {innerNode}
+                {propsNode}
+              </div>
+            ) : (
+              <div>
+                {propsNode}
+                {innerNode}
+              </div>
+            );
+        }
+        return null;
+      };
+      const isColumnController = !!(columnController.value && Object.keys(columnController.value).length);
+      // @ts-ignore
+      const placement = isColumnController ? columnController.value.placement || 'top-right' : '';
+      const isBottomController = isColumnController && placement?.indexOf('bottom') !== -1;
+      const topContent = formatNode('topContent', renderColumnController, isColumnController && !isBottomController);
+      const bottomContent = formatNode('bottomContent', renderColumnController, isBottomController, {
+        reverse: true,
+      });
+      const firstFullRow = formatNode('firstFullRow', renderFirstFilterRow, !hasEmptyCondition.value);
+      const lastFullRow = formatNode('lastFullRow', renderAsyncLoading, !!props.asyncLoading);
 
-  methods: {
-    formatNode(api: string, renderInnerNode: Function, condition: boolean, extra?: { reverse?: boolean }) {
-      if (!condition) return this[api];
-      const innerNode = renderInnerNode(h);
-      const propsNode = this.renderTNode(api);
-      if (innerNode && !propsNode) return () => innerNode;
-      if (propsNode && !innerNode) return () => propsNode;
-      if (innerNode && propsNode) {
-        return () =>
-          extra?.reverse ? (
-            <div>
-              {innerNode}
-              {propsNode}
-            </div>
-          ) : (
-            <div>
-              {propsNode}
-              {innerNode}
-            </div>
-          );
+      const baseTableProps = {
+        ...omit(props, OMIT_PROPS),
+        rowClassName: tRowClassNames.value,
+        rowAttributes: tRowAttributes.value,
+        columns: tColumns.value,
+        topContent,
+        bottomContent,
+        firstFullRow,
+        lastFullRow,
+        onPageChange: onInnerPageChange,
+        renderExpandedRow: showExpandedRow.value ? renderExpandedRow : undefined,
+      };
+
+      if (props.expandOnRowClick) {
+        baseTableProps.onRowClick = onInnerExpandRowClick;
       }
-      return null;
-    },
-  },
 
-  render() {
-    const isColumnController = !!(this.columnController && Object.keys(this.columnController).length);
-    // @ts-ignore
-    const placement = isColumnController ? this.columnController.placement || 'top-right' : '';
-    const isBottomController = isColumnController && placement?.indexOf('bottom') !== -1;
-    const topContent = this.formatNode(
-      'topContent',
-      this.renderColumnController,
-      isColumnController && !isBottomController,
-    );
-    const bottomContent = this.formatNode('bottomContent', this.renderColumnController, isBottomController, {
-      reverse: true,
-    });
-    const firstFullRow = this.formatNode('firstFullRow', this.renderFirstFilterRow, !this.hasEmptyCondition);
-    const lastFullRow = this.formatNode('lastFullRow', this.renderAsyncLoading, !!this.asyncLoading);
-
-    const props = {
-      ...omit(this.$props, OMIT_PROPS),
-      rowClassName: this.tRowClassNames,
-      rowAttributes: this.tRowAttributes,
-      columns: this.tColumns,
-      topContent,
-      bottomContent,
-      firstFullRow,
-      lastFullRow,
-      onPageChange: this.onInnerPageChange,
-      renderExpandedRow: this.showExpandedRow ? this.renderExpandedRow : undefined,
+      return (
+        <BaseTable
+          ref={primaryTableRef}
+          v-slots={context.slots}
+          {...baseTableProps}
+          class={primaryTableClasses.value}
+        />
+      );
     };
-
-    if (this.expandOnRowClick) {
-      props.onRowClick = this.onInnerExpandRowClick;
-    }
-
-    return (
-      <BaseTable
-        ref="primaryTableRef"
-        v-slots={this.$slots}
-        {...props}
-        {...this.$attrs}
-        class={this.primaryTableClasses}
-      />
-    );
   },
 });

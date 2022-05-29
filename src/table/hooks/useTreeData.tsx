@@ -23,6 +23,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     childrenKey: props.tree?.childrenKey || 'children',
   }));
 
+  const checkedColumn = computed(() => columns.value.find((col) => col.colKey === 'row-select'));
+
+  watch(checkedColumn, (column) => {
+    if (!store.value) return;
+    store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
+  });
+
   const foldIcon = computed(() => {
     const params = { type: 'fold' };
     const defaultFoldIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
@@ -39,13 +46,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       defaultNode: defaultExpandIcon,
       params,
     });
-  });
-
-  const checkedColumn = computed(() => columns.value.find((col) => col.colKey === 'row-select'));
-
-  watch(checkedColumn, (column) => {
-    if (!store.value) return;
-    store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
   watch(
@@ -193,10 +193,14 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   /**
    * 为当前节点添加子节点，默认添加到最后一个节点
-   * @param key 当前节点唯一标识
+   * @param key 当前节点唯一标识，值为空，则表示给根节点添加元素
    * @param newData 待添加的新节点
    */
-  function appendTo<T>(key: TableRowValue, newData: T) {
+  function appendTo<T>(key: TableRowValue = '', newData: T) {
+    if (!key) {
+      dataSource.value = store.value.appendToRoot(newData, dataSource.value, rowDataKeys.value);
+      return;
+    }
     // 引用传值，可自动更新 dataSource。（dataSource 本是内部变量，可以在任何地方进行任何改变）
     dataSource.value = [...store.value.appendTo(key, newData, dataSource.value, rowDataKeys.value)];
   }
@@ -245,6 +249,14 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     }
   }
 
+  /**
+   * 获取全部数据的树形结构
+   * @param key 节点唯一标识
+   */
+  function getTreeNode() {
+    return store.value.getTreeNode(dataSource.value, rowDataKeys.value);
+  }
+
   return {
     store,
     rowDataKeys,
@@ -260,5 +272,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     toggleExpandData,
     expandAll,
     foldAll,
+    getTreeNode,
   };
 }
