@@ -230,6 +230,27 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     return dataSource;
   }
 
+  appendToRoot(newData: T, dataSource: T[], keys: KeysType) {
+    const rowValue = get(newData, keys.rowKey);
+    if (!rowValue) {
+      log.error('Table', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
+      return;
+    }
+    dataSource.push(newData);
+    const state: TableRowState = {
+      id: rowValue,
+      row: newData,
+      rowIndex: dataSource.length - 1,
+      level: 0,
+      expanded: false,
+      expandChildrenLength: 0,
+      disabled: false,
+    };
+    state.path = [state];
+    this.treeDataMap.set(rowValue, state);
+    return dataSource;
+  }
+
   /**
    * 在当前节点后，插入一个兄弟节点
    * @param rowValue 当前节点唯一标识

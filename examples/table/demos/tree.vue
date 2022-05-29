@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <t-button theme="default" @click="setData1">重置数据</t-button>
+      <t-button @click="appendToRoot">添加根节点</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="setData1">重置数据</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">任意节点展开/收起</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onExpandAllToggle">{{
         expandAll ? '收起全部' : '展开全部'
@@ -278,6 +279,22 @@ const onTreeExpandChange = (context) => {
 
 const onDragSort = (params) => {
   console.log('onDragSort:', params);
+};
+
+const appendToRoot = () => {
+  const key = Math.round(Math.random() * 10010);
+  table.value.appendTo('', {
+    id: key,
+    key: `我是 ${key}_${1} 号`,
+    platform: key % 2 === 0 ? '共有' : '私有',
+    type: ['String', 'Number', 'Array', 'Object'][key % 4],
+    default: ['-', '0', '[]', '{}'][key % 4],
+    detail: {
+      position: `读取 ${key} 个数据的嵌套信息值`,
+    },
+    needed: key % 4 === 0 ? '是' : '否',
+    description: '数据源',
+  });
 };
 
 // 应用于需要阻止拖拽排序的场景。如：当子节点存在时，则不允许调整顺序。
