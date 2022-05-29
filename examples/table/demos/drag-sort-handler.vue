@@ -2,6 +2,7 @@
   <div class="demo-container t-table-demo-sort">
     <div>
       <t-checkbox v-model="loading"> 加载状态 </t-checkbox>
+      <t-button size="small" variant="base" @click="resetData">重置数据</t-button>
     </div>
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
@@ -26,6 +27,19 @@
 <script lang="jsx" setup>
 import { ref } from 'vue';
 import { MoveIcon } from 'tdesign-icons-vue-next';
+
+// 拖拽排序场景中：调整某个元素的顺序
+function swapDragArrayElement(data, currentIndex, targetIndex) {
+  const newData = [...data];
+  if (targetIndex - currentIndex > 0) {
+    newData.splice(targetIndex + 1, 0, newData[currentIndex]);
+    newData.splice(currentIndex, 1);
+  } else {
+    newData.splice(targetIndex, 0, newData[currentIndex]);
+    newData.splice(currentIndex + 1, 1);
+  }
+  return newData;
+}
 
 const columns = [
   {
@@ -61,6 +75,10 @@ const initialData = new Array(4).fill(5).map((_, i) => ({
 
 const loading = ref(false);
 const data = ref([...initialData]);
+
+const resetData = () => {
+  data.value = [];
+};
 
 const onDragSort = ({ currentIndex, targetIndex, current, target, currentData, e }) => {
   console.log('交换行', currentIndex, targetIndex, current, target, currentData, e);

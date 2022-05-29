@@ -249,6 +249,14 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     }
   }
 
+  /**
+   * 获取全部数据的树形结构
+   * @param key 节点唯一标识
+   */
+  function getTreeNode() {
+    return store.value.getTreeNode(dataSource.value, rowDataKeys.value);
+  }
+
   return {
     store,
     rowDataKeys,
@@ -264,5 +272,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     toggleExpandData,
     expandAll,
     foldAll,
+    getTreeNode,
   };
 }

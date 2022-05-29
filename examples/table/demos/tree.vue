@@ -7,7 +7,11 @@
       <t-button theme="default" style="margin-left: 16px" @click="onExpandAllToggle">{{
         expandAll ? '收起全部' : '展开全部'
       }}</t-button>
-      <t-checkbox v-model="customTreeExpandAndFoldIcon" style="margin-left: 16px; vertical-align: middle">
+      <t-button theme="default" style="margin-left: 16px" @click="getTreeNode">获取全部树形结构</t-button>
+    </div>
+    <br />
+    <div>
+      <t-checkbox v-model="customTreeExpandAndFoldIcon" style="vertical-align: middle">
         自定义折叠/展开图标
       </t-checkbox>
     </div>
@@ -260,25 +264,15 @@ const treeExpandAndFoldIconRender = (h, { type }) => (type === 'expand' ? <Chevr
 //   table.value.expandAll();
 // });
 
+const getTreeNode = () => {
+  const treeData = table.value.getTreeNode();
+  console.log(treeData);
+  MessagePlugin.success('树形结构获取成功，请打开控制台查看');
+};
+
 const onExpandAllToggle = () => {
   expandAll.value = !expandAll.value;
   expandAll.value ? table.value.expandAll() : table.value.foldAll();
-};
-
-const onAbnormalDragSort = (params) => {
-  console.log(params);
-  // MessagePlugin.warning(params.reason);
-  if (params.code === 1001) {
-    MessagePlugin.warning('不同层级的元素，不允许调整顺序');
-  }
-};
-
-const onTreeExpandChange = (context) => {
-  console.log(context.rowState.expanded ? '展开' : '收起', context);
-};
-
-const onDragSort = (params) => {
-  console.log('onDragSort:', params);
 };
 
 const appendToRoot = () => {
@@ -295,6 +289,22 @@ const appendToRoot = () => {
     needed: key % 4 === 0 ? '是' : '否',
     description: '数据源',
   });
+};
+
+const onAbnormalDragSort = (params) => {
+  console.log(params);
+  // MessagePlugin.warning(params.reason);
+  if (params.code === 1001) {
+    MessagePlugin.warning('不同层级的元素，不允许调整顺序');
+  }
+};
+
+const onTreeExpandChange = (context) => {
+  console.log(context.rowState.expanded ? '展开' : '收起', context);
+};
+
+const onDragSort = (params) => {
+  console.log('onDragSort:', params);
 };
 
 // 应用于需要阻止拖拽排序的场景。如：当子节点存在时，则不允许调整顺序。

@@ -446,6 +446,22 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     return newData;
   }
 
+  /** 获取整个树形结构 */
+  getTreeNode(dataSource: T[], keys: KeysType): T[] {
+    // let isStarted = false;
+    const treeData: T[] = [];
+    for (let i = 0, len = dataSource.length; i < len; i++) {
+      const item = dataSource[i];
+      const rowValue = get(item, keys.rowKey);
+      const state = this.treeDataMap.get(rowValue);
+      // 只需要压入第一层数据
+      if (state.level === 0) {
+        treeData.push(item);
+      }
+    }
+    return treeData;
+  }
+
   /**
    * 初始化树形结构 Map
    * @param treeDataMap 树形结构 Map
