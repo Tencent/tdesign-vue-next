@@ -103,8 +103,8 @@ export default defineComponent({
       });
       return result;
     };
-    const submitHandler = (e?: FormSubmitEvent) => {
-      if (props.preventSubmitDefault) {
+    const submit = (e?: FormSubmitEvent) => {
+      if (props.preventSubmitDefault && e) {
         e?.preventDefault();
         e?.stopPropagation();
       }
@@ -112,25 +112,13 @@ export default defineComponent({
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
     };
-    const submit = () => {
-      formRef.value.submit();
-    };
-
-    const resetParams = ref<FormResetParams>();
-    const resetHandler = (e?: FormResetEvent) => {
+    const reset = (e?: FormResetEvent) => {
       if (props.preventSubmitDefault) {
         e?.preventDefault();
         e?.stopPropagation();
       }
-      children.value
-        .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
-        .forEach((child) => child.resetField(resetParams.value?.type));
-      resetParams.value = undefined;
-      props.onReset?.({ e });
-    };
-    const reset = (params?: FormResetParams) => {
-      resetParams.value = params;
-      formRef.value.reset();
+      children.value.filter((child: any) => isFunction(child.resetField)).forEach((child: any) => child.resetField());
+      props.onReset({ e });
     };
     const clearValidate = (fields?: Array<string>) => {
       children.value.forEach((child) => {
@@ -151,7 +139,7 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
+      <form ref={formRef} class={formClass.value} onSubmit={(e) => submit(e)} onReset={(e) => reset(e)}>
         {renderContent('default')}
       </form>
     );
