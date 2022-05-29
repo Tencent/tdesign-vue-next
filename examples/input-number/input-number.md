@@ -10,6 +10,7 @@ autoWidth | Boolean | false | 宽度随内容自适应 | N
 decimalPlaces | Number | undefined | [小数位数](https://en.wiktionary.org/wiki/decimal_place) | N
 disabled | Boolean | false | 禁用组件 | N
 format | Function | - | 指定输入框展示值的格式。TS 类型：`(value: number) => number | string` | N
+inputProps | Object | - | 透传 Input 输入框组件全部属性。TS 类型：`InputProps`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
 max | Number | Infinity | 最大值 | N
 min | Number | -Infinity | 最小值 | N
 placeholder | String | undefined | 占位符 | N
