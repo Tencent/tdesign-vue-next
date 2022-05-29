@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
-import TInput from '../input';
+import TInput, { InputProps } from '../input';
 import props from './props';
 
 // hooks
@@ -58,6 +58,7 @@ export default defineComponent({
         <t-input
           {...inputAttrs.value}
           {...inputEvents.value}
+          {...(props.inputProps as InputProps)}
           value={displayValue.value}
           onChange={(val: string, { e }: { e: InputEvent }) => handleInput(val, e)}
         />
