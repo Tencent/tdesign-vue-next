@@ -58,7 +58,7 @@ export default defineComponent({
         <t-input
           {...inputAttrs.value}
           {...inputEvents.value}
-          props={props.inputProps}
+          {...props.inputProps}
           value={displayValue.value}
           onChange={(val: string, { e }: { e: InputEvent }) => handleInput(val, e)}
         />
