@@ -218,7 +218,7 @@ describe('Swiper', () => {
       expect(swiper.findAll('.t-swiper__container__item').length).toBe(0);
       vm.changeList();
       await nextTick();
-      // slide animation, the item lenght equal item list length add 2
+      // slide animation, the item length equal item list length add 2
       expect(swiper.findAll('.t-swiper__container__item').length).toBe(5);
     });
   });
