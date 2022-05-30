@@ -147,7 +147,7 @@ export interface TdFormItemProps {
   /**
    * 表单字段名称
    */
-  name?: string | number | Array<string | number>;
+  name?: string;
   /**
    * 是否显示必填符号（*），优先级高于 Form.requiredMark
    */

@@ -77,7 +77,9 @@ export default defineComponent({
     const scrollTo = (selector: string) => {
       const dom = formRef.value?.querySelector(selector);
       const behavior = props.scrollToFirstError;
-      dom && dom.scrollIntoView({ behavior });
+      if (behavior) {
+        dom && dom.scrollIntoView({ behavior });
+      }
     };
 
     const needValidate = (name: string, fields: string[] | undefined) => {
