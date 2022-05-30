@@ -66,8 +66,9 @@ export interface TdFormProps<FormData extends Data = Data> {
   rules?: { [field in keyof FormData]: Array<FormRule> };
   /**
    * 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动
+   * @default ''
    */
-  scrollToFirstError?: 'smooth' | 'auto';
+  scrollToFirstError?: 'smooth' | 'auto' | '';
   /**
    * 校验不通过时，是否显示错误提示信息，统一控制全部表单项。如果希望控制单个表单项，请给 FormItem 设置该属性
    * @default true
@@ -105,7 +106,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
   /**
    * 重置表单，表单里面没有重置按钮`<button type="reset" />`时可以使用该方法，默认重置全部字段为空，此方法不会触发 `reset` 事件。<br />如果表单属性 `resetType='empty'` 或者 `reset.type='empty'` 会重置为空；<br />如果表单属性 `resetType='initial'` 或者 `reset.type='initial'` 会重置为表单初始值。<br />`reset.fields` 用于设置具体重置哪些字段，示例：`reset({ type: 'initial', fields: ['name', 'age'] })`
    */
-  reset?: (params?: FormResetParams) => void;
+  reset?: (params?: FormResetParams<FormData>) => void;
   /**
    * 设置自定义校验结果，如远程校验信息直接呈现。注意需要在组件挂载结束后使用该方法。`FormData` 指表单数据泛型
    */
@@ -146,7 +147,7 @@ export interface TdFormItemProps {
   /**
    * 表单字段名称
    */
-  name?: string;
+  name?: string | number | Array<string | number>;
   /**
    * 是否显示必填符号（*），优先级高于 Form.requiredMark
    */
@@ -337,7 +338,7 @@ export type ErrorList = Array<FormRule>;
 
 export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
 
-export interface FormResetParams {
+export interface FormResetParams<FormData> {
   type: 'initial' | 'empty';
   fields?: Array<keyof FormData>;
 }
