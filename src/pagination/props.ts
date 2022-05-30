@@ -53,7 +53,7 @@ export default {
     type: Array as PropType<TdPaginationProps['pageSizeOptions']>,
     default: () => [5, 10, 20, 50],
   },
-  /** 是否显示跳转第一页和最后一页的页码控制器 */
+  /** 是否显示跳转首页尾页页码控制器 */
   showFirstAndLastPageBtn: Boolean,
   /** 是否显示跳转页码控制器 */
   showJumper: Boolean,
