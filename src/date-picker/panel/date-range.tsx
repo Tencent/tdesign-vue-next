@@ -314,7 +314,7 @@ export default defineComponent({
       firstDayOfWeek,
     } = this;
     return (
-      <div class={`${COMPONENT_NAME}__panels`}>
+      <div class={`${COMPONENT_NAME}__panels`} onClick={(e: MouseEvent) => e.stopPropagation()}>
         <div class={`${COMPONENT_NAME}__panel`}>
           <t-date-header
             year={leftYear}

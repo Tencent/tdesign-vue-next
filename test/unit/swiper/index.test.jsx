@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import Swiper, { SwiperItem } from '@/src/swiper/index.ts';
@@ -185,6 +185,41 @@ describe('Swiper', () => {
       swiper.find('.t-swiper__arrow-right').trigger('click');
       await nextTick();
       expect(fn).toHaveBeenCalled();
+    });
+  });
+
+  describe('change list', () => {
+    it('set item list', async () => {
+      const wrapper = mount({
+        setup() {
+          const list = ref([]);
+          const changeList = () => {
+            list.value = [1, 2, 3];
+          };
+          return {
+            list,
+            changeList,
+          };
+        },
+        render() {
+          const { list } = this;
+          return (
+            <Swiper>
+              {list.map((item) => {
+                return <SwiperItem>{item}</SwiperItem>;
+              })}
+            </Swiper>
+          );
+        },
+      });
+      await nextTick();
+      const { vm } = wrapper;
+      const swiper = wrapper.findComponent(Swiper);
+      expect(swiper.findAll('.t-swiper__container__item').length).toBe(0);
+      vm.changeList();
+      await nextTick();
+      // slide animation, the item length equal item list length add 2
+      expect(swiper.findAll('.t-swiper__container__item').length).toBe(5);
     });
   });
 });

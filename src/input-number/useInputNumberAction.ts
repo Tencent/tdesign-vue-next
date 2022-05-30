@@ -71,6 +71,8 @@ export default function useInputNumberAction(
     if (value !== undefined) {
       const v = Number(value.toFixed(digitsNum.value));
       setInnerValue(v, { type: ctx.type, e: ctx.e });
+    } else {
+      setInnerValue(undefined, { type: ctx.type, e: ctx.e });
     }
   };
 
@@ -117,7 +119,11 @@ export default function useInputNumberAction(
     userInput.value = val;
     filterValue.value = inputNumberTools.toValidStringNumber(userInput.value);
     userInput.value = '';
-    if (!inputNumberTools.isValid(filterValue.value) || Number(filterValue.value) === innerValue.value) return;
+    if (!inputNumberTools.isValid(filterValue.value)) {
+      handleAction(undefined, 'input', e);
+      return;
+    }
+    if (Number(filterValue.value) === innerValue.value) return;
     handleAction(Number(filterValue.value), 'input', e);
   };
 

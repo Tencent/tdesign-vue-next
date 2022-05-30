@@ -186,11 +186,16 @@ tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 树形结构
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
+appendTo | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，为当前节点添加子节点。如果 `key` 为空，则表示为根节点添加子节点
 expandAll | \- | \- | 必需。展开全部行
 foldAll | \- | \- | 必需。折叠全部行
 getData | `(key: TableRowValue)` | `TableRowState<T>` | 必需。树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type TableRowValue = string | number`<br/>
+getTreeNode | \- | `T[]` | 必需。树形结构中，获取完整的树形结构
+insertAfter | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之后添加子节点
+insertBefore | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之前添加子节点
 remove | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点
 setData | `(key: TableRowValue, newRowData: T)` | \- | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
+swapData | `(params: SwapParams<T>)` | \- | 必需。树形结构中，交换两个节点的顺序。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SwapParams<T> { current: T; target: T; currentIndex: number; targetIndex: number }`<br/>
 toggleExpandData | `(p: { row: T,  rowIndex: number})` | \- | 必需。展开或收起树形行
 
 ### TableRowState
@@ -222,11 +227,11 @@ type | String | - | 用于设置筛选器类型：单选按钮筛选器、复选
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-bufferSize | Number | 20 | 表示表格除可视区域外，额外渲染的行数，避免表格快速滚动过程中，新出现的内容来不及渲染从而出现空白 | N
-isFixedRowHeight | Boolean | false | 表示表格每行内容是否同一个固定高度，仅在 `scroll.type` 为 `virtual` 时有效，该属性设置为 `true` 时，可用于简化虚拟滚动内部计算逻辑，提升性能，此时则需要明确指定 `scroll.rowHeight` 属性的值 | N
-rowHeight | Number | - | 表格的行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。一般情况不需要设置该属性。如果设置，可尽量将该属性设置为表格每行平均高度，从而使得表格滚动过程更加平滑 | N
+bufferSize | Number | 20 | 表示除可视区域外，额外渲染的行数，避免快速滚动过程中，新出现的内容来不及渲染从而出现空白 | N
+isFixedRowHeight | Boolean | false | 表示每行内容是否同一个固定高度，仅在 `scroll.type` 为 `virtual` 时有效，该属性设置为 `true` 时，可用于简化虚拟滚动内部计算逻辑，提升性能，此时则需要明确指定 `scroll.rowHeight` 属性的值 | N
+rowHeight | Number | - | 行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。一般情况不需要设置该属性。如果设置，可尽量将该属性设置为每行平均高度，从而使得滚动过程更加平滑 | N
 threshold | Number | 100 | 启动虚拟滚动的阈值。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 | N
-type | String | - | 必需。表格滚动加载类型，有两种：懒加载和虚拟滚动。<br />值为 `lazy` ，表示表格滚动时会进行懒加载，非可视区域内的表格内容将不会默认渲染，直到该内容可见时，才会进行渲染，并且已渲染的内容滚动到不可见时，不会被销毁；<br />值为`virtual`时，表示表格会进行虚拟滚动，无论滚动条滚动到哪个位置，同一时刻，表格仅渲染该可视区域内的表格内容，当表格需要展示的数据量较大时，建议开启该特性。可选项：lazy/virtual | Y
+type | String | - | 必需。滚动加载类型，有两种：懒加载和虚拟滚动。<br />值为 `lazy` ，表示滚动时会进行懒加载，非可视区域内的内容将不会默认渲染，直到该内容可见时，才会进行渲染，并且已渲染的内容滚动到不可见时，不会被销毁；<br />值为`virtual`时，表示会进行虚拟滚动，无论滚动条滚动到哪个位置，同一时刻，仅渲染该可视区域内的内容，当需要展示的数据量较大时，建议开启该特性。可选项：lazy/virtual | Y
 
 ### TableColumnController
 
@@ -245,7 +250,7 @@ placement | String | top-right | 列配置按钮基于表格的放置位置：�
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 abortEditOnEvent | Array | - | 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态。示例：`abortEditOnEvent: ['onChange']`。TS 类型：`string[]` | N
-component | \- | - | 组件定义，如：`Input` `Select`。TS 类型：`ComponentType`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+component | \- | - | 组件定义，如：`Input` `Select`。对于完全自定义的组件（非组件库内的组件），组件需要支持 `value` 和 `onChange` ；如果还需要支持校验规则，则组件还需实现 `tips` 和 `status` 两个 API，实现规则可参考 `Input` 组件。TS 类型：`ComponentType`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 onEdited | Function | - | 编辑完成后，退出编辑模式时触发。TS 类型：`(context: { trigger: string; newRowData: T; rowIndex: number }) => void` | N
 props | Object | - | 透传给组件 `edit.component` 的属性。TS 类型：`{ [key: string]: any }` | N
 rules | Array | - | 校验规则。TS 类型：`FormRule[]`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N

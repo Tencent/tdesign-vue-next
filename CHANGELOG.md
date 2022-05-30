@@ -5,6 +5,22 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.15.3 `2022-05-30` 
+### 🚀 Features
+- `Table`: `appendTo` 支持添加新节点到根节点，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+- `Table`: 新增 `getTreeNode`，用于获取整个树形结构，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+- `Table`: 添加 `onDragSort` 事件到 EnhancedTable @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+- `InputNumber`: 透传 Input 组件全部特性 @jchalex ([#900](https://github.com/Tencent/tdesign-vue-next/pull/900))
+- `InputNumber`: 透传 Input 组件全部特性 @jchalex ([#900](https://github.com/Tencent/tdesign-vue-next/pull/900))
+### 🐞 Bug Fixes
+- `transfer`: 修改 `v-model`，页面没有同步更新 ([issue #883](https://github.com/Tencent/tdesign-vue-next/issues/883) ) @btea ([#890](https://github.com/Tencent/tdesign-vue-next/pull/890))
+- `InputNumber`: 修复必填问题 @youuss ([#897](https://github.com/Tencent/tdesign-vue-next/pull/897))
+- `button`: 修复ref应用错误的问题 @btea ([#898](https://github.com/Tencent/tdesign-vue-next/pull/898))
+- `swiper`: 动态列表渲染问题 @btea ([#902](https://github.com/Tencent/tdesign-vue-next/pull/902))
+- `Table`: 可编辑单元格，使用日期选择器时，切换月份也会导致退出编辑模式 @chaishi ([#901](https://github.com/Tencent/tdesign-vue-next/pull/901))
+- `form`: 修复 `form` 实例方法 `submit` 调用后的刷新问题 ([issue #894](https://github.com/Tencent/tdesign-vue-next/issues/894)) @pengYYYYY ([#899](https://github.com/Tencent/tdesign-vue-next/pull/899))
+
+
 ## 🌈 0.15.2 `2022-05-27` 
 ### 🐞 Bug Fixes
 - `ColorPicker`: 修复 `color-picker-panel` 使用 `v-model` 值没有正确更新 @pengYYYYY ([#843](https://github.com/Tencent/tdesign-vue-next/pull/843))

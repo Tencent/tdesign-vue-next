@@ -44,7 +44,10 @@ export default function useInputNumberTools(props: TdInputNumberProps, digitsNum
 
   const isValid = (v: string) => {
     const numV = Number(v);
-    if (empty(v) || Number.isNaN(numV)) {
+    if (empty(v)) {
+      return false;
+    }
+    if (Number.isNaN(numV)) {
       handleInputError(true);
       return false;
     }
