@@ -90243,7 +90243,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-100%, 0px, 0px);"
+          style="transform: translate3d(-0%, 0px, 0px);"
         >
           
           <div
@@ -90585,7 +90585,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = 
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-100%, 0px, 0px);"
+          style="transform: translate3d(-0%, 0px, 0px);"
         >
           
           <div
@@ -90915,7 +90915,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] =
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-100%, 0px, 0px);"
+          style="transform: translate3d(-0%, 0px, 0px);"
         >
           
           <div
@@ -91095,7 +91095,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] 
       >
         <div
           class="t-swiper__container"
-          style="transform: translate3d(-100%, 0px, 0px);"
+          style="transform: translate3d(-0%, 0px, 0px);"
         >
           
           <div
@@ -91267,7 +91267,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
         >
           <div
             class="t-swiper__container"
-            style="transform: translate3d(-100%, 0px, 0px);"
+            style="transform: translate3d(-0%, 0px, 0px);"
           >
             
             <div
@@ -91435,7 +91435,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
         >
           <div
             class="t-swiper__container"
-            style="transform: translate3d(-100%, 0px, 0px);"
+            style="transform: translate3d(-0%, 0px, 0px);"
           >
             
             <div
@@ -91603,7 +91603,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/vertical.vue 1`] =
       >
         <div
           class="t-swiper__container"
-          style="height: 280px; transform: translate3d(0, -100%, 0px);"
+          style="height: 280px; transform: translate3d(0, -0%, 0px);"
         >
           
           <div
