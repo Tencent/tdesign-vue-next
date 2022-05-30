@@ -98,7 +98,7 @@ exports[`Swiper > :props > :defaultCurrent 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-300%, 0px, 0px);"
+        style="transform: translate3d(-200%, 0px, 0px);"
       >
         
         <div
@@ -173,7 +173,7 @@ exports[`Swiper > :props > :direction 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(0, -100%, 0px);"
+        style="transform: translate3d(0, -0%, 0px);"
       >
         
         <div
@@ -248,7 +248,7 @@ exports[`Swiper > :props > :duration 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
@@ -323,7 +323,7 @@ exports[`Swiper > :props > :height 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
@@ -398,7 +398,7 @@ exports[`Swiper > :props > :interval 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
@@ -473,7 +473,7 @@ exports[`Swiper > :props > :loop 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
@@ -548,7 +548,7 @@ exports[`Swiper > :props > :navigation 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
@@ -623,7 +623,7 @@ exports[`Swiper > :props > :theme 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(-100%, 0px, 0px);"
+        style="transform: translate3d(-0%, 0px, 0px);"
       >
         
         <div
