@@ -1,5 +1,6 @@
 import { defineComponent, computed, ref, watch, toRefs } from 'vue';
 import isNaN from 'lodash/isNaN';
+import isFunction from 'lodash/isFunction';
 import {
   PageFirstIcon,
   PageLastIcon,
@@ -273,11 +274,14 @@ export default defineComponent({
                 {this.prevMore ? <ChevronLeftDoubleIcon /> : <EllipsisIcon />}
               </li>
             ) : null}
-            {this.pages.map((i) => (
-              <li class={this.getButtonClass(i)} key={i} onClick={() => this.toPage(i)}>
-                {i}
-              </li>
-            ))}
+            {this.pages.map((i) => {
+              const item = (
+                <li class={this.getButtonClass(i)} key={i} onClick={() => this.toPage(i)}>
+                  {i}
+                </li>
+              );
+              return isFunction(this.pageDisplayFilter) ? this.pageDisplayFilter(i) && item : item;
+            })}
             {this.isFolded && this.isNextMoreShow ? (
               <li
                 class={this.btnMoreClass}

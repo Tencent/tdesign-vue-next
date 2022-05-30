@@ -38,6 +38,10 @@ export interface TdPaginationProps {
    */
   maxPageBtn?: number;
   /**
+   * 页码展示过滤
+   */
+  pageDisplayFilter?: (i: number) => boolean;
+  /**
    * 分页总页数
    * @default 10
    */
@@ -53,7 +57,7 @@ export interface TdPaginationProps {
    */
   pageSizeOptions?: Array<number | { label: string; value: number }>;
   /**
-   * 是否显示跳转前一页和后一页页码控制器
+   * 是否显示跳转第一页和最后一页的页码控制器
    * @default false
    */
   showFirstAndLastPageBtn?: boolean;
