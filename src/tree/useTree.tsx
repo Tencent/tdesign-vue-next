@@ -1,4 +1,4 @@
-import { ref, watch, toRefs } from 'vue';
+import { ref, watch, toRefs, nextTick, computed } from 'vue';
 import pick from 'lodash/pick';
 import { TdTreeProps } from './type';
 import TreeStore from '../_common/js/tree/tree-store';
@@ -11,10 +11,13 @@ import { getMark, getNode } from './util';
 
 import { TypeEventState, TypeTreeNodeModel, TypeTargetNode } from './interface';
 
+// 是否启用嵌套布局
+const nested = false;
+
 export default function useTree(props: TdTreeProps, statusContext: any) {
   const treeStore = ref();
-  const nodesMap = new Map(); // nodesMap
-  const treeNodes = ref([]);
+  const cacheMap = new Map();
+  const treeNodeViews = ref([]);
   const { expanded, actived, value, modelValue } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const [innerActived, setInnerActived] = useDefaultValue(actived, props.defaultActived, props.onActive, 'actived');
@@ -36,7 +39,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     const node = getNode(treeStore.value, item);
     const expanded = node.setExpanded(isExpanded);
     setInnerExpanded(expanded, ctx);
-    return expanded;
   };
 
   const setChecked = (item: TypeTargetNode, isChecked: boolean, ctx: any) => {
@@ -51,15 +53,14 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     const ctx = {
       node: node.getModel(),
     };
-    const { value, expanded, actived } = props;
-    if (value && value.length > 0) {
-      treeStore.value.replaceChecked(value);
+    if (innerValue.value.length > 0) {
+      treeStore.value.replaceChecked(innerValue.value);
     }
-    if (expanded && expanded.length > 0) {
-      treeStore.value.replaceExpanded(expanded);
+    if (innerExpanded.value.length > 0) {
+      treeStore.value.replaceExpanded(innerExpanded.value);
     }
-    if (actived && actived.length > 0) {
-      treeStore.value.replaceActived(actived);
+    if (innerActived.value.length > 0) {
+      treeStore.value.replaceActived(innerActived.value);
     }
     props.onLoad?.(ctx);
   };
@@ -144,80 +145,54 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     }
   };
 
-  // 更新视图节点映射关系
-  const updateNodesMap = () => {
-    let index = 0;
-    while (index < treeNodes.value.length) {
-      const nodeView = treeNodes[index];
-      if (nodeView && nodeView.componentInstance) {
-        const { node } = nodeView.componentInstance;
-        if (node && !treeStore.value.getNode(node.value)) {
-          // 视图列表中的节点，在树中不存在
-          const nodeViewIndex = treeNodes.value.indexOf(nodeView);
-          // 则从视图中删除对应节点
-          treeNodes.value.splice(nodeViewIndex, 1);
-          // 注意 $destroy 是一个耗时操作
-          nodeView.componentInstance.$destroy();
-          nodesMap.set(node.value, null);
-          nodesMap.delete(node.value);
-        } else {
-          index += 1;
-        }
-      } else {
-        index += 1;
+  const renderItem = (node: TreeNode) => {
+    return (
+      <TreeItem
+        key={node.value}
+        node={node}
+        treeScope={statusContext.value}
+        onChange={handleChange}
+        onClick={handleClick}
+      />
+    );
+  };
+
+  const renderTreeNodeViews = (nodes: TreeNode[]) => {
+    treeNodeViews.value = nodes.map((node: TreeNode) => {
+      // 如果节点已经存在，则使用缓存节点
+      let nodeView = cacheMap.get(node.value);
+      // 如果节点未曾创建，则临时创建
+      if (!nodeView || node.visible) {
+        // 初次仅渲染可显示的节点
+        // 不存在节点视图，则创建该节点视图并插入到当前位置
+        nodeView = renderItem(node);
+        cacheMap.set(node.value, nodeView);
       }
-    }
+      return nodeView;
+    });
+
+    // 更新缓存后，被删除的节点要移除掉，避免内存泄露
+    nextTick(() => {
+      cacheMap.forEach((view, value: string) => {
+        if (!treeStore.value.getNode(value)) {
+          cacheMap.delete(value);
+        }
+      });
+    });
   };
 
   // 刷新树的视图状态
   const refresh = () => {
-    updateNodesMap();
-
-    let index = 0;
-    const allNodes = treeStore.value.getNodes();
-    allNodes.forEach((node: TreeNode) => {
-      if (node.visible) {
-        if (nodesMap.has(node.value)) {
-          const nodeView = nodesMap.get(node.value);
-          const nodeViewIndex = treeNodes.value.indexOf(nodeView);
-          if (nodeViewIndex !== index) {
-            // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
-            treeNodes.value.splice(nodeViewIndex, 1);
-            treeNodes.value.splice(index, 0, nodeView);
-          }
-        } else {
-          // 节点可视，且不存在视图，创建该节点视图并插入到当前位置
-          const nodeView = (
-            <TreeItem
-              key={node.value}
-              node={node}
-              treeScope={statusContext.value}
-              onChange={handleChange}
-              onClick={handleClick}
-            />
-          );
-          treeNodes.value.splice(index, 0, nodeView);
-          nodesMap.set(node.value, nodeView);
-        }
-        index += 1;
-      } else if (nodesMap.has(node.value)) {
-        // 节点不可视，存在该视图，需要删除该节点视图
-        const nodeView = nodesMap.get(node.value);
-        const nodeViewIndex = treeNodes.value.indexOf(nodeView);
-        treeNodes.value.splice(nodeViewIndex, 1);
-        nodesMap.delete(node.value);
-      }
-    });
-    const { nodeMap } = treeStore.value;
-    nodesMap.forEach((value: any, key: string) => {
-      if (!nodeMap.has(key)) {
-        // 这个节点可能被删掉了，视图也要同步删掉
-        const nodeView = nodesMap.get(key);
-        const nodeViewIndex = treeNodes.value.indexOf(nodeView);
-        treeNodes.value.splice(nodeViewIndex, 1);
-        nodesMap.delete(key);
-      }
-    });
+    let nodes = [];
+    if (nested) {
+      // 渲染为嵌套结构
+      nodes = treeStore.value.getChildren();
+    } else {
+      // 渲染为平铺列表
+      nodes = treeStore.value.getNodes();
+    }
+    // 默认取全部可显示节点
+    renderTreeNodeViews(nodes);
   };
 
   // 同步 Store 选项
@@ -287,50 +262,42 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     refresh();
   };
 
-  // data 变化，重构tree
+  // data变化，重构 tree
   watch(
     () => props.data,
     (list) => {
-      nodesMap.clear();
-      treeNodes.value = [];
+      cacheMap.clear();
       const { value, actived } = props;
       treeStore.value.reload(list);
       // 初始化选中状态
       if (Array.isArray(value)) {
         treeStore.value.setChecked(value);
       }
+      // 更新展开状态
       treeStore.value.updateExpanded();
       // 初始化激活状态
       if (Array.isArray(actived)) {
         treeStore.value.setActived(actived);
       }
+      // 刷新节点状态
       treeStore.value.refreshState();
     },
   );
 
   // watch
-  watch(
-    () => innerValue,
-    (nVal) => {
-      treeStore.value.replaceChecked(nVal);
-    },
-  );
-  watch(
-    () => innerExpanded,
-    (nVal) => {
-      treeStore.value.replaceExpanded(nVal);
-    },
-  );
-  watch(
-    () => innerActived,
-    (nVal) => {
-      treeStore.value.replaceActived(nVal);
-    },
-  );
+  watch(innerValue, (nVal) => {
+    treeStore.value.replaceChecked(nVal);
+  });
+  watch(innerExpanded, (nVal) => {
+    treeStore.value.replaceExpanded(nVal);
+  });
+  watch(innerActived, (nVal) => {
+    treeStore.value.replaceActived(nVal);
+  });
 
   init();
   return {
     treeStore,
-    treeNodes,
+    treeNodeViews,
   };
 }

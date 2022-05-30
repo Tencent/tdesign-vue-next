@@ -1,37 +1,26 @@
 import { mount } from '@vue/test-utils';
+import { useRealTimers } from 'vitest';
 import Tree from '@/src/tree/index.ts';
 
-/**
- * tree 针对性测试命令
- * ```bash
- * # 执行单测
- * npx jest --config script/test/jest.unit.conf.js --coverage ./test/unit/tree
- * # 更新单测快照
- * npx jest --config script/test/jest.unit.conf.js --updateSnapshot ./test/unit/tree
- * ```
- */
-
 describe('Tree:init', () => {
+  useRealTimers();
   describe(':props.data', () => {
-    it('`data` is undefined', () => {
+    it('传递空数据时，展示兜底界面', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tree
-              data={null}
-              v-slots={{
-                empty: () => {
-                  <div class="tree-empty">暂无数据</div>;
-                },
-              }}
-            ></Tree>
+            <Tree data={null}>
+              <div slot="empty" class="tree-empty">
+                暂无数据
+              </div>
+            </Tree>
           );
         },
       });
-      expect(wrapper.find('.tree-empty').exists()).toBe(false);
+      expect(wrapper.find('.tree-empty').exists()).toBe(true);
     });
 
-    it('`data` is empty, can insert root item', (done) => {
+    it('空数据初始化后，允许插入根节点', (done) => {
       const wrapper = mount({
         mounted() {
           const { tree } = this.$refs;
@@ -56,7 +45,7 @@ describe('Tree:init', () => {
       });
     });
 
-    it('`data` get tree data', () => {
+    it('可以传递一个树结构的数据来完成初始化', () => {
       const data = [
         {
           value: 't1',

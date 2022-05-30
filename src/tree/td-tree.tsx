@@ -31,7 +31,7 @@ export default defineComponent({
     });
 
     // tree核心逻辑
-    const { treeStore, treeNodes } = useTree(props, statusContext);
+    const { treeStore, treeNodeViews } = useTree(props, statusContext);
 
     // 导出方法
     useExposeFunc(treeStore, expose);
@@ -52,7 +52,7 @@ export default defineComponent({
     return () => {
       return (
         <div class={classList.value}>
-          {treeNodes.value.length === 0 ? (
+          {treeNodeViews.value.length === 0 ? (
             <div class={CLASS_NAMES.value.treeEmpty}>
               {renderTNodeJSX('empty', {
                 defaultNode: t(global.value.empty),
@@ -65,7 +65,7 @@ export default defineComponent({
               enter-active-class={CLASS_NAMES.value.treeNodeEnter}
               leave-active-class={CLASS_NAMES.value.treeNodeLeave}
             >
-              {treeNodes.value}
+              {treeNodeViews.value}
             </TransitionGroup>
           )}
         </div>
