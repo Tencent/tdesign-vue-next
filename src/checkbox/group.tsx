@@ -8,14 +8,16 @@ import { CheckboxGroupInjectionKey } from './constants';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
   props,
 
-  setup(props, { slots }) {
+  setup(props) {
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
+    const renderTNodeJSX = useTNodeJSX();
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
@@ -163,7 +165,7 @@ export default defineComponent({
           </Checkbox>
         ));
       } else {
-        const nodes = slots.default && slots.default(null);
+        const nodes = renderTNodeJSX('default');
         optionList.value = getOptionListBySlots(nodes);
         children = nodes;
       }
