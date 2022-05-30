@@ -53,7 +53,7 @@ export interface TdPaginationProps {
    */
   pageSizeOptions?: Array<number | { label: string; value: number }>;
   /**
-   * 是否显示跳转首页尾页页码控制器
+   * 是否显示跳转前一页和后一页页码控制器
    * @default false
    */
   showFirstAndLastPageBtn?: boolean;
