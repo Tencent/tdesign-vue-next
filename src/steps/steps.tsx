@@ -68,8 +68,12 @@ export default defineComponent({
     const getOptionListBySlots = (nodes: VNode[]) => {
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
-        const option = node?.props;
-        if (!option) return;
+        let option = node?.props;
+        const children = node?.children;
+        if (!option && !children) return;
+        if (children) {
+          option = Object.assign(children, option);
+        }
         props.sequence === 'reverse' ? arr.unshift(option as TdStepItemProps) : arr.push(option as TdStepItemProps);
       });
       return arr;
@@ -99,14 +103,12 @@ export default defineComponent({
 
         if (nodes && nodes[index]) {
           const vnode = nodes[index];
-          if (vnode.props) {
-            vnode.props = {
-              ...item,
-              index: stepIndex,
-              status: handleStatus(item, index),
-            };
-            return vnode;
-          }
+          vnode.props = {
+            ...item,
+            index: stepIndex,
+            status: handleStatus(item, index),
+          };
+          return vnode;
         }
         return stepItem;
       });
