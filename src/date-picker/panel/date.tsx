@@ -157,7 +157,8 @@ export default defineComponent({
   render() {
     const { year, month, type, tableData, firstDayOfWeek, COMPONENT_NAME } = this;
     return (
-      <div class={COMPONENT_NAME}>
+      // 去除非必要的事件冒泡，方便外层处理相关交互。如：可编辑单元格的表格
+      <div class={COMPONENT_NAME} onClick={(e: MouseEvent) => e.stopPropagation()}>
         <t-date-header
           year={year}
           month={month}
