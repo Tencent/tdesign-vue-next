@@ -38,10 +38,6 @@ export interface TdPaginationProps {
    */
   maxPageBtn?: number;
   /**
-   * 页码展示过滤
-   */
-  pageDisplayFilter?: (i: number) => boolean;
-  /**
    * 分页总页数
    * @default 10
    */

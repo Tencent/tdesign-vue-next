@@ -34,10 +34,6 @@ export default {
     type: Number,
     default: 10,
   },
-  /** 页码展示过滤 */
-  pageDisplayFilter: {
-    type: Function as PropType<TdPaginationProps['pageDisplayFilter']>,
-  },
   /** 分页总页数 */
   pageSize: {
     type: Number,
