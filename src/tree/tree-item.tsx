@@ -15,10 +15,6 @@ import { useConfig } from '../hooks/useConfig';
 export default defineComponent({
   name: 'TTreeNode',
   props: {
-    nested: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
     node: {
       type: Object as PropType<TreeNode>,
     },
@@ -64,7 +60,7 @@ export default defineComponent({
     });
 
     const itemClassList = computed(() => {
-      const { node, nested } = props;
+      const { node } = props;
       const list = [];
       list.push(CLASS_NAMES.value.treeNode);
       list.push({
@@ -72,13 +68,6 @@ export default defineComponent({
         [CLASS_NAMES.value.actived]: node.isActivable() ? node.actived : false,
         [CLASS_NAMES.value.disabled]: node.isDisabled(),
       });
-      if (nested) {
-        if (node.visible) {
-          list.push(CLASS_NAMES.value.treeNodeVisible);
-        } else {
-          list.push(CLASS_NAMES.value.treeNodeHidden);
-        }
-      }
       return list;
     });
 

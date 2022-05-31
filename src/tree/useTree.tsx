@@ -11,9 +11,6 @@ import { getMark, getNode } from './util';
 
 import { TypeEventState, TypeTreeNodeModel, TypeTargetNode } from './interface';
 
-// 是否启用嵌套布局
-const nested = false;
-
 export default function useTree(props: TdTreeProps, statusContext: any) {
   const treeStore = ref();
   const cacheMap = new Map();
@@ -32,7 +29,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     const node = getNode(treeStore.value, item);
     const actived = node.setActived(isActived);
     setInnerActived(actived, ctx);
-    return actived;
   };
 
   const setExpanded = (item: TypeTargetNode, isExpanded: boolean, ctx: any) => {
@@ -45,7 +41,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     const node = getNode(treeStore.value, item);
     const checked = node.setChecked(isChecked);
     setInnerValue(checked, ctx);
-    return checked;
   };
 
   const handleLoad = (info: TypeEventState) => {
@@ -101,10 +96,8 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
       const tnode = getNode(treeStore.value, node);
       setExpanded(tnode, !tnode.isExpanded(), ctx);
     }
-    if (shouldActive) {
-      const tnode = getNode(treeStore.value, node);
-      setActived(tnode, !tnode.isActived(), ctx);
-    }
+    const tnode = getNode(treeStore.value, node);
+    setActived(tnode, !tnode.isActived(), ctx);
 
     props.onClick?.(ctx);
   };
@@ -145,19 +138,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     }
   };
 
-  const renderItem = (node: TreeNode) => {
-    return (
-      <TreeItem
-        key={node.value}
-        node={node}
-        nested={nested}
-        treeScope={statusContext.value}
-        onChange={handleChange}
-        onClick={handleClick}
-      />
-    );
-  };
-
   const renderTreeNodeViews = (nodes: TreeNode[]) => {
     treeNodeViews.value = nodes
       .filter((node: TreeNode) => node.visible)
@@ -172,7 +152,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
             <TreeItem
               key={node.value}
               node={node}
-              nested={nested}
               treeScope={statusContext.value}
               onChange={handleChange}
               onClick={handleClick}
@@ -195,16 +174,8 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
 
   // 刷新树的视图状态
   const refresh = () => {
-    let nodes = [];
-    if (nested) {
-      // 渲染为嵌套结构
-      nodes = treeStore.value.getChildren();
-    } else {
-      // 渲染为平铺列表
-      nodes = treeStore.value.getNodes();
-    }
     // 默认取全部可显示节点
-    renderTreeNodeViews(nodes);
+    renderTreeNodeViews(treeStore.value.getNodes());
   };
 
   // 同步 Store 选项

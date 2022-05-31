@@ -10,14 +10,14 @@
       <t-input :value="allActived" @change="onAllActivedInput" />
     </t-addon>
     <t-tree
+      v-model="checked"
+      v-model:expanded="expanded"
+      v-model:actived="actived"
       :data="items"
       checkable
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      :expanded="expanded"
-      :actived="actived"
-      :value="checked"
       :value-mode="valueMode"
     />
   </div>
@@ -166,6 +166,7 @@ const getValueFromString = (val) => {
 const onAllCheckedInput = (val) => {
   console.log('checked input on change', val);
   const vals = getValueFromString(val);
+  console.log(vals);
   checked.value = vals;
 };
 
