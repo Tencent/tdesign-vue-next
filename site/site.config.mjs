@@ -213,6 +213,12 @@ export default {
           component: () => import('@/examples/radio/radio.md'),
         },
         {
+          title: 'RangeInput 范围输入框',
+          name: 'range-input',
+          path: '/vue-next/components/range-input',
+          component: () => import('@/examples/range-input/range-input.md'),
+        },
+        {
           title: 'Select 选择器',
           name: 'select',
           path: '/vue-next/components/select',
