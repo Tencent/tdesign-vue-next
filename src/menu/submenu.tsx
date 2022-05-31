@@ -148,7 +148,7 @@ export default defineComponent({
       const instance = getCurrentInstance();
       let node = instance.parent;
 
-      while (!/^t(head)?menu/i.test(node?.type.name)) {
+      while (node && !/^t(head)?menu/i.test(node?.type.name)) {
         if (/submenu/i.test(node?.type.name)) {
           isNested.value = true;
           break;
