@@ -72,7 +72,7 @@ export default defineComponent({
         [CLASS_NAMES.value.actived]: node.isActivable() ? node.actived : false,
         [CLASS_NAMES.value.disabled]: node.isDisabled(),
       });
-      if (!nested) {
+      if (nested) {
         if (node.visible) {
           list.push(CLASS_NAMES.value.treeNodeVisible);
         } else {

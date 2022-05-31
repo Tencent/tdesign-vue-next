@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-demo-block-row">
     <t-addon prepend="checked:">
       <t-input :value="allChecked" @change="onAllCheckedInput" />
     </t-addon>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { defineComponent, ref, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const items = [
   {

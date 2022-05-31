@@ -53,13 +53,13 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     const ctx = {
       node: node.getModel(),
     };
-    if (innerValue.value.length > 0) {
+    if (innerValue.value && innerValue.value.length > 0) {
       treeStore.value.replaceChecked(innerValue.value);
     }
-    if (innerExpanded.value.length > 0) {
+    if (innerExpanded.value && innerExpanded.value.length > 0) {
       treeStore.value.replaceExpanded(innerExpanded.value);
     }
-    if (innerActived.value.length > 0) {
+    if (innerActived.value && innerActived.value.length > 0) {
       treeStore.value.replaceActived(innerActived.value);
     }
     props.onLoad?.(ctx);
@@ -150,6 +150,7 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
       <TreeItem
         key={node.value}
         node={node}
+        nested={nested}
         treeScope={statusContext.value}
         onChange={handleChange}
         onClick={handleClick}
@@ -158,18 +159,29 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
   };
 
   const renderTreeNodeViews = (nodes: TreeNode[]) => {
-    treeNodeViews.value = nodes.map((node: TreeNode) => {
-      // 如果节点已经存在，则使用缓存节点
-      let nodeView = cacheMap.get(node.value);
-      // 如果节点未曾创建，则临时创建
-      if (!nodeView || node.visible) {
-        // 初次仅渲染可显示的节点
-        // 不存在节点视图，则创建该节点视图并插入到当前位置
-        nodeView = renderItem(node);
-        cacheMap.set(node.value, nodeView);
-      }
-      return nodeView;
-    });
+    treeNodeViews.value = nodes
+      .filter((node: TreeNode) => node.visible)
+      .map((node: TreeNode) => {
+        // 如果节点已经存在，则使用缓存节点
+        let nodeView = cacheMap.get(node.value);
+        // 如果节点未曾创建，则临时创建
+        if (!nodeView) {
+          // 初次仅渲染可显示的节点
+          // 不存在节点视图，则创建该节点视图并插入到当前位置
+          nodeView = (
+            <TreeItem
+              key={node.value}
+              node={node}
+              nested={nested}
+              treeScope={statusContext.value}
+              onChange={handleChange}
+              onClick={handleClick}
+            />
+          );
+          cacheMap.set(node.value, nodeView);
+        }
+        return nodeView;
+      });
 
     // 更新缓存后，被删除的节点要移除掉，避免内存泄露
     nextTick(() => {
