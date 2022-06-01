@@ -180,8 +180,6 @@ describe('Tree:expand', () => {
         },
       });
       wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
-      await delay(10);
-      expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);
     });
 
     it('默认点击父节点本身不会触发展开子节点', async () => {
