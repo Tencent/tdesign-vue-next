@@ -143,6 +143,27 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     });
   };
 
+  // 更新展开状态
+  const updateExpanded = () => {
+    const { expandParent } = props;
+    // 初始化展开状态
+    // 校验是否自动展开父节点
+    if (Array.isArray(innerExpanded.value)) {
+      const expandedMap = new Map();
+      innerExpanded.value.forEach((val) => {
+        expandedMap.set(val, true);
+        if (expandParent) {
+          const node = treeStore.value.getNode(val);
+          node.getParents().forEach((tn: TypeTreeNodeModel) => {
+            expandedMap.set(tn.value, true);
+          });
+        }
+      });
+      const expandedArr = Array.from(expandedMap.keys());
+      treeStore.value.setExpanded(expandedArr);
+    }
+  };
+
   // 初始化
   const init = () => {
     let options = props.data;
@@ -173,27 +194,6 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
       store.setChecked(innerChecked.value);
     }
 
-    // 更新展开状态
-    const updateExpanded = () => {
-      const { expandParent } = props;
-      // 初始化展开状态
-      // 校验是否自动展开父节点
-      if (Array.isArray(innerExpanded.value)) {
-        const expandedMap = new Map();
-        innerExpanded.value.forEach((val) => {
-          expandedMap.set(val, true);
-          if (expandParent) {
-            const node = treeStore.value.getNode(val);
-            node.getParents().forEach((tn: TypeTreeNodeModel) => {
-              expandedMap.set(tn.value, true);
-            });
-          }
-        });
-        const expandedArr = Array.from(expandedMap.keys());
-        treeStore.value.setExpanded(expandedArr);
-      }
-    };
-
     updateExpanded();
 
     // 初始化激活状态
@@ -212,13 +212,17 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     () => props.data,
     (list) => {
       cacheMap.clear();
+
       treeStore.value.reload(list);
+      if (!list.length) return;
       // 初始化选中状态
       if (Array.isArray(innerChecked.value)) {
         treeStore.value.setChecked(innerChecked.value);
       }
+
       // 更新展开状态
-      treeStore.value.updateExpanded();
+      updateExpanded();
+
       // 初始化激活状态
       if (Array.isArray(innerActived.value)) {
         treeStore.value.setActived(innerActived.value);
