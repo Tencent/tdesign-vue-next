@@ -218,7 +218,7 @@ export default defineComponent({
               {renderCursor()}
             </div>
           </div>
-          {slots.default && slots.default(null)}
+          {renderTNodeJSX('default')}
         </div>
       );
 

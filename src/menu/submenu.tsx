@@ -146,8 +146,15 @@ export default defineComponent({
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
       const instance = getCurrentInstance();
+      let node = instance.parent;
 
-      isNested.value = !/^t(head)?menu/i.test(instance.parent?.type.name);
+      while (node && !/^t(head)?menu/i.test(node?.type.name)) {
+        if (/submenu/i.test(node?.type.name)) {
+          isNested.value = true;
+          break;
+        }
+        node = node?.parent;
+      }
     });
 
     return {

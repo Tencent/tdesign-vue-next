@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-demo-block-row">
     <t-addon prepend="checked:">
       <t-input :value="allChecked" />
     </t-addon>
@@ -20,9 +20,9 @@
       :value="checked"
       :value-mode="valueMode"
       @expand="handleExpand"
-      @change="onChange"
-      @active="onActive"
-      @click="onClick"
+      @change="handleChange"
+      @active="handleActive"
+      @click="handleClick"
     />
   </div>
 </template>
@@ -152,11 +152,11 @@ const allActived = computed(() => {
   return arr.join(', ');
 });
 
-const onClick = (context) => {
+const handleClick = (context) => {
   console.info('onClick:', context);
 };
 
-const onChange = (vals, context) => {
+const handleChange = (vals, context) => {
   console.info('onChange:', vals, context);
   const checked = vals.filter((val) => val !== '2.1');
   console.info('节点 2.1 不允许选中');
@@ -170,7 +170,7 @@ const handleExpand = (vals, context) => {
   expanded.value = expanded;
 };
 
-const onActive = (vals, context) => {
+const handleActive = (vals, context) => {
   console.info('onActive:', vals, context);
   const actived = vals.filter((val) => val !== '2');
   console.info('节点 2 不允许激活');

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-demo-block-row">
     <t-addon prepend="checked:">
       <t-input :value="allChecked" @change="onAllCheckedInput" />
     </t-addon>
@@ -10,21 +10,21 @@
       <t-input :value="allActived" @change="onAllActivedInput" />
     </t-addon>
     <t-tree
+      v-model="checked"
+      v-model:expanded="expanded"
+      v-model:actived="actived"
       :data="items"
       checkable
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      :expanded="expanded"
-      :actived="actived"
-      :value="checked"
       :value-mode="valueMode"
     />
   </div>
 </template>
 
 <script setup>
-import { defineComponent, ref, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const items = [
   {
@@ -166,6 +166,7 @@ const getValueFromString = (val) => {
 const onAllCheckedInput = (val) => {
   console.log('checked input on change', val);
   const vals = getValueFromString(val);
+  console.log(vals);
   checked.value = vals;
 };
 

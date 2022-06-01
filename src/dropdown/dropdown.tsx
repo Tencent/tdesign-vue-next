@@ -11,7 +11,7 @@ export default defineComponent({
   name: 'TDropdown',
   props,
   setup(props: TdDropdownProps, { attrs, slots }) {
-    const renderTNode = useTNodeJSX();
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
     const popupElem = ref(null);
 
@@ -34,9 +34,9 @@ export default defineComponent({
     );
 
     return () => {
-      const trigger = slots.default ? slots.default(null) : '';
+      const trigger = renderTNodeJSX('default');
 
-      const contentSlot = renderTNode('dropdown');
+      const contentSlot = renderTNodeJSX('dropdown');
 
       const popupProps = {
         ...attrs,
