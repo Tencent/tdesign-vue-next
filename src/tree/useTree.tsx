@@ -119,15 +119,7 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
         if (!nodeView) {
           // 初次仅渲染可显示的节点
           // 不存在节点视图，则创建该节点视图并插入到当前位置
-          nodeView = (
-            <TreeItem
-              key={node.value}
-              node={node}
-              treeScope={statusContext.value}
-              onChange={handleChange}
-              onClick={handleClick}
-            />
-          );
+          nodeView = <TreeItem key={node.value} node={node} onChange={handleChange} onClick={handleClick} />;
           cacheMap.set(node.value, nodeView);
         }
         return nodeView;

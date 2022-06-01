@@ -1,16 +1,17 @@
-import { computed, h, defineComponent, ref, PropType } from 'vue';
+import { computed, h, defineComponent, ref, PropType, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import TCheckBox from '../checkbox';
 import TLoading from '../loading';
 
 import { getTNode } from './util';
-import { TypeEventState } from './interface';
+import { TypeEventState, TreeNodeModel } from './interface';
 import { useCLASSNAMES } from './constants';
 import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
 import { useConfig } from '../hooks/useConfig';
+import { injectKey } from './td-tree';
 
 export default defineComponent({
   name: 'TTreeNode',
@@ -18,13 +19,11 @@ export default defineComponent({
     node: {
       type: Object as PropType<TreeNode>,
     },
-    treeScope: {
-      type: Object,
-    },
     onClick: Function as PropType<(e: TypeEventState) => void>,
     onChange: Function as PropType<(e: TypeEventState) => void>,
   },
   setup(props) {
+    const treeScope = inject(injectKey);
     const label = ref<HTMLElement>();
     useRipple(label);
 
@@ -72,9 +71,9 @@ export default defineComponent({
     });
 
     const renderLine = () => {
-      const { node, treeScope } = props;
-      const { line, scopedSlots } = treeScope;
-      const iconVisible = !!treeScope.icon;
+      const { node } = props;
+      const { line, scopedSlots } = treeScope.value;
+      const iconVisible = !!treeScope.value.icon;
 
       let lineNode = null;
       if (line === true) {
@@ -136,8 +135,8 @@ export default defineComponent({
         return <CaretRightSmallIcon />;
       };
 
-      const { node, treeScope } = props;
-      const { icon, scopedSlots } = treeScope;
+      const { node } = props;
+      const { icon, scopedSlots } = treeScope.value;
       let isDefaultIcon = false;
 
       let iconNode = null;
@@ -178,9 +177,9 @@ export default defineComponent({
     };
 
     const renderLabel = () => {
-      const { node, treeScope } = props;
-      const { label, scopedSlots, disableCheck } = treeScope;
-      const checkProps = treeScope.checkProps || {};
+      const { node } = props;
+      const { label, scopedSlots, disableCheck } = treeScope.value;
+      const checkProps = treeScope.value.checkProps || {};
 
       let labelNode = null;
       if (label === true) {
@@ -208,7 +207,7 @@ export default defineComponent({
       if (node.vmCheckable) {
         let checkboxDisabled = false;
         if (typeof disableCheck === 'function') {
-          checkboxDisabled = disableCheck(node);
+          checkboxDisabled = disableCheck(node as TreeNodeModel & TreeNode);
         } else {
           checkboxDisabled = !!disableCheck;
         }
@@ -252,8 +251,8 @@ export default defineComponent({
     };
 
     const renderOperations = () => {
-      const { node, treeScope } = props;
-      const { operations, scopedSlots } = treeScope;
+      const { node } = props;
+      const { operations, scopedSlots } = treeScope.value;
 
       let opNode = null;
       if (scopedSlots?.operations) {
