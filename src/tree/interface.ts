@@ -54,3 +54,5 @@ export interface TypeGetTNodeOption {
   node?: TreeNode;
   createElement?: typeof h;
 }
+
+export { TypeTreeNodeData } from '../_common/js/tree/types';
