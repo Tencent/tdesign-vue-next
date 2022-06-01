@@ -4,7 +4,7 @@ import TreeNode from '../_common/js/tree/tree-node';
 import { TreeOptionData } from '../common';
 import { getNode } from './util';
 
-import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel, TypeTreeNodeData } from './interface';
+import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './interface';
 
 export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (exposed: Record<string, any>) => void) {
   const setItem = (value: TreeNodeValue, options: TreeNodeState) => {
@@ -54,7 +54,8 @@ export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (expose
     const val = item?.value || '';
     const node = getNode(treeStore.value, val);
     if (node) {
-      treeStore.value.insertBefore(value, node as TypeTreeNodeData & TreeNode);
+      // TODO type fix
+      treeStore.value.insertBefore(value, node as any);
     } else {
       treeStore.value.insertBefore(value, item);
     }
@@ -64,7 +65,8 @@ export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (expose
     const val = item?.value || '';
     const node = getNode(treeStore.value, val);
     if (node) {
-      treeStore.value.insertAfter(value, node as TypeTreeNodeData & TreeNode);
+      // TODO type fix
+      treeStore.value.insertAfter(value, node as any);
     } else {
       treeStore.value.insertAfter(value, item);
     }
