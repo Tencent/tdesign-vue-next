@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import { useRealTimers } from 'vitest';
+import { vi } from 'vitest';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
 
 describe('Tree:api', () => {
-  useRealTimers();
+  vi.useRealTimers();
   describe('remove', () => {
     it('删除指定节点后，应当移除 dom 节点', async () => {
       const data = [

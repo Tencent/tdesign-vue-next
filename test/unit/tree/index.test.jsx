@@ -1,19 +1,24 @@
 import { mount } from '@vue/test-utils';
-import { useRealTimers } from 'vitest';
+import { vi } from 'vitest';
 import Tree from '@/src/tree/index.ts';
 
 describe('Tree:init', () => {
-  useRealTimers();
+  vi.useRealTimers();
   describe(':props.data', () => {
     it('传递空数据时，展示兜底界面', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tree data={null}>
-              <div slot="empty" class="tree-empty">
-                暂无数据
-              </div>
-            </Tree>
+            <Tree
+              data={null}
+              v-slots={{
+                empty: () => (
+                  <div slot="empty" class="tree-empty">
+                    暂无数据
+                  </div>
+                ),
+              }}
+            ></Tree>
           );
         },
       });

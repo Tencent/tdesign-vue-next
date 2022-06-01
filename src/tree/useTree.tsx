@@ -1,22 +1,23 @@
-import { ref, watch, toRefs, nextTick, computed } from 'vue';
-import pick from 'lodash/pick';
+import { ref, watch, toRefs, nextTick } from 'vue';
 import { TdTreeProps } from './type';
+import TreeItem from './tree-item';
+
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
-import TreeItem from './tree-item';
 
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
-import { getMark, getNode } from './util';
+import { getMark, getNode, getStoreConfig } from './util';
 
-import { TypeEventState, TypeTreeNodeModel, TypeTargetNode } from './interface';
+import { TypeEventState, TypeTreeNodeModel } from './interface';
 
 export default function useTree(props: TdTreeProps, statusContext: any) {
   const treeStore = ref();
   const cacheMap = new Map();
   const treeNodeViews = ref([]);
   const { expanded, actived, value, modelValue } = toRefs(props);
-  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+  const [innerChecked, setInnerChecked] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const [innerActived, setInnerActived] = useDefaultValue(actived, props.defaultActived, props.onActive, 'actived');
   const [innerExpanded, setInnerExpanded] = useDefaultValue(
     expanded,
@@ -25,31 +26,14 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     'expanded',
   );
 
-  const setActived = (item: TypeTargetNode, isActived: boolean, ctx: any) => {
-    const node = getNode(treeStore.value, item);
-    const actived = node.setActived(isActived);
-    setInnerActived(actived, ctx);
-  };
-
-  const setExpanded = (item: TypeTargetNode, isExpanded: boolean, ctx: any) => {
-    const node = getNode(treeStore.value, item);
-    const expanded = node.setExpanded(isExpanded);
-    setInnerExpanded(expanded, ctx);
-  };
-
-  const setChecked = (item: TypeTargetNode, isChecked: boolean, ctx: any) => {
-    const node = getNode(treeStore.value, item);
-    const checked = node.setChecked(isChecked);
-    setInnerValue(checked, ctx);
-  };
-
+  // 懒加载回调
   const handleLoad = (info: TypeEventState) => {
     const { node } = info;
     const ctx = {
       node: node.getModel(),
     };
-    if (innerValue.value && innerValue.value.length > 0) {
-      treeStore.value.replaceChecked(innerValue.value);
+    if (innerChecked.value && innerChecked.value.length > 0) {
+      treeStore.value.replaceChecked(innerChecked.value);
     }
     if (innerExpanded.value && innerExpanded.value.length > 0) {
       treeStore.value.replaceExpanded(innerExpanded.value);
@@ -60,6 +44,7 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     props.onLoad?.(ctx);
   };
 
+  // 点击回调
   const handleClick = (state: TypeEventState) => {
     const { expandOnClickNode } = props;
     const { mouseEvent, event, node } = state;
@@ -94,10 +79,15 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
 
     if (shouldExpand) {
       const tnode = getNode(treeStore.value, node);
-      setExpanded(tnode, !tnode.isExpanded(), ctx);
+      const expanded = node.setExpanded(!tnode.isExpanded());
+      setInnerExpanded(expanded, ctx);
     }
-    const tnode = getNode(treeStore.value, node);
-    setActived(tnode, !tnode.isActived(), ctx);
+
+    if (shouldActive) {
+      const tnode = getNode(treeStore.value, node);
+      const actived = node.setActived(!tnode.isActived());
+      setInnerActived(actived, ctx);
+    }
 
     props.onClick?.(ctx);
   };
@@ -109,36 +99,17 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
       return;
     }
 
-    const ctx = {
+    const tnode = getNode(treeStore.value, node);
+    const checked = node.setChecked(!tnode.isChecked());
+    setInnerChecked(checked, {
       node: node.getModel(),
       e: mouseEvent,
-    };
-
-    const tnode = getNode(treeStore.value, node);
-    setChecked(tnode, !tnode.isChecked(), ctx);
+    });
   };
 
-  const updateExpanded = () => {
-    const { expanded, expandParent } = props;
-    // 初始化展开状态
-    // 校验是否自动展开父节点
-    if (Array.isArray(expanded)) {
-      const expandedMap = new Map();
-      expanded.forEach((val) => {
-        expandedMap.set(val, true);
-        if (expandParent) {
-          const node = treeStore.value.getNode(val);
-          node.getParents().forEach((tn: TypeTreeNodeModel) => {
-            expandedMap.set(tn.value, true);
-          });
-        }
-      });
-      const expandedArr = Array.from(expandedMap.keys());
-      treeStore.value.setExpanded(expandedArr);
-    }
-  };
-
-  const renderTreeNodeViews = (nodes: TreeNode[]) => {
+  // 节点渲染
+  const renderTreeNodeViews = () => {
+    const nodes = treeStore.value.getNodes();
     treeNodeViews.value = nodes
       .filter((node: TreeNode) => node.visible)
       .map((node: TreeNode) => {
@@ -172,103 +143,100 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     });
   };
 
-  // 刷新树的视图状态
-  const refresh = () => {
-    // 默认取全部可显示节点
-    renderTreeNodeViews(treeStore.value.getNodes());
-  };
-
-  // 同步 Store 选项
-  const updateStoreConfig = () => {
-    if (!treeStore.value) return;
-    // 统一更新选项，然后在 store 统一识别属性更新
-    const storeProps = pick(props, [
-      'keys',
-      'expandAll',
-      'expandLevel',
-      'expandMutex',
-      'expandParent',
-      'activable',
-      'activeMultiple',
-      'disabled',
-      'checkable',
-      'checkStrictly',
-      'load',
-      'lazy',
-      'valueMode',
-      'filter',
-    ]);
-    treeStore.value.setConfig(storeProps);
-  };
-
+  // 初始化
   const init = () => {
-    let list = props.data;
-    const { actived, value, valueMode, filter } = props;
-
+    let options = props.data;
     const store = new TreeStore({
-      valueMode,
-      filter,
+      ...getStoreConfig(props),
       onLoad: (info: TypeEventState) => {
         handleLoad(info);
       },
       onUpdate: () => {
-        refresh();
+        renderTreeNodeViews();
       },
     });
 
     // 初始化数据
     treeStore.value = store;
-    updateStoreConfig();
 
-    if (!Array.isArray(list)) {
-      list = [];
+    if (!Array.isArray(options)) {
+      options = [];
     }
-    store.append(list);
+    store.append(options);
 
     // 刷新节点，必须在配置选中之前执行
     // 这样选中态联动判断才能找到父节点
     store.refreshNodes();
 
     // 初始化选中状态
-    if (Array.isArray(value)) {
-      store.setChecked(value);
+    if (Array.isArray(innerChecked.value)) {
+      store.setChecked(innerChecked.value);
     }
+
+    // 更新展开状态
+    const updateExpanded = () => {
+      const { expandParent } = props;
+      // 初始化展开状态
+      // 校验是否自动展开父节点
+      if (Array.isArray(innerExpanded.value)) {
+        const expandedMap = new Map();
+        innerExpanded.value.forEach((val) => {
+          expandedMap.set(val, true);
+          if (expandParent) {
+            const node = treeStore.value.getNode(val);
+            node.getParents().forEach((tn: TypeTreeNodeModel) => {
+              expandedMap.set(tn.value, true);
+            });
+          }
+        });
+        const expandedArr = Array.from(expandedMap.keys());
+        treeStore.value.setExpanded(expandedArr);
+      }
+    };
 
     updateExpanded();
 
     // 初始化激活状态
-    if (Array.isArray(actived)) {
-      store.setActived(actived);
+    if (Array.isArray(innerActived.value)) {
+      store.setActived(innerActived.value);
     }
 
     // 树的数据初始化之后，需要立即进行一次视图刷新
-    refresh();
+    renderTreeNodeViews();
   };
+
+  // ------- 监听start -------
 
   // data变化，重构 tree
   watch(
     () => props.data,
     (list) => {
       cacheMap.clear();
-      const { value, actived } = props;
       treeStore.value.reload(list);
       // 初始化选中状态
-      if (Array.isArray(value)) {
-        treeStore.value.setChecked(value);
+      if (Array.isArray(innerChecked.value)) {
+        treeStore.value.setChecked(innerChecked.value);
       }
       // 更新展开状态
       treeStore.value.updateExpanded();
       // 初始化激活状态
-      if (Array.isArray(actived)) {
-        treeStore.value.setActived(actived);
+      if (Array.isArray(innerActived.value)) {
+        treeStore.value.setActived(innerActived.value);
       }
       // 刷新节点状态
       treeStore.value.refreshState();
     },
   );
 
-  // watch
-  watch(innerValue, (nVal) => {
+  // tree插件配置变化
+  watch(
+    () => getStoreConfig(props),
+    () => {
+      if (!treeStore.value) return;
+      treeStore.value.setConfig(getStoreConfig(props));
+    },
+  );
+  watch(innerChecked, (nVal) => {
     treeStore.value.replaceChecked(nVal);
   });
   watch(innerExpanded, (nVal) => {
@@ -278,7 +246,9 @@ export default function useTree(props: TdTreeProps, statusContext: any) {
     treeStore.value.replaceActived(nVal);
   });
 
+  // 初始化树
   init();
+
   return {
     treeStore,
     treeNodeViews,

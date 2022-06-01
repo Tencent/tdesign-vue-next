@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import { useRealTimers } from 'vitest';
+import { vi } from 'vitest';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
 
 describe('Tree:filter', () => {
-  useRealTimers();
+  vi.useRealTimers();
   describe(':props.filter', () => {
     it('数据可过滤展示', async () => {
       const data = [
@@ -43,12 +43,10 @@ describe('Tree:filter', () => {
 
       // t1.2 被命中, t1 被锁定, t1.1 隐藏
       expect(t1.exists()).toBe(true);
-      expect(t1.classes('t-tree__item--visible')).toBe(true);
       expect(t1.classes('t-is-disabled')).toBe(true);
       expect(t1d1.exists()).toBe(false);
-      expect(t1d2.classes('t-tree__item--visible')).toBe(true);
 
-      await wrapper.setData({
+      await wrapper.setProps({
         filter: (node) => node.value.indexOf('1.1') >= 0,
       });
 
@@ -57,10 +55,8 @@ describe('Tree:filter', () => {
       // t1.1 被命中, t1 被锁定, t1.2 隐藏
       t1d1 = wrapper.find('[data-value="t1.1"]');
       expect(t1d1.exists()).toBe(true);
-      expect(t1d1.classes('t-tree__item--visible')).toBe(true);
-      expect(t1d2.classes('t-tree__item--visible')).toBe(false);
-
-      await wrapper.setData({
+      expect(t1d2.exists()).toBe(true);
+      await wrapper.setProps({
         filter: (node) => node.value.indexOf('1.3') >= 0,
       });
       await delay(10);
@@ -70,15 +66,15 @@ describe('Tree:filter', () => {
       expect(t1d1.classes('t-tree__item--visible')).toBe(false);
       expect(t1d2.classes('t-tree__item--visible')).toBe(false);
 
-      await wrapper.setData({
+      await wrapper.setProps({
         filter: null,
       });
       await delay(10);
 
       // 清除过滤器，全部显示
-      expect(t1.classes('t-tree__item--visible')).toBe(true);
-      expect(t1d1.classes('t-tree__item--visible')).toBe(true);
-      expect(t1d2.classes('t-tree__item--visible')).toBe(true);
+      expect(t1.exists()).toBe(true);
+      expect(t1d1.exists()).toBe(true);
+      expect(t1d2.exists()).toBe(true);
     });
   });
 });

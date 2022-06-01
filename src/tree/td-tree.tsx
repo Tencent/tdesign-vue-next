@@ -1,11 +1,9 @@
 import { computed, defineComponent, TransitionGroup } from 'vue';
 
 import props from './props';
-
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeDefault } from '../hooks/tnode';
 import { useCLASSNAMES } from './constants';
-
 import useTree from './useTree';
 import useExposeFunc from './useExposeFunc';
 
@@ -15,6 +13,7 @@ export default defineComponent({
   setup(props, { expose, slots }) {
     const { global, t } = useConfig('tree');
     const CLASS_NAMES = useCLASSNAMES();
+    const renderTNodeJSX = useTNodeDefault();
 
     // 向子组件传递的状态
     const statusContext = computed(() => {
@@ -47,29 +46,25 @@ export default defineComponent({
       },
     ]);
 
-    const renderTNodeJSX = useTNodeDefault();
-
-    return () => {
-      return (
-        <div class={classList.value}>
-          {treeNodeViews.value.length === 0 ? (
-            <div class={CLASS_NAMES.value.treeEmpty}>
-              {renderTNodeJSX('empty', {
-                defaultNode: t(global.value.empty),
-              })}
-            </div>
-          ) : (
-            <TransitionGroup
-              name={CLASS_NAMES.value.treeNodeToggle}
-              tag="div"
-              enter-active-class={CLASS_NAMES.value.treeNodeEnter}
-              leave-active-class={CLASS_NAMES.value.treeNodeLeave}
-            >
-              {treeNodeViews.value}
-            </TransitionGroup>
-          )}
-        </div>
-      );
-    };
+    return () => (
+      <div class={classList.value}>
+        {treeNodeViews.value.length === 0 ? (
+          <div class={CLASS_NAMES.value.treeEmpty}>
+            {renderTNodeJSX('empty', {
+              defaultNode: t(global.value.empty),
+            })}
+          </div>
+        ) : (
+          <TransitionGroup
+            name={CLASS_NAMES.value.treeNodeToggle}
+            tag="div"
+            enter-active-class={CLASS_NAMES.value.treeNodeEnter}
+            leave-active-class={CLASS_NAMES.value.treeNodeLeave}
+          >
+            {treeNodeViews.value}
+          </TransitionGroup>
+        )}
+      </div>
+    );
   },
 });
