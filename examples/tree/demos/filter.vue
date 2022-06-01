@@ -3,7 +3,7 @@
     <t-addon prepend="filter:">
       <t-input v-model="filterText" @change="onInput" />
     </t-addon>
-    <t-tree :data="items" expand-on-click-node :default-expanded="expanded" :filter="filterByText" hover line />
+    <t-tree :data="items" expand-on-click-node :default-expanded="expanded" :filter="handleFilterByText" hover line />
   </div>
 </template>
 
@@ -102,15 +102,11 @@ const items = [
 ];
 
 const filterText = ref('');
-const filterByText = ref(null);
+const handleFilterByText = ref(null);
 const expanded = ref(['1.1.1']);
 
 const onInput = (state) => {
-  console.info('onInput:', state);
-  filterByText.value = (node) => {
-    const rs = node.data.label.indexOf(filterText.value) >= 0;
-    return rs;
-  };
+  handleFilterByText.value = (node) => node.data.label.indexOf(filterText.value) >= 0;
 };
 </script>
 <style scoped>

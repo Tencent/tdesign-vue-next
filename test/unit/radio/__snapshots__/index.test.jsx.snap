@@ -464,9 +464,6 @@ exports[`Radio RadioGroup > :props > :variant 1`] = `
     </span>
   </label>
   
-  <div
-    class="t-radio-group__bg-block"
-    style="width: 0px; left: 0px;"
-  />
+  <!---->
 </div>
 `;

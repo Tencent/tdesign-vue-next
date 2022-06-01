@@ -14,7 +14,7 @@ import { getLefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
-import { usePrefixClass } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 const props = {
   checkboxProps: {
@@ -55,8 +55,6 @@ const props = {
   pagination: [Boolean, Object],
   footer: [Function, String],
   checkAll: Boolean,
-  t: Function,
-  global: Object,
   isTreeMode: {
     type: Boolean as PropType<boolean>,
     default: false,
@@ -67,8 +65,9 @@ const props = {
 export default defineComponent({
   name: 'TTransferList',
   props: { ...props },
-  setup(props, { slots }) {
+  setup(props) {
     const classPrefix = usePrefixClass();
+    const { t, global } = useConfig('transfer');
     // 搜索框输入内容
     const filterValue = ref('');
     // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
@@ -123,9 +122,15 @@ export default defineComponent({
     });
 
     const isAllChecked = computed(() => {
+      const allValue = getDataValues(props.dataSource, [], { isTreeMode: props.isTreeMode, include: false });
+
       return (
         props.checkedValue.length > 0 &&
-        props.dataSource.every((item: TransferItemOption) => item.disabled || props.checkedValue.includes(item.value))
+        (props.isTreeMode
+          ? allValue.every((item) => props.checkedValue.includes(item))
+          : props.dataSource.every(
+              (item: TransferItemOption) => item.disabled || props.checkedValue.includes(item.value),
+            ))
       );
     });
     const indeterminate = computed(() => {
@@ -220,7 +225,7 @@ export default defineComponent({
       );
     };
     const renderEmpty = () => {
-      const empty = props.empty || props.t(props.global.empty);
+      const empty = props.empty || t(global.value.empty);
       const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
       return (
         <div class={`${classPrefix.value}-transfer__empty`}>
@@ -260,7 +265,7 @@ export default defineComponent({
                 />
               )}
               <span>
-                {props.t(props.global.title, {
+                {t(global.value.title, {
                   checked: props.checkedValue.length,
                   total: totalCount.value,
                 })}
@@ -277,7 +282,7 @@ export default defineComponent({
             {props.search && (
               <Search
                 searchValue={filterValue.value}
-                placeholder={props.t(props.global.placeholder)}
+                placeholder={t(global.value.placeholder)}
                 onChange={handleSearch}
                 disabled={props.disabled}
                 search={props.search}

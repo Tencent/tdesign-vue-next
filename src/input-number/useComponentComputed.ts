@@ -46,7 +46,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
   const handleStartInput = () => {
     inputting.value = true;
     if (innerValue.value === undefined) return;
-    filterValue.value = innerValue.value.toFixed(digitsNum.value);
+    filterValue.value = Number(innerValue.value).toFixed(digitsNum.value);
   };
 
   const handleEndInput = (e: FocusEvent) => {
@@ -117,7 +117,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
     // end input
     return props.format && !inputting.value
       ? props.format(innerValue.value)
-      : innerValue.value.toFixed(digitsNum.value);
+      : Number(innerValue.value).toFixed(digitsNum.value);
   });
 
   watch(

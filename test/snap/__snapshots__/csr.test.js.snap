@@ -43653,12 +43653,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   <div
     class="t-tree t-tree--transition"
     data-v-7cc4a746=""
-    modelvalue=""
   >
-    <transition-group-stub>
-      
-      
-    </transition-group-stub>
     <div
       class="t-tree__empty"
     >
@@ -43675,7 +43670,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   <div
     class="t-tree t-tree--transition"
     data-v-7cc4a746=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -43685,7 +43679,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -43715,7 +43709,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             Department A
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -43723,7 +43717,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -43753,11 +43747,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             Department B
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <br
     data-v-7cc4a746=""
@@ -131746,7 +131739,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
           
           <div
             class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
-            modelvalue=""
           >
             <transition-group-stub>
               
@@ -131756,7 +131748,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1"
                 style="--level: 0;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon t-tree__icon--default"
                   ignore="active"
@@ -131796,7 +131788,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -131804,7 +131796,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1.1"
                 style="--level: 1;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon"
                   ignore="active"
@@ -131832,7 +131824,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -131840,7 +131832,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1.2"
                 style="--level: 1;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon t-tree__icon--default"
                   ignore="active"
@@ -131880,7 +131872,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -131888,7 +131880,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1.2.1"
                 style="--level: 2;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon t-tree__icon--default"
                   ignore="active"
@@ -131928,7 +131920,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -131936,7 +131928,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1.2.1.1"
                 style="--level: 3;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon"
                   ignore="active"
@@ -131964,7 +131956,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -131972,7 +131964,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="1.2.1.2"
                 style="--level: 3;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon"
                   ignore="active"
@@ -132000,7 +131992,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -132008,7 +132000,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="2"
                 style="--level: 0;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon t-tree__icon--default"
                   ignore="active"
@@ -132048,7 +132040,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -132056,7 +132048,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="2.1"
                 style="--level: 1;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon"
                   ignore="active"
@@ -132084,7 +132076,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               <div
                 class="t-tree__item t-tree__item--open"
@@ -132092,7 +132084,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                 data-value="2.2"
                 style="--level: 1;"
               >
-                
+                <!---->
                 <span
                   class="t-tree__icon t-folder-icon"
                   ignore="active"
@@ -132120,11 +132112,10 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                     
                   </span>
                 </label>
-                
+                <!---->
               </div>
               
             </transition-group-stub>
-            <!---->
           </div>
           
         </div>
@@ -132403,7 +132394,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-42cd3e31=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -132413,7 +132403,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t3"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132442,7 +132432,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -132450,7 +132440,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t4"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -132467,7 +132457,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             1.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -132475,7 +132465,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t5"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -132492,7 +132482,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             1.2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -132500,7 +132490,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t6"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132529,7 +132519,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -132537,7 +132527,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t7"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -132554,7 +132544,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             2.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -132562,7 +132552,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
         data-value="t8"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -132579,11 +132569,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
             2.2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -132596,7 +132585,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-2a9fe02e=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -132606,7 +132594,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
         data-value="t9"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132635,7 +132623,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
             第一段
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -132643,7 +132631,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
         data-value="t12"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132669,10 +132657,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
           <span
             style="position: relative;"
           >
-            第一段
+            第二段
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -132680,7 +132668,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
         data-value="t15"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132706,10 +132694,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
           <span
             style="position: relative;"
           >
-            第一段
+            第三段
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -132717,7 +132705,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
         data-value="t18"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -132743,14 +132731,13 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
           <span
             style="position: relative;"
           >
-            第一段
+            第四段
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -132970,7 +132957,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
   </div>
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -132980,7 +132966,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133020,7 +133006,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133028,7 +133014,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133068,7 +133054,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133076,7 +133062,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.1"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133116,7 +133102,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133124,7 +133110,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.1.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133152,7 +133138,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133160,7 +133146,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.1.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133188,7 +133174,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133196,7 +133182,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.2"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133236,7 +133222,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133244,7 +133230,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.2.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133272,7 +133258,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133280,7 +133266,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.1.2.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133308,7 +133294,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133316,7 +133302,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133356,7 +133342,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133364,7 +133350,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.1"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133404,7 +133390,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133412,7 +133398,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.1.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133440,7 +133426,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133448,7 +133434,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.1.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133476,7 +133462,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133484,7 +133470,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.2"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133524,7 +133510,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133532,7 +133518,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.2.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133560,7 +133546,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133568,7 +133554,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="1.2.2.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133596,7 +133582,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133604,7 +133590,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133644,7 +133630,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133652,7 +133638,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="2.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133680,7 +133666,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133688,7 +133674,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
         data-value="2.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -133716,18 +133702,17 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] = `
 <div
-  class="tdesign-tree-base"
+  class="tdesign-demo-block-row"
   data-v-c6bef3b4=""
 >
   <div
@@ -133826,7 +133811,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
   <div
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-c6bef3b4=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -133836,7 +133820,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133876,7 +133860,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133884,7 +133868,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133924,7 +133908,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -133932,7 +133916,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.1.1"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -133972,7 +133956,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -133980,7 +133964,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.1.1.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134008,7 +133992,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -134016,7 +134000,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.1.1.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134044,7 +134028,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -134052,7 +134036,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.1.2"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134092,7 +134076,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -134100,7 +134084,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="1.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134140,7 +134124,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-active"
@@ -134148,7 +134132,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134188,7 +134172,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -134196,7 +134180,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="2.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134224,7 +134208,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -134232,7 +134216,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         data-value="2.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134260,11 +134244,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -134377,7 +134360,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
   <div
     class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-45d4f614=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -134387,7 +134369,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t21"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134428,7 +134410,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134436,7 +134418,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t22"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134477,7 +134459,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134485,7 +134467,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t23"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134514,7 +134496,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134522,7 +134504,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t24"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134551,7 +134533,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134559,7 +134541,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t25"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134600,7 +134582,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134608,7 +134590,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t26"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134637,7 +134619,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134645,7 +134627,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t27"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134674,7 +134656,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134682,7 +134664,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t28"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134723,7 +134705,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134731,7 +134713,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t29"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134760,7 +134742,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -134768,7 +134750,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t30"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134797,11 +134779,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <div
     class="operations"
@@ -134862,7 +134843,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-45d4f614=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -134872,7 +134852,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t31"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134912,7 +134892,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -134920,7 +134900,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t32"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -134961,7 +134941,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -134969,7 +134949,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t33"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -134997,7 +134977,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135005,7 +134985,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t34"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135033,7 +135013,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135041,7 +135021,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t35"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135082,7 +135062,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135090,7 +135070,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t36"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135118,7 +135098,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135126,7 +135106,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t37"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135154,7 +135134,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135162,7 +135142,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t38"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135202,7 +135182,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135210,7 +135190,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t39"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135239,7 +135219,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135247,7 +135227,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         data-value="t40"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135275,11 +135255,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -135292,12 +135271,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/empty.vue 1`] = `
   <div
     class="t-tree t-tree--transition"
     data-v-f4d8fb36=""
-    modelvalue=""
   >
-    <transition-group-stub>
-      
-      
-    </transition-group-stub>
     <div
       class="t-tree__empty"
     >
@@ -135310,12 +135284,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/empty.vue 1`] = `
   <div
     class="t-tree t-tree--transition"
     data-v-f4d8fb36=""
-    modelvalue=""
   >
-    <transition-group-stub>
-      
-      
-    </transition-group-stub>
     <div
       class="t-tree__empty"
     >
@@ -135328,12 +135297,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/empty.vue 1`] = `
   <div
     class="t-tree t-tree--transition"
     data-v-f4d8fb36=""
-    modelvalue=""
   >
-    <transition-group-stub>
-      
-      
-    </transition-group-stub>
     <div
       class="t-tree__empty"
     >
@@ -135348,12 +135312,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/empty.vue 1`] = `
   <div
     class="t-tree t-tree--transition"
     data-v-f4d8fb36=""
-    modelvalue=""
   >
-    <transition-group-stub>
-      
-      
-    </transition-group-stub>
     <div
       class="t-tree__empty"
     >
@@ -135477,7 +135436,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
   <div
     class="t-tree t-tree--transition"
     data-v-69423af4=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -135487,7 +135445,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t41"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135516,7 +135474,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135524,7 +135482,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t42"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135553,7 +135511,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135561,7 +135519,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t43"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135578,7 +135536,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.1.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135586,7 +135544,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t44"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135603,7 +135561,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.1.2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135611,7 +135569,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t45"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135640,7 +135598,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135648,7 +135606,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t46"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135665,7 +135623,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.2.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135673,7 +135631,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t47"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135690,7 +135648,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             1.2.2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135698,7 +135656,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t48"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135727,7 +135685,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135735,7 +135693,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t49"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135752,7 +135710,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             2.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135760,7 +135718,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
         data-value="t50"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135777,11 +135735,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
             2.2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -135794,7 +135751,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-6524dba9=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -135804,7 +135760,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t51"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135833,7 +135789,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -135841,7 +135797,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t52"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135870,7 +135826,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             1.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -135878,7 +135834,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t55"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135907,7 +135863,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             1.2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -135915,7 +135871,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t58"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -135944,7 +135900,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -135952,7 +135908,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t59"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135969,7 +135925,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             2.1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -135977,7 +135933,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
         data-value="t60"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -135994,11 +135950,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
             2.2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -136111,7 +136066,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
   <div
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-0e58bc24=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136121,7 +136075,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
         data-value="t61"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136150,7 +136104,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -136158,7 +136112,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
         data-value="t68"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136187,11 +136141,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -136235,7 +136188,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-120c6910=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136245,7 +136197,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136274,7 +136226,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -136282,7 +136234,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136311,11 +136263,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -136333,7 +136284,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-25503191=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136343,7 +136293,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
         data-value="t75"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136366,7 +136316,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -136374,7 +136324,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
         data-value="t76"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136397,11 +136347,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <h3
     data-v-25503191=""
@@ -136411,7 +136360,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-25503191=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136421,7 +136369,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
         data-value="t77"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136447,7 +136395,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
             1
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -136455,7 +136403,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
         data-value="t78"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136481,11 +136429,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
             2
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -136503,7 +136450,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
   <div
     class="t-tree t-tree--transition"
     data-v-94055ee8=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136513,7 +136459,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t79"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136544,7 +136490,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136552,7 +136498,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t80"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136571,7 +136517,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136579,7 +136525,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t81"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136598,7 +136544,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136606,7 +136552,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t82"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136637,7 +136583,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136645,7 +136591,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t83"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136664,7 +136610,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136672,7 +136618,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t84"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136691,11 +136637,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             </strong>
           </span>
         </span>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <h3
     data-v-94055ee8=""
@@ -136705,7 +136650,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
   <div
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-94055ee8=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -136715,7 +136659,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t85"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136762,7 +136706,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136770,7 +136714,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t86"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136805,7 +136749,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136813,7 +136757,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t87"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136848,7 +136792,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136856,7 +136800,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t88"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -136903,7 +136847,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136911,7 +136855,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t89"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136946,7 +136890,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -136954,7 +136898,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
         data-value="t90"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -136989,11 +136933,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -137130,7 +137073,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-0687930c=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -137140,7 +137082,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -137180,7 +137122,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -137188,7 +137130,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -137228,11 +137170,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/lazy.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -137342,7 +137283,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
   >
     <div
       class="t-tree t-tree--transition"
-      modelvalue=""
     >
       <transition-group-stub>
         
@@ -137352,7 +137292,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1"
           style="--level: 0;"
         >
-          
+          <!---->
           <span
             class="t-tree__icon t-folder-icon t-tree__icon--default"
             ignore="active"
@@ -137381,7 +137321,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137389,7 +137329,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.1"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf t-tree__line--first"
             style="--level: 1;"
@@ -137410,7 +137349,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137418,7 +137357,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.2"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf"
             style="--level: 1;"
@@ -137439,7 +137377,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137447,7 +137385,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2"
           style="--level: 0;"
         >
-          
+          <!---->
           <span
             class="t-tree__icon t-folder-icon t-tree__icon--default"
             ignore="active"
@@ -137476,7 +137414,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137484,7 +137422,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--first"
             style="--level: 1;"
@@ -137517,7 +137454,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137525,7 +137462,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1"
           style="--level: 2;"
         >
-          
           <span
             class="t-tree__line t-tree__line--first"
             style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
@@ -137558,7 +137494,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137566,7 +137502,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1"
           style="--level: 3;"
         >
-          
           <span
             class="t-tree__line t-tree__line--first"
             style="--level: 3; box-shadow: calc(-1 * var(--space)) 0 var(--color),calc(-2 * var(--space)) 0 var(--color);"
@@ -137599,7 +137534,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137607,7 +137542,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.1"
           style="--level: 4;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf t-tree__line--first"
             style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
@@ -137628,7 +137562,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137636,7 +137570,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.2"
           style="--level: 4;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf"
             style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
@@ -137657,7 +137590,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137665,7 +137598,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.2"
           style="--level: 2;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf"
             style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
@@ -137686,7 +137618,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137694,7 +137626,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.2"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf"
             style="--level: 1;"
@@ -137715,7 +137646,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137723,7 +137654,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3"
           style="--level: 0;"
         >
-          
+          <!---->
           <span
             class="t-tree__icon t-folder-icon t-tree__icon--default"
             ignore="active"
@@ -137752,7 +137683,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137760,7 +137691,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.1"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf t-tree__line--first"
             style="--level: 1;"
@@ -137781,7 +137711,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137789,7 +137719,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.2"
           style="--level: 1;"
         >
-          
           <span
             class="t-tree__line t-tree__line--leaf"
             style="--level: 1;"
@@ -137810,7 +137739,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137818,7 +137747,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="4"
           style="--level: 0;"
         >
-          
+          <!---->
           <span
             class="t-tree__icon t-folder-icon"
             ignore="active"
@@ -137835,18 +137764,16 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               4
             </span>
           </span>
-          
+          <!---->
         </div>
         
       </transition-group-stub>
-      <!---->
     </div>
     <h3>
       render
     </h3>
     <div
       class="t-tree t-tree--transition"
-      modelvalue=""
     >
       <transition-group-stub>
         
@@ -137856,7 +137783,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1"
           style="--level: 0;"
         >
-          
           <div
             class="custom-line custom-line-first"
           >
@@ -137892,7 +137818,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137900,7 +137826,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.1"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-first custom-line-leaf"
           >
@@ -137939,7 +137864,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137947,7 +137872,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.2"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -137986,7 +137910,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -137994,7 +137918,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2"
           style="--level: 0;"
         >
-          
           <div
             class="custom-line"
           >
@@ -138030,7 +137953,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138038,7 +137961,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-first"
           >
@@ -138078,7 +138000,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138086,7 +138008,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1"
           style="--level: 2;"
         >
-          
           <div
             class="custom-line custom-line-first"
           >
@@ -138129,7 +138050,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138137,7 +138058,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1"
           style="--level: 3;"
         >
-          
           <div
             class="custom-line custom-line-first custom-line-last"
           >
@@ -138183,7 +138103,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138191,7 +138111,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.1"
           style="--level: 4;"
         >
-          
           <div
             class="custom-line custom-line-first custom-line-leaf"
           >
@@ -138239,7 +138158,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138247,7 +138166,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.2"
           style="--level: 4;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -138295,7 +138213,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138303,7 +138221,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.2"
           style="--level: 2;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -138345,7 +138262,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138353,7 +138270,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.2"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -138392,7 +138308,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138400,7 +138316,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3"
           style="--level: 0;"
         >
-          
           <div
             class="custom-line"
           >
@@ -138436,7 +138351,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138444,7 +138359,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.1"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-first custom-line-leaf"
           >
@@ -138483,7 +138397,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138491,7 +138405,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.2"
           style="--level: 1;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -138530,7 +138443,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138538,7 +138451,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="4"
           style="--level: 0;"
         >
-          
           <div
             class="custom-line custom-line-leaf custom-line-last"
           >
@@ -138573,18 +138485,16 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               4
             </span>
           </span>
-          
+          <!---->
         </div>
         
       </transition-group-stub>
-      <!---->
     </div>
     <h3>
       scope slot
     </h3>
     <div
       class="t-tree t-tree--transition"
-      modelvalue=""
     >
       <transition-group-stub>
         
@@ -138594,7 +138504,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1"
           style="--level: 0;"
         >
-          
           
           <div
             class="custom-line custom-line-first"
@@ -138636,7 +138545,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138644,7 +138553,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.1"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-first custom-line-leaf"
@@ -138687,7 +138595,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138695,7 +138603,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="1.2"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -138738,7 +138645,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138746,7 +138653,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2"
           style="--level: 0;"
         >
-          
           
           <div
             class="custom-line"
@@ -138788,7 +138694,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138796,7 +138702,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-first"
@@ -138841,7 +138746,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138849,7 +138754,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1"
           style="--level: 2;"
         >
-          
           
           <div
             class="custom-line custom-line-first"
@@ -138897,7 +138801,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138905,7 +138809,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1"
           style="--level: 3;"
         >
-          
           
           <div
             class="custom-line custom-line-first custom-line-last"
@@ -138956,7 +138859,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -138964,7 +138867,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.1"
           style="--level: 4;"
         >
-          
           
           <div
             class="custom-line custom-line-first custom-line-leaf"
@@ -139016,7 +138918,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139024,7 +138926,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.1.1.2"
           style="--level: 4;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -139076,7 +138977,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.1.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139084,7 +138985,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.1.2"
           style="--level: 2;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -139130,7 +139030,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.1.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139138,7 +139038,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="2.2"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -139181,7 +139080,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               2.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139189,7 +139088,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3"
           style="--level: 0;"
         >
-          
           
           <div
             class="custom-line"
@@ -139231,7 +139129,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139239,7 +139137,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.1"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-first custom-line-leaf"
@@ -139282,7 +139179,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.1
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139290,7 +139187,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="3.2"
           style="--level: 1;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -139333,7 +139229,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               3.2
             </span>
           </span>
-          
+          <!---->
         </div>
         <div
           class="t-tree__item t-tree__item--open"
@@ -139341,7 +139237,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
           data-value="4"
           style="--level: 0;"
         >
-          
           
           <div
             class="custom-line custom-line-leaf custom-line-last"
@@ -139381,11 +139276,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/line.vue 1`] = `
               4
             </span>
           </span>
-          
+          <!---->
         </div>
         
       </transition-group-stub>
-      <!---->
     </div>
   </div>
 </div>
@@ -139397,113 +139291,253 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/load.vue 1`] = `
   data-v-81648904=""
 >
   <div
-    class="t-tree t-tree--hoverable t-tree--transition"
+    class="operations"
     data-v-81648904=""
-    modelvalue=""
+  >
+    <form
+      class="t-form"
+      data-v-81648904=""
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+        data-v-81648904=""
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            可选
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              data-v-81648904=""
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+        data-v-81648904=""
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            默认展开全部
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              data-v-81648904=""
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+        data-v-81648904=""
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            懒加载
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              data-v-81648904=""
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
+    data-v-81648904=""
   >
     <transition-group-stub>
       
       <div
-        class="t-tree__item t-tree__item--open"
+        class="t-tree__item"
         data-level="0"
         data-value="t91"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
           trigger="expand"
         >
-          <div
-            class="t-loading--center t-size-m t-loading"
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
-            <svg
-              class="t-loading__gradient t-icon-loading"
-              height="1em"
-              size="medium"
-              version="1.1"
-              viewBox="0 0 14 14"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <foreignobject
-                height="12"
-                width="12"
-                x="1"
-                y="1"
-              >
-                <div
-                  class="t-loading__gradient-conic"
-                />
-              </foreignobject>
-            </svg>
-            <!---->
-          </div>
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
         </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
         >
+          <input
+            class="t-checkbox__former"
+            name="t91"
+            type="checkbox"
+          />
           <span
-            style="position: relative;"
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
+            
             1
+            
           </span>
-        </span>
-        
+        </label>
+        <!---->
       </div>
       <div
-        class="t-tree__item t-tree__item--open"
+        class="t-tree__item"
         data-level="0"
         data-value="t92"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
           trigger="expand"
         >
-          <div
-            class="t-loading--center t-size-m t-loading"
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
-            <svg
-              class="t-loading__gradient t-icon-loading"
-              height="1em"
-              size="medium"
-              version="1.1"
-              viewBox="0 0 14 14"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <foreignobject
-                height="12"
-                width="12"
-                x="1"
-                y="1"
-              >
-                <div
-                  class="t-loading__gradient-conic"
-                />
-              </foreignobject>
-            </svg>
-            <!---->
-          </div>
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
         </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
         >
+          <input
+            class="t-checkbox__former"
+            name="t92"
+            type="checkbox"
+          />
           <span
-            style="position: relative;"
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
+            
             2
+            
           </span>
-        </span>
-        
+        </label>
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -139522,7 +139556,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-5396c8f8=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -139532,7 +139565,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         data-value="node1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -139555,7 +139588,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         >
           value: node1
         </span>
-        
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -139563,7 +139595,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         data-value="node2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -139586,11 +139618,9 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         >
           value: node2
         </span>
-        
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <h3
     class="title"
@@ -139737,7 +139767,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-5396c8f8=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -139747,7 +139776,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         data-value="node1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -139834,7 +139863,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           </button>
           
         </span>
-        
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -139842,7 +139870,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         data-value="node2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -139929,11 +139957,9 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           </button>
           
         </span>
-        
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <h3
     class="title"
@@ -140122,7 +140148,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -140132,7 +140157,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
         data-value="node1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140217,7 +140242,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
           </button>
           
         </span>
-        
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -140225,7 +140249,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
         data-value="node2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140310,11 +140334,9 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
           </button>
           
         </span>
-        
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
   <h3
     class="title"
@@ -140342,7 +140364,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/state.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
 <div
-  class="tdesign-tree-base"
+  class="tdesign-demo-block-row"
   data-v-84d5a29a=""
 >
   <div
@@ -140441,7 +140463,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
   <div
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-84d5a29a=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -140451,7 +140472,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140491,7 +140512,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -140499,7 +140520,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140539,7 +140560,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -140547,7 +140568,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.1.1"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140587,7 +140608,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140595,7 +140616,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.1.1.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140623,7 +140644,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140631,7 +140652,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.1.1.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140659,7 +140680,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140667,7 +140688,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.1.2"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140707,7 +140728,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140715,7 +140736,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="1.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140755,7 +140776,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-active"
@@ -140763,7 +140784,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -140803,7 +140824,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140811,7 +140832,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="2.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140839,7 +140860,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -140847,7 +140868,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         data-value="2.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -140875,11 +140896,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
@@ -140985,7 +141005,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
   <div
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-debf06ea=""
-    modelvalue=""
   >
     <transition-group-stub>
       
@@ -140995,7 +141014,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141035,7 +141054,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -141043,7 +141062,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141083,7 +141102,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open"
@@ -141091,7 +141110,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.1.1"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141131,7 +141150,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141139,7 +141158,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.1.1.1"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -141167,7 +141186,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141175,7 +141194,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.1.1.2"
         style="--level: 3;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -141203,7 +141222,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141211,7 +141230,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.1.2"
         style="--level: 2;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141251,7 +141270,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141259,7 +141278,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="1.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141299,7 +141318,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-active"
@@ -141307,7 +141326,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="2"
         style="--level: 0;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
@@ -141347,7 +141366,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141355,7 +141374,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="2.1"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -141383,7 +141402,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       <div
         class="t-tree__item"
@@ -141391,7 +141410,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         data-value="2.2"
         style="--level: 1;"
       >
-        
+        <!---->
         <span
           class="t-tree__icon t-folder-icon"
           ignore="active"
@@ -141419,11 +141438,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
             
           </span>
         </label>
-        
+        <!---->
       </div>
       
     </transition-group-stub>
-    <!---->
   </div>
 </div>
 `;
