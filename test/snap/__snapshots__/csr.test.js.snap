@@ -134921,11 +134921,12 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t32"
             type="checkbox"
           />
@@ -135041,11 +135042,12 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t35"
             type="checkbox"
           />
@@ -135197,11 +135199,12 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t39"
             type="checkbox"
           />
