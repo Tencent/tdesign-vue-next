@@ -415,6 +415,13 @@ export default {
           path: '/vue-next/components/tree',
           component: () => import('@/examples/tree/tree.md'),
         },
+        {
+          title: 'Watermark 水印',
+          name: 'watermark',
+          docType: 'data',
+          path: '/vue-next/components/watermark',
+          component: () => import('@/examples/watermark/watermark.md'),
+        },
       ],
     },
     {
