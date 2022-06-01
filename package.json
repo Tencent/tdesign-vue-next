@@ -169,7 +169,7 @@
     "vitest-fetch-mock": "^0.1.0",
     "vue": "^3.2.36",
     "vue-router": "^4.0.12",
-    "vue-tsc": "^0.34.11",
+    "vue-tsc": "^0.35.2",
     "workbox-precaching": "^6.4.1"
   },
   "config": {
