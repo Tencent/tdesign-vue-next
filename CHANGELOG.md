@@ -5,6 +5,25 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.15.4 `2022-06-01` 
+### 🚀 Features
+- `Tree`: 使用compositionAPI重构 `tree` 组件 @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+- `Cascader`: 增加属性透传  `selectInputProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+-  `Site` 增加主题配置器 @uyarn ([#766](https://github.com/Tencent/tdesign-vue-next/pull/766))
+### 🐞 Bug Fixes
+- `Steps`: 修复插槽渲染逻辑问题  ([issue #802](https://github.com/Tencent/tdesign-vue-next/issues/802)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `Dropdown`: 修复通过插槽方式渲染点击事件 `data` 参数不正确  ([issue #814](https://github.com/Tencent/tdesign-vue-next/issues/814)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `Radio`: 修复 `Group` 模式下 `allowUncheck` 显示错误  ([issue #904](https://github.com/Tencent/tdesign-vue-next/issues/904)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `Cascader`: 修复 `options` 异步获取无法选择任意级的选项 ([issue #903](https://github.com/Tencent/tdesign-vue-next/issues/903)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `InputNumber`: 修复 `v-model` 值不为 `number` 类型时的报错，增加类型判断组件表现 ([issue #912](https://github.com/Tencent/tdesign-vue-next/issues/912)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `Form`: 修复 `reset` 方法报错 ([issue #918](https://github.com/Tencent/tdesign-vue-next/issues/918)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+- `Menu`: 修复暗黑模式下 popup 样式问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
+- `Menu`: 修复箭头方向错误的问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
+- `Tree`: 修复存在keys属性时，严重闪烁 ([issue #445](https://github.com/Tencent/tdesign-vue-next/issues/445)) @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+- `Cascader`: 修复无法透传属性 `popupProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+- `Transfer`: 修复当与tree结合的全选判断问题  ([issue #891](https://github.com/Tencent/tdesign-vue-next/issues/891)) @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+
+
 ## 🌈 0.15.3 `2022-05-30` 
 ### 🚀 Features
 - `Table`: `appendTo` 支持添加新节点到根节点，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
