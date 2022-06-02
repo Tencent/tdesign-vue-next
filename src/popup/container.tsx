@@ -127,7 +127,9 @@ export default defineComponent({
     const mountContent = ref(false);
 
     onMounted(() => {
-      mountContent.value = props.visible;
+      requestAnimationFrame(() => {
+        mountContent.value = props.visible;
+      });
       props.forwardRef(triggerRef.value.$el);
     });
 
