@@ -225,7 +225,7 @@ export default defineComponent({
     return (
       <div
         class={this.tableBaseClass.cellEditWrap}
-        onClick={(e) => {
+        onClick={(e: MouseEvent) => {
           e.stopPropagation();
         }}
       >
