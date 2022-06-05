@@ -132,7 +132,7 @@ export default {
   onDataChange: Function as PropType<TdPrimaryTableProps['onDataChange']>,
   /** 确认列配置时触发 */
   onDisplayColumnsChange: Function as PropType<TdPrimaryTableProps['onDisplayColumnsChange']>,
-  /** 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发 */
+  /** 拖拽排序时触发，`data` 表示排序前的数据，`newData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发 */
   onDragSort: Function as PropType<TdPrimaryTableProps['onDragSort']>,
   /** 展开行发生变化时触发，泛型 T 指表格数据类型 */
   onExpandChange: Function as PropType<TdPrimaryTableProps['onExpandChange']>,

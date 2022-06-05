@@ -364,17 +364,21 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     if (startState.parent) {
       const children = startState.parent.row[keys.childrenKey];
       let count = 0;
+      let targetIndex = -1;
+      let currentIndex = -1;
       for (let i = 0, len = children.length; i < len; i++) {
         if (get(children[i], keys.rowKey) === startRowValue) {
-          children[i] = params.target;
+          targetIndex = i;
           count += 1;
         }
         if (get(children[i], keys.rowKey) === endRowValue) {
-          children[i] = params.current;
+          currentIndex = i;
           count += 1;
         }
         if (count >= 2) break;
       }
+      children[targetIndex] = params.target;
+      children[currentIndex] = params.current;
     }
 
     return { dataSource, result: true };
