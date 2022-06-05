@@ -77,6 +77,9 @@ export default defineComponent({
           popup-props={panels.value.length ? { overlayStyle: { width: 'auto' } } : {}}
           popupProps={props.popupProps}
           inputProps={{ size: props.size }}
+          tagInputProps={{
+            size: props.size,
+          }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
             setInputVal(value);

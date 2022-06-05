@@ -446,20 +446,6 @@ export default defineComponent({
       overlayClassName: popupClass.value,
       expandAnimation: true,
     };
-    const inputProps = {
-      size: props.size,
-    };
-    const tagInputProps = {
-      inputProps: {
-        size: props.size,
-        onClear: clear,
-      },
-    };
-    const tagProps = {
-      size: props.size,
-      closable: true,
-      maxWidth: 300,
-    };
 
     return () => (
       <SelectInput
@@ -471,14 +457,23 @@ export default defineComponent({
         loading={props.loading}
         disabled={tDisabled.value}
         clearable={props.clearable}
+        autoWidth={props.autoWidth}
+        borderless={props.borderless}
+        readonly={props.readonly}
         placeholder={inputPlaceholder.value}
         allowInput={showFilter.value}
         popupVisible={visible.value}
         minCollapsedNum={props.minCollapsedNum}
-        tagProps={tagProps}
         popupProps={popupProps}
-        inputProps={inputProps}
-        tagInputProps={tagInputProps}
+        inputProps={{
+          size: props.size,
+        }}
+        tagInputProps={{
+          size: props.size,
+        }}
+        tagProps={{
+          maxWidth: 300,
+        }}
         onClear={clear}
         onBlur={blur}
         onFocus={focus}
@@ -487,6 +482,7 @@ export default defineComponent({
         onPopupVisibleChange={popupVisibleChange}
         onMouseenter={() => (isHover.value = true)}
         onMouseleave={() => (isHover.value = false)}
+        {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );
   },

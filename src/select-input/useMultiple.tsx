@@ -1,5 +1,6 @@
 import { SetupContext, computed, ref, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
+import _mergeWith from 'lodash/mergeWith';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import { SelectInputCommonProperties } from './interface';
 import { InputValue } from '../input';
@@ -50,27 +51,29 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   };
 
   const renderSelectMultiple = (p: RenderSelectMultipleParams) => {
-    const tagInputProps = {
-      ...p.commonInputProps,
-      ...props.tagInputProps,
-      tagProps: props.tagProps,
-      label: props.label,
-      autoWidth: props.autoWidth,
-      placeholder: tPlaceholder.value,
-      minCollapsedNum: props.minCollapsedNum,
-      collapsedItems: props.collapsedItems,
-      tag: props.tag,
-      value: tags.value,
-      valueDisplay: props.valueDisplay,
-      inputValue: tInputValue.value || '',
-      inputProps: {
-        readonly: !props.allowInput || props.readonly,
-        inputClass: {
-          [`${classPrefix.value}-input--focused`]: p.popupVisible,
+    const tagInputProps = _mergeWith(
+      {
+        ...p.commonInputProps,
+        tagProps: props.tagProps,
+        label: props.label,
+        autoWidth: props.autoWidth,
+        placeholder: tPlaceholder.value,
+        minCollapsedNum: props.minCollapsedNum,
+        collapsedItems: props.collapsedItems,
+        tag: props.tag,
+        value: tags.value,
+        valueDisplay: props.valueDisplay,
+        inputValue: tInputValue.value || '',
+        inputProps: {
+          readonly: !props.allowInput || props.readonly,
+          inputClass: {
+            [`${classPrefix.value}-input--focused`]: p.popupVisible,
+          },
         },
+        suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       },
-      suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
-    };
+      props.tagInputProps,
+    );
 
     return (
       <TagInput

@@ -7,6 +7,7 @@
       :data="options"
       clearable
       multiple
+      size="small"
       value-type="object"
       placeholder="请选择"
     />
