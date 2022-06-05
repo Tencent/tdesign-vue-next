@@ -633,8 +633,13 @@ export default defineComponent({
         [this.STATUS.active]: this.isOpen,
       },
     ];
-    const prefixIcon = renderTNodeJSX(this, 'prefixIcon');
+    const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
     const suffixIconSlot = renderTNodeJSX(this, 'suffixIcon');
+    const prefixIcon = () => {
+      if (prefixIconSlot) {
+        return prefixIconSlot;
+      }
+    };
     const suffixIcon = () => {
       if (suffixIconSlot) {
         return suffixIconSlot;
