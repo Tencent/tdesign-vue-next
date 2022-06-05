@@ -223,7 +223,12 @@ export default defineComponent({
     }
     const errorMessage = this.errorList?.[0]?.message;
     return (
-      <div class={this.tableBaseClass.cellEditWrap}>
+      <div
+        class={this.tableBaseClass.cellEditWrap}
+        onClick={(e: MouseEvent) => {
+          e.stopPropagation();
+        }}
+      >
         <component
           ref="tableEditableCellRef"
           status={errorMessage ? this.errorList?.[0]?.type || 'error' : undefined}
