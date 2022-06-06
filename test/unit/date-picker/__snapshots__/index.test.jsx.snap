@@ -2,49 +2,51 @@
 
 exports[`DatePicker > :mode 1`] = `
 <div
-  class="t-date-picker t-size-m t-date-picker--month-picker"
+  class="t-date-picker"
 >
   
   <div
-    class="t-form-controls t-date-picker__popup-reference"
+    class="t-input__wrap t-select-input t-select-input--empty"
   >
     <div
-      allowinput="0"
-      class="t-input__wrap"
-      input="function () { [native code] }"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
-      <div
-        class="t-input t-input--suffix"
-      >
-        <!---->
-        <!---->
-        <input
-          class="t-input__inner"
-          placeholder="请选择年份"
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-icon t-icon-calendar"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-      </div>
       <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择年份"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-icon t-icon-calendar"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
     </div>
+    <!---->
   </div>
   <!---->
   
@@ -53,49 +55,51 @@ exports[`DatePicker > :mode 1`] = `
 
 exports[`DatePicker > :range 1`] = `
 <div
-  class="t-date-picker t-size-m t-date-picker--month-picker"
+  class="t-date-picker"
 >
   
   <div
-    class="t-form-controls t-date-picker__popup-reference"
+    class="t-input__wrap t-select-input"
   >
     <div
-      allowinput="0"
-      class="t-input__wrap"
-      input="function () { [native code] }"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
-      <div
-        class="t-input t-input--suffix"
-      >
-        <!---->
-        <!---->
-        <input
-          class="t-input__inner"
-          placeholder="请选择月份"
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-icon t-icon-calendar"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-      </div>
       <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-icon t-icon-calendar"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
     </div>
+    <!---->
   </div>
   <!---->
   
@@ -104,49 +108,51 @@ exports[`DatePicker > :range 1`] = `
 
 exports[`DatePicker > :value 1`] = `
 <div
-  class="t-date-picker t-size-m t-date-picker--month-picker"
+  class="t-date-picker"
 >
   
   <div
-    class="t-form-controls t-date-picker__popup-reference"
+    class="t-input__wrap t-select-input"
   >
     <div
-      allowinput="0"
-      class="t-input__wrap"
-      input="function () { [native code] }"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
-      <div
-        class="t-input t-input--suffix"
-      >
-        <!---->
-        <!---->
-        <input
-          class="t-input__inner"
-          placeholder="请选择月份"
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-icon t-icon-calendar"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-      </div>
       <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-icon t-icon-calendar"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
     </div>
+    <!---->
   </div>
   <!---->
   

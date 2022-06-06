@@ -31,6 +31,7 @@ export default {
   /** 透传 Popup 浮层组件全部属性 */
   popupProps: {
     type: Object as PropType<TdRangeInputPopupProps['popupProps']>,
+    default: () => ({}),
   },
   /** 是否显示下拉框 */
   popupVisible: Boolean,

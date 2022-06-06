@@ -9,10 +9,7 @@ import { PropType } from 'vue';
 
 export default {
   /** 输入框高亮状态序号 */
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
+  activeIndex: Number,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用 */

@@ -2,10 +2,14 @@ import { defineComponent } from 'vue';
 import { ChevronLeftIcon, RoundIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 import props from './jumper-props';
 import { usePrefixClass } from '../hooks/useConfig';
-import Button from '../button';
+import TButton from '../button';
 
 export default defineComponent({
   name: 'TJumper',
+
+  components: {
+    TButton,
+  },
 
   props,
 
@@ -14,34 +18,34 @@ export default defineComponent({
 
     return () => (
       <div className={`${COMPONENT_NAME.value}-jumper`}>
-        <Button
+        <t-button
           title={props.prevTitle}
           variant="text"
           size={props.size}
           shape="square"
           onClick={() => props.onJumperClick?.(-1)}
           icon={() => <ChevronLeftIcon />}
-          className={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}-jumper__btn`}
         />
 
-        <Button
+        <t-button
           title={props.currentTitle}
           variant="text"
           size={props.size}
           shape="square"
           onClick={() => props.onJumperClick?.(0)}
           icon={() => <RoundIcon />}
-          className={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}-jumper__btn`}
         />
 
-        <Button
+        <t-button
           title={props.nextTitle}
           variant="text"
           size={props.size}
           shape="square"
           onClick={() => props.onJumperClick?.(1)}
           icon={() => <ChevronRightIcon />}
-          className={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}-jumper__btn`}
         />
       </div>
     );

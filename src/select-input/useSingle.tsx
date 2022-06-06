@@ -66,7 +66,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
-      ...props.inputProps,
       value: singleValueDisplay ? undefined : displayedValue,
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
@@ -74,24 +73,27 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(props.clearable && (inputValue.value || displayedValue)),
+      ...props.inputProps,
     };
 
     return (
       <Input
         ref="inputRef"
-        {...inputProps}
         v-slots={context.slots}
-        onChange={onInnerInputChange}
-        onClear={onInnerClear}
-        onBlur={(val: InputValue, context: { e: MouseEvent }) => {
-          props.onBlur?.(value.value, { ...context, inputValue: val });
-        }}
-        onEnter={(val: InputValue, context: { e: KeyboardEvent }) => {
-          props.onEnter?.(value.value, { ...context, inputValue: val });
-        }}
-        onFocus={(val, context) => {
-          props.onFocus?.(value.value, { ...context, inputValue: val });
-          !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
+        {...{
+          onChange: onInnerInputChange,
+          onClear: onInnerClear,
+          onBlur: (val: InputValue, context: { e: MouseEvent }) => {
+            props.onBlur?.(value.value, { ...context, inputValue: val });
+          },
+          onEnter: (val: InputValue, context: { e: KeyboardEvent }) => {
+            props.onEnter?.(value.value, { ...context, inputValue: val });
+          },
+          onFocus: (val, context) => {
+            props.onFocus?.(value.value, { ...context, inputValue: val });
+            !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
+          },
+          ...inputProps,
         }}
         inputClass={{
           [`${classPrefix.value}-input--focused`]: popupVisible,

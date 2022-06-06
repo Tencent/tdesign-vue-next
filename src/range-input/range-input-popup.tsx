@@ -15,23 +15,25 @@ export default defineComponent({
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
 
     const popupClasses = [
-      COMPONENT_NAME,
+      COMPONENT_NAME.value,
       {
-        [`${COMPONENT_NAME}--visible`]: props.popupVisible || innerPopupVisible.value,
+        [`${COMPONENT_NAME.value}--visible`]: props.popupVisible || innerPopupVisible.value,
       },
     ];
 
     return () => (
-      <div class={COMPONENT_NAME}>
+      <div class={COMPONENT_NAME.value}>
         <Popup
           hideEmptyPopup
           content={props.panel}
           trigger="click"
           placement="bottom-left"
           visible={props.popupVisible || innerPopupVisible.value}
-          onVisibleChange={onInnerPopupVisibleChange}
-          {...props.popupProps}
-          overlayStyle={tOverlayStyle.value}
+          {...{
+            overlayStyle: tOverlayStyle.value,
+            onVisibleChange: onInnerPopupVisibleChange,
+            ...props.popupProps,
+          }}
           class={popupClasses}
         >
           <RangeInput value={props.inputValue} onChange={props.onInputChange} {...props.rangeInputProps} />

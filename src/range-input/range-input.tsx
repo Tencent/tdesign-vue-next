@@ -49,14 +49,10 @@ export default defineComponent({
       ) : null,
     });
 
-    const classes = [
-      COMPONENT_NAME.value,
-      {
-        [SIZE.value[props.size]]: props.size !== 'medium',
-        [STATUS.value.disabled]: disabled.value,
-        [STATUS.value.focused]: focused.value,
-      },
-    ];
+    const inputRefs = {
+      firstInputRef: ref(),
+      secondInputRef: ref(),
+    };
 
     function handleClear(context: { e: MouseEvent }) {
       props.onClear?.(context);
@@ -87,15 +83,44 @@ export default defineComponent({
       props?.onMouseleave?.({ e });
     }
 
+    expose({
+      firstInputElement: inputRefs.firstInputRef.value,
+      secondInputElement: inputRefs.secondInputRef.value,
+      focus: (options: any) => {
+        const { position = 'first' } = options || {};
+        inputRefs[`${position}InputRef`].value?.focus();
+      },
+      blur: (options: any) => {
+        const { position = 'first' } = options || {};
+        inputRefs[`${position}InputRef`].value?.blur();
+      },
+      select: (options: any) => {
+        const { position = 'first' } = options || {};
+        inputRefs[`${position}InputRef`].value?.select();
+      },
+    });
+
     return () => (
-      <div class={classes} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div
+        class={[
+          COMPONENT_NAME.value,
+          {
+            [SIZE.value[props.size]]: props.size !== 'medium',
+            [STATUS.value.disabled]: disabled.value,
+            [STATUS.value.focused]: focused.value,
+          },
+        ]}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div class={`${COMPONENT_NAME.value}__inner`}>
           {prefixIconContent}
-          {labelContent ? <div class={`${classPrefix}-input__prefix`}>{labelContent}</div> : null}
+          {labelContent ? <div class={`${classPrefix.value}-input__prefix`}>{labelContent}</div> : null}
           <Input
+            ref={inputRefs.firstInputRef}
             class={`${COMPONENT_NAME.value}__inner-left`}
             inputClass={{
-              [`${classPrefix}-is-focused`]: props.activeIndex === 0,
+              [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
             }}
             placeholder={placeholder.value[0]}
             disabled={disabled.value}
@@ -131,9 +156,10 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__inner-separator`}>{props.separator}</div>
 
           <Input
+            ref={inputRefs.secondInputRef}
             class={`${COMPONENT_NAME.value}__inner-right`}
             inputClass={{
-              [`${classPrefix}-is-focused`]: props.activeIndex === 1,
+              [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
             }}
             placeholder={placeholder.value[1]}
             disabled={disabled.value}
@@ -166,7 +192,11 @@ export default defineComponent({
             {...inputProps.value[1]}
           />
           {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
-          {suffixIconContent}
+          {suffixIconContent && (
+            <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
+              {suffixIconContent}
+            </span>
+          )}
         </div>
         {props.tips && <div class={`${COMPONENT_NAME.value}__tips`}>{props.tips}</div>}
       </div>
