@@ -80,7 +80,7 @@ export default defineComponent({
     },
     formattedValue: {
       get() {
-        const { tempValue, range, mode, isOpen, startText, endText, global, value: outValue } = this;
+        const { tempValue, range, mode, isOpen, startText, endText, value: outValue, rangeSeparator } = this;
         const selectedDates = this.getDates(outValue);
         const selectedFmtDates: string[] = selectedDates.map((d: Date) => this.formatDate(d));
 
@@ -100,9 +100,9 @@ export default defineComponent({
             break;
           case 'range':
             if (isOpen) {
-              value = [startText, endText].join(global.rangeSeparator);
+              value = [startText, endText].join(rangeSeparator);
             } else if (selectedFmtDates.length > 1) {
-              value = [selectedFmtDates[0], selectedFmtDates[1]].join(global.rangeSeparator);
+              value = [selectedFmtDates[0], selectedFmtDates[1]].join(rangeSeparator);
             }
             break;
         }
@@ -125,7 +125,7 @@ export default defineComponent({
       get() {
         let range = this.startText;
         if (this.range) {
-          range += ` ${this.global.rangeSeparator} ${this.endText}`;
+          range += ` ${this.rangeSeparator} ${this.endText}`;
         }
         return range;
       },
@@ -163,6 +163,9 @@ export default defineComponent({
         [`${this.COMPONENT_NAME}--calendar-inline-view`]: this.inlineView,
         [`${this.COMPONENT_NAME}--range`]: this.range,
       };
+    },
+    rangeSeparator() {
+      return this.separator || this.global.rangeSeparator;
     },
   },
   mounted() {
@@ -510,7 +513,7 @@ export default defineComponent({
             break;
 
           case 'range':
-            dates = inputDate.split(this.global.rangeSeparator || '-').map((d) => {
+            dates = inputDate.split(this.rangeSeparator || '-').map((d) => {
               const d1 = this.parseDate(d, format);
               return d1;
             });
@@ -543,7 +546,7 @@ export default defineComponent({
       const { placeholder, mode } = this;
       let placeholderStr = placeholder || this.global?.placeholder?.[mode];
       if (placeholder && Array.isArray(placeholder)) {
-        placeholderStr = placeholder.join(this.global.rangeSeparator);
+        placeholderStr = placeholder.join(this.rangeSeparator);
       }
       return placeholderStr;
     },
