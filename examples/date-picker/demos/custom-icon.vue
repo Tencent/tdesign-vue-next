@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker theme="primary" mode="date" clearable :prefix-icon="() => renderPrefixIcon">
+    <t-date-picker theme="primary" mode="date" clearable :prefix-icon="renderPrefixIcon">
       <template #suffixIcon>
         <lock-on-icon />
       </template>
