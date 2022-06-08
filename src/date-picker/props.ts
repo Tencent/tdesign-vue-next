@@ -101,4 +101,8 @@ export default {
   onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
   /* 选择或点击确定按钮后触发 */
   onApply: Function as PropType<TdDateRangePickerProps['onApply']>,
+  /** 日期分隔符 */
+  separator: {
+    type: String as PropType<TdDateRangePickerProps['separator']>,
+  },
 };
