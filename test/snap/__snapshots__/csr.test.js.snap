@@ -41725,61 +41725,68 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          Title
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          Would you like to be my friends？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                cancel
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              Title
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                confirm
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              Would you like to be my friends？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    cancel
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    confirm
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41798,73 +41805,80 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-info-circle-filled t-is-info"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          confirm
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          Would you like to be my friends？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-info-circle-filled t-is-info"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                cancel
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              confirm
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                confirm
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              Would you like to be my friends？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    cancel
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    confirm
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41883,73 +41897,80 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          confirm
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          Would you like to be my friends？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-warning"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                cancel
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-warning t-dialog__confirm"
-              type="button"
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              confirm
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                confirm
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              Would you like to be my friends？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    cancel
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-warning t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    confirm
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41968,73 +41989,80 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-error"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          confirm
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          Would you like to be my friends？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-error"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                cancel
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-danger t-dialog__confirm"
-              type="button"
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              confirm
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                confirm
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              Would you like to be my friends？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    cancel
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-danger t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    confirm
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -42053,73 +42081,80 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-check-circle-filled t-is-success"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          confirm
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          Would you like to be my friends？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-check-circle-filled t-is-success"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                cancel
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-success t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              confirm
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                confirm
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              Would you like to be my friends？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    cancel
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-success t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    confirm
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -45945,89 +45980,96 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/async.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          保存订单
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          订单保存中，请稍后
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
-              disabled=""
-              type="button"
+              <!---->
+              保存订单
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              
-              <div
-                class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                <svg
-                  class="t-loading__gradient t-icon-loading"
-                  height="1em"
-                  size="medium"
-                  version="1.1"
-                  viewBox="0 0 14 14"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              订单保存中，请稍后
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
                 >
-                  <foreignobject
-                    height="12"
-                    width="12"
-                    x="1"
-                    y="1"
+                  <span
+                    class="t-button__text"
                   >
-                    <div
-                      class="t-loading__gradient-conic"
-                    />
-                  </foreignobject>
-                </svg>
-                <!---->
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
+                  disabled=""
+                  type="button"
+                >
+                  
+                  <div
+                    class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+                  >
+                    <svg
+                      class="t-loading__gradient t-icon-loading"
+                      height="1em"
+                      size="medium"
+                      version="1.1"
+                      viewBox="0 0 14 14"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <foreignobject
+                        height="12"
+                        width="12"
+                        x="1"
+                        y="1"
+                      >
+                        <div
+                          class="t-loading__gradient-conic"
+                        />
+                      </foreignobject>
+                    </svg>
+                    <!---->
+                  </div>
+                  <span
+                    class="t-button__text"
+                  >
+                    保存中...
+                  </span>
+                  
+                </button>
               </div>
-              <span
-                class="t-button__text"
-              >
-                保存中...
-              </span>
-              
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -46110,87 +46152,94 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          挂载到id为app的元素
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-34a7d0f3=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            通过querySelect指定元素挂载
-          </div>
-          <div
-            data-v-34a7d0f3=""
-          >
-            支持原生document.querySelect选择元素
-          </div>
-          <div
-            data-v-34a7d0f3=""
-          >
-            querySelect获取到的第一个元素为挂载点
-          </div>
-          <div
-            data-v-34a7d0f3=""
-          >
-            我是内容
-          </div>
-          <div
-            data-v-34a7d0f3=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              挂载到id为app的元素
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-34a7d0f3=""
+              >
+                通过querySelect指定元素挂载
+              </div>
+              <div
+                data-v-34a7d0f3=""
+              >
+                支持原生document.querySelect选择元素
+              </div>
+              <div
+                data-v-34a7d0f3=""
+              >
+                querySelect获取到的第一个元素为挂载点
+              </div>
+              <div
+                data-v-34a7d0f3=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-34a7d0f3=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46212,76 +46261,84 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--fixed t-dialog--absolute"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--center"
         >
-          <!---->
-          对话框仅展示在挂载元素区域
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-34a7d0f3=""
-            slot="body"
+            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--absolute"
           >
             <div
-              data-v-34a7d0f3=""
+              class="t-dialog__header"
             >
-              父元素（挂载元素）需要有定位属性，如：position: relative
+              <!---->
+              对话框仅展示在挂载元素区域
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-34a7d0f3=""
+                slot="body"
+              >
+                <div
+                  data-v-34a7d0f3=""
+                >
+                  父元素（挂载元素）需要有定位属性，如：position: relative
+                </div>
+                <div
+                  data-v-34a7d0f3=""
+                >
+                  showInAttachedElement API 仅针对模态对话框有效
+                </div>
+              </div>
+              
             </div>
             <div
-              data-v-34a7d0f3=""
+              class="t-dialog__footer"
             >
-              showInAttachedElement API 仅针对模态对话框有效
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                确认
-              </span>
-            </button>
           </div>
         </div>
       </div>
@@ -46297,87 +46354,94 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
       class="t-dialog__mask"
     />
     <div
-      class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-      style="max-height: calc(100% - 20%);"
+      class="t-dialog__wrap"
     >
       <div
-        class="t-dialog__header"
+        class="t-dialog__position t-dialog--top"
       >
-        <!---->
-        函数返回挂载节点
-      </div>
-      <span
-        class="t-dialog__close"
-      >
-        <svg
-          class="t-icon t-icon-close"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
-      <div
-        class="t-dialog__body"
-      >
-        
         <div
-          data-v-34a7d0f3=""
+          class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
         >
-          指定函数返回的节点为挂载点
-        </div>
-        <div
-          data-v-34a7d0f3=""
-        >
-          函数返回为DOM节点对象
-        </div>
-        <div
-          data-v-34a7d0f3=""
-        >
-          我是内容
-        </div>
-        <div
-          data-v-34a7d0f3=""
-        >
-          我是内容
-        </div>
-        <div
-          data-v-34a7d0f3=""
-        >
-          我是内容
-        </div>
-        
-      </div>
-      <div
-        class="t-dialog__footer"
-      >
-        <div>
-          <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-            type="button"
+          <div
+            class="t-dialog__header"
           >
-            <span
-              class="t-button__text"
-            >
-              取消
-            </span>
-          </button>
-          <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-            type="button"
+            <!---->
+            函数返回挂载节点
+          </div>
+          <span
+            class="t-dialog__close"
           >
-            <span
-              class="t-button__text"
+            <svg
+              class="t-icon t-icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
             >
-              确认
-            </span>
-          </button>
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <div
+            class="t-dialog__body"
+          >
+            
+            <div
+              data-v-34a7d0f3=""
+            >
+              指定函数返回的节点为挂载点
+            </div>
+            <div
+              data-v-34a7d0f3=""
+            >
+              函数返回为DOM节点对象
+            </div>
+            <div
+              data-v-34a7d0f3=""
+            >
+              我是内容
+            </div>
+            <div
+              data-v-34a7d0f3=""
+            >
+              我是内容
+            </div>
+            <div
+              data-v-34a7d0f3=""
+            >
+              我是内容
+            </div>
+            
+          </div>
+          <div
+            class="t-dialog__footer"
+          >
+            <div>
+              <button
+                class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  取消
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  确认
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -46410,61 +46474,68 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/base.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          对话框标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              对话框标题
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46537,61 +46608,68 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          自定义底部按钮，直接传入文字
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                关闭
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              提示
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                前往支付
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              自定义底部按钮，直接传入文字
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    关闭
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    前往支付
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46610,61 +46688,68 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          自定义底部按钮，传入 ButtonProps
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                我知道了
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              提示
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                前往购物车
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              自定义底部按钮，传入 ButtonProps
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    我知道了
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    前往购物车
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46683,64 +46768,71 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          自定义底部按钮，传入自定义组件
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
-              disabled=""
-              type="button"
+              <!---->
+              提示
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                
-                我知道了
-                
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              自定义底部按钮，传入自定义组件
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+                  disabled=""
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    我知道了
+                    
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46808,77 +46900,84 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          模态对话框
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-1112ade2=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            默认点击蒙层或按ESC可关闭
-          </div>
-          <div
-            data-v-1112ade2=""
-          >
-            我是内容
-          </div>
-          <div
-            data-v-1112ade2=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              模态对话框
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-1112ade2=""
+              >
+                默认点击蒙层或按ESC可关闭
+              </div>
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46895,72 +46994,79 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          非模态对话框-可拖拽
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-1112ade2=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            我是内容
-          </div>
-          <div
-            data-v-1112ade2=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              非模态对话框-可拖拽
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46977,72 +47083,79 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          非模态对话框-不可拖拽
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-1112ade2=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            我是内容
-          </div>
-          <div
-            data-v-1112ade2=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              非模态对话框-不可拖拽
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-1112ade2=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47066,73 +47179,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-info-circle-filled t-is-info"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          下单确认
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          信息已全部保存，是否确认下单？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-info-circle-filled t-is-info"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              下单确认
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              信息已全部保存，是否确认下单？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47152,73 +47272,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          温馨提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          系统重启后会短暂影响页面访问，确认重启吗？
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-warning"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              温馨提示
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              系统重启后会短暂影响页面访问，确认重启吗？
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47238,73 +47365,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-error"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          推送失败
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          请检查推送数据是否符合要求
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-error"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              推送失败
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              请检查推送数据是否符合要求
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47324,73 +47458,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-check-circle-filled t-is-success"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          操作成功
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          是否前往查看订单列表
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-check-circle-filled t-is-success"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              操作成功
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              是否前往查看订单列表
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47468,6 +47609,19 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       class="t-button__text"
     >
       
+      普通对话框 
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-b073ed22=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
        模态对话框 
       
     </span>
@@ -47497,77 +47651,175 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          模态对话框
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-b073ed22=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            默认点击蒙层或按ESC可关闭
-          </div>
-          <div
-            data-v-b073ed22=""
-          >
-            我是内容
-          </div>
-          <div
-            data-v-b073ed22=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              普通对话框
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </transition-stub>
+  <transition-stub
+    data-v-b073ed22=""
+  >
+    <div
+      class="t-dialog__ctx t-dialog__ctx--fixed"
+      style="display: none;"
+    >
+      
+      <div
+        class="t-dialog__mask"
+      />
+      <div
+        class="t-dialog__wrap"
+      >
+        <div
+          class="t-dialog__position t-dialog--top"
+        >
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+          >
+            <div
+              class="t-dialog__header"
+            >
+              <!---->
+              模态对话框
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-b073ed22=""
+              >
+                默认点击蒙层或按ESC可关闭
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47584,72 +47836,84 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          非模态对话框
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
           <div
-            data-v-b073ed22=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            我是内容
-          </div>
-          <div
-            data-v-b073ed22=""
-          >
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              非模态对话框
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47774,6 +48038,19 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
       
     </span>
   </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-6bf71c57=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       垂直居中元素溢出场景 
+      
+    </span>
+  </button>
   <transition-stub
     data-v-6bf71c57=""
   >
@@ -47786,61 +48063,68 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          对话框标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              对话框标题
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47859,60 +48143,68 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--fixed"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--center"
         >
-          <!---->
-          对话框标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          水平居中显示的对话框
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              对话框标题
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              水平居中显示的对话框
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47931,61 +48223,375 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="top: 50px; transform: translate(-50%, 0); max-height: calc(100% - 50px);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
+          style="padding-top: 50px;"
         >
-          <!---->
-          对话框标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          自定义对话框距离窗口顶部位置，top: 50px
+            <div
+              class="t-dialog__header"
+            >
+              <!---->
+              对话框标题
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              自定义对话框距离窗口顶部位置，top: 50px
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      
+    </div>
+  </transition-stub>
+  <transition-stub
+    data-v-6bf71c57=""
+  >
+    <div
+      class="t-dialog__ctx t-dialog__ctx--fixed"
+      style="display: none;"
+    >
+      
+      <div
+        class="t-dialog__mask"
+      />
+      <div
+        class="t-dialog__wrap"
+      >
         <div
-          class="t-dialog__footer"
+          class="t-dialog__position t-dialog--center"
         >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+          <div
+            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
+          >
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
-              >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+              <!---->
+              对话框标题
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              <p
+                data-v-6bf71c57=""
+              >
+                水平居中显示的对话框
+              </p>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48024,73 +48630,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-info-circle-filled t-is-info"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-info-circle-filled t-is-info"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              提示
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48122,73 +48735,80 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-check-circle-filled t-is-success"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          恭喜
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-check-circle-filled t-is-success"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              恭喜
+            </div>
+            <span
+              class="t-dialog__close"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48220,64 +48840,71 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          警示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <!---->
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-warning"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              警示
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <!---->
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48309,64 +48936,71 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-is-error"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          错误
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body__icon"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <!---->
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+            <div
+              class="t-dialog__header"
             >
-              <span
-                class="t-button__text"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-is-error"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                确认
-              </span>
-            </button>
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              错误
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body__icon"
+            >
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <!---->
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48398,65 +49032,72 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
+        class="t-dialog__wrap"
       >
         <div
-          class="t-dialog__header"
+          class="t-dialog__position t-dialog--top"
         >
-          <!---->
-          
           <div
-            data-v-7311ac5e=""
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
           >
-            <svg
-              class="t-icon t-icon-check-circle-filled"
-              color="orange"
-              data-v-7311ac5e=""
+            <div
+              class="t-dialog__header"
             >
-              <use
-                href="#t-icon-check-circle-filled"
-              />
-            </svg>
-            <span
-              data-v-7311ac5e=""
-              style="vertical-align: middle;"
-            >
-              对话框标题
-            </span>
-          </div>
-          
-        </div>
-        <!---->
-        <div
-          class="t-dialog__body"
-        >
-          对话框内容
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
-              type="button"
-            >
-              <span
-                class="t-button__text"
+              <!---->
+              
+              <div
+                data-v-7311ac5e=""
               >
-                取消
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
-              type="button"
+                <svg
+                  class="t-icon t-icon-check-circle-filled"
+                  color="orange"
+                  data-v-7311ac5e=""
+                >
+                  <use
+                    href="#t-icon-check-circle-filled"
+                  />
+                </svg>
+                <span
+                  data-v-7311ac5e=""
+                  style="vertical-align: middle;"
+                >
+                  对话框标题
+                </span>
+              </div>
+              
+            </div>
+            <!---->
+            <div
+              class="t-dialog__body"
             >
-              <span
-                class="t-button__text"
-              >
-                确认
-              </span>
-            </button>
+              对话框内容
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -52653,50 +53294,59 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   class="t-dialog__mask"
                 />
                 <div
-                  class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-                  style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+                  class="t-dialog__wrap"
                 >
                   <div
-                    class="t-dialog__header"
+                    class="t-dialog__position t-dialog--top"
+                    style="padding-top: 10%;"
                   >
-                    <!---->
-                    <!---->
-                  </div>
-                  <span
-                    class="t-dialog__close"
-                  >
-                    <svg
-                      class="t-icon t-icon-close"
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 16 16"
-                      width="1em"
-                    >
-                      <path
-                        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                        fill="currentColor"
-                        fill-opacity="0.9"
-                      />
-                    </svg>
-                  </span>
-                  <div
-                    class="t-dialog__body"
-                  >
-                    
                     <div
-                      class="t__dialog-body-img-box"
+                      class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                      style="width: auto;"
                     >
-                      <img
-                        alt=""
-                        src=""
-                      />
+                      <div
+                        class="t-dialog__header"
+                      >
+                        <!---->
+                        <!---->
+                      </div>
+                      <span
+                        class="t-dialog__close"
+                      >
+                        <svg
+                          class="t-icon t-icon-close"
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          width="1em"
+                        >
+                          <path
+                            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                            fill="currentColor"
+                            fill-opacity="0.9"
+                          />
+                        </svg>
+                      </span>
+                      <div
+                        class="t-dialog__body"
+                      >
+                        
+                        <div
+                          class="t__dialog-body-img-box"
+                        >
+                          <img
+                            alt=""
+                            src=""
+                          />
+                        </div>
+                        
+                      </div>
+                      <div
+                        class="t-dialog__footer"
+                      >
+                        <!---->
+                      </div>
                     </div>
-                    
-                  </div>
-                  <div
-                    class="t-dialog__footer"
-                  >
-                    <!---->
                   </div>
                 </div>
                 
@@ -142496,50 +143146,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/custom-drag.vue 1`
           class="t-dialog__mask"
         />
         <div
-          class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-          style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+          class="t-dialog__wrap"
         >
           <div
-            class="t-dialog__header"
+            class="t-dialog__position t-dialog--top"
+            style="padding-top: 10%;"
           >
-            <!---->
-            <!---->
-          </div>
-          <span
-            class="t-dialog__close"
-          >
-            <svg
-              class="t-icon t-icon-close"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
-          <div
-            class="t-dialog__body"
-          >
-            
             <div
-              class="t__dialog-body-img-box"
+              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              style="width: auto;"
             >
-              <img
-                alt=""
-                src=""
-              />
+              <div
+                class="t-dialog__header"
+              >
+                <!---->
+                <!---->
+              </div>
+              <span
+                class="t-dialog__close"
+              >
+                <svg
+                  class="t-icon t-icon-close"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+              <div
+                class="t-dialog__body"
+              >
+                
+                <div
+                  class="t__dialog-body-img-box"
+                >
+                  <img
+                    alt=""
+                    src=""
+                  />
+                </div>
+                
+              </div>
+              <div
+                class="t-dialog__footer"
+              >
+                <!---->
+              </div>
             </div>
-            
-          </div>
-          <div
-            class="t-dialog__footer"
-          >
-            <!---->
           </div>
         </div>
         
@@ -142972,50 +143631,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+            class="t-dialog__wrap"
           >
             <div
-              class="t-dialog__header"
+              class="t-dialog__position t-dialog--top"
+              style="padding-top: 10%;"
             >
-              <!---->
-              <!---->
-            </div>
-            <span
-              class="t-dialog__close"
-            >
-              <svg
-                class="t-icon t-icon-close"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-            </span>
-            <div
-              class="t-dialog__body"
-            >
-              
               <div
-                class="t__dialog-body-img-box"
+                class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                style="width: auto;"
               >
-                <img
-                  alt=""
-                  src=""
-                />
+                <div
+                  class="t-dialog__header"
+                >
+                  <!---->
+                  <!---->
+                </div>
+                <span
+                  class="t-dialog__close"
+                >
+                  <svg
+                    class="t-icon t-icon-close"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="t-dialog__body"
+                >
+                  
+                  <div
+                    class="t__dialog-body-img-box"
+                  >
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  
+                </div>
+                <div
+                  class="t-dialog__footer"
+                >
+                  <!---->
+                </div>
               </div>
-              
-            </div>
-            <div
-              class="t-dialog__footer"
-            >
-              <!---->
             </div>
           </div>
           
@@ -143090,50 +143758,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+            class="t-dialog__wrap"
           >
             <div
-              class="t-dialog__header"
+              class="t-dialog__position t-dialog--top"
+              style="padding-top: 10%;"
             >
-              <!---->
-              <!---->
-            </div>
-            <span
-              class="t-dialog__close"
-            >
-              <svg
-                class="t-icon t-icon-close"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-            </span>
-            <div
-              class="t-dialog__body"
-            >
-              
               <div
-                class="t__dialog-body-img-box"
+                class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                style="width: auto;"
               >
-                <img
-                  alt=""
-                  src=""
-                />
+                <div
+                  class="t-dialog__header"
+                >
+                  <!---->
+                  <!---->
+                </div>
+                <span
+                  class="t-dialog__close"
+                >
+                  <svg
+                    class="t-icon t-icon-close"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="t-dialog__body"
+                >
+                  
+                  <div
+                    class="t__dialog-body-img-box"
+                  >
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  
+                </div>
+                <div
+                  class="t-dialog__footer"
+                >
+                  <!---->
+                </div>
               </div>
-              
-            </div>
-            <div
-              class="t-dialog__footer"
-            >
-              <!---->
             </div>
           </div>
           
@@ -143208,50 +143885,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+            class="t-dialog__wrap"
           >
             <div
-              class="t-dialog__header"
+              class="t-dialog__position t-dialog--top"
+              style="padding-top: 10%;"
             >
-              <!---->
-              <!---->
-            </div>
-            <span
-              class="t-dialog__close"
-            >
-              <svg
-                class="t-icon t-icon-close"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-            </span>
-            <div
-              class="t-dialog__body"
-            >
-              
               <div
-                class="t__dialog-body-img-box"
+                class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                style="width: auto;"
               >
-                <img
-                  alt=""
-                  src=""
-                />
+                <div
+                  class="t-dialog__header"
+                >
+                  <!---->
+                  <!---->
+                </div>
+                <span
+                  class="t-dialog__close"
+                >
+                  <svg
+                    class="t-icon t-icon-close"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="t-dialog__body"
+                >
+                  
+                  <div
+                    class="t__dialog-body-img-box"
+                  >
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  
+                </div>
+                <div
+                  class="t-dialog__footer"
+                >
+                  <!---->
+                </div>
               </div>
-              
-            </div>
-            <div
-              class="t-dialog__footer"
-            >
-              <!---->
             </div>
           </div>
           
@@ -143327,50 +144013,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+            class="t-dialog__wrap"
           >
             <div
-              class="t-dialog__header"
+              class="t-dialog__position t-dialog--top"
+              style="padding-top: 10%;"
             >
-              <!---->
-              <!---->
-            </div>
-            <span
-              class="t-dialog__close"
-            >
-              <svg
-                class="t-icon t-icon-close"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-            </span>
-            <div
-              class="t-dialog__body"
-            >
-              
               <div
-                class="t__dialog-body-img-box"
+                class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                style="width: auto;"
               >
-                <img
-                  alt=""
-                  src=""
-                />
+                <div
+                  class="t-dialog__header"
+                >
+                  <!---->
+                  <!---->
+                </div>
+                <span
+                  class="t-dialog__close"
+                >
+                  <svg
+                    class="t-icon t-icon-close"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="t-dialog__body"
+                >
+                  
+                  <div
+                    class="t__dialog-body-img-box"
+                  >
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  
+                </div>
+                <div
+                  class="t-dialog__footer"
+                >
+                  <!---->
+                </div>
               </div>
-              
-            </div>
-            <div
-              class="t-dialog__footer"
-            >
-              <!---->
             </div>
           </div>
           
@@ -143488,50 +144183,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/img-flow-list.vue 
           class="t-dialog__mask"
         />
         <div
-          class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-          style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+          class="t-dialog__wrap"
         >
           <div
-            class="t-dialog__header"
+            class="t-dialog__position t-dialog--top"
+            style="padding-top: 10%;"
           >
-            <!---->
-            <!---->
-          </div>
-          <span
-            class="t-dialog__close"
-          >
-            <svg
-              class="t-icon t-icon-close"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
-          <div
-            class="t-dialog__body"
-          >
-            
             <div
-              class="t__dialog-body-img-box"
+              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              style="width: auto;"
             >
-              <img
-                alt=""
-                src=""
-              />
+              <div
+                class="t-dialog__header"
+              >
+                <!---->
+                <!---->
+              </div>
+              <span
+                class="t-dialog__close"
+              >
+                <svg
+                  class="t-icon t-icon-close"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+              <div
+                class="t-dialog__body"
+              >
+                
+                <div
+                  class="t__dialog-body-img-box"
+                >
+                  <img
+                    alt=""
+                    src=""
+                  />
+                </div>
+                
+              </div>
+              <div
+                class="t-dialog__footer"
+              >
+                <!---->
+              </div>
             </div>
-            
-          </div>
-          <div
-            class="t-dialog__footer"
-          >
-            <!---->
           </div>
         </div>
         
@@ -143810,50 +144514,59 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/single-custom.vue 
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
+            class="t-dialog__wrap"
           >
             <div
-              class="t-dialog__header"
+              class="t-dialog__position t-dialog--top"
+              style="padding-top: 10%;"
             >
-              <!---->
-              <!---->
-            </div>
-            <span
-              class="t-dialog__close"
-            >
-              <svg
-                class="t-icon t-icon-close"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-            </span>
-            <div
-              class="t-dialog__body"
-            >
-              
               <div
-                class="t__dialog-body-img-box"
+                class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                style="width: auto;"
               >
-                <img
-                  alt=""
-                  src=""
-                />
+                <div
+                  class="t-dialog__header"
+                >
+                  <!---->
+                  <!---->
+                </div>
+                <span
+                  class="t-dialog__close"
+                >
+                  <svg
+                    class="t-icon t-icon-close"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="t-dialog__body"
+                >
+                  
+                  <div
+                    class="t__dialog-body-img-box"
+                  >
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  
+                </div>
+                <div
+                  class="t-dialog__footer"
+                >
+                  <!---->
+                </div>
               </div>
-              
-            </div>
-            <div
-              class="t-dialog__footer"
-            >
-              <!---->
             </div>
           </div>
           

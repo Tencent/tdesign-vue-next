@@ -1,4 +1,5 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
+import isNumber from 'lodash/isNumber';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
@@ -29,18 +30,29 @@ if (typeof window !== 'undefined' && window.document && window.document.document
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
-// 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
+  const windowInnerWidth = (window.innerWidth || document.documentElement.clientWidth);
+  const windowInnerHeight = (window.innerHeight || document.documentElement.clientHeight);
   target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
     // 算出鼠标相对元素的位置
     const disX = targetEvent.clientX - target.offsetLeft;
     const disY = targetEvent.clientY - target.offsetTop;
+    const dialogW = target.offsetWidth;
+    const dialogH = target.offsetHeight;
+    // 如果弹出框超出屏幕范围 不能进行拖拽
+    if (dialogW > windowInnerWidth || dialogH > windowInnerHeight) return;
     function mouseMoverHandler(documentEvent: MouseEvent) {
       // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
-      const left = documentEvent.clientX - disX;
-      const top = documentEvent.clientY - disY;
-      // 移动当前元素
+      let left = documentEvent.clientX - disX;
+      let top = documentEvent.clientY - disY;
+      // 临界判断
+      // 拖拽上左边界限制
+      if (left < 0) left = 0;
+      if (top < 0) top = 0;
+      if (windowInnerWidth - target.offsetWidth - left < 0) left = windowInnerWidth - target.offsetWidth;
+      if (windowInnerHeight - target.offsetHeight - top < 0) top = windowInnerHeight - target.offsetHeight;
+      target.style.position = 'absolute';
       target.style.left = `${left}px`;
       target.style.top = `${top}px`;
     }
@@ -109,11 +121,26 @@ export default defineComponent({
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
-    const isModeless = computed(() => props.mode === 'modeless');
+    const isModeLess = computed(() => props.mode === 'modeless');
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
+    const positionClass = computed(() => [
+      `${COMPONENT_NAME.value}__position`,
+      !!props.top && `${COMPONENT_NAME.value}--top`, 
+      `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`
+    ]);
+    const positionStyle = computed(() => {
+      // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
+      const { top } = props;
+      let topStyle = {};
+      if (top !== undefined) {
+        const topValue = GetCSSValue(top);
+        topStyle = { paddingTop: topValue };
+      }
+      return topStyle;
+    });
     const dialogClass = computed(() => {
       const dialogClass = [
         `${COMPONENT_NAME.value}`,
@@ -122,7 +149,6 @@ export default defineComponent({
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        dialogClass.push(`${COMPONENT_NAME.value}--fixed`);
         if (isModal.value && props.showInAttachedElement) {
           dialogClass.push(`${COMPONENT_NAME.value}--absolute`);
         }
@@ -130,23 +156,7 @@ export default defineComponent({
       return dialogClass;
     });
     const dialogStyle = computed(() => {
-      const { top, placement } = props;
-      let topStyle = {};
-
-      // 设置了top属性
-      if (top) {
-        const topValue = GetCSSValue(top);
-        topStyle = {
-          top: topValue,
-          transform: 'translate(-50%, 0)',
-          maxHeight: `calc(100% - ${topValue})`,
-        };
-      } else if (placement === 'top') {
-        topStyle = {
-          maxHeight: 'calc(100% - 20%)',
-        };
-      }
-      return { width: GetCSSValue(props.width), ...topStyle };
+      return { width: GetCSSValue(props.width) };
     });
 
     watch(
@@ -158,7 +168,7 @@ export default defineComponent({
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
             }
-            !isModeless.value && addClass(document.body, LOCK_CLASS.value);
+            !isModeLess.value && addClass(document.body, LOCK_CLASS.value);
             nextTick(() => {
               if (mousePosition && dialogEle.value) {
                 dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -195,6 +205,8 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
+      // 如果不是modal模式 默认没有mask 也就没有相关点击事件
+      if (props.mode !== 'modal') return;
       props.onOverlayClick?.({ e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
       if (props.closeOnOverlayClick) {
@@ -218,6 +230,12 @@ export default defineComponent({
     };
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
+      if (isModeLess.value && props.draggable) {
+        // 关闭弹窗 清空拖拽设置的相关css
+        dialogEle.value.style.position = 'relative';
+        dialogEle.value.style.left = 'unset';
+        dialogEle.value.style.top = 'unset';
+      }
       props.onClosed?.();
     };
 
@@ -270,24 +288,29 @@ export default defineComponent({
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
-        <div
-          key="dialog"
-          class={dialogClass.value}
-          style={dialogStyle.value}
-          v-draggable={isModeless.value && props.draggable}
-          ref="dialogEle"
-        >
-          <div class={`${COMPONENT_NAME.value}__header`}>
-            {getIcon()}
-            {renderTNodeJSX('header', defaultHeader)}
+
+        <div class={`${COMPONENT_NAME.value}__wrap`} onClick={overlayAction} >
+          <div class={positionClass.value} style={positionStyle.value}>
+            <div
+              key="dialog"
+              class={dialogClass.value}
+              style={dialogStyle.value}
+              v-draggable={isModeLess.value && props.draggable}
+              ref="dialogEle"
+            >
+              <div class={`${COMPONENT_NAME.value}__header`}>
+                {getIcon()}
+                {renderTNodeJSX('header', defaultHeader)}
+              </div>
+              {props.closeBtn ? (
+                <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
+                  {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                </span>
+              ) : null}
+              <div class={bodyClassName}>{body}</div>
+              <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+            </div>
           </div>
-          {props.closeBtn ? (
-            <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
-              {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-            </span>
-          ) : null}
-          <div class={bodyClassName}>{body}</div>
-          <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
       );
     };
@@ -303,7 +326,7 @@ export default defineComponent({
       COMPONENT_NAME,
       scrollWidth,
       isModal,
-      isModeless,
+      isModeLess,
       maskClass,
       dialogClass,
       dialogStyle,
@@ -312,12 +335,11 @@ export default defineComponent({
       afterLeave,
       hasEventOn,
       renderDialog,
-      overlayAction,
     };
   },
   render() {
     const { COMPONENT_NAME } = this;
-    const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
+    const maskView = this.isModal && <div key="mask" class={this.maskClass}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
