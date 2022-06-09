@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, toRefs, inject } from 'vue';
 
 import props from './option-props';
-import Checkbox from '../checkbox/index';
+import Checkbox, { CheckboxProps } from '../checkbox/index';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -18,7 +18,15 @@ export default defineComponent({
   setup(props) {
     const tSelect = inject(selectInjectKey);
 
-    const disabled = useFormDisabled();
+    const formDisabled = useFormDisabled();
+
+    const disabled = computed(() => {
+      if (tSelect.value.multiple) {
+        return tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length;
+      }
+      return formDisabled.value;
+    });
+
     const renderContent = useContent();
 
     const selectName = usePrefixClass('select');
@@ -26,40 +34,47 @@ export default defineComponent({
     const liRef = ref<HTMLElement>();
 
     const isHover = ref(false);
-    const formDisabled = ref(undefined);
-    const { value, label } = toRefs(props);
 
-    const tDisabled = computed(() => formDisabled.value || disabled.value);
-
-    const selected = computed(() => {
+    const isSelected = computed(() => {
       return !tSelect.value.multiple
-        ? tSelect.value.selectValue === value.value
-        : (tSelect.value.selectValue as SelectValue[]).includes(value.value);
+        ? tSelect.value.selectValue === props.value
+        : (tSelect.value.selectValue as SelectValue[]).includes(props.value);
     });
 
     const classes = computed(() => [
       `${selectName.value}-option`,
+      [SIZE.value[tSelect.value.size]],
       {
-        [STATUS.value.disabled]: tDisabled.value,
-        [STATUS.value.selected]: selected.value,
-        [SIZE.value[tSelect.value.size]]: tSelect && tSelect.value,
-        [`${selectName.value}-option__hover`]: isHover.value,
+        [STATUS.value.disabled]: disabled.value,
+        [STATUS.value.selected]: isSelected.value,
+        [`${selectName.value}-option__hover`]: isHover.value && !disabled.value && !isSelected.value,
       },
     ]);
 
-    const labelText = computed(() => label.value || value.value);
+    const labelText = computed(() => props.label || props.value);
 
-    const select = (e: MouseEvent | KeyboardEvent) => {
+    const handleClick = (e: MouseEvent | KeyboardEvent) => {
+      if (tSelect.value.multiple) return;
       e.stopPropagation();
 
-      tSelect.value.onOptionClick(value.value, e);
+      tSelect.value.onChange(props.value, { e, trigger: 'check' });
+      tSelect.value.onPopupVisibleChange(false, { e });
+    };
+
+    const handleCheckboxClick = (val: boolean, context: { e: MouseEvent | KeyboardEvent }) => {
+      const valueIndex = (tSelect.value.selectValue as SelectValue[]).indexOf(props.value);
+      if (valueIndex < 0) {
+        (tSelect.value.selectValue as SelectValue[]).push(props.value);
+      } else {
+        (tSelect.value.selectValue as SelectValue[]).splice(valueIndex, 1);
+      }
+      tSelect.value.onChange(tSelect.value.selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
     };
 
     useRipple(liRef);
 
     return () => {
-      const children = renderContent('default', 'content');
-      const optionChild = children || labelText.value;
+      const optionChild = renderContent('default', 'content') || labelText.value;
       return (
         <li
           ref="liRef"
@@ -67,13 +82,14 @@ export default defineComponent({
           title={`${labelText.value}`}
           onMouseenter={() => (isHover.value = true)}
           onMouseleave={() => (isHover.value = false)}
-          onClick={(e: MouseEvent) => {
-            e.preventDefault();
-            select(e);
-          }}
+          onClick={handleClick}
         >
           {tSelect && tSelect.value.multiple ? (
-            <Checkbox checked={selected.value} disabled={disabled.value}>
+            <Checkbox
+              checked={isSelected.value}
+              disabled={disabled.value && !isSelected.value}
+              onChange={handleCheckboxClick}
+            >
               {optionChild}
             </Checkbox>
           ) : (

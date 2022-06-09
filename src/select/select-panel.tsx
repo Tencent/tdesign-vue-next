@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, inject, PropType } from 'vue';
+import { computed, defineComponent, toRefs, inject, PropType, Slots } from 'vue';
 import { get } from 'lodash';
 import { TdOptionProps } from './type';
 import Option from './option';
@@ -9,6 +9,10 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey } from './constants';
 
+type TdOption = TdOptionProps & {
+  slots?: Slots[];
+};
+
 export default defineComponent({
   name: 'TSelectPanel',
 
@@ -16,7 +20,10 @@ export default defineComponent({
     inputValue: TdSelectProps.inputValue,
     panelTopContent: TdSelectProps.panelTopContent,
     size: TdSelectProps.size,
-    options: TdSelectProps.options,
+    options: {
+      type: Array as PropType<TdOption>,
+      default: (): TdOption[] => [],
+    },
     empty: TdSelectProps.empty,
     creatable: TdSelectProps.creatable,
     loading: TdSelectProps.loading,
@@ -68,7 +75,7 @@ export default defineComponent({
       );
     };
 
-    const renderSingleOption = (options: TdOptionProps[] = []) => {
+    const renderSingleOption = (options: TdOption[] = []) => {
       return options.map((item, index) => (
         <Option
           value={get(item, tSelect.value.keys?.value || 'value')}
@@ -76,7 +83,8 @@ export default defineComponent({
           content={item.content}
           disabled={item.disabled}
           key={index}
-        ></Option>
+          v-slots={item.slots}
+        />
       ));
     };
 

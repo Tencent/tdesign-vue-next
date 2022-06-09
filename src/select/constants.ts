@@ -8,7 +8,9 @@ export const selectInjectKey: InjectionKey<
     selectValue: TdSelectProps['value'];
     multiple: TdSelectProps['multiple'];
     size: TdSelectProps['size'];
-    onOptionClick: (value: TdSelectProps['value'], e: MouseEvent | KeyboardEvent) => void;
+    max: TdSelectProps['max'];
+    onChange: TdSelectProps['onChange'];
+    onPopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
   }>
 > = Symbol('selectProvide');
 
@@ -24,5 +26,6 @@ export const getMultipleContent = (value: SelectValue[], options: TdOptionProps[
 };
 
 export const getSingleContent = (value: TdSelectProps['value'], options: TdOptionProps[]) => {
-  return options.find((item) => item.value === value);
+  const res = options.find((item) => item.value === value);
+  return res?.label;
 };
