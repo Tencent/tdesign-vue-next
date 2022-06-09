@@ -22,6 +22,7 @@ import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'TTreeSelect',
@@ -37,7 +38,6 @@ export default defineComponent({
 
     // data
     const formDisabled = useFormDisabled();
-    const visible = ref(false);
     const isHover = ref(false);
     const defaultProps: PopupProps = reactive({
       trigger: 'click',
@@ -54,8 +54,20 @@ export default defineComponent({
     const treeKey = ref(0);
 
     // model
-    const { value, modelValue } = toRefs(props);
+    const { value, modelValue, popupVisible, inputValue } = toRefs(props);
     const [treeSelectValue, setTreeSelectValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerVisible, setInnerVisible] = useDefaultValue(
+      popupVisible,
+      false,
+      props.onPopupVisibleChange,
+      'popupVisible',
+    );
+    const [innerInputValue, setInnerInputValue] = useDefaultValue(
+      inputValue,
+      props.defaultInputValue,
+      props.onInputChange,
+      'inputValue',
+    );
 
     // watch
     watch(
@@ -79,7 +91,9 @@ export default defineComponent({
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
-    const inputPlaceholder = computed(() => props.placeholder || global.value.placeholder);
+    const inputPlaceholder = computed(
+      () => (innerVisible.value && '') || props.placeholder || global.value.placeholder,
+    );
 
     const popupClass = computed(() => {
       return `${popupObject.value.overlayClassName} ${classPrefix.value}-select__dropdown-inner ${classPrefix.value}-select__dropdown narrow-scrollbar`;
@@ -219,7 +233,7 @@ export default defineComponent({
 
     // methods
     const popupVisibleChange = (state: boolean) => {
-      visible.value = state;
+      setInnerVisible(state);
     };
     const change = (valueParam: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) => {
       setTreeSelectValue(valueParam, { node });
@@ -241,9 +255,7 @@ export default defineComponent({
     const remove = (options: IRemoveOptions<TreeOptionData>) => {
       props.onRemove?.(options);
     };
-    const search = (filterWordsParam: string) => {
-      props.onSearch?.(filterWordsParam);
-    };
+
     const treeNodeChange = (
       valueParam: Array<TreeNodeValue>,
       context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
@@ -258,7 +270,7 @@ export default defineComponent({
       valueParam: Array<TreeNodeValue>,
       context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
     ) => {
-      visible.value = false;
+      setInnerVisible(false);
       // 多选模式屏蔽 Active 事件
       if (props.multiple) {
         return;
@@ -281,6 +293,7 @@ export default defineComponent({
       expanded.value = valueParam;
     };
     const inputChange = (value: InputValue): boolean => {
+      setInnerInputValue(value);
       if (!value) {
         filterByText.value = null;
         return null;
@@ -294,7 +307,7 @@ export default defineComponent({
         }
         return node.data[realLabel.value].indexOf(value) >= 0;
       };
-      search(String(value));
+      props.onSearch?.(String(value));
     };
     const tagChange = (value: string | number, context: TagInputChangeContext) => {
       const { trigger, index } = context;
@@ -419,10 +432,10 @@ export default defineComponent({
       ),
       suffixIcon: () => (
         <FakeArrow
-          isActive={visible.value}
+          isActive={innerVisible.value}
           disabled={props.disabled}
           overlayClassName={{
-            [`${classPrefix.value}-fake-arrow--highlight`]: visible.value,
+            [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
             [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
           }}
         />
@@ -453,6 +466,7 @@ export default defineComponent({
         ref={selectInputRef}
         v-slots={SelectInputSlots}
         value={nodeInfo.value}
+        inputValue={innerVisible.value ? innerInputValue.value : ''}
         multiple={props.multiple}
         loading={props.loading}
         disabled={tDisabled.value}
@@ -462,17 +476,19 @@ export default defineComponent({
         readonly={props.readonly}
         placeholder={inputPlaceholder.value}
         allowInput={showFilter.value}
-        popupVisible={visible.value}
+        popupVisible={innerVisible.value}
         minCollapsedNum={props.minCollapsedNum}
         popupProps={popupProps}
         inputProps={{
           size: props.size,
+          ...(props.inputProps as TdTreeSelectProps['inputProps']),
         }}
         tagInputProps={{
           size: props.size,
         }}
         tagProps={{
           maxWidth: 300,
+          ...(props.tagProps as TdTreeSelectProps['tagProps']),
         }}
         onClear={clear}
         onBlur={blur}
