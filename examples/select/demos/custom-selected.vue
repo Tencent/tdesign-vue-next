@@ -14,7 +14,17 @@
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
     <t-select v-model="value2" :options="options" placeholder="请选择" multiple clearable>
       <template #valueDisplay="{ value, onClose }">
-        <t-tag v-for="(item, index) in value" :key="index" :closable="true" :on-close="() => onClose(index)">
+        <t-tag
+          v-for="(item, index) in value"
+          :key="index"
+          :closable="true"
+          :on-close="
+            ({ e }) => {
+              e.stopPropagation();
+              onClose(index);
+            }
+          "
+        >
           {{ item.label }}({{ item.value[0].toUpperCase() }})
         </t-tag>
       </template>
@@ -22,7 +32,7 @@
 
     <br /><br />
     <t-select v-model="value3" :options="options" placeholder="请选择" clearable>
-      <template #valueDisplay="{ value }"> 单选自定义（{{ value }}） </template>
+      <template #valueDisplay="{ value }"> {{ value ? `单选自定义（${value}）` : '' }} </template>
     </t-select>
   </div>
 </template>
@@ -48,7 +58,14 @@ const value3 = ref('1');
 const valueDisplay = (h, { value, onClose }) => {
   if (!(value instanceof Array)) return;
   return value.map((item, index) => (
-    <t-tag key={index} closable={true} onClose={() => onClose(index)}>
+    <t-tag
+      key={index}
+      closable={true}
+      onClose={({ e }) => {
+        e.stopPropagation();
+        onClose(index);
+      }}
+    >
       {item.label}({item.value[0].toUpperCase()})
     </t-tag>
   ));

@@ -1,19 +1,12 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
 import { DeleteIcon, AddIcon } from 'tdesign-icons-vue-next';
-import { Select as TSelect, Option as TOption } from '../../select';
 import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
 import baseProps from './base-props';
-import { Button as TButton } from '../../button';
 
 export default defineComponent({
   name: 'SwatchesPanel',
-  components: {
-    TSelect,
-    TOption,
-    TButton,
-  },
   props: {
     ...baseProps,
     colors: {

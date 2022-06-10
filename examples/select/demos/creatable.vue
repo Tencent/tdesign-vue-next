@@ -1,12 +1,20 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-row">
     <t-select
-      v-model="value"
+      v-model="value1"
       creatable
       filterable
-      placeholder="支持自定义创建"
+      placeholder="单选支持自定义创建"
       :options="options"
-      style="width: 200px"
+      @create="createOptions"
+    />
+    <t-select
+      v-model="value2"
+      creatable
+      filterable
+      multiple
+      placeholder="多选支持自定义创建"
+      :options="options"
       @create="createOptions"
     />
   </div>
@@ -14,7 +22,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('');
+const value1 = ref('');
+const value2 = ref('');
 const options = ref([
   { label: '选项一', value: '1' },
   { label: '选项二', value: '2' },
