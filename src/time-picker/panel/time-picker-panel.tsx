@@ -36,8 +36,8 @@ export default defineComponent({
     });
 
     return () => (
-      <div className={panelClassName}>
-        <div className={`${panelClassName}-section-body`}>
+      <div className={panelClassName.value}>
+        <div className={`${panelClassName.value}-section-body`}>
           <single-panel
             {...props}
             format={props.format || DEFAULT_FORMAT}
@@ -46,7 +46,7 @@ export default defineComponent({
           />
         </div>
         {isFooterDisplay.value ? (
-          <div className={`${panelClassName}-section-footer`}>
+          <div className={`${panelClassName.value}-section-footer`}>
             <t-button
               theme="primary"
               variant="base"
