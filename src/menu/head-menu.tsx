@@ -34,6 +34,9 @@ export default defineComponent({
     const submenu = reactive([]);
     const vMenu = new VMenu({ isMutex: true, expandValues: expandValues.value });
 
+    const updateActiveValues = (value: MenuValue) => {
+      activeValues.value = vMenu.select(value);
+    };
     provide<TdMenuInterface>('TdMenu', {
       mode,
       theme,
@@ -66,6 +69,7 @@ export default defineComponent({
         }
         setExpanded(expanded);
       },
+      updateActiveValues,
     });
 
     // methods
@@ -85,9 +89,6 @@ export default defineComponent({
         handleSubmenuExpand(value[0]);
       }
     });
-    const updateActiveValues = (value: MenuValue) => {
-      activeValues.value = vMenu.select(value);
-    };
     watch(activeValue, updateActiveValues);
     watch(
       () => props.expandType,

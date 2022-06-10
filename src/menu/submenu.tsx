@@ -148,7 +148,7 @@ export default defineComponent({
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
       const instance = getCurrentInstance();
 
-      isNested.value = !/^t(head)?menu/i.test(instance.parent?.type.name);
+      isNested.value = /^T(Head)?Menu/i.test(instance.parent?.type.name);
     });
 
     return {
