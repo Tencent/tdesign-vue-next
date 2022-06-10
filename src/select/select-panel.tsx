@@ -1,6 +1,5 @@
 import { computed, defineComponent, inject, PropType, Slots } from 'vue';
 import isFunction from 'lodash/isFunction';
-import get from 'lodash/get';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
@@ -77,17 +76,7 @@ export default defineComponent({
                 </OptionGroup>
               );
             }
-            return (
-              <Option
-                value={item.value}
-                label={item.label}
-                content={item.content}
-                disabled={item.disabled}
-                multiple={props.multiple}
-                key={index}
-                v-slots={item.slots}
-              />
-            );
+            return <Option key={index} {...item} multiple={props.multiple} v-slots={item.slots} />;
           })}
         </ul>
       );

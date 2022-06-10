@@ -67,6 +67,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         inputClass: {
           [`${classPrefix.value}-input--focused`]: p.popupVisible,
         },
+        ...props.inputProps,
       },
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       ...props.tagInputProps,

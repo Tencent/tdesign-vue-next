@@ -1,8 +1,9 @@
-import { defineComponent, provide, computed, toRefs, watch } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
+import cloneDeep from 'lodash/cloneDeep';
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
@@ -47,7 +48,7 @@ export default defineComponent({
       'popupVisible',
     );
 
-    const { options, optionsMap } = useSelectOptions(props);
+    const { options, optionsMap, optionsList } = useSelectOptions(props);
 
     const placeholderText = computed(
       () =>
@@ -68,7 +69,7 @@ export default defineComponent({
       return props.multiple
         ? (innerValue.value as SelectValue[]).map((value) => ({
             value,
-            label: optionsMap.value.get(value as string),
+            label: optionsMap.value.get(value as string)?.label,
           }))
         : innerValue.value;
     });
@@ -95,10 +96,67 @@ export default defineComponent({
       setInputValue('');
     };
 
+    // 键盘操作逻辑
+    const hoverIndex = ref(-1);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const optionsListLength = optionsList.value.length;
+      let newIndex = hoverIndex.value;
+      switch (e.code) {
+        case 'ArrowUp':
+          if (hoverIndex.value === -1) {
+            newIndex = 0;
+          } else if (hoverIndex.value === 0) {
+            newIndex = optionsListLength - 1;
+          } else {
+            newIndex--;
+          }
+          if (optionsList.value[newIndex]?.disabled) {
+            newIndex--;
+          }
+          hoverIndex.value = newIndex;
+          break;
+        case 'ArrowDown':
+          if (hoverIndex.value === -1 || hoverIndex.value === optionsListLength - 1) {
+            newIndex = 0;
+          } else {
+            newIndex++;
+          }
+          if (optionsList.value[newIndex]?.disabled) {
+            newIndex++;
+          }
+          hoverIndex.value = newIndex;
+          break;
+        case 'Enter':
+          if (!innerPopupVisible.value) {
+            setInnerPopupVisible(true);
+            break;
+          }
+          if (!props.multiple) {
+            setInnerValue(optionsList.value[hoverIndex.value].value);
+            setInnerPopupVisible(false);
+          } else {
+            const optionValue = optionsList.value[hoverIndex.value].value;
+            const selectValue = cloneDeep(innerValue.value) as SelectValue[];
+            const valueIndex = selectValue.indexOf(optionValue);
+            if (valueIndex < 0) {
+              selectValue.push(optionValue);
+            } else {
+              selectValue.splice(valueIndex, 1);
+            }
+            setInnerValue(selectValue, { e, trigger: valueIndex < 0 ? 'check' : 'uncheck' });
+          }
+          break;
+        case 'Escape':
+          setInnerPopupVisible(false);
+          break;
+      }
+    };
+
     const SelectProvide = computed(() => ({
       slots,
       max: props.max,
       multiple: props.multiple,
+      hoverIndex: hoverIndex.value,
       selectValue: innerValue.value,
       reserveKeyword: props.reserveKeyword,
       handleValueChange: setInnerValue,
@@ -152,6 +210,7 @@ export default defineComponent({
               size: props.size,
               bordered: props.bordered,
               ...(props.inputProps as TdSelectProps['inputProps']),
+              onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,

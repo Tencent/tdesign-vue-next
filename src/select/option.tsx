@@ -1,5 +1,6 @@
 import { defineComponent, ref, computed, inject } from 'vue';
 
+import cloneDeep from 'lodash/cloneDeep';
 import props from './option-props';
 import Checkbox from '../checkbox/index';
 
@@ -14,14 +15,17 @@ import { SelectValue } from './type';
 export default defineComponent({
   name: 'TOption',
 
-  props: { ...props, createAble: Boolean, multiple: Boolean },
+  props: { ...props, createAble: Boolean, multiple: Boolean, index: Number },
   setup(props) {
     const tSelect = inject(selectInjectKey);
     const formDisabled = useFormDisabled();
 
     const disabled = computed(() => {
       if (props.multiple) {
-        return tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length && tSelect.value.max !== 0;
+        return (
+          (tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length && tSelect.value.max !== 0) ||
+          formDisabled.value
+        );
       }
       return formDisabled.value;
     });
@@ -46,7 +50,8 @@ export default defineComponent({
       {
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.selected]: isSelected.value,
-        [`${selectName.value}-option__hover`]: isHover.value && !disabled.value && !isSelected.value,
+        [`${selectName.value}-option__hover`]:
+          (isHover.value || tSelect.value.hoverIndex === props.index) && !disabled.value && !isSelected.value,
       },
     ]);
 
@@ -73,13 +78,14 @@ export default defineComponent({
     };
 
     const handleCheckboxClick = (val: boolean, context: { e: MouseEvent | KeyboardEvent }) => {
-      const valueIndex = (tSelect.value.selectValue as SelectValue[]).indexOf(props.value);
+      const selectValue = cloneDeep(tSelect.value.selectValue) as SelectValue[];
+      const valueIndex = selectValue.indexOf(props.value);
       if (valueIndex < 0) {
-        (tSelect.value.selectValue as SelectValue[]).push(props.value);
+        selectValue.push(props.value);
       } else {
-        (tSelect.value.selectValue as SelectValue[]).splice(valueIndex, 1);
+        selectValue.splice(valueIndex, 1);
       }
-      tSelect.value.handleValueChange(tSelect.value.selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
+      tSelect.value.handleValueChange(selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
       if (!tSelect.value.reserveKeyword) {
         tSelect.value.handlerInputChange('');
       }
