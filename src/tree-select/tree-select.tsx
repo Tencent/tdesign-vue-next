@@ -202,7 +202,11 @@ export default defineComponent({
     };
 
     const inputChange = (value: InputValue): boolean => {
-      if (!innerVisible.value) return;
+      // 未打开状态不处理输入框输入
+      if (!innerVisible.value) {
+        props.onSearch?.(String(value));
+        return;
+      }
       setInnerInputValue(value);
       if (!value) {
         filterByText.value = null;
