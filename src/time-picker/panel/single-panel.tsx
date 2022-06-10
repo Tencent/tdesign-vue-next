@@ -23,7 +23,7 @@ const timeArr = [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
 
 export default defineComponent({
   name: 'TTimePickerPanelCol',
-  props: { ...panelColProps(), position: String, triggerScroll: Object, onChange: Function },
+  props: { ...panelColProps(), position: String, triggerScroll: Boolean, onChange: Function },
 
   setup(props) {
     const { steps, value, format, position = 'start', triggerScroll } = toRefs(props);

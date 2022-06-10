@@ -1,27 +1,24 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import isFunction from 'lodash/isFunction';
-import isEqual from 'lodash/isEqual';
 import { TimeIcon } from 'tdesign-icons-vue-next';
 
-import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface';
-import TPopup, { PopupVisibleChangeContext } from '../popup';
-import PickerPanel from './panel/time-picker-panel';
+import { RangeInputPopup, RangeInputPosition } from '../range-input';
+import TPopup from '../popup';
+import TimePickerPanel from './panel/time-picker-panel';
 import TInput from '../input';
+
+import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
+import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
+
+// interfaces
 import props from './time-range-picker-props';
-import { emitEvent } from '../utils/event';
+import { TimeRangeValue, TimeRangePickerPartial } from './interface';
 
-import {
-  EPickerCols,
-  TIME_PICKER_EMPTY,
-  EMPTY_VALUE,
-  PRE_MERIDIEM_FORMAT,
-  POST_MERIDIEM_FORMAT,
-  AM,
-} from '../_common/js/time-picker/const';
-
+// hooks
+import useVModel from '../hooks/useVModel';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(customParseFormat);
 
@@ -29,18 +26,139 @@ export default defineComponent({
   name: 'TTimeRangePicker',
 
   components: {
-    PickerPanel,
+    TimePickerPanel,
     TimeIcon,
     TPopup,
     TInput,
+    RangeInputPopup,
   },
-  props: { ...props },
+  props: { ...props, rangeInputProps: Object, popupProps: Object },
 
-  setup() {
-    const COMPONENT_NAME = usePrefixClass('time-picker');
-    const { SIZE, STATUS } = useCommonClassName();
+  setup(props) {
+    const componentName = usePrefixClass('time-picker');
     const { global } = useConfig('timePicker');
+    const { classPrefix } = useConfig('classPrefix');
 
-    return <div>1</div>;
+    const disabled = useFormDisabled();
+    const currentPanelIdx = ref(undefined);
+    const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
+    const isShowPanel = ref(false);
+
+    const inputClasses = computed(() => [
+      `${componentName.value}__group`,
+      {
+        [`${classPrefix.value}-is-focused`]: isShowPanel.value,
+      },
+    ]);
+    const { value, modelValue, allowInput, format } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
+
+    const handleShowPopup = (visible: boolean) => {
+      isShowPanel.value = visible;
+    };
+
+    const handleClear = (context: { e: MouseEvent }) => {
+      const { e } = context;
+      e.stopPropagation();
+      currentValue.value = TIME_PICKER_EMPTY;
+      setInnerValue(null);
+    };
+
+    const handleClick = ({ position }: { position: 'first' | 'second' }) => {
+      currentPanelIdx.value = position === 'first' ? 0 : 1;
+    };
+
+    const handleTimeChange = (newValue: string) => {
+      if (currentPanelIdx.value === 0) {
+        currentValue.value = [newValue, currentValue.value[1] ?? newValue];
+      } else {
+        currentValue.value = [currentValue.value[0] ?? newValue, newValue];
+      }
+    };
+
+    const handleInputBlur = (value: TimeRangeValue, { e }: { e: FocusEvent }) => {
+      if (allowInput.value) {
+        const isValidTime = validateInputValue(currentValue.value[currentPanelIdx], format.value);
+        if (isValidTime) {
+          const formattedVal = formatInputValue(currentValue.value[currentPanelIdx], format.value);
+          currentPanelIdx.value === 0
+            ? (currentValue.value = [formattedVal, currentValue.value[1] ?? formattedVal])
+            : (currentValue.value = [currentValue.value[0] ?? formattedVal, formattedVal]);
+        }
+      }
+      props.onBlur?.({ value, e });
+    };
+
+    const handleInputChange = (
+      inputVal: TimeRangeValue,
+      { e, position }: { e: InputEvent; position: RangeInputPosition },
+    ) => {
+      currentPanelIdx.value = inputVal;
+      props.onInput?.({ value: innerValue.value, e, position: position as TimeRangePickerPartial });
+    };
+
+    const handleClickConfirm = () => {
+      const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
+      if (isValidTime) setInnerValue(currentValue.value);
+      isShowPanel.value = false;
+    };
+
+    const handleFocus = (value: TimeRangeValue, { e, position }: { e: FocusEvent; position: RangeInputPosition }) => {
+      props.onFocus?.({ value, e, position: position as TimeRangePickerPartial });
+    };
+
+    watch(
+      () => isShowPanel.value,
+      () => {
+        currentValue.value = isShowPanel.value ? innerValue.value ?? TIME_PICKER_EMPTY : TIME_PICKER_EMPTY;
+        if (!isShowPanel.value) currentPanelIdx.value = undefined;
+      },
+    );
+
+    return () => (
+      <div className={componentName}>
+        <range-input-popup
+          disabled={disabled.value}
+          popupVisible={isShowPanel.value}
+          onPopupVisibleChange={handleShowPopup}
+          popupProps={{
+            overlayStyle: {
+              width: 'auto',
+            },
+            ...props.popupProps,
+          }}
+          onInputChange={handleInputChange}
+          inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? TIME_PICKER_EMPTY}
+          rangeInputProps={{
+            size: props.size,
+            clearable: props.clearable,
+            class: inputClasses.value,
+            value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
+            placeholder: props.placeholder || [global.value.placeholder, global.value.placeholder],
+            suffixIcon: () => <TimeIcon />,
+            onClear: handleClear,
+            onClick: handleClick,
+            onFocus: handleFocus,
+            onBlur: handleInputBlur,
+            readonly: !allowInput,
+            activeIndex: currentPanelIdx,
+            ...props.rangeInputProps,
+          }}
+          panel={() => (
+            <TimePickerPanel
+              steps={props.steps}
+              format={format.value}
+              disableTime={props.disableTime}
+              hideDisabledTime={props.hideDisabledTime}
+              isFooterDisplay={true}
+              value={currentValue.value[currentPanelIdx.value || 0]}
+              onChange={handleTimeChange}
+              handleConfirmClick={handleClickConfirm}
+              position={currentPanelIdx.value === 0 ? 'start' : 'end'}
+            />
+          )}
+        />
+      </div>
+    );
   },
 });

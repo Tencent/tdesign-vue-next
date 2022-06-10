@@ -39,6 +39,7 @@ export default {
   /** 透传给 popup 组件的参数 */
   popupProps: {
     type: Object as PropType<TdTimeRangePickerProps['popupProps']>,
+    default: () => {},
   },
   /** 透传给范围输入框 RangeInput 组件的参数 */
   rangeInputProps: {

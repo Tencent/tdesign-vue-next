@@ -67,10 +67,8 @@ export const panelColProps = () => ({
     default: () => [EPickerCols.hour, EPickerCols.minute, EPickerCols.second],
   },
   value: {
-    type: Object as PropType<dayjs.Dayjs>,
-    ...{
-      default: () => dayjs(),
-    },
+    type: String,
+    default: '',
   },
   range: {
     type: Array as PropType<Array<dayjs.Dayjs>>,

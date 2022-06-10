@@ -13,7 +13,7 @@ import props from './props';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 
@@ -26,7 +26,7 @@ export default defineComponent({
   setup(props) {
     const currentValue = ref('');
     const isShowPanel = ref(false);
-
+    const { global } = useConfig('timePicker');
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
@@ -87,7 +87,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div>
+      <div class={componentName.value}>
         <t-select-input
           onFocus={props.onFocus}
           onClear={handleClear}
@@ -100,7 +100,7 @@ export default defineComponent({
           onInputChange={handleInputChange}
           onBlur={handleInputBlur}
           onPopupVisibleChange={handleShowPopup}
-          placeholder={!innerValue ? props.placeholder : undefined}
+          placeholder={!innerValue.value ? props.placeholder || global.value.placeholder : undefined}
           value={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputProps={props.inputProps}
