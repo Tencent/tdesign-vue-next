@@ -97308,7 +97308,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
         </table>
       </div>
       <div
-        class="t-loading--center t-size-m t-loading"
+        class="t-loading--center t-size-s t-loading"
       >
         <!---->
         <!---->
@@ -112156,12 +112156,12 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
       </table>
     </div>
     <div
-      class="t-loading--center t-size-m t-loading"
+      class="t-loading--center t-size-s t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
         height="1em"
-        size="medium"
+        size="small"
         version="1.1"
         viewBox="0 0 14 14"
         width="1em"
@@ -112337,12 +112337,12 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
       </table>
     </div>
     <div
-      class="t-loading--center t-size-m t-loading"
+      class="t-loading--center t-size-s t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
         height="1em"
-        size="medium"
+        size="small"
         version="1.1"
         viewBox="0 0 14 14"
         width="1em"
@@ -112528,12 +112528,12 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
       </table>
     </div>
     <div
-      class="t-loading--center t-size-m t-loading"
+      class="t-loading--center t-size-s t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
         height="1em"
-        size="medium"
+        size="small"
         version="1.1"
         viewBox="0 0 14 14"
         width="1em"
@@ -116096,7 +116096,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
     </table>
   </div>
   <div
-    class="t-loading--center t-size-m t-loading"
+    class="t-loading--center t-size-s t-loading"
   >
     <!---->
     <!---->
