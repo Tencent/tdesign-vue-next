@@ -31,14 +31,12 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { global } = useConfig('treeSelect');
+    const formDisabled = useFormDisabled();
 
     // ref
     const treeRef = ref(null);
 
     // data
-    const formDisabled = useFormDisabled();
-    const isHover = ref(false);
-
     const filterByText = ref(null);
     const actived = ref([]);
     const expanded = ref([]);
@@ -82,7 +80,7 @@ export default defineComponent({
     });
 
     const inputPlaceholder = computed(
-      () => (innerVisible.value && '') || props.placeholder || global.value.placeholder,
+      () => (innerVisible.value && nodeInfo.value?.label) || props.placeholder || global.value.placeholder,
     );
 
     const popupClass = computed(() => {
@@ -204,6 +202,7 @@ export default defineComponent({
     };
 
     const inputChange = (value: InputValue): boolean => {
+      if (!innerVisible.value) return;
       setInnerInputValue(value);
       if (!value) {
         filterByText.value = null;
@@ -351,6 +350,7 @@ export default defineComponent({
         class={`${classPrefix.value}-tree-select`}
         value={nodeInfo.value}
         inputValue={innerVisible.value ? innerInputValue.value : ''}
+        popupVisible={innerVisible.value}
         disabled={tDisabled.value}
         multiple={props.multiple}
         loading={props.loading}
@@ -360,7 +360,6 @@ export default defineComponent({
         readonly={props.readonly}
         placeholder={inputPlaceholder.value}
         allowInput={props.filterable || isFunction(props.filter)}
-        popupVisible={innerVisible.value}
         minCollapsedNum={props.minCollapsedNum}
         collapsed-items={props.collapsedItems}
         popupProps={{
@@ -387,18 +386,20 @@ export default defineComponent({
         onFocus={(value: InputValue, context: { e: FocusEvent }) => {
           props.onFocus?.({ value, e: context.e });
         }}
-        valueDisplay={renderTNodeJSX('valueDisplay', {
-          params: props.multiple
-            ? {
-                value: nodeInfo.value,
-                onClose: (value: string | number, context: TagInputChangeContext) => {
-                  tagChange(value, context);
+        valueDisplay={() =>
+          renderTNodeJSX('valueDisplay', {
+            params: props.multiple
+              ? {
+                  value: nodeInfo.value,
+                  onClose: (value: string | number, context: TagInputChangeContext) => {
+                    tagChange(value, context);
+                  },
+                }
+              : {
+                  value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: undefined },
                 },
-              }
-            : {
-                value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: undefined },
-              },
-        })}
+          })
+        }
         v-slots={{
           panel: () => (
             <div>
@@ -418,8 +419,6 @@ export default defineComponent({
         onInputChange={inputChange}
         onTagChange={tagChange}
         onPopupVisibleChange={(state: boolean) => setInnerVisible(state)}
-        onMouseenter={() => (isHover.value = true)}
-        onMouseleave={() => (isHover.value = false)}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );
