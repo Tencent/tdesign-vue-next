@@ -27,7 +27,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -44,7 +44,11 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -84,7 +88,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -101,7 +105,11 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                12 月
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -1031,7 +1039,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -1048,7 +1056,11 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -1088,7 +1100,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -1105,7 +1117,11 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                12 月
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -1755,7 +1771,7 @@ exports[`Calendar > :props > :mode 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -1772,7 +1788,11 @@ exports[`Calendar > :props > :mode 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -2146,7 +2166,7 @@ exports[`Calendar > :props > :range 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -2163,7 +2183,11 @@ exports[`Calendar > :props > :range 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -2203,7 +2227,7 @@ exports[`Calendar > :props > :range 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -2220,7 +2244,11 @@ exports[`Calendar > :props > :range 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                12 月
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3032,7 +3060,7 @@ exports[`Calendar > :props > :theme 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -3049,7 +3077,11 @@ exports[`Calendar > :props > :theme 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3089,7 +3121,7 @@ exports[`Calendar > :props > :theme 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -3106,7 +3138,11 @@ exports[`Calendar > :props > :theme 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                12 月
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3892,7 +3928,7 @@ exports[`Calendar > :props > :value 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -3909,7 +3945,11 @@ exports[`Calendar > :props > :value 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                2020 年
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3949,7 +3989,7 @@ exports[`Calendar > :props > :value 1`] = `
             class="t-input__wrap t-select-input t-select"
           >
             <div
-              class="t-input t-is-readonly t-input--prefix t-input--suffix"
+              class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
             >
               <!---->
               <div
@@ -3966,7 +4006,11 @@ exports[`Calendar > :props > :value 1`] = `
                 readonly=""
                 type="text"
               />
-              <!---->
+              <span
+                class="t-input__input-pre"
+              >
+                12 月
+              </span>
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
