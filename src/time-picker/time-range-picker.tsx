@@ -9,11 +9,17 @@ import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface'
 import TPopup, { PopupVisibleChangeContext } from '../popup';
 import PickerPanel from './panel';
 import TInput from '../input';
-import InputItems from './input-items';
 import props from './time-range-picker-props';
 import { emitEvent } from '../utils/event';
 
-import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
+import {
+  EPickerCols,
+  TIME_PICKER_EMPTY,
+  EMPTY_VALUE,
+  PRE_MERIDIEM_FORMAT,
+  POST_MERIDIEM_FORMAT,
+  AM,
+} from '../_common/js/time-picker/const';
 
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
@@ -25,7 +31,6 @@ export default defineComponent({
   components: {
     PickerPanel,
     TimeIcon,
-    InputItems,
     TPopup,
     TInput,
   },
@@ -163,7 +168,9 @@ export default defineComponent({
       if (EPickerCols.hour === col) {
         setTime = value.set(
           col,
-          value.hour() >= 12 && (amFormat.test(format) || pmFormat.test(format)) ? Number(change) + 12 : change,
+          value.hour() >= 12 && (PRE_MERIDIEM_FORMAT.test(format) || POST_MERIDIEM_FORMAT.test(format))
+            ? Number(change) + 12
+            : change,
         );
       } else if ([EPickerCols.minute, EPickerCols.second].includes(col)) {
         setTime = value.set(col, change);
@@ -263,45 +270,6 @@ export default defineComponent({
         (this.$refs.tInput as HTMLInputElement).blur();
       });
     },
-    renderInput() {
-      const classes = [
-        `${this.COMPONENT_NAME}__group`,
-        {
-          [this.STATUS.focused]: this.isShowPanel,
-        },
-      ];
-      return (
-        <div class={classes} onClick={() => (this.isShowPanel = true)}>
-          <t-input
-            disabled={this.disabled}
-            size={this.size}
-            onClear={this.clear}
-            clearable={this.clearable}
-            placeholder=" "
-            value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
-            ref="tInput"
-            onFocus={this.handleTInputFocus}
-            v-slots={{
-              'suffix-icon': () => <time-icon />,
-            }}
-          ></t-input>
-          <input-items
-            size={this.size}
-            dayjs={this.inputTime}
-            disabled={this.disabled}
-            format={this.format}
-            allowInput={this.allowInput}
-            placeholder={this.placeholder || this.global.placeholder}
-            isRangePicker
-            onToggleMeridiem={(index: number) => this.toggleInputMeridiem(index)}
-            onBlurDefault={this.onBlurDefault}
-            onFocusDefault={this.onFocusDefault}
-            onChange={(e: TimeInputEvent) => this.inputChange(e)}
-            steps={this.steps}
-          />
-        </div>
-      );
-    },
   },
   render() {
     // 初始化数据
@@ -312,38 +280,9 @@ export default defineComponent({
     const classes = [this.COMPONENT_NAME, this.SIZE[size]];
 
     const slots = {
-      content: () => (
-        <picker-panel
-          ref="panel"
-          format={this.format}
-          value={this.panelValue}
-          disabled={this.disabled}
-          isShowPanel={this.isShowPanel}
-          onTimePick={this.pickTime}
-          onSure={this.makeSure}
-          steps={this.steps}
-          hideDisabledTime={this.hideDisabledTime}
-          disableTime={this.disableTime}
-          isFocus={this.focus}
-        />
-      ),
+      content: () => <div />,
     };
 
-    return (
-      <t-popup
-        ref="popup"
-        class={classes}
-        placement="bottom-left"
-        trigger="click"
-        disabled={disabled}
-        visible={this.isShowPanel}
-        overlayClassName={`${this.COMPONENT_NAME}__panel-container`}
-        onVisibleChange={this.panelVisibleChange}
-        expandAnimation={true}
-        v-slots={slots}
-      >
-        {this.renderInput()}
-      </t-popup>
-    );
+    return <div>1</div>;
   },
 });

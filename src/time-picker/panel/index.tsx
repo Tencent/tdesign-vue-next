@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { TimePickerPanelColInstance } from '../interface';
-import { EPickerCols } from '../constant';
+import { EPickerCols } from '../../_common/js/time-picker/const';
 import { panelProps } from './props';
 import PanelCol from './panel-col';
 import TButton from '../../button/button';

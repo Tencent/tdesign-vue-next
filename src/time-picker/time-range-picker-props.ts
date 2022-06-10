@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdTimeRangePickerProps } from '../time-picker/type';
@@ -35,27 +34,38 @@ export default {
   /** 占位符，值为数组表示可分别为开始日期和结束日期设置占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdTimeRangePickerProps['placeholder']>,
+    default: undefined,
+  },
+  /** 透传给 popup 组件的参数 */
+  popupProps: {
+    type: Object as PropType<TdTimeRangePickerProps['popupProps']>,
+  },
+  /** 透传给范围输入框 RangeInput 组件的参数 */
+  rangeInputProps: {
+    type: Object as PropType<TdTimeRangePickerProps['rangeInputProps']>,
   },
   /** 尺寸 */
   size: {
     type: String as PropType<TdTimeRangePickerProps['size']>,
     default: 'medium' as TdTimeRangePickerProps['size'],
     validator(val: TdTimeRangePickerProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
   /** 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1'] */
   steps: {
     type: Array as PropType<TdTimeRangePickerProps['steps']>,
-    default: () => [1, 1, 1],
+    default: (): TdTimeRangePickerProps['steps'] => [1, 1, 1],
   },
   /** 选中值 */
   value: {
     type: Array as PropType<TdTimeRangePickerProps['value']>,
+    default: undefined,
   },
-  /** 选中值 */
   modelValue: {
     type: Array as PropType<TdTimeRangePickerProps['value']>,
+    default: undefined,
   },
   /** 选中值，非受控属性 */
   defaultValue: {
@@ -65,7 +75,7 @@ export default {
   onBlur: Function as PropType<TdTimeRangePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
   onChange: Function as PropType<TdTimeRangePickerProps['onChange']>,
-  /** 输入框获得焦点时触发 */
+  /** 范围输入框获得焦点时触发 */
   onFocus: Function as PropType<TdTimeRangePickerProps['onFocus']>,
   /** 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
   onInput: Function as PropType<TdTimeRangePickerProps['onInput']>,

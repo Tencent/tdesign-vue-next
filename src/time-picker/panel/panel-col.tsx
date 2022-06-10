@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
-import { EPickerCols } from '../constant';
+import { EPickerCols } from '../../_common/js/time-picker/const';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
