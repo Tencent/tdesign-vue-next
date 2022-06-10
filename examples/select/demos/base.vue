@@ -7,12 +7,14 @@
     <t-select v-model="value2" placeholder="请选择云产品">
       <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
     </t-select>
+    <t-button @click="options1 = []">1</t-button>
+    <t-button @click="options2 = []">2</t-button>
   </div>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
 
-const options1 = [
+const options1 = ref([
   { label: '架构云', value: '1' },
   { label: '大数据', value: '2' },
   { label: '区块链', value: '3' },
@@ -22,18 +24,17 @@ const options1 = [
   {
     label: '计算场景',
     value: '6',
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    content: (h) => <span>计算场景（高性能计算）</span>,
+    content: () => <span>计算场景（高性能计算）</span>,
   },
-];
-const options2 = [
-  { label: '云服务器', value: '1' },
-  { label: '云数据库', value: '2' },
-  { label: '域名注册', value: '3' },
-  { label: '网站备案', value: '4' },
-  { label: '对象存储', value: '5' },
-  { label: '低代码平台', value: '6' },
-];
+]);
+const options2 = ref([
+  { label: '云服务器1', value: '1' },
+  { label: '云数据库2', value: '2' },
+  { label: '域名注册2', value: '3' },
+  { label: '网站备案23', value: '4' },
+  { label: '对象存储4', value: '5' },
+  { label: '低代码平台123', value: '6' },
+]);
 
 const value1 = ref('');
 const value2 = ref('');

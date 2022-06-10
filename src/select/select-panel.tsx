@@ -1,17 +1,13 @@
 import { computed, defineComponent, toRefs, inject, PropType, Slots } from 'vue';
 import { get } from 'lodash';
-import { TdOptionProps } from './type';
+import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
 import OptionGroup from './optionGroup';
 import TdSelectProps from './props';
 
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { selectInjectKey } from './constants';
-
-type TdOption = TdOptionProps & {
-  slots?: Slots[];
-};
+import { selectInjectKey } from './helper';
 
 export default defineComponent({
   name: 'TSelectPanel',
@@ -21,8 +17,8 @@ export default defineComponent({
     panelTopContent: TdSelectProps.panelTopContent,
     size: TdSelectProps.size,
     options: {
-      type: Array as PropType<TdOption>,
-      default: (): TdOption[] => [],
+      type: Array as PropType<SelectOption[]>,
+      default: (): SelectOption[] => [],
     },
     empty: TdSelectProps.empty,
     creatable: TdSelectProps.creatable,
@@ -42,56 +38,51 @@ export default defineComponent({
     },
   },
 
-  setup(props, { slots }) {
+  setup(props) {
     const { options, showCreateOption } = toRefs(props);
-    const selectName = usePrefixClass('select');
+    const COMPONENT_NAME = usePrefixClass('select');
     const renderTNodeJSX = useTNodeJSX();
+    const renderDefaultTNode = useTNodeDefault();
     const { t, global } = useConfig('select');
     const tSelect = inject(selectInjectKey);
 
     const isEmpty = computed(() => !options.value.length && !showCreateOption.value);
 
-    const renderEmptyContent = () => {
-      const useLocale = !props.empty && !slots.empty;
-      if (useLocale) {
-        return <div class={`${selectName.value}__empty`}>{t(global.value.empty)}</div>;
-      }
-      return renderTNodeJSX('empty');
-    };
+    const renderCreateOption = () => (
+      <ul class={[`${COMPONENT_NAME.value}__create-option`, `${COMPONENT_NAME.value}__list`]}>
+        <t-option
+          value={props.inputValue}
+          label={props.inputValue}
+          class={`${COMPONENT_NAME.value}__create-option--special`}
+        />
+      </ul>
+    );
 
-    const renderLoadingContent = () => {
-      const useLocale = !props.loadingText && !slots.loadingText;
-      if (useLocale) {
-        return <div class={`${selectName.value}__loading-tips`}>{t(global.value.loadingText)}</div>;
-      }
-      return renderTNodeJSX('loadingText');
-    };
-
-    const renderCreateOption = () => {
+    // 递归render options
+    const renderOptionsContent = (options: SelectOption[]) => {
       return (
-        <ul v-show={props.showCreateOption} class={[`${name}__create-option`, `${name}__list`]}>
-          <t-option value={props.inputValue} label={props.inputValue} class={`${name}__create-option--special`} />
+        <ul class={`${COMPONENT_NAME.value}__list`}>
+          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots }, index) => {
+            if (item.group) {
+              return (
+                <OptionGroup label={item.group} divider={item.divider}>
+                  {renderOptionsContent(item.children)}
+                </OptionGroup>
+              );
+            }
+            return (
+              <Option
+                value={get(item, tSelect.value.keys?.value || 'value')}
+                label={get(item, tSelect.value.keys?.label || 'label')}
+                content={item.content}
+                disabled={item.disabled}
+                key={index}
+                v-slots={item.slots}
+              />
+            );
+          })}
         </ul>
       );
-    };
-
-    const renderSingleOption = (options: TdOption[] = []) => {
-      return options.map((item, index) => (
-        <Option
-          value={get(item, tSelect.value.keys?.value || 'value')}
-          label={get(item, tSelect.value.keys?.label || 'label')}
-          content={item.content}
-          disabled={item.disabled}
-          key={index}
-          v-slots={item.slots}
-        />
-      ));
-    };
-
-    const renderOptionsContent = () => {
-      const { options } = props;
-
-      return <ul class={`${selectName.value}__list`}>{renderSingleOption(options)}</ul>;
     };
 
     const dropdownInnerSize = computed(() => {
@@ -104,13 +95,26 @@ export default defineComponent({
 
     return () => (
       <div
-        class={`${selectName.value}__dropdown-inner ${selectName.value}__dropdown-inner--size-${dropdownInnerSize.value}`}
+        class={[
+          `${COMPONENT_NAME.value}__dropdown-inner`,
+          `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
+        ]}
       >
         {renderTNodeJSX('panelTopContent')}
-        {isEmpty.value && renderEmptyContent()}
-        {renderCreateOption()}
-        {!isEmpty.value && props.loading && renderLoadingContent()}
-        {!isEmpty.value && !props.loading && renderOptionsContent()}
+        {/* create option */}
+        {props.showCreateOption && renderCreateOption()}
+        {!isEmpty.value && !props.loading && renderOptionsContent(props.options)}
+        {/* 空状态 */}
+        {isEmpty.value &&
+          renderDefaultTNode('empty', {
+            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(global.value.empty)}</div>,
+          })}
+        {/* loading状态 */}
+        {!isEmpty.value &&
+          props.loading &&
+          renderDefaultTNode('loadingText', {
+            defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(global.value.loadingText)}</div>,
+          })}
         {renderTNodeJSX('panelBottomContent')}
       </div>
     );

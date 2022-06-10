@@ -1,14 +1,14 @@
-import { defineComponent, ref, computed, toRefs, inject } from 'vue';
+import { defineComponent, ref, computed, inject } from 'vue';
 
 import props from './option-props';
-import Checkbox, { CheckboxProps } from '../checkbox/index';
+import Checkbox from '../checkbox/index';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { selectInjectKey } from './constants';
+import { selectInjectKey } from './helper';
 import { SelectValue } from './type';
 
 export default defineComponent({
@@ -22,7 +22,7 @@ export default defineComponent({
 
     const disabled = computed(() => {
       if (tSelect.value.multiple) {
-        return tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length;
+        return tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length && tSelect.value.max !== 0;
       }
       return formDisabled.value;
     });

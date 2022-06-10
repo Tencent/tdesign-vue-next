@@ -2,12 +2,12 @@ import { defineComponent, inject, computed } from 'vue';
 import { useTNodeJSX } from '../hooks/tnode';
 import props from './option-group-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { selectInjectKey } from './constants';
+import { selectInjectKey } from './helper';
 
 export default defineComponent({
   name: 'TOptionGroup',
   props: { ...props },
-  setup() {
+  setup(props) {
     const tSelect = inject(selectInjectKey);
     const COMPONENT_NAME = usePrefixClass('select-option-group');
     const { SIZE } = useCommonClassName();

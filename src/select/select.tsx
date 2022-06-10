@@ -5,7 +5,7 @@ import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
 
 import props from './props';
-import { TdSelectProps, TdOptionProps, SelectValue } from './type';
+import { TdSelectProps, SelectValue } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -13,7 +13,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { selectInjectKey, getSingleContent, getMultipleContent } from './constants';
+import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks';
 
 export default defineComponent({
