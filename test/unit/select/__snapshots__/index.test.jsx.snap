@@ -6,49 +6,53 @@ exports[`Select > :props > :bordered 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -58,49 +62,53 @@ exports[`Select > :props > :clearable 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -110,49 +118,53 @@ exports[`Select > :props > :creatable 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -162,49 +174,54 @@ exports[`Select > :props > :disabled 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-is-disabled t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        disabled=""
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -215,49 +232,53 @@ exports[`Select > :props > :labelInValue 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -267,59 +288,63 @@ exports[`Select > :props > :loading 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
-    >
-      <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
     <div
-      class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
-      <svg
-        class="t-loading__gradient t-icon-loading"
-        height="1em"
-        size="small"
-        version="1.1"
-        viewBox="0 0 14 14"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <foreignobject
-          height="12"
-          width="12"
-          x="1"
-          y="1"
-        >
-          <div
-            class="t-loading__gradient-conic"
-          />
-        </foreignobject>
-      </svg>
       <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <div
+          class="t-loading--center t-size-s t-loading"
+        >
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
+      </span>
     </div>
+    <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -329,50 +354,50 @@ exports[`Select > :props > :multiple 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    
-    
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -382,49 +407,53 @@ exports[`Select > :props > :placeholder 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      please select
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="please select"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -435,49 +464,53 @@ exports[`Select > :props > :remote 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -487,49 +520,53 @@ exports[`Select > :props > :reserveKeyword 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -539,49 +576,53 @@ exports[`Select > :props > :size 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-l t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <span
-      class="t-select__placeholder"
-    >
-       
-      请选择
-    </span>
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-l"
-      style="display: none;"
+    <div
+      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <!---->
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <!---->
 </div>
 `;
 
@@ -591,62 +632,53 @@ exports[`Select Option > :props > :disabled 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select"
   >
-    <!---->
-    <!---->
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <span
-      class="t-select__single"
-      title="1"
-    >
-      1
-    </span>
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <div
-    style="display: none;"
-  >
-    
-    <li
-      class="t-select-option t-is-disabled t-is-selected t-size-m"
-      title="1"
-    >
-      <span>
-        1
-      </span>
-    </li>
-    
-  </div>
 </div>
 `;
 
@@ -656,62 +688,53 @@ exports[`Select Option > :props > :label 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select"
   >
-    <!---->
-    <!---->
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <span
-      class="t-select__single"
-      title="1"
-    >
-      1
-    </span>
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <div
-    style="display: none;"
-  >
-    
-    <li
-      class="t-select-option t-is-selected t-size-m"
-      title="1"
-    >
-      <span>
-        1
-      </span>
-    </li>
-    
-  </div>
 </div>
 `;
 
@@ -721,62 +744,53 @@ exports[`Select Option > :props > :value 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select"
   >
-    <!---->
-    <!---->
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <span
-      class="t-select__single"
-      title="1"
-    >
-      1
-    </span>
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <div
-    style="display: none;"
-  >
-    
-    <li
-      class="t-select-option t-is-selected t-size-m"
-      title="1"
-    >
-      <span>
-        1
-      </span>
-    </li>
-    
-  </div>
 </div>
 `;
 
@@ -786,95 +800,52 @@ exports[`Select OptionGroup > :props > :value 1`] = `
 >
   
   <div
-    class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+    bordered="true"
+    class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
-    <!---->
-    <!---->
-    <!---->
-    <span
-      class="t-tag t-tag--default t-tag--dark t-size-m"
-      style="display: none;"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
-      
-      +0
-      
-      <!---->
-    </span>
-    <span
-      class="t-select__single"
-      title="1"
-    >
-      1
-    </span>
-    <!---->
-    <svg
-      class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
       />
-    </svg>
-    <!---->
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
     <!---->
   </div>
   <!---->
   
-  <div
-    style="display: none;"
-  >
-    
-    <li
-      class="t-select-option-group t-size-m t-select-option-group__divider"
-    >
-      <div
-        class="t-select-option-group__header"
-      >
-        num
-      </div>
-      <ul>
-        
-        <li
-          class="t-select-option t-is-selected t-size-m"
-          title="1"
-        >
-          <span>
-            1
-          </span>
-        </li>
-        
-      </ul>
-    </li>
-    <li
-      class="t-select-option-group t-size-m t-select-option-group__divider"
-    >
-      <div
-        class="t-select-option-group__header"
-      >
-        abc
-      </div>
-      <ul>
-        
-        <li
-          class="t-select-option t-size-m"
-          title="a"
-        >
-          <span>
-            a
-          </span>
-        </li>
-        
-      </ul>
-    </li>
-    
-  </div>
 </div>
 `;

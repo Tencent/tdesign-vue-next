@@ -19,7 +19,8 @@ export const useSelectOptions = (props: TdSelectProps) => {
           children: [] as TdOptionProps[],
         };
         const res = (group.children as Slots).default();
-        for (const child of res[0].children as VNode[]) {
+        if (!(isArray(res) && !!res[0]?.children)) continue;
+        for (const child of res?.[0]?.children as VNode[]) {
           groupOption.children.push({
             ...child.props,
             slots: child.children,
