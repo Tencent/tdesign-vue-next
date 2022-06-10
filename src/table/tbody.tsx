@@ -4,7 +4,6 @@ import get from 'lodash/get';
 import pick from 'lodash/pick';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../hooks/useConfig';
-import { RowspanColspan, TableRowData, BaseTableCellParams } from './type';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { useTNodeJSX } from '../hooks/tnode';
 import useClassName from './hooks/useClassName';
