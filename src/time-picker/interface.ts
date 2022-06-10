@@ -89,30 +89,3 @@ export interface TimePickerPanelInstance {
   isFooterDisplay: boolean;
   localeMeridiems: Array<string>;
 }
-
-export interface TimePickerPanelColInstance {
-  renderScrollers: () => Array<HTMLElement>;
-  renderScroller: (col: EPickerCols) => HTMLElement;
-  renderActiveMask: () => HTMLElement;
-  scrollToTime: (col: EPickerCols, time: number | string, behavior?: ScrollBehavior) => void;
-  getTimeItemHeight: (col: EPickerCols) => number; // 获取每个time item的高度
-  generateColTime: (col: EPickerCols) => Array<number | string>;
-  generateTimeList: (num: number, step: number) => Array<number>;
-  generateColRows: (col: EPickerCols) => Array<HTMLElement>;
-  calcScrollYDistance: (index: number) => number;
-  calculateTimeIdx(time: number | string, step: number | string, type: EPickerCols): number;
-  splitValue: Record<EPickerCols, number | string>;
-  timeItemCanUsed: (col: EPickerCols, time: string | number) => boolean;
-  handleTimeItemClick: (e: MouseEvent, col: EPickerCols, time: number | string) => void;
-  handleScroll: (col: EPickerCols) => void;
-  isCurrent: (col: EPickerCols, colItem: string | number) => boolean;
-  updateTimeScrollPos: () => void;
-  closestLookup: (availableArr: Array<any>, x: number, step: number) => number;
-  disableFilter: (preIdx: number, col: EPickerCols) => any;
-  getScrollDistance: (col: EPickerCols, time: number | string) => number;
-  valStr: string;
-  isPm: boolean;
-  currentTimes: [number, number, number];
-  timeArr: [string, string, string];
-  timeItemMargin: number;
-}

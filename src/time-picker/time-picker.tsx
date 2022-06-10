@@ -3,10 +3,10 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon } from 'tdesign-icons-vue-next';
 
-import TPopup, { PopupVisibleChangeContext } from '../popup';
-import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
-import TimePickerPanel from './panel/index';
+import TPopup from '../popup';
+import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput from '../select-input';
+import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 import useVModel from '../hooks/useVModel';
 
 import props from './props';

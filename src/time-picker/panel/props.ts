@@ -27,8 +27,8 @@ export const panelProps = () => ({
     },
   },
   value: {
-    type: Array as PropType<Array<dayjs.Dayjs | undefined>>,
-    default: () => [dayjs()] as Array<dayjs.Dayjs | undefined>,
+    type: String,
+    default: '',
   },
   format: {
     type: String,

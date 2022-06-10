@@ -13,7 +13,6 @@ export default defineComponent({
   name: 'TTimePickerPanelCol',
   props: panelColProps(),
 
-  emits: ['time-pick'],
   setup() {
     const COMPONENT_NAME = usePrefixClass('time-picker');
     const { STATUS } = useCommonClassName();
