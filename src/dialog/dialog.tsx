@@ -32,8 +32,8 @@ if (typeof window !== 'undefined' && window.document && window.document.document
 
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
-  const windowInnerWidth = (window.innerWidth || document.documentElement.clientWidth);
-  const windowInnerHeight = (window.innerHeight || document.documentElement.clientHeight);
+  const windowInnerWidth = window.innerWidth || document.documentElement.clientWidth;
+  const windowInnerHeight = window.innerHeight || document.documentElement.clientHeight;
   target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
     // 算出鼠标相对元素的位置
     const disX = targetEvent.clientX - target.offsetLeft;
@@ -128,8 +128,8 @@ export default defineComponent({
     ]);
     const positionClass = computed(() => [
       `${COMPONENT_NAME.value}__position`,
-      !!props.top && `${COMPONENT_NAME.value}--top`, 
-      `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`
+      !!props.top && `${COMPONENT_NAME.value}--top`,
+      `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
     ]);
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
@@ -289,7 +289,7 @@ export default defineComponent({
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
 
-        <div class={`${COMPONENT_NAME.value}__wrap`} onClick={overlayAction} >
+        <div class={`${COMPONENT_NAME.value}__wrap`} onClick={overlayAction}>
           <div class={positionClass.value} style={positionStyle.value}>
             <div
               key="dialog"
