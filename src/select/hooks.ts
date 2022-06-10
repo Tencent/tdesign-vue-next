@@ -2,7 +2,7 @@ import { computed, Slots, VNode } from 'vue';
 import isArray from 'lodash/isArray';
 
 import { useChildComponentSlots } from '../hooks/slot';
-import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from './type';
+import { TdSelectProps, TdOptionProps } from './type';
 
 export const useSelectOptions = (props: TdSelectProps) => {
   const getChildComponentSlots = useChildComponentSlots();
@@ -40,10 +40,10 @@ export const useSelectOptions = (props: TdSelectProps) => {
   });
 
   const optionsMap = computed(() => {
-    const res = new Map<SelectValue, SelectOption>();
-    for (const option of options.value) {
-      res.set((option as TdOptionProps).value, option);
-    }
+    const res = new Map<TdOptionProps['value'], TdOptionProps['label']>();
+    options.value.forEach((option: TdOptionProps) => {
+      res.set(option.value, option.label);
+    });
     return res;
   });
 

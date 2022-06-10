@@ -88,6 +88,9 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
           // 筛选器统一特性：失去焦点时，清空输入内容
           props.onBlur?.(props.value, { ...context, tagInputValue: val });
         }}
+        onEnter={(val, context) => {
+          props.onEnter?.(props.value, { ...context, inputValue: tInputValue.value });
+        }}
         onFocus={(val, context) => {
           props.onFocus?.(props.value, { ...context, tagInputValue: val });
         }}

@@ -6,11 +6,12 @@ export const selectInjectKey: InjectionKey<
     slots: Slots;
     keys: TdSelectProps['keys'];
     selectValue: TdSelectProps['value'];
-    multiple: TdSelectProps['multiple'];
     size: TdSelectProps['size'];
     max: TdSelectProps['max'];
-    onChange: TdSelectProps['onChange'];
-    onPopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
+    multiple: TdSelectProps['multiple'];
+    handleValueChange: TdSelectProps['onChange'];
+    handleCreate: TdSelectProps['onCreate'];
+    handlePopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
   }>
 > = Symbol('selectProvide');
 

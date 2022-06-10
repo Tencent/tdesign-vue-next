@@ -1,4 +1,8 @@
-import { defineComponent, provide, computed, toRefs, VNode } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch } from 'vue';
+import picker from 'lodash/pick';
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import debounce from 'lodash/debounce';
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
@@ -21,40 +25,29 @@ export default defineComponent({
   props: { ...props },
   setup(props, { slots }) {
     const disabled = useFormDisabled();
-
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { global, t } = useConfig('select');
-    const { popupVisible, inputValue, modelValue, value } = toRefs(props);
-    const renderTNodeJSX = useTNodeJSX();
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
-      popupVisible,
-      false,
-      props.onPopupVisibleChange,
-      'popupVisible',
-    );
 
-    const [innerInputValue, setTInputValue] = useDefaultValue(
+    const { popupVisible, inputValue, modelValue, value } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerInputValue, setInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
       props.onInputChange,
       'inputValue',
     );
+    const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
+      popupVisible,
+      false,
+      (...args: any[]) => {
+        props.onPopupVisibleChange?.(args);
+        props.onVisibleChange?.(args);
+      },
+      'popupVisible',
+    );
 
     const { options, optionsMap } = useSelectOptions(props);
-
-    const SelectProvide = computed(() => ({
-      slots,
-      max: props.max,
-      selectValue: innerValue.value,
-      keys: props.keys,
-      onChange: setInnerValue,
-      onPopupVisibleChange: setInnerPopupVisible,
-      multiple: props.multiple,
-      size: props.size,
-    }));
-
-    provide(selectInjectKey, SelectProvide);
 
     const placeholderText = computed(
       () =>
@@ -71,15 +64,22 @@ export default defineComponent({
     );
 
     // valueDisplayParmas参数
-    const valueDisplayParmas = computed(() =>
-      props.multiple
-        ? (innerValue.value as SelectValue[]).map((value) => ({ value, label: optionsMap.value[value as string] }))
-        : innerValue.value,
-    );
+    const valueDisplayParmas = computed(() => {
+      return props.multiple
+        ? (innerValue.value as SelectValue[]).map((value) => ({
+            value,
+            label: optionsMap.value.get(value as string),
+          }))
+        : innerValue.value;
+    });
 
+    const isFilterable = computed(() => {
+      return Boolean(props.filterable || isFunction(props.filter));
+    });
+
+    // 移除tag
     const removeTag = (index: number, e?: MouseEvent) => {
       e && e.stopPropagation();
-
       (innerValue.value as SelectValue[]).splice(index, 1);
       setInnerValue(innerValue.value, { e, trigger: 'clear' });
       props.onRemove?.({
@@ -89,24 +89,69 @@ export default defineComponent({
       });
     };
 
+    const handleCreate = () => {
+      if (!innerInputValue.value) return;
+      props.onCreate?.(innerInputValue.value);
+      setInputValue('');
+    };
+
+    const SelectProvide = computed(() => ({
+      slots,
+      max: props.max,
+      multiple: props.multiple,
+      selectValue: innerValue.value,
+      keys: props.keys,
+      handleValueChange: setInnerValue,
+      handlePopupVisibleChange: setInnerPopupVisible,
+      handleCreate,
+      size: props.size,
+    }));
+
+    provide(selectInjectKey, SelectProvide);
+
+    watch(
+      innerValue,
+      () => {
+        // 参数类型检测与修复
+        if (!props.multiple && isArray(innerValue.value)) {
+          innerValue.value = '';
+        }
+        if (props.multiple && !isArray(innerValue.value)) {
+          innerValue.value = [];
+        }
+      },
+      {
+        immediate: true,
+      },
+    );
+
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
-
       return (
         <div class={`${COMPONENT_NAME.value}__wrap`}>
           <SelectInput
+            {...{
+              autoWidth: props.autoWidth,
+              readonly: props.readonly,
+              borderless: props.borderless || !props.bordered,
+              multiple: props.multiple,
+              clearable: props.clearable,
+              loading: props.loading,
+              minCollapsedNum: props.minCollapsedNum,
+              onBlur: props.onBlur,
+              onFocus: props.onFocus,
+            }}
             class={COMPONENT_NAME.value}
-            autoWidth={props.autoWidth}
             value={displayText.value}
-            borderless={props.borderless || !props.bordered}
-            readonly={props.readonly}
-            allowInput={innerPopupVisible.value && props.filterable}
-            multiple={props.multiple}
-            clearable={props.clearable}
             disabled={disabled.value}
-            loading={props.loading}
+            popupVisible={innerPopupVisible.value}
+            inputValue={innerInputValue.value}
+            placeholder={placeholderText.value}
+            allowInput={innerPopupVisible.value && isFilterable.value}
+            collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
+              bordered: props.bordered,
               ...(props.inputProps as TdSelectProps['inputProps']),
             }}
             tagInputProps={{
@@ -117,43 +162,53 @@ export default defineComponent({
               removeTag(ctx.index);
             }}
             tagProps={props.tagProps as TdSelectProps['tagProps']}
-            minCollapsedNum={props.minCollapsedNum}
-            collapsed-items={props.collapsedItems}
-            popupVisible={innerPopupVisible.value}
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
               ...restPopupProps,
             }}
-            onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : '');
-            }}
-            placeholder={placeholderText.value}
-            inputValue={innerInputValue.value}
             label={() => renderTNodeJSX('prefixIcon')}
             suffixIcon={() => (
               <FakeArrow overlayClassName={`${COMPONENT_NAME.value}__right-icon`} isActive={innerPopupVisible.value} />
             )}
-            onPopupVisibleChange={(val: boolean, context) => {
-              if (disabled.value) return;
-              setInnerPopupVisible(val, context);
-            }}
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
                 params: { value: valueDisplayParmas.value, onClose: (index: number) => removeTag(index) },
               })
             }
+            onPopupVisibleChange={(val: boolean, context) => {
+              setInnerPopupVisible(val, context);
+            }}
+            onInputChange={(value) => {
+              setInputValue(value);
+              debounce(() => {
+                props.onSearch?.(value);
+              }, 300);
+            }}
+            onClear={({ e }) => {
+              setInnerValue(props.multiple ? [] : '');
+              props.onClear?.({ e });
+            }}
+            onEnter={(inputValue, { e }) => {
+              props.onEnter?.({ inputValue: innerInputValue.value, e, value: innerValue.value });
+              handleCreate();
+            }}
             v-slots={{
               panel: () => (
                 <SelectPanel
-                  size={props.size}
-                  multiple={props.multiple}
-                  empty={props.empty}
-                  loading={props.loading}
+                  {...picker(props, [
+                    'size',
+                    'multiple',
+                    'empty',
+                    'loading',
+                    'loadingText',
+                    'filterable',
+                    'creatable',
+                    'panelTopContent',
+                    'panelBottomContent',
+                    'filter',
+                  ])}
                   options={options.value}
-                  loadingText={props.loadingText}
-                  max={props.max}
                   inputValue={innerInputValue.value}
-                  value={innerValue.value}
                   v-slots={slots}
                 />
               ),

@@ -35,6 +35,7 @@ const value = ref('');
 const value2 = ref([]);
 
 const filterMethod = (search, option) => {
+  console.log('filter:', search, option);
   return option.label.indexOf(search) !== -1;
 };
 

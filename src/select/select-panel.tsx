@@ -1,5 +1,7 @@
-import { computed, defineComponent, toRefs, inject, PropType, Slots } from 'vue';
-import { get } from 'lodash';
+import { computed, defineComponent, inject, PropType, Slots } from 'vue';
+import isFunction from 'lodash/isFunction';
+import get from 'lodash/get';
+
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
 import OptionGroup from './optionGroup';
@@ -11,48 +13,53 @@ import { selectInjectKey } from './helper';
 
 export default defineComponent({
   name: 'TSelectPanel',
-
   props: {
     inputValue: TdSelectProps.inputValue,
     panelTopContent: TdSelectProps.panelTopContent,
-    size: TdSelectProps.size,
-    options: {
-      type: Array as PropType<SelectOption[]>,
-      default: (): SelectOption[] => [],
-    },
+    panelBottomContent: TdSelectProps.panelBottomContent,
     empty: TdSelectProps.empty,
     creatable: TdSelectProps.creatable,
     loading: TdSelectProps.loading,
     loadingText: TdSelectProps.loadingText,
     multiple: TdSelectProps.multiple,
-    max: TdSelectProps.max,
-    value: TdSelectProps.value,
-    realValue: {
-      type: String as PropType<string>,
-    },
-    realLabel: {
-      type: String as PropType<string>,
-    },
-    showCreateOption: {
-      type: Boolean as PropType<boolean>,
+    filterable: TdSelectProps.filterable,
+    filter: TdSelectProps.filter,
+    options: {
+      type: Array as PropType<SelectOption[]>,
+      default: (): SelectOption[] => [],
     },
   },
-
   setup(props) {
-    const { options, showCreateOption } = toRefs(props);
     const COMPONENT_NAME = usePrefixClass('select');
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const { t, global } = useConfig('select');
     const tSelect = inject(selectInjectKey);
 
-    const isEmpty = computed(() => !options.value.length && !showCreateOption.value);
+    const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
+
+    const displayOptions = computed(() => {
+      if (!props.inputValue || props.creatable || !(props.filterable || isFunction(props.filter))) return props.options;
+
+      const filterMethods = (option: SelectOption) => {
+        if (isFunction(props.filter)) {
+          return props.filter(`${props.inputValue}`, option);
+        }
+
+        return option.label.indexOf(`${props.inputValue}`) > -1;
+      };
+
+      return props.options.filter(filterMethods);
+    });
+
+    const isEmpty = computed(() => !displayOptions.value.length);
 
     const renderCreateOption = () => (
       <ul class={[`${COMPONENT_NAME.value}__create-option`, `${COMPONENT_NAME.value}__list`]}>
-        <t-option
+        <Option
           value={props.inputValue}
-          label={props.inputValue}
+          label={`${props.inputValue}`}
+          createAble={true}
           class={`${COMPONENT_NAME.value}__create-option--special`}
         />
       </ul>
@@ -76,6 +83,7 @@ export default defineComponent({
                 label={get(item, tSelect.value.keys?.label || 'label')}
                 content={item.content}
                 disabled={item.disabled}
+                multiple={props.multiple}
                 key={index}
                 v-slots={item.slots}
               />
@@ -90,7 +98,7 @@ export default defineComponent({
         small: 's',
         medium: 'm',
         large: 'l',
-      }[props.size];
+      }[tSelect.value.size];
     });
 
     return () => (
@@ -102,8 +110,8 @@ export default defineComponent({
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}
-        {props.showCreateOption && renderCreateOption()}
-        {!isEmpty.value && !props.loading && renderOptionsContent(props.options)}
+        {showCreateOption.value && renderCreateOption()}
+        {!isEmpty.value && !props.loading && renderOptionsContent(displayOptions.value)}
         {/* 空状态 */}
         {isEmpty.value &&
           renderDefaultTNode('empty', {

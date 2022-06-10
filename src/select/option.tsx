@@ -14,14 +14,14 @@ import { SelectValue } from './type';
 export default defineComponent({
   name: 'TOption',
 
-  props: { ...props },
+  props: { ...props, createAble: Boolean, multiple: Boolean },
   setup(props) {
     const tSelect = inject(selectInjectKey);
 
     const formDisabled = useFormDisabled();
 
     const disabled = computed(() => {
-      if (tSelect.value.multiple) {
+      if (props.multiple) {
         return tSelect.value.max <= (tSelect.value.selectValue as SelectValue[]).length && tSelect.value.max !== 0;
       }
       return formDisabled.value;
@@ -36,7 +36,7 @@ export default defineComponent({
     const isHover = ref(false);
 
     const isSelected = computed(() => {
-      return !tSelect.value.multiple
+      return !props.multiple
         ? tSelect.value.selectValue === props.value
         : (tSelect.value.selectValue as SelectValue[]).includes(props.value);
     });
@@ -54,11 +54,23 @@ export default defineComponent({
     const labelText = computed(() => props.label || props.value);
 
     const handleClick = (e: MouseEvent | KeyboardEvent) => {
-      if (tSelect.value.multiple) return;
+      if (props.multiple) return;
       e.stopPropagation();
 
-      tSelect.value.onChange(props.value, { e, trigger: 'check' });
-      tSelect.value.onPopupVisibleChange(false, { e });
+      if (props.createAble) {
+        tSelect.value.handleCreate?.(props.value);
+        if (tSelect.value.multiple) {
+          (tSelect.value.selectValue as SelectValue[]).push(props.value);
+          tSelect.value.handleValueChange(tSelect.value.selectValue, {
+            e,
+            trigger: 'check',
+          });
+          return;
+        }
+      }
+
+      tSelect.value.handleValueChange(props.value, { e, trigger: 'check' });
+      tSelect.value.handlePopupVisibleChange(false, { e });
     };
 
     const handleCheckboxClick = (val: boolean, context: { e: MouseEvent | KeyboardEvent }) => {
@@ -68,7 +80,7 @@ export default defineComponent({
       } else {
         (tSelect.value.selectValue as SelectValue[]).splice(valueIndex, 1);
       }
-      tSelect.value.onChange(tSelect.value.selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
+      tSelect.value.handleValueChange(tSelect.value.selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
     };
 
     useRipple(liRef);
@@ -84,7 +96,7 @@ export default defineComponent({
           onMouseleave={() => (isHover.value = false)}
           onClick={handleClick}
         >
-          {tSelect && tSelect.value.multiple ? (
+          {tSelect && props.multiple ? (
             <Checkbox
               checked={isSelected.value}
               disabled={disabled.value && !isSelected.value}
