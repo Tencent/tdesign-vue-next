@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, computed } from 'vue';
+import { defineComponent, toRefs, computed, ref, onMounted } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
@@ -16,12 +16,14 @@ export default defineComponent({
     SinglePanel,
     TButton,
   },
-  props: { ...panelProps(), isFooterDisplay: Boolean, handleConfirmClick: Function },
+  props: { ...panelProps(), isFooterDisplay: Boolean, handleConfirmClick: Function, onChange: Function },
 
   setup(props) {
     const panelClassName = usePrefixClass('time-picker__panel');
     const { steps, isFooterDisplay } = toRefs(props);
-    const { t, global } = useConfig('timePicker');
+    const triggerScroll = ref(false);
+    const panelRef = ref();
+    const { global } = useConfig('timePicker');
     const showNowTimeBtn = computed(() => !!steps.value.filter((v) => v > 1).length);
 
     const defaultValue = computed(() => {
@@ -35,24 +37,36 @@ export default defineComponent({
       return dayjs();
     });
 
+    const panelColUpdate = () => {
+      setTimeout(() => {
+        triggerScroll.value = true;
+      });
+    };
+
+    // 渲染后执行update 使面板滚动至当前时间位置
+    onMounted(() => {
+      panelColUpdate();
+    });
+
     return () => (
-      <div className={panelClassName.value}>
-        <div className={`${panelClassName.value}-section-body`}>
+      <div class={panelClassName.value}>
+        <div class={`${panelClassName.value}-section-body`}>
           <single-panel
             {...props}
+            ref={panelRef}
             format={props.format || DEFAULT_FORMAT}
             steps={props.steps || DEFAULT_STEPS}
             value={props.value}
+            triggerScroll={triggerScroll.value}
+            onChange={props.onChange}
           />
         </div>
         {isFooterDisplay.value ? (
-          <div className={`${panelClassName.value}-section-footer`}>
+          <div class={`${panelClassName.value}-section-footer`}>
             <t-button
               theme="primary"
               variant="base"
-              onClick={() => {
-                props.handleConfirmClick(defaultValue);
-              }}
+              onClick={() => props.handleConfirmClick(defaultValue)}
               size="small"
             >
               {global.value.confirm}

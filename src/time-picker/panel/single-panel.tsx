@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, watch, toRefs, onMounted } from 'vue';
+import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive } from 'vue';
 import debounce from 'lodash/debounce';
 import range from 'lodash/range';
 import padStart from 'lodash/padStart';
@@ -23,10 +23,10 @@ const timeArr = [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
 
 export default defineComponent({
   name: 'TTimePickerPanelCol',
-  props: panelColProps(),
+  props: { ...panelColProps(), position: String, triggerScroll: Object, onChange: Function },
 
   setup(props) {
-    const { steps, value, format, position = 'start' } = toRefs(props);
+    const { steps, value, format, position = 'start', triggerScroll } = toRefs(props);
 
     const { global } = useConfig('timePicker');
 
@@ -34,9 +34,9 @@ export default defineComponent({
     const panelClassName = computed(() => `${classPrefix.value}-time-picker__panel`);
 
     const cols = ref<Array<EPickerCols>>([]);
-    const colsRef = ref([]);
+    const bodyRef = ref();
     const maskRef = ref(null);
-
+    const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
     const dayjsValue = computed(() => {
       const isStepsSet = !!steps.value.filter((v) => v > 1).length;
 
@@ -47,10 +47,21 @@ export default defineComponent({
       return dayjs();
     });
 
+    // 面板打开时 触发滚动 初始化面板
     watch(
-      () => cols.value,
+      () => value.value,
       () => {
-        colsRef.value = colsRef.value.slice(0, cols.value.length);
+        updateTimeScrollPos();
+      },
+    );
+
+    // 时间通过外部触发时 同样触发滚动
+    watch(
+      () => triggerScroll.value,
+      () => {
+        if (triggerScroll.value) {
+          updateTimeScrollPos();
+        }
       },
     );
 
@@ -73,7 +84,7 @@ export default defineComponent({
 
     // 获取每个时间的高度
     const getItemHeight = () => {
-      const maskDom = maskRef.value?.current?.querySelector('div');
+      const maskDom = maskRef.value?.querySelector('div');
       const timeItemTotalHeight = maskDom.offsetHeight + parseInt(getComputedStyle(maskDom).marginTop, 10);
       return timeItemTotalHeight;
     };
@@ -99,13 +110,12 @@ export default defineComponent({
       if (timeArr.includes(col)) {
         // hour、minute and second columns
         const colIdx = timeArr.indexOf(col);
-        const colStep = steps[colIdx];
+        const colStep = steps.value[colIdx];
 
         if (col === EPickerCols.hour) count = TWELVE_HOUR_FORMAT.test(format.value) ? 11 : 23;
         else count = 59;
 
         const colList = range(0, count + 1, Number(colStep)).map((v) => padStart(String(v), 2, '0')) || [];
-
         return props.hideDisabledTime && !!props.disableTime
           ? colList.filter((t) => {
               const params: [number, number, number] = [
@@ -136,7 +146,7 @@ export default defineComponent({
     const handleScroll = (col: EPickerCols, idx: number) => {
       let val: number | string;
       let formattedVal: string;
-      const scrollTop = colsRef.value[idx]?.scrollTop;
+      const scrollTop = colsRef[idx]?.scrollTop;
 
       let colStep = Math.abs(Math.round(scrollTop / getItemHeight() + 0.5));
       const meridiem = MERIDIEM_LIST[Math.min(colStep - 1, 1)].toLowerCase(); // 处理PM、AM与am、pm
@@ -149,11 +159,11 @@ export default defineComponent({
           max = /[h]{1}/.test(format.value) ? 11 : 23;
         }
         const colIdx = timeArr.indexOf(col);
-        const availableArr = range(0, max + 1, Number(steps[colIdx]));
+        const availableArr = range(0, max + 1, Number(steps.value[colIdx]));
         val = closestLookup(
           availableArr,
           Number(getColList(col)[Math.min(colStep - 1, max + 1, availableArr.length - 1)]),
-          Number(steps[colIdx]),
+          Number(steps.value[colIdx]),
         );
         if (Number.isNaN(val)) val = availableArr[availableArr.length - 1];
         if (col === EPickerCols.hour && cols.value.includes(EPickerCols.meridiem) && dayjsValue.value.hour() >= 12) {
@@ -169,7 +179,7 @@ export default defineComponent({
       if (!dayjs(dayjsValue.value).isValid()) return;
       if (distance !== scrollTop) {
         if (timeArr.includes(col)) {
-          if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format);
+          if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format.value);
         } else {
           const currentHour = dayjsValue.value.hour();
           if (meridiem === AM && currentHour >= 12) {
@@ -178,8 +188,10 @@ export default defineComponent({
             formattedVal = dayjsValue.value.hour(currentHour + 12).format(format.value);
           }
         }
-        props.onChange(formattedVal);
-        const scrollCtrl = colsRef.value[cols.value.indexOf(col)];
+        props.onChange?.(formattedVal);
+
+        const scrollCtrl = colsRef[cols.value.indexOf(col)];
+
         if (!distance || !scrollCtrl || scrollCtrl.scrollTop === distance) return;
 
         scrollCtrl.scrollTo({
@@ -196,7 +208,7 @@ export default defineComponent({
       behavior: 'auto' | 'smooth' = 'auto',
     ) => {
       const distance = getScrollDistance(col, time);
-      const scrollCtrl = colsRef.value[idx];
+      const scrollCtrl = colsRef[idx];
       if (!distance || !scrollCtrl || scrollCtrl.scrollTop === distance || !timeItemCanUsed(col, time)) return;
 
       scrollCtrl.scrollTo({
@@ -231,13 +243,17 @@ export default defineComponent({
 
     // update each columns scroll distance
     const updateTimeScrollPos = () => {
-      const behavior = value ? 'smooth' : 'auto';
+      const behavior = value.value ? 'smooth' : 'auto';
       const isStepsSet = !!steps.value.filter((v) => v > 1).length;
-
       cols.value.forEach((col: EPickerCols, idx: number) => {
         if (!isStepsSet || (isStepsSet && value)) {
           // 如果没有设置大于1的steps或设置了大于1的step 正常处理滚动
-          scrollToTime(col, timeArr.includes(col) ? dayjsValue[col]?.() : dayjsValue.value.format('a'), idx, behavior);
+          scrollToTime(
+            col,
+            timeArr.includes(col) ? dayjsValue.value[col]?.() : dayjsValue.value.format('a'),
+            idx,
+            behavior,
+          );
         } else {
           // 否则初始化到每列第一个选项
           scrollToTime(col, getColList(col)?.[0], idx, behavior);
@@ -259,24 +275,25 @@ export default defineComponent({
     };
 
     return () => (
-      <div className={`${panelClassName.value}-body`}>
-        {/* render mask */}
-        <div className={`${panelClassName.value}-body-active-mask`} ref={maskRef.value}>
-          {cols.value.map((col, idx) => (
+      <div class={`${panelClassName.value}-body`} ref={bodyRef}>
+        <div class={`${panelClassName.value}-body-active-mask`} ref={maskRef}>
+          {/* 渲染遮罩层 */}
+          {cols.value.map?.((col, idx) => (
             <div key={`${col}_${idx}`} />
           ))}
         </div>
-        {cols.value.map((col, idx) => (
+        {/* 渲染实际滚动列 */}
+        {cols.value.map?.((col, idx) => (
           <ul
             key={`${col}_${idx}`}
-            ref={colsRef.value[idx]}
-            className={`${panelClassName.value}-body-scroll`}
+            ref={(el) => (colsRef[idx] = el)}
+            class={`${panelClassName.value}-body-scroll`}
             onScroll={debounce(() => handleScroll(col, idx), 50)}
           >
             {getColList(col).map((el) => (
               <li
                 key={el}
-                className={[
+                class={[
                   `${panelClassName.value}-body-scroll-item`,
                   {
                     [`${classPrefix.value}-is-disabled`]: !timeItemCanUsed(col, el),

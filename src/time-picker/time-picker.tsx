@@ -45,7 +45,7 @@ export default defineComponent({
 
     const handleShowPopup = (visible: boolean, context: { e: MouseEvent }) => {
       isShowPanel.value = visible;
-      visible ? props.onOpen(context) : props.onClose(context); // trigger on-open and on-close
+      visible ? props.onOpen?.(context) : props.onClose?.(context); // trigger on-open and on-close
     };
 
     const handleClear = (context: { e: MouseEvent }) => {
@@ -66,13 +66,17 @@ export default defineComponent({
           setInnerValue(formatInputValue(currentValue.value, format.value));
         }
       }
-      props.onBlur({ value, e });
+      props.onBlur?.({ value, e });
     };
 
     const handleClickConfirm = () => {
       const isValidTime = validateInputValue(currentValue.value, format.value);
       if (isValidTime) setInnerValue(currentValue.value);
       isShowPanel.value = false;
+    };
+
+    const handlePanelChange = (v: string) => {
+      currentValue.value = v;
     };
 
     watch(
@@ -108,7 +112,7 @@ export default defineComponent({
               value={currentValue.value}
               isFooterDisplay={true}
               disableTime={props.disableTime}
-              onChange={(v: string) => (currentValue.value = v)}
+              onChange={handlePanelChange}
               hideDisabledTime={props.hideDisabledTime}
               handleConfirmClick={handleClickConfirm}
             />
