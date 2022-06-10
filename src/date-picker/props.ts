@@ -29,7 +29,10 @@ export default {
     },
   },
   /** 用于格式化日期，全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format) */
-  format: String,
+  format: {
+    type: String,
+    default: '',
+  },
   /** 透传给输入框（Input）组件的参数 */
   inputProps: {
     type: Object as PropType<TdDatePickerProps['inputProps']>,
@@ -69,8 +72,6 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
-  /** 是否呈现为日期范围选择器（临时 API，后期将调整为是 DateRangePicker 组件） */
-  range: Boolean,
   /** 用于自定义组件后置图标 */
   suffixIcon: {
     type: Function as PropType<TdDatePickerProps['suffixIcon']>,
@@ -91,9 +92,13 @@ export default {
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,
+    default: '',
   },
   /** 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳 */
-  valueType: String,
+  valueType: {
+    type: String,
+    default: '',
+  },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDatePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
@@ -102,12 +107,6 @@ export default {
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
   /** 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
   onInput: Function as PropType<TdDatePickerProps['onInput']>,
-  /* 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
-  onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
-  /* 选择或点击确定按钮后触发 */
-  onApply: Function as PropType<TdDateRangePickerProps['onApply']>,
-  /** 日期分隔符 */
-  separator: {
-    type: String as PropType<TdDateRangePickerProps['separator']>,
-  },
+  /** 面板选中值后触发 */
+  onPick: Function as PropType<TdDatePickerProps['onPick']>,
 };

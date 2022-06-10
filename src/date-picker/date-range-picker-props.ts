@@ -13,10 +13,7 @@ export default {
   /** 是否显示清楚按钮 */
   clearable: Boolean,
   /** 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用 */
-  disabled: {
-    type: Boolean as PropType<TdDateRangePickerProps['disabled']>,
-    default: false,
-  },
+  disabled: Boolean,
   /** 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。{ from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。{ before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用 */
   disableDate: {
     type: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
@@ -32,7 +29,10 @@ export default {
     },
   },
   /** 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format) */
-  format: String,
+  format: {
+    type: String,
+    default: '',
+  },
   /** 选择器模式 */
   mode: {
     type: String as PropType<TdDateRangePickerProps['mode']>,
@@ -76,15 +76,6 @@ export default {
     type: String,
     default: '',
   },
-  /** 尺寸 */
-  size: {
-    type: String as PropType<TdDateRangePickerProps['size']>,
-    default: 'medium' as TdDateRangePickerProps['size'],
-    validator(val: TdDateRangePickerProps['size']): boolean {
-      if (!val) return true;
-      return ['small', 'medium', 'large'].includes(val);
-    },
-  },
   /** 组件后置图标 */
   suffixIcon: {
     type: Function as PropType<TdDateRangePickerProps['suffixIcon']>,
@@ -105,10 +96,13 @@ export default {
   /** 选中值，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdDateRangePickerProps['defaultValue']>,
-    default: [],
+    default: (): TdDateRangePickerProps['defaultValue'] => [],
   },
   /** 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳 */
-  valueType: String,
+  valueType: {
+    type: String,
+    default: '',
+  },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDateRangePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
