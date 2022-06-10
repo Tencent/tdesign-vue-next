@@ -24,7 +24,7 @@ export default defineComponent({
     return () => (
       <li class={classes.value}>
         <div class={`${COMPONENT_NAME.value}__header`}>{props.label}</div>
-        <ul>{renderTNodeJSX('default')}</ul>
+        {renderTNodeJSX('default')}
       </li>
     );
   },
