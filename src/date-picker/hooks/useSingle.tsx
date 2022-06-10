@@ -1,21 +1,20 @@
-import { ref, toRefs, computed, watchEffect } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import { CalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import useVModel from '../../hooks/useVModel';
 import { TdDatePickerProps, DateValue } from '../type';
 import useFormat from './useFormat';
+import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { global } = useConfig('datePicker');
 
-  const { value: valueFromProps, modelValue } = toRefs(props);
-
   const inputRef = ref();
 
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const { value, onChange, time, month, year, cacheValue } = useSingleValue(props);
+
   const { isValidDate, formatDate, formatTime } = useFormat({
     value: value.value,
     mode: props.mode,
@@ -26,12 +25,8 @@ export default function useSingle(props: TdDatePickerProps) {
 
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
-  const timeValue = ref(formatTime(value.value));
-  const month = ref(dayjs(value.value).month() || new Date().getMonth());
-  const year = ref(dayjs(value.value).year() || new Date().getFullYear());
   // 未真正选中前可能不断变更输入框的内容
   const inputValue = ref(formatDate(value.value));
-  const cacheValue = ref(formatDate(value.value)); // 缓存选中值，panel 点击时更改
 
   // input 设置
   const inputProps = computed(() => ({
@@ -71,14 +66,17 @@ export default function useSingle(props: TdDatePickerProps) {
       const newTime = formatTime(val);
       !Number.isNaN(newYear) && (year.value = newYear);
       !Number.isNaN(newMonth) && (month.value = newMonth);
-      !Number.isNaN(newTime) && (timeValue.value = newTime);
+      !Number.isNaN(newTime) && (time.value = newTime);
     },
     onEnter: (val: string) => {
       if (!isValidDate(val) && !isValidDate(value.value)) return;
 
       popupVisible.value = false;
       if (isValidDate(val)) {
-        onChange?.(formatDate(val, 'valueType') as DateValue, { dayjsValue: dayjs(val), trigger: 'enter' });
+        onChange?.(formatDate(val, { formatType: 'valueType' }) as DateValue, {
+          dayjsValue: dayjs(val),
+          trigger: 'enter',
+        });
       } else if (isValidDate(value.value)) {
         inputValue.value = formatDate(value.value);
       } else {
@@ -105,22 +103,18 @@ export default function useSingle(props: TdDatePickerProps) {
   watchEffect(() => {
     if (!value.value) {
       inputValue.value = '';
-      cacheValue.value = '';
-      timeValue.value = formatTime(new Date());
       return;
     }
     if (!isValidDate(value.value, 'valueType')) return;
 
     inputValue.value = formatDate(value.value);
-    cacheValue.value = formatDate(value.value);
-    timeValue.value = formatTime(value.value);
   });
 
   return {
     year,
     month,
     value,
-    timeValue,
+    time,
     inputValue,
     popupVisible,
     inputProps,

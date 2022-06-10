@@ -9,7 +9,7 @@ import type { DateValue } from './type';
 import props from './props';
 
 import TSelectInput from '../select-input';
-import TDatePickerPanel from './panel/DatePickerPanel';
+import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -28,7 +28,7 @@ export default defineComponent({
       value,
       year,
       month,
-      timeValue,
+      time,
       inputRef,
       onChange,
     } = useSingle(props);
@@ -47,7 +47,7 @@ export default defineComponent({
       // 面板展开重置数据
       if (popupVisible.value) {
         cacheValue.value = formatDate(value.value || new Date());
-        timeValue.value = formatTime(value.value || new Date());
+        time.value = formatTime(value.value || new Date());
       }
     });
 
@@ -74,7 +74,10 @@ export default defineComponent({
       if (props.enableTimePicker) {
         cacheValue.value = formatDate(date);
       } else {
-        onChange?.(formatDate(date, 'valueType') as DateValue, { dayjsValue: dayjs(date), trigger: 'pick' });
+        onChange?.(formatDate(date, { formatType: 'valueType' }) as DateValue, {
+          dayjsValue: dayjs(date),
+          trigger: 'pick',
+        });
         popupVisible.value = false;
       }
 
@@ -113,7 +116,7 @@ export default defineComponent({
 
     // timepicker 点击
     function onTimePickerChange(val: string) {
-      timeValue.value = val;
+      time.value = val;
 
       const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(val);
 
@@ -134,7 +137,7 @@ export default defineComponent({
     function onConfirmClick() {
       const nextValue = formatDate(inputValue.value);
       if (nextValue) {
-        onChange?.(formatDate(inputValue.value, 'valueType') as DateValue, {
+        onChange?.(formatDate(inputValue.value, { formatType: 'valueType' }) as DateValue, {
           dayjsValue: dayjs(inputValue.value as string),
           trigger: 'confirm',
         });
@@ -150,7 +153,7 @@ export default defineComponent({
       if (typeof preset === 'function') {
         presetValue = preset();
       }
-      onChange?.(formatDate(presetValue, 'valueType') as DateValue, {
+      onChange?.(formatDate(presetValue, { formatType: 'valueType' }) as DateValue, {
         dayjsValue: dayjs(presetValue),
         trigger: 'preset',
       });
@@ -159,22 +162,10 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
-
-      let nextDateObj = dayjs((inputValue.value as string) || new Date(), format);
-      if (nextDateObj) nextDateObj = dayjs((inputValue.value as string) || new Date());
-      const nextDate = nextDateObj.year(nextYear).toDate();
-      inputValue.value = formatDate(nextDate);
-      cacheValue.value = formatDate(nextDate);
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
-
-      let nextDateObj = dayjs((inputValue.value as string) || new Date(), format);
-      if (nextDateObj) nextDateObj = dayjs((inputValue.value as string) || new Date());
-      const nextDate = nextDateObj.month(nextMonth).toDate();
-      inputValue.value = formatDate(nextDate);
-      cacheValue.value = formatDate(nextDate);
     }
 
     const panelProps = computed(() => ({
@@ -184,7 +175,7 @@ export default defineComponent({
       mode: props.mode,
       format: props.format,
       presets: props.presets,
-      timeValue: timeValue.value as string,
+      time: time.value as string,
       disableDate: props.disableDate,
       firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
@@ -209,7 +200,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           popupVisible={popupVisible.value}
-          panel={() => <TDatePickerPanel {...panelProps.value} />}
+          panel={() => <TSinglePanel {...panelProps.value} />}
         />
       </div>
     );

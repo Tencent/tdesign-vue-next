@@ -8,7 +8,7 @@ import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
 
 export default defineComponent({
-  name: 'TDatePickerPanel',
+  name: 'TRangePanel',
   props: {
     hoverValue: Array as PropType<Array<string>>,
     activeIndex: Number,
@@ -18,10 +18,7 @@ export default defineComponent({
       type: String as PropType<TdDateRangePickerProps['mode']>,
       default: 'date',
     },
-    format: {
-      type: String as PropType<TdDateRangePickerProps['format']>,
-      default: 'YYYY-MM-DD',
-    },
+    format: String as PropType<TdDateRangePickerProps['format']>,
     presetsPlacement: {
       type: String as PropType<TdDateRangePickerProps['presetsPlacement']>,
       default: 'bottom',
@@ -33,7 +30,7 @@ export default defineComponent({
     firstDayOfWeek: Number,
     year: Array as PropType<Array<number>>,
     month: Array as PropType<Array<number>>,
-    timeValue: Array as PropType<Array<string>>,
+    time: Array as PropType<Array<string>>,
     onClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -135,7 +132,7 @@ export default defineComponent({
                 partial="start"
                 year={props.year[0]}
                 month={props.month[0]}
-                timeValue={props.timeValue[0]}
+                time={props.time[0]}
                 tableData={startTableData.value}
                 {...panelContentProps.value}
               />,
@@ -144,7 +141,7 @@ export default defineComponent({
                 partial="end"
                 year={props.year[1]}
                 month={props.month[1]}
-                timeValue={props.timeValue[1]}
+                time={props.time[1]}
                 tableData={endTableData.value}
                 {...panelContentProps.value}
               />,
@@ -155,7 +152,7 @@ export default defineComponent({
               partial={props.activeIndex ? 'end' : 'start'}
               year={props.activeIndex ? props.year[1] : props.year[0]}
               month={props.activeIndex ? props.month[1] : props.month[0]}
-              timeValue={props.activeIndex ? props.timeValue[1] : props.timeValue[0]}
+              time={props.activeIndex ? props.time[1] : props.time[0]}
               tableData={props.activeIndex ? endTableData.value : startTableData.value}
               {...panelContentProps.value}
             />

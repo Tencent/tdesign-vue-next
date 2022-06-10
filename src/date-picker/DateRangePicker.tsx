@@ -6,7 +6,7 @@ import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
-import TDateRangePickerPanel from './panel/DateRangePickerPanel';
+import TRangePanel from './panel/RangePanel';
 import useRange from './hooks/useRange';
 import useFormat from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
@@ -26,7 +26,7 @@ export default defineComponent({
       value,
       year,
       month,
-      timeValue,
+      time,
       cacheValue,
       activeIndex,
       isHoverCell,
@@ -51,7 +51,7 @@ export default defineComponent({
         isSelected.value = false;
         isFirstValueSelected.value = false;
         cacheValue.value = formatDate(value.value || []) as string[];
-        timeValue.value = formatTime(
+        time.value = formatTime(
           formatTime(value.value || [dayjs().format(timeFormat), dayjs().format(timeFormat)]),
         ) as string[];
       }
@@ -103,7 +103,7 @@ export default defineComponent({
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (notValidIndex === -1 && nextValue.length === 2 && !props.enableTimePicker && isFirstValueSelected.value) {
-        onChange?.(formatDate(nextValue, 'valueType') as DateValue[], {
+        onChange?.(formatDate(nextValue, { formatType: 'valueType' }) as DateValue[], {
           dayjsValue: nextValue.map((v) => dayjs(v)),
           trigger: 'pick',
         });
@@ -180,9 +180,9 @@ export default defineComponent({
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
       nextInputValue[activeIndex.value] = nextDate;
 
-      const nextTimeValue = [...timeValue.value];
-      nextTimeValue[activeIndex.value] = val;
-      timeValue.value = nextTimeValue;
+      const nextTime = [...time.value];
+      nextTime[activeIndex.value] = val;
+      time.value = nextTime;
 
       isSelected.value = true;
       inputValue.value = formatDate(nextInputValue);
@@ -197,7 +197,7 @@ export default defineComponent({
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (notValidIndex === -1 && nextValue.length === 2 && isFirstValueSelected) {
-        onChange?.(formatDate(nextValue, 'valueType') as DateValue[], {
+        onChange?.(formatDate(nextValue, { formatType: 'valueType' }) as DateValue[], {
           dayjsValue: nextValue.map((v) => dayjs(v)),
           trigger: 'confirm',
         });
@@ -223,7 +223,7 @@ export default defineComponent({
       if (!Array.isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
-        onChange?.(formatDate(presetValue, 'valueType') as DateValue[], {
+        onChange?.(formatDate(presetValue, { formatType: 'valueType' }) as DateValue[], {
           dayjsValue: presetValue.map((p) => dayjs(p)),
           trigger: 'preset',
         });
@@ -269,7 +269,7 @@ export default defineComponent({
       mode: props.mode,
       format: props.format,
       presets: props.presets,
-      timeValue: timeValue.value,
+      time: time.value,
       disableDate: props.disableDate,
       firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
@@ -293,7 +293,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}
           popupVisible={popupVisible.value}
-          panel={() => <TDateRangePickerPanel {...panelProps.value} />}
+          panel={() => <TRangePanel {...panelProps.value} />}
         />
       </div>
     );

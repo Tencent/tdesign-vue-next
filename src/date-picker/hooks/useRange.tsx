@@ -1,51 +1,24 @@
-import { ref, toRefs, computed, watchEffect } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import { CalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import useVModel from '../../hooks/useVModel';
 
 import { TdDateRangePickerProps, DateValue } from '../type';
 import useFormat from './useFormat';
+import useRangeValue from './useRangeValue';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
-
-// 初始化面板年份月份
-function initYearMonthTime(value: DateValue[], mode = 'date', format: string, timeFormat = 'HH:mm:ss') {
-  const defaultYearMonthTime = {
-    year: [dayjs().year(), dayjs().year()],
-    month: [dayjs().month(), dayjs().month()],
-    time: [dayjs().format(timeFormat), dayjs().format(timeFormat)],
-  };
-  if (mode === 'year') {
-    defaultYearMonthTime.year[1] += 10;
-  } else if (mode === 'month') {
-    defaultYearMonthTime.year[1] += 1;
-  } else if (mode === 'date') {
-    defaultYearMonthTime.month[1] += 1;
-  }
-
-  if (!value || !Array.isArray(value) || !value.length) {
-    return defaultYearMonthTime;
-  }
-
-  return {
-    year: value.map((v) => dayjs(v, format).year()),
-    month: value.map((v) => dayjs(v, format).month()),
-    time: value.map((v) => dayjs(v, format).format(timeFormat)),
-  };
-}
 
 export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
   const { global } = useConfig('datePicker');
 
-  const { value: valueFromProps, modelValue } = toRefs(props);
-
   const isMountedRef = ref(false);
   const inputRef = ref();
 
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
-  const { format, isValidDate, timeFormat, formatDate, formatTime } = useFormat({
+  const { value, onChange, time, month, year, cacheValue, isFirstValueSelected } = useRangeValue(props);
+
+  const { isValidDate, timeFormat, formatDate, formatTime } = useFormat({
     mode: props.mode,
     value: props.value,
     format: props.format,
@@ -63,12 +36,7 @@ export default function useRange(props: TdDateRangePickerProps) {
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
   const activeIndex = ref(0); // 确定当前选中的输入框序号
-  const isFirstValueSelected = ref(false); // 记录面板点击次数，两次后才自动关闭
-  const timeValue = ref(initYearMonthTime(props.value, props.mode, format, timeFormat).time);
-  const month = ref(initYearMonthTime(props.value, props.mode, format).month);
-  const year = ref(initYearMonthTime(props.value, props.mode, format).year);
   const inputValue = ref(formatDate(props.value)); // 未真正选中前可能不断变更输入框的内容
-  const cacheValue = ref(formatDate(props.value)); // 选择阶段预选状态
 
   // input 设置
   const rangeInputProps = computed(() => ({
@@ -112,18 +80,18 @@ export default function useRange(props: TdDateRangePickerProps) {
       newVal.forEach((v, i) => {
         newYear.push(dayjs(v).year() || year.value[i]);
         newMonth.push(dayjs(v).month() || month.value[i]);
-        newTime.push(dayjs(v).format(timeFormat) || timeValue.value[i]);
+        newTime.push(dayjs(v).format(timeFormat) || time.value[i]);
       });
       year.value = newYear;
       month.value = newMonth;
-      timeValue.value = newTime;
+      time.value = newTime;
     },
     onEnter: (newVal: string[]) => {
       if (!isValidDate(newVal) && !isValidDate(value.value)) return;
 
       popupVisible.value = false;
       if (isValidDate(newVal)) {
-        onChange?.(formatDate(newVal, 'valueType') as DateValue[], {
+        onChange?.(formatDate(newVal, { formatType: 'valueType' }) as DateValue[], {
           dayjsValue: newVal.map((v) => dayjs(v)),
           trigger: 'enter',
         });
@@ -166,14 +134,14 @@ export default function useRange(props: TdDateRangePickerProps) {
     if (!value.value) {
       inputValue.value = [];
       cacheValue.value = [];
-      timeValue.value = [dayjs().format(timeFormat), dayjs().format(timeFormat)];
+      time.value = [dayjs().format(timeFormat), dayjs().format(timeFormat)];
       return;
     }
     if (!isValidDate(value.value, 'valueType')) return;
 
     inputValue.value = formatDate(value.value);
     cacheValue.value = formatDate(value.value);
-    timeValue.value = formatTime(value.value);
+    time.value = formatTime(value.value) as string[];
   });
 
   // activeIndex 变化自动 focus 对应输入框
@@ -190,7 +158,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     year,
     month,
     value,
-    timeValue,
+    time,
     inputValue,
     popupVisible,
     rangeInputProps,

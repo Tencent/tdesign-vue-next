@@ -18,7 +18,7 @@ export default defineComponent({
     year: Number,
     month: Number,
     tableData: Array,
-    timeValue: String,
+    time: String,
     firstDayOfWeek: Number,
     partial: String,
     onYearChange: Function,
@@ -54,7 +54,7 @@ export default defineComponent({
           <TDateTable
             mode={props.mode}
             data={props.tableData}
-            timeValue={props.timeValue}
+            time={props.time}
             firstDayOfWeek={props.firstDayOfWeek}
             onCellClick={(date: Date, { e }: { e: MouseEvent }) =>
               props.onCellClick?.(date, { e, partial: props.partial })
@@ -66,10 +66,10 @@ export default defineComponent({
 
         {props.enableTimePicker && (
           <div class={`${COMPONENT_NAME.value}--time`}>
-            <div class={`${COMPONENT_NAME.value}--time-viewer`}>{props.timeValue || defaultTimeValue.value}</div>
+            <div class={`${COMPONENT_NAME.value}--time-viewer`}>{props.time || defaultTimeValue.value}</div>
             <TTimePickerPanel
               format={timeFormat}
-              value={props.timeValue}
+              value={props.time}
               onChange={props.onTimePickerChange}
               {...props.timePickerProps}
             />

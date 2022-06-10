@@ -5,7 +5,7 @@ import { extractTimeObj } from '../../_common/js/date-picker/utils-new';
 export default defineComponent({
   name: 'TDatePickerCell',
   props: {
-    timeValue: String,
+    time: String,
     text: [String, Number],
     value: Date,
     active: Boolean,
@@ -46,8 +46,8 @@ export default defineComponent({
 
     function handleClick(e: MouseEvent) {
       if (props.disabled) return;
-      if (props.timeValue) {
-        const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.timeValue);
+      if (props.time) {
+        const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.time);
         // am pm 12小时制转化 24小时制
         let nextHours = hours;
         if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
@@ -62,8 +62,8 @@ export default defineComponent({
 
     function handleMouseEnter() {
       if (props.disabled) return;
-      if (props.timeValue) {
-        const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.timeValue);
+      if (props.time) {
+        const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.time);
         // am pm 12小时制转化 24小时制
         let nextHours = hours;
         if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;

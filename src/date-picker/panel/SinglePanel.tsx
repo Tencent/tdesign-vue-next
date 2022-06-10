@@ -11,7 +11,7 @@ import useDisableDate from '../hooks/useDisableDate';
 export interface DatePickerPanelProps extends TdDatePickerProps {
   year?: number;
   month?: number;
-  timeValue?: string;
+  time?: string;
   onClick?: (context: { e: MouseEvent }) => void;
   onCellClick?: (date: Date, context: { e: MouseEvent }) => void;
   onCellMouseEnter?: (date: Date) => void;
@@ -25,17 +25,14 @@ export interface DatePickerPanelProps extends TdDatePickerProps {
 }
 
 export default defineComponent({
-  name: 'TDatePickerPanel',
+  name: 'TSinglePanel',
   props: {
     disableDate: [Object, Array, Function] as PropType<TdDatePickerProps['disableDate']>,
     mode: {
       type: String as PropType<TdDatePickerProps['mode']>,
       default: 'date',
     },
-    format: {
-      type: String as PropType<TdDatePickerProps['format']>,
-      default: 'YYYY-MM-DD',
-    },
+    format: String as PropType<TdDatePickerProps['format']>,
     presetsPlacement: {
       type: String as PropType<TdDatePickerProps['presetsPlacement']>,
       default: 'bottom',
@@ -47,7 +44,7 @@ export default defineComponent({
     firstDayOfWeek: Number,
     year: Number,
     month: Number,
-    timeValue: String,
+    time: String,
     onClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -92,7 +89,7 @@ export default defineComponent({
 
       enableTimePicker: props.enableTimePicker,
       timePickerProps: props.timePickerProps,
-      timeValue: props.timeValue,
+      time: props.time,
       onMonthChange: props.onMonthChange,
       onYearChange: props.onYearChange,
       onJumperClick: props.onJumperClick,

@@ -12,7 +12,7 @@ export default defineComponent({
     },
     firstDayOfWeek: Number,
     data: Array,
-    timeValue: String,
+    time: String,
     onCellClick: Function,
     onCellMouseEnter: Function,
     onCellMouseLeave: Function,
@@ -53,7 +53,7 @@ export default defineComponent({
                   <TDatePickerCell
                     {...col}
                     key={j}
-                    timeValue={props.timeValue}
+                    time={props.time}
                     onClick={props.onCellClick}
                     onMouseEnter={props.onCellMouseEnter}
                   />
