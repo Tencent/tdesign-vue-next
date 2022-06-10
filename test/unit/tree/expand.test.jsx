@@ -203,4 +203,25 @@ describe('Tree:expand', () => {
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
     });
   });
+
+  it('expandOnClickNode 设置为 true 时，点击父节点本身会触发展开子节点', async () => {
+    const data = [
+      {
+        value: 't1',
+        children: [
+          {
+            value: 't1.1',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount({
+      render() {
+        return <Tree data={data} expandOnClickNode></Tree>;
+      },
+    });
+    wrapper.find('[data-value="t1"]').trigger('click');
+    await delay(10);
+    expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);
+  });
 });
