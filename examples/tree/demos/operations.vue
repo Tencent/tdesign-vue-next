@@ -14,9 +14,9 @@
       </t-form>
     </div>
     <div class="operations">
-      <t-addon prepend="filter:">
+      <t-input-adornment prepend="filter:">
         <t-input v-model="filterText" @change="onInputChange" />
-      </t-addon>
+      </t-input-adornment>
     </div>
     <t-tree
       ref="tree"

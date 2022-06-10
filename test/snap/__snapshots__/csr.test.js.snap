@@ -60080,10 +60080,10 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
   style="max-width: 500px;"
 >
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       http://
     </span>
@@ -60106,12 +60106,12 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--append"
+    class="t-input-adornment t-input-adornment--append"
   >
-    
+    <!---->
     <div
       class="t-input__wrap"
     >
@@ -60132,16 +60132,16 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       <!---->
     </div>
     <span
-      class="t-addon__append"
+      class="t-input-adornment__append"
     >
       .com
     </span>
   </div>
   <div
-    class="t-addon t-addon--prepend t-addon--append"
+    class="t-input-adornment t-input-adornment--prepend t-input-adornment--append"
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       http://
     </span>
@@ -60165,7 +60165,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       <!---->
     </div>
     <span
-      class="t-addon__append"
+      class="t-input-adornment__append"
     >
       .com
     </span>
@@ -61131,6 +61131,436 @@ exports[`csr snapshot test > csr test ./examples/input/demos/textarea.vue 1`] = 
     <!---->
     <!---->
     <!---->
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vue 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
+>
+  <div
+    class="t-input-adornment t-input-adornment--prepend"
+  >
+    <span
+      class="t-input-adornment__prepend"
+    >
+      <div
+        class="t-select__wrap"
+      >
+        
+        <div
+          class="t-select t-select-polyfill t-size-m t-no-border t-select__popup-reference"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select__single"
+            title="http://"
+          >
+            http://
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+        
+        <!---->
+      </div>
+    </span>
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入内容"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-input-adornment t-input-adornment--append"
+  >
+    <!---->
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请输入内容"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <span
+      class="t-input-adornment__append"
+    >
+      <div
+        class="t-select__wrap"
+      >
+        
+        <div
+          class="t-select t-select-polyfill t-size-m t-no-border t-select__popup-reference"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select__single"
+            title=".cn"
+          >
+            .cn
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+        
+        <!---->
+      </div>
+    </span>
+  </div>
+  <div
+    class="t-input-adornment t-input-adornment--prepend t-input-adornment--append"
+  >
+    <span
+      class="t-input-adornment__prepend"
+    >
+      <div
+        class="t-select__wrap"
+      >
+        
+        <div
+          class="t-select t-select-polyfill t-size-m t-no-border t-select__popup-reference"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select__single"
+            title="http://"
+          >
+            http://
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+        
+        <!---->
+      </div>
+    </span>
+    <div
+      class="t-select__wrap"
+    >
+      
+      <div
+        class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+      >
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <span
+          class="t-select__single"
+          title="tencent"
+        >
+          tencent
+        </span>
+        <!---->
+        <svg
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      
+      <!---->
+    </div>
+    <span
+      class="t-input-adornment__append"
+    >
+      <div
+        class="t-select__wrap"
+      >
+        
+        <div
+          class="t-select t-select-polyfill t-size-m t-no-border t-select__popup-reference"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select__single"
+            title=".cn"
+          >
+            .cn
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+        
+        <!---->
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
+>
+  <div
+    class="t-input-adornment t-input-adornment--prepend"
+  >
+    <span
+      class="t-input-adornment__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入内容"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-input-adornment t-input-adornment--append"
+  >
+    <!---->
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请输入内容"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <span
+      class="t-input-adornment__append"
+    >
+      .com
+    </span>
+  </div>
+  <div
+    class="t-input-adornment t-input-adornment--prepend t-input-adornment--append"
+  >
+    <span
+      class="t-input-adornment__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入内容"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <span
+      class="t-input-adornment__append"
+    >
+      .com
+    </span>
   </div>
 </div>
 `;
@@ -134367,11 +134797,11 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
   data-v-c6bef3b4=""
 >
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-c6bef3b4=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       checked:
     </span>
@@ -134395,14 +134825,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-c6bef3b4=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       expanded:
     </span>
@@ -134426,14 +134856,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-c6bef3b4=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       activated:
     </span>
@@ -134457,7 +134887,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
     class="t-tree t-tree--checkable t-tree--transition"
@@ -136806,11 +137236,11 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
   data-v-120c6910=""
 >
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-120c6910=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       filter:
     </span>
@@ -136834,7 +137264,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
@@ -140384,11 +140814,11 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
     data-v-5396c8f8=""
   >
     <div
-      class="t-addon t-addon--prepend"
+      class="t-input-adornment t-input-adornment--prepend"
       data-v-5396c8f8=""
     >
       <span
-        class="t-addon__prepend"
+        class="t-input-adornment__prepend"
       >
         filter:
       </span>
@@ -140412,7 +140842,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         </div>
         <!---->
       </div>
-      
+      <!---->
     </div>
   </div>
   <div
@@ -141019,11 +141449,11 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
   data-v-84d5a29a=""
 >
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-84d5a29a=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       checked:
     </span>
@@ -141047,14 +141477,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-84d5a29a=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       expanded:
     </span>
@@ -141078,14 +141508,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-84d5a29a=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       activated:
     </span>
@@ -141109,7 +141539,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
     class="t-tree t-tree--checkable t-tree--transition"
@@ -141561,11 +141991,11 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
   data-v-debf06ea=""
 >
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-debf06ea=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       checked:
     </span>
@@ -141589,14 +142019,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-debf06ea=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       expanded:
     </span>
@@ -141620,14 +142050,14 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
-    class="t-addon t-addon--prepend"
+    class="t-input-adornment t-input-adornment--prepend"
     data-v-debf06ea=""
   >
     <span
-      class="t-addon__prepend"
+      class="t-input-adornment__prepend"
     >
       activated:
     </span>
@@ -141651,7 +142081,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       </div>
       <!---->
     </div>
-    
+    <!---->
   </div>
   <div
     class="t-tree t-tree--checkable t-tree--transition"

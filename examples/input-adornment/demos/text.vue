@@ -5,7 +5,7 @@
     </t-input-adornment>
 
     <t-input-adornment append=".com">
-      <t-input placeholder="请输入内容" />
+      <t-tag-input placeholder="请输入内容" />
     </t-input-adornment>
 
     <t-input-adornment prepend="http://" append=".com">

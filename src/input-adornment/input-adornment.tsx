@@ -1,26 +1,14 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import props from './props';
 
 export default defineComponent({
-  name: 'TAddon',
+  name: 'TInputAdornment',
   inheritAttrs: false,
-  props: {
-    prepend: {
-      type: [String, Function],
-      default() {
-        return '';
-      },
-    },
-    append: {
-      type: [String, Function],
-      default() {
-        return '';
-      },
-    },
-  },
+  props,
   setup(props, { slots }) {
-    const COMPONENT_NAME = usePrefixClass('addon');
+    const COMPONENT_NAME = usePrefixClass('input-adornment');
     const renderTNodeJSX = useTNodeJSX();
 
     const renderAddon = (h: any, type: string, addon: string | Function | undefined): VNodeChild => {
