@@ -8,11 +8,10 @@ import isNil from 'lodash/isNil';
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput from '../select-input';
 import { TagInputChangeContext } from '../tag-input';
-import { PopupProps } from '../popup';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 
-import { IRemoveOptions, INodeOptions, ISelectInputSlot } from './interface';
+import { INodeOptions } from './interface';
 import { TreeSelectValue, TdTreeSelectProps } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
@@ -20,7 +19,7 @@ import props from './props';
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 
@@ -29,24 +28,17 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
+    const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { global } = useConfig('treeSelect');
 
     // ref
     const treeRef = ref(null);
-    const selectInputRef = ref(null);
 
     // data
     const formDisabled = useFormDisabled();
     const isHover = ref(false);
-    const defaultProps: PopupProps = reactive({
-      trigger: 'click',
-      placement: 'bottom-left',
-      overlayClassName: '',
-      overlayStyle: (trigger) => ({
-        width: `${trigger.offsetWidth}px`,
-      }),
-    });
+
     const filterByText = ref(null);
     const actived = ref([]);
     const expanded = ref([]);
@@ -70,15 +62,12 @@ export default defineComponent({
     );
 
     // watch
-    watch(
-      () => treeSelectValue.value,
-      async () => {
-        await changeNodeInfo();
-        if (!props.multiple) {
-          actived.value = nodeInfo.value ? [nodeInfo.value.value] : [];
-        }
-      },
-    );
+    watch(treeSelectValue, async () => {
+      await changeNodeInfo();
+      if (!props.multiple) {
+        actived.value = nodeInfo.value ? [nodeInfo.value.value] : [];
+      }
+    });
     watch(
       () => props.data,
       async () => {
@@ -91,16 +80,21 @@ export default defineComponent({
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
+
     const inputPlaceholder = computed(
       () => (innerVisible.value && '') || props.placeholder || global.value.placeholder,
     );
 
     const popupClass = computed(() => {
-      return `${popupObject.value.overlayClassName} ${classPrefix.value}-select__dropdown-inner ${classPrefix.value}-select__dropdown narrow-scrollbar`;
+      return [
+        `${classPrefix.value}-select__dropdown-inner`,
+        `${classPrefix.value}-select__dropdown`,
+        'narrow-scrollbar',
+      ];
     });
-    const isObjectValue = computed(() => {
-      return props.valueType === 'object';
-    });
+
+    const isObjectValue = computed(() => props.valueType === 'object');
+
     const checked = computed((): Array<TreeNodeValue> => {
       if (props.multiple) {
         if (isObjectValue.value) {
@@ -114,24 +108,7 @@ export default defineComponent({
       }
       return [];
     });
-    const showLoading = computed(() => {
-      return props.loading && !tDisabled.value;
-    });
-    const showFilter = computed(() => {
-      return props.filterable || isFunction(props.filter);
-    });
-    const showTree = computed(() => {
-      return !props.loading;
-    });
-    const popupObject = computed(() => {
-      return props.popupProps ? { ...defaultProps, ...(props.popupProps as PopupProps) } : defaultProps;
-    });
-    const selectedMultiple = computed(() => {
-      if (props.multiple && isArray(treeSelectValue.value) && !isEmpty(treeSelectValue.value)) {
-        return treeSelectValue.value;
-      }
-      return [];
-    });
+
     const multiLimitDisabled = computed(() => {
       return (
         props.multiple &&
@@ -140,73 +117,14 @@ export default defineComponent({
         props.max <= (treeSelectValue.value as Array<TreeSelectValue>).length
       );
     });
-    const loadingTextSlot = computed(() => {
-      const useLocale = !props.loadingText && !slots.loadingText;
-      return useLocale ? (
-        <div class={`${classPrefix.value}-select__empty`}>{global.value.loadingText}</div>
-      ) : (
-        renderTNodeJSX('loadingText')
-      );
-    });
-    const emptySlot = computed(() => {
-      const useLocale = !props.empty && !slots.empty;
-      return useLocale ? (
-        <div class={`${classPrefix.value}-select__empty`}>{global.value.empty}</div>
-      ) : (
-        renderTNodeJSX('empty')
-      );
-    });
-    const prefixIconSlot = computed(() => {
-      return renderTNodeJSX('prefixIcon');
-    });
-    const collapsedItemsSlots = computed(() => {
-      if (!props.multiple) {
-        return null;
-      }
-      const notUseLocale =
-        props.collapsedItems ||
-        slots.collapsedItems ||
-        props.minCollapsedNum <= 0 ||
-        selectedMultiple.value.length <= props.minCollapsedNum;
-      return notUseLocale
-        ? renderTNodeJSX('collapsedItems', {
-            params: {
-              count: selectedMultiple.value.length - props.minCollapsedNum,
-              value: selectedMultiple.value,
-              collapsedSelectedItems: selectedMultiple.value.slice(props.minCollapsedNum),
-            },
-          })
-        : null;
-    });
-    const valueDisplaySlot = computed(() => {
-      const notUseLocale = props.valueDisplay || slots.valueDisplay;
-      const notUseSingleLocale = !props.multiple && treeSelectValue.value !== '' && notUseLocale;
-      const notUseMultipleLocale = props.multiple && !isEmpty(treeSelectValue.value) && notUseLocale;
-      if (notUseSingleLocale) {
-        return renderTNodeJSX('valueDisplay', {
-          params: {
-            value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: undefined },
-          },
-        });
-      }
-      if (notUseMultipleLocale) {
-        return renderTNodeJSX('valueDisplay', {
-          params: {
-            value: nodeInfo.value,
-            onClose: (value: string | number, context: TagInputChangeContext) => {
-              tagChange(value, context);
-            },
-          },
-        });
-      }
-      return null;
-    });
+
     const realLabel = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.label || 'label';
       }
       return 'label';
     });
+
     const realValue = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.value || 'value';
@@ -232,28 +150,18 @@ export default defineComponent({
     });
 
     // methods
-    const popupVisibleChange = (state: boolean) => {
-      setInnerVisible(state);
-    };
+
     const change = (valueParam: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) => {
       setTreeSelectValue(valueParam, { node });
       changeNodeInfo();
       props.onChange?.(valueParam, { node });
     };
+
     const clear = (content: { e: MouseEvent }) => {
       const defaultValue: TreeSelectValue = props.multiple ? [] : '';
       actived.value = [];
       change(defaultValue, null);
       props.onClear?.({ e: content.e });
-    };
-    const focus = (value: InputValue, context: { e: FocusEvent }) => {
-      props.onFocus?.({ value, e: context.e });
-    };
-    const blur = (value: InputValue, context: { e: FocusEvent }) => {
-      props.onBlur?.({ value, e: context.e });
-    };
-    const remove = (options: IRemoveOptions<TreeOptionData>) => {
-      props.onRemove?.(options);
     };
 
     const treeNodeChange = (
@@ -266,6 +174,7 @@ export default defineComponent({
       }
       change(current, context.node);
     };
+
     const treeNodeActive = (
       valueParam: Array<TreeNodeValue>,
       context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
@@ -289,9 +198,11 @@ export default defineComponent({
       change(current, context.node);
       actived.value = valueParam;
     };
+
     const treeNodeExpand = (valueParam: Array<TreeNodeValue>) => {
       expanded.value = valueParam;
     };
+
     const inputChange = (value: InputValue): boolean => {
       setInnerInputValue(value);
       if (!value) {
@@ -309,14 +220,16 @@ export default defineComponent({
       };
       props.onSearch?.(String(value));
     };
+
     const tagChange = (value: string | number, context: TagInputChangeContext) => {
       const { trigger, index } = context;
       if (['tag-remove', 'backspace'].includes(trigger)) {
         isArray(treeSelectValue.value) && (treeSelectValue.value as Array<TreeSelectValue>).splice(index, 1);
       }
-      remove({ value, data: null, e: context && (context.e as MouseEvent) });
+      props.onRemove?.({ value, data: null, e: context && (context.e as MouseEvent) });
       change(treeSelectValue.value, null);
     };
+
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
@@ -336,6 +249,7 @@ export default defineComponent({
         nodeInfo.value = null;
       }
     };
+
     const getSingleNodeInfo = () => {
       const nodeValue = isObjectValue.value ? (treeSelectValue.value as INodeOptions).value : treeSelectValue.value;
       if (treeRef.value && (props.treeProps as TreeProps)?.load) {
@@ -352,6 +266,7 @@ export default defineComponent({
       }
       return node;
     };
+
     const getMultipleNodeInfo = () => {
       return (treeSelectValue.value as Array<TreeSelectValue>).map((value) => {
         const nodeValue = isObjectValue.value ? (value as INodeOptions).value : value;
@@ -384,18 +299,15 @@ export default defineComponent({
       }
       return null;
     };
+
     const treeRerender = () => {
       treeKey.value += 1;
     };
 
-    // dom or slots
-    const treeSlots = {
-      empty: () => <span>{emptySlot.value}</span>,
-    };
-    const treeItem = () => (
+    const renderTree = () => (
       <Tree
         ref={treeRef}
-        v-show={showTree.value}
+        v-show={!props.loading}
         key={treeKey.value}
         value={[...checked.value]}
         hover
@@ -403,7 +315,6 @@ export default defineComponent({
         activable={!props.multiple}
         checkable={props.multiple}
         disabled={tDisabled.value || multiLimitDisabled.value}
-        empty={props.empty}
         size={props.size}
         filter={filterByText.value}
         icon={!filterByText.value}
@@ -414,71 +325,48 @@ export default defineComponent({
         onActive={treeNodeActive}
         onExpand={treeNodeExpand}
         expandOnClickNode
-        v-slots={treeSlots}
+        v-slots={{
+          empty: () =>
+            renderDefaultTNode('empty', {
+              defaultNode: <div class={`${classPrefix.value}-select__empty`}>{global.value.empty}</div>,
+            }),
+        }}
         {...(props.treeProps as TdTreeSelectProps['treeProps'])}
       />
     );
-    const SelectInputSlots: ISelectInputSlot = {
-      panel: () => (
-        <div>
-          <p
-            v-show={showLoading.value}
-            class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
-          >
-            {loadingTextSlot.value}
-          </p>
-          {treeItem()}
-        </div>
-      ),
-      suffixIcon: () => (
-        <FakeArrow
-          isActive={innerVisible.value}
-          disabled={props.disabled}
-          overlayClassName={{
-            [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
-            [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
-          }}
-        />
-      ),
-    };
-    if (prefixIconSlot.value) {
-      SelectInputSlots.prefixIcon = () => <>{prefixIconSlot.value}</>;
-    }
-    if (collapsedItemsSlots.value) {
-      SelectInputSlots.collapsedItems = () => <>{collapsedItemsSlots.value}</>;
-    }
-    if (valueDisplaySlot.value) {
-      SelectInputSlots.valueDisplay = () => <>{valueDisplaySlot.value}</>;
-    }
 
-    // 透传 props
-    const popupProps = {
-      placement: popupObject.value.placement,
-      trigger: popupObject.value.trigger,
-      overlayStyle: popupObject.value.overlayStyle,
-      overlayClassName: popupClass.value,
-      expandAnimation: true,
-    };
+    const renderSuffixIcon = () => (
+      <FakeArrow
+        isActive={innerVisible.value}
+        disabled={props.disabled}
+        overlayClassName={{
+          [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
+          [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
+        }}
+      />
+    );
 
     return () => (
       <SelectInput
         class={`${classPrefix.value}-tree-select`}
-        ref={selectInputRef}
-        v-slots={SelectInputSlots}
         value={nodeInfo.value}
         inputValue={innerVisible.value ? innerInputValue.value : ''}
+        disabled={tDisabled.value}
         multiple={props.multiple}
         loading={props.loading}
-        disabled={tDisabled.value}
         clearable={props.clearable}
         autoWidth={props.autoWidth}
         borderless={props.borderless}
         readonly={props.readonly}
         placeholder={inputPlaceholder.value}
-        allowInput={showFilter.value}
+        allowInput={props.filterable || isFunction(props.filter)}
         popupVisible={innerVisible.value}
         minCollapsedNum={props.minCollapsedNum}
-        popupProps={popupProps}
+        collapsed-items={props.collapsedItems}
+        popupProps={{
+          overlayClassName: popupClass.value,
+          ...(props.popupProps as TdTreeSelectProps['popupProps']),
+        }}
         inputProps={{
           size: props.size,
           ...(props.inputProps as TdTreeSelectProps['inputProps']),
@@ -490,12 +378,46 @@ export default defineComponent({
           maxWidth: 300,
           ...(props.tagProps as TdTreeSelectProps['tagProps']),
         }}
+        label={() => renderTNodeJSX('prefixIcon')}
+        suffixIcon={() => renderSuffixIcon()}
         onClear={clear}
-        onBlur={blur}
-        onFocus={focus}
+        onBlur={(value: InputValue, context: { e: FocusEvent }) => {
+          props.onBlur?.({ value, e: context.e });
+        }}
+        onFocus={(value: InputValue, context: { e: FocusEvent }) => {
+          props.onFocus?.({ value, e: context.e });
+        }}
+        valueDisplay={renderTNodeJSX('valueDisplay', {
+          params: props.multiple
+            ? {
+                value: nodeInfo.value,
+                onClose: (value: string | number, context: TagInputChangeContext) => {
+                  tagChange(value, context);
+                },
+              }
+            : {
+                value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: undefined },
+              },
+        })}
+        v-slots={{
+          panel: () => (
+            <div>
+              <p
+                v-show={props.loading && !tDisabled.value}
+                class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
+              >
+                {renderDefaultTNode('loadingText', {
+                  defaultNode: <div class={`${classPrefix.value}-select__empty`}>{global.value.loadingText}</div>,
+                })}
+              </p>
+              {renderTree()}
+            </div>
+          ),
+          collapsedItems: slots.collapsedItems,
+        }}
         onInputChange={inputChange}
         onTagChange={tagChange}
-        onPopupVisibleChange={popupVisibleChange}
+        onPopupVisibleChange={(state: boolean) => setInnerVisible(state)}
         onMouseenter={() => (isHover.value = true)}
         onMouseleave={() => (isHover.value = false)}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
