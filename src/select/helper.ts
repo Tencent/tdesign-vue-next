@@ -4,13 +4,14 @@ import { TdSelectProps, TdOptionProps, SelectValue, SelectOption, SelectOptionGr
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
     slots: Slots;
-    keys: TdSelectProps['keys'];
     selectValue: TdSelectProps['value'];
     size: TdSelectProps['size'];
     max: TdSelectProps['max'];
+    reserveKeyword: TdSelectProps['reserveKeyword'];
     multiple: TdSelectProps['multiple'];
     handleValueChange: TdSelectProps['onChange'];
     handleCreate: TdSelectProps['onCreate'];
+    handlerInputChange: TdSelectProps['onInputChange'];
     handlePopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
   }>
 > = Symbol('selectProvide');

@@ -1,5 +1,7 @@
 import { computed, Slots, VNode } from 'vue';
 import isArray from 'lodash/isArray';
+import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { TdSelectProps, TdOptionProps } from './type';
@@ -8,7 +10,19 @@ export const useSelectOptions = (props: TdSelectProps) => {
   const getChildComponentSlots = useChildComponentSlots();
 
   const options = computed(() => {
-    const { options = [] } = props;
+    let { options = [] } = props;
+
+    // 统一处理 keys,处理通用数据
+    if (isObject(props.keys)) {
+      options = options.map((option) => {
+        return {
+          label: get(option, props.keys.label || 'label'),
+          value: get(option, props.keys.value || 'value'),
+        };
+      });
+    }
+
+    // 处理 slots
     const optionsSlots = getChildComponentSlots('TOption');
     const groupSlots = getChildComponentSlots('TOptionGroup');
     if (isArray(groupSlots)) {
@@ -37,6 +51,7 @@ export const useSelectOptions = (props: TdSelectProps) => {
         } as TdOptionProps);
       }
     }
+
     return options;
   });
 

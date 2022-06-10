@@ -17,7 +17,6 @@ export default defineComponent({
   props: { ...props, createAble: Boolean, multiple: Boolean },
   setup(props) {
     const tSelect = inject(selectInjectKey);
-
     const formDisabled = useFormDisabled();
 
     const disabled = computed(() => {
@@ -81,6 +80,9 @@ export default defineComponent({
         (tSelect.value.selectValue as SelectValue[]).splice(valueIndex, 1);
       }
       tSelect.value.handleValueChange(tSelect.value.selectValue, { e: context.e, trigger: val ? 'check' : 'uncheck' });
+      if (!tSelect.value.reserveKeyword) {
+        tSelect.value.handlerInputChange('');
+      }
     };
 
     useRipple(liRef);

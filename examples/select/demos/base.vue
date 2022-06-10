@@ -7,8 +7,6 @@
     <t-select v-model="value2" placeholder="请选择云产品">
       <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
     </t-select>
-    <t-button @click="options1 = []">1</t-button>
-    <t-button @click="options2 = []">2</t-button>
   </div>
 </template>
 <script setup lang="jsx">
@@ -27,6 +25,7 @@ const options1 = ref([
     content: () => <span>计算场景（高性能计算）</span>,
   },
 ]);
+
 const options2 = ref([
   { label: '云服务器1', value: '1' },
   { label: '云数据库2', value: '2' },

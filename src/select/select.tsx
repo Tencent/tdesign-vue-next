@@ -100,8 +100,9 @@ export default defineComponent({
       max: props.max,
       multiple: props.multiple,
       selectValue: innerValue.value,
-      keys: props.keys,
+      reserveKeyword: props.reserveKeyword,
       handleValueChange: setInnerValue,
+      handlerInputChange: setInputValue,
       handlePopupVisibleChange: setInnerPopupVisible,
       handleCreate,
       size: props.size,
@@ -138,8 +139,6 @@ export default defineComponent({
               clearable: props.clearable,
               loading: props.loading,
               minCollapsedNum: props.minCollapsedNum,
-              onBlur: props.onBlur,
-              onFocus: props.onFocus,
             }}
             class={COMPONENT_NAME.value}
             value={displayText.value}
@@ -167,9 +166,14 @@ export default defineComponent({
               ...restPopupProps,
             }}
             label={() => renderTNodeJSX('prefixIcon')}
-            suffixIcon={() => (
-              <FakeArrow overlayClassName={`${COMPONENT_NAME.value}__right-icon`} isActive={innerPopupVisible.value} />
-            )}
+            suffixIcon={() =>
+              props.showArrow && (
+                <FakeArrow
+                  overlayClassName={`${COMPONENT_NAME.value}__right-icon`}
+                  isActive={innerPopupVisible.value}
+                />
+              )
+            }
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
                 params: { value: valueDisplayParmas.value, onClose: (index: number) => removeTag(index) },
@@ -192,6 +196,13 @@ export default defineComponent({
               props.onEnter?.({ inputValue: innerInputValue.value, e, value: innerValue.value });
               handleCreate();
             }}
+            onBlur={(inputValue, { e }) => {
+              props.onBlur?.({ e, value: innerValue.value });
+            }}
+            onFocus={(inputValue, { e }) => {
+              props.onFocus?.({ e, value: innerValue.value });
+            }}
+            {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
             v-slots={{
               panel: () => (
                 <SelectPanel

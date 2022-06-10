@@ -113,7 +113,7 @@ export default {
   scroll: {
     type: Object as PropType<TdSelectProps['scroll']>,
   },
-  /** 【开发中】透传 SelectInput 筛选器输入框组件的全部属性 */
+  /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdSelectProps['selectInputProps']>,
   },

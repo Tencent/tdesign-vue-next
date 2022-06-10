@@ -232,6 +232,7 @@ export default defineComponent({
             value={innerPageSize}
             disabled={disabled}
             class={this.sizerClass}
+            autoWidth={true}
             onChange={this.onSelectorChange}
           >
             {this.sizeOptions.map((item, index) => (
@@ -302,7 +303,8 @@ export default defineComponent({
             value={innerCurrent}
             disabled={disabled}
             class={this.simpleClass}
-            onChange={this.toPage}
+            autoWidth={true}
+            onChange={(value) => this.toPage(value as number)}
             options={this.pageCountOption}
           />
         ) : null}

@@ -79,8 +79,8 @@ export default defineComponent({
             }
             return (
               <Option
-                value={get(item, tSelect.value.keys?.value || 'value')}
-                label={get(item, tSelect.value.keys?.label || 'label')}
+                value={item.value}
+                label={item.label}
                 content={item.content}
                 disabled={item.disabled}
                 multiple={props.multiple}
