@@ -5,7 +5,7 @@ import type { TdDatePickerProps } from '../type';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
-import TTimePickerPanel from '../../time-picker/panel/index';
+import TTimePickerPanel from '../../time-picker/panel/time-picker-panel';
 import { getDefaultFormat } from '../hooks/useFormat';
 
 export default defineComponent({
