@@ -13,11 +13,3 @@ export interface INodeOptions {
   label: string;
   value: string | number;
 }
-
-export interface ISelectInputSlot {
-  panel: Function;
-  prefixIcon?: Function;
-  suffixIcon?: Function;
-  collapsedItems?: Function;
-  valueDisplay?: Function;
-}

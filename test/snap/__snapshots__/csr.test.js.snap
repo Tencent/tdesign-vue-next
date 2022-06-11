@@ -36865,7 +36865,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -36882,7 +36881,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -36985,7 +36983,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -37002,7 +36999,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -46141,7 +46137,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
-                
                 <svg
                   class="t-fake-arrow"
                   disabled="false"
@@ -46158,7 +46153,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                     stroke-width="1.3"
                   />
                 </svg>
-                
               </span>
             </div>
             <!---->
@@ -134817,7 +134811,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/base.vue 1`] 
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -134834,7 +134827,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/base.vue 1`] 
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -134901,7 +134893,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -134918,7 +134909,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -134977,7 +134967,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -134994,7 +134983,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135097,7 +135085,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135114,7 +135101,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135156,7 +135142,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/lazy.vue 1`] 
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135173,7 +135158,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/lazy.vue 1`] 
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135240,7 +135224,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135257,7 +135240,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135279,11 +135261,12 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
-      <span
-        class="t-input__prefix t-input__prefix-icon"
+      <!---->
+      <div
+        class="t-input__prefix"
       >
         
-        
+        <!---->
         
         <svg
           class="t-icon t-icon-browse"
@@ -135294,15 +135277,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
           />
         </svg>
         
-        
-        
-      </span>
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
         
       </div>
       <input
@@ -135316,7 +135290,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135333,7 +135306,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135375,7 +135347,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/props.vue 1`]
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135392,7 +135363,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/props.vue 1`]
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135420,11 +135390,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
       >
         
         
-        
-        
         () 
-        
-        
         
         <!---->
         
@@ -135440,7 +135406,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135457,7 +135422,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135481,10 +135445,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
         
         
         
-        
-        
-        
-        
       </div>
       <input
         class="t-input__inner"
@@ -135496,7 +135456,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135513,7 +135472,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135555,7 +135513,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135572,7 +135529,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -135631,7 +135587,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -135648,7 +135603,6 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->

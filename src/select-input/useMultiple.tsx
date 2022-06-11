@@ -52,7 +52,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   const renderSelectMultiple = (p: RenderSelectMultipleParams) => {
     const tagInputProps = {
       ...p.commonInputProps,
-      ...props.tagInputProps,
       tagProps: props.tagProps,
       label: props.label,
       autoWidth: props.autoWidth,
@@ -70,6 +69,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         },
       },
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      ...props.tagInputProps,
     };
 
     return (
