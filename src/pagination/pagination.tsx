@@ -96,8 +96,10 @@ export default defineComponent({
           start = innerCurrent.value - curPageLeftCount.value;
           end = innerCurrent.value + curPageRightCount.value;
         } else {
-          start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : 2;
-          end = isPrevMoreShow.value ? pageCount.value - 1 : props.foldedMaxPageBtn;
+          const foldedStart = props.pageEllipsisMode === 'ellipsis' ? 2 : 1;
+          const foldedEnd = props.pageEllipsisMode === 'ellipsis' ? pageCount.value - 1 : pageCount.value;
+          start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : foldedStart;
+          end = isPrevMoreShow.value ? foldedEnd : props.foldedMaxPageBtn;
         }
       } else {
         start = 1;
@@ -216,7 +218,7 @@ export default defineComponent({
   },
   render() {
     const { pageCount, innerPageSize, innerCurrent, renderTNodeJSX } = this;
-    const { total, pageSizeOptions, size, disabled, showJumper } = this.$props;
+    const { total, pageSizeOptions, size, disabled, showJumper, pageEllipsisMode } = this.$props;
 
     if (pageCount < 1) return null;
 
@@ -259,12 +261,12 @@ export default defineComponent({
         {/* 常规版 */}
         {this.showPageNumber && this.theme === 'default' ? (
           <ul class={this.btnWrapClass}>
-            {this.isFolded && (
+            {this.isFolded && pageEllipsisMode === 'ellipsis' && (
               <li class={this.getButtonClass(1)} onClick={() => this.toPage(min)}>
                 {min}
               </li>
             )}
-            {this.isFolded && this.isPrevMoreShow ? (
+            {this.isFolded && this.isPrevMoreShow && pageEllipsisMode === 'ellipsis' ? (
               <li
                 class={this.btnMoreClass}
                 onClick={() => this.handlePageChange('prevMorePage')}
@@ -279,7 +281,7 @@ export default defineComponent({
                 {i}
               </li>
             ))}
-            {this.isFolded && this.isNextMoreShow ? (
+            {this.isFolded && this.isNextMoreShow && pageEllipsisMode === 'ellipsis' ? (
               <li
                 class={this.btnMoreClass}
                 onClick={() => this.handlePageChange('nextMorePage')}
@@ -289,7 +291,7 @@ export default defineComponent({
                 {this.nextMore ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
               </li>
             ) : null}
-            {this.isFolded ? (
+            {this.isFolded && pageEllipsisMode === 'ellipsis' ? (
               <li class={this.getButtonClass(this.pageCount)} onClick={() => this.toPage(this.pageCount)}>
                 {this.pageCount}
               </li>

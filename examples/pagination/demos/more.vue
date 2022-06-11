@@ -1,9 +1,20 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-row">
+    <span>展示首尾页码省略</span>
     <t-pagination
       v-model="current"
       v-model:pageSize="pageSize"
       :total="100"
+      @change="onChange"
+      @pageSizeChange="onPageSizeChange"
+      @currentChange="onCurrentChange"
+    />
+    <span>不展示首尾页码省略</span>
+    <t-pagination
+      v-model="current"
+      v-model:pageSize="pageSize"
+      :total="100"
+      page-ellipsis-mode="empty"
       @change="onChange"
       @pageSizeChange="onPageSizeChange"
       @currentChange="onCurrentChange"

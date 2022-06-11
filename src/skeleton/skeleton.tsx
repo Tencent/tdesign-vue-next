@@ -93,14 +93,15 @@ export default defineComponent({
     watch(
       () => props.loading,
       (val) => {
-        if (!val) {
-          isShow.value = false;
+        if (!val || props.delay === 0) {
+          isShow.value = val;
           return;
         }
         setTimeout(() => {
           isShow.value = val;
         }, props.delay);
       },
+      { immediate: true },
     );
 
     return () => {

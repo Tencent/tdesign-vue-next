@@ -34,7 +34,6 @@ export default {
   /** 快捷定义骨架图风格，有基础、头像组合等，具体参看代码示例 */
   theme: {
     type: String as PropType<TdSkeletonProps['theme']>,
-    default: 'text' as TdSkeletonProps['theme'],
     validator(val: TdSkeletonProps['theme']): boolean {
       if (!val) return true;
       return ['text', 'avatar', 'paragraph', 'avatar-text', 'tab', 'article'].includes(val);
