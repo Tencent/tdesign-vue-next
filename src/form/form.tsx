@@ -106,9 +106,9 @@ export default defineComponent({
       return result;
     };
     const submitHandler = (e?: FormSubmitEvent) => {
-      if (props.preventSubmitDefault) {
-        e?.preventDefault();
-        e?.stopPropagation();
+      if (props.preventSubmitDefault && e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
       validate().then((r) => {
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
