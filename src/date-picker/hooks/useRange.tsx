@@ -45,6 +45,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     clearable: props.clearable,
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
+    separator: props.separator,
     placeholder: props.placeholder || global.value.placeholder[props.mode],
     activeIndex: popupVisible.value ? activeIndex.value : undefined,
     suffixIcon: props.suffixIcon || (() => <CalendarIcon />),
