@@ -8,11 +8,6 @@ import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'PanelHeader',
-  components: {
-    CloseIcon,
-    TRadioGroup,
-    TRadioButton,
-  },
   props: {
     ...props,
     mode: {
@@ -55,18 +50,18 @@ export default defineComponent({
           {this.colorModes?.length === 1 ? (
             COLOR_MODES[this.colorModes[0]]
           ) : (
-            <t-radio-group
+            <TRadioGroup
               variant="default-filled"
               size="small"
               v-model={this.modeValue}
               onChange={this.handleModeChange}
             >
               {Object.keys(COLOR_MODES).map((key) => (
-                <t-radio-button key={key} value={key}>
+                <TRadioButton key={key} value={key}>
                   {COLOR_MODES[key]}
-                </t-radio-button>
+                </TRadioButton>
               ))}
-            </t-radio-group>
+            </TRadioGroup>
           )}
         </div>
         {this.closeBtn ? (
@@ -75,7 +70,7 @@ export default defineComponent({
             class={[`${baseClassName}__icon`, `${baseClassName}__close`]}
             onClick={this.handleClosePopup}
           >
-            <close-icon />
+            <CloseIcon />
           </span>
         ) : null}
       </div>

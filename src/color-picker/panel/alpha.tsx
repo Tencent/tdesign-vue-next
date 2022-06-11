@@ -5,9 +5,6 @@ import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'AlphaSlider',
-  components: {
-    ColorSlider,
-  },
   inheritAttrs: false,
   props: {
     color: {
@@ -43,7 +40,7 @@ export default defineComponent({
   render() {
     const { baseClassName } = this;
     return (
-      <color-slider
+      <ColorSlider
         class={[`${baseClassName}__alpha`, `${baseClassName}--bg-alpha`]}
         color={this.color}
         value={this.color.alpha * 100}

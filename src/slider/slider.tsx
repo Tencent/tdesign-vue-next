@@ -11,8 +11,6 @@ import {
   toRefs,
 } from 'vue';
 import props from './props';
-import InputNumber from '../input-number/index';
-import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
@@ -29,11 +27,6 @@ interface SliderButtonType {
 }
 export default defineComponent({
   name: 'TSlider',
-  components: {
-    TSliderMark,
-    TInputNumber: InputNumber,
-    TSliderButton,
-  },
   model: {
     prop: 'value',
     event: 'change',
@@ -394,7 +387,7 @@ export default defineComponent({
         >
           <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
             <div class={`${COMPONENT_NAME.value}__track`} style={barStyle.value} />
-            <t-slider-button
+            <TSliderButton
               vertical={vertical.value}
               value={firstValue.value}
               ref={firstButtonRef}
@@ -405,7 +398,7 @@ export default defineComponent({
               }}
             />
             {props.range && (
-              <t-slider-button
+              <TSliderButton
                 vertical={vertical.value}
                 value={secondValue.value}
                 ref={secondButtonRef}

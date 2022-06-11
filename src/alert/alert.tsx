@@ -25,7 +25,7 @@ export default defineComponent({
     // alert的dom引用
     const alertRef = ref<HTMLElement | null>(null);
     // description的dom引用
-    const description = ref<HTMLElement | null>(null);
+    const descriptionRef = ref<HTMLElement | null>(null);
     // desc高度
     const descHeight = ref(0);
     // 是否可见，关闭后置为false
@@ -86,19 +86,20 @@ export default defineComponent({
       }
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
-      const height = (description.value?.children[0] as HTMLElement)?.offsetHeight;
+      const height = (descriptionRef.value?.children[0] as HTMLElement)?.offsetHeight;
       if (hasCollapse && collapsed.value) {
         // 折叠
         messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);
-        height && (description.value.style.height = `${descHeight.value}px`);
+        height && (descriptionRef.value.style.height = `${descHeight.value}px`);
       } else if (hasCollapse) {
         // 展开
-        height && (description.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
+        height &&
+          (descriptionRef.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${COMPONENT_NAME.value}__description`} ref="description">
+        <div class={`${COMPONENT_NAME.value}__description`} ref={descriptionRef}>
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
@@ -137,7 +138,7 @@ export default defineComponent({
 
     onMounted(() => {
       on(alertRef.value, 'transitionend', handleCloseEnd);
-      descHeight.value = description.value.offsetHeight;
+      descHeight.value = descriptionRef.value.offsetHeight;
     });
     onBeforeUnmount(() => {
       off(alertRef.value, 'transitionend', handleCloseEnd);

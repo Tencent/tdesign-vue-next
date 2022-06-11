@@ -48876,9 +48876,11 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
-              <!---->
-            </transition-stub>
+            <transition-stub
+              appear="true"
+              mode="out-in"
+              name="fade"
+            />
             <div
               class="t-tabs__add-btn t-tabs__btn t-size-m"
             >
@@ -112473,9 +112475,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -112593,9 +112597,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -112718,9 +112724,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/base.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -112889,9 +112897,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -113283,9 +113293,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/custom.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <div
             class="t-tabs__add-btn t-tabs__btn t-size-m"
           >
@@ -113473,9 +113485,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -113651,9 +113665,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -113806,9 +113822,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/operation.vue 1`] = 
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <div
             class="t-tabs__add-btn t-tabs__btn t-size-m"
           >
@@ -114030,9 +114048,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
+          <transition-stub
+            appear="true"
+            mode="out-in"
+            name="fade"
+          />
           <!---->
         </div>
         
@@ -114153,9 +114173,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
-              <!---->
-            </transition-stub>
+            <transition-stub
+              appear="true"
+              mode="out-in"
+              name="fade"
+            />
             <!---->
           </div>
           
@@ -114266,9 +114288,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/size.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
-              <!---->
-            </transition-stub>
+            <transition-stub
+              appear="true"
+              mode="out-in"
+              name="fade"
+            />
             <!---->
           </div>
           
@@ -114390,9 +114414,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
-              <!---->
-            </transition-stub>
+            <transition-stub
+              appear="true"
+              mode="out-in"
+              name="fade"
+            />
             <!---->
           </div>
           
@@ -114503,9 +114529,11 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/theme.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
-              <!---->
-            </transition-stub>
+            <transition-stub
+              appear="true"
+              mode="out-in"
+              name="fade"
+            />
             <!---->
           </div>
           

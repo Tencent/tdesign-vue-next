@@ -23,9 +23,11 @@ exports[`Tabs > :props > :addable 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <div
           class="t-tabs__add-btn t-tabs__btn t-size-m"
         >
@@ -92,9 +94,11 @@ exports[`Tabs > :props > :defaultValue 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
@@ -145,9 +149,11 @@ exports[`Tabs > :props > :disabled 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
@@ -198,9 +204,11 @@ exports[`Tabs > :props > :placement 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
@@ -250,9 +258,11 @@ exports[`Tabs > :props > :size 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
@@ -303,9 +313,11 @@ exports[`Tabs > :props > :theme 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
@@ -354,9 +366,11 @@ exports[`Tabs > :props > :value 1`] = `
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
-        <transition-stub>
-          <!---->
-        </transition-stub>
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
         <!---->
       </div>
       
