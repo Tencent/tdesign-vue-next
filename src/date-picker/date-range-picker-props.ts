@@ -74,7 +74,7 @@ export default {
   /** 日期分隔符 */
   separator: {
     type: String,
-    default: '',
+    default: '-',
   },
   /** 组件后置图标 */
   suffixIcon: {
