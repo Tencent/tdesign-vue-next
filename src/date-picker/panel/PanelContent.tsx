@@ -14,7 +14,10 @@ export default defineComponent({
     mode: String as PropType<TdDatePickerProps['mode']>,
     format: String as PropType<TdDatePickerProps['format']>,
     enableTimePicker: Boolean as PropType<TdDatePickerProps['enableTimePicker']>,
-    timePickerProps: Object as PropType<TdDatePickerProps['timePickerProps']>,
+    timePickerProps: {
+      type: Object as PropType<TdDatePickerProps['timePickerProps']>,
+      default: () => ({}),
+    },
     year: Number,
     month: Number,
     tableData: Array,
@@ -68,10 +71,12 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}--time`}>
             <div class={`${COMPONENT_NAME.value}--time-viewer`}>{props.time || defaultTimeValue.value}</div>
             <TTimePickerPanel
-              format={timeFormat}
-              value={props.time}
-              onChange={props.onTimePickerChange}
-              {...props.timePickerProps}
+              {...{
+                format: timeFormat,
+                value: props.time,
+                onChange: props.onTimePickerChange,
+                ...props.timePickerProps,
+              }}
             />
           </div>
         )}

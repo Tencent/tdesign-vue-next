@@ -308,7 +308,6 @@ export interface TdDateRangePickerPanelProps
     | 'value'
     | 'defaultValue'
     | 'valueType'
-    | 'size'
     | 'disabled'
     | 'disableDate'
     | 'enableTimePicker'
@@ -412,8 +411,8 @@ export interface PickContext {
   partial: DateRangePickerPartial;
 }
 
-export type DatePickerMonthChangeTrigger = 'month-select' | 'month-arrow-next' | 'month-arrow-previous';
+export type DatePickerMonthChangeTrigger = 'month-select' | 'month-arrow-next' | 'month-arrow-previous' | 'today';
 
 export type DatePickerTimeChangeTrigger = 'time-hour' | 'time-minute' | 'time-second';
 
-export type DatePickerYearChangeTrigger = 'year-select' | 'year-arrow-next' | 'year-arrow-previous';
+export type DatePickerYearChangeTrigger = 'year-select' | 'year-arrow-next' | 'year-arrow-previous' | 'today';

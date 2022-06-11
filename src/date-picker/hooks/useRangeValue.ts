@@ -36,9 +36,6 @@ function initYearMonthTime(value: DateValue[], mode = 'date', format: string, ti
 export default function useRange(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
-  const isMountedRef = ref(false);
-  const inputRef = ref();
-
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
   const { format, isValidDate, timeFormat, formatDate, formatTime } = useFormat({
     mode: props.mode,
@@ -56,10 +53,10 @@ export default function useRange(props: TdDateRangePickerProps) {
   }
 
   const isFirstValueSelected = ref(false); // 记录面板点击次数，两次后才自动关闭
-  const time = ref(initYearMonthTime(props.value, props.mode, format, timeFormat).time);
-  const month = ref(initYearMonthTime(props.value, props.mode, format).month);
-  const year = ref(initYearMonthTime(props.value, props.mode, format).year);
-  const cacheValue = ref(formatDate(props.value)); // 选择阶段预选状态
+  const time = ref(initYearMonthTime(value.value, props.mode, format, timeFormat).time);
+  const month = ref(initYearMonthTime(value.value, props.mode, format).month);
+  const year = ref(initYearMonthTime(value.value, props.mode, format).year);
+  const cacheValue = ref(formatDate(value.value)); // 选择阶段预选状态
 
   // 输入框响应 value 变化
   watchEffect(() => {

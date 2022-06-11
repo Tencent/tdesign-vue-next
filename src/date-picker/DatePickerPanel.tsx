@@ -1,70 +1,32 @@
-import { defineComponent, watchEffect, computed } from 'vue';
+import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
-import { usePrefixClass } from '../hooks/useConfig';
 
-import useSingle from './hooks/useSingle';
+import useSingleValue from './hooks/useSingleValue';
 import useFormat from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
 import type { DateValue } from './type';
-import props from './props';
+import props from './date-picker-panel-props';
 
-import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
-  name: 'TDatePicker',
+  name: 'TDatePickerPanel',
   props,
   setup(props) {
-    const COMPONENT_NAME = usePrefixClass('date-picker');
+    const { cacheValue, value, year, month, time, onChange } = useSingleValue(props);
 
-    const {
-      inputValue,
-      popupVisible,
-      inputProps,
-      popupProps,
-      isHoverCell,
-      cacheValue,
-      value,
-      year,
-      month,
-      time,
-      inputRef,
-      onChange,
-    } = useSingle(props);
-
-    const { formatTime, formatDate, format } = useFormat({
-      mode: props.mode,
+    const { formatDate, format } = useFormat({
       value: value.value,
+      mode: props.mode,
       format: props.format,
       valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     });
 
-    watchEffect(() => {
-      if (!props.enableTimePicker) return;
-
-      // 面板展开重置数据
-      if (popupVisible.value) {
-        cacheValue.value = formatDate(value.value || new Date());
-        time.value = formatTime(value.value || new Date());
-      }
-    });
-
-    // 日期 hover
-    function onCellMouseEnter(date: Date) {
-      isHoverCell.value = true;
-      inputValue.value = formatDate(date);
-    }
-
-    // 日期 leave
-    function onCellMouseLeave() {
-      isHoverCell.value = false;
-      inputValue.value = formatDate(cacheValue.value);
-    }
-
     // 日期点击
-    function onCellClick(date: Date) {
-      isHoverCell.value = false;
+    function onCellClick(date: Date, { e }: { e: MouseEvent }) {
+      props.onCellClick?.({ date, e });
+
       // date 模式自动切换年月
       if (props.mode === 'date') {
         year.value = date.getFullYear();
@@ -77,10 +39,7 @@ export default defineComponent({
           dayjsValue: dayjs(date),
           trigger: 'pick',
         });
-        popupVisible.value = false;
       }
-
-      props.onPick?.(date);
     }
 
     // 头部快速切换
@@ -101,16 +60,9 @@ export default defineComponent({
 
       const nextYear = next.getFullYear();
       const nextMonth = next.getMonth();
-      const nextInputValue = formatDate(
-        dayjs((inputValue.value as string) || new Date())
-          .year(nextYear)
-          .month(nextMonth)
-          .toDate(),
-      );
 
       year.value = nextYear;
       month.value = nextMonth;
-      inputValue.value = nextInputValue;
     }
 
     // timepicker 点击
@@ -123,45 +75,55 @@ export default defineComponent({
       let nextHours = hours;
       if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
       if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
-      const currentDate = !dayjs(inputValue.value as string, format).isValid()
+      const currentDate = !dayjs(cacheValue.value as string, format).isValid()
         ? dayjs()
-        : dayjs(inputValue.value as string, format);
+        : dayjs(cacheValue.value as string, format);
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
-      inputValue.value = formatDate(nextDate);
+      cacheValue.value = formatDate(nextDate);
 
-      props.onPick?.(nextDate);
+      props.onTimeChange?.({
+        time: val,
+        date: dayjs(value.value).toDate(),
+        trigger: 'time-hour',
+      });
     }
 
     // 确定
     function onConfirmClick() {
-      const nextValue = formatDate(inputValue.value);
-      if (nextValue) {
-        onChange?.(formatDate(inputValue.value, { formatType: 'valueType' }) as DateValue, {
-          dayjsValue: dayjs(inputValue.value as string),
-          trigger: 'confirm',
-        });
-      } else {
-        inputValue.value = formatDate(value.value);
-      }
-      popupVisible.value = false;
+      onChange?.(formatDate(cacheValue.value, { formatType: 'valueType' }) as DateValue, {
+        dayjsValue: dayjs(cacheValue.value as string),
+        trigger: 'confirm',
+      });
     }
 
     // 预设
-    function onPresetClick(presetValue: DateValue | (() => DateValue)) {
+    function onPresetClick(presetValue: DateValue | (() => DateValue), { e, preset }: any) {
       const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
       onChange?.(formatDate(presetVal, { formatType: 'valueType' }) as DateValue, {
         dayjsValue: dayjs(presetVal),
         trigger: 'preset',
       });
-      popupVisible.value = false;
+      props.onPresetClick?.({ e, preset });
     }
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
+
+      props.onYearChange?.({
+        year,
+        date: dayjs(value.value).toDate(),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        month,
+        date: dayjs(value.value).toDate(),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
@@ -177,28 +139,14 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       onCellClick,
-      onCellMouseEnter,
-      onCellMouseLeave,
       onJumperClick,
       onConfirmClick,
       onPresetClick,
       onYearChange,
       onMonthChange,
       onTimePickerChange,
-      onPanelClick: () => inputRef.value?.focus?.(),
     }));
 
-    return () => (
-      <div class={COMPONENT_NAME.value}>
-        <TSelectInput
-          disabled={props.disabled}
-          value={inputValue.value}
-          popupProps={popupProps.value}
-          inputProps={inputProps.value}
-          popupVisible={popupVisible.value}
-          panel={() => <TSinglePanel {...panelProps.value} />}
-        />
-      </div>
-    );
+    return () => <TSinglePanel {...panelProps.value} />;
   },
 });

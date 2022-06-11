@@ -12,7 +12,7 @@ export interface DatePickerPanelProps extends TdDatePickerProps {
   year?: number;
   month?: number;
   time?: string;
-  onClick?: (context: { e: MouseEvent }) => void;
+  onPanelClick?: (context: { e: MouseEvent }) => void;
   onCellClick?: (date: Date, context: { e: MouseEvent }) => void;
   onCellMouseEnter?: (date: Date) => void;
   onCellMouseLeave?: (context: { e: MouseEvent }) => void;
@@ -45,7 +45,7 @@ export default defineComponent({
     year: Number,
     month: Number,
     time: String,
-    onClick: Function,
+    onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
     onCellMouseLeave: Function,
@@ -73,7 +73,7 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? dayjs(props.value, props.format).toDate() : undefined,
+        start: props.value ? dayjs(props.value).toDate() : undefined,
         firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
@@ -116,7 +116,7 @@ export default defineComponent({
             [`${COMPONENT_NAME.value}--direction-row`]: ['left', 'right'].includes(props.presetsPlacement),
           },
         ]}
-        onClick={(e) => props.onClick?.({ e })}
+        onClick={(e) => props.onPanelClick?.({ e })}
       >
         {['top', 'left'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
         <TPanelContent {...panelContentProps.value} />
