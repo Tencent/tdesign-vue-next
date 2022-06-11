@@ -38,6 +38,7 @@ export default {
   /** 透传 RangeInput 组件全部属性 */
   rangeInputProps: {
     type: Object as PropType<TdRangeInputPopupProps['rangeInputProps']>,
+    default: () => ({}),
   },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,

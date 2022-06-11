@@ -36,7 +36,13 @@ export default defineComponent({
           }}
           class={popupClasses}
         >
-          <RangeInput value={props.inputValue} onChange={props.onInputChange} {...props.rangeInputProps} />
+          <RangeInput
+            {...{
+              value: props.inputValue,
+              onChange: props.onInputChange,
+              ...props.rangeInputProps,
+            }}
+          />
         </Popup>
       </div>
     );
