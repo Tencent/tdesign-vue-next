@@ -1,7 +1,5 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
-import isNumber from 'lodash/isNumber';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
@@ -72,14 +70,6 @@ function InitDragEvent(dragBox: HTMLElement) {
 }
 export default defineComponent({
   name: 'TDialog',
-  components: {
-    CloseIcon,
-    InfoCircleFilledIcon,
-    CheckCircleFilledIcon,
-    ErrorCircleFilledIcon,
-    TButton,
-    Transition,
-  },
 
   // 注册v-draggable指令,传入true时候初始化拖拽事件
   directives: {
@@ -351,7 +341,7 @@ export default defineComponent({
       },
     ];
     return (
-      <transition
+      <Transition
         duration={300}
         name={`${COMPONENT_NAME}-zoom__vue`}
         onAfterEnter={this.afterEnter}
@@ -362,7 +352,7 @@ export default defineComponent({
             {view}
           </div>
         )}
-      </transition>
+      </Transition>
     );
   },
 });

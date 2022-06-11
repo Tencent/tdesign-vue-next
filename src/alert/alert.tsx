@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
 import {
   CheckCircleFilledIcon,
   CloseIcon,
@@ -23,7 +23,7 @@ export default defineComponent({
 
     const renderIconTNode = useIcon();
     // alert的dom引用
-    const ele = ref<HTMLElement | null>(null);
+    const alertRef = ref<HTMLElement | null>(null);
     // description的dom引用
     const description = ref<HTMLElement | null>(null);
     // desc高度
@@ -62,22 +62,22 @@ export default defineComponent({
       ) : null;
     };
 
-    const renderTitle = (context: ComponentPublicInstance) => {
+    const renderTitle = () => {
       const titleContent = renderTNodeJSX('title');
       return titleContent ? <div class={`${COMPONENT_NAME.value}__title`}> {titleContent}</div> : null;
     };
 
-    const renderMessage = (context: ComponentPublicInstance) => {
+    const renderMessage = () => {
       const operationContent = renderTNodeJSX('operation');
       return (
         <div class={`${COMPONENT_NAME.value}__message`}>
-          {renderDescription(context)}
+          {renderDescription()}
           {operationContent ? <div class={`${COMPONENT_NAME.value}__operation`}>{operationContent}</div> : null}
         </div>
       );
     };
 
-    const renderDescription = (context: ComponentPublicInstance) => {
+    const renderDescription = () => {
       let messageContent;
 
       messageContent = renderTNodeJSX('default');
@@ -115,17 +115,17 @@ export default defineComponent({
         </div>
       );
     };
-    const renderContent = (context: ComponentPublicInstance) => {
+    const renderContent = () => {
       return (
         <div class={`${COMPONENT_NAME.value}__content`}>
-          {renderTitle(context)}
-          {renderMessage(context)}
+          {renderTitle()}
+          {renderMessage()}
         </div>
       );
     };
     const handleClose = (e: MouseEvent) => {
       props.onClose?.({ e });
-      addClass(ele.value, `${COMPONENT_NAME.value}--closing`);
+      addClass(alertRef.value, `${COMPONENT_NAME.value}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
@@ -136,42 +136,26 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      on(ele.value, 'transitionend', handleCloseEnd);
+      on(alertRef.value, 'transitionend', handleCloseEnd);
       descHeight.value = description.value.offsetHeight;
     });
     onBeforeUnmount(() => {
-      off(ele.value, 'transitionend', handleCloseEnd);
+      off(alertRef.value, 'transitionend', handleCloseEnd);
     });
-    return {
-      COMPONENT_NAME,
-      classPrefix,
-      ele,
-      description,
-      visible,
-      collapsed,
-      renderIcon,
-      renderTitle,
-      renderMessage,
-      renderDescription,
-      renderContent,
-      renderClose,
-      handleClose,
-      handleCloseEnd,
-    };
-  },
-  render() {
-    const { theme, visible, $attrs, renderIcon, renderContent, renderClose, classPrefix } = this;
-    const CLASS = [
-      `${this.COMPONENT_NAME}`,
-      `${this.COMPONENT_NAME}--${theme}`,
-      {
-        [`${classPrefix}-is-hidden`]: !visible,
-      },
-    ];
-    return (
-      <div class={CLASS} {...$attrs} ref="ele">
+
+    return () => (
+      <div
+        ref={alertRef}
+        class={[
+          `${COMPONENT_NAME.value}`,
+          `${COMPONENT_NAME.value}--${props.theme}`,
+          {
+            [`${classPrefix}-is-hidden`]: !visible.value,
+          },
+        ]}
+      >
         {renderIcon()}
-        {renderContent(this)}
+        {renderContent()}
         {renderClose()}
       </div>
     );
