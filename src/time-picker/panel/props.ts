@@ -50,7 +50,7 @@ export const panelProps = () => ({
     ...Props.default.hideDisabledTime,
   },
   disableTime: {
-    ...Props.default.disableTime,
+    type: Function,
   },
   isFooterDisplay: {
     ...BooleanType,
@@ -84,7 +84,7 @@ export const panelColProps = () => ({
     ...Props.default.hideDisabledTime,
   },
   disableTime: {
-    ...Props.default.disableTime,
+    type: Function,
   },
   localeMeridiems: {
     type: Array as PropType<Array<string>>,

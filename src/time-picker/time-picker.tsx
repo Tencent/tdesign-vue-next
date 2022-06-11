@@ -7,11 +7,11 @@ import TPopup from '../popup';
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput from '../select-input';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
-import useVModel from '../hooks/useVModel';
 
 import props from './props';
 
 // hooks
+import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 

@@ -43,6 +43,10 @@ export default defineComponent({
       });
     };
 
+    const resetTriggerScroll = () => {
+      triggerScroll.value = false;
+    };
+
     // 渲染后执行update 使面板滚动至当前时间位置
     onMounted(() => {
       panelColUpdate();
@@ -59,6 +63,7 @@ export default defineComponent({
             value={props.value}
             triggerScroll={triggerScroll.value}
             onChange={props.onChange}
+            resetTriggerScroll={resetTriggerScroll}
           />
         </div>
         {isFooterDisplay.value ? (

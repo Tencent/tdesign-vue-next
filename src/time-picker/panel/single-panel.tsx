@@ -23,10 +23,16 @@ const timeArr = [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
 
 export default defineComponent({
   name: 'TTimePickerPanelCol',
-  props: { ...panelColProps(), position: String, triggerScroll: Boolean, onChange: Function },
+  props: {
+    ...panelColProps(),
+    position: String,
+    triggerScroll: Boolean,
+    onChange: Function,
+    resetTriggerScroll: Function,
+  },
 
   setup(props) {
-    const { steps, value, format, position = 'start', triggerScroll } = toRefs(props);
+    const { steps, value, format, position, triggerScroll } = toRefs(props);
 
     const { global } = useConfig('timePicker');
 
@@ -51,7 +57,7 @@ export default defineComponent({
     watch(
       () => value.value,
       () => {
-        updateTimeScrollPos();
+        if (value.value) updateTimeScrollPos();
       },
     );
 
@@ -60,7 +66,7 @@ export default defineComponent({
       () => triggerScroll.value,
       () => {
         if (triggerScroll.value) {
-          updateTimeScrollPos();
+          updateTimeScrollPos(true);
         }
       },
     );
@@ -98,7 +104,7 @@ export default defineComponent({
           dayjsValue.value.second(),
         ];
         params[colIdx] = Number(el);
-        return !props.disableTime?.(...params, { partial: position.value })?.[col]?.includes(Number(el));
+        return !props.disableTime?.(...params, { partial: position.value || 'start' })?.[col]?.includes(Number(el));
       }
       return true;
     };
@@ -124,7 +130,9 @@ export default defineComponent({
                 dayjsValue.value.second(),
               ];
               params[colIdx] = Number(t);
-              return !props.disableTime?.(...params, { partial: position.value })?.[col]?.includes(Number(t));
+              return !props
+                .disableTime?.(...params, { partial: position.value || 'start' })
+                ?.[col]?.includes(Number(t));
             })
           : colList;
       }
@@ -242,8 +250,8 @@ export default defineComponent({
     };
 
     // update each columns scroll distance
-    const updateTimeScrollPos = () => {
-      const behavior = value.value ? 'smooth' : 'auto';
+    const updateTimeScrollPos = (isAutoScroll = false) => {
+      const behavior = value.value && !isAutoScroll ? 'smooth' : 'auto';
       const isStepsSet = !!steps.value.filter((v) => v > 1).length;
       cols.value.forEach((col: EPickerCols, idx: number) => {
         if (!isStepsSet || (isStepsSet && value)) {
@@ -259,6 +267,7 @@ export default defineComponent({
           scrollToTime(col, getColList(col)?.[0], idx, behavior);
         }
       });
+      props.resetTriggerScroll();
     };
 
     const isCurrent = (col: EPickerCols, colItem: string | number) => {

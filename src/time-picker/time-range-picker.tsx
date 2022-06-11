@@ -17,7 +17,7 @@ import { TimeRangeValue, TimeRangePickerPartial } from './interface';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(customParseFormat);
@@ -94,7 +94,7 @@ export default defineComponent({
       { e, position }: { e: InputEvent; position: RangeInputPosition },
     ) => {
       currentPanelIdx.value = inputVal;
-      props.onInput?.({ value: innerValue.value, e, position: position as TimeRangePickerPartial });
+      props.onInput?.({ value: innerValue.value, e, position });
     };
 
     const handleClickConfirm = () => {
@@ -141,7 +141,7 @@ export default defineComponent({
             onFocus: handleFocus,
             onBlur: handleInputBlur,
             readonly: !allowInput,
-            activeIndex: currentPanelIdx,
+            activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
           panel={() => (
