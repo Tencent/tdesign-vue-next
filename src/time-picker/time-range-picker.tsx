@@ -53,7 +53,12 @@ export default defineComponent({
     const { value, modelValue, allowInput, format } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
 
-    const handleShowPopup = (visible: boolean) => {
+    const handleShowPopup = (visible: boolean, context: any) => {
+      // 输入框点击不关闭面板
+      if (context.trigger === 'trigger-element-click') {
+        isShowPanel.value = true;
+        return;
+      }
       isShowPanel.value = visible;
     };
 
@@ -78,9 +83,9 @@ export default defineComponent({
 
     const handleInputBlur = (value: TimeRangeValue, { e }: { e: FocusEvent }) => {
       if (allowInput.value) {
-        const isValidTime = validateInputValue(currentValue.value[currentPanelIdx], format.value);
+        const isValidTime = validateInputValue(currentValue.value[currentPanelIdx.value], format.value);
         if (isValidTime) {
-          const formattedVal = formatInputValue(currentValue.value[currentPanelIdx], format.value);
+          const formattedVal = formatInputValue(currentValue.value[currentPanelIdx.value], format.value);
           currentPanelIdx.value === 0
             ? (currentValue.value = [formattedVal, currentValue.value[1] ?? formattedVal])
             : (currentValue.value = [currentValue.value[0] ?? formattedVal, formattedVal]);
@@ -93,8 +98,8 @@ export default defineComponent({
       inputVal: TimeRangeValue,
       { e, position }: { e: InputEvent; position: RangeInputPosition },
     ) => {
-      currentPanelIdx.value = inputVal;
-      props.onInput?.({ value: innerValue.value, e, position });
+      currentValue.value = inputVal;
+      props.onInput?.({ value: innerValue.value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
     const handleClickConfirm = () => {
@@ -104,7 +109,7 @@ export default defineComponent({
     };
 
     const handleFocus = (value: TimeRangeValue, { e, position }: { e: FocusEvent; position: RangeInputPosition }) => {
-      props.onFocus?.({ value, e, position: position as TimeRangePickerPartial });
+      props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
     watch(
@@ -120,11 +125,11 @@ export default defineComponent({
         <range-input-popup
           disabled={disabled.value}
           popupVisible={isShowPanel.value}
-          onPopupVisibleChange={handleShowPopup}
           popupProps={{
             overlayStyle: {
               width: 'auto',
             },
+            onVisibleChange: handleShowPopup,
             ...props.popupProps,
           }}
           onInputChange={handleInputChange}
@@ -140,7 +145,7 @@ export default defineComponent({
             onClick: handleClick,
             onFocus: handleFocus,
             onBlur: handleInputBlur,
-            readonly: !allowInput,
+            readonly: !allowInput.value,
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}

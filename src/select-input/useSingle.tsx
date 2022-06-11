@@ -97,6 +97,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         }}
         inputClass={{
           [`${classPrefix.value}-input--focused`]: popupVisible,
+          [`${classPrefix.value}-is-focused`]: popupVisible,
         }}
       />
     );
