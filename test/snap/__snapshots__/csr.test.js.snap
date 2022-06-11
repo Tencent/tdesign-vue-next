@@ -5260,7 +5260,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -5321,7 +5320,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -6150,7 +6148,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -6260,7 +6257,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -6321,7 +6317,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -7126,7 +7121,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -7198,7 +7192,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -7259,7 +7252,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -8103,7 +8095,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -8164,7 +8155,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -9109,7 +9099,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -9170,7 +9159,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -10435,7 +10423,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -10496,7 +10483,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -11335,7 +11321,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -11396,7 +11381,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -12260,7 +12244,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -12321,7 +12304,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -13195,7 +13177,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -13256,7 +13237,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -13924,7 +13904,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -13996,7 +13975,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -14057,7 +14035,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -15011,7 +14988,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -15072,7 +15048,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -15901,7 +15876,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -15973,7 +15947,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -16369,7 +16342,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -16430,7 +16402,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -17265,7 +17236,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -17326,7 +17296,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -18231,7 +18200,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -18292,7 +18260,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -19254,7 +19221,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -19315,7 +19281,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -20152,7 +20117,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -20213,7 +20177,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -21036,7 +20999,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -21097,7 +21059,6 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -27932,7 +27893,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -28825,7 +28785,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -29696,7 +29655,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -30683,7 +30641,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -31561,7 +31518,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div
@@ -32435,7 +32391,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -32844,7 +32799,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             >
               
               <div
-                bordered="true"
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
@@ -34003,7 +33957,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -34064,7 +34017,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -36537,7 +36489,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -36598,7 +36549,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -36659,7 +36609,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -37525,7 +37474,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select"
     >
       <div
@@ -45406,7 +45354,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select-input--empty t-select"
             >
               <div
@@ -46030,7 +45977,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select-input--empty t-select"
             >
               <div
@@ -47412,7 +47358,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select-input--empty t-select"
             >
               <div
@@ -50587,7 +50532,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select-input--empty t-select"
             >
               <div
@@ -54528,7 +54472,6 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
       >
         
         <div
-          bordered="false"
           class="t-input__wrap t-select-input t-select-input--borderless t-select"
         >
           <div
@@ -54638,7 +54581,6 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
       >
         
         <div
-          bordered="false"
           class="t-input__wrap t-select-input t-select-input--borderless t-select"
         >
           <div
@@ -54703,7 +54645,6 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
       >
         
         <div
-          bordered="false"
           class="t-input__wrap t-select-input t-select-input--borderless t-select"
         >
           <div
@@ -54761,7 +54702,6 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -54817,7 +54757,6 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
       >
         
         <div
-          bordered="false"
           class="t-input__wrap t-select-input t-select-input--borderless t-select"
         >
           <div
@@ -67434,7 +67373,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -67598,7 +67536,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -67773,7 +67710,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -67955,7 +67891,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/mini.vue 1`] =
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68120,7 +68055,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68307,7 +68241,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/page-num.vue 1
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68472,7 +68405,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68549,7 +68481,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68640,7 +68571,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68717,7 +68647,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -68808,7 +68737,6 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/total.vue 1`] 
     >
       
       <div
-        bordered="true"
         class="t-input__wrap t-select-input t-select"
       >
         <div
@@ -73917,7 +73845,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -73972,7 +73899,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -74286,7 +74212,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -74397,7 +74322,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -74453,7 +74377,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -74779,7 +74702,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select"
     >
       <div
@@ -74840,7 +74762,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -74895,7 +74816,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
@@ -74905,12 +74826,30 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           class="t-input__prefix"
         >
           
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+          >
+            <!---->
+            
+            shanghai
+            
+            <!---->
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+          >
+            <!---->
+            
+            beijing
+            
+            <!---->
+          </span>
           
         </div>
         <input
           class="t-input__inner"
           disabled=""
-          placeholder="-请选择-"
+          placeholder=""
           readonly=""
           type="text"
         />
@@ -74952,7 +74891,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -75066,7 +75004,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -75121,7 +75058,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -75180,8 +75116,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
   >
     
     <div
-      bordered="true"
-      class="t-input__wrap t-select-input t-select-input--empty t-select"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
         class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -75234,7 +75169,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -75244,11 +75179,32 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           class="t-input__prefix"
         >
           
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
           
         </div>
         <input
           class="t-input__inner"
-          placeholder="-请选择-"
+          placeholder=""
           readonly=""
           type="text"
         />
@@ -75730,7 +75686,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/noborder.vue 1`] =
   >
     
     <div
-      bordered="false"
       class="t-input__wrap t-select-input t-select-input--borderless t-select"
     >
       <div
@@ -75793,7 +75748,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -75848,7 +75802,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -75907,7 +75860,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select"
     >
       <div
@@ -75961,7 +75913,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select"
     >
       <div
@@ -76020,7 +75971,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/prefix.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76088,7 +76038,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76198,7 +76147,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76252,7 +76200,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76306,7 +76253,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76368,7 +76314,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76422,7 +76367,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -76477,7 +76421,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
   >
     
     <div
-      bordered="true"
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
@@ -86446,7 +86389,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -87152,7 +87094,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -87842,7 +87783,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -108091,7 +108031,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -108404,7 +108343,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
       >
         
         <div
-          bordered="true"
           class="t-input__wrap t-select-input t-select"
         >
           <div
@@ -111298,7 +111236,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         >
           
           <div
-            bordered="true"
             class="t-input__wrap t-select-input t-select"
           >
             <div
@@ -123487,7 +123424,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
           >
             
             <div
-              bordered="true"
               class="t-input__wrap t-select-input t-select"
             >
               <div

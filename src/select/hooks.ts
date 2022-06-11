@@ -10,22 +10,34 @@ export const useSelectOptions = (props: TdSelectProps) => {
   const getChildComponentSlots = useChildComponentSlots();
 
   const options = computed(() => {
-    let options = cloneDeep(props.options) || [];
+    let innerOptions = cloneDeep(props.options) || [];
+
+    let dynamicIndex = 0;
 
     // 统一处理 keys,处理通用数据
-    options = options.map((option, index) => {
-      return {
-        ...option,
-        index,
-        label: get(option, props.keys?.label || 'label'),
-        value: get(option, props.keys?.value || 'value'),
+    innerOptions = innerOptions.map((option) => {
+      const getFormatOption = (option: TdOptionProps) => {
+        const res = {
+          index: dynamicIndex,
+          label: get(option, props.keys?.label || 'label'),
+          value: get(option, props.keys?.value || 'value'),
+        };
+        dynamicIndex++;
+        return res;
       };
+      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+        return {
+          ...option,
+          children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
+        };
+      }
+      return getFormatOption(option);
     });
 
     // 处理 slots
     const optionsSlots = getChildComponentSlots('TOption');
     const groupSlots = getChildComponentSlots('TOptionGroup');
-    let dynamicIndex = options.length;
+
     if (isArray(groupSlots)) {
       for (const group of groupSlots as VNode[]) {
         const groupOption = {
@@ -43,12 +55,13 @@ export const useSelectOptions = (props: TdSelectProps) => {
           } as TdOptionProps);
           dynamicIndex++;
         }
-        options.push(groupOption);
+
+        innerOptions.push(groupOption);
       }
     }
     if (isArray(optionsSlots)) {
       for (const child of optionsSlots as VNode[]) {
-        options.push({
+        innerOptions.push({
           ...child.props,
           slots: child.children,
           index: dynamicIndex,
@@ -57,7 +70,7 @@ export const useSelectOptions = (props: TdSelectProps) => {
       }
     }
 
-    return options;
+    return innerOptions;
   });
 
   const optionsList = computed(() => {
@@ -66,8 +79,9 @@ export const useSelectOptions = (props: TdSelectProps) => {
       for (const option of options) {
         if ((option as SelectOptionGroup).group) {
           getOptionsList((option as SelectOptionGroup).children);
+        } else {
+          res.push(option);
         }
-        res.push(option);
       }
     };
     getOptionsList(options.value);

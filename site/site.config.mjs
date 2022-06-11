@@ -13,8 +13,7 @@ export default {
         {
           title: '最佳实践',
           name: 'quick-start',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/quick-start',
           component: () => import('@/site/docs/starter.md'),
         },
@@ -27,8 +26,7 @@ export default {
         {
           title: '组件概览',
           name: 'overview',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/overview',
           component: () => import('@common/docs/web/overview.md'),
         },
@@ -107,8 +105,7 @@ export default {
         {
           title: 'Affix 固钉',
           name: 'affix',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/components/affix',
           component: () => import('@/examples/affix/affix.md'),
         },
@@ -163,8 +160,7 @@ export default {
         {
           title: 'Cascader 级联组件',
           name: 'cascader',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/components/cascader',
           component: () => import('@/examples/cascader/cascader.md'),
         },
@@ -285,8 +281,7 @@ export default {
         {
           title: 'Avatar 头像',
           name: 'avatar',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/components/avatar',
           component: () => import('@/examples/avatar/avatar.md'),
         },
@@ -317,8 +312,7 @@ export default {
         {
           title: 'Comment 评论',
           name: 'comment',
-          meta: {
-          },
+          meta: {},
           path: '/vue-next/components/comment',
           component: () => import('@/examples/comment/comment.md'),
         },

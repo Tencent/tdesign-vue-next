@@ -168,19 +168,29 @@ export default defineComponent({
 
     provide(selectInjectKey, SelectProvide);
 
+    const checkValueInvalid = () => {
+      // 参数类型检测与修复
+      if (!props.multiple && isArray(innerValue.value)) {
+        innerValue.value = '';
+      }
+      if (props.multiple && !isArray(innerValue.value)) {
+        innerValue.value = [];
+      }
+    };
+
     watch(
       innerValue,
       () => {
-        // 参数类型检测与修复
-        if (!props.multiple && isArray(innerValue.value)) {
-          innerValue.value = '';
-        }
-        if (props.multiple && !isArray(innerValue.value)) {
-          innerValue.value = [];
-        }
+        checkValueInvalid();
       },
       {
         immediate: true,
+      },
+    );
+    watch(
+      () => props.multiple,
+      () => {
+        checkValueInvalid();
       },
     );
 
@@ -208,7 +218,6 @@ export default defineComponent({
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
-              bordered: props.bordered,
               ...(props.inputProps as TdSelectProps['inputProps']),
               onkeydown: handleKeyDown,
             }}
