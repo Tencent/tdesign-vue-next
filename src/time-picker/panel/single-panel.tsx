@@ -307,7 +307,7 @@ export default defineComponent({
                   ? TWELVE_HOUR_FORMAT.test(format.value) && el === '00'
                     ? '12'
                     : el
-                  : global.value[el]}
+                  : global.value[el === AM ? 'anteMeridiem' : 'postMeridiem']}
               </li>
             ))}
           </ul>
