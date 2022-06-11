@@ -2,19 +2,25 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-26 15:04:09
  * */
 
 import { TdSkeletonProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 动画效果，有「渐变加载动画」和「闪烁加载动画」两种。值为空则表示没有动画 */
+  /** 动画效果，有「渐变加载动画」和「闪烁加载动画」两种。值为 'none' 则表示没有动画 */
   animation: {
     type: String as PropType<TdSkeletonProps['animation']>,
+    default: 'none' as TdSkeletonProps['animation'],
     validator(val: TdSkeletonProps['animation']): boolean {
-      return ['gradient', 'flashed'].includes(val);
+      if (!val) return true;
+      return ['gradient', 'flashed', 'none'].includes(val);
     },
+  },
+  /** 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒 */
+  delay: {
+    type: Number,
+    default: 0,
   },
   /** 是否为加载状态，如果是则显示骨架图，如果不是则显示加载完成的内容 */
   loading: {
@@ -28,7 +34,9 @@ export default {
   /** 快捷定义骨架图风格，有基础、头像组合等，具体参看代码示例 */
   theme: {
     type: String as PropType<TdSkeletonProps['theme']>,
+    default: 'text' as TdSkeletonProps['theme'],
     validator(val: TdSkeletonProps['theme']): boolean {
+      if (!val) return true;
       return ['text', 'avatar', 'paragraph', 'avatar-text', 'tab', 'article'].includes(val);
     },
   },
