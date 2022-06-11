@@ -95,7 +95,7 @@ export default defineComponent({
       if (typeof props.label === 'string') {
         return props.label;
       }
-      if (Array.isArray(props.label) && props.label.length > 0) {
+      if (Array.isArray(props.label) && props.label.length) {
         const label = innerValue.value === activeValue.value ? props.label[0] : props.label[1];
         if (!label) return;
         if (typeof label === 'string') {
