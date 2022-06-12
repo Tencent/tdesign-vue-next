@@ -6,12 +6,11 @@ import TLoading from '../loading';
 
 import { getTNode } from './util';
 import { TypeEventState, TreeNodeModel } from './interface';
-import { useCLASSNAMES } from './constants';
+import { useCLASSNAMES, injectKey } from './constants';
 import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
 import { useConfig } from '../hooks/useConfig';
-import { injectKey } from './td-tree';
 
 export default defineComponent({
   name: 'TTreeNode',

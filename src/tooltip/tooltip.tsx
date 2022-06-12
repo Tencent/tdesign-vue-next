@@ -10,7 +10,6 @@ import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TTooltip',
-  components: { Popup },
   props: {
     ...popupProps,
     ...props,

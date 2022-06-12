@@ -8,14 +8,14 @@ export default defineComponent({
   name: 'TOptionGroup',
   props: { ...props },
   setup(props) {
-    const tSelect = inject(selectInjectKey);
+    const selectProvider = inject(selectInjectKey);
     const COMPONENT_NAME = usePrefixClass('select-option-group');
     const { SIZE } = useCommonClassName();
     const renderTNodeJSX = useTNodeJSX();
 
     const classes = computed(() => [
       COMPONENT_NAME.value,
-      SIZE.value[tSelect.value.size],
+      SIZE.value[selectProvider.value.size],
       {
         [`${COMPONENT_NAME.value}__divider`]: props.divider,
       },

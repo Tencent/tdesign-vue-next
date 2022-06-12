@@ -3,13 +3,9 @@ import { DatePickerConfig } from '../config-provider';
 import { CalendarPresetsProps, DateValue } from './interface';
 import { usePrefixClass } from '../hooks/useConfig';
 
-import { Button as TButton } from '../button';
-
 export default defineComponent({
   name: 'TCalendarPresets',
-  components: {
-    TButton,
-  },
+
   props: {
     global: {
       type: Object as PropType<DatePickerConfig>,

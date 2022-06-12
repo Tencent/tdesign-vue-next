@@ -1,8 +1,10 @@
-import { defineComponent, provide, computed, toRefs, watch } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
+import cloneDeep from 'lodash/cloneDeep';
+import get from 'lodash/get';
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
@@ -10,6 +12,7 @@ import SelectPanel from './select-panel';
 
 import props from './props';
 import { TdSelectProps, SelectValue } from './type';
+import { PopupVisibleChangeContext } from '../popup';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -17,20 +20,50 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
+import { selectInjectKey, getSingleContent, getMultipleContent, getNewMultipleValue } from './helper';
 import { useSelectOptions } from './hooks';
 
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props, { slots }) {
+  setup(props: TdSelectProps, { slots }) {
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { global, t } = useConfig('select');
-
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    const keys = computed(() => ({
+      label: props.keys?.label || 'label',
+      value: props.keys?.value || 'value',
+    }));
+    const { options, optionsMap, optionsList } = useSelectOptions(props, keys);
+
+    // 内部数据,格式化过的
+    const innerValue = computed(() => {
+      if (props.valueType === 'object') {
+        return !props.multiple
+          ? orgValue.value[keys.value.value]
+          : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
+      }
+      return orgValue.value;
+    });
+    const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], e) => {
+      if (props.valueType === 'object') {
+        const { value, label } = keys.value;
+        const getOption = (val: SelectValue) => {
+          const option = optionsMap.value.get(val);
+          return {
+            [value]: get(option, value),
+            [label]: get(option, label),
+          };
+        };
+        newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
+      }
+      seOrgValue(newVal, e);
+    };
+
     const [innerInputValue, setInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
@@ -40,14 +73,12 @@ export default defineComponent({
     const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
       popupVisible,
       false,
-      (...args: any[]) => {
-        props.onPopupVisibleChange?.(args);
-        props.onVisibleChange?.(args);
+      (visible: boolean, context: PopupVisibleChangeContext) => {
+        props.onPopupVisibleChange?.(visible, context);
+        props.onVisibleChange?.(visible);
       },
       'popupVisible',
     );
-
-    const { options, optionsMap } = useSelectOptions(props);
 
     const placeholderText = computed(
       () =>
@@ -68,7 +99,7 @@ export default defineComponent({
       return props.multiple
         ? (innerValue.value as SelectValue[]).map((value) => ({
             value,
-            label: optionsMap.value.get(value as string),
+            label: optionsMap.value.get(value)?.label,
           }))
         : innerValue.value;
     });
@@ -80,11 +111,13 @@ export default defineComponent({
     // 移除tag
     const removeTag = (index: number, e?: MouseEvent) => {
       e && e.stopPropagation();
-      (innerValue.value as SelectValue[]).splice(index, 1);
-      setInnerValue(innerValue.value, { e, trigger: 'clear' });
+      const selectValue = cloneDeep(innerValue.value) as SelectValue[];
+      const value = selectValue[index];
+      selectValue.splice(index, 1);
+      setInnerValue(selectValue, { e, trigger: 'tag-remove' });
       props.onRemove?.({
-        value: '',
-        data: '',
+        value: value as string | number,
+        data: optionsMap.value.get(value),
         e,
       });
     };
@@ -95,10 +128,64 @@ export default defineComponent({
       setInputValue('');
     };
 
+    // 键盘操作逻辑
+    const hoverIndex = ref(-1);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const optionsListLength = optionsList.value.length;
+      let newIndex = hoverIndex.value;
+      switch (e.code) {
+        case 'ArrowUp':
+          if (hoverIndex.value === -1) {
+            newIndex = 0;
+          } else if (hoverIndex.value === 0) {
+            newIndex = optionsListLength - 1;
+          } else {
+            newIndex--;
+          }
+          if (optionsList.value[newIndex]?.disabled) {
+            newIndex--;
+          }
+          hoverIndex.value = newIndex;
+          break;
+        case 'ArrowDown':
+          if (hoverIndex.value === -1 || hoverIndex.value === optionsListLength - 1) {
+            newIndex = 0;
+          } else {
+            newIndex++;
+          }
+          if (optionsList.value[newIndex]?.disabled) {
+            newIndex++;
+          }
+          hoverIndex.value = newIndex;
+          break;
+        case 'Enter':
+          if (!innerPopupVisible.value) {
+            setInnerPopupVisible(true, { e });
+            break;
+          }
+          if (!props.multiple) {
+            setInnerValue(optionsList.value[hoverIndex.value].value, {
+              e,
+              trigger: 'check',
+            });
+            setInnerPopupVisible(false, { e });
+          } else {
+            const optionValue = optionsList.value[hoverIndex.value].value;
+            const newValue = getNewMultipleValue(innerValue.value, optionValue);
+            setInnerValue(newValue.value, { e, trigger: newValue.isCheck ? 'check' : 'uncheck' });
+          }
+          break;
+        case 'Escape':
+          setInnerPopupVisible(false, { e });
+          break;
+      }
+    };
+
     const SelectProvide = computed(() => ({
       slots,
       max: props.max,
       multiple: props.multiple,
+      hoverIndex: hoverIndex.value,
       selectValue: innerValue.value,
       reserveKeyword: props.reserveKeyword,
       handleValueChange: setInnerValue,
@@ -110,19 +197,29 @@ export default defineComponent({
 
     provide(selectInjectKey, SelectProvide);
 
+    const checkValueInvalid = () => {
+      // 参数类型检测与修复
+      if (!props.multiple && isArray(orgValue.value)) {
+        orgValue.value = '';
+      }
+      if (props.multiple && !isArray(orgValue.value)) {
+        orgValue.value = [];
+      }
+    };
+
     watch(
-      innerValue,
+      orgValue,
       () => {
-        // 参数类型检测与修复
-        if (!props.multiple && isArray(innerValue.value)) {
-          innerValue.value = '';
-        }
-        if (props.multiple && !isArray(innerValue.value)) {
-          innerValue.value = [];
-        }
+        checkValueInvalid();
       },
       {
         immediate: true,
+      },
+    );
+    watch(
+      () => props.multiple,
+      () => {
+        checkValueInvalid();
       },
     );
 
@@ -150,8 +247,8 @@ export default defineComponent({
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
-              bordered: props.bordered,
               ...(props.inputProps as TdSelectProps['inputProps']),
+              onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,
@@ -185,15 +282,15 @@ export default defineComponent({
             onInputChange={(value) => {
               setInputValue(value);
               debounce(() => {
-                props.onSearch?.(value);
+                props.onSearch?.(`${value}`);
               }, 300);
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : '');
+              setInnerValue(props.multiple ? [] : '', { e, trigger: 'clear' });
               props.onClear?.({ e });
             }}
             onEnter={(inputValue, { e }) => {
-              props.onEnter?.({ inputValue: innerInputValue.value, e, value: innerValue.value });
+              props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
               handleCreate();
             }}
             onBlur={(inputValue, { e }) => {

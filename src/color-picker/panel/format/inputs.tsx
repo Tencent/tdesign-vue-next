@@ -2,19 +2,12 @@ import { computed, defineComponent, PropType, reactive, watch } from 'vue';
 import throttle from 'lodash/throttle';
 import props from '../../props';
 import { Color } from '../../utils';
-import { Select as TSelect, Option as TOption } from '../../../select';
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';
 import { FORMAT_INPUT_CONFIG } from './config';
 
 export default defineComponent({
   name: 'FormatInputs',
-  components: {
-    TSelect,
-    TOption,
-    TInput,
-    TInputNumber,
-  },
   inheritAttrs: false,
   props: {
     ...props,
@@ -129,7 +122,7 @@ export default defineComponent({
               }}
             >
               {config.type === 'input' ? (
-                <t-input
+                <TInput
                   {...inputProps}
                   align="center"
                   disabled={this.disabled}
@@ -140,7 +133,7 @@ export default defineComponent({
                   onEnter={(v: string) => this.handleChange(config.key, v)}
                 />
               ) : (
-                <t-input-number
+                <TInputNumber
                   {...inputProps}
                   align="center"
                   disabled={this.disabled}

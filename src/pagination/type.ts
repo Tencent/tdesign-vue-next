@@ -38,6 +38,11 @@ export interface TdPaginationProps {
    */
   maxPageBtn?: number;
   /**
+   * 页码数量超出时，前后省略模式
+   * @default ellipsis
+   */
+  pageEllipsisMode?: 'ellipsis' | 'empty';
+  /**
    * 分页总页数
    * @default 10
    */

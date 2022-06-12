@@ -1,9 +1,11 @@
 import { InjectionKey, ComputedRef, Slots } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
 import { TdSelectProps, TdOptionProps, SelectValue, SelectOption, SelectOptionGroup } from './type';
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
     slots: Slots;
+    hoverIndex: number;
     selectValue: TdSelectProps['value'];
     size: TdSelectProps['size'];
     max: TdSelectProps['max'];
@@ -25,6 +27,7 @@ export const getSingleContent = (value: TdSelectProps['value'], options: SelectO
       return option?.label;
     }
   }
+  return value as string;
 };
 
 export const getMultipleContent = (value: SelectValue[], options: SelectOption[]) => {
@@ -36,4 +39,18 @@ export const getMultipleContent = (value: SelectValue[], options: SelectOption[]
     }
   }
   return res;
+};
+
+export const getNewMultipleValue = (innerValue: SelectValue[], optionValue: SelectValue) => {
+  const value = cloneDeep(innerValue) as SelectValue[];
+  const valueIndex = value.indexOf(optionValue);
+  if (valueIndex < 0) {
+    value.push(optionValue);
+  } else {
+    value.splice(valueIndex, 1);
+  }
+  return {
+    value,
+    isCheck: valueIndex < 0,
+  };
 };
