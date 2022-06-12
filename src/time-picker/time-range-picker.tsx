@@ -153,6 +153,7 @@ export default defineComponent({
             <TimePickerPanel
               steps={props.steps}
               format={format.value}
+              isShowPanel={isShowPanel.value}
               disableTime={props.disableTime}
               hideDisabledTime={props.hideDisabledTime}
               isFooterDisplay={true}

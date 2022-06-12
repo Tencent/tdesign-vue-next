@@ -111,6 +111,7 @@ export default defineComponent({
               format={format.value}
               value={currentValue.value}
               isFooterDisplay={true}
+              isShowPanel={isShowPanel.value}
               disableTime={props.disableTime}
               onChange={handlePanelChange}
               hideDisabledTime={props.hideDisabledTime}

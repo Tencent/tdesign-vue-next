@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, computed, ref, onMounted } from 'vue';
+import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
@@ -20,7 +20,7 @@ export default defineComponent({
 
   setup(props) {
     const panelClassName = usePrefixClass('time-picker__panel');
-    const { steps, isFooterDisplay } = toRefs(props);
+    const { steps, isFooterDisplay, isShowPanel } = toRefs(props);
     const triggerScroll = ref(false);
     const panelRef = ref();
     const { global } = useConfig('timePicker');
@@ -38,7 +38,7 @@ export default defineComponent({
     });
 
     const panelColUpdate = () => {
-      setTimeout(() => {
+      nextTick(() => {
         triggerScroll.value = true;
       });
     };
@@ -51,6 +51,13 @@ export default defineComponent({
     onMounted(() => {
       panelColUpdate();
     });
+
+    watch(
+      () => isShowPanel.value,
+      () => {
+        panelColUpdate();
+      },
+    );
 
     return () => (
       <div class={panelClassName.value}>
@@ -71,7 +78,7 @@ export default defineComponent({
             <t-button
               theme="primary"
               variant="base"
-              onClick={() => props.handleConfirmClick(defaultValue)}
+              onClick={() => props.handleConfirmClick(defaultValue.value)}
               size="small"
             >
               {global.value.confirm}

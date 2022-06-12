@@ -37,12 +37,13 @@ export default defineComponent({
     const { global } = useConfig('timePicker');
 
     const { classPrefix } = useConfig();
-    const panelClassName = computed(() => `${classPrefix.value}-time-picker__panel`);
 
     const cols = ref<Array<EPickerCols>>([]);
     const bodyRef = ref();
     const maskRef = ref(null);
+    // 每个滚动列的ref 顺序不定 所以只要有5列标识即可
     const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
+
     const dayjsValue = computed(() => {
       const isStepsSet = !!steps.value.filter((v) => v > 1).length;
 
@@ -52,6 +53,8 @@ export default defineComponent({
 
       return dayjs();
     });
+
+    const panelClassName = computed(() => `${classPrefix.value}-time-picker__panel`);
 
     // 面板打开时 触发滚动 初始化面板
     watch(
