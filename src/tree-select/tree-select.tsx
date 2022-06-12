@@ -12,7 +12,7 @@ import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 
 import { INodeOptions } from './interface';
-import { TreeSelectValue, TdTreeSelectProps } from './type';
+import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
 
@@ -26,7 +26,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
-  setup(props, { slots }) {
+  setup(props: TdTreeSelectProps, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
@@ -133,7 +133,7 @@ export default defineComponent({
     // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
-        await change(props.defaultValue, null);
+        await change(props.defaultValue, null, 'uncheck');
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
@@ -149,16 +149,20 @@ export default defineComponent({
 
     // methods
 
-    const change = (valueParam: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) => {
+    const change = (
+      valueParam: TreeSelectValue,
+      node: TreeNodeModel<TreeOptionData>,
+      trigger: TreeSelectValueChangeTrigger,
+    ) => {
       setTreeSelectValue(valueParam, { node });
       changeNodeInfo();
-      props.onChange?.(valueParam, { node });
+      props.onChange?.(valueParam, { node, trigger });
     };
 
     const clear = (content: { e: MouseEvent }) => {
       const defaultValue: TreeSelectValue = props.multiple ? [] : '';
       actived.value = [];
-      change(defaultValue, null);
+      change(defaultValue, null, 'clear');
       props.onClear?.({ e: content.e });
     };
 
@@ -170,7 +174,7 @@ export default defineComponent({
       if (isObjectValue.value) {
         current = valueParam.map((nodeValue) => getTreeNode(props.data, nodeValue));
       }
-      change(current, context.node);
+      change(current, context.node, 'check');
     };
 
     const treeNodeActive = (
@@ -193,7 +197,7 @@ export default defineComponent({
       } else {
         current = isEmpty(valueParam) ? '' : valueParam[0];
       }
-      change(current, context.node);
+      change(current, context.node, 'check');
       actived.value = valueParam;
     };
 
@@ -230,7 +234,7 @@ export default defineComponent({
         isArray(treeSelectValue.value) && (treeSelectValue.value as Array<TreeSelectValue>).splice(index, 1);
       }
       props.onRemove?.({ value, data: null, e: context && (context.e as MouseEvent) });
-      change(treeSelectValue.value, null);
+      change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace');
     };
 
     const changeNodeInfo = async () => {

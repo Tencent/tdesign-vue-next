@@ -1,5 +1,6 @@
-import { computed } from 'vue';
+import { computed, ComputedRef, Slots, InjectionKey } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
+import { TdTreeProps } from './type';
 
 export const useCLASSNAMES = () => {
   const classPrefix = usePrefixClass();
@@ -39,3 +40,15 @@ export const useCLASSNAMES = () => {
     };
   });
 };
+
+export const injectKey: InjectionKey<
+  ComputedRef<{
+    checkProps: TdTreeProps['checkProps'];
+    icon: TdTreeProps['icon'];
+    label: TdTreeProps['label'];
+    line: TdTreeProps['line'];
+    operations: TdTreeProps['operations'];
+    disableCheck: TdTreeProps['disableCheck'];
+    scopedSlots: Slots;
+  }>
+> = Symbol('treeProvider');
