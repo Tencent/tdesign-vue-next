@@ -229,13 +229,13 @@ export default defineComponent({
           ref={rightOperationsRef}
           class={[`${COMPONENT_NAME.value}__operations`, `${COMPONENT_NAME.value}__operations--right`]}
         >
-          <transition name="fade" mode="out-in" appear>
+          <Transition name="fade" mode="out-in" appear>
             {canToRight.value ? (
               <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
                 <ChevronRightIcon></ChevronRightIcon>
               </div>
             ) : null}
-          </transition>
+          </Transition>
           {props.addable ? (
             <div class={addIconClass.value} onClick={handleAddTab}>
               <AddIcon></AddIcon>

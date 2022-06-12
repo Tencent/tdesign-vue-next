@@ -1,26 +1,26 @@
-import { computed, Slots, VNode, ref } from 'vue';
+import { computed, Slots, VNode, Ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useChildComponentSlots } from '../hooks/slot';
-import { TdSelectProps, TdOptionProps, SelectOptionGroup } from './type';
+import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue } from './type';
 
-export const useSelectOptions = (props: TdSelectProps) => {
+export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>) => {
   const getChildComponentSlots = useChildComponentSlots();
 
   const options = computed(() => {
-    let innerOptions = cloneDeep(props.options) || [];
-
+    let innerOptions = cloneDeep(props.options);
     let dynamicIndex = 0;
 
     // 统一处理 keys,处理通用数据
     innerOptions = innerOptions.map((option) => {
       const getFormatOption = (option: TdOptionProps) => {
+        const { value, label } = keys.value;
         const res = {
           index: dynamicIndex,
-          label: get(option, props.keys?.label || 'label'),
-          value: get(option, props.keys?.value || 'value'),
+          label: get(option, label),
+          value: get(option, value),
         };
         dynamicIndex++;
         return res;
@@ -39,7 +39,7 @@ export const useSelectOptions = (props: TdSelectProps) => {
     const groupSlots = getChildComponentSlots('TOptionGroup');
 
     if (isArray(groupSlots)) {
-      for (const group of groupSlots as VNode[]) {
+      for (const group of groupSlots) {
         const groupOption = {
           group: group.props?.label,
           ...group.props,
@@ -60,7 +60,7 @@ export const useSelectOptions = (props: TdSelectProps) => {
       }
     }
     if (isArray(optionsSlots)) {
-      for (const child of optionsSlots as VNode[]) {
+      for (const child of optionsSlots) {
         innerOptions.push({
           ...child.props,
           slots: child.children,
@@ -89,7 +89,7 @@ export const useSelectOptions = (props: TdSelectProps) => {
   });
 
   const optionsMap = computed(() => {
-    const res = new Map<TdOptionProps['value'], TdOptionProps>();
+    const res = new Map<SelectValue, TdOptionProps>();
     optionsList.value.forEach((option: TdOptionProps) => {
       res.set(option.value, option);
     });
