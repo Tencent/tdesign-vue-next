@@ -105,22 +105,34 @@ export default defineComponent({
       });
       return result;
     };
-    const submit = (e?: FormSubmitEvent) => {
+    const submitHandler = (e?: FormSubmitEvent) => {
       if (props.preventSubmitDefault && e) {
-        e?.preventDefault();
-        e?.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
       }
       validate().then((r) => {
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
     };
-    const reset = (e?: FormResetEvent) => {
-      if (props.preventSubmitDefault) {
-        e?.preventDefault();
-        e?.stopPropagation();
+    const submit = async () => {
+      formRef.value.requestSubmit();
+    };
+
+    const resetParams = ref<FormResetParams<Record<string, any>>>();
+    const resetHandler = (e?: FormResetEvent) => {
+      if (props.preventSubmitDefault && e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
-      children.value.filter((child: any) => isFunction(child.resetField)).forEach((child: any) => child.resetField());
+      children.value
+        .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
+        .forEach((child) => child.resetField(resetParams.value?.type));
+      resetParams.value = undefined;
       props.onReset?.({ e });
+    };
+    const reset = <FormData,>(params?: FormResetParams<FormData>) => {
+      (resetParams.value as Record<string, any>) = params;
+      formRef.value.reset();
     };
     const clearValidate = (fields?: Array<string>) => {
       children.value.forEach((child) => {
@@ -141,7 +153,7 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => submit(e)} onReset={(e) => reset(e)}>
+      <form ref={formRef} class={formClass.value} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
         {renderContent('default')}
       </form>
     );
