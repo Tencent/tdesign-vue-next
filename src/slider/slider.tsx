@@ -186,6 +186,8 @@ export default defineComponent({
       }
     };
 
+    // 是否以完成挂载（部分组合组件如inputNumber依赖于首次init后的状态值进行渲染）
+    const isAlreadyMount = ref(false);
     // 初始化传入的value
     const init = () => {
       let valuetext: string | number;
@@ -300,6 +302,7 @@ export default defineComponent({
     /** 挂载&卸载 */
     onMounted(() => {
       init();
+      isAlreadyMount.value = true;
     });
     onBeforeUnmount(() => {
       window.removeEventListener('resize', resetSize);
@@ -419,7 +422,7 @@ export default defineComponent({
             {renderMask(changeValue)}
           </div>
         </div>
-        {props.inputNumberProps && renderInputButton()}
+        {isAlreadyMount.value && props.inputNumberProps && renderInputButton()}
       </div>
     );
   },
