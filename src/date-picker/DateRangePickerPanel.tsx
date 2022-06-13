@@ -126,7 +126,7 @@ export default defineComponent({
       if (year.value.some((y) => !nextYear.includes(y))) {
         props.onYearChange?.({
           partial,
-          year: nextYear,
+          year: nextYear[partialIndex],
           date: value.value,
           trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
         });
@@ -134,7 +134,7 @@ export default defineComponent({
       if (month.value.some((m) => !nextMonth.includes(m))) {
         props.onMonthChange?.({
           partial,
-          month: nextMonth,
+          month: nextMonth[partialIndex],
           date: value.value,
           trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
         });
