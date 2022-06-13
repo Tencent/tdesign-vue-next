@@ -80,8 +80,8 @@ export default defineComponent({
       return options.sort((a, b) => a.value - b.value);
     });
 
-    const isFoldEllipsis = computed(() => {
-      return props.pageEllipsisMode === 'ellipsis';
+    const isMidEllipsis = computed(() => {
+      return props.pageEllipsisMode === 'mid';
     });
 
     const pages = computed(() => {
@@ -94,8 +94,8 @@ export default defineComponent({
           start = innerCurrent.value - curPageLeftCount.value;
           end = innerCurrent.value + curPageRightCount.value;
         } else {
-          const foldedStart = isFoldEllipsis.value ? 2 : 1;
-          const foldedEnd = isFoldEllipsis.value ? pageCount.value - 1 : pageCount.value;
+          const foldedStart = isMidEllipsis.value ? 2 : 1;
+          const foldedEnd = isMidEllipsis.value ? pageCount.value - 1 : pageCount.value;
           start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : foldedStart;
           end = isPrevMoreShow.value ? foldedEnd : props.foldedMaxPageBtn;
         }
@@ -240,12 +240,12 @@ export default defineComponent({
           {/* 常规版 */}
           {props.showPageNumber && props.theme === 'default' ? (
             <ul class={CLASS_MAP.btnWrapClass.value}>
-              {isFolded.value && isFoldEllipsis.value && (
+              {isFolded.value && isMidEllipsis.value && (
                 <li class={CLASS_MAP.getButtonClass(1)} onClick={() => toPage(min)}>
                   {min}
                 </li>
               )}
-              {isFolded.value && isPrevMoreShow.value && isFoldEllipsis.value ? (
+              {isFolded.value && isPrevMoreShow.value && isMidEllipsis.value ? (
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('prevMorePage')}
@@ -260,7 +260,7 @@ export default defineComponent({
                   {i}
                 </li>
               ))}
-              {isFolded.value && isNextMoreShow.value && isFoldEllipsis.value ? (
+              {isFolded.value && isNextMoreShow.value && isMidEllipsis.value ? (
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('nextMorePage')}
@@ -270,7 +270,7 @@ export default defineComponent({
                   {nextMore.value ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
                 </li>
               ) : null}
-              {isFolded.value && isFoldEllipsis.value ? (
+              {isFolded.value && isMidEllipsis.value ? (
                 <li class={CLASS_MAP.getButtonClass(pageCount.value)} onClick={() => toPage(pageCount.value)}>
                   {pageCount.value}
                 </li>

@@ -34,13 +34,13 @@ export default {
     type: Number,
     default: 10,
   },
-  /** 页码数量超出时，前后省略模式 */
+  /** 页码数量超出时，前后省略模式, `mid`表示中间省略, `both-ends` 表示两端省略 */
   pageEllipsisMode: {
     type: String as PropType<TdPaginationProps['pageEllipsisMode']>,
-    default: 'ellipsis' as TdPaginationProps['pageEllipsisMode'],
+    default: 'mid' as TdPaginationProps['pageEllipsisMode'],
     validator(val: TdPaginationProps['pageEllipsisMode']): boolean {
       if (!val) return true;
-      return ['ellipsis', 'empty'].includes(val);
+      return ['mid', 'both-ends'].includes(val);
     },
   },
   /** 分页总页数 */
