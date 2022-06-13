@@ -44,6 +44,10 @@ export default defineComponent({
 
     // 头部快速切换
     function onJumperClick(flag: number) {
+      const triggerMap = {
+        '-1': 'arrow-previous',
+        '1': 'arrow-next',
+      };
       const monthCountMap = { date: 1, month: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
@@ -60,6 +64,21 @@ export default defineComponent({
 
       const nextYear = next.getFullYear();
       const nextMonth = next.getMonth();
+
+      if (year.value !== nextYear) {
+        props.onYearChange?.({
+          year: nextYear,
+          date: dayjs(value.value).toDate(),
+          trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
+        });
+      }
+      if (month.value !== nextMonth) {
+        props.onMonthChange?.({
+          month: nextMonth,
+          date: dayjs(value.value).toDate(),
+          trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
+        });
+      }
 
       year.value = nextYear;
       month.value = nextMonth;
@@ -89,11 +108,12 @@ export default defineComponent({
     }
 
     // 确定
-    function onConfirmClick() {
+    function onConfirmClick({ e }: { e: MouseEvent }) {
       onChange?.(formatDate(cacheValue.value, { formatType: 'valueType' }) as DateValue, {
         dayjsValue: dayjs(cacheValue.value as string),
         trigger: 'confirm',
       });
+      props.onConfirm?.({ date: formatDate(cacheValue.value, { formatType: 'valueType' }), e });
     }
 
     // 预设
@@ -110,7 +130,7 @@ export default defineComponent({
       year.value = nextYear;
 
       props.onYearChange?.({
-        year,
+        year: year.value,
         date: dayjs(value.value).toDate(),
         trigger: 'year-select',
       });
@@ -120,7 +140,7 @@ export default defineComponent({
       month.value = nextMonth;
 
       props.onMonthChange?.({
-        month,
+        month: month.value,
         date: dayjs(value.value).toDate(),
         trigger: 'month-select',
       });

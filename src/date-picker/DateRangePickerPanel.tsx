@@ -83,6 +83,10 @@ export default defineComponent({
     function onJumperClick(flag: number, { partial }: { partial: DateRangePickerPartial }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
+      const triggerMap = {
+        '-1': 'arrow-previous',
+        '1': 'arrow-next',
+      };
       const monthCountMap = { date: 1, month: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
@@ -119,6 +123,23 @@ export default defineComponent({
         }
       }
 
+      if (year.value.some((y) => !nextYear.includes(y))) {
+        props.onYearChange?.({
+          partial,
+          year: nextYear,
+          date: value.value,
+          trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
+        });
+      }
+      if (month.value.some((m) => !nextMonth.includes(m))) {
+        props.onMonthChange?.({
+          partial,
+          month: nextMonth,
+          date: value.value,
+          trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
+        });
+      }
+
       year.value = nextYear;
       month.value = nextMonth;
     }
@@ -146,10 +167,17 @@ export default defineComponent({
 
       isSelected.value = true;
       cacheValue.value = formatDate(nextInputValue);
+
+      props.onTimeChange?.({
+        time: val,
+        date: value.value,
+        partial: activeIndex.value ? 'end' : 'start',
+        trigger: 'time-hour',
+      });
     }
 
     // 确定
-    function onConfirmClick() {
+    function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v));
@@ -166,6 +194,8 @@ export default defineComponent({
       } else {
         isFirstValueSelected.value = true;
       }
+
+      props.onConfirm?.({ date: value.value, e });
     }
 
     // 预设
@@ -195,6 +225,12 @@ export default defineComponent({
       if (partialIndex === 1) nextYear[0] = Math.min(nextYear[0], nextYear[1]);
 
       year.value = nextYear;
+
+      props.onYearChange?.({
+        year: year.value,
+        date: value.value,
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
@@ -210,6 +246,12 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        year: month.value,
+        date: value.value,
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
