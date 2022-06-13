@@ -30,6 +30,7 @@ export default defineComponent({
     onCellMouseEnter: Function,
     onCellClick: Function,
     onCellMouseLeave: Function,
+    onTimePickerChange: Function,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
