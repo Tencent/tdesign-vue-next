@@ -35195,10 +35195,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
@@ -35275,10 +35275,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
@@ -35367,10 +35367,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
@@ -35459,10 +35459,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
@@ -35551,10 +35551,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
@@ -44500,7 +44500,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
     data-v-1112ade2=""
   >
     <div
-      class="t-dialog__ctx"
+      class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
     >
       
@@ -44589,7 +44589,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
     data-v-1112ade2=""
   >
     <div
-      class="t-dialog__ctx"
+      class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
     >
       
@@ -44691,10 +44691,10 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
@@ -44784,10 +44784,10 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
@@ -44877,10 +44877,10 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
@@ -44970,10 +44970,10 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
@@ -45155,18 +45155,16 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
     data-v-b073ed22=""
   >
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
+      <!---->
       <div
-        class="t-dialog__mask"
-      />
-      <div
-        class="t-dialog__wrap"
+        class=""
       >
         <div
-          class="t-dialog__position t-dialog--top"
+          class=""
         >
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
@@ -45342,7 +45340,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
     data-v-b073ed22=""
   >
     <div
-      class="t-dialog__ctx"
+      class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
     >
       

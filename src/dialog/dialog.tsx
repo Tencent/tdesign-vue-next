@@ -112,15 +112,22 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
+    // 是否普通对话框，没有脱离文档流的对话框
+    const isNormal = computed(() => props.mode === 'normal');
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
-    const positionClass = computed(() => [
-      `${COMPONENT_NAME.value}__position`,
-      !!props.top && `${COMPONENT_NAME.value}--top`,
-      `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
-    ]);
+    const positionClass = computed(() => {
+      if (isNormal.value) return [];
+      return [
+        `${COMPONENT_NAME.value}__position`,
+        !!props.top && `${COMPONENT_NAME.value}--top`,
+        `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
+      ];
+    });
+    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
+
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
@@ -199,7 +206,8 @@ export default defineComponent({
       if (props.mode !== 'modal') return;
       props.onOverlayClick?.({ e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
-      if (props.closeOnOverlayClick) {
+      // 根据当前点击元素和绑定元素判断是否是点击mask
+      if (e.target === e.currentTarget && props.closeOnOverlayClick) {
         emitCloseEvent({
           trigger: 'overlay',
           e,
@@ -279,8 +287,8 @@ export default defineComponent({
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
 
-        <div class={`${COMPONENT_NAME.value}__wrap`} onClick={overlayAction}>
-          <div class={positionClass.value} style={positionStyle.value}>
+        <div class={wrapClass.value}>
+          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction}>
             <div
               key="dialog"
               class={dialogClass.value}
@@ -333,11 +341,15 @@ export default defineComponent({
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
+    // dialog__ctx--fixed 绝对定位
+    // dialog__ctx--absolute 挂载在attach元素上 相对定位
+    // __ctx--modeless modeless 点击穿透
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
         't-dialog__ctx--fixed': this.mode === 'modal',
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
+        [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },
     ];
     return (

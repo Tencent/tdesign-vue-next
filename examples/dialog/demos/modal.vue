@@ -7,7 +7,7 @@
     <t-dialog
       v-model:visible="visibleNormalDrag"
       header="普通对话框"
-      mode="modal"
+      mode="normal"
       draggable
       :on-confirm="() => (visibleNormalDrag = false)"
     >
