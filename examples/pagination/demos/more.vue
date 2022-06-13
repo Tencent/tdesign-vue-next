@@ -14,7 +14,7 @@
       v-model="current"
       v-model:pageSize="pageSize"
       :total="100"
-      page-ellipsis-mode="empty"
+      page-ellipsis-mode="both-ends"
       @change="onChange"
       @pageSizeChange="onPageSizeChange"
       @currentChange="onCurrentChange"

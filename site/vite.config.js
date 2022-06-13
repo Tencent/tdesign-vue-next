@@ -31,6 +31,8 @@ const testConfig = {
   },
 };
 
+const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
+
 export default ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
@@ -60,12 +62,12 @@ export default ({ mode }) => {
         ssr: false,
         template: {
           compilerOptions: {
-            isCustomElement: (tag) => tag.startsWith('td-'),
+            isCustomElement,
           },
         },
       }),
       vueJsx({
-        isCustomElement: (tag) => tag.startsWith('td-'),
+        isCustomElement,
       }),
       tDocPlugin(),
       VitePWA(pwaConfig),
