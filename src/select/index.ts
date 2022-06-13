@@ -1,4 +1,3 @@
-import mapProps from '../utils/map-props';
 import _Select from './select';
 import _Option from './option';
 import _OptionGroup from './optionGroup';
