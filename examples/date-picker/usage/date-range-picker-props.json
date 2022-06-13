@@ -26,7 +26,7 @@
   {
     "name": "mode",
     "type": "enum",
-    "defaultValue": "month",
+    "defaultValue": "date",
     "options": [
       {
         "label": "year",
@@ -66,9 +66,22 @@
     ]
   },
   {
-    "name": "range",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
   }
 ]

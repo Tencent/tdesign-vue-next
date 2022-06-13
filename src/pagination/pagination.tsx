@@ -315,7 +315,7 @@ export default defineComponent({
               {t(global.value.jumpTo)}
               <TInputNumber
                 class={CLASS_MAP.jumperInputClass.value}
-                v-model={jumpIndex}
+                v-model={jumpIndex.value}
                 onBlur={onJumperChange}
                 onEnter={onJumperChange}
                 max={pageCount.value}

@@ -81,6 +81,7 @@
     "dayjs": "^1.9.7",
     "jsx-to-string": "^1.4.0",
     "lodash": "^4.17.15",
+    "npm": "^8.11.0",
     "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "~0.1.1",
     "tinycolor2": "^1.4.2",

@@ -169,7 +169,7 @@ export default defineComponent({
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (
-          <Teleport to={getAttach(this.attach)}>
+          <Teleport to={getAttach(this.attach, this.triggerRef?.$el)}>
             <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
               {this.$slots.content && this.$slots.content()}
             </Content>

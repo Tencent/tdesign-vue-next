@@ -37,7 +37,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
 
   const emitClear = ({ e }: { e: MouseEvent }) => {
     props.onClear?.({ e });
-    setInnerValue('');
+    setInnerValue('', { e });
   };
 
   const onClearIconMousedown = (e: MouseEvent) => {

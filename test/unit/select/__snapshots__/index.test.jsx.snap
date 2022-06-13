@@ -9,7 +9,7 @@ exports[`Select > :props > :bordered 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -64,7 +64,7 @@ exports[`Select > :props > :clearable 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -119,7 +119,7 @@ exports[`Select > :props > :creatable 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -174,7 +174,7 @@ exports[`Select > :props > :disabled 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -231,7 +231,7 @@ exports[`Select > :props > :labelInValue 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -286,7 +286,7 @@ exports[`Select > :props > :loading 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -351,7 +351,7 @@ exports[`Select > :props > :multiple 1`] = `
     class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -404,7 +404,7 @@ exports[`Select > :props > :placeholder 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -460,7 +460,7 @@ exports[`Select > :props > :remote 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -515,7 +515,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -570,7 +570,7 @@ exports[`Select > :props > :size 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-select"
   >
     <div
-      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-size-l t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -625,7 +625,7 @@ exports[`Select Option > :props > :disabled 1`] = `
     class="t-input__wrap t-select-input t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -680,7 +680,7 @@ exports[`Select Option > :props > :label 1`] = `
     class="t-input__wrap t-select-input t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -735,7 +735,7 @@ exports[`Select Option > :props > :value 1`] = `
     class="t-input__wrap t-select-input t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -790,7 +790,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
     class="t-input__wrap t-select-input t-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
