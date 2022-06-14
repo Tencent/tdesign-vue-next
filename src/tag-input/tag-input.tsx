@@ -130,7 +130,6 @@ export default defineComponent({
       <TInput
         ref="tagInputRef"
         readonly={this.readonly}
-        {...(this.inputProps as TdTagInputProps['inputProps'])}
         value={this.tInputValue}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}
@@ -164,6 +163,7 @@ export default defineComponent({
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
         onClick={this.onClick}
+        {...(this.inputProps as TdTagInputProps['inputProps'])}
       />
     );
   },

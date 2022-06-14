@@ -38,6 +38,11 @@ export interface TdPaginationProps {
    */
   maxPageBtn?: number;
   /**
+   * 页码数量超出时，前后省略模式, `mid`表示中间省略, `both-ends` 表示两端省略
+   * @default mid
+   */
+  pageEllipsisMode?: 'mid' | 'both-ends';
+  /**
    * 分页总页数
    * @default 10
    */

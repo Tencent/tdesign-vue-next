@@ -44,10 +44,11 @@ const data = ref(initialData);
 
 const columns = ref(initialColumns);
 
-const onDragSort = ({ currentIndex, targetIndex, current, target, currentData, e, sort }) => {
-  console.log('交换行', currentIndex, targetIndex, current, target, currentData, e, sort);
+// currentData is going to be deprecated
+const onDragSort = ({ currentIndex, targetIndex, current, target, data, newData, e, sort }) => {
+  console.log('交换行', currentIndex, targetIndex, current, target, data, newData, e, sort);
   if (sort === 'col') {
-    columns.value = currentData;
+    columns.value = newData;
   }
 };
 </script>

@@ -13,7 +13,7 @@
       <t-checkbox v-model="bordered">是否显示表格边框</t-checkbox>
     </div>
 
-    <!-- 1. 此处代码有效，勿删！支持语法糖 filter-value.sync ， 支持非受控属性 defaultfilterValue -->
+    <!-- 1. 此处代码有效，勿删！支持语法糖 filter-value.sync ， 支持非受控属性 defaultFilterValue -->
     <!-- 2. 其中，filterIcon 用于自定义筛选图标，支持渲染函数 props.filterIcon，支持插槽 filterIcon。 -->
     <!-- 3. filterRow={() => null}，则不会显示过滤行 -->
     <!-- <t-table
@@ -26,8 +26,9 @@
       <template #filterRow>自定义过滤行信息</template>
     </t-table> -->
 
-    <!-- filter-value.sync 等同于 filter-value + filter-change -->
-    <!-- :filter-row="() => null" 用于隐藏过滤结果行 -->
+    <!-- 1. v-model:filter-value 等同于 filter-value + filter-change -->
+    <!-- 2. :filter-row="() => null" 用于隐藏过滤结果行 -->
+    <!-- 3. <template #filterRow><p>这是自定义的过滤结果行</p></template> ，可使用插槽完全自定义结果行内容-->
     <t-table
       row-key="key"
       :columns="columns"
@@ -41,6 +42,7 @@
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
+import { DatePicker } from 'tdesign-vue-next';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -79,6 +81,7 @@ const columns = computed(() => [
     // 多选过滤配置
     filter: {
       type: 'multiple',
+      resetValue: [],
       list: [
         { label: 'All', checkAll: true },
         { label: 'Skures', value: 'Skures' },
@@ -94,6 +97,9 @@ const columns = computed(() => [
     // 输入框过滤配置
     filter: {
       type: 'input',
+      resetValue: '',
+      // 按下 Enter 键时也触发确认搜索
+      confirmEvents: ['onEnter'],
       props: { placeholder: '输入关键词过滤' },
       // 是否显示重置取消按钮，一般情况不需要显示
       showConfirmAndReset: true,
@@ -107,7 +113,12 @@ const columns = computed(() => [
     // 自定义过滤组件：日期过滤配置，请确保自定义组件包含 value 和 onChange 属性
     filter: {
       type: 'custom',
-      component: () => <t-date-picker clearable />,
+      // this config is not recommended
+      // component: () => <t-date-picker clearable />,
+      component: DatePicker,
+      props: {
+        clearable: true,
+      },
     },
   },
 ]);

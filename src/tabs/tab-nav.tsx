@@ -1,6 +1,6 @@
 import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
-import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
+import { ChevronLeftIcon, ChevronRightIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
 import tabProps from './props';
 import tabBase from '../_common/js/tabs/base';
@@ -20,15 +20,6 @@ const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, s
 
 export default defineComponent({
   name: 'TTabNav',
-  components: {
-    TTabNavItem,
-    TTabNavBar,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    CloseIcon,
-    AddIcon,
-    Transition,
-  },
   ...{ resizeObserver: null },
   props: {
     theme: tabProps.theme,
@@ -216,7 +207,7 @@ export default defineComponent({
             value={panel.value}
             onClick={(e: MouseEvent) => tabClick(e, panel)}
             onRemove={removeBtnClick}
-          ></TTabNavItem>
+          />
         );
       });
     });
@@ -226,25 +217,25 @@ export default defineComponent({
           ref={leftOperationsRef}
           class={[`${COMPONENT_NAME.value}__operations`, `${COMPONENT_NAME.value}__operations--left`]}
         >
-          <transition name="fade" mode="out-in" appear>
+          <Transition name="fade" mode="out-in" appear>
             {canToLeft.value ? (
               <div ref={toLeftBtnRef} class={leftIconClass.value} onClick={() => handleScroll('left')}>
                 <ChevronLeftIcon />
               </div>
             ) : null}
-          </transition>
+          </Transition>
         </div>,
         <div
           ref={rightOperationsRef}
           class={[`${COMPONENT_NAME.value}__operations`, `${COMPONENT_NAME.value}__operations--right`]}
         >
-          <transition name="fade" mode="out-in" appear>
+          <Transition name="fade" mode="out-in" appear>
             {canToRight.value ? (
               <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
                 <ChevronRightIcon></ChevronRightIcon>
               </div>
             ) : null}
-          </transition>
+          </Transition>
           {props.addable ? (
             <div class={addIconClass.value} onClick={handleAddTab}>
               <AddIcon></AddIcon>

@@ -52,7 +52,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   const renderSelectMultiple = (p: RenderSelectMultipleParams) => {
     const tagInputProps = {
       ...p.commonInputProps,
-      ...props.tagInputProps,
       tagProps: props.tagProps,
       label: props.label,
       autoWidth: props.autoWidth,
@@ -68,8 +67,10 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         inputClass: {
           [`${classPrefix.value}-input--focused`]: p.popupVisible,
         },
+        ...props.inputProps,
       },
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      ...props.tagInputProps,
     };
 
     return (
@@ -87,6 +88,9 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         onBlur={(val, context) => {
           // 筛选器统一特性：失去焦点时，清空输入内容
           props.onBlur?.(props.value, { ...context, tagInputValue: val });
+        }}
+        onEnter={(val, context) => {
+          props.onEnter?.(props.value, { ...context, inputValue: tInputValue.value });
         }}
         onFocus={(val, context) => {
           props.onFocus?.(props.value, { ...context, tagInputValue: val });

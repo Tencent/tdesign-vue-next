@@ -1,8 +1,21 @@
 <template>
   <div>
+    <t-button theme="primary" @click="visibleNormalDrag = true">普通对话框 </t-button>
     <t-button theme="primary" @click="visibleModal = true"> 模态对话框 </t-button>
     <t-button theme="primary" @click="visibleModelessDrag = true"> 非模态对话框 </t-button>
 
+    <t-dialog
+      v-model:visible="visibleNormalDrag"
+      header="普通对话框"
+      mode="normal"
+      draggable
+      :on-confirm="() => (visibleNormalDrag = false)"
+    >
+      <template #body>
+        <div>我是内容</div>
+        <div>我是内容</div>
+      </template>
+    </t-dialog>
     <t-dialog
       v-model:visible="visibleModal"
       header="模态对话框"
@@ -27,6 +40,7 @@
       <template #body>
         <div>我是内容</div>
         <div>我是内容</div>
+        <div>我是内容</div>
       </template>
     </t-dialog>
   </div>
@@ -34,6 +48,7 @@
 <script setup>
 import { ref } from 'vue';
 
+const visibleNormalDrag = ref(false);
 const visibleModal = ref(false);
 const visibleModelessDrag = ref(false);
 </script>

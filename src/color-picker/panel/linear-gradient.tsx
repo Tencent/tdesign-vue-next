@@ -11,9 +11,7 @@ const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
 export default defineComponent({
   name: 'LinearGradient',
-  components: {
-    TInputNumber,
-  },
+
   inheritAttrs: false,
   props: {
     ...baseProps,
@@ -263,7 +261,7 @@ export default defineComponent({
           </div>
         </div>
         <div class={`${baseClassName}__gradient-degree`} title={`${degree}deg`}>
-          <t-input-number
+          <TInputNumber
             theme="normal"
             min={0}
             max={360}

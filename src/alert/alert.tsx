@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
 import {
   CheckCircleFilledIcon,
   CloseIcon,
@@ -23,9 +23,9 @@ export default defineComponent({
 
     const renderIconTNode = useIcon();
     // alert的dom引用
-    const ele = ref<HTMLElement | null>(null);
+    const alertRef = ref<HTMLElement | null>(null);
     // description的dom引用
-    const description = ref<HTMLElement | null>(null);
+    const descriptionRef = ref<HTMLElement | null>(null);
     // desc高度
     const descHeight = ref(0);
     // 是否可见，关闭后置为false
@@ -62,22 +62,22 @@ export default defineComponent({
       ) : null;
     };
 
-    const renderTitle = (context: ComponentPublicInstance) => {
+    const renderTitle = () => {
       const titleContent = renderTNodeJSX('title');
       return titleContent ? <div class={`${COMPONENT_NAME.value}__title`}> {titleContent}</div> : null;
     };
 
-    const renderMessage = (context: ComponentPublicInstance) => {
+    const renderMessage = () => {
       const operationContent = renderTNodeJSX('operation');
       return (
         <div class={`${COMPONENT_NAME.value}__message`}>
-          {renderDescription(context)}
+          {renderDescription()}
           {operationContent ? <div class={`${COMPONENT_NAME.value}__operation`}>{operationContent}</div> : null}
         </div>
       );
     };
 
-    const renderDescription = (context: ComponentPublicInstance) => {
+    const renderDescription = () => {
       let messageContent;
 
       messageContent = renderTNodeJSX('default');
@@ -86,19 +86,20 @@ export default defineComponent({
       }
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
-      const height = (description.value?.children[0] as HTMLElement)?.offsetHeight;
+      const height = (descriptionRef.value?.children[0] as HTMLElement)?.offsetHeight;
       if (hasCollapse && collapsed.value) {
         // 折叠
         messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);
-        height && (description.value.style.height = `${descHeight.value}px`);
+        height && (descriptionRef.value.style.height = `${descHeight.value}px`);
       } else if (hasCollapse) {
         // 展开
-        height && (description.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
+        height &&
+          (descriptionRef.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${COMPONENT_NAME.value}__description`} ref="description">
+        <div class={`${COMPONENT_NAME.value}__description`} ref={descriptionRef}>
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
@@ -115,17 +116,17 @@ export default defineComponent({
         </div>
       );
     };
-    const renderContent = (context: ComponentPublicInstance) => {
+    const renderContent = () => {
       return (
         <div class={`${COMPONENT_NAME.value}__content`}>
-          {renderTitle(context)}
-          {renderMessage(context)}
+          {renderTitle()}
+          {renderMessage()}
         </div>
       );
     };
     const handleClose = (e: MouseEvent) => {
       props.onClose?.({ e });
-      addClass(ele.value, `${COMPONENT_NAME.value}--closing`);
+      addClass(alertRef.value, `${COMPONENT_NAME.value}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
@@ -136,42 +137,26 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      on(ele.value, 'transitionend', handleCloseEnd);
-      descHeight.value = description.value.offsetHeight;
+      on(alertRef.value, 'transitionend', handleCloseEnd);
+      descHeight.value = descriptionRef.value.offsetHeight;
     });
     onBeforeUnmount(() => {
-      off(ele.value, 'transitionend', handleCloseEnd);
+      off(alertRef.value, 'transitionend', handleCloseEnd);
     });
-    return {
-      COMPONENT_NAME,
-      classPrefix,
-      ele,
-      description,
-      visible,
-      collapsed,
-      renderIcon,
-      renderTitle,
-      renderMessage,
-      renderDescription,
-      renderContent,
-      renderClose,
-      handleClose,
-      handleCloseEnd,
-    };
-  },
-  render() {
-    const { theme, visible, $attrs, renderIcon, renderContent, renderClose, classPrefix } = this;
-    const CLASS = [
-      `${this.COMPONENT_NAME}`,
-      `${this.COMPONENT_NAME}--${theme}`,
-      {
-        [`${classPrefix}-is-hidden`]: !visible,
-      },
-    ];
-    return (
-      <div class={CLASS} {...$attrs} ref="ele">
+
+    return () => (
+      <div
+        ref={alertRef}
+        class={[
+          `${COMPONENT_NAME.value}`,
+          `${COMPONENT_NAME.value}--${props.theme}`,
+          {
+            [`${classPrefix}-is-hidden`]: !visible.value,
+          },
+        ]}
+      >
         {renderIcon()}
-        {renderContent(this)}
+        {renderContent()}
         {renderClose()}
       </div>
     );

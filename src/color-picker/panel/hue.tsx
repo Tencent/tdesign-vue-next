@@ -5,9 +5,7 @@ import baseProps from './base-props';
 
 export default defineComponent({
   name: 'HueSlider',
-  components: {
-    ColorSlider,
-  },
+
   inheritAttrs: false,
   props: {
     ...baseProps,
@@ -20,7 +18,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <color-slider
+      <ColorSlider
         className={`${this.baseClassName}__hue`}
         color={this.color}
         value={this.color.hue}

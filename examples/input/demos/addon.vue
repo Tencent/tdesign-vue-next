@@ -1,15 +1,15 @@
 <template>
   <div class="tdesign-demo-block-column" style="max-width: 500px">
-    <t-addon prepend="http://">
+    <t-input-adornment prepend="http://">
       <t-input placeholder="请输入内容" />
-    </t-addon>
+    </t-input-adornment>
 
-    <t-addon append=".com">
+    <t-input-adornment append=".com">
       <t-input placeholder="请输入内容" />
-    </t-addon>
+    </t-input-adornment>
 
-    <t-addon prepend="http://" append=".com">
+    <t-input-adornment prepend="http://" append=".com">
       <t-input placeholder="请输入内容" />
-    </t-addon>
+    </t-input-adornment>
   </div>
 </template>

@@ -80,9 +80,10 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
+    default: 'default' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */
@@ -112,7 +113,7 @@ export default {
     default: undefined,
   },
   modelValue: {
-    type: [String, Number] as PropType<TdInputProps['modelValue']>,
+    type: [String, Number] as PropType<TdInputProps['value']>,
     default: undefined,
   },
   /** 输入框的值，非受控属性 */

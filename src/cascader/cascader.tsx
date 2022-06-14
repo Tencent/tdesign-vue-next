@@ -6,7 +6,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
 
 import { useCascaderContext } from './hooks';
-import { CascaderValue, TdSelectInputProps } from './interface';
+import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
@@ -74,9 +74,14 @@ export default defineComponent({
           loading={props.loading}
           overlayClassName={overlayClassName.value}
           suffixIcon={() => renderSuffixIcon()}
-          popup-props={panels.value.length ? { overlayStyle: { width: 'auto' } } : {}}
-          popupProps={props.popupProps}
+          popupProps={{
+            overlayStyle: panels.value.length ? { width: 'auto' } : {},
+            ...(props.popupProps as TdCascaderProps['popupProps']),
+          }}
           inputProps={{ size: props.size }}
+          tagInputProps={{
+            size: props.size,
+          }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
             setInputVal(value);

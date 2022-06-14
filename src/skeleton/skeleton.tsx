@@ -1,4 +1,4 @@
-import { h, defineComponent } from 'vue';
+import { h, defineComponent, ref, watch } from 'vue';
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import props from './props';
@@ -57,6 +57,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
+    const isShow = ref(false);
     const COMPONENT_NAME = usePrefixClass('skeleton');
     const renderContent = useContent();
     const getColItemClass = (obj: SkeletonRowColObj) => [
@@ -89,14 +90,28 @@ export default defineComponent({
       return rowCol.map((item) => <div class={getBlockClass()}>{renderCols(item)}</div>);
     };
 
+    watch(
+      () => props.loading,
+      (val) => {
+        if (!val || props.delay === 0) {
+          isShow.value = val;
+          return;
+        }
+        setTimeout(() => {
+          isShow.value = val;
+        }, props.delay);
+      },
+      { immediate: true },
+    );
+
     return () => {
       const content = renderContent('default', 'content');
 
-      if (slots.default && !props.loading) {
+      if (slots.default && !isShow.value) {
         return <div>{content}</div>;
       }
 
-      if (!props.loading) {
+      if (!isShow.value) {
         return;
       }
 

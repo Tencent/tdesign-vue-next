@@ -15,11 +15,6 @@ export interface InjectTabs {
 export default defineComponent({
   name: 'TTabs',
 
-  components: {
-    TTabPanel,
-    TTabNav,
-  },
-
   props,
 
   setup(props) {

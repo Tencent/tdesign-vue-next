@@ -11,7 +11,7 @@ import { Slots, VNode, Component, getCurrentInstance } from 'vue';
  */
 export function useChildComponentSlots() {
   const instance = getCurrentInstance();
-  return (childComponentName: string, slots?: Slots) => {
+  return (childComponentName: string, slots?: Slots): VNode[] => {
     if (!slots) {
       slots = instance.slots;
     }
@@ -23,6 +23,8 @@ export function useChildComponentSlots() {
         return item;
       })
       .flat()
-      .filter((item: VNode) => (item.type as Component).name === childComponentName);
+      .filter((item: VNode) =>
+        (item.type as Component).name?.toUpperCase().includes(childComponentName.toUpperCase()),
+      ) as VNode[];
   };
 }

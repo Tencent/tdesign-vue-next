@@ -9,7 +9,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -31,7 +31,6 @@ exports[`TreeSelect > :props > :clearable 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -48,7 +47,6 @@ exports[`TreeSelect > :props > :clearable 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -67,7 +65,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
     class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -114,7 +112,6 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -131,7 +128,6 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -150,7 +146,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -173,7 +169,6 @@ exports[`TreeSelect > :props > :disabled 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-fake-arrow--disable"
           disabled="true"
@@ -190,7 +185,6 @@ exports[`TreeSelect > :props > :disabled 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -209,7 +203,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -231,7 +225,6 @@ exports[`TreeSelect > :props > :empty string 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -248,7 +241,6 @@ exports[`TreeSelect > :props > :empty string 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -267,7 +259,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -288,7 +280,6 @@ exports[`TreeSelect > :props > :filterable 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -305,7 +296,6 @@ exports[`TreeSelect > :props > :filterable 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -324,7 +314,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -389,7 +379,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -411,7 +401,6 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -428,7 +417,6 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -447,7 +435,7 @@ exports[`TreeSelect > :props > :max 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -469,7 +457,6 @@ exports[`TreeSelect > :props > :max 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -486,7 +473,6 @@ exports[`TreeSelect > :props > :max 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -505,7 +491,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -527,7 +513,6 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -544,7 +529,6 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -563,7 +547,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
     class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -610,7 +594,6 @@ exports[`TreeSelect > :props > :multiple 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -627,7 +610,6 @@ exports[`TreeSelect > :props > :multiple 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -646,7 +628,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -668,7 +650,6 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -685,7 +666,6 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -704,7 +684,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -726,7 +706,6 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -743,7 +722,6 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -762,7 +740,7 @@ exports[`TreeSelect > :props > :size 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-size-l t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -784,7 +762,6 @@ exports[`TreeSelect > :props > :size 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -801,7 +778,6 @@ exports[`TreeSelect > :props > :size 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -820,7 +796,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -842,7 +818,6 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -859,7 +834,6 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -878,7 +852,7 @@ exports[`TreeSelect > :props > :value 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -900,7 +874,6 @@ exports[`TreeSelect > :props > :value 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -917,7 +890,6 @@ exports[`TreeSelect > :props > :value 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -936,7 +908,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -958,7 +930,6 @@ exports[`TreeSelect > :props > :valueType 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -975,7 +946,6 @@ exports[`TreeSelect > :props > :valueType 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -994,7 +964,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
     class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1041,7 +1011,6 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1058,7 +1027,6 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1077,7 +1045,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1099,7 +1067,6 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1116,7 +1083,6 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1135,7 +1101,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1200,27 +1166,19 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
-      <span
-        class="t-input__prefix t-input__prefix-icon"
-      >
-        
-        
-        
-        <i>
-          this is a icon.
-        </i>
-        
-        
-        
-      </span>
+      <!---->
       <div
         class="t-input__prefix"
       >
         
         <!---->
-        <!---->
+        
+        <i>
+          this is a icon.
+        </i>
+        
         
       </div>
       <input
@@ -1234,7 +1192,6 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1251,7 +1208,6 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1270,7 +1226,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1278,13 +1234,9 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
       >
         
         
-        
-        
         <div>
           深圳市(shenzhen)
         </div>
-        
-        
         
         <!---->
         
@@ -1300,7 +1252,6 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1317,7 +1268,6 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1336,7 +1286,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
     class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1383,7 +1333,6 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1400,7 +1349,6 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1419,7 +1367,7 @@ exports[`TreeSelect > function > :empty 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1441,7 +1389,6 @@ exports[`TreeSelect > function > :empty 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1458,7 +1405,6 @@ exports[`TreeSelect > function > :empty 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1477,7 +1423,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -1542,27 +1488,19 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
-      <span
-        class="t-input__prefix t-input__prefix-icon"
-      >
-        
-        
-        <div>
-          <i>
-            this is a icon.
-          </i>
-        </div>
-        
-        
-      </span>
+      <!---->
       <div
         class="t-input__prefix"
       >
         
         <!---->
-        <!---->
+        <div>
+          <i>
+            this is a icon.
+          </i>
+        </div>
         
       </div>
       <input
@@ -1576,7 +1514,6 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1593,7 +1530,6 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1612,20 +1548,16 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
         class="t-input__prefix"
       >
         
-        
-        
         <div>
           深圳市(shenzhen)
         </div>
-        
-        
         <!---->
         
       </div>
@@ -1640,7 +1572,6 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow"
           disabled="false"
@@ -1657,7 +1588,6 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->

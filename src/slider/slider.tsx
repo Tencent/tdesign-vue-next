@@ -11,8 +11,6 @@ import {
   toRefs,
 } from 'vue';
 import props from './props';
-import InputNumber from '../input-number/index';
-import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
@@ -29,11 +27,6 @@ interface SliderButtonType {
 }
 export default defineComponent({
   name: 'TSlider',
-  components: {
-    TSliderMark,
-    TInputNumber: InputNumber,
-    TSliderButton,
-  },
   model: {
     prop: 'value',
     event: 'change',
@@ -193,6 +186,8 @@ export default defineComponent({
       }
     };
 
+    // 是否以完成挂载（部分组合组件如inputNumber依赖于首次init后的状态值进行渲染）
+    const isAlreadyMount = ref(false);
     // 初始化传入的value
     const init = () => {
       let valuetext: string | number;
@@ -307,6 +302,7 @@ export default defineComponent({
     /** 挂载&卸载 */
     onMounted(() => {
       init();
+      isAlreadyMount.value = true;
     });
     onBeforeUnmount(() => {
       window.removeEventListener('resize', resetSize);
@@ -394,7 +390,7 @@ export default defineComponent({
         >
           <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
             <div class={`${COMPONENT_NAME.value}__track`} style={barStyle.value} />
-            <t-slider-button
+            <TSliderButton
               vertical={vertical.value}
               value={firstValue.value}
               ref={firstButtonRef}
@@ -405,7 +401,7 @@ export default defineComponent({
               }}
             />
             {props.range && (
-              <t-slider-button
+              <TSliderButton
                 vertical={vertical.value}
                 value={secondValue.value}
                 ref={secondButtonRef}
@@ -426,7 +422,7 @@ export default defineComponent({
             {renderMask(changeValue)}
           </div>
         </div>
-        {props.inputNumberProps && renderInputButton()}
+        {isAlreadyMount.value && props.inputNumberProps && renderInputButton()}
       </div>
     );
   },

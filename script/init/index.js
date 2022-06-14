@@ -154,6 +154,10 @@ function insertComponentToIndex(component, indexPath) {
 
 function init() {
   const [component, isDeleted] = process.argv.slice(2);
+  if (!component) {
+    console.error('[组件名]必填 - Please enter new component name');
+    process.exit(1);
+  }
   const indexPath = path.resolve(cwdPath, 'src/index.ts');
   const toBeCreatedFiles = config.getToBeCreatedFiles(component);
   if (isDeleted === 'del') {
