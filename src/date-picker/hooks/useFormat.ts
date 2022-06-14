@@ -13,15 +13,14 @@ export interface formatProps {
 export const TIME_FORMAT = 'HH:mm:ss';
 
 export default function useFormat(props: formatProps) {
-  const { mode, enableTimePicker, format: formatFromProps, valueType: valueTypeFromProps, value } = props;
   const { format, valueType, timeFormat } = getDefaultFormat({
-    mode,
-    enableTimePicker,
-    format: formatFromProps,
-    valueType: valueTypeFromProps,
+    mode: props.mode,
+    enableTimePicker: props.enableTimePicker,
+    format: props.format,
+    valueType: props.valueType,
   });
 
-  if (enableTimePicker) {
+  if (props.enableTimePicker) {
     if (!extractTimeFormat(format)) console.error(`format: ${format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
     if (!extractTimeFormat(valueType) && valueType !== 'time-stamp')
       console.error(`valueType: ${valueType} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
@@ -39,7 +38,7 @@ export default function useFormat(props: formatProps) {
       // 格式化失败提示
       if (result.some((r) => r === 'Invalid Date')) {
         console.error(
-          `请检查 format、valueType、value 格式是否有效.\nformat: '${format}' valueType: '${valueType}' value: '${value}'`,
+          `请检查 format、valueType、value 格式是否有效.\nformat: '${props.format}' valueType: '${props.valueType}' value: '${props.value}'`,
         );
         return [];
       }
@@ -48,7 +47,7 @@ export default function useFormat(props: formatProps) {
       // 格式化失败提示
       if (result === 'Invalid Date') {
         console.error(
-          `请检查 format、valueType、value 格式是否有效.\nformat: '${format}' valueType: '${valueType}' value: '${value}'`,
+          `请检查 format、valueType、value 格式是否有效.\nformat: '${props.format}' valueType: '${props.valueType}' value: '${props.value}'`,
         );
         return '';
       }
