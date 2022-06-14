@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive } from 'vue';
+import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from 'vue';
 import debounce from 'lodash/debounce';
 import range from 'lodash/range';
 import padStart from 'lodash/padStart';
@@ -58,9 +58,9 @@ export default defineComponent({
 
     // 面板打开时 触发滚动 初始化面板
     watch(
-      () => value.value,
+      () => dayjsValue.value,
       () => {
-        if (value.value) updateTimeScrollPos();
+        if (dayjsValue.value) updateTimeScrollPos();
       },
     );
 
@@ -239,7 +239,7 @@ export default defineComponent({
           // eslint-disable-next-line no-param-reassign
           el = Number(el) + 12;
         }
-        value
+        value.value
           ? props.onChange(dayjsValue.value[col]?.(el).format(format.value))
           : props.onChange(dayjsValue.value[col]?.(el).format(format.value));
       } else {
@@ -256,20 +256,23 @@ export default defineComponent({
     const updateTimeScrollPos = (isAutoScroll = false) => {
       const behavior = value.value && !isAutoScroll ? 'smooth' : 'auto';
       const isStepsSet = !!steps.value.filter((v) => v > 1).length;
-      cols.value.forEach((col: EPickerCols, idx: number) => {
-        if (!isStepsSet || (isStepsSet && value)) {
-          // 如果没有设置大于1的steps或设置了大于1的step 正常处理滚动
-          scrollToTime(
-            col,
-            timeArr.includes(col) ? dayjsValue.value[col]?.() : dayjsValue.value.format('a'),
-            idx,
-            behavior,
-          );
-        } else {
-          // 否则初始化到每列第一个选项
-          scrollToTime(col, getColList(col)?.[0], idx, behavior);
-        }
+      nextTick(() => {
+        cols.value.forEach((col: EPickerCols, idx: number) => {
+          if (!isStepsSet || (isStepsSet && value.value)) {
+            // 如果没有设置大于1的steps或设置了大于1的step 正常处理滚动
+            scrollToTime(
+              col,
+              timeArr.includes(col) ? dayjsValue.value[col]?.() : dayjsValue.value.format('a'),
+              idx,
+              behavior,
+            );
+          } else {
+            // 否则初始化到每列第一个选项
+            scrollToTime(col, getColList(col)?.[0], idx, behavior);
+          }
+        });
       });
+
       props.resetTriggerScroll();
     };
 

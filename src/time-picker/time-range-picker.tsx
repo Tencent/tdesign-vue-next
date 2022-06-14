@@ -35,7 +35,7 @@ export default defineComponent({
   props: { ...props, rangeInputProps: Object, popupProps: Object },
 
   setup(props) {
-    const componentName = usePrefixClass('time-picker');
+    const componentName = usePrefixClass('time-range-picker');
     const { global } = useConfig('timePicker');
     const { classPrefix } = useConfig('classPrefix');
 
