@@ -60,7 +60,7 @@ export default defineComponent({
     };
 
     const handleInputBlur = (value: string, { e }: { e: FocusEvent }) => {
-      if (allowInput) {
+      if (allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
