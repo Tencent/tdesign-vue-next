@@ -43,16 +43,15 @@ function isEnabled(props: any): boolean {
   }
 
   // { from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。
-  const { from, to, before, after } = props.disableDate;
-  if (from && to) {
-    const compareMin = dayjs(new Date(from));
-    const compareMax = dayjs(new Date(to));
+  if (props.disableDate.from && props.disableDate.to) {
+    const compareMin = dayjs(new Date(props.disableDate.from));
+    const compareMax = dayjs(new Date(props.disableDate.to));
 
     return !dayjs(props.value).isBetween(compareMin, compareMax, props.mode, '[]');
   }
 
-  const min = before ? new Date(before) : null;
-  const max = after ? new Date(after) : null;
+  const min = props.disableDate.before ? new Date(props.disableDate.before) : null;
+  const max = props.disableDate.after ? new Date(props.disableDate.after) : null;
 
   // { before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。
   if (max && min) {
