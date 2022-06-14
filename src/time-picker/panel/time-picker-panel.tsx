@@ -12,10 +12,7 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TimePickerPanel',
-  components: {
-    SinglePanel,
-    TButton,
-  },
+
   props: { ...panelProps(), isFooterDisplay: Boolean, handleConfirmClick: Function, onChange: Function },
 
   setup(props) {
@@ -62,7 +59,7 @@ export default defineComponent({
     return () => (
       <div class={panelClassName.value}>
         <div class={`${panelClassName.value}-section-body`}>
-          <single-panel
+          <SinglePanel
             {...props}
             ref={panelRef}
             format={props.format || DEFAULT_FORMAT}
@@ -75,23 +72,23 @@ export default defineComponent({
         </div>
         {isFooterDisplay.value ? (
           <div class={`${panelClassName.value}-section-footer`}>
-            <t-button
+            <TButton
               theme="primary"
               variant="base"
               onClick={() => props.handleConfirmClick(defaultValue.value)}
               size="small"
             >
               {global.value.confirm}
-            </t-button>
+            </TButton>
             {!showNowTimeBtn.value ? (
-              <t-button
+              <TButton
                 theme="primary"
                 variant="text"
                 size="small"
                 onClick={() => props.onChange(dayjs().format(props.format))}
               >
                 {global.value.now}
-              </t-button>
+              </TButton>
             ) : null}
           </div>
         ) : null}
