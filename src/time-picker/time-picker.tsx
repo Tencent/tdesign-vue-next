@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon } from 'tdesign-icons-vue-next';
 
-import TPopup from '../popup';
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput from '../select-input';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
@@ -19,7 +18,6 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TTimePicker',
-  components: { TSelectInput, TimePickerPanel, TimeIcon, TPopup },
 
   props: { ...props },
 
@@ -60,7 +58,7 @@ export default defineComponent({
     };
 
     const handleInputBlur = (value: string, { e }: { e: FocusEvent }) => {
-      if (allowInput) {
+      if (allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
@@ -88,7 +86,7 @@ export default defineComponent({
 
     return () => (
       <div class={componentName.value}>
-        <t-select-input
+        <TSelectInput
           onFocus={props.onFocus}
           onClear={handleClear}
           disabled={disabled.value}

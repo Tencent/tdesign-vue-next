@@ -4,9 +4,6 @@ import type { TdDatePickerProps, TdDateRangePickerProps, DateValue } from '../ty
 
 export default defineComponent({
   name: 'TExtraContent',
-  components: {
-    TDateFooter,
-  },
   props: {
     presets: Object as PropType<TdDatePickerProps['presets'] | TdDateRangePickerProps['presets']>,
     enableTimePicker: Boolean as PropType<TdDatePickerProps['enableTimePicker']>,
@@ -20,7 +17,7 @@ export default defineComponent({
 
     return () =>
       showPanelFooter ? (
-        <t-date-footer
+        <TDateFooter
           presets={props.presets}
           onPresetClick={props.onPresetClick}
           enableTimePicker={props.enableTimePicker}

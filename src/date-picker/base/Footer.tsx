@@ -8,7 +8,7 @@ export default defineComponent({
     enableTimePicker: Boolean,
     presetsPlacement: String,
     presets: Object,
-    selectedValue: [Date, String],
+    selectedValue: [Date, String, Number],
     onPresetClick: Function,
     onConfirmClick: Function,
   },
