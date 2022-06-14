@@ -122702,7 +122702,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
     >
       
       <div
-        class="t-range-input t-time-picker__group t-range-input-popup"
+        class="t-range-input t-time-range-picker__group t-range-input-popup"
       >
         <div
           class="t-range-input__inner"
