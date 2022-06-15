@@ -127,25 +127,22 @@ export default defineComponent({
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
     };
-    const submit = async () => {
-      formRef.value.requestSubmit();
+    const submit = async <T extends Data>(params?: { showErrorMessage?: boolean }) => {
+      return validate(params);
     };
 
-    const resetParams = ref<FormResetParams<Data>>();
+    const reset = <FormData extends Data>(params?: FormResetParams<FormData>) => {
+      children.value
+        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), params?.fields as string[]))
+        .forEach((child) => child.resetField(params?.type));
+    };
     const onReset = (e?: FormResetEvent) => {
       if (props.preventSubmitDefault && e) {
         e.preventDefault();
         e.stopPropagation();
       }
-      children.value
-        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields))
-        .forEach((child) => child.resetField(resetParams.value?.type));
-      resetParams.value = undefined;
+      reset();
       props.onReset?.({ e });
-    };
-    const reset = <FormData extends Data>(params?: FormResetParams<FormData>) => {
-      (resetParams.value as any) = params;
-      formRef.value.reset();
     };
 
     const clearValidate = (fields?: Array<string>) => {

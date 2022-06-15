@@ -344,7 +344,7 @@ export type ErrorList = Array<FormRule>;
 export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
 
 export interface FormResetParams<FormData> {
-  type: 'initial' | 'empty';
+  type?: 'initial' | 'empty';
   fields?: Array<keyof FormData>;
 }
 
