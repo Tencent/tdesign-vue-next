@@ -2,7 +2,7 @@
 
 ### 安装独立 Icon 包
 
-图标相对其他基础组件较为独立，所以作为一个独立的 `npm` 包做发布管理。如果项目中直接使用，请安装 `tdesign-icons-vue-next`。 同时 `tdesign-vue-next` 也内置了 `icon`, 支持直接通过 `t-icon` 来使用
+图标相对其他基础组件较为独立，所以作为一个独立的 `npm` 包做发布管理。如果项目中直接使用，请安装 `tdesign-icons-vue-next`。 同时 `tdesign-vue-next` 也内置了 `icon`, 支持直接通过 `t-icon` 来使用。
 
 ### SVG 全量引入
 
@@ -33,7 +33,7 @@
 
 ### iconfont 图标
 
-使用 Iconfont 图标需要单独引入 Iconfont 图标组件
+使用 Iconfont 图标需要单独引入 Iconfont 图标组件。
 
 ::: demo demos/iconfont
 :::
@@ -51,7 +51,7 @@
 
 ### 图标选择器
 
-在一些业务场景中，存在需要选择图标的情况，可以配合`Select`组件来实现`图标选择器`
+在一些业务场景中，存在需要选择图标的情况，可以配合`Select`组件来实现`图标选择器`。
 
 {{ icon-select }}
 
