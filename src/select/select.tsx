@@ -135,6 +135,7 @@ export default defineComponent({
       let newIndex = hoverIndex.value;
       switch (e.code) {
         case 'ArrowUp':
+          e.preventDefault();
           if (hoverIndex.value === -1) {
             newIndex = 0;
           } else if (hoverIndex.value === 0) {
@@ -148,6 +149,7 @@ export default defineComponent({
           hoverIndex.value = newIndex;
           break;
         case 'ArrowDown':
+          e.preventDefault();
           if (hoverIndex.value === -1 || hoverIndex.value === optionsListLength - 1) {
             newIndex = 0;
           } else {
@@ -170,7 +172,9 @@ export default defineComponent({
             });
             setInnerPopupVisible(false, { e });
           } else {
-            const optionValue = optionsList.value[hoverIndex.value].value;
+            if (hoverIndex.value === -1) return;
+            const optionValue = optionsList.value[hoverIndex.value]?.value;
+            if (!optionValue) return;
             const newValue = getNewMultipleValue(innerValue.value, optionValue);
             setInnerValue(newValue.value, { e, trigger: newValue.isCheck ? 'check' : 'uncheck' });
           }
@@ -206,6 +210,9 @@ export default defineComponent({
         orgValue.value = [];
       }
     };
+    const handleSearch = debounce((value: string) => {
+      props.onSearch?.(`${value}`);
+    }, 300);
 
     watch(
       orgValue,
@@ -222,6 +229,11 @@ export default defineComponent({
         checkValueInvalid();
       },
     );
+    watch(innerPopupVisible, (value) => {
+      if (value) {
+        hoverIndex.value = -1;
+      }
+    });
 
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
@@ -281,9 +293,7 @@ export default defineComponent({
             }}
             onInputChange={(value) => {
               setInputValue(value);
-              debounce(() => {
-                props.onSearch?.(`${value}`);
-              }, 300);
+              handleSearch(`${value}`);
             }}
             onClear={({ e }) => {
               setInnerValue(props.multiple ? [] : '', { e, trigger: 'clear' });
