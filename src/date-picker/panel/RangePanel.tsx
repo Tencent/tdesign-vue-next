@@ -61,8 +61,8 @@ export default defineComponent({
     const startTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? dayjs(props.value[0] as string, props.format).toDate() : undefined,
-        end: props.value[1] ? dayjs(props.value[1] as string, props.format).toDate() : undefined,
+        start: props.value[0] ? dayjs(props.value[0] as string).toDate() : undefined,
+        end: props.value[1] ? dayjs(props.value[1] as string).toDate() : undefined,
         hoverStart: props.hoverValue[0] ? dayjs(props.hoverValue[0] as string).toDate() : undefined,
         hoverEnd: props.hoverValue[1] ? dayjs(props.hoverValue[1] as string).toDate() : undefined,
         year: props.year[0],

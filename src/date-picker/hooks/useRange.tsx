@@ -26,13 +26,6 @@ export default function useRange(props: TdDateRangePickerProps) {
     enableTimePicker: props.enableTimePicker,
   });
 
-  // warning invalid value
-  if (!Array.isArray(value.value)) {
-    console.error(`typeof value: ${value.value} must be Array!`);
-  } else if (!isValidDate(value.value, 'valueType')) {
-    console.error(`value: ${value.value} is invalid datetime!`);
-  }
-
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
   const activeIndex = ref(0); // 确定当前选中的输入框序号

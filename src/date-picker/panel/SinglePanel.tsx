@@ -73,7 +73,7 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? dayjs(props.value, props.format).toDate() : undefined,
+        start: props.value ? dayjs(props.value).toDate() : undefined,
         firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
