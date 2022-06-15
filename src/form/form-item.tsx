@@ -29,6 +29,7 @@ import {
 } from './type';
 import props from './form-item-props';
 import {
+  AnalysisValidateResult,
   ErrorListType,
   FormInjectionKey,
   FormItemContext,
@@ -194,15 +195,12 @@ export default defineComponent({
       }
       return emptyValue;
     };
-    const resetField = async (resetType?: 'initial' | 'empty') => {
+    const resetField = async (resetType: 'initial' | 'empty' | undefined = form?.resetType) => {
       if (!props.name) return;
-      if (resetType !== undefined) {
-        resetType === 'empty' && lodashSet(form?.data, props.name, getEmptyValue());
-        resetType === 'initial' && lodashSet(form?.data, props.name, initialValue.value);
-      } else {
-        form?.resetType === 'empty' && lodashSet(form?.data, props.name, getEmptyValue());
-        form?.resetType === 'initial' && lodashSet(form?.data, props.name, initialValue.value);
-      }
+
+      if (resetType === 'empty') lodashSet(form?.data, props.name, getEmptyValue());
+      else if (resetType === 'initial') lodashSet(form?.data, props.name, initialValue.value);
+
       await nextTick();
       if (resetValidating.value) {
         needResetField.value = true;
@@ -217,21 +215,27 @@ export default defineComponent({
       if (!props.name) return [];
       const index = props.name.lastIndexOf('.') || -1;
       const pRuleName = props.name.slice(index + 1);
+
       return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
     });
 
-    async function validateHandler<T>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> {
-      resetValidating.value = true;
-      const rules =
+    const analysisValidateResult = async (trigger: ValidateTriggerType): Promise<AnalysisValidateResult> => {
+      const result: AnalysisValidateResult = {
+        successList: [],
+        errorList: [],
+        rules: [],
+        resultList: [],
+      };
+      result.rules =
         trigger === 'all'
           ? innerRules.value
           : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
-      if (!rules?.length) {
+      if (!result.rules?.length) {
         resetValidating.value = false;
-        return;
+        return result;
       }
-      const res = await validate(value.value, rules);
-      errorList.value = res
+      result.resultList = await validate(value.value, result.rules);
+      result.errorList = result.resultList
         .filter((item) => item.result !== true)
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
@@ -246,12 +250,31 @@ export default defineComponent({
           return item;
         });
       // 仅有自定义校验方法才会存在 successList
-      successList.value = res.filter(
+      result.successList = result.resultList.filter(
         (item) => item.result === true && item.message && item.type === 'success',
       ) as SuccessListType[];
+
+      return result;
+    };
+    const validateHandler = async <T extends Data = Data>(
+      trigger: ValidateTriggerType,
+      showErrorMessage?: boolean,
+    ): Promise<FormItemValidateResult<T>> => {
+      resetValidating.value = true;
+      // undefined | boolean
+      freeShowErrorMessage.value = showErrorMessage;
+      const {
+        successList: innerSuccessList,
+        errorList: innerErrorList,
+        rules,
+        resultList,
+      } = await analysisValidateResult(trigger);
+
+      successList.value = innerSuccessList;
+      errorList.value = innerErrorList;
       // 根据校验结果设置校验状态
       if (rules.length) {
-        verifyStatus.value = errorList.value.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
+        verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
       } else {
         verifyStatus.value = ValidateStatus.TO_BE_VALIDATED;
       }
@@ -260,10 +283,18 @@ export default defineComponent({
         resetHandler();
       }
       resetValidating.value = false;
+
       return {
-        [props.name]: errorList.value.length === 0 ? true : res,
+        [props.name]: innerErrorList.length === 0 ? true : resultList,
       } as FormItemValidateResult<T>;
-    }
+    };
+    const validateOnly = async <T extends Data>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> => {
+      const { errorList: innerErrorList, resultList } = await analysisValidateResult(trigger);
+
+      return {
+        [props.name]: innerErrorList.length === 0 ? true : resultList,
+      } as FormItemValidateResult<T>;
+    };
 
     const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
       if (!validateMessage && !Array.isArray(validateMessage)) return;
@@ -283,6 +314,7 @@ export default defineComponent({
       resetHandler,
       resetField,
       validate: validateHandler,
+      validateOnly,
       setValidateMessage,
     });
 
@@ -301,7 +333,9 @@ export default defineComponent({
       { deep: true },
     );
 
+    const freeShowErrorMessage = ref<boolean>(undefined);
     const showErrorMessage = computed(() => {
+      if (typeof freeShowErrorMessage.value === 'boolean') return freeShowErrorMessage.value;
       if (typeof props.showErrorMessage === 'boolean') return props.showErrorMessage;
       return form?.showErrorMessage;
     });

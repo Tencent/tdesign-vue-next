@@ -1,22 +1,24 @@
-import { defineComponent, provide, toRefs, computed, ref, reactive } from 'vue';
+import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
+import { FormItemValidateResult } from '@src/form/form-item';
 import {
+  Data,
+  FormResetParams,
+  FormValidateMessage,
+  FormValidateParams,
   FormValidateResult,
   TdFormProps,
-  FormValidateParams,
   ValidateResultList,
-  FormValidateMessage,
-  FormResetParams,
 } from './type';
 import props from './props';
-import { useCLASSNAMES, FormInjectionKey, FormItemContext } from './const';
+import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider } from './hooks';
-import { useTNodeJSX, usePrefixClass } from '../hooks';
+import { usePrefixClass, useTNodeJSX } from '../hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -86,26 +88,37 @@ export default defineComponent({
       if (!fields || !Array.isArray(fields)) return true;
       return fields.indexOf(name) !== -1;
     };
-    const validate = async (param?: FormValidateParams): Promise<Result> => {
-      const { fields, trigger = 'all' } = param || {};
-      const list = children.value
-        .filter((child) => isFunction(child.validate) && needValidate(child.name, fields))
-        .map((child) => child.validate(trigger));
-      const arr = await Promise.all(list);
-      const r = arr.reduce((r, err) => Object.assign(r || {}, err), {});
-      Object.keys(r).forEach((key) => {
-        if (r[key] === true) {
-          delete r[key];
+    const formatValidateResult = <T extends Data>(validateResultList: FormItemValidateResult<T>[]) => {
+      const result = validateResultList.reduce((r, err) => Object.assign(r || {}, err), {});
+      Object.keys(result).forEach((key) => {
+        if (result[key] === true) {
+          delete result[key];
         }
       });
-      const result = isEmpty(r) ? true : r;
+      return isEmpty(result) ? true : result;
+    };
+    const validate = async (param?: FormValidateParams): Promise<Result> => {
+      const { fields, trigger = 'all', showErrorMessage } = param || {};
+      const list = children.value
+        .filter((child) => isFunction(child.validate) && needValidate(String(child.name), fields))
+        .map((child) => child.validate(trigger, showErrorMessage));
+      const arr = await Promise.all(list);
+      const result = formatValidateResult(arr);
       props.onValidate?.({
         validateResult: result,
         firstError: getFirstError(result),
       });
       return result;
     };
-    const submitHandler = (e?: FormSubmitEvent) => {
+    const validateOnly = async (params?: Omit<FormValidateParams, 'showErrorMessage'>) => {
+      const { fields, trigger = 'all' } = params || {};
+      const list = children.value
+        .filter((child) => isFunction(child.validateOnly) && needValidate(String(child.name), fields))
+        .map((child) => child.validateOnly(trigger));
+      const arr = await Promise.all(list);
+      return formatValidateResult(arr);
+    };
+    const onSubmit = (e?: FormSubmitEvent) => {
       if (props.preventSubmitDefault && e) {
         e.preventDefault();
         e.stopPropagation();
@@ -118,25 +131,26 @@ export default defineComponent({
       formRef.value.requestSubmit();
     };
 
-    const resetParams = ref<FormResetParams<Record<string, any>>>();
-    const resetHandler = (e?: FormResetEvent) => {
+    const resetParams = ref<FormResetParams<Data>>();
+    const onReset = (e?: FormResetEvent) => {
       if (props.preventSubmitDefault && e) {
         e.preventDefault();
         e.stopPropagation();
       }
       children.value
-        .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
+        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields))
         .forEach((child) => child.resetField(resetParams.value?.type));
       resetParams.value = undefined;
       props.onReset?.({ e });
     };
-    const reset = <FormData,>(params?: FormResetParams<FormData>) => {
-      (resetParams.value as Record<string, any>) = params;
+    const reset = <FormData extends Data>(params?: FormResetParams<FormData>) => {
+      (resetParams.value as any) = params;
       formRef.value.reset();
     };
+
     const clearValidate = (fields?: Array<string>) => {
       children.value.forEach((child) => {
-        if (isFunction(child.resetHandler) && needValidate(child.name, fields)) {
+        if (isFunction(child.resetHandler) && needValidate(String(child.name), fields)) {
           child.resetHandler();
         }
       });
@@ -145,15 +159,15 @@ export default defineComponent({
       const keys = Object.keys(validateMessage);
       if (!keys.length) return;
       const list = children.value
-        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(child.name))
+        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(String(child.name)))
         .map((child) => child.setValidateMessage(validateMessage[child.name]));
       Promise.all(list);
     };
 
-    expose({ validate, submit, reset, clearValidate, setValidateMessage });
+    expose({ validate, submit, reset, clearValidate, setValidateMessage, validateOnly });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => submitHandler(e)} onReset={(e) => resetHandler(e)}>
+      <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
         {renderContent('default')}
       </form>
     );
