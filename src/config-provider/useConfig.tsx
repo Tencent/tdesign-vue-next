@@ -1,4 +1,5 @@
 import { computed, h, inject, Ref, unref } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
 import { defaultGlobalConfig, GlobalConfig } from './context';
 
@@ -22,7 +23,7 @@ export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
   const globalConfig = inject<Ref<GlobalConfig>>('globalConfig', Object.create(null));
 
   const mergedGlobalConfig = computed(() => {
-    const mergedGlobalConfig = merge({ ...defaultGlobalConfig }, unref(globalConfig));
+    const mergedGlobalConfig = merge(cloneDeep(defaultGlobalConfig), unref(globalConfig));
     return mergedGlobalConfig;
   });
 
