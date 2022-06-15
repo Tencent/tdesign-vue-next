@@ -40,6 +40,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   empty?: string | TNode;
   /**
+   * 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据
+   */
+  filter?: (filterWords: string, node: TreeNodeModel) => boolean | Promise<boolean>;
+  /**
    * 是否可搜索
    * @default false
    */

@@ -1,5 +1,4 @@
 import { defineComponent, computed } from 'vue';
-
 import Panel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
@@ -28,7 +27,7 @@ export default defineComponent({
     const { global } = useConfig('cascader');
 
     // 拿到全局状态的上下文
-    const { cascaderContext } = useCascaderContext(props);
+    const { cascaderContext, isFilterable } = useCascaderContext(props);
 
     const displayValue = computed(() =>
       props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value),
@@ -63,7 +62,7 @@ export default defineComponent({
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
           keys={props.keys}
-          allowInput={visible && props.filterable}
+          allowInput={visible && isFilterable.value}
           min-collapsed-num={props.minCollapsedNum}
           collapsed-items={props.collapsedItems}
           readonly={props.readonly}
@@ -75,7 +74,7 @@ export default defineComponent({
           overlayClassName={overlayClassName.value}
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
-            overlayStyle: panels.value.length ? { width: 'auto' } : {},
+            overlayStyle: panels.value.length ? { width: 'auto' } : '',
             ...(props.popupProps as TdCascaderProps['popupProps']),
           }}
           inputProps={{ size: props.size }}
