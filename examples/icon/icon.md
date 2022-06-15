@@ -49,6 +49,26 @@
 ::: demo demos/iconfont-enhanced
 :::
 
+### 图标选择器
+
+在一些业务场景中，存在需要选择图标的情况，可以配合`Select`组件来实现`图标选择器`
+
+{{ icon-select }}
+
+### FAQ
+
+#### 如何获取全部图标的名称列表？
+
+可以通过`import { manifest } from 'tdesign-icons-vue-next/lib/manifest'` 获取全部图标的名称列表。
+
+### t-icon、iconfont和icon使用时都会发起网络请求，我的项目是无网络场景，如何使用？
+
+首先明确`t-icon`、`iconfont`和`icon`三者的关系。如上面的示例所示，`iconfont`和`icon`都是从icon独立包中引入，而`t-icon`只是为了方便用户习惯，对`icon`的一个简单封装。
+
+`iconfont`需要加载图标的字体资源，而`icon`需要加载图标的svgsprite资源，这些资源都是相对来说比较大的，所以没有直接放在包里（当然不排除未来会做改动），所以会发起网络请求。
+
+所以如果你的项目是无网络场景，请使用按需加载的图标，如`<t-icon name="add" />`请改完`<AddIcon />`。
+
 ### 全部图标
 
 <td-icons-view />
