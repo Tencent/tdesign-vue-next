@@ -221,10 +221,11 @@ export default defineComponent({
 
     const analysisValidateResult = async (trigger: ValidateTriggerType): Promise<AnalysisValidateResult> => {
       const result: AnalysisValidateResult = {
-        successList: undefined,
-        errorList: undefined,
+        successList: [],
+        errorList: [],
         rules: [],
         resultList: [],
+        allowSetValue: false,
       };
       result.rules =
         trigger === 'all'
@@ -234,6 +235,7 @@ export default defineComponent({
         resetValidating.value = false;
         return result;
       }
+      result.allowSetValue = true;
       result.resultList = await validate(value.value, result.rules);
       result.errorList = result.resultList
         .filter((item) => item.result !== true)
@@ -268,10 +270,13 @@ export default defineComponent({
         errorList: innerErrorList,
         rules,
         resultList,
+        allowSetValue,
       } = await analysisValidateResult(trigger);
 
-      if (innerSuccessList !== undefined) successList.value = innerSuccessList;
-      if (innerErrorList !== undefined) errorList.value = innerErrorList;
+      if (allowSetValue) {
+        successList.value = innerSuccessList;
+        errorList.value = innerErrorList;
+      }
       // 根据校验结果设置校验状态
       if (rules.length) {
         verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;

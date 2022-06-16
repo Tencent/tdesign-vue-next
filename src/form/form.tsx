@@ -118,31 +118,37 @@ export default defineComponent({
       const arr = await Promise.all(list);
       return formatValidateResult(arr);
     };
+    const submitParams = ref<Pick<FormValidateParams, 'showErrorMessage'>>();
     const onSubmit = (e?: FormSubmitEvent) => {
       if (props.preventSubmitDefault && e) {
         e.preventDefault();
         e.stopPropagation();
       }
-      validate().then((r) => {
+      validate(submitParams.value).then((r) => {
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
+      submitParams.value = undefined;
     };
-    const submit = async <T extends Data>(params?: { showErrorMessage?: boolean }) => {
-      return validate(params);
+    const submit = async <T extends Data>(params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
+      submitParams.value = params;
+      formRef.value.requestSubmit();
     };
 
-    const reset = <FormData extends Data>(params?: FormResetParams<FormData>) => {
-      children.value
-        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), params?.fields as string[]))
-        .forEach((child) => child.resetField(params?.type));
-    };
+    const resetParams = ref<FormResetParams<Data>>();
     const onReset = (e?: FormResetEvent) => {
       if (props.preventSubmitDefault && e) {
         e.preventDefault();
         e.stopPropagation();
       }
-      reset();
+      children.value
+        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields))
+        .forEach((child) => child.resetField(resetParams.value?.type));
+      resetParams.value = undefined;
       props.onReset?.({ e });
+    };
+    const reset = <FormData extends Data>(params?: FormResetParams<FormData>) => {
+      (resetParams.value as any) = params;
+      formRef.value.reset();
     };
 
     const clearValidate = (fields?: Array<string>) => {

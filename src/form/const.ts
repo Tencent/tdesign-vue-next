@@ -79,10 +79,11 @@ export type SuccessListType =
   | ValidateResultType;
 
 export interface AnalysisValidateResult {
-  successList: SuccessListType[];
-  errorList: ErrorListType[];
+  successList?: SuccessListType[];
+  errorList?: ErrorListType[];
   rules: FormRule[];
   resultList: AllValidateResult[];
+  allowSetValue: boolean;
 }
 
 export interface FormItemContext {

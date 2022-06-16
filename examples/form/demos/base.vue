@@ -67,9 +67,8 @@ const onSubmit = ({ validateResult, firstError }) => {
 
 const form = ref(null);
 const submitForm = async () => {
-  const res = await form.value.submit();
-  MessagePlugin.success('打开控制台查看校验结果');
-  console.log(res);
+  form.value.submit();
+  // form.value.submit({ showErrorMessage: false });
 
   // 校验数据，代码有效，勿删
   // form.value.validate();
