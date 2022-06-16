@@ -133,7 +133,7 @@ export default defineComponent({
       let resultIcon = renderContent('statusIcon', {
         defaultNode: getDefaultIcon(),
       });
-      if (resultIcon) return <span className={CLASS_NAMES.value.status}>{resultIcon}</span>;
+      if (resultIcon) return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
       if (resultIcon === false) return;
 
       resultIcon = form?.renderContent('statusIcon', { defaultNode: getDefaultIcon() });

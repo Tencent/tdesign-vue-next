@@ -13,7 +13,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('jumper');
 
     return () => (
-      <div className={`${COMPONENT_NAME.value}-jumper`}>
+      <div class={`${COMPONENT_NAME.value}-jumper`}>
         <TButton
           title={props.prevTitle}
           variant="text"

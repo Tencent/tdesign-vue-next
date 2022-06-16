@@ -202,12 +202,8 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      // 如果不是modal模式 默认没有mask 也就没有相关点击事件
-      if (props.mode !== 'modal') return;
-      props.onOverlayClick?.({ e });
-      // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
-      // 根据当前点击元素和绑定元素判断是否是点击mask
-      if (e.target === e.currentTarget && props.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick) {
+        props.onOverlayClick?.({ e });
         emitCloseEvent({
           trigger: 'overlay',
           e,
@@ -288,7 +284,7 @@ export default defineComponent({
         // /* 非模态形态下draggable为true才允许拖拽 */
 
         <div class={wrapClass.value}>
-          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction}>
+          <div class={positionClass.value} style={positionStyle.value}>
             <div
               key="dialog"
               class={dialogClass.value}
@@ -333,11 +329,12 @@ export default defineComponent({
       afterLeave,
       hasEventOn,
       renderDialog,
+      overlayAction,
     };
   },
   render() {
-    const { COMPONENT_NAME } = this;
-    const maskView = this.isModal && <div key="mask" class={this.maskClass}></div>;
+    const { COMPONENT_NAME, overlayAction } = this;
+    const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={overlayAction}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };

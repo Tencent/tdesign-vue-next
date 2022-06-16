@@ -63,8 +63,8 @@ export default defineComponent({
       ...((this.selectInputProps as Object) || {}),
     };
     return (
-      <div className={`${baseClassName}__format`}>
-        <div className={`${baseClassName}__format--item`}>
+      <div class={`${baseClassName}__format`}>
+        <div class={`${baseClassName}__format--item`}>
           <TSelect
             autoWidth={true}
             {...selectInputProps}
@@ -79,7 +79,7 @@ export default defineComponent({
             ))}
           </TSelect>
         </div>
-        <div className={`${baseClassName}__format--item`}>
+        <div class={`${baseClassName}__format--item`}>
           <FormatInputs {...newProps} />
         </div>
       </div>
