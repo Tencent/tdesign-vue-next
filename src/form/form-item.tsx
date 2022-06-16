@@ -215,8 +215,8 @@ export default defineComponent({
     const innerRules = computed(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
-      const index = props.name.lastIndexOf('.') || -1;
-      const pRuleName = props.name.slice(index + 1);
+      const index = `${props.name}`.lastIndexOf('.') || -1;
+      const pRuleName = `${props.name}`.slice(index + 1);
       return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
     });
 
