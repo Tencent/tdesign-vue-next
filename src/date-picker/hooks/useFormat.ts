@@ -62,11 +62,11 @@ export default function useFormat(props: formatProps) {
 
     if (Array.isArray(value)) {
       if (realFormat === 'time-stamp') return value.every((v) => dayjs(v).isValid());
-      return value.every((v) => dayjs(v, realFormat, true).isValid());
+      return value.every((v) => dayjs(v, realFormat).isValid() || dayjs(v).isValid());
     }
 
     if (realFormat === 'time-stamp') return dayjs(value).isValid();
-    return dayjs(value, realFormat, true).isValid();
+    return dayjs(value, realFormat).isValid() || dayjs(value).isValid();
   }
 
   function formatTime(value: DateValue | DateValue[]) {

@@ -51,6 +51,15 @@ export default defineComponent({
         isFirstValueSelected.value = false;
         cacheValue.value = formatDate(value.value || []) as string[];
         time.value = formatTime(value.value || [dayjs().format(timeFormat), dayjs().format(timeFormat)]) as string[];
+
+        // 确保右侧面板月份比左侧大 避免两侧面板月份一致
+        if (value.value.length === 2) {
+          const nextMonth = value.value.map((v) => dayjs(v).month());
+          if (year[0] === year[1] && nextMonth[0] === nextMonth[1]) {
+            nextMonth[0] === 11 ? (nextMonth[0] -= 1) : (nextMonth[1] += 1);
+          }
+          month.value = nextMonth;
+        }
       }
     });
 

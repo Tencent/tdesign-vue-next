@@ -45,8 +45,8 @@ export default defineComponent({
   render() {
     const { baseClassName } = this;
     return (
-      <div className={`${baseClassName}__head`}>
-        <div className={`${baseClassName}__mode`}>
+      <div class={`${baseClassName}__head`}>
+        <div class={`${baseClassName}__mode`}>
           {this.colorModes?.length === 1 ? (
             COLOR_MODES[this.colorModes[0]]
           ) : (

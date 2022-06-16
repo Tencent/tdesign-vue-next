@@ -112,7 +112,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div className={componentName}>
+      <div class={componentName.value}>
         <RangeInputPopup
           disabled={disabled.value}
           popupVisible={isShowPanel.value}

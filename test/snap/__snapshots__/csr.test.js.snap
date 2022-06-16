@@ -122758,7 +122758,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
   class="tdesign-demo-block"
 >
   <div
-    class="demos"
+    class="t-time-range-picker demos"
   >
     <div
       class="t-range-input-popup"

@@ -27,9 +27,9 @@ function initYearMonthTime(value: DateValue[], mode = 'date', format: string, ti
   }
 
   return {
-    year: value.map((v) => dayjs(v, format).year()),
-    month: value.map((v) => dayjs(v, format).month()),
-    time: value.map((v) => dayjs(v, format).format(timeFormat)),
+    year: value.map((v) => dayjs(v, format).year() || dayjs(v).year()),
+    month: value.map((v) => dayjs(v, format).month() || dayjs(v).month()),
+    time: value.map((v) => dayjs(v, format).format(timeFormat) || dayjs(v).format(timeFormat)),
   };
 }
 

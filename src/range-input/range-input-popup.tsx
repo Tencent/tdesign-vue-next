@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import Popup from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
 import RangeInput from './range-input';
@@ -14,12 +14,12 @@ export default defineComponent({
 
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
 
-    const popupClasses = [
+    const popupClasses = computed(() => [
       COMPONENT_NAME.value,
       {
         [`${COMPONENT_NAME.value}--visible`]: props.popupVisible || innerPopupVisible.value,
       },
-    ];
+    ]);
 
     return () => (
       <div class={COMPONENT_NAME.value}>
@@ -34,7 +34,7 @@ export default defineComponent({
             onVisibleChange: onInnerPopupVisibleChange,
             ...props.popupProps,
           }}
-          class={popupClasses}
+          class={popupClasses.value}
         >
           <RangeInput
             {...{
