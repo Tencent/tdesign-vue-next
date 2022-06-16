@@ -109,7 +109,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   readonly?: boolean;
   /**
-   * 【开发中】透传 SelectInput 筛选器输入框组件的全部属性
+   * 透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
   /**
