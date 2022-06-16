@@ -82,9 +82,9 @@ export default defineComponent({
       }
     };
 
-    const needValidate = (name: string, fields: string[] | undefined) => {
+    const needValidate = (name: string | number, fields: string[] | undefined) => {
       if (!fields || !Array.isArray(fields)) return true;
-      return fields.indexOf(name) !== -1;
+      return fields.indexOf(`${name}`) !== -1;
     };
     const validate = async (param?: FormValidateParams): Promise<Result> => {
       const { fields, trigger = 'all' } = param || {};
@@ -145,7 +145,7 @@ export default defineComponent({
       const keys = Object.keys(validateMessage);
       if (!keys.length) return;
       const list = children.value
-        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(child.name))
+        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(`${child.name}`))
         .map((child) => child.setValidateMessage(validateMessage[child.name]));
       Promise.all(list);
     };
