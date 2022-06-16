@@ -221,8 +221,8 @@ export default defineComponent({
 
     const analysisValidateResult = async (trigger: ValidateTriggerType): Promise<AnalysisValidateResult> => {
       const result: AnalysisValidateResult = {
-        successList: [],
-        errorList: [],
+        successList: undefined,
+        errorList: undefined,
         rules: [],
         resultList: [],
       };
@@ -270,8 +270,8 @@ export default defineComponent({
         resultList,
       } = await analysisValidateResult(trigger);
 
-      successList.value = innerSuccessList;
-      errorList.value = innerErrorList;
+      if (innerSuccessList !== undefined) successList.value = innerSuccessList;
+      if (innerErrorList !== undefined) errorList.value = innerErrorList;
       // 根据校验结果设置校验状态
       if (rules.length) {
         verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
