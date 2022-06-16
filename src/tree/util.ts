@@ -1,9 +1,9 @@
 import { VNode, h } from 'vue';
+import pick from 'lodash/pick';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './interface';
-
-export { emitEvent } from '../utils/event';
+import { TdTreeProps } from './type';
 
 export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): HTMLElement[] {
   const list = [];
@@ -105,3 +105,25 @@ export function getNode(store: TreeStore, item: TypeTargetNode): TreeNode {
   node = store.getNode(val);
   return node;
 }
+
+// 统一获取tree的config
+export const getStoreConfig = (props: TdTreeProps) => {
+  // 统一更新选项，然后在 store 统一识别属性更新
+  const storeProps = pick(props, [
+    'keys',
+    'expandAll',
+    'expandLevel',
+    'expandMutex',
+    'expandParent',
+    'activable',
+    'activeMultiple',
+    'disabled',
+    'checkable',
+    'checkStrictly',
+    'load',
+    'lazy',
+    'valueMode',
+    'filter',
+  ]);
+  return storeProps;
+};

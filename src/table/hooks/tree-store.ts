@@ -230,6 +230,27 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     return dataSource;
   }
 
+  appendToRoot(newData: T, dataSource: T[], keys: KeysType) {
+    const rowValue = get(newData, keys.rowKey);
+    if (!rowValue) {
+      log.error('Table', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
+      return;
+    }
+    dataSource.push(newData);
+    const state: TableRowState = {
+      id: rowValue,
+      row: newData,
+      rowIndex: dataSource.length - 1,
+      level: 0,
+      expanded: false,
+      expandChildrenLength: 0,
+      disabled: false,
+    };
+    state.path = [state];
+    this.treeDataMap.set(rowValue, state);
+    return dataSource;
+  }
+
   /**
    * 在当前节点后，插入一个兄弟节点
    * @param rowValue 当前节点唯一标识
@@ -343,17 +364,21 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     if (startState.parent) {
       const children = startState.parent.row[keys.childrenKey];
       let count = 0;
+      let targetIndex = -1;
+      let currentIndex = -1;
       for (let i = 0, len = children.length; i < len; i++) {
         if (get(children[i], keys.rowKey) === startRowValue) {
-          children[i] = params.target;
+          targetIndex = i;
           count += 1;
         }
         if (get(children[i], keys.rowKey) === endRowValue) {
-          children[i] = params.current;
+          currentIndex = i;
           count += 1;
         }
         if (count >= 2) break;
       }
+      children[targetIndex] = params.target;
+      children[currentIndex] = params.current;
     }
 
     return { dataSource, result: true };
@@ -423,6 +448,22 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       }
     }
     return newData;
+  }
+
+  /** 获取整个树形结构 */
+  getTreeNode(dataSource: T[], keys: KeysType): T[] {
+    // let isStarted = false;
+    const treeData: T[] = [];
+    for (let i = 0, len = dataSource.length; i < len; i++) {
+      const item = dataSource[i];
+      const rowValue = get(item, keys.rowKey);
+      const state = this.treeDataMap.get(rowValue);
+      // 只需要压入第一层数据
+      if (state.level === 0) {
+        treeData.push(item);
+      }
+    }
+    return treeData;
   }
 
   /**

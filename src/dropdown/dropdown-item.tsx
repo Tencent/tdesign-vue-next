@@ -44,7 +44,7 @@ export default defineComponent({
       if (!props.hasChildren && !props.disabled) {
         const data = {
           value: props.value,
-          path: props.path,
+          path: props.path || `/${props.value}`,
           content: props.content,
         };
         props.onClick?.(data, { e });

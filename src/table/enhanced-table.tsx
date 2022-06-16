@@ -17,7 +17,7 @@ export default defineComponent({
   },
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
-    const { store, dataSource, formatTreeColum, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
+    const { store, dataSource, formatTreeColumn, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
 
     const treeDataMap = ref(store.value.treeDataMap);
 
@@ -28,7 +28,7 @@ export default defineComponent({
       const arr: PrimaryTableCol<TableRowData>[] = [];
       for (let i = 0, len = columns.length; i < len; i++) {
         let item = { ...columns[i] };
-        item = formatTreeColum(item);
+        item = formatTreeColumn(item);
         if (item.children?.length) {
           item.children = getColumns(item.children);
         }
@@ -46,14 +46,15 @@ export default defineComponent({
       return isTreeData ? props.columns : getColumns(props.columns);
     });
 
-    const onDragSortChange = (context: DragSortContext<TableRowData>) => {
-      if (props.beforeDragSort && !props.beforeDragSort(context)) return;
+    const onDragSortChange = (params: DragSortContext<TableRowData>) => {
+      if (props.beforeDragSort && !props.beforeDragSort(params)) return;
       swapData({
-        current: context.current,
-        target: context.target,
-        currentIndex: context.currentIndex,
-        targetIndex: context.targetIndex,
+        current: params.current,
+        target: params.target,
+        currentIndex: params.currentIndex,
+        targetIndex: params.targetIndex,
       });
+      props.onDragSort?.(params);
     };
 
     return {
@@ -62,6 +63,7 @@ export default defineComponent({
       tColumns,
       onDragSortChange,
       onInnerSelectChange,
+      /** 对外暴露的方法 */
       ...treeInstanceFunctions,
     };
   },

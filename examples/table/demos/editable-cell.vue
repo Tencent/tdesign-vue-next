@@ -42,6 +42,8 @@ const columns = computed(() => [
         clearable: true,
         autofocus: true,
       },
+      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
+      abortEditOnEvent: ['onEnter'],
       // 编辑完成，退出编辑态后触发
       onEdited: (context) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);
@@ -89,7 +91,7 @@ const columns = computed(() => [
       // props, 透传全部属性到 Select 组件
       props: {
         multiple: true,
-        minCollapsedNum: 4,
+        minCollapsedNum: 1,
         options: [
           { label: 'A', value: 'A' },
           { label: 'B', value: 'B' },
@@ -117,6 +119,8 @@ const columns = computed(() => [
       props: {
         mode: 'date',
       },
+      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
+      abortEditOnEvent: ['onChange'],
       onEdited: (context) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);
         console.log('Edit Date:', context);

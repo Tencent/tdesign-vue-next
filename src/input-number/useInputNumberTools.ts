@@ -1,4 +1,5 @@
 import { Ref } from 'vue';
+import isNumber from 'lodash/isNumber';
 import { TdInputNumberProps } from './type';
 
 export default function useInputNumberTools(props: TdInputNumberProps, digitsNum: Ref<number>, isError: Ref<boolean>) {
@@ -38,13 +39,20 @@ export default function useInputNumberTools(props: TdInputNumberProps, digitsNum
       handleInputError(true);
       return false;
     }
+    if (!isNumber(v)) {
+      handleInputError(true);
+      return false;
+    }
     handleInputError(false);
     return true;
   };
 
   const isValid = (v: string) => {
     const numV = Number(v);
-    if (empty(v) || Number.isNaN(numV)) {
+    if (empty(v)) {
+      return false;
+    }
+    if (Number.isNaN(numV)) {
       handleInputError(true);
       return false;
     }

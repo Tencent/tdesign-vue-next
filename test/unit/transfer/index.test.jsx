@@ -497,23 +497,29 @@ describe('Transfer', () => {
 
       it('v-model', async () => {
         const wrapper = await mount({
-          components: {
-            Transfer,
-          },
-          template: `
-          <Transfer :data="data" :checked="checkedValue" v-model="targetValue" />
-          `,
-          data() {
+          setup() {
+            const checkedValue = ref(['2']);
+            const targetValue = ref(['1', '5']);
+            const change = () => {
+              targetValue.value = [];
+            };
             return {
-              data,
-              checkedValue: ['2'],
-              targetValue: ['1', '5'],
+              checkedValue,
+              targetValue,
+              change,
             };
           },
+          render() {
+            return <Transfer data={data} checked={this.checkedValue} v-model={this.targetValue} />;
+          },
         });
-
-        wrapper.vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
-        expect(wrapper.vm.$data.targetValue).toEqual(['1', '2', '5']);
+        const { vm } = wrapper;
+        vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
+        expect(vm.targetValue).toEqual(['1', '2', '5']);
+        vm.change();
+        await nextTick();
+        expect(vm.targetValue.length).toBe(0);
+        expect(vm.$el.querySelectorAll('.t-transfer__list-target .t-transfer__list-item').length).toBe(0);
       });
     });
   });

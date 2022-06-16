@@ -8,14 +8,17 @@ import { CheckboxGroupInjectionKey } from './constants';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
+import { useChildComponentSlots } from '../hooks/slot';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
   props,
 
-  setup(props, { slots }) {
+  setup(props) {
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
+    const renderTNodeJSX = useTNodeJSX();
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
@@ -119,7 +122,10 @@ export default defineComponent({
       }
     };
 
-    const getOptionListBySlots = (nodes: VNode[]) => {
+    const getChildComponentSlots = useChildComponentSlots();
+
+    const getOptionListBySlots = () => {
+      const nodes = getChildComponentSlots('checkbox');
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
@@ -163,8 +169,8 @@ export default defineComponent({
           </Checkbox>
         ));
       } else {
-        const nodes = slots.default && slots.default(null);
-        optionList.value = getOptionListBySlots(nodes);
+        const nodes = renderTNodeJSX('default');
+        optionList.value = getOptionListBySlots();
         children = nodes;
       }
       return <div class={COMPONENT_NAME.value}>{children}</div>;

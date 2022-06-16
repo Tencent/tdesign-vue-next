@@ -75,16 +75,13 @@ export default defineComponent({
         console.error(`TDesign Table Error: column.filter.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      if (column?.filter?.component && typeof column?.filter?.component !== 'function') {
-        console.error('TDesign Table Error: column.filter.component must be a function');
-        return;
-      }
-      const component = {
-        single: RadioGroup,
-        multiple: CheckboxGroup,
-        input: Input,
-      }[column.filter.type];
-      if (!component && !column?.filter?.component) return;
+      const component =
+        {
+          single: RadioGroup,
+          multiple: CheckboxGroup,
+          input: Input,
+        }[column.filter.type] || column.filter.component;
+      if (!component && !column.filter.component) return;
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
@@ -93,20 +90,29 @@ export default defineComponent({
           this.$emit('inner-filter-change', val, column);
         },
       };
-      return (
-        <div class={this.tableFilterClasses.contentInner}>
-          {column?.filter?.component ? (
-            column?.filter?.component((v: any, b: any) => {
-              const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
-              return h(v, {
-                props: { ...filterComponentProps, ...tProps },
-              });
-            })
-          ) : (
-            <component value={this.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>
-          )}
-        </div>
-      );
+      // 允许自定义触发确认搜索的事件
+      if (column.filter.confirmEvents) {
+        column.filter.confirmEvents.forEach((event) => {
+          filterComponentProps[event] = () => {
+            this.$emit('confirm', column);
+            this.filterPopupVisible = false;
+          };
+        });
+      }
+      const renderComponent = () => {
+        if (!component) return null;
+        const isVueComponent = !!component.setup;
+        if (typeof column.filter.component === 'function' && !isVueComponent) {
+          return column.filter.component((v: any, b: any) => {
+            const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
+            return h(v, {
+              props: { ...filterComponentProps, ...tProps },
+            });
+          });
+        }
+        return <component value={this.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>;
+      };
+      return <div class={this.tableFilterClasses.contentInner}>{renderComponent()}</div>;
     };
 
     const getBottomButtons = (column: PrimaryTableCol) => {

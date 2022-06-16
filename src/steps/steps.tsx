@@ -1,5 +1,7 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode, watchEffect } from 'vue';
+import isObject from 'lodash/isObject';
 import props from './props';
+import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
@@ -69,7 +71,15 @@ export default defineComponent({
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
         const option = node?.props;
-        if (!option) return;
+        const children = node?.children;
+        if (!option && !children) return;
+        if (children && isObject(children)) {
+          for (const key in children) {
+            if (key in stepItemProps && !option[key]) {
+              option[key] = children[key];
+            }
+          }
+        }
         props.sequence === 'reverse' ? arr.unshift(option as TdStepItemProps) : arr.push(option as TdStepItemProps);
       });
       return arr;
@@ -99,14 +109,12 @@ export default defineComponent({
 
         if (nodes && nodes[index]) {
           const vnode = nodes[index];
-          if (vnode.props) {
-            vnode.props = {
-              ...item,
-              index: stepIndex,
-              status: handleStatus(item, index),
-            };
-            return vnode;
-          }
+          vnode.props = {
+            ...item,
+            index: stepIndex,
+            status: handleStatus(item, index),
+          };
+          return vnode;
         }
         return stepItem;
       });

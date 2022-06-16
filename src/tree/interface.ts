@@ -25,7 +25,7 @@ export type TypeValueMode = TdTreeProps['valueMode'];
 
 export type TypeTreeNodeModel = TreeNodeModel<TreeOptionData>;
 
-export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
+export type TypeTNodeProp = string | TNode<TypeTreeNodeModel> | boolean;
 
 export type TypeTargetNode = TdTreeNodeValue | TreeNode | TypeTreeNodeModel;
 

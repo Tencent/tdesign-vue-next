@@ -2,6 +2,7 @@ import { computed, Ref, ref, watch } from 'vue';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import { TdInputNumberProps } from './type';
+import { InputValue } from '../input';
 import useInputNumberAction from './useInputNumberAction';
 import useInputNumberTools from './useInputNumberTools';
 import useKeyboardEvents from './useKeyboardEvents';
@@ -46,7 +47,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
   const handleStartInput = () => {
     inputting.value = true;
     if (innerValue.value === undefined) return;
-    filterValue.value = innerValue.value.toFixed(digitsNum.value);
+    filterValue.value = Number(innerValue.value).toFixed(digitsNum.value);
   };
 
   const handleEndInput = (e: FocusEvent) => {
@@ -89,11 +90,21 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
   ]);
 
   const inputEvents = computed(() => ({
-    onBlur: handleBlur,
-    onFocus: handleFocus,
-    onKeydown: keyboardEvents.handleKeydown,
-    onKeyup: keyboardEvents.handleKeyup,
-    onKeypress: keyboardEvents.handleKeypress,
+    onBlur: (inputValue: InputValue, { e }: { e: FocusEvent }) => {
+      handleBlur(e);
+    },
+    onFocus: (inputValue: InputValue, { e }: { e: FocusEvent }) => {
+      handleFocus(e);
+    },
+    onKeydown: (inputValue: InputValue, { e }: { e: KeyboardEvent }) => {
+      keyboardEvents.handleKeydown(e);
+    },
+    onKeyup: (inputValue: InputValue, { e }: { e: KeyboardEvent }) => {
+      keyboardEvents.handleKeyup(e);
+    },
+    onKeypress: (inputValue: InputValue, { e }: { e: KeyboardEvent }) => {
+      keyboardEvents.handleKeypress(e);
+    },
   }));
 
   const inputAttrs = computed<InputNumberAttr>(() => ({
@@ -117,7 +128,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
     // end input
     return props.format && !inputting.value
       ? props.format(innerValue.value)
-      : innerValue.value.toFixed(digitsNum.value);
+      : Number(innerValue.value).toFixed(digitsNum.value);
   });
 
   watch(

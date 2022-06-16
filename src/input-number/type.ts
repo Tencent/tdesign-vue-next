@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { InputProps } from '../input';
 import { TNode } from '../common';
 
 export interface TdInputNumberProps {
@@ -29,6 +30,10 @@ export interface TdInputNumberProps {
    * 指定输入框展示值的格式
    */
   format?: (value: number) => number | string;
+  /**
+   * 透传 Input 输入框组件全部属性
+   */
+  inputProps?: InputProps;
   /**
    * 最大值
    * @default Infinity

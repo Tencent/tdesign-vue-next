@@ -77,7 +77,9 @@ export default defineComponent({
     const scrollTo = (selector: string) => {
       const dom = formRef.value?.querySelector(selector);
       const behavior = props.scrollToFirstError;
-      dom && dom.scrollIntoView({ behavior });
+      if (behavior) {
+        dom && dom.scrollIntoView({ behavior });
+      }
     };
 
     const needValidate = (name: string, fields: string[] | undefined) => {
@@ -104,23 +106,23 @@ export default defineComponent({
       return result;
     };
     const submitHandler = (e?: FormSubmitEvent) => {
-      if (props.preventSubmitDefault) {
-        e?.preventDefault();
-        e?.stopPropagation();
+      if (props.preventSubmitDefault && e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
       validate().then((r) => {
         props.onSubmit?.({ validateResult: r, firstError: getFirstError(r), e });
       });
     };
-    const submit = () => {
-      formRef.value.submit();
+    const submit = async () => {
+      formRef.value.requestSubmit();
     };
 
-    const resetParams = ref<FormResetParams>();
+    const resetParams = ref<FormResetParams<Record<string, any>>>();
     const resetHandler = (e?: FormResetEvent) => {
-      if (props.preventSubmitDefault) {
-        e?.preventDefault();
-        e?.stopPropagation();
+      if (props.preventSubmitDefault && e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
       children.value
         .filter((child) => isFunction(child.resetField) && needValidate(child.name, resetParams.value?.fields))
@@ -128,8 +130,8 @@ export default defineComponent({
       resetParams.value = undefined;
       props.onReset?.({ e });
     };
-    const reset = (params?: FormResetParams) => {
-      resetParams.value = params;
+    const reset = <FormData,>(params?: FormResetParams<FormData>) => {
+      (resetParams.value as Record<string, any>) = params;
       formRef.value.reset();
     };
     const clearValidate = (fields?: Array<string>) => {

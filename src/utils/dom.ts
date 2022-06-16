@@ -101,8 +101,8 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any): HTMLElement => {
-  const attachNode = typeof node === 'function' ? node() : node;
+export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
+  const attachNode = typeof node === 'function' ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
   }

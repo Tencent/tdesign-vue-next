@@ -23,15 +23,6 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'ColorPanel',
-  components: {
-    PanelHeader,
-    LinearGradient,
-    SaturationPanel,
-    HueSlider,
-    AlphaSlider,
-    FormatPanel,
-    SwatchesPanel,
-  },
   props: {
     ...props,
     togglePopup: {
@@ -297,18 +288,18 @@ export default defineComponent({
         <>
           <div class={`${baseClassName}__swatches-wrap`}>
             {showUsedColors ? (
-              <swatches-panel
+              <SwatchesPanel
                 {...baseProps}
                 title={t(global.recentColorTitle)}
                 editable
-                colors={this.recentlyUsedColors}
+                colors={this.recentlyUsedColors as string[]}
                 handleAddColor={this.addRecentlyUsedColor}
                 onSetColor={(color: string) => this.handleSetColor('used', color)}
                 onChange={this.handleRecentlyUsedColorsChange}
               />
             ) : null}
             {showSystemColors ? (
-              <swatches-panel
+              <SwatchesPanel
                 {...baseProps}
                 title={t(global.swatchColorTitle)}
                 colors={systemColors}
@@ -325,15 +316,15 @@ export default defineComponent({
         class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}
         onClick={(e) => e.stopPropagation()}
       >
-        <panel-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
+        <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
           {this.mode === 'linear-gradient' ? (
-            <linear-gradient {...baseProps} onChange={this.handleGradientChange} />
+            <LinearGradient {...baseProps} onChange={this.handleGradientChange} />
           ) : null}
-          <saturation-panel {...baseProps} onChange={this.handleSatAndValueChange} />
-          <hue-slider {...baseProps} onChange={this.handleHueChange} />
-          {this.enableAlpha ? <alpha-slider {...baseProps} onChange={this.handleAlphaChange} /> : null}
-          <format-panel
+          <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
+          <HueSlider {...baseProps} onChange={this.handleHueChange} />
+          {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+          <FormatPanel
             {...this.$props}
             color={this.color}
             format={this.formatModel}

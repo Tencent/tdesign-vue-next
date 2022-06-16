@@ -14,20 +14,22 @@ describe('Dialog', () => {
     });
 
     it('placement', () => {
-      const dialog = mount(Dialog).find('.t-dialog');
+      const dialog = mount(Dialog).find('.t-dialog__position');
       const centerDialog = mount(Dialog, {
         propsData: {
           placement: 'center',
           width: '500px',
         },
-      }).find('.t-dialog');
+      });
+      const dialogWidth = centerDialog.find('.t-dialog');
+      const dialogPosition = centerDialog.find('.t-dialog__position');
       expect(dialog.classes()).toContain('t-dialog--top');
-      const centerDialogClass = centerDialog.classes();
+      const centerDialogClass = dialogPosition.classes();
       expect(centerDialogClass).not.toContain('t-dialog--top');
       expect(centerDialogClass).toContain('t-dialog--center');
-      const centerDialogStyles = centerDialog.attributes('style');
+
+      const centerDialogStyles = dialogWidth.attributes('style');
       expect(centerDialogStyles).toMatch(/width: 500px/);
-      expect(centerDialogStyles).not.toMatch(/translate/);
     });
 
     it('top', () => {
@@ -37,12 +39,14 @@ describe('Dialog', () => {
           width: '200px',
         },
       });
-      const dialog = wrapper.find('.t-dialog');
+      const dialogWidth = wrapper.find('.t-dialog');
+      const dialog = wrapper.find('.t-dialog__position');
       const classes = dialog.classes();
       const styles = dialog.attributes('style');
+      const widthStyles = dialogWidth.attributes('style');
       expect(classes).not.toContain('t-dialog--center');
-      expect(styles).toMatch(/top: 200px/);
-      expect(styles).toMatch(/width: 200px/);
+      expect(styles).toMatch(/padding-top: 200px/);
+      expect(widthStyles).toMatch(/width: 200px/);
       // expect(wrapper).toMatchSnapshot();
     });
 

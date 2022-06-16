@@ -29,9 +29,7 @@ export default defineComponent({
     const swiperWrap = ref<HTMLElement>();
     const getChildComponentByName = useChildComponentSlots();
 
-    const swiperItemLength = computed(() => {
-      return getChildComponentByName('TSwiperItem').length;
-    });
+    const swiperItemLength = ref(0);
     const navigationConfig = computed(() => {
       return {
         ...defaultNavigation,
@@ -88,8 +86,9 @@ export default defineComponent({
       }
       return {};
     });
-    const swiperItems = computed(() => {
+    const swiperItems = () => {
       const swiperItemList = getChildComponentByName('TSwiperItem');
+      swiperItemLength.value = swiperItemList.length;
       const items = swiperItemList.map((swiperItem: any, index) => {
         const p = { ...props, ...swiperItem.props };
         return (
@@ -112,7 +111,7 @@ export default defineComponent({
         items.push(first);
       }
       return items;
-    });
+    };
 
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
       let targetIndex = index % swiperItemLength.value;
@@ -271,7 +270,7 @@ export default defineComponent({
       );
     };
     const renderSwiperItems = () => {
-      return swiperItems.value;
+      return swiperItems();
     };
 
     watch(

@@ -5,18 +5,11 @@ import props from '../../props';
 import { FORMATS } from '../../const';
 import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
-import { Input as TInput } from '../../../input';
 import FormatInputs from './inputs';
 import { useBaseClassName } from '../../hooks';
 
 export default defineComponent({
   name: 'FormatPanel',
-  components: {
-    TSelect,
-    TInput,
-    TOption,
-    FormatInputs,
-  },
   inheritAttrs: false,
   props: {
     ...props,
@@ -72,7 +65,8 @@ export default defineComponent({
     return (
       <div className={`${baseClassName}__format`}>
         <div className={`${baseClassName}__format--item`}>
-          <t-select
+          <TSelect
+            autoWidth={true}
             {...selectInputProps}
             popupProps={{
               overlayClassName: `${baseClassName}__select-options`,
@@ -81,12 +75,12 @@ export default defineComponent({
             onChange={handleModeChange}
           >
             {formats.map((item) => (
-              <t-option key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
+              <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}
-          </t-select>
+          </TSelect>
         </div>
         <div className={`${baseClassName}__format--item`}>
-          <format-inputs {...newProps} />
+          <FormatInputs {...newProps} />
         </div>
       </div>
     );
