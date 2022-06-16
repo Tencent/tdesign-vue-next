@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="tdesign-demo-item__locale-provider-date-picker">
+  <t-config-provider :global-config="globalConfig">
     <t-date-picker mode="date" :first-day-of-week="7" />
     <br /><br />
     <t-date-picker mode="date" range />
@@ -36,12 +36,3 @@ const globalConfig = {
   datePicker: DATE_PICK_CONFIGS,
 };
 </script>
-
-<style scoped>
-.tdesign-demo-item__locale-provider-date-picker {
-  padding: 16px;
-}
-.tdesign-demo-item__locale-provider-date-picker .t-date-picker {
-  width: 400px;
-}
-</style>

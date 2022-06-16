@@ -1,6 +1,6 @@
 <template>
-  <t-config-provider :global-config="globalConfig" style="padding: 16px">
-    <t-calendar></t-calendar>
+  <t-config-provider :global-config="globalConfig">
+    <t-calendar />
   </t-config-provider>
 </template>
 
@@ -82,9 +82,3 @@ const globalConfig = merge(enConfig, {
   },
 });
 </script>
-
-<style scoped>
-.tdesign-demo-item--locale-provider-base {
-  margin: 24px -120px 0 0;
-}
-</style>

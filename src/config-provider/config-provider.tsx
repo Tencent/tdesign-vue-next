@@ -1,6 +1,8 @@
 import { defineComponent, PropType, provide, computed } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
 import { GlobalConfigProvider } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
+import { configProviderInjectKey, defaultGlobalConfig, mergeWidth } from './context';
 
 export default defineComponent({
   name: 'TConfigProvider',
@@ -10,20 +12,14 @@ export default defineComponent({
   },
 
   setup(props) {
+    const defaultData = cloneDeep(defaultGlobalConfig);
     provide(
-      'globalConfig',
-      computed(() => {
-        return props.globalConfig;
-      }),
+      configProviderInjectKey,
+      computed(() => mergeWidth(defaultData, props.globalConfig)),
     );
+
     const renderTNodeJSX = useTNodeJSX();
 
-    return () => {
-      const defaultNode = renderTNodeJSX('default');
-      if (defaultNode.length === 1) {
-        return defaultNode[0];
-      }
-      return <div>{defaultNode}</div>;
-    };
+    return () => <div>{renderTNodeJSX('default')}</div>;
   },
 });
