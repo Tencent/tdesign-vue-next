@@ -78,6 +78,18 @@ export default defineComponent({
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
       const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
 
+      if (props.type === 'password') {
+        if (renderType.value === 'password') {
+          suffixIcon = (
+            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        } else if (renderType.value === 'text') {
+          suffixIcon = (
+            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        }
+      }
+
       if (showClear.value) {
         suffixIcon = (
           <CloseCircleFilledIcon
@@ -105,18 +117,6 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
         },
       ];
-
-      if (props.type === 'password') {
-        if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        }
-      }
 
       const inputEvents = getValidAttrs({
         onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
