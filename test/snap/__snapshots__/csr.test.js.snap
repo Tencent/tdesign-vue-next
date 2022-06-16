@@ -35802,7 +35802,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -48516,7 +48516,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
             data-v-9f2cf57a=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49141,7 +49141,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49795,7 +49795,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49870,7 +49870,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51167,7 +51167,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51854,7 +51854,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
             data-v-9c22f148=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51985,7 +51985,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix"
+              class="t-input t-is-default t-input--prefix t-input--suffix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -53953,7 +53953,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -54219,7 +54219,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -58204,7 +58204,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -58269,7 +58269,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
