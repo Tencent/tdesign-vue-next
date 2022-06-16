@@ -155,7 +155,7 @@ export default defineComponent({
               onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
             />
             {props.autoWidth && (
-              <span ref={inputPreRef} className={`${classPrefix.value}-input__input-pre`}>
+              <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}
               </span>
             )}

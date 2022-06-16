@@ -36981,7 +36981,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   >
     
     <div
-      class="t-input__wrap t-select-input t-select-input--empty"
+      class="t-input__wrap t-select-input t-select-input--empty t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -121912,7 +121912,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -121968,7 +121968,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122037,7 +122037,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122098,7 +122098,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122164,7 +122164,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122226,7 +122226,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
   >
     
     <div
-      class="t-input__wrap t-select-input t-select-input--empty"
+      class="t-input__wrap t-select-input t-select-input--empty t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122288,7 +122288,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/format.vue 1`
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122357,7 +122357,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122418,7 +122418,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
   >
     
     <div
-      class="t-input__wrap t-select-input t-select-input--empty"
+      class="t-input__wrap t-select-input t-select-input--empty t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122480,7 +122480,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
   >
     
     <div
-      class="t-input__wrap t-select-input t-select-input--empty"
+      class="t-input__wrap t-select-input t-select-input--empty t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122542,7 +122542,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hms.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122611,7 +122611,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -122671,7 +122671,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122761,7 +122761,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
   class="tdesign-demo-block"
 >
   <div
-    class="demos"
+    class="_setter dep __v_isRef effect _cacheable __v_isReadonly _value demos"
   >
     <div
       class="t-range-input-popup"
@@ -122860,7 +122860,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/show-steps.vu
   >
     
     <div
-      class="t-input__wrap t-select-input t-select-input--empty"
+      class="t-input__wrap t-select-input t-select-input--empty t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122922,7 +122922,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/step.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -122984,7 +122984,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour.v
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -123048,7 +123048,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour-m
   >
     
     <div
-      class="t-input__wrap t-select-input"
+      class="t-input__wrap t-select-input t-time-picker__group"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
