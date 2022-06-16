@@ -4,7 +4,12 @@ import dayjs from 'dayjs';
 import useSingleValue from './hooks/useSingleValue';
 import useFormat from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
-import type { DateValue } from './type';
+import type {
+  DateValue,
+  TdDatePickerPanelProps,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+} from './type';
 import props from './date-picker-panel-props';
 
 import TSinglePanel from './panel/SinglePanel';
@@ -12,7 +17,7 @@ import TSinglePanel from './panel/SinglePanel';
 export default defineComponent({
   name: 'TDatePickerPanel',
   props,
-  setup(props) {
+  setup(props: TdDatePickerPanelProps) {
     const { cacheValue, value, year, month, time, onChange } = useSingleValue(props);
 
     const { formatDate, format } = useFormat({
@@ -69,14 +74,14 @@ export default defineComponent({
         props.onYearChange?.({
           year: nextYear,
           date: dayjs(value.value).toDate(),
-          trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
+          trigger: flag === 0 ? 'today' : (`year-${triggerMap[flag]}` as DatePickerYearChangeTrigger),
         });
       }
       if (month.value !== nextMonth) {
         props.onMonthChange?.({
           month: nextMonth,
           date: dayjs(value.value).toDate(),
-          trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
+          trigger: flag === 0 ? 'today' : (`month-${triggerMap[flag]}` as DatePickerMonthChangeTrigger),
         });
       }
 
@@ -113,7 +118,7 @@ export default defineComponent({
         dayjsValue: dayjs(cacheValue.value as string),
         trigger: 'confirm',
       });
-      props.onConfirm?.({ date: formatDate(cacheValue.value, { formatType: 'valueType' }), e });
+      props.onConfirm?.({ date: dayjs(cacheValue.value as string).toDate(), e });
     }
 
     // 预设
