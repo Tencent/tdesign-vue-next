@@ -308,7 +308,7 @@ export default defineComponent({
 
     const classes = computed(() => [
       CLASS_NAMES.value.formItem,
-      FORM_ITEM_CLASS_PREFIX.value + props.name || '',
+      FORM_ITEM_CLASS_PREFIX.value + (props.name || ''),
       {
         [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
         [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,
