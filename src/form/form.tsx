@@ -3,7 +3,8 @@ import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
-import { FormItemValidateResult } from '@src/form/form-item';
+import { requestSubmit } from '../utils/dom';
+import { FormItemValidateResult } from './form-item';
 import {
   Data,
   FormResetParams,
@@ -131,7 +132,7 @@ export default defineComponent({
     };
     const submit = async <T extends Data>(params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
       submitParams.value = params;
-      formRef.value.requestSubmit();
+      requestSubmit(formRef.value);
     };
 
     const resetParams = ref<FormResetParams<Data>>();
