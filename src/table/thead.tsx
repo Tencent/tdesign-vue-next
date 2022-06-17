@@ -25,8 +25,8 @@ export interface TheadProps {
   columnResizeParams: {
     resizeLineRef: HTMLDivElement;
     resizeLineStyle: Object;
-    onColumnMouseover: Function;
-    onColumnMousedown: Function;
+    onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
+    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
   };
   resizable: Boolean;
 }
