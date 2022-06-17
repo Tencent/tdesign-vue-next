@@ -1,4 +1,6 @@
 import { ref, watch, Ref } from 'vue';
+import get from 'lodash/get';
+import log from '../../_common/js/log';
 import { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '../type';
 
 export interface SkipSpansValue {
@@ -7,9 +9,18 @@ export interface SkipSpansValue {
   skipped?: boolean;
 }
 
+export function getCellKey(row: TableRowData, rowKey: string, colKey: string, colIndex: number) {
+  const rowValue = get(row, rowKey);
+  if (rowValue === undefined) {
+    log.error('Table', 'rowKey is wrong, can not get unique identifier of row.');
+  }
+  return [rowValue, colKey || colIndex].join('_');
+}
+
 export default function useRowspanAndColspan(
   data: Ref<TableRowData[]>,
   columns: Ref<BaseTableCol<TableRowData>[]>,
+  rowKey: Ref<string>,
   rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
 ) {
   const skipSpansMap = ref(new Map<string, SkipSpansValue>());
@@ -23,7 +34,7 @@ export default function useRowspanAndColspan(
     for (let i = rowIndex; i < maxRowIndex; i++) {
       for (let j = colIndex; j < maxColIndex; j++) {
         if (i !== rowIndex || j !== colIndex) {
-          const cellKey = [i, j].join();
+          const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
           skipSpansMap.value.set(cellKey, state);
@@ -42,13 +53,14 @@ export default function useRowspanAndColspan(
     for (let i = 0, len = data.length; i < len; i++) {
       const row = data[i];
       for (let j = 0, colLen = columns.length; j < colLen; j++) {
+        const col = columns[j];
         const params = {
           row,
-          col: columns[j],
+          col,
           rowIndex: i,
           colIndex: j,
         };
-        const cellKey = [i, j].join();
+        const cellKey = getCellKey(row, rowKey.value, col.colKey, j);
         const state = skipSpansMap.value.get(cellKey) || {};
         const o = rowspanAndColspan(params) || {};
         if (o.rowspan > 1 || o.colspan > 1 || state.rowspan || state.colspan) {
