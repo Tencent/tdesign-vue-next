@@ -170,12 +170,7 @@ const esmConfig = {
   // 为了保留 style/index.js
   treeshake: false,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [
-    multiInput(),
-    postcss({
-      extensions: ['.sass', '.scss', '.css', '.less'],
-    }),
-  ].concat(getPlugins({ ignoreLess: false })),
+  plugins: [multiInput()].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
     dir: 'esm/',
@@ -189,12 +184,7 @@ const esmConfig = {
 const cjsConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [
-    multiInput(),
-    postcss({
-      extensions: ['.sass', '.scss', '.css', '.less'],
-    }),
-  ].concat(getPlugins({ ignoreLess: false })),
+  plugins: [multiInput()].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
     dir: 'lib/',

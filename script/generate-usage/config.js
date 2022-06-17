@@ -53,9 +53,26 @@ module.exports = {
     },
   },
   'date-picker': {
-    panelStr: `const panelList = [{label: 'datePicker', value: 'datePicker'}];`,
+    importStr: `
+      import datePickerConfigJson from './date-picker-props.json';\n
+      import dateRangePickerConfigJson from './date-range-picker-props.json';\n
+    `,
+    configStr: `const configList = ref(datePickerConfigJson);`,
+    panelStr: `
+      const panelList = [
+        {label: 'datePicker', value: 'datePicker', config: datePickerConfigJson},
+        {label: 'dateRangePicker', value: 'dateRangePicker', config: dateRangePickerConfigJson}
+      ];
+    `,
+    panelChangeStr: `
+      function onPanelChange(panel) {
+        configList.value = panelList.find(item => item.value === panel).config;
+        usageCode.value = \`<template>\${usageCodeMap[panel].trim()}</template>\`;
+      }
+    `,
     render: {
       datePicker: `<t-date-picker v-bind="configProps" />`,
+      dateRangePicker: `<t-date-range-picker v-bind="configProps" />`,
     },
   },
   dropdown: {

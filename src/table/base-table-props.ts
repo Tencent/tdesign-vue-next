@@ -8,8 +8,11 @@ import { TdBaseTableProps } from '../table/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 是否允许调整列宽 */
-  allowResizeColumnWidth: Boolean,
+  /** 已废弃。是否允许调整列宽。请更为使用 `resizable` */
+  allowResizeColumnWidth: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示表格边框 */
   bordered: Boolean,
   /** 表格底部内容，可以用于自定义列设置等 */
@@ -46,13 +49,13 @@ export default {
     type: Array as PropType<TdBaseTableProps['footData']>,
     default: (): TdBaseTableProps['footData'] => [],
   },
-  /** 表尾吸底 */
+  /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围 */
   footerAffixedBottom: Boolean,
   /** 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性 */
   footerAffixProps: {
     type: Object as PropType<TdBaseTableProps['footerAffixProps']>,
   },
-  /** 表头吸顶 */
+  /** 表头吸顶。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围 */
   headerAffixedTop: Boolean,
   /** 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
   headerAffixProps: {
@@ -85,6 +88,8 @@ export default {
   pagination: {
     type: Object as PropType<TdBaseTableProps['pagination']>,
   },
+  /** 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]` */
+  resizable: Boolean,
   /** HTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }] */
   rowAttributes: {
     type: [Object, Array, Function] as PropType<TdBaseTableProps['rowAttributes']>,

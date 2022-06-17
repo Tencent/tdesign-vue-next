@@ -292,6 +292,7 @@ export default defineComponent({
         text={customLoadingText ? () => customLoadingText : undefined}
         attach={this.tableRef ? () => this.tableRef : undefined}
         showOverlay
+        size="small"
         {...(this.loadingProps as BaseTableProps['loadingProps'])}
       ></Loading>
     );

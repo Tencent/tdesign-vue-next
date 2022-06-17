@@ -22,8 +22,7 @@ const options1 = [
   {
     label: '计算场景',
     value: '6',
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    content: (h) => <span>计算场景（高性能计算）</span>,
+    content: () => <span>计算场景（高性能计算）</span>,
   },
 ];
 const options2 = [

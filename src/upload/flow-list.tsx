@@ -264,7 +264,13 @@ export default defineComponent({
 
     const renderImgList = () =>
       props.theme === 'image-flow' && (
-        <div class={`${UPLOAD_NAME.value}__flow-card-area`}>
+        <div
+          class={`${UPLOAD_NAME.value}__flow-card-area`}
+          onDrop={handleDrop}
+          onDragenter={handleDragenter}
+          onDragover={handleDragover}
+          onDragleave={handleDragleave}
+        >
           {showInitial.value && renderDragger()}
           {!!listFiles.value.length && (
             <ul class={`${UPLOAD_NAME.value}__card clearfix`}>

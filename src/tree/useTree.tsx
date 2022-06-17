@@ -11,7 +11,7 @@ import { getMark, getNode, getStoreConfig } from './util';
 
 import { TypeEventState, TypeTreeNodeModel } from './interface';
 
-export default function useTree(props: TdTreeProps, statusContext: any) {
+export default function useTree(props: TdTreeProps) {
   const treeStore = ref();
   const cacheMap = new Map();
   const treeNodeViews = ref([]);

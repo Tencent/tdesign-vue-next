@@ -42,8 +42,9 @@ const initialData = new Array(4).fill(5).map((_, i) => ({
 
 const data = ref(initialData);
 
-const onDragSort = ({ currentIndex, targetIndex, current, target, currentData, e }) => {
-  console.log('交换行', currentIndex, targetIndex, current, target, currentData, e);
-  data.value = currentData;
+// currentData is going to be deprecated
+const onDragSort = ({ currentIndex, targetIndex, current, target, data, newData, e }) => {
+  console.log('交换行', currentIndex, targetIndex, current, target, data, newData, e);
+  data.value = newData;
 };
 </script>

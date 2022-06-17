@@ -21,8 +21,8 @@ import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes, Componen
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
-   * 是否允许调整列宽
-   * @default false
+   * 是否允许调整列宽。请更为使用 `resizable`
+   * @deprecated
    */
   allowResizeColumnWidth?: boolean;
   /**
@@ -68,7 +68,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 表尾吸底
+   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围
    * @default false
    */
   footerAffixedBottom?: boolean;
@@ -77,7 +77,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footerAffixProps?: AffixProps;
   /**
-   * 表头吸顶
+   * 表头吸顶。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围
    * @default false
    */
   headerAffixedTop?: boolean;
@@ -114,6 +114,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`
    */
   pagination?: PaginationProps;
+  /**
+   * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`
+   * @default false
+   */
+  resizable?: boolean;
   /**
    * HTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]
    */
@@ -266,6 +271,10 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   render?: TNode<BaseTableRenderParams<T>>;
   /**
+   * 限制拖拽调整的最小宽度和最大宽度。`resize.minWidth` 默认为 `80`，`resize.maxWidth` 默认为 `600`
+   */
+  resize?: TableColumnResizeConfig;
+  /**
    * 自定义表头渲染。值类型为 Function 表示以函数形式渲染表头。值类型为 string 表示使用插槽渲染，插槽名称为 title 的值。优先级高于 render
    */
   title?: string | TNode<{ col: BaseTableCol; colIndex: number }>;
@@ -417,7 +426,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onDisplayColumnsChange?: (value: CheckboxGroupValue) => void;
   /**
-   * 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发
+   * 拖拽排序时触发，`data` 表示排序前的数据，`newData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发
    */
   onDragSort?: (context: DragSortContext<T>) => void;
   /**
@@ -466,7 +475,7 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    */
   edit?: TableEditableCellConfig<T>;
   /**
-   * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，自定义过滤组件需要包含参数 value 和事件 change
+   * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，自定义过滤组件需要包含参数 value 和事件 change。更多信息请查看当前页面中 `TableColumnFilter` 的详细文档
    */
   filter?: TableColumnFilter;
   /**
@@ -608,9 +617,13 @@ export interface TableRowState<T extends TableRowData = TableRowData> {
 
 export interface TableColumnFilter {
   /**
-   * 用于自定义筛选器，只要保证自定义筛选器包含 value 属性 和 change 事件，即可像内置筛选器一样正常使用
+   * 用于自定义筛选器，只要保证自定义筛选器包含 value 属性 和 change 事件，即可像内置筛选器一样正常使用。示例：`component: DatePicker`
    */
-  component?: TNode;
+  component?: ComponentType;
+  /**
+   * 哪些事件触发后会进行过滤搜索（确认按钮无需配置，会默认触发搜索）。输入框组件示例：`confirmEvents: ['onEnter']`
+   */
+  confirmEvents?: string[];
   /**
    * 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效
    */
@@ -805,6 +818,11 @@ export interface BaseTableRenderParams<T> extends BaseTableCellParams<T> {
 
 export type RenderType = 'cell' | 'title';
 
+export interface TableColumnResizeConfig {
+  minWidth: number;
+  maxWidth: number;
+}
+
 export type DataType = TableRowData;
 
 export interface TableExpandedRowParams<T> {
@@ -864,7 +882,9 @@ export interface DragSortContext<T> {
   current: T;
   targetIndex: number;
   target: T;
-  currentData: T[];
+  data: T[];
+  newData: T[];
+  currentData?: T[];
   e: SortableEvent;
   sort: 'row' | 'col';
 }

@@ -9,9 +9,6 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTabNavItem',
-  components: {
-    CloseIcon,
-  },
 
   props: {
     index: Number,

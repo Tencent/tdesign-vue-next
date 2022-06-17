@@ -10,8 +10,8 @@ export interface FormDisabledProvider {
  * @returns
  */
 export function useFormDisabled(extend?: Ref<boolean>) {
-  const { props } = getCurrentInstance();
-  const propsDisabled = computed(() => props.disabled as boolean);
+  const ctx = getCurrentInstance();
+  const propsDisabled = computed(() => ctx.props.disabled as boolean);
   const { disabled } = inject<FormDisabledProvider>('formDisabled', Object.create(null));
-  return computed(() => propsDisabled.value || disabled?.value || extend?.value);
+  return computed(() => propsDisabled.value || disabled?.value || extend?.value || false);
 }

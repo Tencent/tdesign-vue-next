@@ -9,6 +9,7 @@ import { CheckboxGroupInjectionKey } from './constants';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { useChildComponentSlots } from '../hooks/slot';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -121,7 +122,10 @@ export default defineComponent({
       }
     };
 
-    const getOptionListBySlots = (nodes: VNode[]) => {
+    const getChildComponentSlots = useChildComponentSlots();
+
+    const getOptionListBySlots = () => {
+      const nodes = getChildComponentSlots('checkbox');
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
@@ -166,7 +170,7 @@ export default defineComponent({
         ));
       } else {
         const nodes = renderTNodeJSX('default');
-        optionList.value = getOptionListBySlots(nodes);
+        optionList.value = getOptionListBySlots();
         children = nodes;
       }
       return <div class={COMPONENT_NAME.value}>{children}</div>;

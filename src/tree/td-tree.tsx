@@ -1,24 +1,11 @@
-import { computed, defineComponent, ComputedRef, Slots, TransitionGroup, provide, InjectionKey } from 'vue';
+import { computed, defineComponent, TransitionGroup, provide } from 'vue';
 
 import props from './props';
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeDefault } from '../hooks/tnode';
-import { useCLASSNAMES } from './constants';
+import { useCLASSNAMES, injectKey } from './constants';
 import useTree from './useTree';
 import useExposeFunc from './useExposeFunc';
-import { TdTreeProps } from './type';
-
-export const injectKey: InjectionKey<
-  ComputedRef<{
-    checkProps: TdTreeProps['checkProps'];
-    icon: TdTreeProps['icon'];
-    label: TdTreeProps['label'];
-    line: TdTreeProps['line'];
-    operations: TdTreeProps['operations'];
-    disableCheck: TdTreeProps['disableCheck'];
-    scopedSlots: Slots;
-  }>
-> = Symbol('treeProvider');
 
 export default defineComponent({
   name: 'TTree',
@@ -45,7 +32,7 @@ export default defineComponent({
     provide(injectKey, statusContext);
 
     // tree核心逻辑
-    const { treeStore, treeNodeViews } = useTree(props, statusContext);
+    const { treeStore, treeNodeViews } = useTree(props);
 
     // 导出方法
     useExposeFunc(treeStore, expose);

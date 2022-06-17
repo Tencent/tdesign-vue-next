@@ -1,14 +1,14 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-addon prepend="checked:">
+    <t-input-adornment prepend="checked:">
       <t-input :value="allChecked" />
-    </t-addon>
-    <t-addon prepend="expanded:">
+    </t-input-adornment>
+    <t-input-adornment prepend="expanded:">
       <t-input :value="allExpanded" />
-    </t-addon>
-    <t-addon prepend="activated:">
+    </t-input-adornment>
+    <t-input-adornment prepend="activated:">
       <t-input :value="allActived" />
-    </t-addon>
+    </t-input-adornment>
     <t-tree
       :data="items"
       checkable

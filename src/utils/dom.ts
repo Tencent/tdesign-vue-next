@@ -101,8 +101,8 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any): HTMLElement => {
-  const attachNode = typeof node === 'function' ? node() : node;
+export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
+  const attachNode = typeof node === 'function' ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
   }
@@ -259,4 +259,16 @@ export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLEle
     // selected元素未滚动到，则将其向上滚动到可视范围底部
     parentEle.scrollTop = selectedBottom - parentEle.clientHeight;
   }
+};
+
+export const requestSubmit = (target: HTMLFormElement) => {
+  if (!(target instanceof HTMLFormElement)) {
+    throw new Error('target must be HTMLFormElement');
+  }
+  const submitter = document.createElement('input');
+  submitter.type = 'submit';
+  submitter.hidden = true;
+  target.appendChild(submitter);
+  submitter.click();
+  target.removeChild(submitter);
 };

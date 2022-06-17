@@ -4,6 +4,7 @@ import { SliderMarks } from '../type';
 import { TNode } from '../../common';
 import log from '../../_common/js/log/log';
 import { getStopStyle } from '../util/common';
+import TSliderMark from '../slider-mark';
 
 interface MarkItem {
   point: number;
@@ -79,8 +80,8 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
           </div>
           <div class={`${name}__mark`}>
             {markList.value.map((item, key) => (
-              <t-slider-mark
-                mark={item.mark}
+              <TSliderMark
+                mark={item.mark as any}
                 point={item.point}
                 key={key}
                 style={getStopStyle(item.position, config.value.vertical)}

@@ -10,14 +10,6 @@ import useComponentComputed from './useComponentComputed';
 
 export default defineComponent({
   name: 'TInputNumber',
-  components: {
-    AddIcon,
-    RemoveIcon,
-    ChevronDownIcon,
-    ChevronUpIcon,
-    TButton,
-    TInput,
-  },
   props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-number');
@@ -35,16 +27,16 @@ export default defineComponent({
     } = useComponentComputed(COMPONENT_NAME, props);
 
     const decreaseIcon = computed(() =>
-      props.theme === 'column' ? <chevron-down-icon size={props.size} /> : <remove-icon size={props.size} />,
+      props.theme === 'column' ? <ChevronDownIcon size={props.size} /> : <RemoveIcon size={props.size} />,
     );
     const increaseIcon = computed(() =>
-      props.theme === 'column' ? <chevron-up-icon size={props.size} /> : <add-icon size={props.size} />,
+      props.theme === 'column' ? <ChevronUpIcon size={props.size} /> : <AddIcon size={props.size} />,
     );
 
     return () => (
       <div class={componentWrapClasses.value}>
         {props.theme !== 'normal' && (
-          <t-button
+          <TButton
             class={reduceClasses.value}
             {...reduceEvents.value}
             variant="outline"
@@ -55,7 +47,7 @@ export default defineComponent({
           />
         )}
 
-        <t-input
+        <TInput
           {...inputAttrs.value}
           {...inputEvents.value}
           {...(props.inputProps as InputProps)}
@@ -63,7 +55,7 @@ export default defineComponent({
           onChange={(val: string, { e }: { e: InputEvent }) => handleInput(val, e)}
         />
         {props.theme !== 'normal' && (
-          <t-button
+          <TButton
             class={addClasses.value}
             {...addEvents.value}
             variant="outline"

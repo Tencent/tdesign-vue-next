@@ -1,4 +1,5 @@
 import { Ref } from 'vue';
+import upperFirst from 'lodash/upperFirst';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TreeOptionData } from '../common';
@@ -14,11 +15,9 @@ export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (expose
     if (node && spec) {
       ['expanded', 'actived', 'checked'].forEach((name) => {
         if (keys.includes(name)) {
-          // this[`set${upperFirst(name)}`](node, spec[name]);
-          // delete spec[name];
+          node[`set${upperFirst(name)}`](spec);
         }
       });
-      node.set(spec);
     }
   };
 

@@ -16,6 +16,7 @@ export interface CascaderContextType
     | 'lazy'
     | 'multiple'
     | 'filterable'
+    | 'filter'
     | 'clearable'
     | 'checkProps'
     | 'showAllLevels'
