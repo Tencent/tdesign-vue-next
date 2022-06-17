@@ -24,6 +24,7 @@ import {
   Data,
   FormErrorMessage,
   FormItemValidateMessage,
+  FormRule,
   ValidateTriggerType,
   ValueType,
 } from './type';
@@ -36,6 +37,7 @@ import {
   FormItemInjectionKey,
   SuccessListType,
   useCLASSNAMES,
+  ValidateStatus,
 } from './const';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
@@ -43,12 +45,6 @@ import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
-
-export const enum ValidateStatus {
-  TO_BE_VALIDATED = 'not',
-  SUCCESS = 'success',
-  FAIL = 'fail',
-}
 
 export default defineComponent({
   name: 'TFormItem',
@@ -210,7 +206,7 @@ export default defineComponent({
     };
 
     const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? global.value.errorMessage);
-    const innerRules = computed(() => {
+    const innerRules = computed<FormRule[]>(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
       const index = `${props.name}`.lastIndexOf('.') || -1;

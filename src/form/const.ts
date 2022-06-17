@@ -62,6 +62,12 @@ export const useCLASSNAMES = () => {
   });
 };
 
+export const enum ValidateStatus {
+  TO_BE_VALIDATED = 'not',
+  SUCCESS = 'success',
+  FAIL = 'fail',
+}
+
 export type ErrorListType =
   | {
       result: false;
