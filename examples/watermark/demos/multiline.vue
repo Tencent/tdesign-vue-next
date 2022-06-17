@@ -14,4 +14,3 @@
     <div style="height: 300px" />
   </t-watermark>
 </template>
-<script setup></script>

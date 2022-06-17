@@ -3,9 +3,9 @@ import props from './props';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
 import injectStyle from '../_common/js/utils/injectStyle';
-
 import { usePrefixClass } from '../hooks/useConfig';
 import { useMutationObserver } from './hooks';
+import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TWatermark',
@@ -15,6 +15,7 @@ export default defineComponent({
     const backgroundImage = ref('');
     const watermarkRef = ref<HTMLElement>();
     const parent = ref<HTMLElement>();
+    const renderContent = useContent();
 
     const x = ref(props.x || 200);
     const y = ref(props.y || 210);
@@ -89,16 +90,14 @@ export default defineComponent({
       injectStyle(keyframesStyle);
     });
 
-    const { default: children } = slots;
     return () => (
       <div
         style={{ position: 'relative', overflow: 'hidden', width: '100%' }}
         class={COMPONENT_NAME.value}
         ref={watermarkRef}
       >
-        {children?.(null) || props.content}
+        {renderContent('default', 'content')}
         <div
-          class={''}
           style={{
             zIndex: zIndex.value,
             position: 'absolute',

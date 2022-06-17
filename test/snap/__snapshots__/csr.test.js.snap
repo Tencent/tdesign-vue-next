@@ -141321,7 +141321,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/base.vue 1`] = 
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 200px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
   />
 </div>
@@ -141338,7 +141337,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/graylevel.vue 1
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 258px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
   />
 </div>
@@ -141355,7 +141353,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/image.vue 1`] =
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 194px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
   />
 </div>
@@ -141372,7 +141369,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/movingImage.vue
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 158px; pointer-events: none; background-repeat: no-repeat; background-image: url(); animation: watermark infinite 200s;"
   />
 </div>
@@ -141389,7 +141385,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/movingText.vue 
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 120px; pointer-events: none; background-repeat: no-repeat; background-image: url(); animation: watermark infinite 200s;"
   />
 </div>
@@ -141406,7 +141401,6 @@ exports[`csr snapshot test > csr test ./examples/watermark/demos/multiline.vue 1
   />
   
   <div
-    class=""
     style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 258px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
   />
 </div>
