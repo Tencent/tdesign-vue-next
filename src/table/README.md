@@ -12,19 +12,24 @@
 
 ### 功能文件分类
 
-- hooks/useAsyncLoading 异步加载功能，PrimaryTable
+- hooks/useStyle 基础样式，BaseTable
 - hooks/useClassName 全部类名，BaseTable
-- hooks/useColumnController 自定义列配置，PrimaryTable
-- hooks/useFilter 过滤/筛选，PrimaryTable
-- hooks/useFixed 固定表头/固定列/固定行，BaseTable
+- hooks/useAffix 吸顶和吸底，BaseTable（表头吸顶、表尾吸底、底部滚动条吸底、分页器吸底）
+- hooks/useTableHeader 表头，BaseTable
+- hooks/useRowspanAndColspan 合并单元格，BaseTable
+- hooks/useColumnResize 列宽可拖动，BaseTable
+- hooks/useFixed 固定表头/固定列/固定行，表头吸顶，表尾吸顶，BaseTable
 - hooks/useMultiHeader 多级表头，BaseTable
 - hooks/usePagination 分页，BaseTable
+- hooks/useLazyLoad 懒加载，BaseTable
+
+- hooks/useAsyncLoading 异步加载功能，PrimaryTable
+- hooks/useColumnController 自定义列配置，PrimaryTable
+- hooks/useFilter 过滤/筛选，PrimaryTable
 - hooks/useRowExpand 展开/收起行，PrimaryTable
 - hooks/useRowSelect 行选中，PrimaryTable
 - hooks/useSorter 排序，PrimaryTable
-- hooks/useStyle 基础样式，BaseTable
-- hooks/useTableHeader 表头，BaseTable
-- hooks/useLazyLoad 懒加载，BaseTable
 - hooks/useDragSort 拖拽排序，PrimaryTable
+
 - hooks/useTreeData 树形结构，EnhancedTable
 - hooks/useTreeSelect 树形选择，EnhancedTable

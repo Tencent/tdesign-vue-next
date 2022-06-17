@@ -2,6 +2,7 @@ import { computed, defineComponent, SetupContext, toRefs, ref, provide, nextTick
 import pick from 'lodash/pick';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
+import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
 import useVirtualScroll from '../hooks/useVirtualScroll';
@@ -65,6 +66,10 @@ export default defineComponent({
     } = useFixed(props, context);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const { dataSource, isPaginateData, renderPagination } = usePagination(props);
+
+    // 列宽拖拽逻辑
+    const columnResizeParams = useColumnResize(tableElmRef, refreshTable);
+    const { resizeLineRef, resizeLineStyle } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -175,6 +180,9 @@ export default defineComponent({
       scrollbarWidth,
       isMultipleHeader,
       showRightDivider,
+      resizeLineRef,
+      resizeLineStyle,
+      columnResizeParams,
       refreshTable,
       onTableContentScroll,
       renderPagination,
@@ -190,6 +198,7 @@ export default defineComponent({
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
 
+    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
@@ -213,6 +222,8 @@ export default defineComponent({
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
             thWidthList={this.thWidthList}
+            resizable={columnResizable}
+            columnResizeParams={this.columnResizeParams}
           />
         </table>
       </div>
@@ -253,6 +264,8 @@ export default defineComponent({
         style={this.tableContentStyles}
         onScroll={this.onInnerScroll}
       >
+        <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>
+
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
@@ -269,6 +282,8 @@ export default defineComponent({
             bordered={this.bordered}
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
+            resizable={columnResizable}
+            columnResizeParams={this.columnResizeParams}
           />
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot

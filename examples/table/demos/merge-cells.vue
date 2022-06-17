@@ -7,6 +7,7 @@
       row-key="i"
       :size="size"
       :rowspan-and-colspan="rowspanAndColspan"
+      resizable
     />
   </div>
 </template>

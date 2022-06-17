@@ -27,12 +27,18 @@ export default function useClassName() {
       columnFixed: `${classPrefix.value}-table--column-fixed`,
       widthOverflow: `${classPrefix.value}-table--width-overflow`,
       multipleHeader: `${classPrefix.value}-table--multiple-header`,
+      footerAffixed: `${classPrefix.value}-table--footer-affixed`,
+      horizontalBarAffixed: `${classPrefix.value}-table--horizontal-bar-affixed`,
       affixedHeader: `${classPrefix.value}-table--affixed-header`,
       affixedHeaderElm: `${classPrefix.value}-table__affixed-header-elm`,
+      affixedFooterWrap: `${classPrefix.value}-table__affixed-footer-wrap`,
       // 边框模式，固定表头，横向滚动时，右侧添加边线，分隔滚动条
       scrollbarDivider: `${classPrefix.value}-table__scroll-bar-divider`,
       // 当用户设置 height 为固定高度，为保证行元素铺满 table，则需设置 table 元素高度为 100%
       fullHeight: `${classPrefix.value}-table--full-height`,
+      // 拖拽列时的标记线
+      resizeLine: `${classPrefix.value}-table__resize-line`,
+      obviousScrollbar: `${classPrefix.value}-table__scrollbar--obvious`,
     },
 
     tdAlignClasses: {
