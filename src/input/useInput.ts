@@ -96,9 +96,9 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
       inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
-    // @ts-ignore 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
+    // 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
     if (!isClearIcon()) {
-      props.onBlur?.(props.value, { e });
+      props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     }
   };

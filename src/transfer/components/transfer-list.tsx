@@ -201,7 +201,7 @@ export default defineComponent({
                 props.checkedValue.includes(item.value) ? `${classPrefix.value}-is-checked` : '',
               ]}
               key={item.key}
-              {...{ props: props.checkboxProps }}
+              {...props.checkboxProps}
             >
               {renderTNodeJSX('transferItem', {
                 defaultNode: <span>{item.label}</span>,

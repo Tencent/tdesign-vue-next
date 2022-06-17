@@ -24298,6 +24298,55 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
   </div>
   <!---->
   
+  
+  <div
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+  >
+    <div
+      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
 </div>
 `;
 
@@ -35753,7 +35802,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -35880,7 +35929,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -35904,7 +35952,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -35927,7 +35974,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -35950,7 +35996,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -35973,7 +36018,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -35997,7 +36041,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36020,7 +36063,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36043,7 +36085,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36066,7 +36107,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36090,7 +36130,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36113,7 +36152,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36136,7 +36174,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36159,7 +36196,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36183,7 +36219,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36206,7 +36241,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36229,7 +36263,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36252,7 +36285,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36276,7 +36308,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36299,7 +36330,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -36322,7 +36352,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -48487,7 +48516,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
             data-v-9f2cf57a=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49117,7 +49146,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49771,7 +49800,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -49846,7 +49875,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51143,7 +51172,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51830,7 +51859,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
             data-v-9c22f148=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -51961,7 +51990,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix"
+              class="t-input t-is-default t-input--prefix t-input--suffix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -53942,7 +53971,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -54208,7 +54237,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input t-is-default t-input--suffix"
             >
               <!---->
               <!---->
@@ -58193,7 +58222,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -58258,7 +58287,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -123621,7 +123650,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123645,7 +123673,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123668,7 +123695,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123691,7 +123717,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123714,7 +123739,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123738,7 +123762,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123761,7 +123784,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123784,7 +123806,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123807,7 +123828,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123831,7 +123851,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123854,7 +123873,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123877,7 +123895,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123900,7 +123917,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123924,7 +123940,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123947,7 +123962,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123970,7 +123984,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -123993,7 +124006,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124017,7 +124029,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124040,7 +124051,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124063,7 +124073,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124260,7 +124269,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124284,7 +124292,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124307,7 +124314,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124330,7 +124336,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124353,7 +124358,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124377,7 +124381,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124400,7 +124403,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124423,7 +124425,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124446,7 +124447,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124470,7 +124470,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124493,7 +124492,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124516,7 +124514,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124539,7 +124536,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124563,7 +124559,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124586,7 +124581,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124609,7 +124603,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124632,7 +124625,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124656,7 +124648,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124679,7 +124670,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124702,7 +124692,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124903,7 +124892,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124926,7 +124914,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124949,7 +124936,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124972,7 +124958,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -124995,7 +124980,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125018,7 +125002,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125041,7 +125024,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125064,7 +125046,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125087,7 +125068,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125110,7 +125090,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125133,7 +125112,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125156,7 +125134,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125179,7 +125156,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125202,7 +125178,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125225,7 +125200,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125248,7 +125222,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125271,7 +125244,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125294,7 +125266,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125317,7 +125288,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125340,7 +125310,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125526,7 +125495,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125553,7 +125521,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125580,7 +125547,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125607,7 +125573,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125634,7 +125599,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125661,7 +125625,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125688,7 +125651,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125715,7 +125677,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125742,7 +125703,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125769,7 +125729,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125796,7 +125755,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125823,7 +125781,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125850,7 +125807,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125877,7 +125833,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125904,7 +125859,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125931,7 +125885,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125958,7 +125911,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -125985,7 +125937,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126012,7 +125963,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126039,7 +125989,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/custom-render.vu
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126241,7 +126190,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126264,7 +126212,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126287,7 +126234,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126310,7 +126256,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126333,7 +126278,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126356,7 +126300,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126379,7 +126322,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126402,7 +126344,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126425,7 +126366,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126448,7 +126388,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126587,7 +126526,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126611,7 +126549,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126635,7 +126572,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126659,7 +126595,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126683,7 +126618,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126707,7 +126641,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126731,7 +126664,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126755,7 +126687,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126779,7 +126710,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -126803,7 +126733,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/disabled.vue 1`]
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127236,7 +127165,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127259,7 +127187,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127282,7 +127209,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127305,7 +127231,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127328,7 +127253,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127351,7 +127275,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127374,7 +127297,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127397,7 +127319,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127420,7 +127341,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127443,7 +127363,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127771,7 +127690,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127794,7 +127712,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127817,7 +127734,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127840,7 +127756,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127863,7 +127778,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127886,7 +127800,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127909,7 +127822,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127932,7 +127844,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127955,7 +127866,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -127978,7 +127888,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128001,7 +127910,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128024,7 +127932,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128047,7 +127954,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128070,7 +127976,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128093,7 +127998,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128116,7 +128020,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128139,7 +128042,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128162,7 +128064,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128185,7 +128086,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128208,7 +128108,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128430,7 +128329,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128453,7 +128351,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128476,7 +128373,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128499,7 +128395,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128522,7 +128417,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128545,7 +128439,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128568,7 +128461,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128591,7 +128483,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128614,7 +128505,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128637,7 +128527,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128775,7 +128664,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128798,7 +128686,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128821,7 +128708,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128844,7 +128730,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128867,7 +128752,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128890,7 +128774,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128913,7 +128796,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128936,7 +128818,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128959,7 +128840,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"
@@ -128982,7 +128862,6 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/target-value.vue
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              props="[object Object]"
             >
               <input
                 class="t-checkbox__former"

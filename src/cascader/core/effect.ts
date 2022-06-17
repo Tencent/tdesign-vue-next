@@ -1,7 +1,7 @@
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
-import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
+import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
 import { getFullPathLabel, getTreeValue } from './helper';
 
 /**
@@ -169,14 +169,21 @@ export const treeNodesEffect = (
   inputVal: CascaderContextType['inputVal'],
   treeStore: CascaderContextType['treeStore'],
   setTreeNodes: CascaderContextType['setTreeNodes'],
+  filter: CascaderContextType['filter'],
 ) => {
   if (!treeStore) return;
   let nodes = [];
   if (inputVal) {
-    nodes = treeStore.nodes.filter((node: TreeNode) => {
-      const fullPathLabel = getFullPathLabel(node);
-      return fullPathLabel.toLocaleLowerCase().indexOf(`${inputVal}`.toLocaleLowerCase()) > -1 && node.isLeaf();
-    });
+    const filterMethods = (node: TreeNode) => {
+      if (!node.isLeaf()) return;
+      if (isFunction(filter)) {
+        return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
+      }
+      const fullPathLabel = getFullPathLabel(node, '');
+      return fullPathLabel.indexOf(`${inputVal}`) > -1;
+    };
+
+    nodes = treeStore.nodes.filter(filterMethods);
   } else {
     nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
   }

@@ -213,9 +213,8 @@ export default defineComponent({
     const innerRules = computed(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
-      const index = props.name.lastIndexOf('.') || -1;
-      const pRuleName = props.name.slice(index + 1);
-
+      const index = `${props.name}`.lastIndexOf('.') || -1;
+      const pRuleName = `${props.name}`.slice(index + 1);
       return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
     });
 
@@ -347,7 +346,7 @@ export default defineComponent({
 
     const classes = computed(() => [
       CLASS_NAMES.value.formItem,
-      FORM_ITEM_CLASS_PREFIX.value + props.name,
+      FORM_ITEM_CLASS_PREFIX.value + (props.name || ''),
       {
         [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
         [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,

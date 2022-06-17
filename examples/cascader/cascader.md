@@ -11,6 +11,7 @@ clearable | Boolean | false | 是否支持清空选项 | N
 collapsedItems | Slot / Function | - | 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。TS 类型：`TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | false | 是否禁用组件 | N
 empty | String / Slot / Function | - | 无匹配选项时的内容，默认全局配置为 '暂无数据'。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+filter | Function | - | 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。TS 类型：`(filterWords: string, node: TreeNodeModel) => boolean | Promise<boolean>` | N
 filterable | Boolean | false | 是否可搜索 | N
 keys | Object | - | 用来定义 value / label / children 在 `options` 中对应的字段别名。TS 类型：`CascaderKeysType` `interface CascaderKeysType { value?: string; label?: string; children?: string | boolean }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 lazy | Boolean | true | 延迟加载 children 为 true 的子节点，即使 expandAll 被设置为 true，也同样延迟加载 | N

@@ -68,7 +68,7 @@ export interface TdFormProps<FormData extends Data = Data> {
    * 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动
    * @default ''
    */
-  scrollToFirstError?: 'smooth' | 'auto' | '';
+  scrollToFirstError?: '' | 'smooth' | 'auto';
   /**
    * 校验不通过时，是否显示错误提示信息，统一控制全部表单项。如果希望控制单个表单项，请给 FormItem 设置该属性
    * @default true
@@ -88,7 +88,7 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   onReset?: (context: { e?: FormResetEvent }) => void;
   /**
-   * 表单提交时触发。其中 `context.validateResult` 表示校验结果，`context.firstError` 表示校验不通过的第一个规则提醒。`context.validateResult` 值为 `true` 表示校验通过；如果校验不通过，`context.validateResult` 值为校验结果列表。<br />【注意】⚠️ 默认情况，输入框按下 Enter 键会自动触发提交事件，如果希望禁用这个默认行为，可以给输入框添加 enter 事件，并在事件中设置 `e.preventDefault()`
+   * 表单提交时触发。其中 `context.validateResult` 表示校验结果，`context.firstError` 表示校验不通过的第一个规则提醒。`context.validateResult` 值为 `true` 表示校验通过；如果校验不通过，`context.validateResult` 值为校验结果列表。<br />【注意】⚠️ 默认情况，输入框按下 Enter 键会自动触发提交事件，如果希望禁用这个默认行为，可以给输入框添加  enter 事件，并在事件中设置 `e.preventDefault()`
    */
   onSubmit?: (context: SubmitContext<FormData>) => void;
   /**
@@ -104,7 +104,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
    */
   clearValidate?: (fields?: Array<keyof FormData>) => void;
   /**
-   * 重置表单，表单里面没有重置按钮`<button type="reset" />`时可以使用该方法，默认重置全部字段为空，此方法不会触发 `reset` 事件。<br />如果表单属性 `resetType='empty'` 或者 `reset.type='empty'` 会重置为空；<br />如果表单属性 `resetType='initial'` 或者 `reset.type='initial'` 会重置为表单初始值。<br />`reset.fields` 用于设置具体重置哪些字段，示例：`reset({ type: 'initial', fields: ['name', 'age'] })`
+   * 重置表单，表单里面没有重置按钮`<button type="reset" />`时可以使用该方法，默认重置全部字段为空，该方法会触发 `reset` 事件。<br />如果表单属性 `resetType='empty'` 或者 `reset.type='empty'` 会重置为空；<br />如果表单属性 `resetType='initial'` 或者 `reset.type='initial'` 会重置为表单初始值。<br />`reset.fields` 用于设置具体重置哪些字段，示例：`reset({ type: 'initial', fields: ['name', 'age'] })`
    */
   reset?: (params?: FormResetParams<FormData>) => void;
   /**
@@ -112,7 +112,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
    */
   setValidateMessage?: (message: FormValidateMessage<FormData>) => void;
   /**
-   * 提交表单，表单里面没有提交按钮`<button type="submit" />`时可以使用该方法，此方法不会触发 `submit` 事件。`showErrorMessage` 表示提交校验不通过时，是否显示校验不通过的原因，默认显示
+   * 提交表单，表单里面没有提交按钮`<button type="submit" />`时可以使用该方法。`showErrorMessage` 表示是否在提交校验不通过时显示校验不通过的原因，默认显示。该方法会触发 `submit` 事件
    */
   submit?: (params?: { showErrorMessage?: boolean }) => void;
   /**
@@ -159,7 +159,6 @@ export interface TdFormItemProps {
   requiredMark?: boolean;
   /**
    * 表单字段校验规则
-   * @default []
    */
   rules?: Array<FormRule>;
   /**
