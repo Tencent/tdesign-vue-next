@@ -2,6 +2,13 @@ import { computed, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
 
+const INPUT_NUMBER_PROPS_INITIAL_STATE: InputNumberProps = {
+  decimalPlaces: 0,
+  format: undefined as InputNumberProps['format'],
+  placeholder: '',
+  theme: 'column' as InputNumberProps['theme'],
+};
+
 interface useSliderInputProps {
   inputNumberProps: boolean | TdSliderProps['inputNumberProps'];
   max: number;
@@ -20,30 +27,13 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
 
   /** 根据传入属性缓存计算inputNumber props */
   const sliderInputState = computed(() => {
-    const initialState = {
-      inputDecimalPlaces: 0,
-      inputFormat: null as InputNumberProps['format'],
-      inputPlaceholder: '',
-      inputTheme: 'column' as InputNumberProps['theme'],
-    };
+    let initialState = { ...INPUT_NUMBER_PROPS_INITIAL_STATE };
     const inputProps = config.value;
     if (typeof inputProps.inputNumberProps !== 'boolean') {
-      const inputNumbeConfig = inputProps.inputNumberProps as TdSliderProps['inputNumberProps'];
-      const inputDecimalPlaces = inputNumbeConfig.decimalPlaces;
-      const inputFormat = inputNumbeConfig.format;
-      const inputPlaceholder = inputNumbeConfig.placeholder;
-      const inputTheme = inputNumbeConfig.theme;
-      if (typeof inputDecimalPlaces === 'number' && !Number.isNaN(inputDecimalPlaces)) {
-        initialState.inputDecimalPlaces = inputDecimalPlaces;
-      }
-      if (inputPlaceholder) {
-        initialState.inputPlaceholder = inputPlaceholder;
-      }
-      if (typeof inputFormat === 'function') {
-        initialState.inputFormat = inputFormat;
-      }
+      const inputTheme = inputProps.inputNumberProps?.theme;
+      initialState = { ...initialState, ...inputProps.inputNumberProps };
       if (['column', 'row', 'normal'].includes(inputTheme)) {
-        initialState.inputTheme = inputTheme;
+        initialState.theme = inputTheme;
       }
     }
     return initialState;
@@ -61,6 +51,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
     return (
       <InputNumber
+        {...sliderInputState.value}
         class={sliderNumberClass.value}
         value={val}
         step={config.value.step}
@@ -68,10 +59,6 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
         disabled={config.value.disabled}
         min={config.value.min}
         max={config.value.max}
-        decimalPlaces={sliderInputState.value.inputDecimalPlaces}
-        format={sliderInputState.value.inputFormat}
-        placeholder={sliderInputState.value.inputPlaceholder}
-        theme={sliderInputState.value.inputTheme}
       />
     );
   };

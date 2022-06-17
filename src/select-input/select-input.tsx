@@ -75,9 +75,11 @@ export default defineComponent({
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
         hideEmptyPopup={true}
-        onVisibleChange={this.onInnerPopupVisibleChange}
-        {...(this.popupProps as TdSelectInputProps['popupProps'])}
-        overlayStyle={this.tOverlayStyle}
+        {...{
+          onVisibleChange: this.onInnerPopupVisibleChange,
+          ...(this.popupProps as TdSelectInputProps['popupProps']),
+          overlayStyle: this.tOverlayStyle,
+        }}
       >
         {this.multiple
           ? this.renderSelectMultiple({

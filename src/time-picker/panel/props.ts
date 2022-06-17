@@ -2,7 +2,7 @@ import { PropType } from 'vue';
 import dayjs from 'dayjs';
 
 import * as Props from '../props';
-import { EPickerCols } from '../constant';
+import { EPickerCols } from '../../_common/js/time-picker/const';
 
 // 布尔类型
 const BooleanType = {
@@ -27,8 +27,8 @@ export const panelProps = () => ({
     },
   },
   value: {
-    type: Array as PropType<Array<dayjs.Dayjs | undefined>>,
-    default: () => [dayjs()] as Array<dayjs.Dayjs | undefined>,
+    type: String,
+    default: '',
   },
   format: {
     type: String,
@@ -50,7 +50,7 @@ export const panelProps = () => ({
     ...Props.default.hideDisabledTime,
   },
   disableTime: {
-    ...Props.default.disableTime,
+    type: Function,
   },
   isFooterDisplay: {
     ...BooleanType,
@@ -67,10 +67,8 @@ export const panelColProps = () => ({
     default: () => [EPickerCols.hour, EPickerCols.minute, EPickerCols.second],
   },
   value: {
-    type: Object as PropType<dayjs.Dayjs>,
-    ...{
-      default: () => dayjs(),
-    },
+    type: String,
+    default: '',
   },
   range: {
     type: Array as PropType<Array<dayjs.Dayjs>>,
@@ -86,7 +84,7 @@ export const panelColProps = () => ({
     ...Props.default.hideDisabledTime,
   },
   disableTime: {
-    ...Props.default.disableTime,
+    type: Function,
   },
   localeMeridiems: {
     type: Array as PropType<Array<string>>,

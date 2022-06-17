@@ -204,6 +204,7 @@ export default defineComponent({
                 <TSelect
                   v-model={state.curSelectedYear}
                   size={state.controlSize}
+                  autoWidth={true}
                   {...controller.configData.value.year.selectProps}
                   disabled={dateSelect.isYearSelectDisabled.value}
                 >
@@ -218,6 +219,7 @@ export default defineComponent({
             {dateSelect.isMonthSelectVisible.value && (
               <div class={cls.controlSectionCell.value}>
                 <TSelect
+                  autoWidth={true}
                   v-model={state.curSelectedMonth}
                   size={state.controlSize}
                   {...controller.configData.value.month.selectProps}

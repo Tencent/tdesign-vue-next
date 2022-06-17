@@ -6,9 +6,6 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAvatarGroup',
-  components: {
-    Avatar,
-  },
   props,
 
   setup(props) {

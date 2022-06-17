@@ -7,9 +7,6 @@ import { sliderPropsInjectKey } from './util/constants';
 
 export default defineComponent({
   name: 'TSliderButton',
-  components: {
-    TTooltip,
-  },
   props: {
     value: {
       type: [Number],
@@ -213,9 +210,9 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        <t-tooltip ref={tooltipRef} disabled={!showTooltip.value} content={String(props.value)} {...tooltipProps.value}>
+        <TTooltip ref={tooltipRef} disabled={!showTooltip.value} content={String(props.value)} {...tooltipProps.value}>
           <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
-        </t-tooltip>
+        </TTooltip>
       </div>
     );
   },

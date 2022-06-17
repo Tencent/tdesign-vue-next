@@ -43,6 +43,23 @@ function getPopperPlacement(placement: TdPopupProps['placement']) {
   return placement.replace(/-(left|top)$/, '-start').replace(/-(right|bottom)$/, '-end') as Placement;
 }
 
+function attachListeners(elm: Ref<Element>) {
+  const offs: Array<() => void> = [];
+  return {
+    // eslint-disable-next-line no-undef
+    add<K extends keyof HTMLElementEventMap>(type: K, listener: (ev: HTMLElementEventMap[K]) => void) {
+      on(elm.value, type, listener);
+      offs.push(() => {
+        off(elm.value, type, listener);
+      });
+    },
+    clean() {
+      offs.forEach((handler) => handler?.());
+      offs.length = 0;
+    },
+  };
+}
+
 export default defineComponent({
   name: 'TPopup',
 
@@ -223,42 +240,56 @@ export default defineComponent({
       }
     }
 
-    onMounted(() => {
-      if (hasTrigger.value.hover) {
-        on(triggerEl.value, 'mouseenter', () => handleOpen({ trigger: 'trigger-element-hover' }));
-        on(triggerEl.value, 'mouseleave', () => handleClose({ trigger: 'trigger-element-hover' }));
-      } else if (hasTrigger.value.focus) {
-        on(triggerEl.value, 'focusin', () => handleOpen({ trigger: 'trigger-element-focus' }));
-        on(triggerEl.value, 'focusout', () => handleClose({ trigger: 'trigger-element-blur' }));
-      } else if (hasTrigger.value.click) {
-        on(triggerEl.value, 'click', (e: MouseEvent) => {
-          // override nested popups with trigger hover due to higher priority
-          visibleState.value = 0;
-          handleToggle({ e, trigger: 'trigger-element-click' });
-        });
-      } else if (hasTrigger.value['context-menu']) {
-        on(triggerEl.value, 'contextmenu', (e: MouseEvent) => {
-          e.preventDefault();
-          // MouseEvent.button
-          // 2: Secondary button pressed, usually the right button
-          e.button === 2 && handleToggle({ trigger: 'context-menu' });
-        });
-      }
-      if (!hasTrigger.value['context-menu']) {
-        on(triggerEl.value, 'click', () => {
-          triggerClicked.value = true;
-        });
-      }
-    });
     onUnmounted(destroyPopper);
+
+    const trigger = attachListeners(triggerEl);
+
+    watch(
+      () => [props.trigger, triggerEl.value],
+      () => {
+        if (!triggerEl.value) return;
+        trigger.clean();
+        if (hasTrigger.value.hover) {
+          trigger.add('mouseenter', () => handleOpen({ trigger: 'trigger-element-hover' }));
+          trigger.add('mouseleave', () => handleClose({ trigger: 'trigger-element-hover' }));
+        } else if (hasTrigger.value.focus) {
+          trigger.add('focusin', () => handleOpen({ trigger: 'trigger-element-focus' }));
+          trigger.add('focusout', () => handleClose({ trigger: 'trigger-element-blur' }));
+        } else if (hasTrigger.value.click) {
+          trigger.add('click', (e) => {
+            // override nested popups with trigger hover due to higher priority
+            visibleState.value = 0;
+            handleToggle({ e, trigger: 'trigger-element-click' });
+          });
+        } else if (hasTrigger.value['context-menu']) {
+          trigger.add('contextmenu', (e) => {
+            e.preventDefault();
+            // MouseEvent.button
+            // 2: Secondary button pressed, usually the right button
+            e.button === 2 && handleToggle({ trigger: 'context-menu' });
+          });
+        }
+        if (!hasTrigger.value['context-menu']) {
+          trigger.add('click', () => {
+            triggerClicked.value = true;
+          });
+        }
+      },
+    );
 
     watch(
       () => [props.overlayStyle, overlayEl.value],
       () => {
         updateOverlayStyle();
-        if (popper) {
-          popper.update();
-        }
+        updatePopper();
+      },
+    );
+
+    watch(
+      () => props.placement,
+      () => {
+        destroyPopper();
+        updatePopper();
       },
     );
 

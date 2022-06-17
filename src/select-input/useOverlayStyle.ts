@@ -4,10 +4,15 @@ import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
 
+export type overlayStyleProps = Pick<
+  TdSelectInputProps,
+  'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'disabled'
+>;
+
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
 
-export default function useOverlayStyle(props: TdSelectInputProps) {
+export default function useOverlayStyle(props: overlayStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
 

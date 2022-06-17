@@ -94,13 +94,14 @@ export default defineComponent({
           <t-select
             id="historyVersion"
             slot="extra"
-            value={this.version}
+            value={this.version.replace(/\./g, '_')}
             popupProps={{ zIndex: 500, attach: this.getAttach }}
             onChange={this.changeVersion}
             options={this.options}
           />
         </td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
+        <tdesign-theme-generator />
       </td-doc-layout>
     );
   },

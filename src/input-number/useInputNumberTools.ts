@@ -1,4 +1,5 @@
 import { Ref } from 'vue';
+import isNumber from 'lodash/isNumber';
 import { TdInputNumberProps } from './type';
 
 export default function useInputNumberTools(props: TdInputNumberProps, digitsNum: Ref<number>, isError: Ref<boolean>) {
@@ -35,6 +36,10 @@ export default function useInputNumberTools(props: TdInputNumberProps, digitsNum
       return false;
     }
     if (v < props.min) {
+      handleInputError(true);
+      return false;
+    }
+    if (!isNumber(v)) {
       handleInputError(true);
       return false;
     }

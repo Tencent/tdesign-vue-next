@@ -75,7 +75,7 @@ export default defineComponent({
     };
     return (
       <TPopup {...popProps} content={this.renderPopupContent}>
-        <div className={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
+        <div class={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
           {renderTNodeJSXDefault(
             this,
             'default',

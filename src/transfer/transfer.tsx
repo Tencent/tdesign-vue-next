@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref } from 'vue';
+import { defineComponent, computed, toRefs } from 'vue';
 import pick from 'lodash/pick';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
@@ -13,7 +13,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '../hooks/useConfig';
 
 const SOURCE = 'source';
 const TARGET = 'target';
@@ -25,7 +25,6 @@ export default defineComponent({
   setup(props, { slots }) {
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
-    const { t, global } = useConfig('transfer');
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
@@ -177,8 +176,6 @@ export default defineComponent({
           onScroll={($event: any) => handleScroll($event, listType)}
           onSearch={handleSearch}
           onPageChange={($event: any) => handlePageChange($event, listType)}
-          t={t}
-          global={global.value}
           isTreeMode={isTreeMode.value}
         >
           {scopedSlots}

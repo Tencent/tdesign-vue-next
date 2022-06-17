@@ -76,11 +76,11 @@ export function getPanels(treeNodes: CascaderContextType['treeNodes']) {
  * @param node
  * @returns
  */
-export function getFullPathLabel(node: TreeNode) {
+export function getFullPathLabel(node: TreeNode, separator = '/') {
   return node
     .getPath()
     .map((node: TreeNode) => node.label)
-    .join('/');
+    .join(separator);
 }
 
 /**

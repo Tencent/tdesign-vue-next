@@ -19,6 +19,8 @@ import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 // import icons webcomponents
 import 'tdesign-icons-view';
 
+import 'tdesign-theme-generator';
+
 const app = createApp(App);
 
 app.component('Stackblitz', Stackblitz);

@@ -69,6 +69,8 @@ export default defineComponent({
     );
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+      // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
+      context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
       onInnerEnter(value, context);
       nextTick(() => {
@@ -130,7 +132,6 @@ export default defineComponent({
       <TInput
         ref="tagInputRef"
         readonly={this.readonly}
-        {...(this.inputProps as TdTagInputProps['inputProps'])}
         value={this.tInputValue}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}
@@ -164,6 +165,7 @@ export default defineComponent({
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
         onClick={this.onClick}
+        {...(this.inputProps as TdTagInputProps['inputProps'])}
       />
     );
   },

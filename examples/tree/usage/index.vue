@@ -4,14 +4,49 @@
     <template #tree="{ configProps }"
       ><t-tree
         :data="[
-          { label: '第一段', children: [{ label: '第二段' }, { label: '第二段' }] },
           {
             label: '第一段',
-            children: [{ label: '第二段' }, { label: '第二段' }],
+            children: [
+              {
+                label: '第一段',
+              },
+              {
+                label: '第二段',
+              },
+            ],
           },
           {
-            label: '第一段',
-            children: [{ label: '第二段' }, { label: '第二段' }],
+            label: '第二段',
+            children: [
+              {
+                label: '第一段',
+              },
+              {
+                label: '第二段',
+              },
+            ],
+          },
+          {
+            label: '第三段',
+            children: [
+              {
+                label: '第一段',
+              },
+              {
+                label: '第二段',
+              },
+            ],
+          },
+          {
+            label: '第四段',
+            children: [
+              {
+                label: '第一段',
+              },
+              {
+                label: '第二段',
+              },
+            ],
           },
         ]"
         v-bind="configProps"
@@ -28,7 +63,7 @@ const configList = ref(configJson);
 const panelList = [{ label: 'tree', value: 'tree' }];
 
 const usageCodeMap = {
-  tree: "\n        <t-tree :data=\"[{ label: '第一段',\n          children: [ { label: '第二段' }, { label: '第二段' } ],\n        },{\n          label: '第一段',\n          children: [ { label: '第二段' }, { label: '第二段' } ],\n        },{\n          label: '第一段',\n          children: [ { label: '第二段' }, { label: '第二段' } ],\n        }]\" v-bind=\"configProps\" />\n      ",
+  tree: "\n        <t-tree :data=\"[\n          {\n            label: '第一段',\n            children: [\n              {\n                label: '第一段',\n              },\n              {\n                label: '第二段',\n              },\n            ],\n          },\n          {\n            label: '第二段',\n            children: [\n              {\n                label: '第一段',\n              },\n              {\n                label: '第二段',\n              },\n            ],\n          },\n          {\n            label: '第三段',\n            children: [\n              {\n                label: '第一段',\n              },\n              {\n                label: '第二段',\n              },\n            ],\n          },\n          {\n            label: '第四段',\n            children: [\n              {\n                label: '第一段',\n              },\n              {\n                label: '第二段',\n              },\n            ],\n          },\n        ]\" v-bind=\"configProps\" />\n      ",
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
