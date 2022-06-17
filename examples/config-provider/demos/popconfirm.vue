@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" style="padding: 16px">
+  <t-config-provider :global-config="globalConfig">
     <div class="tdesign-demo-item__config-provider-base">
       <t-popconfirm theme="default" content="Do you want to delete">
         <t-button>Default</t-button>
