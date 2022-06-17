@@ -2,9 +2,7 @@ import { mount } from '@vue/test-utils';
 import { it, expect } from 'vitest';
 import Badge from '@/src/badge/index.ts';
 
-// every component needs four parts: props/events/slots/functions.
 describe('Badge', () => {
-  // test props api
   describe(':props', () => {
     it(':color', () => {
       const wrapper = mount(() => (
@@ -127,7 +125,6 @@ describe('Badge', () => {
     });
   });
 
-  // test slots
   describe('<slot>', () => {
     it('default', () => {
       const wrapper = mount({
