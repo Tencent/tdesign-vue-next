@@ -18,7 +18,7 @@ export type GlobalConfig = typeof defaultGlobalConfig;
 
 export const configProviderInjectKey: InjectionKey<ComputedRef<GlobalConfigProvider>> = Symbol('configProvide');
 
-export const mergeWidth = (defaultGlobalConfig: GlobalConfigProvider, injectConfig: GlobalConfigProvider) =>
+export const mergeWith = (defaultGlobalConfig: GlobalConfigProvider, injectConfig: GlobalConfigProvider) =>
   _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
     if (Array.isArray(objValue)) {
       return srcValue;
