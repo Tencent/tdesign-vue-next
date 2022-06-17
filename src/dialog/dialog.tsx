@@ -165,7 +165,7 @@ export default defineComponent({
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
             }
-            !isModeLess.value && addClass(document.body, LOCK_CLASS.value);
+            !isModeLess.value && props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
             nextTick(() => {
               if (mousePosition && dialogEle.value) {
                 dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
