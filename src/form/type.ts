@@ -150,6 +150,7 @@ export interface TdFormItemProps {
   labelWidth?: string | number;
   /**
    * 表单字段名称
+   * @default ''
    */
   name?: string | number;
   /**
@@ -361,7 +362,7 @@ export interface FormValidateParams {
 
 export type ValidateTriggerType = 'blur' | 'change' | 'all';
 
-export type Data = { [key: string]: any };
+export type Data = Record<string, any>;
 
 export interface IsDateOptions {
   format: string;

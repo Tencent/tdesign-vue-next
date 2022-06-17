@@ -1,7 +1,16 @@
 import { computed, InjectionKey } from 'vue';
-import { FormItemValidateResult } from '@src/form/form-item';
+import { FormItemValidateResult } from './form-item';
+import {
+  AllValidateResult,
+  Data,
+  FormItemValidateMessage,
+  FormRule,
+  TdFormItemProps,
+  TdFormProps,
+  ValidateResultType,
+  ValidateTriggerType,
+} from './type';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
-import { FormItemValidateMessage, TdFormItemProps, TdFormProps, ValidateResultType, ValidateTriggerType } from './type';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -53,6 +62,12 @@ export const useCLASSNAMES = () => {
   });
 };
 
+export const enum ValidateStatus {
+  TO_BE_VALIDATED = 'not',
+  SUCCESS = 'success',
+  FAIL = 'fail',
+}
+
 export type ErrorListType =
   | {
       result: false;
@@ -69,11 +84,23 @@ export type SuccessListType =
     }
   | ValidateResultType;
 
+export interface AnalysisValidateResult {
+  successList?: SuccessListType[];
+  errorList?: ErrorListType[];
+  rules: FormRule[];
+  resultList: AllValidateResult[];
+  allowSetValue: boolean;
+}
+
 export interface FormItemContext {
   name: TdFormItemProps['name'];
   resetHandler: () => void;
   resetField: (resetType?: 'initial' | 'empty') => Promise<void>;
-  validate: <T>(trigger: ValidateTriggerType) => Promise<FormItemValidateResult<T>>;
+  validate: <T extends Data = Data>(
+    trigger: ValidateTriggerType,
+    showErrorMessage?: boolean,
+  ) => Promise<FormItemValidateResult<T>>;
+  validateOnly: <T = Data>(trigger: ValidateTriggerType) => Promise<FormItemValidateResult<T>>;
   setValidateMessage: (validateMessage: FormItemValidateMessage[]) => void;
 }
 

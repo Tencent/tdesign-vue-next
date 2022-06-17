@@ -48622,7 +48622,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
       class="t-form__item t-form-item__name"
     >
       <div
-        class="t-form__label t-form__label--colon t-form__label--right"
+        class="t-form__label t-form__label--required t-form__label--colon t-form__label--right"
         style="width: 100px;"
       >
         <label
@@ -48971,6 +48971,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            style="margin-right: 10px;"
             type="reset"
           >
             <span
@@ -48981,6 +48982,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
               
             </span>
           </button>
+          <!-- 下方示例代码，有效，勿删 -->
+          <!--&lt;t-button theme="default" style="margin-right: 10px" @click="submitForm"&gt;实例方法提交&lt;/t-button&gt;-->
+          <!--&lt;t-button theme="default" variant="base" style="margin-right: 10px" @click="resetForm"&gt;实例方法重置&lt;/t-button&gt;-->
+          <!--&lt;t-button theme="default" variant="base" @click="validateOnly"&gt;仅校验&lt;/t-button&gt;-->
           
           <!---->
         </div>
@@ -52395,6 +52400,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            style="margin-right: 10px;"
             type="reset"
           >
             <span
@@ -52402,6 +52408,18 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
             >
               
               重置
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              只重置手机号码
               
             </span>
           </button>
