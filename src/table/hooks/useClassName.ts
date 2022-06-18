@@ -3,11 +3,10 @@ import { usePrefixClass } from '../../hooks/useConfig';
 export default function useClassName() {
   const classPrefix = usePrefixClass();
   const classNames = {
-    classPrefix,
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
-      body: `${classPrefix.value}-table__body`,
       overflowVisible: `${classPrefix.value}-table--overflow-visible`,
+      body: `${classPrefix.value}-table__body`,
       content: `${classPrefix.value}-table__content`,
       topContent: `${classPrefix.value}-table__top-content`,
       bottomContent: `${classPrefix.value}-table__bottom-content`,
@@ -31,6 +30,7 @@ export default function useClassName() {
       horizontalBarAffixed: `${classPrefix.value}-table--horizontal-bar-affixed`,
       affixedHeader: `${classPrefix.value}-table--affixed-header`,
       affixedHeaderElm: `${classPrefix.value}-table__affixed-header-elm`,
+      affixedFooterElm: `${classPrefix.value}-table__affixed-footer-elm`,
       affixedFooterWrap: `${classPrefix.value}-table__affixed-footer-wrap`,
       // 边框模式，固定表头，横向滚动时，右侧添加边线，分隔滚动条
       scrollbarDivider: `${classPrefix.value}-table__scroll-bar-divider`,

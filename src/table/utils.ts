@@ -3,6 +3,7 @@ import get from 'lodash/get';
 import isObject from 'lodash/isObject';
 import { PrimaryTableCol, RowClassNameParams, TableRowData, TdBaseTableProps } from './type';
 import { ClassName, HTMLElementAttributes } from '../common';
+import { AffixProps } from '../affix';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
@@ -146,4 +147,11 @@ export function getCurrentRowByKey<T extends { colKey?: string; children?: any[]
       return getCurrentRowByKey(columns[i]?.children, key);
     }
   }
+}
+
+/** 透传 Affix 组件全部特性 */
+export function getAffixProps(mainAffixProps: boolean | AffixProps, subAffixProps?: AffixProps) {
+  if (typeof mainAffixProps === 'object') return mainAffixProps;
+  if (typeof subAffixProps === 'object') return subAffixProps;
+  return {};
 }

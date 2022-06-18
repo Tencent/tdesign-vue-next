@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType, ref, h } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
@@ -23,8 +23,8 @@ export interface TheadProps {
   };
   thList: BaseTableCol<TableRowData>[][];
   columnResizeParams: {
-    resizeLineRef: HTMLDivElement;
-    resizeLineStyle: Object;
+    resizeLineRef: Ref<HTMLDivElement>;
+    resizeLineStyle: CSSProperties;
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
     onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
   };

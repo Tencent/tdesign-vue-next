@@ -1,4 +1,4 @@
-import { ref, Ref, reactive } from 'vue';
+import { ref, Ref, reactive, CSSProperties } from 'vue';
 import { BaseTableCol, TableRowData } from '../type';
 
 const DEFAULT_MIN_WIDTH = 80;
@@ -13,7 +13,7 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
     draggingStart: 0,
   };
 
-  const resizeLineStyle = reactive({
+  const resizeLineStyle = reactive<CSSProperties>({
     display: 'none',
     left: '10px',
     height: '10px',
