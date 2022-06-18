@@ -68,7 +68,7 @@ export default defineComponent({
     const { dataSource, isPaginateData, renderPagination } = usePagination(props);
 
     // 列宽拖拽逻辑
-    const columnResizeParams = useColumnResize(tableElmRef, refreshTable);
+    const columnResizeParams = useColumnResize(tableContentRef, refreshTable);
     const { resizeLineRef, resizeLineStyle } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
@@ -264,8 +264,6 @@ export default defineComponent({
         style={this.tableContentStyles}
         onScroll={this.onInnerScroll}
       >
-        <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>
-
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
@@ -344,7 +342,11 @@ export default defineComponent({
         )}
 
         {!!bottomContent && <div class={this.tableBaseClass.bottomContent}>{bottomContent}</div>}
+
         {this.renderPagination()}
+
+        {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
+        <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>
       </div>
     );
   },

@@ -38015,6 +38015,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <br
     data-v-0bd7d344=""
@@ -38386,6 +38390,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <br
     data-v-0bd7d344=""
@@ -90267,6 +90275,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -90907,6 +90919,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
         <!---->
       </div>
     </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -91111,6 +91127,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-cell.vue 1`]
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -91626,6 +91646,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
         <!---->
       </div>
     </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <!-- 非受控用法，示例代码有效，勿删 -->
   <!-- &lt;t-table
@@ -92315,6 +92339,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
         <!---->
       </div>
     </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <!-- 非受控用法，示例代码有效，勿删 -->
   <!-- &lt;t-table
@@ -92626,6 +92654,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -92772,6 +92804,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-header.vue 1
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -93131,6 +93167,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/data-sort.vue 1`] =
         <!---->
         <!---->
         <!---->
+        <div
+          class="t-table__resize-line"
+          style="display: none; left: 10px; height: 10px; bottom: 0px;"
+        />
       </div>
     </div>
     
@@ -93368,6 +93408,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-col-sort.vue 1
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -93607,6 +93651,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort.vue 1`] =
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -93964,6 +94012,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -94631,6 +94683,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -94754,6 +94810,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <br />
   <br />
@@ -94880,6 +94940,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <br />
   <br />
@@ -95004,6 +95068,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -95876,6 +95944,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <!-- !! 也可以使用具名插槽 \`expandedRow\` 自定义展开行内容 !! -->
   <!-- &lt;t-table
@@ -96456,6 +96528,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -97118,6 +97194,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -98197,6 +98277,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -99512,6 +99596,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
   
@@ -108644,6 +108732,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/lazy.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -108831,6 +108923,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <div
     class="t-table t-size-s t-table--loading"
@@ -109022,6 +109118,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <div
     class="t-table t-size-s t-table--loading"
@@ -109211,6 +109311,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -109478,6 +109582,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`]
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -111663,6 +111771,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multi-header.vue 1`
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
   
@@ -112035,6 +112147,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multiple-sort.vue 1
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -112601,6 +112717,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
         </div>
       </div>
     </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -112874,6 +112994,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
       </div>
     </div>
   </div>
+  <div
+    class="t-table__resize-line"
+    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+  />
 </div>
 `;
 
@@ -113384,6 +113508,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -113885,6 +114013,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -114206,6 +114338,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/show-columns.vue 1`
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -114605,6 +114741,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/single-sort.vue 1`]
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -115736,6 +115876,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         <!---->
       </div>
     </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
   <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
   <!-- indent 定义缩进距离 -->
@@ -116477,6 +116621,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
     <!---->
     <!---->
     <!---->
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
   </div>
 </div>
 `;
@@ -116588,6 +116736,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/virtual-scroll.vue 
       <!---->
       <!---->
       <!---->
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
   </div>
 </div>

@@ -23,6 +23,7 @@
       :max-height="fixedTopAndBottomRows ? 500 : 300"
       :fixed-rows="fixedTopAndBottomRows ? [2, 2] : undefined"
       bordered
+      resizable
     >
       <template #operation="slotProps">
         <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
