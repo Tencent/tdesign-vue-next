@@ -141,18 +141,16 @@ function rowClassName({ type }) {
   return 't-tdesign__custom-body-tr';
 }
 
-function getContainer() {
-  return document.body;
-}
-
 function onDragSortChange({ newData }) {
   this.columns = newData;
 }
 
+// 表尾吸顶和底部滚动条，二选一即可，也只能二选一
 watch(horizontalScrollAffixedBottom, (val) => {
   val && (footerAffixedBottom.value = false);
 });
 
+// 表尾吸顶和底部滚动条，二选一即可，也只能二选一
 watch(footerAffixedBottom, (val) => {
   val && (horizontalScrollAffixedBottom.value = false);
 });

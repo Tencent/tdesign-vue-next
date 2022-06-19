@@ -39,6 +39,7 @@ export default function useClassName() {
       // 拖拽列时的标记线
       resizeLine: `${classPrefix.value}-table__resize-line`,
       obviousScrollbar: `${classPrefix.value}-table__scrollbar--obvious`,
+      affixedHeaderWrap: `${classPrefix.value}-table__affixed-header-elm-wrap`,
     },
 
     tdAlignClasses: {

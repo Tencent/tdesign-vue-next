@@ -58,7 +58,6 @@ export default defineComponent({
     const tableBodyRef = ref<HTMLTableElement>();
     const tableFootHeight = ref(0);
     const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
-    const { statusClassNames } = useCommonClassName();
     // 表格基础样式类
     const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
     const { global } = useConfig('table');
@@ -317,7 +316,7 @@ export default defineComponent({
     // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
     // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
     const affixHeaderWithWrap = (
-      <div class="t-table__affixed-header-elm-wrap" style={affixHeaderWrapHeightStyle}>
+      <div class={this.tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle}>
         {affixedHeader}
       </div>
     );

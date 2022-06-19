@@ -271,10 +271,13 @@ export default defineComponent({
         colIndex,
       };
       const cellKey = getCellKey(row, this.rowKey, col.colKey, colIndex);
-      const spanState = this.skipSpansMap.get(cellKey) || {};
-      spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
-      spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
-      if (spanState.skipped) return null;
+      let spanState = null;
+      if (this.skipSpansMap.size) {
+        spanState = this.skipSpansMap.get(cellKey) || {};
+        spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
+        spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
+        if (spanState.skipped) return null;
+      }
       return this.renderTd(params, {
         dataLength,
         rowAndColFixedPosition,
