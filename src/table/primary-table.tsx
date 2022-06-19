@@ -224,6 +224,7 @@ export default defineComponent({
       }
 
       return (
+        // @ts-ignore
         <BaseTable
           ref={primaryTableRef}
           v-slots={context.slots}

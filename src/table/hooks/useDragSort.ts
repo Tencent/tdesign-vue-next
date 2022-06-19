@@ -2,10 +2,11 @@
 import { computed, toRefs, ref, watch } from 'vue';
 import Sortable, { SortableEvent, SortableOptions } from 'sortablejs';
 import get from 'lodash/get';
-import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
+import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
 import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
+import { BaseTableColumns } from '../interface';
 
 /**
  * TODO:
@@ -19,7 +20,7 @@ export default function useDragSort(props: TdPrimaryTableProps) {
   const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
   const { tableDraggableClasses, tableBaseClass } = useClassName();
   const primaryTableRef = ref(null);
-  const columns = ref<PrimaryTableCol[]>(props.columns || []);
+  const columns = ref<BaseTableColumns>(props.columns || []);
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
   // 行拖拽判断条件
@@ -153,7 +154,7 @@ export default function useDragSort(props: TdPrimaryTableProps) {
     primaryTableRef.value = primaryTableElement;
   }
 
-  function setDragSortColumns(val: PrimaryTableCol[]) {
+  function setDragSortColumns(val: BaseTableColumns) {
     columns.value = val;
   }
 
