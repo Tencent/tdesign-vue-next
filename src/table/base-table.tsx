@@ -27,7 +27,6 @@ import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
 import { Affix } from '../affix';
 import { ROW_LISTENERS } from './tr';
-import useCommonClassName from '../hooks/useCommonClassName';
 import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';

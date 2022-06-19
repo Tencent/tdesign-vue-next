@@ -142,7 +142,7 @@ function rowClassName({ type }) {
 }
 
 function onDragSortChange({ newData }) {
-  this.columns = newData;
+  columns.value = newData;
 }
 
 // 表尾吸顶和底部滚动条，二选一即可，也只能二选一
