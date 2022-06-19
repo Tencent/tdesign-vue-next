@@ -78,7 +78,7 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
     const onDragEnd = () => {
       if (resizeLineParams.isDragging) {
         // 结束拖拽，更新列宽
-        const width = parseInt(resizeLineStyle.left, 10) - colLeft;
+        const width = parseInt(String(resizeLineStyle.left), 10) - colLeft;
 
         // eslint-disable-next-line
         col.width = `${Math.floor(width)}px`;
