@@ -359,7 +359,12 @@ const onAbnormalDragSort = (params) => {
 
 const onTreeExpandChange = (context) => {
   console.log(context.rowState.expanded ? '展开' : '收起', context);
-  // 如果是懒加载
+  /**
+   * 如果是懒加载，请确认自己完成了以下几个步骤
+   * 1. 提前设置 children 值为 true；
+   * 2. 在 onTreeExpandChange 事件中处理异步数据；
+   * 3. 自定义展开图标渲染 lazyLoadingTreeIconRender
+   */
   if (context.row.list === true) {
     lazyLoadingData.value = context.row;
     const timer = setTimeout(() => {
