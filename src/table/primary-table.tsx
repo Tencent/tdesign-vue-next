@@ -73,9 +73,10 @@ export default defineComponent({
       renderFirstFilterRow,
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
+
     // 拖拽排序功能
     const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef, setDragSortColumns } =
-      useDragSort(props);
+      useDragSort(props, context);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);

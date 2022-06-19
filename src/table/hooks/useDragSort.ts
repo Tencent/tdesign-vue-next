@@ -1,7 +1,8 @@
 // 表格 行拖拽 + 列拖拽功能
-import { computed, toRefs, ref, watch } from 'vue';
+import { SetupContext, computed, toRefs, ref, watch, h } from 'vue';
 import Sortable, { SortableEvent, SortableOptions } from 'sortablejs';
 import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
 import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
@@ -16,7 +17,7 @@ import { BaseTableColumns } from '../interface';
  * @param props
  * @returns
  */
-export default function useDragSort(props: TdPrimaryTableProps) {
+export default function useDragSort(props: TdPrimaryTableProps, context: SetupContext) {
   const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
   const { tableDraggableClasses, tableBaseClass } = useClassName();
   const primaryTableRef = ref(null);
@@ -73,7 +74,11 @@ export default function useDragSort(props: TdPrimaryTableProps) {
       onEnd(evt: SortableEvent) {
         // 处理受控：拖拽列表恢复原始排序
         dragInstanceTmp?.sort(lastRowList.value);
-        const { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        if ((isFunction(props.firstFullRow) && props.firstFullRow(h)) || context.slots.firstFullRow) {
+          currentIndex -= 1;
+          targetIndex -= 1;
+        }
         const params: DragSortContext<TableRowData> = {
           data: data.value,
           currentIndex,
