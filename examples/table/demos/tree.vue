@@ -27,7 +27,7 @@
       drag-sort="row-handler"
       :data="data"
       :columns="columns"
-      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 50 }"
+      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 }"
       :tree-expand-and-fold-icon="customTreeExpandAndFoldIcon ? treeExpandAndFoldIconRender : undefined"
       :pagination="pagination"
       :before-drag-sort="beforeDragSort"
