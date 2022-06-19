@@ -69,6 +69,9 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       log.error('EnhancedTable', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
       return [];
     }
+    const childrenNodes = get(p.row, keys.childrenKey);
+    // childrenNodes = true，表示懒加载，直接返回，暂时不做展开处理
+    if (childrenNodes === true) return dataSource;
     const r = this.treeDataMap.get(rowValue);
     r.rowIndex = p.rowIndex;
     r.expanded = !r.expanded;

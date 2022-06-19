@@ -3,7 +3,14 @@ import { AddRectangleIcon, MinusRectangleIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import TableTreeStore, { SwapParams } from './tree-store';
-import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, TableRowValue, TableRowState } from '../type';
+import {
+  TdEnhancedTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  TableRowValue,
+  TableRowState,
+  PrimaryTableCellParams,
+} from '../type';
 import useClassName from './useClassName';
 import { renderCell } from '../tr';
 import { useConfig } from '../../hooks/useConfig';
@@ -30,23 +37,23 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
-  const foldIcon = computed(() => {
-    const params = { type: 'fold' };
+  const foldIcon = (context: PrimaryTableCellParams<TableRowData>) => {
+    const params = { ...context, type: 'fold' };
     const defaultFoldIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultFoldIcon,
       params,
     });
-  });
+  };
 
-  const expandIcon = computed(() => {
-    const params = { type: 'expand' };
+  const expandIcon = (context: PrimaryTableCellParams<TableRowData>) => {
+    const params = { ...context, type: 'expand' };
     const defaultExpandIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <AddRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultExpandIcon,
       params,
     });
-  });
+  };
 
   watch(
     [data],
@@ -133,13 +140,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
-      if (childrenNodes && childrenNodes instanceof Array) {
+      if ((childrenNodes && childrenNodes instanceof Array) || childrenNodes === true) {
         const iconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
-          ? foldIcon.value
-          : expandIcon.value;
+          ? foldIcon(p)
+          : expandIcon(p);
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
-            {!!childrenNodes.length && (
+            {!!(childrenNodes.length || childrenNodes === true) && (
               <span class={tableTreeClasses.icon} onClick={() => toggleExpandData(p, 'expand-fold-icon')}>
                 {iconNode}
               </span>
@@ -196,7 +203,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * @param key 当前节点唯一标识，值为空，则表示给根节点添加元素
    * @param newData 待添加的新节点
    */
-  function appendTo<T>(key: TableRowValue = '', newData: T) {
+  function appendTo<T>(key: TableRowValue = '', newData: T | T[]) {
     if (!key) {
       dataSource.value = store.value.appendToRoot(newData, dataSource.value, rowDataKeys.value);
       return;
