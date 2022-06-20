@@ -1,6 +1,6 @@
 <template>
   <div class="demo-container">
-    <t-config-provider :global-locale="globalLocale">
+    <t-config-provider :global-config="globalLocale">
       <div class="item">
         <div style="margin: 16px">
           <t-checkbox v-model="allowMultipleSort"> 是否允许多字段排序 </t-checkbox>

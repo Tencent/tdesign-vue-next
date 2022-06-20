@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" style="padding: 16px">
+  <t-config-provider :global-config="globalConfig">
     <div style="width: 480px">
       <t-dialog header="Title" body="Would you like to be my friends？" mode="normal" theme="default" visible />
       <br />
@@ -34,8 +34,3 @@ const globalConfig = {
   },
 };
 </script>
-<style scoped>
-.tdesign-demo-item--locale-provider-base {
-  margin: 24px -120px 0 0;
-}
-</style>

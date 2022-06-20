@@ -1,11 +1,13 @@
 // 表格 行拖拽 + 列拖拽功能
-import { computed, toRefs, ref, watch } from 'vue';
+import { SetupContext, computed, toRefs, ref, watch, h } from 'vue';
 import Sortable, { SortableEvent, SortableOptions } from 'sortablejs';
 import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
 import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
 import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
+import { BaseTableColumns } from '../interface';
 
 /**
  * TODO:
@@ -15,11 +17,12 @@ import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
  * @param props
  * @returns
  */
-export default function useDragSort(props: TdPrimaryTableProps) {
-  const { sortOnRowDraggable, dragSort, columns, data, rowKey } = toRefs(props);
+export default function useDragSort(props: TdPrimaryTableProps, context: SetupContext) {
+  const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
   const { tableDraggableClasses, tableBaseClass } = useClassName();
   const primaryTableRef = ref(null);
-  // 判断是否有拖拽列
+  const columns = ref<BaseTableColumns>(props.columns || []);
+  // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
   // 行拖拽判断条件
   const isRowDraggable = computed(() => sortOnRowDraggable.value || dragSort.value === 'row');
@@ -71,7 +74,11 @@ export default function useDragSort(props: TdPrimaryTableProps) {
       onEnd(evt: SortableEvent) {
         // 处理受控：拖拽列表恢复原始排序
         dragInstanceTmp?.sort(lastRowList.value);
-        const { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        if ((isFunction(props.firstFullRow) && props.firstFullRow(h)) || context.slots.firstFullRow) {
+          currentIndex -= 1;
+          targetIndex -= 1;
+        }
         const params: DragSortContext<TableRowData> = {
           data: data.value,
           currentIndex,
@@ -116,14 +123,25 @@ export default function useDragSort(props: TdPrimaryTableProps) {
       onEnd: (evt: SortableEvent) => {
         // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
         dragInstanceTmp?.sort([...lastColList.value]);
-        const { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
+        const current = columns.value[currentIndex];
+        const target = columns.value[targetIndex];
+        if (!current || !current.colKey) {
+          log.error('Table', `colKey is missing in ${JSON.stringify(current)}`);
+        }
+        if (!target || !target.colKey) {
+          log.error('Table', `colKey is missing in ${JSON.stringify(target)}`);
+        }
+        // 寻找外部数据 props.columns 中的真正下标
+        currentIndex = props.columns.findIndex((t) => t.colKey === current.colKey);
+        targetIndex = props.columns.findIndex((t) => t.colKey === target.colKey);
         const params: DragSortContext<TableRowData> = {
           data: columns.value,
           currentIndex,
           current: columns.value[currentIndex],
           targetIndex,
           target: columns.value[targetIndex],
-          newData: swapDragArrayElement([...columns.value], currentIndex, targetIndex),
+          newData: swapDragArrayElement([...props.columns], currentIndex, targetIndex),
           e: evt,
           sort: 'col',
         };
@@ -141,10 +159,22 @@ export default function useDragSort(props: TdPrimaryTableProps) {
     primaryTableRef.value = primaryTableElement;
   }
 
+  function setDragSortColumns(val: BaseTableColumns) {
+    columns.value = val;
+  }
+
   // 注册拖拽事件
   watch([primaryTableRef], ([val]: [any]) => {
-    val?.$el && registerRowDragEvent(val?.$el);
-    val?.$el && registerColDragEvent(val?.$el);
+    if (!val || !val.$el) return;
+    registerRowDragEvent(val.$el);
+    registerColDragEvent(val.$el);
+    /** 待表头节点准备完成后 */
+    const timer = setTimeout(() => {
+      if (val.$refs.affixHeaderRef) {
+        registerColDragEvent(val.$refs.affixHeaderRef);
+      }
+      clearTimeout(timer);
+    });
   });
 
   return {
@@ -152,5 +182,6 @@ export default function useDragSort(props: TdPrimaryTableProps) {
     isRowHandlerDraggable,
     isColDraggable,
     setDragSortPrimaryTableRef,
+    setDragSortColumns,
   };
 }

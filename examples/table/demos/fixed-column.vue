@@ -30,6 +30,7 @@
       :table-layout="tableLayout"
       :table-content-width="tableLayout === 'fixed' ? undefined : '1200px'"
       bordered
+      resizable
     >
       <template #operation="slotProps">
         <a class="link" @click="rehandleClickOp(slotProps)">删除</a>

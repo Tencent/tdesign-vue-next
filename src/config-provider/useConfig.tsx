@@ -1,17 +1,8 @@
 import { computed, h, inject, Ref, unref } from 'vue';
-import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
-import { defaultGlobalConfig, GlobalConfig } from './context';
+import { GlobalConfig, defaultGlobalConfig, configProviderInjectKey } from './context';
 
 export * from './type';
-
-// deal with https://github.com/lodash/lodash/issues/1313
-export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalConfig) =>
-  _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
-    if (Array.isArray(objValue)) {
-      return srcValue;
-    }
-  });
 
 /**
  * component global config
@@ -20,16 +11,9 @@ export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalCon
  * useConfig('pagination')
  */
 export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
-  const globalConfig = inject<Ref<GlobalConfig>>('globalConfig', Object.create(null));
-
-  const mergedGlobalConfig = computed(() => {
-    const mergedGlobalConfig = merge(cloneDeep(defaultGlobalConfig), unref(globalConfig));
-    return mergedGlobalConfig;
-  });
-
-  const global = computed(() => {
-    return mergedGlobalConfig.value[componentName];
-  });
+  const injectGlobalConfig = inject(configProviderInjectKey, null);
+  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
+  const global = computed(() => mergedGlobalConfig.value[componentName]);
 
   const classPrefix = computed(() => {
     return mergedGlobalConfig.value.classPrefix;

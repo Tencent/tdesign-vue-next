@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType, ref, h } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
@@ -22,6 +22,13 @@ export interface TheadProps {
     leafColumns: BaseTableCol<TableRowData>[];
   };
   thList: BaseTableCol<TableRowData>[][];
+  columnResizeParams: {
+    resizeLineRef: Ref<HTMLDivElement>;
+    resizeLineStyle: CSSProperties;
+    onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
+    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
+  };
+  resizable: Boolean;
 }
 
 export default defineComponent({
@@ -33,8 +40,10 @@ export default defineComponent({
     thWidthList: Object as PropType<TheadProps['thWidthList']>,
     bordered: Boolean,
     isMultipleHeader: Boolean,
+    resizable: Boolean,
     spansAndLeafNodes: Object as PropType<TheadProps['spansAndLeafNodes']>,
     thList: Array as PropType<TheadProps['thList']>,
+    columnResizeParams: Object as PropType<TheadProps['columnResizeParams']>,
   },
 
   setup(props: TheadProps, { slots }: SetupContext) {
@@ -98,9 +107,22 @@ export default defineComponent({
           const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
+          const resizeColumnListener = this.resizable
+            ? {
+                onMousedown: (e: MouseEvent) => this.columnResizeParams?.onColumnMousedown?.(e, col),
+                onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e, col),
+              }
+            : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           return (
-            <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rowspanAndColspan}>
+            <th
+              key={col.colKey}
+              data-colkey={col.colKey}
+              class={thClasses}
+              style={styles}
+              {...rowspanAndColspan}
+              {...resizeColumnListener}
+            >
               <div class={this.tableBaseClass.thCellInner}>
                 {col.ellipsis && col.ellipsisTitle !== false && col.ellipsisTitle !== null ? (
                   <TEllipsis

@@ -1,5 +1,6 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
 import isEqual from 'lodash/isEqual';
+import isFunction from 'lodash/isFunction';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
@@ -100,10 +101,14 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
   const { cascaderContext, statusContext } = useContext(props, setInnerValue, innerPopupVisible, setPopupVisible);
 
+  const isFilterable = computed(() => {
+    return Boolean(props.filterable || isFunction(props.filter));
+  });
+
   // 更新treeNodes
   const updatedTreeNodes = () => {
     const { inputVal, treeStore, setTreeNodes } = cascaderContext.value;
-    treeNodesEffect(inputVal, treeStore, setTreeNodes);
+    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter);
   };
 
   // 更新节点展开状态
@@ -201,7 +206,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
 
   watch(
-    () => innerPopupVisible.value && props.filterable,
+    () => innerPopupVisible.value && isFilterable.value,
     (visible) => {
       const { setInputVal } = cascaderContext.value;
       if (visible) {
@@ -220,5 +225,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   return {
     setInnerValue,
     cascaderContext,
+    isFilterable,
   };
 };

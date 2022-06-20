@@ -2,7 +2,13 @@ import { defineComponent, computed, ref } from 'vue';
 import dayjs from 'dayjs';
 
 import props from './date-range-picker-panel-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import {
+  DateValue,
+  DateRangePickerPartial,
+  TdDateRangePickerPanelProps,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+} from './type';
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
@@ -12,7 +18,7 @@ import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-pick
 export default defineComponent({
   name: 'TDateRangePickerPanel',
   props,
-  setup(props) {
+  setup(props: TdDateRangePickerPanelProps) {
     const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
 
     const { formatDate, isValidDate, format } = useFormat({
@@ -127,16 +133,16 @@ export default defineComponent({
         props.onYearChange?.({
           partial,
           year: nextYear[partialIndex],
-          date: value.value,
-          trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: flag === 0 ? 'today' : (`year-${triggerMap[flag]}` as DatePickerYearChangeTrigger),
         });
       }
       if (month.value.some((m) => !nextMonth.includes(m))) {
         props.onMonthChange?.({
           partial,
           month: nextMonth[partialIndex],
-          date: value.value,
-          trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: flag === 0 ? 'today' : (`month-${triggerMap[flag]}` as DatePickerMonthChangeTrigger),
         });
       }
 
@@ -170,7 +176,7 @@ export default defineComponent({
 
       props.onTimeChange?.({
         time: val,
-        date: value.value,
+        date: value.value.map((v) => dayjs(v).toDate()),
         partial: activeIndex.value ? 'end' : 'start',
         trigger: 'time-hour',
       });
@@ -195,7 +201,7 @@ export default defineComponent({
         isFirstValueSelected.value = true;
       }
 
-      props.onConfirm?.({ date: value.value, e });
+      props.onConfirm?.({ date: value.value.map((v) => dayjs(v).toDate()), e });
     }
 
     // 预设
@@ -227,8 +233,9 @@ export default defineComponent({
       year.value = nextYear;
 
       props.onYearChange?.({
-        year: year.value,
-        date: value.value,
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
         trigger: 'year-select',
       });
     }
@@ -248,8 +255,9 @@ export default defineComponent({
       month.value = nextMonth;
 
       props.onMonthChange?.({
-        year: month.value,
-        date: value.value,
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
         trigger: 'month-select',
       });
     }

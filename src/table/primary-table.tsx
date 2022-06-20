@@ -73,8 +73,10 @@ export default defineComponent({
       renderFirstFilterRow,
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
+
     // 拖拽排序功能
-    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef } = useDragSort(props);
+    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef, setDragSortColumns } =
+      useDragSort(props, context);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
@@ -223,11 +225,13 @@ export default defineComponent({
       }
 
       return (
+        // @ts-ignore
         <BaseTable
           ref={primaryTableRef}
           v-slots={context.slots}
           {...baseTableProps}
           class={primaryTableClasses.value}
+          onLeafColumnsChange={setDragSortColumns}
         />
       );
     };

@@ -4,16 +4,14 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon } from 'tdesign-icons-vue-next';
 
 import { RangeInputPopup, RangeInputPosition } from '../range-input';
-import TPopup from '../popup';
 import TimePickerPanel from './panel/time-picker-panel';
-import TInput from '../input';
 
 import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
 // interfaces
 import props from './time-range-picker-props';
-import { TimeRangeValue, TimeRangePickerPartial } from './interface';
+import { TimeRangeValue } from './interface';
 
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -25,17 +23,10 @@ dayjs.extend(customParseFormat);
 export default defineComponent({
   name: 'TTimeRangePicker',
 
-  components: {
-    TimePickerPanel,
-    TimeIcon,
-    TPopup,
-    TInput,
-    RangeInputPopup,
-  },
   props: { ...props, rangeInputProps: Object, popupProps: Object },
 
   setup(props) {
-    const componentName = usePrefixClass('time-picker');
+    const componentName = usePrefixClass('time-range-picker');
     const { global } = useConfig('timePicker');
     const { classPrefix } = useConfig('classPrefix');
 
@@ -121,8 +112,8 @@ export default defineComponent({
     );
 
     return () => (
-      <div className={componentName}>
-        <range-input-popup
+      <div class={componentName.value}>
+        <RangeInputPopup
           disabled={disabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{

@@ -7,18 +7,14 @@ import TButton from '../button';
 export default defineComponent({
   name: 'TJumper',
 
-  components: {
-    TButton,
-  },
-
   props,
 
-  setup(props, { slots, expose }) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('jumper');
 
     return () => (
-      <div className={`${COMPONENT_NAME.value}-jumper`}>
-        <t-button
+      <div class={`${COMPONENT_NAME.value}-jumper`}>
+        <TButton
           title={props.prevTitle}
           variant="text"
           size={props.size}
@@ -28,7 +24,7 @@ export default defineComponent({
           class={`${COMPONENT_NAME.value}-jumper__btn`}
         />
 
-        <t-button
+        <TButton
           title={props.currentTitle}
           variant="text"
           size={props.size}
@@ -38,7 +34,7 @@ export default defineComponent({
           class={`${COMPONENT_NAME.value}-jumper__btn`}
         />
 
-        <t-button
+        <TButton
           title={props.nextTitle}
           variant="text"
           size={props.size}

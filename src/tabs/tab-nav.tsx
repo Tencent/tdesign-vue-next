@@ -130,7 +130,7 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
-    watch([scrollLeft, () => props.placement], totalAdjust);
+    watch([scrollLeft, () => props.placement, () => props.panels], totalAdjust);
 
     // life times
     useResize(debounce(totalAdjust), navsContainerRef.value);

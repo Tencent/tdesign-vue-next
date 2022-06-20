@@ -26,6 +26,10 @@ export default {
   empty: {
     type: [String, Function] as PropType<TdCascaderProps['empty']>,
   },
+  /** 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据 */
+  filter: {
+    type: Function as PropType<TdCascaderProps['filter']>,
+  },
   /** 是否可搜索 */
   filterable: Boolean,
   /** 用来定义 value / label / children 在 `options` 中对应的字段别名 */
@@ -111,11 +115,11 @@ export default {
   /** 选中项的值 */
   value: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    defaultValue: undefined,
+    default: undefined,
   },
   modelValue: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    defaultValue: undefined,
+    default: undefined,
   },
   /** 选中项的值，非受控属性 */
   defaultValue: {

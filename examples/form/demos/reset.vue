@@ -11,7 +11,7 @@
     <br /><br />
 
     <!-- colon 表示，是否统一显示 label 冒号 -->
-    <t-form :data="formData" :reset-type="resetType" colon @reset="onReset" @submit="onSubmit">
+    <t-form ref="form" :data="formData" :reset-type="resetType" colon @reset="onReset" @submit="onSubmit">
       <t-form-item label="姓名" name="name">
         <t-input v-model="formData.name" placeholder="请输入内容"></t-input>
       </t-form-item>
@@ -23,7 +23,8 @@
       </t-form-item>
       <t-form-item style="padding-top: 8px">
         <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button theme="default" variant="base" type="reset">重置</t-button>
+        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
+        <t-button theme="default" variant="base" @click="resetPhoneNumber">只重置手机号码</t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -56,5 +57,10 @@ const onSubmit = ({ validateResult, firstError }) => {
     console.log('Errors: ', validateResult);
     MessagePlugin.warning(firstError);
   }
+};
+
+const form = ref(null);
+const resetPhoneNumber = () => {
+  form.value?.reset({ fields: ['tel'] });
 };
 </script>
