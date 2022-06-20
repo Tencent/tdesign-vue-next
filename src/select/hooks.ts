@@ -21,6 +21,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
           index: dynamicIndex,
           label: get(option, label),
           value: get(option, value),
+          content: option.content,
         };
         dynamicIndex++;
         return res;
