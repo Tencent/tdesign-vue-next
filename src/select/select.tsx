@@ -90,8 +90,8 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], options.value)
-        : getSingleContent(innerValue.value, options.value),
+        ? getMultipleContent(innerValue.value as SelectValue[], optionsList.value)
+        : getSingleContent(innerValue.value, optionsList.value),
     );
 
     // valueDisplayParmas参数
@@ -254,7 +254,7 @@ export default defineComponent({
             disabled={disabled.value}
             popupVisible={innerPopupVisible.value}
             inputValue={innerInputValue.value}
-            placeholder={placeholderText.value}
+            placeholder={`${placeholderText.value}`}
             allowInput={innerPopupVisible.value && isFilterable.value}
             collapsed-items={props.collapsedItems}
             inputProps={{
