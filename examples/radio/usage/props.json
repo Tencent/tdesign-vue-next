@@ -10,11 +10,5 @@
     "type": "Boolean",
     "defaultValue": false,
     "options": []
-  },
-  {
-    "name": "value",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]
