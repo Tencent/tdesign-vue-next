@@ -91080,12 +91080,12 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
                     class="t-table__async-loading t-is-loading"
                   >
                     <div
-                      class="t-loading--center t-size-m t-loading"
+                      class="t-loading--center t-size-s t-loading"
                     >
                       <svg
                         class="t-loading__gradient t-icon-loading"
                         height="1em"
-                        size="medium"
+                        size="small"
                         version="1.1"
                         viewBox="0 0 14 14"
                         width="1em"
