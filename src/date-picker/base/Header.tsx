@@ -139,12 +139,12 @@ export default defineComponent({
             popupProps={{ attach: (triggerNode: HTMLDivElement) => triggerNode.parentElement }}
             panelTopContent={() => (
               <div class={`${classPrefix.value}-select-option`} onClick={handlePanelTopClick}>
-                更多...
+                ...
               </div>
             )}
             panelBottomContent={() => (
               <div class={`${classPrefix.value}-select-option`} onClick={handlePanelBottomClick}>
-                更多...
+                ...
               </div>
             )}
           />

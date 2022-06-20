@@ -58,18 +58,6 @@ export default defineComponent({
       nextValue[activeIndex.value] = formatDate(date) as string;
       cacheValue.value = nextValue;
 
-      // date 模式自动切换年月
-      if (props.mode === 'date') {
-        // 选择了不属于面板中展示月份的日期
-        const partialIndex = partial === 'start' ? 0 : 1;
-        const isAdditional = dayjs(date).month() !== month[partialIndex];
-        if (isAdditional) {
-          // 保证左侧时间小于右侧
-          if (activeIndex.value === 0) month.value = [dayjs(date).month(), Math.min(dayjs(date).month() + 1, 11)];
-          if (activeIndex.value === 1) month.value = [Math.max(dayjs(date).month() - 1, 0), dayjs(date).month()];
-        }
-      }
-
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 
@@ -83,6 +71,8 @@ export default defineComponent({
       } else {
         isFirstValueSelected.value = true;
       }
+
+      props.onCellClick?.({ date: value.value.map((v) => dayjs(v).toDate()), e, partial });
     }
 
     // 头部快速切换

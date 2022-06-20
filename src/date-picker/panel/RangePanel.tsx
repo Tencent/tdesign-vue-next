@@ -4,6 +4,7 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../type';
+import { getDefaultFormat } from '../hooks/useFormat';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
 
@@ -46,23 +47,33 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
     const { global } = useConfig('datePicker');
 
+    const { format } = getDefaultFormat({
+      mode: props.mode,
+      format: props.format,
+      enableTimePicker: props.enableTimePicker,
+    });
+
     const disableDateOptions = computed(() =>
       useDisableDate({
+        format,
         mode: props.mode,
-        format: props.format,
         disableDate: props.disableDate,
         start:
-          props.isFirstValueSelected && props.activeIndex === 1 ? dayjs(props.value[0] as string).toDate() : undefined,
+          props.isFirstValueSelected && props.activeIndex === 1
+            ? dayjs(props.value[0] as string, format).toDate()
+            : undefined,
         end:
-          props.isFirstValueSelected && props.activeIndex === 0 ? dayjs(props.value[1] as string).toDate() : undefined,
+          props.isFirstValueSelected && props.activeIndex === 0
+            ? dayjs(props.value[1] as string, format).toDate()
+            : undefined,
       }),
     );
 
     const startTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? dayjs(props.value[0] as string).toDate() : undefined,
-        end: props.value[1] ? dayjs(props.value[1] as string).toDate() : undefined,
+        start: props.value[0] ? dayjs(props.value[0] as string, format).toDate() : undefined,
+        end: props.value[1] ? dayjs(props.value[1] as string, format).toDate() : undefined,
         hoverStart: props.hoverValue[0] ? dayjs(props.hoverValue[0] as string).toDate() : undefined,
         hoverEnd: props.hoverValue[1] ? dayjs(props.hoverValue[1] as string).toDate() : undefined,
         year: props.year[0],
@@ -76,8 +87,8 @@ export default defineComponent({
     const endTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? dayjs(props.value[0] as string).toDate() : undefined,
-        end: props.value[1] ? dayjs(props.value[1] as string).toDate() : undefined,
+        start: props.value[0] ? dayjs(props.value[0] as string, format).toDate() : undefined,
+        end: props.value[1] ? dayjs(props.value[1] as string, format).toDate() : undefined,
         hoverStart: props.hoverValue[0] ? dayjs(props.hoverValue[0] as string).toDate() : undefined,
         hoverEnd: props.hoverValue[1] ? dayjs(props.hoverValue[1] as string).toDate() : undefined,
         year: props.year[1],
@@ -89,8 +100,8 @@ export default defineComponent({
     );
 
     const panelContentProps = computed(() => ({
+      format,
       mode: props.mode,
-      format: props.format,
       firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
 
       enableTimePicker: props.enableTimePicker,
