@@ -50999,6 +50999,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
     data-v-0ef92f00=""
   >
     
+    <!-- !!!注意：当 FormItem 的 label 属性为 Function 时，errorMessage 模板中的 \${name} 会被替换为 FormItem.name 属性 -->
     <div
       class="t-form__item t-form-item__account t-form__item-with-help"
       data-v-0ef92f00=""

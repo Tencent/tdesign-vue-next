@@ -238,8 +238,9 @@ export default defineComponent({
           Object.keys(item).forEach((key) => {
             if (!item.message && errorMessages.value[key]) {
               const compiled = lodashTemplate(errorMessages.value[key]);
+              const name = typeof props.label === 'string' ? props.label : props.name;
               item.message = compiled({
-                name: props.label,
+                name,
                 validate: item[key],
               });
             }
