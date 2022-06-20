@@ -5,6 +5,7 @@ import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDatePickerProps, DateValue } from '../type';
 import type { TdTimePickerProps } from '../../time-picker';
+import { getDefaultFormat } from '../hooks/useFormat';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
 
@@ -60,10 +61,16 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     const { global } = useConfig('datePicker');
 
+    const { format } = getDefaultFormat({
+      mode: props.mode,
+      format: props.format,
+      enableTimePicker: props.enableTimePicker,
+    });
+
     const disableDateOptions = computed(() =>
       useDisableDate({
+        format,
         mode: props.mode,
-        format: props.format,
         disableDate: props.disableDate,
       }),
     );
@@ -73,17 +80,17 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? dayjs(props.value).toDate() : undefined,
+        start: props.value ? dayjs(props.value, format).toDate() : undefined,
         firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
 
     const panelContentProps = computed(() => ({
+      format,
       mode: props.mode,
       year: props.year,
       month: props.month,
-      format: props.format,
       firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
       tableData: tableData.value,
 
