@@ -11,9 +11,13 @@ import {
 
 export interface BaseTableProps extends TdBaseTableProps {
   /**
-   * 渲染展开行，非公开属性，请勿在业务中使用
+   * 渲染展开行。非公开属性，请勿在业务中使用
    */
   renderExpandedRow?: (params: TableExpandedRowParams<TableRowData>) => TNodeReturnValue;
+  /**
+   * 多级表头场景，叶子结点变化时执行。非公开属性，请勿在业务中使用
+   */
+  onLeafColumnsChange?: (columns: BaseTableColumns) => void;
 }
 
 export type PrimaryTableProps = TdPrimaryTableProps;

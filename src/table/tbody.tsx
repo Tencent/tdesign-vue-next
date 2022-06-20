@@ -87,10 +87,10 @@ export default defineComponent({
   // eslint-disable-next-line
   setup(props: TableBodyProps, { emit }: SetupContext) {
     const renderTNode = useTNodeJSX();
-    const { data, columns } = toRefs(props);
+    const { data, columns, rowKey } = toRefs(props);
     const { t, global } = useConfig('table');
     const { tableFullRowClasses, tableBaseClass } = useClassName();
-    const { skipSpansMap } = useRowspanAndColspan(data, columns, props.rowspanAndColspan);
+    const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, props.rowspanAndColspan);
 
     const tbodyClasses = computed(() => [tableBaseClass.body]);
 

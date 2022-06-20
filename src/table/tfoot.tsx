@@ -7,6 +7,7 @@ import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import { RowAndColFixedPosition } from './interface';
 import useClassName from './hooks/useClassName';
+import { Styles } from '../common';
 
 export interface TFootProps {
   rowKey: string;
@@ -18,6 +19,8 @@ export interface TFootProps {
   columns: TdBaseTableProps['columns'];
   rowAttributes: TdBaseTableProps['rowAttributes'];
   rowClassName: TdBaseTableProps['rowClassName'];
+  // 表尾吸底内容宽度
+  thWidthList?: { [colKey: string]: number };
 }
 
 export default defineComponent({
@@ -31,6 +34,7 @@ export default defineComponent({
     columns: Array as PropType<TFootProps['columns']>,
     rowAttributes: [Array, Object, Function] as PropType<TFootProps['rowAttributes']>,
     rowClassName: [Array, String, Object, Function] as PropType<TFootProps['rowClassName']>,
+    thWidthList: [Object] as PropType<TFootProps['thWidthList']>,
   },
 
   // eslint-disable-next-line
@@ -57,7 +61,7 @@ export default defineComponent({
     if (!this.footData || !this.footData.length || !this.columns) return null;
     const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
     return (
-      <tfoot ref="tfooterRef" class={theadClasses}>
+      <tfoot class={theadClasses}>
         {this.footData.map((row, rowIndex) => {
           const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
           // 自定义行类名
@@ -75,8 +79,12 @@ export default defineComponent({
                   this.rowAndColFixedPosition,
                   this.tableColFixedClasses,
                 );
+                const style: Styles = { ...tdStyles.style };
+                if (this.thWidthList?.[col.colKey]) {
+                  style.width = `${this.thWidthList[col.colKey]}px`;
+                }
                 return (
-                  <td key={col.colKey} class={tdStyles.classes} style={tdStyles.style}>
+                  <td key={col.colKey} class={tdStyles.classes} style={style}>
                     {this.renderTFootCell({
                       row,
                       rowIndex,

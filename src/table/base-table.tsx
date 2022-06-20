@@ -1,10 +1,23 @@
-import { computed, defineComponent, SetupContext, toRefs, ref, provide, nextTick, PropType } from 'vue';
+import {
+  computed,
+  defineComponent,
+  SetupContext,
+  toRefs,
+  ref,
+  provide,
+  nextTick,
+  PropType,
+  watch,
+  onMounted,
+} from 'vue';
 import pick from 'lodash/pick';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
+import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
 import useVirtualScroll from '../hooks/useVirtualScroll';
+import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';
 import { BaseTableProps } from './interface';
@@ -14,9 +27,9 @@ import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
 import { Affix } from '../affix';
 import { ROW_LISTENERS } from './tr';
-import useCommonClassName from '../hooks/useCommonClassName';
 import THead from './thead';
 import TFoot from './tfoot';
+import { getAffixProps } from './utils';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -34,37 +47,59 @@ export default defineComponent({
      * 渲染展开行，非公开属性，请勿在业务中使用
      */
     renderExpandedRow: Function as PropType<BaseTableProps['renderExpandedRow']>,
+    onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const tableRef = ref<HTMLDivElement>();
     const tableElmRef = ref<HTMLTableElement>();
+    const tableBodyRef = ref<HTMLTableElement>();
+    const tableFootHeight = ref(0);
     const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
-    const { statusClassNames } = useCommonClassName();
     // 表格基础样式类
     const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
     const { global } = useConfig('table');
+
     // 固定表头和固定列逻辑
     const {
-      affixHeaderRef,
       scrollbarWidth,
       virtualScrollHeaderPos,
       tableWidth,
+      tableElmWidth,
       tableContentRef,
       isFixedHeader,
       isWidthOverflow,
       isFixedColumn,
       thWidthList,
       showColumnShadow,
-      showAffixHeader,
       rowAndColFixedPosition,
+      setData,
       refreshTable,
-      onTableContentScroll,
-      updateHeaderScroll,
+      emitScrollEvent,
+      setUseFixedTableElmRef,
+      updateColumnFixedShadow,
     } = useFixed(props, context);
+
+    // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
+    const {
+      affixHeaderRef,
+      affixFooterRef,
+      horizontalScrollbarRef,
+      paginationRef,
+      showAffixHeader,
+      showAffixFooter,
+      showAffixPagination,
+      onHorizontalScroll,
+      setTableContentRef,
+    } = useAffix(props);
+
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const { dataSource, isPaginateData, renderPagination } = usePagination(props);
+
+    // 列宽拖拽逻辑
+    const columnResizeParams = useColumnResize(tableContentRef, refreshTable);
+    const { resizeLineRef, resizeLineStyle } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -92,9 +127,24 @@ export default defineComponent({
         ((isMultipleHeader.value && isWidthOverflow.value) || !isMultipleHeader.value),
     );
 
+    watch(tableElmRef, () => {
+      setUseFixedTableElmRef(tableElmRef.value);
+    });
+
+    watch(
+      () => [props.data, dataSource],
+      () => {
+        setData(isPaginateData.value ? dataSource.value : props.data);
+      },
+    );
+
+    watch(spansAndLeafNodes, () => {
+      props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
+    });
+
     const onFixedChange = () => {
       nextTick(() => {
-        updateHeaderScroll();
+        onHorizontalScroll();
       });
     };
 
@@ -120,29 +170,46 @@ export default defineComponent({
     provide('tableContentRef', tableContentRef);
     provide('rowHeightRef', ref(rowHeight));
 
-    let lastScrollY = -1;
-    const onInnerScroll =
-      type === 'virtual'
-        ? (e: WheelEvent) => {
-            onTableContentScroll(e);
-            const target = (e.target || e.srcElement) as HTMLElement;
-            const top = target.scrollTop;
-            // 排除横向滚动出发的纵向虚拟滚动计算
-            if (Math.abs(lastScrollY - top) > 5) {
-              handleVirtualScroll();
-              lastScrollY = top;
-            } else {
-              lastScrollY = -1;
-            }
-          }
-        : onTableContentScroll;
+    let lastScrollY = 0;
+    const onInnerVirtualScroll = (e: WheelEvent) => {
+      const target = (e.target || e.srcElement) as HTMLElement;
+      const top = target.scrollTop;
+      // 排除横向滚动出发的纵向虚拟滚动计算
+      if (lastScrollY !== top) {
+        isVirtual.value && handleVirtualScroll();
+      } else {
+        lastScrollY = 0;
+        updateColumnFixedShadow(target);
+      }
+      lastScrollY = top;
+      emitScrollEvent(e);
+    };
+
+    // used for top margin
+    const getTFootHeight = () => {
+      if (!tableElmRef.value) return;
+      tableFootHeight.value = tableElmRef.value.querySelector('tfoot')?.getBoundingClientRect().height;
+    };
+
+    watch(tableContentRef, () => {
+      setTableContentRef(tableContentRef.value);
+    });
+
+    watch(tableElmRef, getTFootHeight);
+
+    onMounted(() => {
+      getTFootHeight();
+      setTableContentRef(tableContentRef.value);
+    });
 
     return {
       thList,
       isVirtual,
       global,
+      tableFootHeight,
       virtualScrollHeaderPos,
       tableWidth,
+      tableElmWidth,
       tableRef,
       tableElmRef,
       tableBaseClass,
@@ -170,19 +237,26 @@ export default defineComponent({
       visibleData,
       translateY,
       affixHeaderRef,
+      affixFooterRef,
+      paginationRef,
       showAffixHeader,
-      statusClassNames,
+      showAffixFooter,
       scrollbarWidth,
       isMultipleHeader,
       showRightDivider,
-      refreshTable,
-      onTableContentScroll,
+      resizeLineRef,
+      resizeLineStyle,
+      columnResizeParams,
+      horizontalScrollbarRef,
+      tableBodyRef,
+      showAffixPagination,
       renderPagination,
       renderTNode,
       handleRowMounted,
       onFixedChange,
-      updateHeaderScroll,
-      onInnerScroll,
+      onHorizontalScroll,
+      refreshTable,
+      onInnerVirtualScroll,
     };
   },
 
@@ -192,13 +266,31 @@ export default defineComponent({
 
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
+    /**
+     * Affixed Header
+     */
+    // onlyVirtualScrollBordered 用于浏览器兼容性处理，只有 chrome 需要调整 bordered，FireFox 和 Safari 不需要
+    const onlyVirtualScrollBordered =
+      !!(this.isVirtual && !this.headerAffixedTop && this.bordered) && /Chrome/.test(navigator?.userAgent);
+    const borderWidth = this.bordered && onlyVirtualScrollBordered ? 1 : 0;
+    const affixHeaderWrapHeight =
+      (this.affixHeaderRef?.getBoundingClientRect().height || 0) - this.scrollbarWidth - borderWidth;
+    // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
+    const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
+    const affixHeaderWrapHeightStyle = {
+      width: `${this.tableWidth}px`,
+      height: `${affixHeaderWrapHeight}px`,
+      opacity: headerOpacity,
+      marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
+    };
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
         ref="affixHeaderRef"
         style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixHeader) }}
-        class={{ [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }}
+        class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
-        <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableWidth}px` }}>
+        <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
+          {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
             {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
               <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
@@ -213,9 +305,63 @@ export default defineComponent({
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
             thWidthList={this.thWidthList}
+            resizable={this.resizable}
+            columnResizeParams={this.columnResizeParams}
           />
         </table>
       </div>
+    );
+
+    // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
+    // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
+    const affixHeaderWithWrap = (
+      <div class={this.tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle}>
+        {affixedHeader}
+      </div>
+    );
+
+    /**
+     * Affixed Footer
+     */
+    let marginScrollbarWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
+    if (this.bordered) {
+      marginScrollbarWidth += 1;
+    }
+    // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
+    const affixedFooter = Boolean(this.footerAffixedBottom && this.footData?.length && this.tableWidth) && (
+      <Affix
+        class={this.tableBaseClass.affixedFooterWrap}
+        onFixedChange={this.onFixedChange}
+        offsetBottom={marginScrollbarWidth || 0}
+        {...getAffixProps(this.footerAffixedBottom)}
+        style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
+      >
+        <div
+          ref="affixFooterRef"
+          style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixFooter) }}
+          class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
+        >
+          <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
+            {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
+            <colgroup>
+              {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+                <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
+              ))}
+            </colgroup>
+            <TFoot
+              rowKey={this.rowKey}
+              v-slots={this.$slots}
+              isFixedHeader={this.isFixedHeader}
+              rowAndColFixedPosition={rowAndColFixedPosition}
+              footData={this.footData}
+              columns={this.columns}
+              rowAttributes={this.rowAttributes}
+              rowClassName={this.rowClassName}
+              thWidthList={this.thWidthList}
+            ></TFoot>
+          </table>
+        </div>
+      </Affix>
     );
 
     const translate = `translate(0, ${this.scrollHeight}px)`;
@@ -251,7 +397,7 @@ export default defineComponent({
         ref="tableContentRef"
         class={this.tableBaseClass.content}
         style={this.tableContentStyles}
-        onScroll={this.onInnerScroll}
+        onScroll={this.onInnerVirtualScroll}
       >
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
@@ -269,6 +415,8 @@ export default defineComponent({
             bordered={this.bordered}
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
+            resizable={this.resizable}
+            columnResizeParams={this.columnResizeParams}
           />
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
@@ -299,6 +447,12 @@ export default defineComponent({
 
     const topContent = this.renderTNode('topContent');
     const bottomContent = this.renderTNode('bottomContent');
+    const pagination = (
+      <div ref="paginationRef" style={{ opacity: Number(this.showAffixPagination) }}>
+        {this.renderPagination()}
+      </div>
+    );
+    const bottom = !!bottomContent && <div class={this.tableBaseClass.bottomContent}>{bottomContent}</div>;
 
     return (
       <div ref="tableRef" class={this.dynamicBaseTableClasses} style="position: relative">
@@ -306,30 +460,58 @@ export default defineComponent({
 
         {!!(this.isVirtual || this.headerAffixedTop) &&
           (this.headerAffixedTop ? (
-            <Affix
-              offsetTop={0}
-              {...(this.headerAffixProps as BaseTableProps['headerAffixProps'])}
-              onFixedChange={this.onFixedChange}
-            >
-              {affixedHeader}
+            <Affix offsetTop={0} {...getAffixProps(this.headerAffixedTop)} onFixedChange={this.onFixedChange}>
+              {affixHeaderWithWrap}
             </Affix>
           ) : (
-            this.isFixedHeader && affixedHeader
+            this.isFixedHeader && affixHeaderWithWrap
           ))}
 
         {tableContent}
 
+        {affixedFooter}
+
         {loadingContent}
 
+        {/* 右侧滚动条分隔线 */}
         {this.showRightDivider && (
           <div
             class={this.tableBaseClass.scrollbarDivider}
-            style={{ right: `${this.scrollbarWidth}px`, height: `${this.tableContentRef?.offsetHeight}px` }}
+            style={{
+              right: `${this.scrollbarWidth}px`,
+              height: `${this.tableContentRef?.getBoundingClientRect().height}px`,
+            }}
           ></div>
         )}
 
-        {!!bottomContent && <div class={this.tableBaseClass.bottomContent}>{bottomContent}</div>}
-        {this.renderPagination()}
+        {bottom}
+
+        {/* 吸底的滚动条 */}
+        {this.horizontalScrollAffixedBottom && (
+          <Affix
+            offsetBottom={0}
+            {...getAffixProps(this.horizontalScrollAffixedBottom)}
+            style={{ marginTop: `-${this.scrollbarWidth * 2}px` }}
+          >
+            <div
+              ref="horizontalScrollbarRef"
+              class={['scrollbar', this.tableBaseClass.obviousScrollbar]}
+              style={{
+                width: `${this.tableWidth}px`,
+                overflow: 'auto',
+                opacity: Number(this.showAffixFooter),
+              }}
+            >
+              <div style={{ width: `${this.tableElmWidth}px`, height: '5px' }}></div>
+            </div>
+          </Affix>
+        )}
+
+        {/* 吸底的分页器 */}
+        {this.paginationAffixedBottom ? <Affix offsetBottom={0}>{pagination}</Affix> : pagination}
+
+        {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
+        <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>
       </div>
     );
   },

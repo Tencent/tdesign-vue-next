@@ -68,27 +68,33 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围
+   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
-  footerAffixedBottom?: boolean;
+  footerAffixedBottom?: boolean | AffixProps;
   /**
    * 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性
+   * @deprecated
    */
   footerAffixProps?: AffixProps;
   /**
-   * 表头吸顶。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围
+   * 表头吸顶。基于 Affix 组件开发，透传全部 Affix 组件属性。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围
    * @default false
    */
-  headerAffixedTop?: boolean;
+  headerAffixedTop?: boolean | AffixProps;
   /**
    * 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
+   * @deprecated
    */
   headerAffixProps?: AffixProps;
   /**
    * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    */
   height?: string | number;
+  /**
+   * 滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性
+   */
+  horizontalScrollAffixedBottom?: boolean | AffixProps;
   /**
    * 是否显示鼠标悬浮状态
    * @default false
@@ -114,6 +120,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`
    */
   pagination?: PaginationProps;
+  /**
+   * 分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性
+   */
+  paginationAffixedBottom?: boolean | AffixProps;
   /**
    * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`
    * @default false

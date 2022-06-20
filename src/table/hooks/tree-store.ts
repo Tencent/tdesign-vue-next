@@ -69,6 +69,9 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       log.error('EnhancedTable', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
       return [];
     }
+    const childrenNodes = get(p.row, keys.childrenKey);
+    // childrenNodes = true，表示懒加载，直接返回，暂时不做展开处理
+    if (childrenNodes === true) return dataSource;
     const r = this.treeDataMap.get(rowValue);
     r.rowIndex = p.rowIndex;
     r.expanded = !r.expanded;
@@ -178,52 +181,73 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
   }
 
   /**
-   * 为当前节点添加子节点，默认添加到最后一个节点
+   * 为当前节点添加子节点，默认添加到最后一个节点。允许添加单个或多个
    * @param rowValue 当前节点唯一标识
    * @param newData 待添加的新节点
    */
-  appendTo(rowValue: string | number, newData: T, dataSource: T[], keys: KeysType): T[] {
+  appendTo(rowValue: string | number, newData: T | T[], dataSource: T[], keys: KeysType): T[] {
     const state = this.treeDataMap.get(rowValue);
     if (!this.validateDataExist(state, rowValue)) return dataSource;
-    const newRowValue = get(newData, keys.rowKey);
-    const mapState = this.treeDataMap.get(newRowValue);
-    if (!this.validateDataDoubleExist(mapState, newRowValue)) return dataSource;
     const children: T[] = get(state.row, keys.childrenKey);
     // 子节点不存在，则表示为叶子节点
     const isShowNewNode = state.expanded || !children?.length;
-    const rowIndex = isShowNewNode ? state.rowIndex + (state.expandChildrenLength || 0) + 1 : -1;
-    const newState = {
-      id: newRowValue,
-      row: newData,
-      rowIndex,
-      level: state.level + 1,
-      expanded: false,
-      expandChildrenLength: 0,
-      disabled: false,
-      path: [...state.path],
-      parent: state,
-    };
-    newState.path = newState.path.concat(newState);
+    // 添加多个子节点时，需去除重复子节点
+    const tmpData = newData instanceof Array ? newData : [newData];
+    const newChildrenData: T[] = [];
+    const newChildrenStates: TableRowState[] = [];
+    let firstNewChildrenIndex = -1;
+    for (let i = 0, len = tmpData.length; i < len; i++) {
+      const oneData = tmpData[i];
+      const newRowValue = get(oneData, keys.rowKey);
+      const mapState = this.treeDataMap.get(newRowValue);
+      if (!this.validateDataDoubleExist(mapState, newRowValue)) {
+        log.warn('Table', `Duplicated Data \`${newRowValue}\` has been removed.`);
+      } else {
+        const rowIndex = isShowNewNode ? state.rowIndex + (state.expandChildrenLength || 0) + (i + 1) : -1;
+        if (i === 0) {
+          firstNewChildrenIndex = rowIndex;
+        }
+        const newState = {
+          id: newRowValue,
+          row: oneData,
+          rowIndex,
+          level: state.level + 1,
+          expanded: false,
+          expandChildrenLength: 0,
+          disabled: false,
+          path: [...state.path],
+          parent: state,
+        };
+        newState.path = newState.path.concat(newState);
+        newChildrenData.push(oneData);
+        newChildrenStates.push(newState);
+        this.treeDataMap.set(newRowValue, newState);
+      }
+    }
+    if (!newChildrenData.length) return dataSource;
+
     if (children?.length) {
-      state.row[keys.childrenKey].push(newData);
+      state.row[keys.childrenKey] = state.row[keys.childrenKey].concat(newChildrenData);
     } else {
-      state.row[keys.childrenKey] = [newData];
+      state.row[keys.childrenKey] = newChildrenData;
       state.expanded = true;
     }
-    this.treeDataMap.set(newRowValue, newState);
+
     // 如果当前节点为展开状态，则需要继续处理
     if (isShowNewNode) {
-      dataSource.splice(newState.rowIndex, 0, newData);
+      dataSource.splice(firstNewChildrenIndex, 0, ...newChildrenData);
       // 更新父元素及祖先元素展开子节点的数量
-      updateRowExpandLength(this.treeDataMap, state.row, 1, 'insert', {
+      const newChildrenCount = newChildrenData.length || 1;
+      updateRowExpandLength(this.treeDataMap, state.row, newChildrenCount, 'insert', {
         rowKey: keys.rowKey,
         childrenKey: keys.childrenKey,
       });
       // 更新 rowIndex 之后的下标
       updateRowIndex(this.treeDataMap, dataSource, {
-        minRowIndex: newState.rowIndex,
+        minRowIndex: firstNewChildrenIndex,
         rowKey: keys.rowKey,
         type: 'add',
+        count: newChildrenData.length,
       });
     }
 
@@ -665,6 +689,7 @@ export function updateRowIndex<T>(
     minRowIndex?: number;
     maxRowIndex?: number;
     type?: 'add' | 'remove';
+    count?: number;
   },
 ) {
   const start = extra.minRowIndex || 0;
@@ -675,6 +700,6 @@ export function updateRowIndex<T>(
     if (!state) {
       log.warn('Table', 'tree map went wrong');
     }
-    state.rowIndex = rowIndex;
+    state.rowIndex = rowIndex + (extra?.count || 1) - 1;
   }
 }

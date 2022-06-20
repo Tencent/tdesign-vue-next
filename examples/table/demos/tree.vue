@@ -27,8 +27,8 @@
       drag-sort="row-handler"
       :data="data"
       :columns="columns"
-      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 50 }"
-      :tree-expand-and-fold-icon="customTreeExpandAndFoldIcon ? treeExpandAndFoldIconRender : undefined"
+      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 }"
+      :tree-expand-and-fold-icon="treeExpandIcon"
       :pagination="pagination"
       :before-drag-sort="beforeDragSort"
       @page-change="onPageChange"
@@ -52,28 +52,38 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ref, reactive /** , onMounted */ } from 'vue';
-import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
-import { ChevronRightIcon, ChevronDownIcon, MoveIcon } from 'tdesign-icons-vue-next';
+import { ref, reactive, computed /** , onMounted */ } from 'vue';
+import { EnhancedTable as TEnhancedTable, MessagePlugin, Loading } from 'tdesign-vue-next';
+import {
+  ChevronRightIcon,
+  ChevronDownIcon,
+  MoveIcon,
+  AddRectangleIcon,
+  MinusRectangleIcon,
+} from 'tdesign-icons-vue-next';
 
 const TOTAL = 5;
+
+function getObject(i, currentPage) {
+  return {
+    id: i,
+    key: `我是 ${i}_${currentPage} 号`,
+    platform: i % 2 === 0 ? '共有' : '私有',
+    type: ['String', 'Number', 'Array', 'Object'][i % 4],
+    default: ['-', '0', '[]', '{}'][i % 4],
+    detail: {
+      position: `读取 ${i} 个数据的嵌套信息值`,
+    },
+    needed: i % 4 === 0 ? '是' : '否',
+    description: '数据源',
+  };
+}
 
 function getData(currentPage = 1) {
   const data = [];
   // const pageInfo = `第 ${currentPage} 页`;
   for (let i = 0; i < TOTAL; i++) {
-    const obj = {
-      id: i,
-      key: `我是 ${i}_${currentPage} 号`,
-      platform: i % 2 === 0 ? '共有' : '私有',
-      type: ['String', 'Number', 'Array', 'Object'][i % 4],
-      default: ['-', '0', '[]', '{}'][i % 4],
-      detail: {
-        position: `读取 ${i} 个数据的嵌套信息值`,
-      },
-      needed: i % 4 === 0 ? '是' : '否',
-      description: '数据源',
-    };
+    const obj = getObject(i, currentPage);
     // 第一行不设置子节点
     obj.list = new Array(2).fill(null).map((t, j) => {
       const secondIndex = 100 * j + (i + 1) * 10;
@@ -98,11 +108,26 @@ function getData(currentPage = 1) {
     }
     data.push(obj);
   }
+  // 懒加载1
+  data.push({
+    ...getObject(66666, currentPage),
+    /** 如果子节点为懒加载，则初始值设置为 true */
+    list: true,
+    key: '我是懒加载节点 66666，点我体验',
+  });
+  // 懒加载2
+  data.push({
+    ...getObject(88888, currentPage),
+    /** 如果子节点为懒加载，则初始值设置为 true */
+    list: true,
+    key: '我是懒加载节点 88888，点我体验 ',
+  });
   return data;
 }
 
 const table = ref(null);
 const data = ref(getData());
+const lazyLoadingData = ref(null);
 
 const setData1 = () => {
   // 需要更新数据地址空间
@@ -133,14 +158,38 @@ const onLookUp = (row) => {
 };
 
 const appendTo = (row) => {
-  const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
+  const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   table.value.appendTo(row.key, {
-    id: randomKey,
-    key: `我是 ${randomKey} 号`,
+    id: randomKey1,
+    key: `我是 ${randomKey1} 号`,
     platform: '私有',
     type: 'Number',
   });
-  MessagePlugin.success(`已插入子节点我是 ${randomKey} 号，请展开查看`);
+  MessagePlugin.success(`已插入子节点我是 ${randomKey1} 号，请展开查看`);
+
+  // 一次性添加多个子节点。示例代码有效，勿删！!!
+  // appendMultipleDataTo(row);
+};
+
+const appendMultipleDataTo = (row) => {
+  const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
+  const randomKey2 = Math.round(Math.random() * Math.random() * 1000) + 10000;
+  const newData = [
+    {
+      id: randomKey1,
+      key: `我是 ${randomKey1} 号`,
+      platform: '私有',
+      type: 'Number',
+    },
+    {
+      id: randomKey2,
+      key: `我是 ${randomKey2} 号`,
+      platform: '私有',
+      type: 'Number',
+    },
+  ];
+  table.value.appendTo(row.key, newData);
+  MessagePlugin.success(`已插入子节点我是 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
 };
 
 // 当前节点之前，新增兄弟节前
@@ -259,6 +308,15 @@ const customTreeExpandAndFoldIcon = ref(false);
 
 const treeExpandAndFoldIconRender = (h, { type }) => (type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />);
 
+// 懒加载图标渲染
+const lazyLoadingTreeIconRender = (h, params) => {
+  const { type, row } = params;
+  if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+    return <Loading size="14px" />;
+  }
+  return type === 'expand' ? <AddRectangleIcon /> : <MinusRectangleIcon />;
+};
+
 // 默认展开全部。示例代码有效，勿删
 // onMounted(() => {
 //   table.value.expandAll();
@@ -301,6 +359,20 @@ const onAbnormalDragSort = (params) => {
 
 const onTreeExpandChange = (context) => {
   console.log(context.rowState.expanded ? '展开' : '收起', context);
+  /**
+   * 如果是懒加载，请确认自己完成了以下几个步骤
+   * 1. 提前设置 children 值为 true；
+   * 2. 在 onTreeExpandChange 事件中处理异步数据；
+   * 3. 自定义展开图标渲染 lazyLoadingTreeIconRender
+   */
+  if (context.row.list === true) {
+    lazyLoadingData.value = context.row;
+    const timer = setTimeout(() => {
+      appendMultipleDataTo(context.row);
+      lazyLoadingData.value = null;
+      clearTimeout(timer);
+    }, 200);
+  }
 };
 
 const onDragSort = (params) => {
@@ -313,6 +385,14 @@ const beforeDragSort = (params) => {
   console.log('beforeDragSort:', params);
   return true;
 };
+
+const treeExpandIcon = computed(() => {
+  // 懒加载图标渲染
+  if (lazyLoadingData.value) return lazyLoadingTreeIconRender;
+  // 自定义展开图标
+  if (customTreeExpandAndFoldIcon.value) return treeExpandAndFoldIconRender;
+  return undefined;
+});
 </script>
 
 <style>
