@@ -260,6 +260,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateRowAndColFixedPosition = (tableContentElm: HTMLElement, initialColumnMap: RowAndColFixedPosition) => {
     rowAndColFixedPosition.value.clear();
+    if (!tableContentElm) return;
     const thead = tableContentElm.querySelector('thead');
     // 处理固定列
     thead && setFixedColPosition(thead.children, initialColumnMap);
@@ -273,7 +274,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   let shadowLastScrollLeft: number;
   const updateColumnFixedShadow = (target: HTMLElement) => {
-    if (!isFixedColumn.value) return;
+    if (!isFixedColumn.value || !target) return;
     const { scrollLeft } = target;
     // 只有左右滚动，需要更新固定列阴影
     if (shadowLastScrollLeft === scrollLeft) return;
@@ -335,6 +336,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateTableWidth = () => {
     const rect = tableContentRef.value?.getBoundingClientRect();
+    if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
     tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
@@ -359,7 +361,8 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     if (notNeedThWidthList.value) return;
     const timer = setTimeout(() => {
       updateTableWidth();
-      const thead = tableContentRef.value.querySelector('thead');
+      const thead = tableContentRef.value?.querySelector('thead');
+      if (!thead) return;
       updateThWidthList(thead.children);
       clearTimeout(timer);
     }, 0);
