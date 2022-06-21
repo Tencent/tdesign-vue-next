@@ -1,4 +1,4 @@
-import { ref, watch, toRefs, nextTick, isRef } from 'vue';
+import { ref, watch, toRefs, nextTick } from 'vue';
 import { TdTreeProps } from './type';
 import TreeItem from './tree-item';
 
