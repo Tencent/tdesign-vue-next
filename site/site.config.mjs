@@ -97,7 +97,7 @@ export default {
           component: () => import('@/examples/divider/divider.md'),
         },
         {
-          title: 'Space 分割线',
+          title: 'Space 间距',
           name: 'space',
           path: '/vue-next/components/space',
           component: () => import('@/examples/space/space.md'),
