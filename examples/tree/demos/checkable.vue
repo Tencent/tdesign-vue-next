@@ -124,15 +124,15 @@ const items = [
     ],
   },
   {
-    value: '2',
+    value: 2,
     label: '2',
     children: [
       {
-        value: '2.1',
+        value: 2.1,
         label: '2.1',
       },
       {
-        value: '2.2',
+        value: 2.2,
         label: '2.2',
       },
     ],

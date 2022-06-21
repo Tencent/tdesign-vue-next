@@ -1,4 +1,4 @@
-import { ref, watch, toRefs, nextTick } from 'vue';
+import { ref, watch, toRefs, nextTick, isRef } from 'vue';
 import { TdTreeProps } from './type';
 import TreeItem from './tree-item';
 
@@ -7,7 +7,7 @@ import TreeNode from '../_common/js/tree/tree-node';
 
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
-import { getMark, getNode, getStoreConfig } from './util';
+import { getMark, getNode, getStoreConfig, getRightData } from './util';
 
 import { TypeEventState, TypeTreeNodeModel } from './interface';
 
@@ -158,7 +158,7 @@ export default function useTree(props: TdTreeProps) {
 
   // 初始化
   const init = () => {
-    let options = props.data;
+    let options = getRightData(props.data);
     const store = new TreeStore({
       ...getStoreConfig(props),
       onLoad: (info: TypeEventState) => {
@@ -203,6 +203,7 @@ export default function useTree(props: TdTreeProps) {
   watch(
     () => props.data,
     (list) => {
+      list = getRightData(props.data);
       cacheMap.clear();
 
       treeStore.value.reload(list);
