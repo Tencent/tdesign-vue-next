@@ -1,4 +1,4 @@
-import { VNode, h } from 'vue';
+import { VNode, h, isRef } from 'vue';
 import pick from 'lodash/pick';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
@@ -126,4 +126,17 @@ export const getStoreConfig = (props: TdTreeProps) => {
     'filter',
   ]);
   return storeProps;
+};
+
+export const getRightData = (list: TdTreeProps['data']) => {
+  const ds = isRef<TdTreeProps['data']>(list) ? list.value : list;
+  return ds.map((item) => {
+    if (item.value) {
+      item.value = item.value.toString();
+    }
+    if (item.children && Array.isArray(item.children)) {
+      item.children = getRightData(item.children);
+    }
+    return item;
+  });
 };
