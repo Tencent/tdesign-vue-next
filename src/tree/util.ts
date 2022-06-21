@@ -130,7 +130,7 @@ export const getStoreConfig = (props: TdTreeProps) => {
 
 export const getRightData = (list: TdTreeProps['data']) => {
   const ds = isRef<TdTreeProps['data']>(list) ? list.value : list;
-  return ds.map((item) => {
+  return (Array.isArray(ds) ? ds : []).map((item) => {
     if (item.value) {
       item.value = item.value.toString();
     }
