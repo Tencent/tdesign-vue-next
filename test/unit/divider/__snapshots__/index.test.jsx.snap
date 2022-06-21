@@ -22,10 +22,9 @@ exports[`Divider > :props > :dashed 1`] = `
 </div>
 `;
 
-exports[`Divider > :props > :theme 1`] = `
+exports[`Divider > :props > :layout 1`] = `
 <div
-  class="t-divider t-divider--horizontal"
-  theme="vertical"
+  class="t-divider t-divider--vertical"
 >
   <!---->
 </div>

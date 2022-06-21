@@ -22124,8 +22124,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer.vue 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -22168,8 +22167,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer.vue 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -22281,8 +22279,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer-actions.vue 1
           >
             
             <div
-              class="t-divider t-divider--horizontal"
-              theme="vertical"
+              class="t-divider t-divider--vertical"
             >
               <!---->
             </div>
@@ -22325,8 +22322,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer-actions.vue 1
           >
             
             <div
-              class="t-divider t-divider--horizontal"
-              theme="vertical"
+              class="t-divider t-divider--vertical"
             >
               <!---->
             </div>
@@ -23074,8 +23070,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-footer-action
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -23118,8 +23113,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-footer-action
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -23332,8 +23326,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-subtitle-foot
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -23376,8 +23369,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-subtitle-foot
         >
           
           <div
-            class="t-divider t-divider--horizontal"
-            theme="vertical"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
