@@ -160,19 +160,11 @@ module.exports = {
   table: {
     importStr: `
       import baseConfigJson from './base-table-props.json';\n
-      import primaryConfigJson from './primary-table-props.json';\n
     `,
     configStr: `const configList = ref(baseConfigJson);`,
-    script: `
-      const visible = ref(false);
-      const handleClick = () => {
-        visible.value = !visible.value;
-      };
-    `,
     panelStr: `
       const panelList = [
         {label: 'baseTable', value: 'baseTable', config: baseConfigJson},
-        {label: 'primaryTable', value: 'primaryTable', config: primaryConfigJson}
       ];
     `,
     panelChangeStr: `
@@ -182,7 +174,7 @@ module.exports = {
       }
     `,
     render: {
-      baseTable: `<t-table
+      baseTable: `<t-base-table
         v-bind="configProps"
         row-key="index"
         :data="[{index:1,platform:'公用'},{index:2,platform:'私有'}]"
@@ -198,28 +190,6 @@ module.exports = {
           title: '平台',
         }]"
       />`,
-      primaryTable: `
-        <div>
-          <t-button @click="visible = true">列配置</t-button>
-          <t-table
-            v-bind="configProps"
-            row-key="index"
-            v-model:columnControllerVisible="visible"
-            :data="[{index:1,platform:'公用'},{index:2,platform:'私有'}]"
-            :columns="[{
-              align: 'center',
-              width: '100',
-              colKey: 'index',
-              title: '序号',
-            },
-            {
-              width: 100,
-              colKey: 'platform',
-              title: '平台',
-            }]"
-          />
-        </div>
-      `,
     },
   },
   tabs: {
