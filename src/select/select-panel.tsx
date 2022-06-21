@@ -45,7 +45,7 @@ export default defineComponent({
           return props.filter(`${props.inputValue}`, option);
         }
 
-        return option.label.indexOf(`${props.inputValue}`) > -1;
+        return option.label?.indexOf(`${props.inputValue}`) > -1;
       };
 
       return props.options.filter(filterMethods);
