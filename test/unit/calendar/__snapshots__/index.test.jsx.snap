@@ -190,10 +190,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -1200,10 +1197,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -1871,10 +1865,7 @@ exports[`Calendar > :props > :mode 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -2324,10 +2315,7 @@ exports[`Calendar > :props > :range 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -3216,10 +3204,7 @@ exports[`Calendar > :props > :theme 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <!---->
@@ -4082,10 +4067,7 @@ exports[`Calendar > :props > :value 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
