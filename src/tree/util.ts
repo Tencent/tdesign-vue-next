@@ -1,4 +1,4 @@
-import { VNode, h, isRef } from 'vue';
+import { VNode, h } from 'vue';
 import pick from 'lodash/pick';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
