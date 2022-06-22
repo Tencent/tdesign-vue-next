@@ -1,20 +1,23 @@
 import { computed, Slots, VNode, Ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
-import cloneDeep from 'lodash/cloneDeep';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue } from './type';
+
+type UniOption = (TdOptionProps | SelectOptionGroup) & {
+  index?: number;
+  slots?: Slots;
+};
 
 export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>) => {
   const getChildComponentSlots = useChildComponentSlots();
 
   const options = computed(() => {
-    let innerOptions = cloneDeep(props.options);
     let dynamicIndex = 0;
 
     // 统一处理 keys,处理通用数据
-    innerOptions = innerOptions.map((option) => {
+    const innerOptions: UniOption[] = props.options.map((option) => {
       const getFormatOption = (option: TdOptionProps) => {
         const { value, label } = keys.value;
         const res = {

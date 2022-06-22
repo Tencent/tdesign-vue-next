@@ -4,7 +4,6 @@ import { TdSelectProps, TdOptionProps, SelectValue, SelectOption, SelectOptionGr
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
-    slots: Slots;
     hoverIndex: number;
     selectValue: TdSelectProps['value'];
     size: TdSelectProps['size'];
