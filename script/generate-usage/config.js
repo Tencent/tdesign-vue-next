@@ -621,4 +621,17 @@ module.exports = {
       `,
     },
   },
+  space: {
+    panelStr: `const panelList = [{label: 'space', value: 'space'}];`,
+    render: {
+      space: `
+        <t-space v-bind="configProps">
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+        </t-space>
+      `,
+    },
+  },
 };
