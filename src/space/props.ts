@@ -35,9 +35,5 @@ export default {
   size: {
     type: [String, Number] as PropType<TdSpaceProps['size']>,
     default: 'medium' as TdSpaceProps['size'],
-    validator(val: TdSpaceProps['size']): boolean {
-      if (!val) return true;
-      return ['small', 'medium', 'large'].includes(val);
-    },
   },
 };
