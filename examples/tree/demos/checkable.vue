@@ -15,6 +15,13 @@
             </t-radio-button>
           </t-radio-group>
         </t-form-item>
+        <t-form-item label="value 类型" style="margin-bottom: 16px">
+          <t-radio-group v-model="valueType" name="value-type" variant="default-filled">
+            <t-radio-button v-for="item in valueTypeOptions" :key="item.value" :value="item.value">
+              {{ item.label }}
+            </t-radio-button>
+          </t-radio-group>
+        </t-form-item>
       </t-form>
     </div>
     <t-tree
@@ -31,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const valueOptions = [
   {
@@ -48,7 +55,18 @@ const valueOptions = [
   },
 ];
 
-const items = [
+const valueTypeOptions = [
+  {
+    value: 'string',
+    label: 'string',
+  },
+  {
+    value: 'number',
+    label: 'number',
+  },
+];
+
+const itemsString = [
   {
     value: '1',
     label: '1',
@@ -124,6 +142,37 @@ const items = [
     ],
   },
   {
+    value: '2',
+    label: '2',
+    children: [
+      {
+        value: '2.1',
+        label: '2.1',
+      },
+      {
+        value: '2.2',
+        label: '2.2',
+      },
+    ],
+  },
+];
+
+const itemsNumber = [
+  {
+    value: 1,
+    label: '1',
+    children: [
+      {
+        value: 1.1,
+        label: '1.1',
+      },
+      {
+        value: 1.2,
+        label: '1.2',
+      },
+    ],
+  },
+  {
     value: 2,
     label: '2',
     children: [
@@ -140,8 +189,14 @@ const items = [
 ];
 
 const valueMode = ref('onlyLeaf');
+const valueType = ref('string');
 const checkable = ref(true);
 const checkStrictly = ref(false);
+const items = ref(itemsString);
+
+watch(valueType, (type) => {
+  items.value = type === 'string' ? itemsString : itemsNumber;
+});
 
 const onClick = (context) => {
   console.info('onClick:', context);
