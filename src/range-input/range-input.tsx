@@ -37,17 +37,14 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const isShowClearIcon = computed(
-      () => ((props.clearable && props.value?.length && !disabled) || props.showClearIconOnEmpty) && isHover.value,
+      () =>
+        ((props.clearable && props.value?.length && !disabled.value) || props.showClearIconOnEmpty) && isHover.value,
     );
 
     const labelContent = renderTNodeJSX('label');
     const prefixIconContent = renderTNodeJSX('prefixIcon');
     const suffixContent = renderTNodeJSX('suffix');
-    const suffixIconContent = renderTNodeJSX('suffixIcon', {
-      defaultNode: isShowClearIcon.value ? (
-        <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
-      ) : null,
-    });
+    const suffixIconContent = renderTNodeJSX('suffixIcon');
 
     const inputRefs = {
       firstInputRef: ref(),
@@ -110,8 +107,8 @@ export default defineComponent({
             [STATUS.value.focused]: focused.value,
           },
         ]}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseenter={handleMouseEnter}
+        onMouseleave={handleMouseLeave}
       >
         <div class={`${COMPONENT_NAME.value}__inner`}>
           {prefixIconContent}
@@ -194,7 +191,11 @@ export default defineComponent({
           {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
           {suffixIconContent && (
             <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
-              {suffixIconContent}
+              {isShowClearIcon.value ? (
+                <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
+              ) : (
+                suffixIconContent
+              )}
             </span>
           )}
         </div>
