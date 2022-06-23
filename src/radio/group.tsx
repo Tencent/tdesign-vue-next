@@ -77,7 +77,7 @@ export default defineComponent({
     const radioGroupName = usePrefixClass('radio-group');
     const renderSlot = useTNodeDefault();
     const renderBlock = (): VNode => {
-      if (props.variant.includes('filled') && isNil(innerValue.value))
+      if (props.variant.includes('filled') && !isNil(innerValue.value))
         return <div style={barStyle.value} class={`${radioGroupName.value}__bg-block`} />;
     };
     const renderOptions = (): VNode[] => {
