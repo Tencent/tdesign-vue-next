@@ -29,8 +29,7 @@ export default defineComponent({
         className: 't-dialog-new-class1 t-dialog-new-class2',
         style: 'color: rgba(0, 0, 0, 0.6)',
         onConfirm: ({ e }) => {
-          this.myDialog?.update?.({ header: '2' });
-          // this.mydialog.hide();
+          this.myDialog.hide();
         },
       });
     },
