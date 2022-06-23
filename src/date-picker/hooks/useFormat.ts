@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import type { DateValue, TdDatePickerProps, TdDateRangePickerProps } from '../type';
-import { extractTimeFormat } from '../../_common/js/date-picker/utils-new';
+import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
 export interface formatProps {
   mode: TdDatePickerProps['mode'];

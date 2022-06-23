@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-date-picker
       placeholder="禁用昨天、前天"
       :disable-date="[dayjs().subtract(1, 'day').format(), dayjs().subtract(2, 'day').format()]"
@@ -33,7 +33,7 @@
         after: dayjs().add(5, 'day').format(),
       }"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

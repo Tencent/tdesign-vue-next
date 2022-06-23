@@ -13,7 +13,7 @@ import {
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
 import useFormat from './hooks/useFormat';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
+import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
