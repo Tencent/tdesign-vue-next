@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 import useSingleValue from './hooks/useSingleValue';
 import useFormat from './hooks/useFormat';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
+import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type {
   DateValue,
   TdDatePickerPanelProps,

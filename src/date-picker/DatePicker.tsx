@@ -4,7 +4,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 import useSingle from './hooks/useSingle';
 import useFormat from './hooks/useFormat';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
+import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type { DateValue } from './type';
 import props from './props';
 

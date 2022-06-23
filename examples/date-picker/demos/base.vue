@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <h3>valueType:</h3>
     <t-radio-group v-model="valueType" variant="default-filled">
       <t-radio-button value="YYYY-MM-DD">YYYY-MM-DD</t-radio-button>
@@ -15,8 +15,9 @@
       allow-input
       @change="handleChange"
     />
-  </div>
+  </t-space>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 

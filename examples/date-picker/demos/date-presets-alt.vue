@@ -1,8 +1,8 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-date-range-picker v-model="range1" :presets="presets" />
     <t-date-range-picker v-model="range2" :presets="presets" enable-time-picker />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
