@@ -5427,7 +5427,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -6421,7 +6424,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -7353,7 +7359,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -8253,7 +8262,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -9254,7 +9266,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -10575,7 +10590,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -11470,7 +11488,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -12390,7 +12411,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -13320,7 +13344,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -14115,7 +14142,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -15125,7 +15155,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -16022,7 +16055,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -16473,7 +16509,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -17364,7 +17403,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <div
@@ -18325,7 +18367,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -19343,7 +19388,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <!---->
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
             </div>
           </div>
           <div
@@ -20236,7 +20284,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <!---->
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
             </div>
           </div>
           <div
@@ -21115,7 +21166,10 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <!---->
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
             </div>
           </div>
           <div
@@ -27828,7 +27882,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <!---->
@@ -28729,7 +28786,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <!---->
@@ -29596,7 +29656,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -30579,7 +30642,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -31453,7 +31519,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           </label>
           
           
-          <!---->
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
         </div>
       </div>
       <!---->
@@ -32323,7 +32392,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -32728,7 +32800,10 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <!---->
@@ -34098,7 +34173,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
             </label>
             
             
-            <!---->
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
           </div>
         </div>
         <div
@@ -38395,7 +38473,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
       </span>
     </label>
     
-    <!---->
+    <div
+      class="t-radio-group__bg-block"
+      style="width: 0px; left: 0px;"
+    />
   </div>
   <div
     class="t-date-picker"
@@ -39539,7 +39620,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/first-day-of-
     </label>
     
     
-    <!---->
+    <div
+      class="t-radio-group__bg-block"
+      style="width: 0px; left: 0px;"
+    />
   </div>
   <div
     class="t-date-picker"
@@ -48327,7 +48411,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <form
@@ -50914,7 +51001,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br
@@ -51667,7 +51757,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <form
@@ -52048,7 +52141,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br />
@@ -52378,7 +52474,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br />
@@ -54845,7 +54944,10 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br />
@@ -62975,7 +63077,10 @@ exports[`csr snapshot test > csr test ./examples/list/demos/loading.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -76609,7 +76714,10 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/button.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
 </div>
@@ -77669,7 +77777,10 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
     <div>
@@ -77788,7 +77899,10 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
     <div>
@@ -77912,7 +78026,10 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
     <div>
@@ -78036,7 +78153,10 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
   </div>
@@ -91627,7 +91747,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
       </span>
     </label>
     
-    <!---->
+    <div
+      class="t-radio-group__bg-block"
+      style="width: 0px; left: 0px;"
+    />
   </div>
   <div
     asyncloading="loading"
@@ -91955,7 +92078,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
     <br />
     <br />
@@ -93374,7 +93500,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
     <br />
     <br />
@@ -96828,7 +96957,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div>
@@ -97736,7 +97868,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
@@ -98276,7 +98411,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -98334,7 +98472,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -98392,7 +98533,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
     <label
       class="t-checkbox"
@@ -98930,7 +99074,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br />
@@ -100024,7 +100171,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
     <div>
@@ -118045,7 +118195,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <br />
@@ -118896,7 +119049,10 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -119309,7 +119465,10 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -119890,7 +120049,10 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -120065,7 +120227,10 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -120441,7 +120606,10 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div
@@ -132353,7 +132521,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
               </label>
               
               
-              <!---->
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
             </div>
             
             <!---->
@@ -132437,7 +132608,10 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
               </label>
               
               
-              <!---->
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
             </div>
             
             <!---->
@@ -141232,7 +141406,10 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   
@@ -142103,7 +142280,10 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/draggable.vue 1`] 
           </span>
         </label>
         
-        <!---->
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
       </div>
     </div>
   </div>
@@ -143201,7 +143381,10 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/request-method.vue
         </span>
       </label>
       
-      <!---->
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
     </div>
   </div>
   <div

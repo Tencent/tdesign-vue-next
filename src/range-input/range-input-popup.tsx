@@ -28,6 +28,7 @@ export default defineComponent({
           content={props.panel}
           trigger="click"
           placement="bottom-left"
+          disabled={props.disabled}
           visible={props.popupVisible || innerPopupVisible.value}
           {...{
             overlayStyle: tOverlayStyle.value,
@@ -40,6 +41,7 @@ export default defineComponent({
             {...{
               value: props.inputValue,
               onChange: props.onInputChange,
+              disabled: props.disabled,
               ...props.rangeInputProps,
             }}
           />

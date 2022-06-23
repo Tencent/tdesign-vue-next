@@ -35,7 +35,6 @@ export default function useRange(props: TdDateRangePickerProps) {
   const rangeInputProps = computed(() => ({
     ...props.rangeInputProps,
     ref: inputRef,
-    disabled: props.disabled,
     clearable: props.clearable,
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
@@ -102,7 +101,6 @@ export default function useRange(props: TdDateRangePickerProps) {
   const popupProps = computed(() => ({
     expandAnimation: true,
     ...props.popupProps,
-    disabled: props.disabled,
     overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {

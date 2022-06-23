@@ -10,9 +10,19 @@ export interface formatProps {
   value: TdDatePickerProps['value'] | TdDateRangePickerProps['value'];
 }
 
+export type formatResult = {
+  format: string;
+  valueType: string;
+  timeFormat: string;
+  isValidDate: Function;
+  formatTime: Function;
+  formatDate: Function;
+  getDefaultFormat: Function;
+};
+
 export const TIME_FORMAT = 'HH:mm:ss';
 
-export default function useFormat(props: formatProps) {
+export default function useFormat(props: formatProps): formatResult {
   const { format, valueType, timeFormat } = getDefaultFormat({
     mode: props.mode,
     enableTimePicker: props.enableTimePicker,
