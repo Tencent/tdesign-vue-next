@@ -46,7 +46,7 @@ export default defineComponent({
     const secondButtonRef = ref<SliderButtonType>();
 
     const sliderState = reactive({
-      prevValue: 0 as SliderValue,
+      // TODO: 该属性应该是暴露出来的api供用户配置才对
       showSteps: false,
     });
     const firstValue = ref(formatSlderValue(sliderValue.value, 'first'));
@@ -173,7 +173,7 @@ export default defineComponent({
         if (props.range) {
           changeValue = [firstValue.value, secondValue.value];
         } else {
-          changeValue = sliderState.prevValue;
+          changeValue = firstValue.value;
         }
       }
       const fixValue: SliderValue = setValues(changeValue);
@@ -199,7 +199,6 @@ export default defineComponent({
           firstValue.value = props.min || 0;
           secondValue.value = props.max || 100;
         }
-        sliderState.prevValue = [firstValue.value, secondValue.value];
         valuetext = `${firstValue.value}-${secondValue.value}`;
       } else {
         if (typeof sliderValue.value !== 'number') {
@@ -207,7 +206,6 @@ export default defineComponent({
         } else {
           firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
         }
-        sliderState.prevValue = firstValue.value;
         valuetext = String(firstValue.value);
       }
       if (sliderContainerRef.value) {
@@ -330,10 +328,9 @@ export default defineComponent({
     const renderInputNumber = useSliderInput(inputConfig);
 
     const renderInputButton = (): VNode => {
-      const firstInputVal = props.range ? firstValue.value : (sliderState.prevValue as number);
+      const firstInputVal = firstValue.value;
       const firstInputOnChange = (v: number) => {
         firstValue.value = v;
-        props.range ? (firstValue.value = v) : (sliderState.prevValue = v);
       };
       const secondInputVal = secondValue.value;
       const secondInputOnChange = (v: number) => {

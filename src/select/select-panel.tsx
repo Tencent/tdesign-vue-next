@@ -48,7 +48,20 @@ export default defineComponent({
         return option.label?.indexOf(`${props.inputValue}`) > -1;
       };
 
-      return props.options.filter(filterMethods);
+      const res: SelectOption[] = [];
+      props.options.forEach((option) => {
+        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+          res.push({
+            ...option,
+            children: (option as SelectOptionGroup).children.filter(filterMethods),
+          });
+        }
+        if (filterMethods(option)) {
+          res.push(option);
+        }
+      });
+
+      return res;
     });
 
     const isEmpty = computed(() => !displayOptions.value.length);

@@ -5427,10 +5427,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -6424,10 +6421,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -7359,10 +7353,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -8262,10 +8253,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -9266,10 +9254,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -10590,10 +10575,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -11488,10 +11470,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -12411,10 +12390,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -13344,10 +13320,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -14142,10 +14115,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -15155,10 +15125,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -16055,10 +16022,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -16509,10 +16473,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -17403,10 +17364,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <div
@@ -18367,10 +18325,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -19388,10 +19343,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <div
-                class="t-radio-group__bg-block"
-                style="width: 0px; left: 0px;"
-              />
+              <!---->
             </div>
           </div>
           <div
@@ -20284,10 +20236,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <div
-                class="t-radio-group__bg-block"
-                style="width: 0px; left: 0px;"
-              />
+              <!---->
             </div>
           </div>
           <div
@@ -21166,10 +21115,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
               </label>
               
               
-              <div
-                class="t-radio-group__bg-block"
-                style="width: 0px; left: 0px;"
-              />
+              <!---->
             </div>
           </div>
           <div
@@ -27882,10 +27828,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <!---->
@@ -28786,10 +28729,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <!---->
@@ -29656,10 +29596,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -30642,10 +30579,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -31519,10 +31453,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           </label>
           
           
-          <div
-            class="t-radio-group__bg-block"
-            style="width: 0px; left: 0px;"
-          />
+          <!---->
         </div>
       </div>
       <!---->
@@ -32392,10 +32323,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -32800,10 +32728,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <!---->
@@ -34173,10 +34098,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
             </label>
             
             
-            <div
-              class="t-radio-group__bg-block"
-              style="width: 0px; left: 0px;"
-            />
+            <!---->
           </div>
         </div>
         <div
@@ -38473,10 +38395,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
       </span>
     </label>
     
-    <div
-      class="t-radio-group__bg-block"
-      style="width: 0px; left: 0px;"
-    />
+    <!---->
   </div>
   <div
     class="t-date-picker"
@@ -39620,10 +39539,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/first-day-of-
     </label>
     
     
-    <div
-      class="t-radio-group__bg-block"
-      style="width: 0px; left: 0px;"
-    />
+    <!---->
   </div>
   <div
     class="t-date-picker"
@@ -48411,10 +48327,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <form
@@ -51001,10 +50914,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br
@@ -51757,10 +51667,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <form
@@ -52141,10 +52048,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br />
@@ -52474,10 +52378,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br />
@@ -54944,10 +54845,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br />
@@ -63077,10 +62975,7 @@ exports[`csr snapshot test > csr test ./examples/list/demos/loading.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -76714,10 +76609,7 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/button.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
 </div>
@@ -77777,10 +77669,7 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
     <div>
@@ -77899,10 +77788,7 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
     <div>
@@ -78026,10 +77912,7 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
     <div>
@@ -78153,10 +78036,7 @@ exports[`csr snapshot test > csr test ./examples/radio/demos/type.vue 1`] = `
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -85802,6 +85682,870 @@ exports[`csr snapshot test > csr test ./examples/slider/demos/vertical-marks.vue
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/space/demos/align.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  data-v-e2e0f836=""
+  style="gap: 16px; flex-wrap: wrap;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-horizontal space-border"
+      data-v-e2e0f836=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-e2e0f836=""
+        >
+          start
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-e2e0f836=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            Button
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="space-block"
+          data-v-e2e0f836=""
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal space-border"
+      data-v-e2e0f836=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-e2e0f836=""
+        >
+          center
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-e2e0f836=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            Button
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="space-block"
+          data-v-e2e0f836=""
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-end t-space-horizontal space-border"
+      data-v-e2e0f836=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-e2e0f836=""
+        >
+          end
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-e2e0f836=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            Button
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="space-block"
+          data-v-e2e0f836=""
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-baseline t-space-horizontal space-border"
+      data-v-e2e0f836=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-e2e0f836=""
+        >
+          baseline
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-e2e0f836=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            Button
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="space-block"
+          data-v-e2e0f836=""
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/space/demos/base.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/space/demos/break-line.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px; flex-wrap: wrap;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Button
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/space/demos/separator.vue 1`] = `
+<div
+  class="t-space t-space-align-center t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Text
+        
+      </span>
+    </button>
+  </div>
+  <div
+    class="t-space-item-separator"
+  >
+    <div
+      class="t-divider t-divider--vertical"
+    >
+      <!---->
+    </div>
+  </div>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Text
+        
+      </span>
+    </button>
+  </div>
+  <div
+    class="t-space-item-separator"
+  >
+    <div
+      class="t-divider t-divider--vertical"
+    >
+      <!---->
+    </div>
+  </div>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Text
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/space/demos/size.vue 1`] = `
+<div>
+  <div
+    aria-valuetext="8"
+    class="t-slider__container"
+  >
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      class="t-slider"
+      role="slider"
+    >
+      <div
+        class="t-slider__rail"
+      >
+        <div
+          class="t-slider__track"
+          style="width: 8%; left: 0%;"
+        />
+        <div
+          class="t-slider__button-wrapper"
+          disabled="false"
+          show-tooltip="true"
+          style="left: 8%;"
+          tabindex="0"
+        >
+          
+          <div
+            class="t-slider__button"
+          />
+          <!---->
+          
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+  <br />
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 8px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Button
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Button
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Button
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Button
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/space/demos/vertical.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-card t-card--bordered t-card--shadow-hover"
+    >
+      <div
+        class="t-card__header"
+      >
+        <div
+          class="t-card__header-wrapper"
+        >
+          <!---->
+          <div>
+            <span
+              class="t-card__title"
+            >
+              标题
+            </span>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="t-card__actions"
+        >
+          操作
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="t-card__body"
+      >
+        
+         仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。 
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-card t-card--bordered t-card--shadow-hover"
+    >
+      <div
+        class="t-card__header"
+      >
+        <div
+          class="t-card__header-wrapper"
+        >
+          <!---->
+          <div>
+            <span
+              class="t-card__title"
+            >
+              标题
+            </span>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="t-card__actions"
+        >
+          操作
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="t-card__body"
+      >
+        
+         仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。 
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-card t-card--bordered t-card--shadow-hover"
+    >
+      <div
+        class="t-card__header"
+      >
+        <div
+          class="t-card__header-wrapper"
+        >
+          <!---->
+          <div>
+            <span
+              class="t-card__title"
+            >
+              标题
+            </span>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="t-card__actions"
+        >
+          操作
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="t-card__body"
+      >
+        
+         仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。 
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/steps/demos/extra.vue 1`] = `
 <div
   class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive t-steps--line-separator steps-demos-extra"
@@ -90883,10 +91627,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
       </span>
     </label>
     
-    <div
-      class="t-radio-group__bg-block"
-      style="width: 0px; left: 0px;"
-    />
+    <!---->
   </div>
   <div
     asyncloading="loading"
@@ -91214,10 +91955,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
     <br />
     <br />
@@ -92636,10 +93374,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
     <br />
     <br />
@@ -96093,10 +96828,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div>
@@ -97004,10 +97736,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
@@ -97547,10 +98276,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -97608,10 +98334,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -97669,10 +98392,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
     <label
       class="t-checkbox"
@@ -98210,10 +98930,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br />
@@ -99307,10 +100024,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
     <div>
@@ -117331,10 +118045,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <br />
@@ -118185,10 +118896,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/ban.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -118601,10 +119309,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -119185,10 +119890,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/drag-sort.vue 1`] = 
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -119363,10 +120065,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/icon.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -119742,10 +120441,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/position.vue 1`] = `
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -131657,10 +132353,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
               </label>
               
               
-              <div
-                class="t-radio-group__bg-block"
-                style="width: 0px; left: 0px;"
-              />
+              <!---->
             </div>
             
             <!---->
@@ -140455,10 +141148,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   
@@ -141329,10 +142019,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/draggable.vue 1`] 
           </span>
         </label>
         
-        <div
-          class="t-radio-group__bg-block"
-          style="width: 0px; left: 0px;"
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -142430,10 +143117,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/request-method.vue
         </span>
       </label>
       
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      <!---->
     </div>
   </div>
   <div
@@ -142817,4 +143501,100 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/table.vue 1`] = `
     </button>
   </div>
 </section>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/base.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 200px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
+  />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/graylevel.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 258px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
+  />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/image.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 194px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
+  />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/movingImage.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 158px; pointer-events: none; background-repeat: no-repeat; background-image: url(); animation: watermark infinite 200s;"
+  />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/movingText.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 120px; pointer-events: none; background-repeat: no-repeat; background-image: url(); animation: watermark infinite 200s;"
+  />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/watermark/demos/multiline.vue 1`] = `
+<div
+  class="t-watermark"
+  style="position: relative; overflow: hidden; width: 100%;"
+>
+  
+  <div
+    style="height: 300px;"
+  />
+  
+  <div
+    style="z-index: 10; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; width: 100%; height: 100%; background-size: 258px; pointer-events: none; background-repeat: repeat; background-image: url(); animation: none;"
+  />
+</div>
 `;

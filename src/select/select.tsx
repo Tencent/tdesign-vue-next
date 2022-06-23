@@ -82,7 +82,7 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, props.options)) ||
+        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsList.value)) ||
           props.placeholder) ??
         t(global.value.placeholder),
     );
@@ -186,7 +186,6 @@ export default defineComponent({
     };
 
     const SelectProvide = computed(() => ({
-      slots,
       max: props.max,
       multiple: props.multiple,
       hoverIndex: hoverIndex.value,

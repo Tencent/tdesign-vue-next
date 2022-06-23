@@ -541,6 +541,22 @@ module.exports = {
       `,
     },
   },
+  watermark: {
+    panelStr: `const panelList = [{label: 'watermark', value: 'watermark'}];`,
+    render: {
+      watermark: `
+        <t-watermark
+          v-bind="configProps"
+          :watermark-content="{
+            text: '文字水印',
+          }"
+          :y="120"
+          :x="80"
+        ><div style="width:height: 200px" /></t-watermark>
+      `,
+    },
+  },
+
   dialog: {
     panelStr: `const panelList = [{label: 'dialog', value: 'dialog'}];`,
     script: `
@@ -618,6 +634,19 @@ module.exports = {
         <t-card v-bind="configProps">
           仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。
         </t-card>
+      `,
+    },
+  },
+  space: {
+    panelStr: `const panelList = [{label: 'space', value: 'space'}];`,
+    render: {
+      space: `
+        <t-space v-bind="configProps">
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+        </t-space>
       `,
     },
   },
