@@ -132364,6 +132364,90 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
           
         </div>
       </div>
+      <div
+        class="t-form__item t-form-item__"
+        style="margin-bottom: 16px;"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: 100px;"
+        >
+          <label
+            for=""
+          >
+            value 类型
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+          style="margin-left: 100px;"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-radio-group t-size-m t-radio-group--filled"
+            >
+              
+              
+              <label
+                class="t-radio-button t-is-checked"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name="value-type"
+                  type="radio"
+                  value="string"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  string
+                  
+                  
+                </span>
+              </label>
+              <label
+                class="t-radio-button"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name="value-type"
+                  type="radio"
+                  value="number"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  number
+                  
+                  
+                </span>
+              </label>
+              
+              
+              <!---->
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
       
     </form>
   </div>
