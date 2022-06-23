@@ -4,7 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { InputProps, InputValue } from '../input';
+import { InputProps } from '../input';
+import { InputValue } from '../input';
 import { TagProps } from '../tag';
 import { TNode } from '../common';
 
@@ -35,7 +36,7 @@ export interface TdTagInputProps {
   dragSort?: boolean;
   /**
    * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
-   * @default scroll
+   * @default break-line
    */
   excessTagsDisplayType?: 'scroll' | 'break-line';
   /**
@@ -44,10 +45,12 @@ export interface TdTagInputProps {
   inputProps?: InputProps;
   /**
    * 输入框的值
+   * @default ''
    */
   inputValue?: InputValue;
   /**
    * 输入框的值，非受控属性
+   * @default ''
    */
   defaultInputValue?: InputValue;
   /**
@@ -68,7 +71,7 @@ export interface TdTagInputProps {
    */
   placeholder?: string;
   /**
-   * 是否只读，值为真会隐藏标签移除按钮和输入框
+   * 只读状态，值为真会隐藏标签移除按钮和输入框
    * @default false
    */
   readonly?: boolean;
@@ -79,8 +82,9 @@ export interface TdTagInputProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
+   * @default default
    */
-  status?: 'success' | 'warning' | 'error';
+  status?: 'success' | 'warning' | 'error' | 'default';
   /**
    * 后置图标前的后置内容
    */
@@ -132,12 +136,7 @@ export interface TdTagInputProps {
   /**
    * 【开发中】拖拽排序时触发
    */
-  onDragSort?: (context: {
-    currentIndex: number;
-    current: string | number;
-    targetIndex: number;
-    target: string | number;
-  }) => void;
+  onDragSort?: (context: TagInputDragSortContext) => void;
   /**
    * 按键按下 Enter 时触发
    */
@@ -178,6 +177,14 @@ export interface TagInputChangeContext {
 }
 
 export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
+
+export interface TagInputDragSortContext {
+  newTags: TagInputValue;
+  currentIndex: number;
+  current: string | number;
+  targetIndex: number;
+  target: string | number;
+}
 
 export interface InputValueChangeContext {
   e?: InputEvent | MouseEvent | KeyboardEvent;
