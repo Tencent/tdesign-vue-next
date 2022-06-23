@@ -139630,6 +139630,51 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           
         </div>
       </div>
+      <div
+        class="t-form__item t-form-item__"
+        data-v-5396c8f8=""
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            开启修改节点功能
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              data-v-5396c8f8=""
+              disabled="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
       
     </form>
   </div>
@@ -139754,6 +139799,20 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             </span>
           </button>
           <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default t-is-disabled"
+            data-v-5396c8f8=""
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               修改节点label 
+              
+            </span>
+          </button>
+          <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
             data-v-5396c8f8=""
             type="button"
@@ -139844,6 +139903,20 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             >
               
                后插节点 
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default t-is-disabled"
+            data-v-5396c8f8=""
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               修改节点label 
               
             </span>
           </button>
