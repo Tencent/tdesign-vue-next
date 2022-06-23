@@ -23609,7 +23609,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -23705,7 +23705,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -23783,7 +23783,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -23860,7 +23860,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader t-demo-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader t-demo-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -23995,7 +23995,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24108,7 +24108,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24232,7 +24232,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24462,7 +24462,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/max.vue 1`] = `
 <div>
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24516,7 +24516,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24907,7 +24907,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -24954,7 +24954,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -25001,7 +25001,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -25104,7 +25104,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -26077,7 +26077,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                 style="width: 80%;"
               >
                 <div
-                  class="t-input__wrap t-tag-input"
+                  class="t-input__wrap t-tag-input t-tag-input--break-line"
                 >
                   <div
                     class="t-input t-is-default t-input--prefix"
@@ -26143,7 +26143,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                   <!---->
                 </div>
                 <div
-                  class="t-input__wrap t-tag-input"
+                  class="t-input__wrap t-tag-input t-tag-input--break-line"
                 >
                   <div
                     class="t-input t-is-default t-input--prefix"
@@ -26214,7 +26214,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                   <!---->
                 </div>
                 <div
-                  class="t-input__wrap t-tag-input"
+                  class="t-input__wrap t-tag-input t-tag-input--break-line"
                 >
                   <div
                     class="t-input t-is-default t-input--prefix"
@@ -58951,7 +58951,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
   >
     <!---->
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-default t-input--prefix"
@@ -59253,7 +59253,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
   >
     <!---->
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-default t-input--prefix"
@@ -78981,7 +78981,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79065,7 +79065,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79148,7 +79148,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79288,7 +79288,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79459,7 +79459,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79586,7 +79586,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79840,7 +79840,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -79968,7 +79968,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -80193,7 +80193,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -80270,7 +80270,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -80328,7 +80328,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -80423,7 +80423,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -80602,7 +80602,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -81115,7 +81115,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
   >
     
     <div
-      class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -81627,7 +81627,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth-mu
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--suffix t-input--auto-width"
@@ -81752,7 +81752,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless-m
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--borderless t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--borderless t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -81819,7 +81819,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
   <br />
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -81881,7 +81881,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
   <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -81965,7 +81965,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
   <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -82137,7 +82137,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
   <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix"
@@ -82258,7 +82258,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
   <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix"
@@ -122441,7 +122441,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/auto-width.vue 
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--auto-width"
@@ -122519,7 +122519,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122585,7 +122585,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122656,7 +122656,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122735,7 +122735,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122791,7 +122791,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
   </div>
   <!-- 方式一：使用渲染函数自定义折叠项 -->
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122869,7 +122869,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
   </div>
   <!-- 方式二：使用插槽自定义折叠项 -->
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -122979,7 +122979,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
 >
   <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -123074,7 +123074,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
   <br />
   <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -123195,7 +123195,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
 >
   <!-- 标签数量超出时，滚动显示 -->
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -123345,7 +123345,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/max.vue 1`] = `
   style="width: 100%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -123377,7 +123377,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-size-s t-is-default t-input--prefix"
@@ -123443,7 +123443,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -123509,7 +123509,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-size-l t-is-default t-input--prefix"
@@ -123589,7 +123589,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
       禁用状态：
     </label>
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-disabled t-is-default t-input--prefix"
@@ -123648,7 +123648,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
       只读状态：
     </label>
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-default t-is-readonly t-input--prefix"
@@ -123711,7 +123711,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
       成功状态：
     </label>
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-success t-input--prefix"
@@ -123809,7 +123809,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
       告警状态：
     </label>
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-warning t-input--prefix"
@@ -123907,7 +123907,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
       错误状态：
     </label>
     <div
-      class="t-input__wrap t-tag-input"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
         class="t-input t-is-error t-input--prefix"
@@ -124007,7 +124007,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -124094,7 +124094,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -124181,7 +124181,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -124268,7 +124268,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
     <!---->
   </div>
   <div
-    class="t-input__wrap t-tag-input"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
       class="t-input t-is-default t-input--prefix"
@@ -141415,7 +141415,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select demo-space"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select demo-space"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -141489,7 +141489,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -141746,7 +141746,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -142002,7 +142002,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -142109,7 +142109,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
