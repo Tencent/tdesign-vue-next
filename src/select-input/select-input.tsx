@@ -21,7 +21,15 @@ const useComponentClassName = () => {
 export default defineComponent({
   name: 'TSelectInput',
 
-  props: { ...props },
+  props: {
+    ...props,
+    updateScrollTop: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
+  },
 
   setup(props: TdSelectInputProps, context: SetupContext) {
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
@@ -80,6 +88,7 @@ export default defineComponent({
           onVisibleChange: this.onInnerPopupVisibleChange,
           ...(this.popupProps as TdSelectInputProps['popupProps']),
         }}
+        updateScrollTop={this.updateScrollTop}
       >
         {this.multiple
           ? this.renderSelectMultiple({
