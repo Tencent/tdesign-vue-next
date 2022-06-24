@@ -86533,83 +86533,173 @@ exports[`csr snapshot test > csr test ./examples/space/demos/break-line.vue 1`] 
 
 exports[`csr snapshot test > csr test ./examples/space/demos/separator.vue 1`] = `
 <div
-  class="t-space t-space-align-center t-space-horizontal"
-  style="gap: 16px;"
+  data-v-app=""
 >
   
-  
   <div
-    class="t-space-item"
+    class="t-space t-space-align-center t-space-horizontal"
+    style="gap: 16px;"
   >
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        Text
-        
-      </span>
-    </button>
-  </div>
-  <div
-    class="t-space-item-separator"
-  >
+    
+    
     <div
-      class="t-divider t-divider--vertical"
+      class="t-space-item"
     >
-      <!---->
-    </div>
-  </div>
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
       >
-        
-        Text
-        
-      </span>
-    </button>
-  </div>
-  <div
-    class="t-space-item-separator"
-  >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
     <div
-      class="t-divider t-divider--vertical"
+      class="t-space-item-separator"
     >
-      <!---->
-    </div>
-  </div>
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+      
+      <div
+        class="t-divider t-divider--vertical"
       >
-        
-        Text
-        
-      </span>
-    </button>
+        <!---->
+      </div>
+      
+    </div>
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
+    <div
+      class="t-space-item-separator"
+    >
+      
+      <div
+        class="t-divider t-divider--vertical"
+      >
+        <!---->
+      </div>
+      
+    </div>
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
   </div>
-  <!---->
-  
+  <div
+    class="t-space t-space-align-center t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
+    <div
+      class="t-space-item-separator"
+    >
+      <div
+        class="t-divider t-divider--vertical"
+      >
+        <!---->
+      </div>
+    </div>
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
+    <div
+      class="t-space-item-separator"
+    >
+      <div
+        class="t-divider t-divider--vertical"
+      >
+        <!---->
+      </div>
+    </div>
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Text
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+  </div>
   
 </div>
 `;

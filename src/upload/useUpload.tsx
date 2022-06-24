@@ -251,6 +251,8 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
       uploadCtx.setUploadValue([], context);
     }
 
+    props.onSelectChange?.([...files]);
+
     let tmpFiles = [...files];
     if (props.max) {
       tmpFiles = tmpFiles.slice(0, props.max - uploadCtx.uploadValue.length);

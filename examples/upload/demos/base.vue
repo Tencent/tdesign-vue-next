@@ -11,6 +11,7 @@
     tips="上传文件大小在 5M 以内"
     :size-limit="{ size: 5, unit: 'MB' }"
     :format-response="formatResponse"
+    :on-select-change="handleSelectChange"
     @fail="handleFail"
   ></t-upload>
 </template>
@@ -22,6 +23,9 @@ const files = ref([]);
 
 const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
+};
+const handleSelectChange = (files) => {
+  console.log(files);
 };
 
 const formatResponse = (res) => {

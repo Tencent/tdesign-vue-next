@@ -79,6 +79,12 @@ export default {
       type: 'component',
       children: [
         {
+          title: 'Divider 分割线',
+          name: 'divider',
+          path: '/vue-next/components/divider',
+          component: () => import('@/examples/divider/divider.md'),
+        },
+        {
           title: 'Grid 栅格',
           name: 'grid',
           path: '/vue-next/components/grid',
@@ -89,12 +95,6 @@ export default {
           name: 'layout',
           path: '/vue-next/components/layout',
           component: () => import('@/examples/layout/layout.md'),
-        },
-        {
-          title: 'Divider 分割线',
-          name: 'divider',
-          path: '/vue-next/components/divider',
-          component: () => import('@/examples/divider/divider.md'),
         },
         {
           title: 'Space 间距',
