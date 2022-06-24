@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, PropType, Slots } from 'vue';
+import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
@@ -28,12 +28,13 @@ export default defineComponent({
       default: (): SelectOption[] => [],
     },
   },
-  setup(props) {
+  setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const { t, global } = useConfig('select');
     const tSelect = inject(selectInjectKey);
+    const overlayEl = ref<HTMLElement>(null);
 
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
@@ -103,8 +104,15 @@ export default defineComponent({
       }[tSelect.value.size];
     });
 
+    expose({
+      getOverlay: () => {
+        return overlayEl.value;
+      },
+    });
+
     return () => (
       <div
+        ref={overlayEl}
         class={[
           `${COMPONENT_NAME.value}__dropdown-inner`,
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,

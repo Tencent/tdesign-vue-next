@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -27,12 +27,14 @@ export default defineComponent({
   name: 'TSelect',
   props: { ...props },
   setup(props: TdSelectProps, { slots }) {
+    const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { global, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
     const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const selectPanelRef = ref(null);
 
     const keys = computed(() => ({
       label: props.keys?.label || 'label',
@@ -235,6 +237,31 @@ export default defineComponent({
       }
     });
 
+    // 列表展开时定位置选中项
+    const updateScrollTop = (content: HTMLDivElement) => {
+      if (!selectPanelRef.value) {
+        return;
+      }
+      const firstSelectedNode: HTMLDivElement = (selectPanelRef.value?.getOverlay() as HTMLDivElement)?.querySelector(
+        `.${classPrefix.value}-is-selected`,
+      );
+      // 此处需要等待渲染后进行计算
+      nextTick(() => {
+        if (firstSelectedNode && content) {
+          const { paddingBottom } = getComputedStyle(firstSelectedNode);
+          const { marginBottom } = getComputedStyle(content);
+          const elementBottomHeight = parseInt(paddingBottom, 10) + parseInt(marginBottom, 10);
+          // 小于0时不需要特殊处理，会被设为0
+          const updateValue =
+            firstSelectedNode.offsetTop -
+            content.offsetTop -
+            (content.clientHeight - firstSelectedNode.clientHeight) +
+            elementBottomHeight;
+          // eslint-disable-next-line no-param-reassign
+          content.scrollTop = updateValue;
+        }
+      });
+    };
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
@@ -310,9 +337,11 @@ export default defineComponent({
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
+            updateScrollTop={updateScrollTop}
             v-slots={{
               panel: () => (
                 <SelectPanel
+                  ref={selectPanelRef}
                   {...picker(props, [
                     'size',
                     'multiple',

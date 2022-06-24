@@ -68,6 +68,12 @@ export default defineComponent({
     expandAnimation: {
       type: Boolean,
     },
+    updateScrollTop: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
   setup(props, { expose }) {
     const { visible, modelValue } = toRefs(props);
@@ -282,6 +288,14 @@ export default defineComponent({
       () => {
         updateOverlayStyle();
         updatePopper();
+      },
+    );
+    watch(
+      () => [innerVisible.value, overlayEl.value],
+      () => {
+        if (innerVisible.value && overlayEl.value) {
+          props.updateScrollTop?.(overlayEl.value);
+        }
       },
     );
 
