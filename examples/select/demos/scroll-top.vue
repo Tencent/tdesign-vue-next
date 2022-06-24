@@ -1,9 +1,8 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space>
     <t-select v-model="value1" :options="options1" placeholder="请选择" />
-    <br /><br />
     <t-select v-model="value2" :options="options1" placeholder="请选择" multiple />
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
@@ -17,9 +16,3 @@ const options1 = options;
 const value1 = ref(50);
 const value2 = ref([50, 70]);
 </script>
-<style scoped>
-.tdesign-demo-select-base {
-  width: 450px;
-  display: flex;
-}
-</style>

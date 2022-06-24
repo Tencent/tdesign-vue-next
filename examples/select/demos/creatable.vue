@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space>
     <t-select
       v-model="value1"
       creatable
@@ -17,7 +17,7 @@
       :options="options"
       @create="createOptions"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
