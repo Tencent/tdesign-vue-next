@@ -227,7 +227,6 @@ export default defineComponent({
           ? innerRules.value
           : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
       if (innerRules.value.length && !result.rules?.length) {
-        resetValidating.value = false;
         return result;
       }
       result.allowSetValue = true;
