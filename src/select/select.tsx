@@ -105,7 +105,7 @@ export default defineComponent({
     });
 
     const isFilterable = computed(() => {
-      return Boolean(props.filterable || isFunction(props.filter));
+      return Boolean((global.value.filterable ?? props.filterable) || isFunction(props.filter));
     });
 
     // 移除tag
