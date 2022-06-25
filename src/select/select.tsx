@@ -161,6 +161,7 @@ export default defineComponent({
           hoverIndex.value = newIndex;
           break;
         case 'Enter':
+          if (hoverIndex.value === -1) break;
           if (!innerPopupVisible.value) {
             setInnerPopupVisible(true, { e });
             break;
