@@ -254,7 +254,7 @@ export default defineComponent({
             popupVisible={innerPopupVisible.value}
             inputValue={innerInputValue.value}
             placeholder={`${placeholderText.value}`}
-            allowInput={innerPopupVisible.value && isFilterable.value}
+            allowInput={isFilterable.value}
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
