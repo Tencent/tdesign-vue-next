@@ -26,6 +26,7 @@ exports[`DatePicker > :mode 1`] = `
         placeholder="请选择年份"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -81,6 +82,7 @@ exports[`DatePicker > :range 1`] = `
         placeholder="请选择日期"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -135,6 +137,7 @@ exports[`DatePicker > :value 1`] = `
         placeholder="请选择日期"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->

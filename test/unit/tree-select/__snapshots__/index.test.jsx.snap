@@ -26,6 +26,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -108,6 +109,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -166,6 +168,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -223,6 +226,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -336,6 +340,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -402,6 +407,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -459,6 +465,7 @@ exports[`TreeSelect > :props > :max 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -516,6 +523,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -598,6 +606,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -655,6 +664,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
         placeholder="please select address"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -712,6 +722,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -769,6 +780,7 @@ exports[`TreeSelect > :props > :size 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -826,6 +838,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -883,6 +896,7 @@ exports[`TreeSelect > :props > :value 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -940,6 +954,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1022,6 +1037,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1079,6 +1095,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1136,6 +1153,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1206,6 +1224,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1267,6 +1286,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1349,6 +1369,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1406,6 +1427,7 @@ exports[`TreeSelect > function > :empty 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1463,6 +1485,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1533,6 +1556,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -1592,6 +1616,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->

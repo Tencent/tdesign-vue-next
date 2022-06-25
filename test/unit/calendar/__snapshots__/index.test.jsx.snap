@@ -43,6 +43,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -104,6 +105,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -1055,6 +1057,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -1116,6 +1119,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -1787,6 +1791,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -2182,6 +2187,7 @@ exports[`Calendar > :props > :range 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -2243,6 +2249,7 @@ exports[`Calendar > :props > :range 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -3076,6 +3083,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -3137,6 +3145,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -3944,6 +3953,7 @@ exports[`Calendar > :props > :value 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -4005,6 +4015,7 @@ exports[`Calendar > :props > :value 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
