@@ -18,6 +18,7 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
     innerFiles.forEach((file) => {
       file.percent = Math.min(percent, 100);
       uploadCtx.loadingFile = file;
+      uploadCtx.percent = file.percent;
     });
 
     const progressCtx = {
