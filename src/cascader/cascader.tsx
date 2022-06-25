@@ -38,7 +38,7 @@ export default defineComponent({
     const inputPlaceholder = computed(
       () =>
         (cascaderContext.value.visible && !props.multiple && getSingleContent(cascaderContext.value)) ||
-        global.value.placeholder,
+        (props.placeholder ?? global.value.placeholder),
     );
 
     const renderSuffixIcon = () => {
@@ -62,7 +62,7 @@ export default defineComponent({
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
           keys={props.keys}
-          allowInput={visible && isFilterable.value}
+          allowInput={isFilterable.value}
           min-collapsed-num={props.minCollapsedNum}
           collapsed-items={props.collapsedItems}
           readonly={props.readonly}
