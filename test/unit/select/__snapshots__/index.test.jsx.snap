@@ -21,6 +21,7 @@ exports[`Select > :props > :bordered 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -76,6 +77,7 @@ exports[`Select > :props > :clearable 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -131,6 +133,7 @@ exports[`Select > :props > :creatable 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -186,6 +189,7 @@ exports[`Select > :props > :disabled 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         disabled=""
         placeholder="请选择"
@@ -243,6 +247,7 @@ exports[`Select > :props > :labelInValue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -298,6 +303,7 @@ exports[`Select > :props > :loading 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -361,6 +367,7 @@ exports[`Select > :props > :multiple 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -416,6 +423,7 @@ exports[`Select > :props > :placeholder 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="please select"
         readonly=""
@@ -472,6 +480,7 @@ exports[`Select > :props > :remote 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -527,6 +536,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -582,6 +592,7 @@ exports[`Select > :props > :size 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -637,6 +648,7 @@ exports[`Select Option > :props > :disabled 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -692,6 +704,7 @@ exports[`Select Option > :props > :label 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -747,6 +760,7 @@ exports[`Select Option > :props > :value 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -802,6 +816,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""

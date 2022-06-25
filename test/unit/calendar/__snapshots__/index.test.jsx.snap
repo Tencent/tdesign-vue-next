@@ -38,6 +38,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -98,6 +99,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -1048,6 +1050,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -1108,6 +1111,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -1778,6 +1782,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -2172,6 +2177,7 @@ exports[`Calendar > :props > :range 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -2232,6 +2238,7 @@ exports[`Calendar > :props > :range 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -3064,6 +3071,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -3124,6 +3132,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -3930,6 +3939,7 @@ exports[`Calendar > :props > :value 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -3990,6 +4000,7 @@ exports[`Calendar > :props > :value 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
