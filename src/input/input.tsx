@@ -50,7 +50,7 @@ export default defineComponent({
         maxlength: props.maxlength,
         name: props.name || undefined,
         type: renderType.value,
-        autocomplete: renderType.value === 'password' ? 'on' : undefined,
+        autocomplete: renderType.value === 'password' ? 'on' : global.value.autocomplete ?? props.autocomplete,
       }),
     );
 

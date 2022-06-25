@@ -1,6 +1,7 @@
-import { computed, h, inject, Ref, unref } from 'vue';
+import { computed, h, inject } from 'vue';
 import _mergeWith from 'lodash/mergeWith';
-import { GlobalConfig, defaultGlobalConfig, configProviderInjectKey } from './context';
+import { defaultGlobalConfig, configProviderInjectKey } from './context';
+import { GlobalConfigProvider } from './type';
 
 export * from './type';
 
@@ -10,7 +11,7 @@ export * from './type';
  * @returns {t, global}
  * useConfig('pagination')
  */
-export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
+export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
   const injectGlobalConfig = inject(configProviderInjectKey, null);
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
   const global = computed(() => mergedGlobalConfig.value[componentName]);
