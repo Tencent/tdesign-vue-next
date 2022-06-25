@@ -5275,6 +5275,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -5335,6 +5336,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -6163,6 +6165,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -6272,6 +6275,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -6332,6 +6336,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -7136,6 +7141,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -7207,6 +7213,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -7267,6 +7274,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -8110,6 +8118,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -8170,6 +8179,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -9114,6 +9124,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -9174,6 +9185,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -10438,6 +10450,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -10498,6 +10511,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -11336,6 +11350,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -11396,6 +11411,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -12259,6 +12275,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -12319,6 +12336,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -13192,6 +13210,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -13252,6 +13271,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -13919,6 +13939,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -13990,6 +14011,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -14050,6 +14072,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -15003,6 +15026,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -15063,6 +15087,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -15891,6 +15916,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -15962,6 +15988,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -16357,6 +16384,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -16417,6 +16445,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -17251,6 +17280,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -17311,6 +17341,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -18108,6 +18139,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -18157,6 +18189,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -18215,6 +18248,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -18275,6 +18309,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -19236,6 +19271,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -19296,6 +19332,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -20132,6 +20169,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -20192,6 +20230,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -21014,6 +21053,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -21074,6 +21114,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -23519,6 +23560,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/base.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -23575,6 +23617,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -23664,6 +23707,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -23749,6 +23793,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -23826,6 +23871,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -23904,6 +23950,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -23960,6 +24007,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         disabled=""
         placeholder="请选择"
@@ -24017,6 +24065,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         disabled=""
         placeholder=""
@@ -24074,6 +24123,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24142,6 +24192,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -24198,6 +24249,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         type="text"
@@ -24265,6 +24317,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -24313,6 +24366,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         type="text"
@@ -24366,6 +24420,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24420,6 +24475,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/load.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24472,6 +24528,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/max.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24547,6 +24604,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -24601,6 +24659,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/show-all-levels.
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24658,6 +24717,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24708,6 +24768,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24758,6 +24819,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24814,6 +24876,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24863,6 +24926,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24917,6 +24981,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -24964,6 +25029,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -25011,6 +25077,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -25067,6 +25134,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -25156,6 +25224,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -26129,6 +26198,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       
                     </div>
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder=""
                       type="text"
@@ -26200,6 +26270,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       
                     </div>
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder=""
                       type="text"
@@ -26271,6 +26342,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       
                     </div>
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder=""
                       type="text"
@@ -27676,6 +27748,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请输入"
               type="text"
@@ -27733,6 +27806,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请输入"
               type="text"
@@ -27793,6 +27867,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请输入"
               type="text"
@@ -27954,6 +28029,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -28017,6 +28093,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28049,6 +28126,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28081,6 +28159,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28113,6 +28192,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28846,6 +28926,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -28909,6 +28990,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28941,6 +29023,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28973,6 +29056,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -29716,6 +29800,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -29779,6 +29864,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -29811,6 +29897,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -29843,6 +29930,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30702,6 +30790,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -30765,6 +30854,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30797,6 +30887,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30829,6 +30920,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -31430,6 +31522,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-disab
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             disabled=""
             placeholder="请输入"
@@ -31579,6 +31672,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -31642,6 +31736,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -31675,6 +31770,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -31708,6 +31804,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete=""
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -32452,6 +32549,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -32515,6 +32613,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32547,6 +32646,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32579,6 +32679,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32860,6 +32961,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -32923,6 +33025,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32955,6 +33058,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32987,6 +33091,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -33090,6 +33195,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/trigger.vue 
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -34018,6 +34124,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder=""
                   readonly=""
@@ -34078,6 +34185,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder=""
                   readonly=""
@@ -34897,6 +35005,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select date"
           readonly=""
@@ -34950,6 +35059,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select date"
           readonly=""
@@ -35002,6 +35112,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select month"
           readonly=""
@@ -35055,6 +35166,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select month"
           readonly=""
@@ -35107,6 +35219,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select year"
           readonly=""
@@ -35160,6 +35273,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select year"
           readonly=""
@@ -35706,6 +35820,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="There is no required mark on the left of this input in Form"
                 type="text"
@@ -35859,6 +35974,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="type keyword to search"
                 type="text"
@@ -36444,6 +36560,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="type keyword to search"
                 type="text"
@@ -36499,6 +36616,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="see clear icon, it is configurable"
           readonly=""
@@ -36559,6 +36677,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select without data in Select"
           readonly=""
@@ -36619,6 +36738,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="see loading text in Select"
           readonly=""
@@ -36685,6 +36805,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="select cascader data"
         readonly=""
@@ -36741,6 +36862,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="select without data in Cascader"
         readonly=""
@@ -36799,6 +36921,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="see empty data in TreeSelect"
         readonly=""
@@ -36854,6 +36977,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="see loading text in TreeSelect"
         readonly=""
@@ -36918,6 +37042,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="tree select"
         type="text"
@@ -36976,6 +37101,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="select time"
           type="text"
@@ -37482,6 +37608,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -37605,6 +37732,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             <!---->
             <!---->
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder=""
               type="text"
@@ -38515,6 +38643,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
@@ -38572,6 +38701,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="可清除、可输入的日期选择器"
             type="text"
@@ -38659,6 +38789,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/custom-icon.v
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
@@ -38730,6 +38861,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   readonly=""
@@ -38755,6 +38887,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   readonly=""
@@ -38822,6 +38955,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   readonly=""
@@ -38847,6 +38981,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   readonly=""
@@ -38924,6 +39059,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   type="text"
@@ -38948,6 +39084,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   type="text"
@@ -39014,6 +39151,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   type="text"
@@ -39038,6 +39176,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择日期"
                   type="text"
@@ -39110,6 +39249,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-time.vue
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择日期"
             type="text"
@@ -39166,6 +39306,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-time.vue
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择日期"
             type="text"
@@ -39232,6 +39373,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="禁用昨天、前天"
             readonly=""
@@ -39289,6 +39431,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="明后三天禁用"
             readonly=""
@@ -39346,6 +39489,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="禁用所有周六"
             readonly=""
@@ -39403,6 +39547,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="禁用最近 3 天外的日期"
             readonly=""
@@ -39460,6 +39605,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="禁用日期精确到时间"
             readonly=""
@@ -39521,6 +39667,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="禁用最近 5 天外的日期"
                   readonly=""
@@ -39546,6 +39693,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="禁用最近 5 天外的日期"
                   readonly=""
@@ -39792,6 +39940,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/first-day-of-
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
@@ -39859,6 +40008,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择月份"
             type="text"
@@ -39919,6 +40069,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择月份"
                   type="text"
@@ -39943,6 +40094,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择月份"
                   type="text"
@@ -40034,6 +40186,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         
                       </div>
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请选择"
                         readonly=""
@@ -40086,6 +40239,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         
                       </div>
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请选择"
                         readonly=""
@@ -40723,6 +40877,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         
                       </div>
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请选择"
                         readonly=""
@@ -40775,6 +40930,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         
                       </div>
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请选择"
                         readonly=""
@@ -41470,6 +41626,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -41522,6 +41679,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -42142,6 +42300,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -42194,6 +42353,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -42836,6 +42996,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -42888,6 +43049,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           
                         </div>
                         <input
+                          autocomplete=""
                           class="t-input__inner"
                           placeholder="请选择"
                           readonly=""
@@ -43571,6 +43733,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择年份"
             type="text"
@@ -43631,6 +43794,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择年份"
                   type="text"
@@ -43655,6 +43819,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择年份"
                   type="text"
@@ -47669,6 +47834,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -47699,6 +47865,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -47729,6 +47896,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -48670,6 +48838,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -48848,6 +49017,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -48897,6 +49067,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -49241,6 +49412,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -49296,6 +49468,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -49424,6 +49597,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -49685,6 +49859,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -49758,6 +49933,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -49809,6 +49985,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -49956,6 +50133,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -50247,6 +50425,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 disabled=""
                 placeholder="请输入"
@@ -50308,6 +50487,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   disabled=""
                   placeholder="请选择"
@@ -50388,6 +50568,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 disabled=""
                 placeholder="请选择"
@@ -50468,6 +50649,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 disabled=""
                 placeholder="请选择"
@@ -50551,6 +50733,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   disabled=""
                   placeholder="请选择日期"
@@ -50892,6 +51075,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   disabled=""
                   placeholder="数字"
@@ -51268,6 +51452,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -51323,6 +51508,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -51451,6 +51637,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -51692,6 +51879,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -51765,6 +51953,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -51816,6 +52005,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -52015,6 +52205,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -52157,6 +52348,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
               </span>
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入账户名"
                 type="text"
@@ -52400,6 +52592,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -52449,6 +52642,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -52734,6 +52928,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -52783,6 +52978,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入内容"
                 type="text"
@@ -53313,6 +53509,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入内容"
                         type="text"
@@ -53689,6 +53886,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                       <!---->
                       <!---->
                       <input
+                        autocomplete=""
                         class="t-input__inner"
                         placeholder="请输入内容"
                         type="text"
@@ -54071,6 +54269,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -54124,6 +54323,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -54333,6 +54533,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -54388,6 +54589,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -54516,6 +54718,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -54594,6 +54797,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -54879,6 +55083,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -54952,6 +55157,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -55003,6 +55209,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -55202,6 +55409,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="校验不通过状态"
                 type="text"
@@ -55251,6 +55459,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="校验警告状态"
                 type="text"
@@ -55300,6 +55509,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="不带绿色边框的成功状态"
                 type="text"
@@ -55349,6 +55559,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="带绿色边框的成功状态"
                 type="text"
@@ -55398,6 +55609,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="隐藏状态图标"
                 type="text"
@@ -55447,6 +55659,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="校验警告状态"
                 type="text"
@@ -55496,6 +55709,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="正在校验中，请稍等"
                 type="text"
@@ -55580,6 +55794,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="自定义右侧图标"
                 type="text"
@@ -55642,6 +55857,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入"
                 type="text"
@@ -57469,6 +57685,7 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/icon-select.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -57815,6 +58032,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -57840,6 +58058,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -57873,6 +58092,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -57906,6 +58126,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -57925,6 +58146,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -57944,6 +58166,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -57971,6 +58194,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/auto-width.vue 1`] 
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58002,6 +58226,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58021,6 +58246,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入内容（有默认值）"
         type="text"
@@ -58044,6 +58270,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
         价格：
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58075,6 +58302,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/clearable.vue 1`] =
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58102,6 +58330,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/focus.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -58129,6 +58358,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/format.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入数字"
         type="text"
@@ -58162,6 +58392,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58181,6 +58412,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58208,6 +58440,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58227,6 +58460,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58254,6 +58488,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58273,6 +58508,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58301,6 +58537,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58326,6 +58563,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58346,6 +58584,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58366,6 +58605,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -58396,6 +58636,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/max-length-count.vu
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         maxlength="5"
         placeholder="请输入"
@@ -58563,6 +58804,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -58582,6 +58824,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -58601,6 +58844,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -58628,6 +58872,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         disabled=""
         placeholder="请输入"
@@ -58648,6 +58893,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         readonly=""
@@ -58669,6 +58915,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58688,6 +58935,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58707,6 +58955,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58726,6 +58975,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58746,6 +58996,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58769,6 +59020,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58792,6 +59044,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58815,6 +59068,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         type="text"
@@ -58885,6 +59139,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请选择"
               readonly=""
@@ -58931,6 +59186,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -58961,6 +59217,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -58994,6 +59251,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请选择"
               readonly=""
@@ -59058,6 +59316,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请选择"
               readonly=""
@@ -59115,6 +59374,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -59170,6 +59430,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               
             </div>
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder="请选择"
               readonly=""
@@ -59233,6 +59494,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -59263,6 +59525,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -59296,6 +59559,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入内容"
           type="text"
@@ -59359,6 +59623,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59430,6 +59695,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59501,6 +59767,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59554,6 +59821,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59581,6 +59849,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59608,6 +59877,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59662,6 +59932,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59741,6 +60012,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59816,6 +60088,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59891,6 +60164,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder="请输入"
@@ -59967,6 +60241,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="输入"
           type="text"
@@ -60042,6 +60317,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/format.vue 1
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60117,6 +60393,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/left.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60170,6 +60447,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60223,6 +60501,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60294,6 +60573,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60364,6 +60644,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60469,6 +60750,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   disabled=""
                   placeholder="请输入"
@@ -60572,6 +60854,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   readonly=""
@@ -60675,6 +60958,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60777,6 +61061,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60879,6 +61164,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60981,6 +61267,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61083,6 +61370,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61189,6 +61477,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61295,6 +61584,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61401,6 +61691,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61491,6 +61782,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -69412,6 +69704,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入横向偏移量"
           type="text"
@@ -69432,6 +69725,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入纵向偏移量"
           type="text"
@@ -71140,6 +71434,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入横向偏移量"
           type="text"
@@ -71160,6 +71455,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入纵向偏移量"
           type="text"
@@ -71786,6 +72082,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -71949,6 +72246,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72123,6 +72421,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72256,6 +72555,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             <!---->
             <!---->
             <input
+              autocomplete=""
               class="t-input__inner"
               placeholder=""
               type="text"
@@ -72304,6 +72604,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/mini.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72473,6 +72774,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72656,6 +72958,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72802,6 +73105,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/page-num.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -72966,6 +73270,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -73042,6 +73347,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -73132,6 +73438,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -73208,6 +73515,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -73298,6 +73606,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/total.vue 1`] 
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请选择"
             readonly=""
@@ -74319,6 +74628,7 @@ exports[`csr snapshot test > csr test ./examples/popup/demos/trigger.vue 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
@@ -78397,6 +78707,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -78421,6 +78732,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -78460,6 +78772,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78484,6 +78797,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78525,6 +78839,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78549,6 +78864,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78581,6 +78897,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78605,6 +78922,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78637,6 +78955,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78661,6 +78980,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78700,6 +79020,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78724,6 +79045,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78756,6 +79078,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78780,6 +79103,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78812,6 +79136,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78836,6 +79161,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -78881,6 +79207,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云解决方案"
           readonly=""
@@ -78935,6 +79262,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云产品"
           readonly=""
@@ -79022,6 +79350,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79105,6 +79434,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79189,6 +79519,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79236,7 +79567,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79248,8 +79579,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="单选支持自定义创建"
+          readonly=""
           type="text"
         />
         <!---->
@@ -79287,7 +79620,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79297,8 +79630,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="多选支持自定义创建"
+          readonly=""
           type="text"
         />
         <!---->
@@ -79356,6 +79691,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
           readonly=""
@@ -79411,6 +79747,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
           readonly=""
@@ -79541,6 +79878,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79682,6 +80020,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79738,6 +80077,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -79784,7 +80124,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-disabled t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79796,9 +80136,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder="-请选择-"
+          readonly=""
           type="text"
         />
         <!---->
@@ -79865,6 +80207,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder=""
@@ -79912,7 +80255,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79924,8 +80267,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
+          readonly=""
           type="text"
         />
         <!---->
@@ -79974,6 +80319,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           type="text"
@@ -80023,7 +80369,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80035,8 +80381,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
+          readonly=""
           type="text"
         />
         <!---->
@@ -80076,7 +80424,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80088,8 +80436,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
+          readonly=""
           type="text"
         />
         <!---->
@@ -80145,6 +80495,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -80217,6 +80568,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -80273,6 +80625,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -80373,6 +80726,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -80552,6 +80906,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -80657,6 +81012,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -80715,6 +81071,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/noborder.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -80777,6 +81134,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云解决方案"
           readonly=""
@@ -80831,6 +81189,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云产品"
           readonly=""
@@ -80889,6 +81248,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -80942,6 +81302,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -81009,6 +81370,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/prefix.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="-请选择-"
           readonly=""
@@ -81055,7 +81417,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81067,8 +81429,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
+          readonly=""
           type="text"
         />
         <!---->
@@ -81107,7 +81471,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81117,8 +81481,10 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入搜索"
+          readonly=""
           type="text"
         />
         <!---->
@@ -81174,6 +81540,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
           readonly=""
@@ -81227,6 +81594,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
           readonly=""
@@ -81280,6 +81648,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择"
           readonly=""
@@ -81341,6 +81710,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云解决方案"
           readonly=""
@@ -81394,6 +81764,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder="请选择云解决方案"
@@ -81448,6 +81819,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请选择云解决方案"
           readonly=""
@@ -81514,6 +81886,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autocomplete
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入任意关键词"
         type="text"
@@ -81570,6 +81943,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="Please Select"
         type="text"
@@ -81659,6 +82033,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth-mu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -81717,6 +82092,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="Please Select"
         readonly=""
@@ -81784,6 +82160,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless-m
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -81851,6 +82228,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -81935,6 +82313,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -82043,6 +82422,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -82103,6 +82483,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -82224,6 +82605,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -82405,6 +82787,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -82572,6 +82955,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -82733,6 +83117,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -82771,6 +83156,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="Please Select"
         readonly=""
@@ -82827,6 +83213,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="Please Select"
         readonly=""
@@ -83040,6 +83427,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/multiple.vue
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -83095,6 +83483,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/single.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="Please Select"
         type="text"
@@ -83157,6 +83546,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             disabled=""
             placeholder="Please Select"
@@ -83203,6 +83593,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="Please Select"
             readonly=""
@@ -83249,6 +83640,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="Please Select"
             readonly=""
@@ -83294,6 +83686,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="Please Select"
             readonly=""
@@ -83339,6 +83732,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             
           </div>
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="Please Select"
             readonly=""
@@ -83388,6 +83782,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="Please Select"
           readonly=""
@@ -83424,6 +83819,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="Please Select"
           readonly=""
@@ -83460,6 +83856,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="Please Select"
           readonly=""
@@ -83496,6 +83893,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="Please Select"
           readonly=""
@@ -91810,6 +92208,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
                     
                   </div>
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
@@ -92821,6 +93220,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -93546,6 +93946,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -94245,6 +94646,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -114730,6 +115132,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -114877,6 +115280,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   <!---->
                   <!---->
                   <input
+                    autocomplete=""
                     class="t-input__inner"
                     placeholder=""
                     type="text"
@@ -115052,6 +115456,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 
               </div>
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请选择"
                 readonly=""
@@ -115160,6 +115565,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 <!---->
                 <!---->
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder=""
                   type="text"
@@ -118317,6 +118723,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -122574,6 +122981,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/auto-width.vue 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -122652,6 +123060,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -122723,6 +123132,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -122794,6 +123204,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -122857,6 +123268,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -122935,6 +123347,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123037,6 +123450,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123138,6 +123552,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123253,6 +123668,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123333,6 +123749,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123405,6 +123822,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123436,6 +123854,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/max.vue 1`] = `
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="最多只能输入 3 个标签"
         type="text"
@@ -123510,6 +123929,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123576,6 +123996,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123642,6 +124063,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -123707,6 +124129,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder=""
@@ -123766,6 +124189,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -123865,6 +124289,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           type="text"
@@ -123963,6 +124388,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           type="text"
@@ -124061,6 +124487,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           type="text"
@@ -124161,6 +124588,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -124248,6 +124676,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -124335,6 +124764,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -124422,6 +124852,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -124644,6 +125075,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -124700,6 +125132,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -124769,6 +125202,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -124830,6 +125264,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -124896,6 +125331,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           disabled=""
           placeholder=""
@@ -124958,6 +125394,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="选择时间"
           readonly=""
@@ -125020,6 +125457,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/format.vue 1`
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125089,6 +125527,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125150,6 +125589,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="选择时间"
           readonly=""
@@ -125212,6 +125652,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="选择时间"
           readonly=""
@@ -125274,6 +125715,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hms.vue 1`] =
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125343,6 +125785,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           type="text"
@@ -125403,6 +125846,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125501,6 +125945,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="选择时间"
                 type="text"
@@ -125525,6 +125970,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="选择时间"
                 type="text"
@@ -125592,6 +126038,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/show-steps.vu
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="选择时间"
           readonly=""
@@ -125654,6 +126101,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/step.vue 1`] 
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125716,6 +126164,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour.v
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -125780,6 +126229,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour-m
           
         </div>
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder=""
           readonly=""
@@ -126223,6 +126673,7 @@ exports[`csr snapshot test > csr test ./examples/tooltip/demos/trigger.vue 1`] =
       <!---->
       <!---->
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
@@ -130106,6 +130557,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
                   
                 </div>
                 <input
+                  autocomplete=""
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -130339,6 +130791,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入关键词搜索"
                 type="text"
@@ -130919,6 +131372,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
               <!---->
               <!---->
               <input
+                autocomplete=""
                 class="t-input__inner"
                 placeholder="请输入关键词搜索"
                 type="text"
@@ -133701,6 +134155,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -133732,6 +134187,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -133763,6 +134219,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -136147,6 +136604,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -139779,6 +140237,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           <!---->
           <!---->
           <input
+            autocomplete=""
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -140442,6 +140901,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -140473,6 +140933,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -140504,6 +140965,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -140984,6 +141446,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -141015,6 +141478,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -141046,6 +141510,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         <!---->
         <!---->
         <input
+          autocomplete=""
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -141524,6 +141989,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/base.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -141606,6 +142072,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -141680,6 +142147,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -141799,6 +142267,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         type="text"
@@ -141855,6 +142324,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/lazy.vue 1`] 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -141937,6 +142407,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -142003,6 +142474,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请输入"
         readonly=""
@@ -142060,6 +142532,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/props.vue 1`]
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -142119,6 +142592,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""
@@ -142170,6 +142644,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         type="text"
@@ -142226,6 +142701,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -142300,6 +142776,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         
       </div>
       <input
+        autocomplete=""
         class="t-input__inner"
         placeholder=""
         readonly=""

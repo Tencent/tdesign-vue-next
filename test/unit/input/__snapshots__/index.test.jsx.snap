@@ -56,6 +56,7 @@ exports[`Input > :props > :disabled 1`] = `
     <!---->
     <!---->
     <input
+      autocomplete=""
       class="t-input__inner"
       disabled=""
       placeholder="请输入"
@@ -85,6 +86,7 @@ exports[`Input > :props > :prefix-icon 1`] = `
     </span>
     <!---->
     <input
+      autocomplete=""
       class="t-input__inner"
       placeholder="请输入"
       type="text"
@@ -107,6 +109,7 @@ exports[`Input > :props > :readonly 1`] = `
     <!---->
     <!---->
     <input
+      autocomplete=""
       class="t-input__inner"
       placeholder="请输入"
       readonly=""
@@ -130,6 +133,7 @@ exports[`Input > :props > :size 1`] = `
     <!---->
     <!---->
     <input
+      autocomplete=""
       class="t-input__inner"
       placeholder="请输入"
       type="text"
@@ -152,6 +156,7 @@ exports[`Input > :props > :suffix-icon 1`] = `
     <!---->
     <!---->
     <input
+      autocomplete=""
       class="t-input__inner"
       placeholder="请输入"
       type="text"
