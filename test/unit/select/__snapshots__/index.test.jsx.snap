@@ -26,6 +26,7 @@ exports[`Select > :props > :bordered 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82,6 +83,7 @@ exports[`Select > :props > :clearable 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -138,6 +140,7 @@ exports[`Select > :props > :creatable 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -195,6 +198,7 @@ exports[`Select > :props > :disabled 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -252,6 +256,7 @@ exports[`Select > :props > :labelInValue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -308,6 +313,7 @@ exports[`Select > :props > :loading 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -372,6 +378,7 @@ exports[`Select > :props > :multiple 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -428,6 +435,7 @@ exports[`Select > :props > :placeholder 1`] = `
         placeholder="please select"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -485,6 +493,7 @@ exports[`Select > :props > :remote 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -541,6 +550,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -597,6 +607,7 @@ exports[`Select > :props > :size 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -653,6 +664,7 @@ exports[`Select Option > :props > :disabled 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -709,6 +721,7 @@ exports[`Select Option > :props > :label 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -765,6 +778,7 @@ exports[`Select Option > :props > :value 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -821,6 +835,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
