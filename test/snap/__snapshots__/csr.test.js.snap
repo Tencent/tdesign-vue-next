@@ -24186,7 +24186,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24200,7 +24200,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder="请选择"
-        readonly=""
         type="text"
       />
       <!---->
@@ -24235,7 +24234,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24268,7 +24267,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder=""
-        readonly=""
         type="text"
       />
       <!---->
@@ -24303,7 +24301,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24317,7 +24315,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder="请选择"
-        readonly=""
         type="text"
       />
       <!---->
@@ -36745,7 +36742,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
       </div>
       <input
         class="t-input__inner"
-        placeholder="select cascader data"
+        placeholder="select without data in Cascader"
         readonly=""
         type="text"
       />
@@ -79239,7 +79236,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79253,7 +79250,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
         <input
           class="t-input__inner"
           placeholder="单选支持自定义创建"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79291,7 +79287,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79303,7 +79299,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
         <input
           class="t-input__inner"
           placeholder="多选支持自定义创建"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79789,7 +79784,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-disabled t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79804,7 +79799,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           class="t-input__inner"
           disabled=""
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79918,7 +79912,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79932,7 +79926,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
         <input
           class="t-input__inner"
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79971,7 +79964,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79983,7 +79976,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
         <input
           class="t-input__inner"
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -80031,7 +80023,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80045,7 +80037,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -80085,7 +80076,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80099,7 +80090,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -81065,7 +81055,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81079,7 +81069,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -81118,7 +81107,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81130,7 +81119,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
         <input
           class="t-input__inner"
           placeholder="请输入搜索"
-          readonly=""
           type="text"
         />
         <!---->
