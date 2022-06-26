@@ -94,5 +94,5 @@ export function getCascaderItemIconClass(
   STATUS: Record<string, string>,
   cascaderContext: CascaderContextType,
 ) {
-  return [`${prefix}-cascader__item-icon`, ...getNodeStatusClass(node, STATUS, cascaderContext)];
+  return [`${prefix}-cascader__item-icon`, `${prefix}-icon`, ...getNodeStatusClass(node, STATUS, cascaderContext)];
 }

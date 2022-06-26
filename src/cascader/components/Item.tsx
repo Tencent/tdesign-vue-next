@@ -31,7 +31,6 @@ export default defineComponent({
   props,
   setup(props) {
     const liRef = ref<HTMLElement>();
-    const liRef2 = ref<HTMLElement>();
     useRipple(liRef);
 
     const COMPONENT_NAME = usePrefixClass('cascader__item');
@@ -72,7 +71,6 @@ export default defineComponent({
       const labelCont = (
         <span
           title={cascaderContext.inputVal ? getFullPathLabel(node) : node.label}
-          ref={liRef2}
           class={[`${COMPONENT_NAME.value}-label`, `${COMPONENT_NAME.value}-label--ellipsis`]}
           role="label"
         >

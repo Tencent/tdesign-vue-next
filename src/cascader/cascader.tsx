@@ -86,6 +86,7 @@ export default defineComponent({
           }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
+            if (!isFilterable) return;
             setInputVal(value);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
@@ -95,7 +96,19 @@ export default defineComponent({
             if (disabled.value) return;
             setVisible(val, context);
           }}
-          onClear={({ e }) => {
+          onBlur={(val, context) => {
+            props.onBlur?.({
+              value: cascaderContext.value.value,
+              e: context.e,
+            });
+          }}
+          onFocus={(val, context) => {
+            props.onFocus?.({
+              value: cascaderContext.value.value,
+              e: context.e,
+            });
+          }}
+          onClear={() => {
             closeIconClickEffect(cascaderContext.value);
           }}
           v-slots={{
