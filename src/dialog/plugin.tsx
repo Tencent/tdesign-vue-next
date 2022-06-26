@@ -9,29 +9,37 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const visible = ref(false);
   const { className } = options;
   const component = defineComponent({
-    setup() {
+    setup(props, { expose }) {
       const dialogOptions = ref<Record<string, any>>(options);
       onMounted(() => {
         visible.value = true;
         // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
         (document.activeElement as HTMLElement).blur();
       });
-      return {
-        dialogOptions,
-      };
-    },
-    render() {
-      const onClose =
-        options.onClose ||
-        function () {
-          visible.value = false;
+      const update = (newOptions: DialogOptions) => {
+        dialogOptions.value = {
+          ...options,
+          ...newOptions,
         };
-      delete options.className;
-      return h(DialogComponent, {
-        onClose,
-        visible: visible.value,
-        ...this.dialogOptions,
+      };
+
+      expose({
+        update,
       });
+
+      return () => {
+        const onClose =
+          options.onClose ||
+          function () {
+            visible.value = false;
+          };
+        delete options.className;
+        return h(DialogComponent, {
+          onClose,
+          visible: visible.value,
+          ...dialogOptions.value,
+        });
+      };
     },
   });
   const dialog = createApp(component).mount(wrapper);
@@ -59,11 +67,14 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
     hide: () => {
       visible.value = false;
     },
-    update: (options: DialogOptions) => {
-      Object.assign(dialog, { dialogOptions: options });
+    update: (newOptions: DialogOptions) => {
+      dialog.update(newOptions);
     },
     destroy: () => {
       visible.value = false;
+      setTimeout(() => {
+        wrapper.parentNode.removeChild(wrapper);
+      }, 300);
     },
   };
   return dialogNode;

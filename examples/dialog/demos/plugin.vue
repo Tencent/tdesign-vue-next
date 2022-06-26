@@ -19,18 +19,17 @@ export default defineComponent({
   },
   methods: {
     showDialog() {
-      if (this.mydialog) {
-        this.mydialog.show();
+      if (this.myDialog) {
+        this.myDialog.show();
         return;
       }
-      this.mydialog = this.$dialog({
+      this.myDialog = this.$dialog({
         header: 'Dialog-Plugin',
         body: 'Plugin 方式创建新弹窗',
         className: 't-dialog-new-class1 t-dialog-new-class2',
         style: 'color: rgba(0, 0, 0, 0.6)',
         onConfirm: ({ e }) => {
-          console.log('confirm clicked', e);
-          this.mydialog.hide();
+          this.myDialog.hide();
         },
       });
     },

@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/time-picker-new/_index.less';
+import '../../_common/style/web/components/time-picker/_index.less';
