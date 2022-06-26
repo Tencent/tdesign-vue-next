@@ -62,8 +62,8 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       value: tags.value,
       valueDisplay: props.valueDisplay,
       inputValue: tInputValue.value || '',
-      readonly: !props.allowInput || props.readonly,
       inputProps: {
+        readonly: !props.allowInput || props.readonly,
         inputClass: {
           [`${classPrefix.value}-input--focused`]: p.popupVisible,
         },
