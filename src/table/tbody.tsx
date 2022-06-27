@@ -198,7 +198,7 @@ export default defineComponent({
     });
 
     const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
-    const isEmpty = !this.data?.length && !this.loading;
+    const isEmpty = !this.data?.length && !this.loading && !this.firstFullRow && !this.lastFullRow;
 
     const translate = `translate(0, ${this.translateY}px)`;
     const posStyle = {
