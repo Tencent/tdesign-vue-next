@@ -242,7 +242,7 @@ export default defineComponent({
       if (!selectPanelRef.value) {
         return;
       }
-      const firstSelectedNode: HTMLDivElement = (selectPanelRef.value?.getOverlay() as HTMLDivElement)?.querySelector(
+      const firstSelectedNode: HTMLDivElement = (selectPanelRef.value?.innerRef as HTMLDivElement)?.querySelector(
         `.${classPrefix.value}-is-selected`,
       );
       // 此处需要等待渲染后进行计算

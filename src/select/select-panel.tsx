@@ -34,7 +34,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const { t, global } = useConfig('select');
     const tSelect = inject(selectInjectKey);
-    const overlayEl = ref<HTMLElement>(null);
+    const innerRef = ref<HTMLElement>(null);
 
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
@@ -105,14 +105,12 @@ export default defineComponent({
     });
 
     expose({
-      getOverlay: () => {
-        return overlayEl.value;
-      },
+      innerRef,
     });
 
     return () => (
       <div
-        ref={overlayEl}
+        ref={innerRef}
         class={[
           `${COMPONENT_NAME.value}__dropdown-inner`,
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
