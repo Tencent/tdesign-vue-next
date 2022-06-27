@@ -18,6 +18,7 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
     innerFiles.forEach((file) => {
       file.percent = Math.min(percent, 100);
       uploadCtx.loadingFile = file;
+      uploadCtx.percent = file.percent;
     });
 
     const progressCtx = {
@@ -250,6 +251,8 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
       const context = { trigger: 'batch-clear' };
       uploadCtx.setUploadValue([], context);
     }
+
+    props.onSelectChange?.([...files]);
 
     let tmpFiles = [...files];
     if (props.max) {

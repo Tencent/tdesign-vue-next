@@ -11,7 +11,6 @@ exports[`Input > $attrs > input attrs should pass to input element 1`] = `
     <!---->
     <!---->
     <input
-      autocomplete="on"
       class="t-input__inner"
       name="password"
       placeholder="please text"
@@ -111,6 +110,7 @@ exports[`Input > :props > :readonly 1`] = `
       placeholder="请输入"
       readonly=""
       type="text"
+      unselectable="on"
     />
     <!---->
     <!---->

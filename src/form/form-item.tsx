@@ -226,8 +226,7 @@ export default defineComponent({
         trigger === 'all'
           ? innerRules.value
           : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
-      if (!result.rules?.length) {
-        resetValidating.value = false;
+      if (innerRules.value.length && !result.rules?.length) {
         return result;
       }
       result.allowSetValue = true;
@@ -238,8 +237,9 @@ export default defineComponent({
           Object.keys(item).forEach((key) => {
             if (!item.message && errorMessages.value[key]) {
               const compiled = lodashTemplate(errorMessages.value[key]);
+              const name = typeof props.label === 'string' ? props.label : props.name;
               item.message = compiled({
-                name: props.label,
+                name,
                 validate: item[key],
               });
             }

@@ -2,7 +2,7 @@ import isEmpty from 'lodash/isEmpty';
 import {
   TreeNode,
   CascaderContextType,
-  CascaderProps,
+  TdCascaderProps,
   CascaderValue,
   TreeNodeValue,
   TreeOptionData,
@@ -113,7 +113,7 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
  * @param multiple
  * @returns
  */
-export const getCascaderValue = (value: CascaderValue, valueType: CascaderProps['valueType'], multiple: boolean) => {
+export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProps['valueType'], multiple: boolean) => {
   if (valueType === 'single') {
     return value;
   }

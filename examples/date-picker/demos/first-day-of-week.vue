@@ -1,11 +1,11 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-radio-group v-model="startWeek" variant="default-filled">
       <t-radio-button v-for="i in list" :key="i" :value="i">{{ i }}</t-radio-button>
     </t-radio-group>
 
     <t-date-picker :first-day-of-week="startWeek" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

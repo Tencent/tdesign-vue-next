@@ -7,7 +7,12 @@
       </t-radio-group>
     </div>
 
-    <t-upload v-model="files" :request-method="requestMethod" tips="自定义上传方法需要返回成功或失败信息"></t-upload>
+    <t-upload
+      v-model="files"
+      :request-method="requestMethod"
+      tips="自定义上传方法需要返回成功或失败信息"
+      :on-fail="handleRequestFail"
+    ></t-upload>
   </div>
 </template>
 <script setup>
@@ -37,6 +42,10 @@ const requestFailMethod = (file) => {
     // resolve 参数为关键代码
     resolve({ status: 'fail', error: '上传失败，请检查文件是否符合规范' });
   });
+};
+
+const handleRequestFail = (e) => {
+  console.log(e);
 };
 
 const requestMethod = computed(() =>

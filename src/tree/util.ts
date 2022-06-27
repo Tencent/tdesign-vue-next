@@ -127,3 +127,16 @@ export const getStoreConfig = (props: TdTreeProps) => {
   ]);
   return storeProps;
 };
+
+export const getRightData = (list: TdTreeProps['data']) => {
+  const ds = Array.isArray(list) ? list : [];
+  return ds.map((item) => {
+    if (item.value) {
+      item.value = item.value.toString();
+    }
+    if (item.children && Array.isArray(item.children)) {
+      item.children = getRightData(item.children);
+    }
+    return item;
+  });
+};

@@ -130,6 +130,13 @@ export default defineComponent({
       return 'value';
     });
 
+    const realChildren = computed(() => {
+      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
+        return (props.treeProps as TreeProps).keys.children || 'children';
+      }
+      return 'children';
+    });
+
     // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
@@ -297,8 +304,8 @@ export default defineComponent({
         if (data[i][realValue.value] === targetValue) {
           return { label: data[i][realLabel.value], value: data[i][realValue.value] };
         }
-        if (data[i]?.children) {
-          const result = getTreeNode(data[i]?.children, targetValue);
+        if (data[i]?.[realChildren.value]) {
+          const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
           if (!isNil(result)) {
             return result;
           }

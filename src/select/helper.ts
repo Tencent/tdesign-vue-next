@@ -4,7 +4,6 @@ import { TdSelectProps, TdOptionProps, SelectValue, SelectOption, SelectOptionGr
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
-    slots: Slots;
     hoverIndex: number;
     selectValue: TdSelectProps['value'];
     size: TdSelectProps['size'];
@@ -20,9 +19,6 @@ export const selectInjectKey: InjectionKey<
 
 export const getSingleContent = (value: TdSelectProps['value'], options: SelectOption[]): string => {
   for (const option of options) {
-    if ((option as SelectOptionGroup).children) {
-      return getSingleContent(value, (option as SelectOptionGroup).children);
-    }
     if ((option as TdOptionProps).value === value) {
       return option?.label;
     }

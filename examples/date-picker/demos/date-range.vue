@@ -1,8 +1,8 @@
 <template>
-  <div className="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-date-range-picker allow-input clearable @pick="onPick" @change="onChange" />
     <t-date-range-picker enable-time-picker allow-input clearable @pick="onPick" @change="onChange" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

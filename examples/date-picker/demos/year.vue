@@ -1,6 +1,6 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-date-picker mode="year" clearable allow-input />
     <t-date-range-picker mode="year" clearable allow-input />
-  </div>
+  </t-space>
 </template>

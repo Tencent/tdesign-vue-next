@@ -31,10 +31,4 @@ export interface TdDividerProps {
    * @default horizontal
    */
   layout?: 'horizontal' | 'vertical';
-  /**
-   * 请更为使用 `layout`。分隔线类型有两种：水平和垂直
-   * @default horizontal
-   * @deprecated
-   */
-  theme?: 'horizontal' | 'vertical';
 }

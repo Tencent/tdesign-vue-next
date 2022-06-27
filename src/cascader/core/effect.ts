@@ -1,7 +1,7 @@
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
-import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
+import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
 import { getFullPathLabel, getTreeValue } from './helper';
 
 /**
@@ -12,8 +12,8 @@ import { getFullPathLabel, getTreeValue } from './helper';
  * @param cascaderContext
  */
 export function expendClickEffect(
-  propsTrigger: CascaderProps['trigger'],
-  trigger: CascaderProps['trigger'],
+  propsTrigger: TdCascaderProps['trigger'],
+  trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
@@ -129,7 +129,7 @@ export function closeIconClickEffect(cascaderContext: CascaderContextType) {
 export function handleRemoveTagEffect(
   cascaderContext: CascaderContextType,
   index: number,
-  onRemove: CascaderProps['onRemove'],
+  onRemove: TdCascaderProps['onRemove'],
 ) {
   const { disabled, setValue, value, valueType, treeStore } = cascaderContext;
 

@@ -10,7 +10,7 @@
 
 支持插件式调用 `this.$notify` 和函数式调用 `NotifyPlugin` 两种方式，两种方式参数完全一样。
 
-示例：`NotifyPlugin.warning('请输入信息')` 或 `this.$notify.warning('请输入信息')`
+示例：`NotifyPlugin.warning({title: '请输入标题', content: '请输入内容'})` 或 `this.$notify.warning({title: '请输入标题', content: '请输入内容'})`
 
 {{ plugin }}
 

@@ -12,12 +12,12 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('divider');
     const renderContent = useContent();
     return () => {
-      const { theme, dashed, align } = props;
+      const { layout, dashed, align } = props;
       const children = renderContent('default', 'content');
 
       const dividerClassNames = [
         `${COMPONENT_NAME.value}`,
-        [`${COMPONENT_NAME.value}--${theme}`],
+        [`${COMPONENT_NAME.value}--${layout}`],
         {
           [`${COMPONENT_NAME.value}--dashed`]: !!dashed,
           [`${COMPONENT_NAME.value}--with-text`]: !!children,

@@ -11,6 +11,9 @@
         <t-form-item label="子节点展开触发父节点展开">
           <t-switch v-model="expandParent" />
         </t-form-item>
+        <t-form-item label="开启修改节点功能">
+          <t-switch v-model="disableLabel" />
+        </t-form-item>
       </t-form>
     </div>
     <div class="operations">
@@ -26,7 +29,7 @@
       activable
       checkable
       :expand-on-click-node="false"
-      :label="getLabel"
+      :label="disableLabel || getLabel"
       :expand-parent="expandParent"
       :filter="filterByText"
       line
@@ -35,10 +38,19 @@
       @active="onActive"
     >
       <template #operations="{ node }">
-        <t-button size="small" variant="base" @click="append(node)"> 添加子节点 </t-button>
-        <t-button size="small" variant="outline" @click="insertBefore(node)"> 前插节点 </t-button>
-        <t-button size="small" variant="outline" @click="insertAfter(node)"> 后插节点 </t-button>
-        <t-button size="small" variant="base" theme="danger" @click="remove(node)"> 删除 </t-button>
+        <t-button :disabled="disableLabel" size="small" variant="base" @click="append(node)"> 添加子节点 </t-button>
+        <t-button :disabled="disableLabel" size="small" variant="outline" @click="insertBefore(node)">
+          前插节点
+        </t-button>
+        <t-button :disabled="disableLabel" size="small" variant="outline" @click="insertAfter(node)">
+          后插节点
+        </t-button>
+        <t-button :disabled="!disableLabel" size="small" variant="outline" @click="setData(node)">
+          修改节点label
+        </t-button>
+        <t-button :disabled="disableLabel" size="small" variant="base" theme="danger" @click="remove(node)">
+          删除
+        </t-button>
       </template>
     </t-tree>
     <h3 class="title">API:</h3>
@@ -88,6 +100,7 @@ const useActived = ref(false);
 const expandParent = ref(true);
 const filterText = ref('');
 const filterByText = ref(null);
+const disableLabel = ref(false);
 
 const renderOperations = (createElement, node) => `value: ${node.value}`;
 
@@ -300,6 +313,9 @@ const onInputChange = (state) => {
     const rs = label.indexOf(filterText.value) >= 0;
     return rs;
   };
+};
+const setData = (node) => {
+  node.setData({ label: Math.random().toFixed(2) });
 };
 </script>
 <style scoped>

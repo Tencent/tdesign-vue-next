@@ -1,6 +1,7 @@
 import { VNode, defineComponent, h, provide, reactive, ref, computed, onMounted, watch, nextTick, toRefs } from 'vue';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
+import isNil from 'lodash/isNil';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
@@ -76,7 +77,7 @@ export default defineComponent({
     const radioGroupName = usePrefixClass('radio-group');
     const renderSlot = useTNodeDefault();
     const renderBlock = (): VNode => {
-      if (props.variant.includes('filled') && innerValue.value)
+      if (props.variant.includes('filled') && !isNil(innerValue.value))
         return <div style={barStyle.value} class={`${radioGroupName.value}__bg-block`} />;
     };
     const renderOptions = (): VNode[] => {
