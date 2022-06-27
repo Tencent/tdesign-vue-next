@@ -86,7 +86,7 @@ export default defineComponent({
           }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
-            if (!isFilterable) return;
+            if (!isFilterable.value) return;
             setInputVal(`${value}`);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
