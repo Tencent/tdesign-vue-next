@@ -262,6 +262,7 @@ export default defineComponent({
         }
       });
     };
+    provide('updateScrollTop', updateScrollTop);
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
@@ -337,7 +338,6 @@ export default defineComponent({
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
-            updateScrollTop={updateScrollTop}
             v-slots={{
               panel: () => (
                 <SelectPanel
