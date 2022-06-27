@@ -22,6 +22,7 @@ export default defineComponent({
         return null as UploadFile;
       },
     },
+    percent: Number,
     showUploadProgress: props.showUploadProgress,
     placeholder: props.placeholder,
     multiple: props.multiple,
@@ -91,7 +92,7 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <TLoading />
             <p>
-              {global.value.progress.uploadingText} {Math.min(props.loadingFile.percent, 99)}%
+              {global.value.progress.uploadingText} {Math.min(props.percent, 99)}%
             </p>
           </div>
         ) : (

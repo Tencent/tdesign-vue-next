@@ -23,6 +23,9 @@ const SingleFileProps = {
       return null as UploadFile;
     },
   },
+  percent: {
+    type: Number,
+  },
   showUploadProgress: props.showUploadProgress,
   theme: props.theme,
   placeholder: props.placeholder,
@@ -42,6 +45,7 @@ export default defineComponent({
     const showProgress = computed(() => {
       return !!(props.loadingFile && props.loadingFile.status === 'progress');
     });
+
     const inputName = computed(() => {
       const fileName = props.file && props.file.name;
       const loadingName = props.loadingFile && props.loadingFile.name;
@@ -66,7 +70,7 @@ export default defineComponent({
         return (
           <div class={`${UPLOAD_NAME.value}__single-progress`}>
             <TLoading />
-            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.loadingFile.percent, 99)}%</span>
+            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.percent, 99)}%</span>
           </div>
         );
       }

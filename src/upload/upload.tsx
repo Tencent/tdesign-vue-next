@@ -45,6 +45,7 @@ export default defineComponent({
       canBatchUpload,
       // 加载中的文件
       loadingFile: null,
+      percent: 0,
       // 等待上传的文件队列
       toUploadFiles: [],
       errorMsg: '',
@@ -89,27 +90,31 @@ export default defineComponent({
     };
 
     // 渲染单文件预览：设计稿有两种单文件预览方式，文本型和输入框型。输入框型的需要在右侧显示「删除」按钮
-    const renderSingleDisplay = (triggerElement: VNode) =>
-      !props.draggable &&
-      ['file', 'file-input'].includes(props.theme) && (
-        <SingleFile
-          file={uploadValue.value && uploadValue.value[0]}
-          loadingFile={uploadCtx.loadingFile}
-          theme={props.theme}
-          onRemove={handleSingleRemove}
-          showUploadProgress={props.showUploadProgress}
-          placeholder={props.placeholder}
-        >
-          <div class={`${prefix.value}-upload__trigger`} onclick={triggerUpload}>
-            {triggerElement}
-            {!!(props.theme === 'file-input' && uploadValue.value?.length) && (
-              <TButton theme="primary" variant="text" onClick={handleFileInputRemove}>
-                删除
-              </TButton>
-            )}
-          </div>
-        </SingleFile>
+    const renderSingleDisplay = (triggerElement: VNode) => {
+      return (
+        !props.draggable &&
+        ['file', 'file-input'].includes(props.theme) && (
+          <SingleFile
+            file={uploadValue.value && uploadValue.value[0]}
+            loadingFile={uploadCtx.loadingFile}
+            percent={uploadCtx.percent}
+            theme={props.theme}
+            onRemove={handleSingleRemove}
+            showUploadProgress={props.showUploadProgress}
+            placeholder={props.placeholder}
+          >
+            <div class={`${prefix.value}-upload__trigger`} onclick={triggerUpload}>
+              {triggerElement}
+              {!!(props.theme === 'file-input' && uploadValue.value?.length) && (
+                <TButton theme="primary" variant="text" onClick={handleFileInputRemove}>
+                  删除
+                </TButton>
+              )}
+            </div>
+          </SingleFile>
+        )
       );
+    };
 
     const renderDraggerTrigger = () => {
       const params = {
@@ -124,6 +129,7 @@ export default defineComponent({
         <Dragger
           showUploadProgress={props.showUploadProgress}
           loadingFile={uploadCtx.loadingFile}
+          percent={uploadCtx.percent}
           file={uploadValue.value && uploadValue.value[0]}
           theme={props.theme}
           autoUpload={props.autoUpload}
@@ -187,6 +193,7 @@ export default defineComponent({
         <ImageCard
           files={uploadValue.value}
           loadingFile={uploadCtx.loadingFile}
+          percent={uploadCtx.percent}
           showUploadProgress={props.showUploadProgress}
           placeholder={props.placeholder}
           multiple={props.multiple}

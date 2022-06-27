@@ -161,6 +161,7 @@ export default defineComponent({
           hoverIndex.value = newIndex;
           break;
         case 'Enter':
+          if (hoverIndex.value === -1) break;
           if (!innerPopupVisible.value) {
             setInnerPopupVisible(true, { e });
             break;
@@ -254,7 +255,7 @@ export default defineComponent({
             popupVisible={innerPopupVisible.value}
             inputValue={innerInputValue.value}
             placeholder={`${placeholderText.value}`}
-            allowInput={innerPopupVisible.value && isFilterable.value}
+            allowInput={isFilterable.value}
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
