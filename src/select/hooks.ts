@@ -39,8 +39,8 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     });
 
     // 处理 slots
-    const optionsSlots = getChildComponentSlots('TOption');
-    const groupSlots = getChildComponentSlots('TOptionGroup');
+    const optionsSlots = getChildComponentSlots('Option');
+    const groupSlots = getChildComponentSlots('OptionGroup');
 
     if (isArray(groupSlots)) {
       for (const group of groupSlots) {
