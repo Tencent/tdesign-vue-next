@@ -21,9 +21,9 @@ const props = {
   cascaderContext: {
     type: Object as PropType<CascaderContextType>,
   },
-  onChange: Function as PropType<(node: TreeNode) => void>,
-  onClick: Function as PropType<(node: TreeNode) => void>,
-  onMouseenter: Function as PropType<(node: TreeNode) => void>,
+  onChange: Function as PropType<() => void>,
+  onClick: Function as PropType<() => void>,
+  onMouseenter: Function as PropType<() => void>,
 };
 
 export default defineComponent({
@@ -31,7 +31,6 @@ export default defineComponent({
   props,
   setup(props) {
     const liRef = ref<HTMLElement>();
-    const liRef2 = ref<HTMLElement>();
     useRipple(liRef);
 
     const COMPONENT_NAME = usePrefixClass('cascader__item');
@@ -72,7 +71,6 @@ export default defineComponent({
       const labelCont = (
         <span
           title={cascaderContext.inputVal ? getFullPathLabel(node) : node.label}
-          ref={liRef2}
           class={[`${COMPONENT_NAME.value}-label`, `${COMPONENT_NAME.value}-label--ellipsis`]}
           role="label"
         >
@@ -84,7 +82,7 @@ export default defineComponent({
     }
 
     function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType) {
-      const { checkProps, value, max, inputVal, size } = cascaderContext;
+      const { checkProps, value, max, inputVal } = cascaderContext;
       const label = RenderLabelInner(node, cascaderContext);
       return (
         <Checkbox
@@ -92,10 +90,9 @@ export default defineComponent({
           indeterminate={node.indeterminate}
           disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
           name={node.value}
-          size={size}
           title={inputVal ? getFullPathLabel(node) : node.label}
           onChange={() => {
-            props.onChange(node);
+            props.onChange();
           }}
           {...checkProps}
         >
@@ -112,11 +109,11 @@ export default defineComponent({
           class={itemClass.value}
           onClick={(e: Event) => {
             e.stopPropagation();
-            props.onClick(node);
+            props.onClick();
           }}
           onMouseenter={(e: Event) => {
             e.stopPropagation();
-            props.onMouseenter(node);
+            props.onMouseenter();
           }}
         >
           {cascaderContext.multiple ? RenderCheckBox(node, cascaderContext) : RenderLabelContent(node, cascaderContext)}

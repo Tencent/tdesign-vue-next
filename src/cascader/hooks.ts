@@ -16,7 +16,6 @@ import {
   TreeNodeModel,
   CascaderChangeSource,
   CascaderValue,
-  CascaderContextType,
 } from './interface';
 
 // 全局状态
@@ -36,7 +35,7 @@ export const useContext = (
 
   return {
     statusContext,
-    cascaderContext: computed<CascaderContextType>(() => {
+    cascaderContext: computed(() => {
       const {
         size,
         checkStrictly,
@@ -49,7 +48,6 @@ export const useContext = (
         disabled,
         showAllLevels,
         minCollapsedNum,
-        loading,
         valueType,
       } = props;
       return {
@@ -65,7 +63,6 @@ export const useContext = (
         disabled,
         showAllLevels,
         minCollapsedNum,
-        loading,
         valueType,
         visible: innerPopupVisible.value,
         ...statusContext,
@@ -128,7 +125,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       if (!options.length && !treeStore) return;
 
       if (!treeStore) {
-        const treeStore = new TreeStore({
+        const store = new TreeStore({
           keys: {
             ...keys,
             children: typeof keys.children === 'string' ? keys.children : 'children',
@@ -139,13 +136,13 @@ export const useCascaderContext = (props: TdCascaderProps) => {
           checkStrictly,
           onLoad: () => {
             nextTick(() => {
-              treeStore.refreshNodes();
+              store.refreshNodes();
               updatedTreeNodes();
             });
           },
         });
-        treeStore.append(options);
-        statusContext.treeStore = treeStore;
+        store.append(options);
+        statusContext.treeStore = store;
       } else {
         treeStore.reload(options);
         treeStore.refreshNodes();
@@ -223,7 +220,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
 
   return {
-    setInnerValue,
     cascaderContext,
     isFilterable,
   };

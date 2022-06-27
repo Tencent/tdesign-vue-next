@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, computed, watch, nextTick } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../interface';
@@ -15,10 +15,6 @@ export default defineComponent({
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
-    visible: {
-      type: Boolean,
-      default: true,
-    },
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
@@ -28,7 +24,6 @@ export default defineComponent({
     const renderTNodeJSXDefault = useTNodeDefault();
     const COMPONENT_NAME = usePrefixClass('cascader');
     const { global, t } = useConfig('cascader');
-    const itemShow = ref(props.visible);
 
     const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
@@ -37,27 +32,18 @@ export default defineComponent({
       expendClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
-    watch(
-      () => props.visible,
-      () => {
-        nextTick(() => {
-          itemShow.value = props.visible;
-        });
-      },
-    );
-
     const renderItem = (node: TreeNode) => (
       <Item
         key={node.value}
         node={node}
         cascaderContext={props.cascaderContext}
-        onClick={(node: TreeNode) => {
+        onClick={() => {
           handleExpand(node, 'click');
         }}
-        onMouseenter={(node: TreeNode) => {
+        onMouseenter={() => {
           handleExpand(node, 'hover');
         }}
-        onChange={(node) => {
+        onChange={() => {
           valueChangeEffect(node, props.cascaderContext);
         }}
       />
@@ -94,7 +80,7 @@ export default defineComponent({
           ? renderPanels()
           : renderTNodeJSXDefault(
               'empty',
-              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{t(global.value.empty)}</div>,
+              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{global.value.empty}</div>,
             )}
       </div>
     );
