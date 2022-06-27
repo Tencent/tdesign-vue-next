@@ -50,7 +50,7 @@ export default defineComponent({
         maxlength: props.maxlength,
         name: props.name || undefined,
         type: renderType.value,
-        autocomplete: global.value.autocomplete ?? props.autocomplete,
+        autocomplete: props.autocomplete ?? global.value.autocomplete,
         unselectable: props.readonly ? 'on' : undefined,
       }),
     );

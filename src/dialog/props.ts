@@ -29,15 +29,9 @@ export default {
     default: true,
   },
   /** 按下 ESC 时是否触发对话框关闭事件 */
-  closeOnEscKeydown: {
-    type: Boolean,
-    default: true,
-  },
+  closeOnEscKeydown: Boolean,
   /** 点击蒙层时是否触发关闭事件 */
-  closeOnOverlayClick: {
-    type: Boolean,
-    default: true,
-  },
+  closeOnOverlayClick: Boolean,
   /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
@@ -106,8 +100,6 @@ export default {
   },
   /** 控制对话框是否显示 */
   visible: Boolean,
-  /** 控制对话框是否显示，非受控属性 */
-  defaultVisible: Boolean,
   /** 对话框宽度，示例：320, '500px', '80%' */
   width: {
     type: [String, Number] as PropType<TdDialogProps['width']>,

@@ -148,7 +148,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   scroll?: TScroll;
   /**
-   * 【开发中】透传 SelectInput 筛选器输入框组件的全部属性
+   * 透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
   /**
@@ -162,11 +162,11 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   size?: SizeEnum;
   /**
-   * 【开发中】透传 TagInput 标签输入框组件的全部属性
+   * 透传 TagInput 标签输入框组件的全部属性
    */
   tagInputProps?: TagInputProps;
   /**
-   * 【开发中】透传 Tag 标签组件全部属性
+   * 透传 Tag 标签组件全部属性
    */
   tagProps?: TagProps;
   /**
