@@ -193,7 +193,7 @@ export default defineComponent({
       if (e.code === 'Escape') {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
+        if (props.closeOnEscKeydown || global.value.closeOnEscKeydown) {
           emitCloseEvent({
             trigger: 'esc',
             e,
@@ -202,7 +202,7 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      if (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick || global.value.closeOnOverlayClick) {
         props.onOverlayClick?.({ e });
         emitCloseEvent({
           trigger: 'overlay',
