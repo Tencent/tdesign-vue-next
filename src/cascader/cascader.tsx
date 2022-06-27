@@ -87,7 +87,7 @@ export default defineComponent({
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
             if (!isFilterable) return;
-            setInputVal(value);
+            setInputVal(`${value}`);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
