@@ -125,7 +125,7 @@ export default defineComponent({
     const getChildComponentSlots = useChildComponentSlots();
 
     const getOptionListBySlots = () => {
-      const nodes = getChildComponentSlots('checkbox');
+      const nodes = getChildComponentSlots('Checkbox');
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
