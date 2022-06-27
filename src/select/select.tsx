@@ -281,7 +281,7 @@ export default defineComponent({
             value={displayText.value}
             disabled={disabled.value}
             popupVisible={innerPopupVisible.value}
-            inputValue={innerInputValue.value}
+            inputValue={innerPopupVisible.value ? innerInputValue.value : ''}
             placeholder={`${placeholderText.value}`}
             allowInput={isFilterable.value}
             collapsed-items={props.collapsedItems}
@@ -320,6 +320,7 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value) => {
+              if (!innerPopupVisible.value) return;
               setInputValue(value);
               handleSearch(`${value}`);
             }}
