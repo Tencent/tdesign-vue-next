@@ -7,7 +7,7 @@ docClass: timeline
 
 ## 🌈 0.17.0 `2022-06-27` 
 ### ❗ Breaking Changes
-- `reset`: 默认移除全局 reset 样式引入，可从 `tdesign-react/dist/reset.css` 中单独引入 @xiaosansiji ([#899](https://github.com/Tencent/tdesign-react/pull/899))
+- `reset`: 默认移除全局 reset 样式引入，可从 `tdesign-react/dist/reset.css` 中单独引入
 ### 🚀 Features
 - `Form`: 现在 `FormItem.label` 为 `string` 类型时， `Form.errorMessage` 模板中的 `${name}` 会被替换为 `FormItem.label` 属性；当 `label` 属性为 `slot/function` 时，`${name}` 会被替换为 `FormItem.name` 属性 @k1nz ([#1022](https://github.com/Tencent/tdesign-vue-next/pull/1022))
 - `Space`: 新增 `Space` 组件 @HQ-Lin ([#1035](https://github.com/Tencent/tdesign-vue-next/pull/1035))
