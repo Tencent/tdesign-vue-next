@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 10:19:08
  * */
 
 import { TdDrawerProps } from './type';
@@ -26,13 +25,9 @@ export default {
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
     type: [String, Boolean, Function] as PropType<TdDrawerProps['closeBtn']>,
-    default: undefined,
   },
   /** 按下 ESC 时是否触发抽屉关闭事件 */
-  closeOnEscKeydown: {
-    type: Boolean,
-    default: true,
-  },
+  closeOnEscKeydown: Boolean,
   /** 点击蒙层时是否触发抽屉关闭事件 */
   closeOnOverlayClick: {
     type: Boolean,
@@ -49,7 +44,7 @@ export default {
   },
   /** 抽屉关闭时是否销毁节点 */
   destroyOnClose: Boolean,
-  /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 TNode 表示自定义底部内容 */
+  /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容 */
   footer: {
     type: [Boolean, Function] as PropType<TdDrawerProps['footer']>,
     default: true,
@@ -57,13 +52,14 @@ export default {
   /** 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容 */
   header: {
     type: [String, Boolean, Function] as PropType<TdDrawerProps['header']>,
-    default: undefined,
+    default: true,
   },
   /** 展开方式，有两种：直接展示在内容上方 和 推开内容区域 */
   mode: {
     type: String as PropType<TdDrawerProps['mode']>,
     default: 'overlay' as TdDrawerProps['mode'],
     validator(val: TdDrawerProps['mode']): boolean {
+      if (!val) return true;
       return ['overlay', 'push'].includes(val);
     },
   },
@@ -72,6 +68,7 @@ export default {
     type: String as PropType<TdDrawerProps['placement']>,
     default: 'right' as TdDrawerProps['placement'],
     validator(val: TdDrawerProps['placement']): boolean {
+      if (!val) return true;
       return ['left', 'right', 'top', 'bottom'].includes(val);
     },
   },
@@ -90,7 +87,7 @@ export default {
   /** 尺寸，支持 'small', 'medium', 'large'，'35px', '30%',  '3em' 等。纵向抽屉调整的是抽屉宽度，横向抽屉调整的是抽屉高度 */
   size: {
     type: String,
-    default: 'small',
+    default: undefined,
   },
   /** 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度 */
   sizeDraggable: Boolean,

@@ -48,7 +48,7 @@ export default defineComponent({
     });
 
     const sizeValue = computed(() => {
-      const size = global.value.size ?? props.size;
+      const size = props.size ?? global.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
         {
@@ -175,13 +175,13 @@ export default defineComponent({
     };
     const handleWrapperClick = (e: MouseEvent) => {
       props.onOverlayClick?.({ e });
-      if (global.value.closeOnOverlayClick ?? props.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      if ((global.value.closeOnEscKeydown ?? props.closeOnEscKeydown) && e.key === 'Escape') {
+      if ((props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) && e.key === 'Escape') {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }

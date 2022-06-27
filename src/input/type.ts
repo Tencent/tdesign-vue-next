@@ -13,8 +13,12 @@ export interface TdInputProps {
    */
   align?: 'left' | 'center' | 'right';
   /**
+   * 超出maxlength或maxcharacter之后是否还允许输入
+   * @default false
+   */
+  allowInputOverMax?: boolean;
+  /**
    * 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-   * @default ''
    */
   autocomplete?: string;
   /**
