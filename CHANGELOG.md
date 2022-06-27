@@ -5,6 +5,10 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.17.1 `2022-06-27` 
+### 🐞 Bug Fixes
+- `Select`: 修复分组插槽使用在列表尾部会产生多余渲染，修复筛选状态交互。([issue #1048](https://github.com/Tencent/tdesign-vue-next/issues/1048)) @pengYYYYY ([#1082](https://github.com/Tencent/tdesign-vue-next/pull/1082))
+
 ## 🌈 0.17.0 `2022-06-27` 
 ### ❗ Breaking Changes
 - `reset`: 默认移除全局 reset 样式引入，可从 `tdesign-react/dist/reset.css` 中单独引入
