@@ -35,6 +35,17 @@
     "es/**/style/**",
     "esm/**/style/**"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+  },
+  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
+  "bugs": {
+    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
+  },
   "scripts": {
     "init": "git submodule init && git submodule update",
     "start": "npm run init && npm run dev",
@@ -105,6 +116,7 @@
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-url": "^7.0.0",
+    "@types/babel__traverse": "^7.17.1",
     "@types/raf": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
