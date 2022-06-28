@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.17.2 `2022-06-28` 
+### 🐞 Bug Fixes
+- `ClassPrefix`: 未使用classPrefix的节点修复 ([#1091](https://github.com/Tencent/tdesign-vue-next/issues/1091)) @pengYYYYY ([#1092](https://github.com/Tencent/tdesign-vue-next/pull/1092))
+- `Input`: `type=number` 支持 `maxlength` 限制输入长度 @sinbadmaster ([#1088](https://github.com/Tencent/tdesign-vue-next/pull/1088))
+- `Select`: 修复 `options` 属性 `disabled` 禁用选项不起作用 ([#1093](https://github.com/Tencent/tdesign-vue-next/issues/1093)) @pengYYYYY ([#1094](https://github.com/Tencent/tdesign-vue-next/pull/1094))
+
 ## 🌈 0.17.1 `2022-06-27` 
 ### 🐞 Bug Fixes
 - `Select`: 修复分组插槽使用在列表尾部会产生多余渲染，修复筛选状态交互。([issue #1048](https://github.com/Tencent/tdesign-vue-next/issues/1048)) @pengYYYYY ([#1082](https://github.com/Tencent/tdesign-vue-next/pull/1082))
