@@ -3,12 +3,14 @@ import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TBreadcrumb',
   props,
   setup(props, { slots }) {
     const { separator, theme, maxItemWidth } = toRefs(props);
+    const COMPONENT_NAME = usePrefixClass('breadcrumb');
     provide(
       'tBreadcrumb',
       reactive({
@@ -28,7 +30,7 @@ export default defineComponent({
           </BreadcrumbItem>
         ));
       }
-      return <div class="t-breadcrumb">{content}</div>;
+      return <div class={COMPONENT_NAME.value}>{content}</div>;
     };
   },
 });

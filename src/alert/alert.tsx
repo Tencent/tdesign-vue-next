@@ -105,7 +105,7 @@ export default defineComponent({
             : messageContent}
           {hasCollapse ? (
             <div
-              class="t-alert__collapse"
+              class={`${COMPONENT_NAME.value}__collapse`}
               onClick={() => {
                 collapsed.value = !collapsed.value;
               }}
