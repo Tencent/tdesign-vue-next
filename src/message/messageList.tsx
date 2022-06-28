@@ -2,6 +2,7 @@ import { computed, defineComponent, ref } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from './type';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -26,6 +27,7 @@ export const MessageList = defineComponent({
     },
   },
   setup(props, { expose }) {
+    const COMPONENT_NAME = usePrefixClass('message__list');
     const list = ref([]);
     const messageList = ref([]);
 
@@ -93,7 +95,7 @@ export const MessageList = defineComponent({
       if (!list.value.length) return;
 
       return (
-        <div class="t-message__list" style={styles.value}>
+        <div class={COMPONENT_NAME.value} style={styles.value}>
           {list.value.map((item, index) => (
             <TMessage key={item.key} style={msgStyles(item)} ref={addChild} {...getProps(index, item)} />
           ))}
