@@ -37,12 +37,12 @@ export default defineComponent({
     const drawerEle = ref<HTMLElement | null>(null);
     const drawerClasses = computed(() => {
       return [
-        't-drawer',
-        `t-drawer--${props.placement}`,
+        COMPONENT_NAME.value,
+        `${COMPONENT_NAME.value}--${props.placement}`,
         {
-          't-drawer--open': props.visible,
-          't-drawer--attach': props.showInAttachedElement,
-          't-drawer--without-mask': !props.showOverlay,
+          [`${COMPONENT_NAME.value}--open`]: props.visible,
+          [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
+          [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
         },
       ];
     });
@@ -221,7 +221,6 @@ export default defineComponent({
   render() {
     const { COMPONENT_NAME, renderContent, renderTNodeJSX } = this;
     if (this.destroyOnClose && !this.visible) return;
-    const defaultCloseBtn = <CloseIcon class="t-submenu-icon"></CloseIcon>;
     const body = renderContent('body', 'default');
     const headerContent = renderTNodeJSX('header');
     const defaultFooter = this.getDefaultFooter();
@@ -240,7 +239,7 @@ export default defineComponent({
           {headerContent && <div class={`${COMPONENT_NAME}__header`}>{headerContent}</div>}
           {this.closeBtn && (
             <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
-              {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+              {renderTNodeJSX('closeBtn', <CloseIcon />)}
             </div>
           )}
           <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>

@@ -250,10 +250,10 @@ export default defineComponent({
     };
     const getIcon = () => {
       const icon = {
-        info: <InfoCircleFilledIcon class="t-is-info" />,
-        warning: <ErrorCircleFilledIcon class="t-is-warning" />,
-        danger: <ErrorCircleFilledIcon class="t-is-error" />,
-        success: <CheckCircleFilledIcon class="t-is-success" />,
+        info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
+        warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
+        danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
+        success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
       };
       return icon[props.theme];
     };
