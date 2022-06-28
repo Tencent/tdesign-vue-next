@@ -35,6 +35,17 @@
     "es/**/style/**",
     "esm/**/style/**"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+  },
+  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
+  "bugs": {
+    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
+  },
   "scripts": {
     "init": "git submodule init && git submodule update",
     "start": "npm run init && npm run dev",
