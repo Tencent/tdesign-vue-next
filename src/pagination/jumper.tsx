@@ -13,7 +13,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('jumper');
 
     return () => (
-      <div class={`${COMPONENT_NAME.value}-jumper`}>
+      <div class={`${COMPONENT_NAME.value}`}>
         <TButton
           title={props.prevTitle}
           variant="text"
@@ -21,7 +21,7 @@ export default defineComponent({
           shape="square"
           onClick={() => props.onJumperClick?.(-1)}
           icon={() => <ChevronLeftIcon />}
-          class={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}__btn`}
         />
 
         <TButton
@@ -31,7 +31,7 @@ export default defineComponent({
           shape="square"
           onClick={() => props.onJumperClick?.(0)}
           icon={() => <RoundIcon />}
-          class={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}__btn`}
         />
 
         <TButton
@@ -41,7 +41,7 @@ export default defineComponent({
           shape="square"
           onClick={() => props.onJumperClick?.(1)}
           icon={() => <ChevronRightIcon />}
-          class={`${COMPONENT_NAME.value}-jumper__btn`}
+          class={`${COMPONENT_NAME.value}__btn`}
         />
       </div>
     );

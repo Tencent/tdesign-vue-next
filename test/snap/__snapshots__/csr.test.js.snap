@@ -40245,10 +40245,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="上个月"
                   type="button"
                 >
@@ -40270,7 +40270,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="当前"
                   type="button"
                 >
@@ -40292,7 +40292,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="下个月"
                   type="button"
                 >
@@ -40936,10 +40936,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="上个月"
                   type="button"
                 >
@@ -40961,7 +40961,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="当前"
                   type="button"
                 >
@@ -40983,7 +40983,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                   title="下个月"
                   type="button"
                 >
@@ -41685,10 +41685,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="上个月"
                     type="button"
                   >
@@ -41710,7 +41710,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="当前"
                     type="button"
                   >
@@ -41732,7 +41732,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="下个月"
                     type="button"
                   >
@@ -42359,10 +42359,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="上个月"
                     type="button"
                   >
@@ -42384,7 +42384,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="当前"
                     type="button"
                   >
@@ -42406,7 +42406,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="下个月"
                     type="button"
                   >
@@ -43055,10 +43055,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="上个月"
                     type="button"
                   >
@@ -43080,7 +43080,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="当前"
                     type="button"
                   >
@@ -43102,7 +43102,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
                     title="下个月"
                     type="button"
                   >
