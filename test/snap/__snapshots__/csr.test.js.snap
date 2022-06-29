@@ -40248,7 +40248,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40270,7 +40270,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40292,7 +40292,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -40939,7 +40939,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40961,7 +40961,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40983,7 +40983,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -41688,7 +41688,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -41710,7 +41710,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -41732,7 +41732,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -42362,7 +42362,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -42384,7 +42384,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -42406,7 +42406,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -43058,7 +43058,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -43080,7 +43080,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -43102,7 +43102,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -61692,6 +61692,381 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       
     </button>
   </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/layout.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-up"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-down"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/size.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px; text-align: center;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/tips.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    title="前尘忆梦"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    title="回到现在"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    title="展望未来"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
 </div>
 `;
 

@@ -9,8 +9,7 @@
         }"
         :y="120"
         :x="80"
-      >
-        <div style="height: 300px" /> </t-watermark
+        ><div style="width:height: 200px" /></t-watermark
     ></template>
   </base-usage>
 </template>
@@ -25,7 +24,7 @@ const panelList = [{ label: 'watermark', value: 'watermark' }];
 
 const usageCodeMap = {
   watermark:
-    '\n        <t-watermark\n          v-bind="configProps"\n          :watermark-content="{\n            text: \'文字水印\',\n          }"\n          :y="120"\n          :x="80"\n        >\n          <div style="height: 300px" />\n        </t-watermark>\n      ',
+    '\n        <t-watermark\n          v-bind="configProps"\n          :watermark-content="{\n            text: \'文字水印\',\n          }"\n          :y="120"\n          :x="80"\n        ><div style="width:height: 200px" /></t-watermark>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
