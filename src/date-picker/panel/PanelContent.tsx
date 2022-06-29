@@ -52,7 +52,9 @@ export default defineComponent({
             month={props.month}
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
             onYearChange={(val: number) => props.onYearChange?.(val, { partial: props.partial })}
-            onJumperClick={(val: number) => props.onJumperClick?.(val, { partial: props.partial })}
+            onJumperClick={({ trigger }: { trigger: string }) =>
+              props.onJumperClick?.({ trigger, partial: props.partial })
+            }
           />
 
           <TDateTable

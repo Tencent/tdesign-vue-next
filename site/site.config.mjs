@@ -134,6 +134,12 @@ export default {
           component: () => import('@/examples/dropdown/dropdown.md'),
         },
         {
+          title: 'Jumper 下拉菜单',
+          name: 'jumper',
+          path: '/vue-next/components/jumper',
+          component: () => import('@/examples/jumper/jumper.md'),
+        },
+        {
           title: 'Menu 导航菜单',
           name: 'menu',
           path: '/vue-next/components/menu',
