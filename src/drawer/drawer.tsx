@@ -175,13 +175,13 @@ export default defineComponent({
     };
     const handleWrapperClick = (e: MouseEvent) => {
       props.onOverlayClick?.({ e });
-      if (props.closeOnOverlayClick || global.value.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      if ((props.closeOnEscKeydown || global.value.closeOnEscKeydown) && e.key === 'Escape') {
+      if ((props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) && e.key === 'Escape') {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
