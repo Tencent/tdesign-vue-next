@@ -7,6 +7,7 @@ import TreeNode from '../_common/js/tree/tree-node';
 
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
+import useOnDrag from './hooks/useOnDrag';
 import { getMark, getNode, getStoreConfig, getRightData } from './util';
 
 import { TypeEventState, TypeTreeNodeModel } from './interface';
@@ -110,6 +111,7 @@ export default function useTree(props: TdTreeProps) {
   // 节点渲染
   const renderTreeNodeViews = () => {
     const nodes = treeStore.value.getNodes();
+
     treeNodeViews.value = nodes
       .filter((node: TreeNode) => node.visible)
       .map((node: TreeNode) => {
@@ -134,6 +136,8 @@ export default function useTree(props: TdTreeProps) {
       });
     });
   };
+
+  useOnDrag(treeStore);
 
   // 更新展开状态
   const updateExpanded = () => {

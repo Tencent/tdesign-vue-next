@@ -1,6 +1,7 @@
 import { computed, ComputedRef, Slots, InjectionKey } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { TdTreeProps } from './type';
+import TreeNode from '../_common/js/tree/tree-node';
 
 export const useCLASSNAMES = () => {
   const classPrefix = usePrefixClass();
@@ -34,6 +35,11 @@ export const useCLASSNAMES = () => {
       treeNodeHidden: `${tree}__item--hidden`,
       treeNodeEnter: `${tree}__item--enter-active`,
       treeNodeLeave: `${tree}__item--leave-active`,
+      treeNodeDragAble: `${tree}__item--dragable`,
+      treeNodeDragging: `${tree}__item--dragging`,
+      treeNodeDragTipTop: `${tree}__item--tip-top`,
+      treeNodeDragTipBottom: `${tree}__item--tip-bottom`,
+      treeNodeDragTipHighlight: `${tree}__item--tip-highlight`,
       line: `${tree}__line`,
       lineIsLeaf: `${tree}__line--leaf`,
       lineIsFirst: `${tree}__line--first`,
@@ -52,3 +58,11 @@ export const injectKey: InjectionKey<
     scopedSlots: Slots;
   }>
 > = Symbol('treeProvider');
+
+export const dragInjectKey: InjectionKey<{
+  onDragStart: (context: { node: TreeNode; e: DragEvent }) => void;
+  onDragEnd: (context: { node: TreeNode; e: DragEvent }) => void;
+  onDragOver: (context: { node: TreeNode; e: DragEvent }) => void;
+  onDragLeave: (context: { node: TreeNode; e: DragEvent }) => void;
+  onDrop: (context: { node: TreeNode; dropPosition: number; e: DragEvent }) => void;
+}> = Symbol('onDrag');

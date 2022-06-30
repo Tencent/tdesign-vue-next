@@ -118,6 +118,7 @@ export const getStoreConfig = (props: TdTreeProps) => {
     'activable',
     'activeMultiple',
     'disabled',
+    'draggable',
     'checkable',
     'checkStrictly',
     'load',

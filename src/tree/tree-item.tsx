@@ -1,4 +1,4 @@
-import { computed, h, defineComponent, ref, PropType, inject } from 'vue';
+import { computed, h, defineComponent, ref, PropType, inject, reactive } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import TCheckBox from '../checkbox';
@@ -11,6 +11,8 @@ import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
 import { useConfig } from '../hooks/useConfig';
+
+import useDraggable from './hooks/useDraggable';
 
 export default defineComponent({
   name: 'TTreeNode',
@@ -32,6 +34,7 @@ export default defineComponent({
 
     const handleClick = (evt: MouseEvent) => {
       const { node } = props;
+
       const state: TypeEventState = {
         mouseEvent: evt,
         event: evt,
@@ -39,6 +42,57 @@ export default defineComponent({
         path: node.getPath(),
       };
       props.onClick?.(state);
+    };
+
+    const nodeRef = ref<HTMLElement>();
+    const { isDragOver, isDragging, dropPosition, setDragStatus } = useDraggable(
+      reactive({ nodeRef, node: props.node }),
+    );
+
+    const handleDragStart = (evt: DragEvent) => {
+      const { node } = props;
+      if (!node.isDraggable()) return;
+      evt.stopPropagation();
+      setDragStatus('dragStart', evt);
+
+      try {
+        // ie throw error firefox-need-it
+        evt.dataTransfer?.setData('text/plain', '');
+      } catch (e) {
+        // empty
+      }
+      props.onDragStart?.(node, evt);
+    };
+
+    const handleDragEnd = (evt: DragEvent) => {
+      const { node } = props;
+      if (!node.isDraggable()) return;
+      evt.stopPropagation();
+      setDragStatus('dragEnd', evt);
+    };
+
+    const handleDragOver = (evt: DragEvent) => {
+      const { node } = props;
+      if (!node.isDraggable()) return;
+      evt.stopPropagation();
+      evt.preventDefault();
+      setDragStatus('dragOver', evt);
+    };
+
+    const handleDragLeave = (evt: DragEvent) => {
+      const { node } = props;
+      if (!node.isDraggable()) return;
+      evt.stopPropagation();
+      setDragStatus('dragLeave', evt);
+    };
+
+    const handleDrop = (evt: DragEvent) => {
+      const { node } = props;
+      if (!node.isDraggable()) return;
+      evt.stopPropagation();
+      evt.preventDefault();
+      setDragStatus('drop', evt);
+      props.onDrop?.(node, dropPosition.value, evt);
     };
 
     const handleChange = () => {
@@ -65,6 +119,14 @@ export default defineComponent({
         [CLASS_NAMES.value.treeNodeOpen]: node.expanded,
         [CLASS_NAMES.value.actived]: node.isActivable() ? node.actived : false,
         [CLASS_NAMES.value.disabled]: node.isDisabled(),
+      });
+      // 拖拽相关 class
+      list.push({
+        [CLASS_NAMES.value.treeNodeDragAble]: node.isDraggable(),
+        [CLASS_NAMES.value.treeNodeDragging]: isDragging.value,
+        [CLASS_NAMES.value.treeNodeDragTipTop]: isDragOver.value && dropPosition.value < 0,
+        [CLASS_NAMES.value.treeNodeDragTipBottom]: isDragOver.value && dropPosition.value > 0,
+        [CLASS_NAMES.value.treeNodeDragTipHighlight]: !isDragging.value && isDragOver.value && dropPosition.value === 0,
       });
       return list;
     });
@@ -278,11 +340,18 @@ export default defineComponent({
 
       return (
         <div
+          ref={nodeRef}
           class={itemClassList.value}
           data-value={node.value}
           data-level={node.level}
           style={itemStyles.value}
           onClick={(evt: MouseEvent) => handleClick(evt)}
+          draggable={node.isDraggable()}
+          onDragstart={(evt: DragEvent) => handleDragStart(evt)}
+          onDragend={(evt: DragEvent) => handleDragEnd(evt)}
+          onDragover={(evt: DragEvent) => handleDragOver(evt)}
+          onDragleave={(evt: DragEvent) => handleDragLeave(evt)}
+          onDrop={(evt: DragEvent) => handleDrop(evt)}
         >
           {renderLine()}
           {renderIcon()}
