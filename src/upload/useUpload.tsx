@@ -153,6 +153,7 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   };
 
   const handleBeforeUpload = (file: File | UploadFile): Promise<boolean> => {
+    uploadCtx.errorMsg = '';
     if (typeof props.beforeUpload === 'function') {
       const r = props.beforeUpload(file);
       if (r instanceof Promise) return r;
