@@ -158,7 +158,7 @@ export default function useTree(props: TdTreeProps) {
 
   // 初始化
   const init = () => {
-    let options = getRightData(props.data);
+    let options = getRightData(props.data, props.keys?.value);
     const store = new TreeStore({
       ...getStoreConfig(props),
       onLoad: (info: TypeEventState) => {
@@ -203,7 +203,7 @@ export default function useTree(props: TdTreeProps) {
   watch(
     () => props.data,
     (list) => {
-      list = getRightData(props.data);
+      list = getRightData(props.data, props.keys?.value);
       cacheMap.clear();
 
       treeStore.value.reload(list);
