@@ -1,11 +1,11 @@
 import { Ref } from 'vue';
 import upperFirst from 'lodash/upperFirst';
-import TreeStore from '../_common/js/tree/tree-store';
-import TreeNode from '../_common/js/tree/tree-node';
-import { TreeOptionData } from '../common';
-import { getNode } from './util';
+import TreeStore from '../../_common/js/tree/tree-store';
+import TreeNode from '../../_common/js/tree/tree-node';
+import { TreeOptionData } from '../../common';
+import { getNode } from '../util';
 
-import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './interface';
+import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from '../interface';
 
 export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (exposed: Record<string, any>) => void) {
   const setItem = (value: TreeNodeValue, options: TreeNodeState) => {

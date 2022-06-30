@@ -16,6 +16,7 @@ checkStrictly | Boolean | false | 父子节点选中状态不再关联，可各�
 data | Array | [] | 树数据，泛型 `T` 表示树节点 TS 类型。TS 类型：`Array<T>` | N
 disableCheck | Boolean / Function | false | 禁用复选框，可支持禁用不同的行。TS 类型：`boolean | ((node: TreeNodeModel) => boolean)` | N
 disabled | Boolean | - | 是否禁用树操作 | N
+draggable | Boolean | false | 是否支持节点拖拽 | N
 empty | String / Slot / Function | '' | 数据为空时展示的文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 expandAll | Boolean | false | 是否展开全部节点 | N
 expanded | Array | [] | 展开的节点值。支持语法糖 `v-model:expanded`。TS 类型：`Array<TreeNodeValue>` | N
@@ -52,7 +53,12 @@ change | `(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> })` | 
 click | `(context: { node: TreeNodeModel<T>; e: MouseEvent })` | 节点点击时触发，泛型 `T` 表示树节点 TS 类型
 expand | `(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T>; e: MouseEvent })` | 节点展开或收起时触发，泛型 `T` 表示树节点 TS 类型
 load | `(context: { node: TreeNodeModel<T> })` | 异步加载后触发，泛型 `T` 表示树节点 TS 类型
-
+drag-start | `(context: { e: DragEvent, node: TreeNodeModel<T> })` | 节点开始拖拽时触发，泛型 `T` 表示树节点 TS 类型
+drag-end | `(context: { e: DragEvent, node: TreeNodeModel<T> })` | 节点结束拖拽时触发，泛型 `T` 表示树节点 TS 类型
+drag-over | `(context: { e: DragEvent, node: TreeNodeModel<T> })` | 节点拖拽到目标元素时触发，泛型 `T` 表示树节点 TS 类型
+drag-leave | `(context: { e: DragEvent, node: TreeNodeModel<T> })` | 节点拖拽时离开目标元素时触发，泛型 `T` 表示树节点 TS 类型
+drop | `(context: { e: DragEvent, dragNode: TreeNodeModel<T>, dropNode: TreeNodeModel<T>, dropPosition: number })` | 节点在目标元素上释放时触发，泛型 `T` 表示树节点 TS 类型
+  
 ### TreeInstanceFunctions 组件实例方法
 
 名称 | 参数 | 返回值 | 描述
@@ -78,6 +84,7 @@ actived | Boolean | false | 节点是否被激活 | N
 checkable | Boolean | false | 节点是否允许被选中 | N
 checked | Boolean | false | 节点是否被选中 | N
 disabled | Boolean | false | 节点是否被禁用 | N
+draggable | Boolean | false | 节点是否可拖拽 | N
 expanded | Boolean | false | 节点是否已展开 | N
 expandMutex | Boolean | false | 子节点是否互斥展开 | N
 indeterminate | Boolean | false | 节点是否为半选中状态 | N

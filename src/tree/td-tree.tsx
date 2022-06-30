@@ -5,7 +5,7 @@ import { useConfig } from '../hooks/useConfig';
 import { useTNodeDefault } from '../hooks/tnode';
 import { useCLASSNAMES, injectKey } from './constants';
 import useTree from './useTree';
-import useExposeFunc from './useExposeFunc';
+import useExposeFunc from './hooks/useExposeFunc';
 
 export default defineComponent({
   name: 'TTree',
