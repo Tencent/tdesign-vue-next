@@ -1,5 +1,6 @@
 import { defineComponent, watchEffect, computed, ref } from 'vue';
 import dayjs from 'dayjs';
+import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 
 import props from './date-range-picker-props';
@@ -32,6 +33,8 @@ export default defineComponent({
       isFirstValueSelected,
       onChange,
     } = useRange(props);
+
+    const disabled = useFormDisabled();
 
     const formatRef = computed(() =>
       useFormat({
@@ -298,7 +301,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
-          disabled={props.disabled}
+          disabled={disabled.value}
           inputValue={inputValue.value as string[]}
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}

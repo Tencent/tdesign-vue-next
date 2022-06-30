@@ -2,6 +2,7 @@ import { defineComponent, watchEffect, computed } from 'vue';
 import dayjs from 'dayjs';
 import { usePrefixClass } from '../hooks/useConfig';
 
+import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import useFormat from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
@@ -31,6 +32,8 @@ export default defineComponent({
       inputRef,
       onChange,
     } = useSingle(props);
+
+    const disabled = useFormDisabled();
 
     const formatRef = computed(() =>
       useFormat({
@@ -194,7 +197,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
-          disabled={props.disabled}
+          disabled={disabled.value}
           value={inputValue.value}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
