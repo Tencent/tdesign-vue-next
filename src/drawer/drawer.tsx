@@ -37,24 +37,25 @@ export default defineComponent({
     const drawerEle = ref<HTMLElement | null>(null);
     const drawerClasses = computed(() => {
       return [
-        't-drawer',
-        `t-drawer--${props.placement}`,
+        COMPONENT_NAME.value,
+        `${COMPONENT_NAME.value}--${props.placement}`,
         {
-          't-drawer--open': props.visible,
-          't-drawer--attach': props.showInAttachedElement,
-          't-drawer--without-mask': !props.showOverlay,
+          [`${COMPONENT_NAME.value}--open`]: props.visible,
+          [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
+          [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
         },
       ];
     });
 
     const sizeValue = computed(() => {
-      const defaultSize = isNaN(Number(props.size)) ? props.size : `${props.size}px`;
+      const size = props.size ?? global.value.size;
+      const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
         {
           small: '300px',
           medium: '500px',
           large: '760px',
-        }[props.size] || defaultSize
+        }[size] || defaultSize
       );
     });
     const wrapperStyles = computed(() => {
@@ -174,13 +175,13 @@ export default defineComponent({
     };
     const handleWrapperClick = (e: MouseEvent) => {
       props.onOverlayClick?.({ e });
-      if (props.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick || global.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      if (props.closeOnEscKeydown && e.key === 'Escape') {
+      if ((props.closeOnEscKeydown || global.value.closeOnEscKeydown) && e.key === 'Escape') {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
@@ -220,7 +221,6 @@ export default defineComponent({
   render() {
     const { COMPONENT_NAME, renderContent, renderTNodeJSX } = this;
     if (this.destroyOnClose && !this.visible) return;
-    const defaultCloseBtn = <CloseIcon class="t-submenu-icon"></CloseIcon>;
     const body = renderContent('body', 'default');
     const headerContent = renderTNodeJSX('header');
     const defaultFooter = this.getDefaultFooter();
@@ -239,7 +239,7 @@ export default defineComponent({
           {headerContent && <div class={`${COMPONENT_NAME}__header`}>{headerContent}</div>}
           {this.closeBtn && (
             <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
-              {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+              {renderTNodeJSX('closeBtn', <CloseIcon />)}
             </div>
           )}
           <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>

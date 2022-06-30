@@ -92,6 +92,7 @@ export default defineComponent({
       showAffixPagination,
       onHorizontalScroll,
       setTableContentRef,
+      updateAffixHeaderOrFooter,
     } = useAffix(props);
 
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
@@ -145,6 +146,7 @@ export default defineComponent({
     const onFixedChange = () => {
       nextTick(() => {
         onHorizontalScroll();
+        updateAffixHeaderOrFooter();
       });
     };
 
@@ -255,6 +257,7 @@ export default defineComponent({
       handleRowMounted,
       onFixedChange,
       onHorizontalScroll,
+      updateAffixHeaderOrFooter,
       refreshTable,
       onInnerVirtualScroll,
     };
@@ -508,7 +511,13 @@ export default defineComponent({
         )}
 
         {/* 吸底的分页器 */}
-        {this.paginationAffixedBottom ? <Affix offsetBottom={0}>{pagination}</Affix> : pagination}
+        {this.paginationAffixedBottom ? (
+          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)}>
+            {pagination}
+          </Affix>
+        ) : (
+          pagination
+        )}
 
         {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
         <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>

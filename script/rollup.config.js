@@ -239,4 +239,13 @@ const umdMinConfig = {
   },
 };
 
-export default [cssConfig, esConfig, esmConfig, cjsConfig, umdConfig, umdMinConfig];
+// 单独导出 reset.css 到 dist 目录，兼容旧版本样式
+const resetCss = {
+  input: 'src/_common/style/web/_reset.less',
+  output: {
+    file: 'dist/reset.css',
+  },
+  plugins: [postcss({ extract: true })],
+};
+
+export default [cssConfig, esConfig, esmConfig, cjsConfig, umdConfig, umdMinConfig, resetCss];

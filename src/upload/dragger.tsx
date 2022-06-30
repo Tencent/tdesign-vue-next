@@ -26,6 +26,9 @@ export default defineComponent({
         return null as UploadFile;
       },
     },
+    percent: {
+      type: Number,
+    },
     autoUpload: props.autoUpload,
     theme: props.theme,
     onCancel: Function as PropType<(e: MouseEvent) => void>,
@@ -92,7 +95,7 @@ export default defineComponent({
         return (
           <div class={`${UPLOAD_NAME.value}__single-progress`}>
             <TLoading />
-            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.loadingFile.percent, 99)}%</span>
+            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.percent, 99)}%</span>
           </div>
         );
       }

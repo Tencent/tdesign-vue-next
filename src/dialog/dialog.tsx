@@ -193,7 +193,7 @@ export default defineComponent({
       if (e.code === 'Escape') {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (props.closeOnEscKeydown) {
+        if (props.closeOnEscKeydown || global.value.closeOnEscKeydown) {
           emitCloseEvent({
             trigger: 'esc',
             e,
@@ -202,7 +202,7 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      if (props.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick || global.value.closeOnOverlayClick) {
         props.onOverlayClick?.({ e });
         emitCloseEvent({
           trigger: 'overlay',
@@ -250,10 +250,10 @@ export default defineComponent({
     };
     const getIcon = () => {
       const icon = {
-        info: <InfoCircleFilledIcon class="t-is-info" />,
-        warning: <ErrorCircleFilledIcon class="t-is-warning" />,
-        danger: <ErrorCircleFilledIcon class="t-is-error" />,
-        success: <CheckCircleFilledIcon class="t-is-success" />,
+        info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
+        warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
+        danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
+        success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
       };
       return icon[props.theme];
     };

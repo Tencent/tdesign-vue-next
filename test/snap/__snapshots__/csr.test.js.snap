@@ -5279,6 +5279,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -5339,6 +5340,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -6167,6 +6169,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -6276,6 +6279,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -6336,6 +6340,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -7140,6 +7145,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -7211,6 +7217,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -7271,6 +7278,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -8114,6 +8122,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -8174,6 +8183,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -9118,6 +9128,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -9178,6 +9189,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -10442,6 +10454,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -10502,6 +10515,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -11340,6 +11354,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -11400,6 +11415,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -12263,6 +12279,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -12323,6 +12340,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -13196,6 +13214,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -13256,6 +13275,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -13923,6 +13943,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -13994,6 +14015,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -14054,6 +14076,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -15007,6 +15030,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -15067,6 +15091,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -15895,6 +15920,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -15966,6 +15992,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -16361,6 +16388,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -16421,6 +16449,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -17255,6 +17284,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -17315,6 +17345,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -18219,6 +18250,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -18279,6 +18311,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -19240,6 +19273,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -19300,6 +19334,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -20136,6 +20171,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -20196,6 +20232,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -21018,6 +21055,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -21078,6 +21116,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -23523,6 +23562,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/base.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23579,6 +23619,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23668,6 +23709,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23753,6 +23795,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23830,6 +23873,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23908,6 +23952,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -23965,6 +24010,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24022,6 +24068,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24078,6 +24125,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24146,6 +24194,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24186,7 +24235,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24200,7 +24249,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder="请选择"
-        readonly=""
         type="text"
       />
       <!---->
@@ -24235,7 +24283,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24268,7 +24316,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder=""
-        readonly=""
         type="text"
       />
       <!---->
@@ -24303,7 +24350,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
   >
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -24317,7 +24364,6 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
       <input
         class="t-input__inner"
         placeholder="请选择"
-        readonly=""
         type="text"
       />
       <!---->
@@ -24373,6 +24419,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24427,6 +24474,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/load.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24479,6 +24527,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/max.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24554,6 +24603,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24608,6 +24658,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/show-all-levels.
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24665,6 +24716,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24715,6 +24767,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24765,6 +24818,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24821,6 +24875,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24870,6 +24925,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24924,6 +24980,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -24971,6 +25028,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -25018,6 +25076,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -25074,6 +25133,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -25163,6 +25223,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -27961,6 +28022,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -28020,6 +28082,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28052,6 +28115,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28084,6 +28148,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28116,6 +28181,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28853,6 +28919,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -28912,6 +28979,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28944,6 +29012,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -28976,6 +29045,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       placeholder="请输入"
                       type="text"
@@ -29723,6 +29793,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -29782,6 +29853,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -29814,6 +29886,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -29846,6 +29919,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30709,6 +30783,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -30768,6 +30843,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30800,6 +30876,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -30832,6 +30909,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -31586,6 +31664,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -31645,6 +31724,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -31678,6 +31758,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -31711,6 +31792,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <input
+                      autocomplete="off"
                       class="t-input__inner"
                       disabled=""
                       placeholder="请输入"
@@ -32459,6 +32541,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -32518,6 +32601,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32550,6 +32634,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32582,6 +32667,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32867,6 +32953,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -32926,6 +33013,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32958,6 +33046,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -32990,6 +33079,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <input
+                        autocomplete="off"
                         class="t-input__inner"
                         placeholder="请输入"
                         type="text"
@@ -34025,6 +34115,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                   placeholder=""
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -34085,6 +34176,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                   placeholder=""
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -34904,6 +34996,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select date"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -34957,6 +35050,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select date"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -35009,6 +35103,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select month"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -35062,6 +35157,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select month"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -35114,6 +35210,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select year"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -35167,6 +35264,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
           placeholder="select year"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -35761,7 +35859,6 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="There is required mark on the left of this input in Form"
                 type="password"
@@ -36506,6 +36603,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           placeholder="see clear icon, it is configurable"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -36566,6 +36664,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           placeholder="select without data in Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -36626,6 +36725,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           placeholder="see loading text in Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -36692,6 +36792,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         placeholder="select cascader data"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -36745,9 +36846,10 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
       </div>
       <input
         class="t-input__inner"
-        placeholder="select cascader data"
+        placeholder="select without data in Cascader"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -36806,6 +36908,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         placeholder="see empty data in TreeSelect"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -36861,6 +36964,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
         placeholder="see loading text in TreeSelect"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -37489,6 +37593,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -37608,6 +37713,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             <!---->
             <!---->
             <input
+              autocomplete="off"
               class="t-input__inner"
               placeholder=""
               type="text"
@@ -37718,7 +37824,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/popconfir
           class="t-drawer__close-btn"
         >
           <svg
-            class="t-icon t-icon-close t-submenu-icon"
+            class="t-icon t-icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -38522,6 +38628,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
             placeholder="请选择日期"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -38666,6 +38773,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/custom-icon.v
             placeholder="请选择日期"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -38737,6 +38845,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   placeholder="请选择日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -38762,6 +38871,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   placeholder="请选择日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -38829,6 +38939,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   placeholder="请选择日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -38854,6 +38965,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   placeholder="请选择日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -39239,6 +39351,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             placeholder="禁用昨天、前天"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -39296,6 +39409,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             placeholder="明后三天禁用"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -39353,6 +39467,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             placeholder="禁用所有周六"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -39410,6 +39525,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             placeholder="禁用最近 3 天外的日期"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -39467,6 +39583,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
             placeholder="禁用日期精确到时间"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -39528,6 +39645,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                   placeholder="禁用最近 5 天外的日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -39553,6 +39671,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                   placeholder="禁用最近 5 天外的日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -39799,6 +39918,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/first-day-of-
             placeholder="请选择日期"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -40041,6 +40161,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         placeholder="请选择"
                         readonly=""
                         type="text"
+                        unselectable="on"
                       />
                       <!---->
                       <!---->
@@ -40093,6 +40214,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         placeholder="请选择"
                         readonly=""
                         type="text"
+                        unselectable="on"
                       />
                       <!---->
                       <!---->
@@ -40123,10 +40245,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40148,7 +40270,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40170,7 +40292,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -40730,6 +40852,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         placeholder="请选择"
                         readonly=""
                         type="text"
+                        unselectable="on"
                       />
                       <!---->
                       <!---->
@@ -40782,6 +40905,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                         placeholder="请选择"
                         readonly=""
                         type="text"
+                        unselectable="on"
                       />
                       <!---->
                       <!---->
@@ -40812,10 +40936,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40837,7 +40961,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40859,7 +40983,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -41477,6 +41601,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -41529,6 +41654,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -41559,10 +41685,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -41584,7 +41710,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -41606,7 +41732,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -42149,6 +42275,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -42201,6 +42328,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -42231,10 +42359,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -42256,7 +42384,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -42278,7 +42406,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -42843,6 +42971,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -42895,6 +43024,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           placeholder="请选择"
                           readonly=""
                           type="text"
+                          unselectable="on"
                         />
                         <!---->
                         <!---->
@@ -42925,10 +43055,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -42950,7 +43080,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -42972,7 +43102,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -47241,7 +47371,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/base.vue 1`] = `
         class="t-drawer__close-btn"
       >
         <svg
-          class="t-icon t-icon-close t-submenu-icon"
+          class="t-icon t-icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -48724,7 +48854,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -49354,7 +49483,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -49692,6 +49820,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -50008,7 +50137,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -50083,7 +50211,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -50316,6 +50443,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -50396,6 +50524,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <!---->
               <!---->
@@ -50476,6 +50605,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <!---->
               <!---->
@@ -50559,6 +50689,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   placeholder="请选择日期"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -50895,6 +51026,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   disabled=""
                   placeholder="数字"
@@ -51381,7 +51513,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -51699,6 +51830,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -52068,7 +52200,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -52222,7 +52353,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
               </span>
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入密码"
                 type="password"
@@ -54180,7 +54310,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -54446,7 +54575,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <input
-                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -54597,6 +54725,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -54886,6 +55015,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -57476,6 +57606,7 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/icon-select.vue 1`] 
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -58454,7 +58585,6 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
       </span>
       <!---->
       <input
-        autocomplete="on"
         class="t-input__inner"
         placeholder="请输入"
         type="password"
@@ -58517,7 +58647,6 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
       </span>
       <!---->
       <input
-        autocomplete="on"
         class="t-input__inner"
         placeholder="请输入"
         type="password"
@@ -58655,6 +58784,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
         placeholder="请输入"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -58892,6 +59022,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               placeholder="请选择"
               readonly=""
               type="text"
+              unselectable="on"
             />
             <span
               class="t-input__input-pre"
@@ -59001,6 +59132,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               placeholder="请选择"
               readonly=""
               type="text"
+              unselectable="on"
             />
             <span
               class="t-input__input-pre"
@@ -59065,6 +59197,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               placeholder="请选择"
               readonly=""
               type="text"
+              unselectable="on"
             />
             <span
               class="t-input__input-pre"
@@ -59122,6 +59255,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -59177,6 +59311,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               placeholder="请选择"
               readonly=""
               type="text"
+              unselectable="on"
             />
             <span
               class="t-input__input-pre"
@@ -59362,6 +59497,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59433,6 +59569,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59504,6 +59641,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59557,6 +59695,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59584,6 +59723,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59611,6 +59751,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
           <!---->
           <!---->
           <input
+            autocomplete="off"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
@@ -59665,6 +59806,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59744,6 +59886,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59819,6 +59962,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -59894,6 +60038,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           disabled=""
           placeholder="请输入"
@@ -59970,6 +60115,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="输入"
           type="text"
@@ -60045,6 +60191,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/format.vue 1
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60120,6 +60267,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/left.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60173,6 +60321,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60226,6 +60375,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60297,6 +60447,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60367,6 +60518,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -60472,6 +60624,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   disabled=""
                   placeholder="请输入"
@@ -60575,10 +60728,12 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <!---->
                 <!---->
@@ -60678,6 +60833,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60780,6 +60936,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60882,6 +61039,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -60984,6 +61142,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61086,6 +61245,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61192,6 +61352,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61298,6 +61459,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61404,6 +61566,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请输入"
                   type="text"
@@ -61494,6 +61657,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
         <!---->
         <!---->
         <input
+          autocomplete="off"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
@@ -61528,6 +61692,381 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       
     </button>
   </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/layout.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-up"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-down"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/size.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px; text-align: center;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/tips.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    title="前尘忆梦"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    title="回到现在"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    title="展望未来"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
 </div>
 `;
 
@@ -71793,6 +72332,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -71956,6 +72496,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72130,6 +72671,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72259,6 +72801,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             <!---->
             <!---->
             <input
+              autocomplete="off"
               class="t-input__inner"
               placeholder=""
               type="text"
@@ -72311,6 +72854,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/mini.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72480,6 +73024,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72663,6 +73208,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72809,6 +73355,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/page-num.vue 1
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -72973,6 +73520,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -73049,6 +73597,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -73139,6 +73688,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -73215,6 +73765,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -73305,6 +73856,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/total.vue 1`] 
             placeholder="请选择"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <span
             class="t-input__input-pre"
@@ -78859,117 +79411,147 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
 
 exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
 <div
-  class="tdesign-demo-select-base"
-  data-v-1dd75acb=""
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
-  <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
+  
+  
   <div
-    class="t-select__wrap"
-    data-v-1dd75acb=""
+    class="t-space-item"
   >
-    
+    <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-input__wrap t-select-input t-select-input--empty t-select"
+      class="t-select__wrap"
     >
+      
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap t-select-input t-select-input--empty t-select"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="请选择云解决方案"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-fake-arrow t-select__right-icon"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-              stroke="black"
-              stroke-opacity="0.9"
-              stroke-width="1.3"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请选择云解决方案"
+            readonly=""
+            type="text"
+            unselectable="on"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       <!---->
+      
     </div>
-    <!---->
-    
   </div>
-  <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
+  <!---->
+  
+  
   <div
-    class="t-select__wrap"
-    data-v-1dd75acb=""
+    class="t-space-item"
   >
-    
+    <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-input__wrap t-select-input t-select-input--empty t-select"
+      class="t-select__wrap"
     >
+      
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap t-select-input t-select-input--empty t-select"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="请选择云产品"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-fake-arrow t-select__right-icon"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-              stroke="black"
-              stroke-opacity="0.9"
-              stroke-width="1.3"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请选择云产品"
+            readonly=""
+            type="text"
+            unselectable="on"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       <!---->
+      
     </div>
-    <!---->
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -79029,6 +79611,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79112,6 +79695,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79196,6 +79780,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79229,110 +79814,125 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
 
 exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-select__wrap"
+    class="t-space-item"
   >
-    
     <div
-      class="t-input__wrap t-select-input t-select-input--empty t-select"
+      class="t-select__wrap"
     >
+      
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap t-select-input t-select-input--empty t-select"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-default t-input--prefix t-input--suffix"
         >
-          
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="单选支持自定义创建"
+            type="text"
+          />
           <!---->
           <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="单选支持自定义创建"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-fake-arrow t-select__right-icon"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="t-input__suffix t-input__suffix-icon"
           >
-            <path
-              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-              stroke="black"
-              stroke-opacity="0.9"
-              stroke-width="1.3"
-            />
-          </svg>
-        </span>
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       <!---->
+      
     </div>
-    <!---->
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-select__wrap"
+    class="t-space-item"
   >
-    
     <div
-      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
+      class="t-select__wrap"
     >
+      
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-default t-input--prefix t-input--suffix"
         >
-          
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="多选支持自定义创建"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon"
-        >
-          <svg
-            class="t-fake-arrow t-select__right-icon"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+          <!---->
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-              stroke="black"
-              stroke-opacity="0.9"
-              stroke-width="1.3"
-            />
-          </svg>
-        </span>
+            
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="多选支持自定义创建"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       <!---->
+      
     </div>
-    <!---->
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -79365,6 +79965,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
           placeholder="请选择"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79420,6 +80021,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
           placeholder="请选择"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79550,6 +80152,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79691,6 +80294,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79747,6 +80351,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79789,7 +80394,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-disabled t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79804,7 +80409,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           class="t-input__inner"
           disabled=""
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79876,6 +80480,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -79918,7 +80523,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79932,7 +80537,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
         <input
           class="t-input__inner"
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -79971,7 +80575,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -79983,7 +80587,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
         <input
           class="t-input__inner"
           placeholder="-请选择-"
-          readonly=""
           type="text"
         />
         <!---->
@@ -80031,7 +80634,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80045,7 +80648,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -80085,7 +80687,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -80099,7 +80701,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -80159,6 +80760,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80231,6 +80833,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80287,6 +80890,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80387,6 +80991,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80566,6 +81171,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80671,6 +81277,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80729,6 +81336,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/noborder.vue 1`] =
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80791,6 +81399,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
           placeholder="请选择云解决方案"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80845,6 +81454,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
           placeholder="请选择云产品"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80903,6 +81513,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -80956,6 +81567,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81023,6 +81635,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/prefix.vue 1`] = `
           placeholder="-请选择-"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81065,7 +81678,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-select-input t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81079,7 +81692,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
         <input
           class="t-input__inner"
           placeholder="请选择"
-          readonly=""
           type="text"
         />
         <!---->
@@ -81118,7 +81730,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
       class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
     >
       <div
-        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -81130,7 +81742,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
         <input
           class="t-input__inner"
           placeholder="请输入搜索"
-          readonly=""
           type="text"
         />
         <!---->
@@ -81163,6 +81774,176 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/select/demos/scroll-top.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-select__wrap"
+    >
+      
+      <div
+        class="t-input__wrap t-select-input t-select"
+      >
+        <div
+          class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请选择"
+            readonly=""
+            type="text"
+            unselectable="on"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-select__wrap"
+    >
+      
+      <div
+        class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
+      >
+        <div
+          class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <span
+              class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+            >
+              <!---->
+              
+              第 50 项
+              
+              <svg
+                class="t-icon t-icon-close t-tag__icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <span
+              class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+            >
+              <!---->
+              
+              第 70 项
+              
+              <svg
+                class="t-icon t-icon-close t-tag__icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder=""
+            readonly=""
+            type="text"
+            unselectable="on"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-fake-arrow t-select__right-icon"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
 <div>
   <div
@@ -81190,6 +81971,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           placeholder="请选择"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81243,6 +82025,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           placeholder="请选择"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81296,6 +82079,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
           placeholder="请选择"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81357,6 +82141,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           placeholder="请选择云解决方案"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81411,6 +82196,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           placeholder="请选择云解决方案"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81464,6 +82250,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
           placeholder="请选择云解决方案"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -81733,6 +82520,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless.v
         placeholder="Please Select"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82119,6 +82907,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82240,6 +83029,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82421,6 +83211,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82787,6 +83578,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         placeholder="Please Select"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -82843,6 +83635,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         placeholder="Please Select"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <div
@@ -83174,6 +83967,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             placeholder="Please Select"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -83219,6 +84013,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             placeholder="Please Select"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -83265,6 +84060,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             placeholder="Please Select"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -83310,6 +84106,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             placeholder="Please Select"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -83355,6 +84152,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             placeholder="Please Select"
             readonly=""
             type="text"
+            unselectable="on"
           />
           <!---->
           <!---->
@@ -83404,6 +84202,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           placeholder="Please Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -83440,6 +84239,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           placeholder="Please Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -83476,6 +84276,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           placeholder="Please Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -83512,6 +84313,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           placeholder="Please Select"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -91826,6 +92628,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
                     placeholder="请选择"
                     readonly=""
                     type="text"
+                    unselectable="on"
                   />
                   <span
                     class="t-input__input-pre"
@@ -92837,6 +93640,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -93562,6 +94366,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -94261,6 +95066,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -114746,6 +115552,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -114889,6 +115696,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   <!---->
                   <!---->
                   <input
+                    autocomplete="off"
                     class="t-input__inner"
                     placeholder=""
                     type="text"
@@ -115068,6 +115876,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 placeholder="请选择"
                 readonly=""
                 type="text"
+                unselectable="on"
               />
               <span
                 class="t-input__input-pre"
@@ -115172,6 +115981,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder=""
                   type="text"
@@ -118333,6 +119143,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -123782,6 +124593,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124660,6 +125472,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124716,6 +125529,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124785,6 +125599,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124846,6 +125661,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124913,6 +125729,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -124974,6 +125791,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
           placeholder="选择时间"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125036,6 +125854,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/format.vue 1`
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125105,6 +125924,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125166,6 +125986,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
           placeholder="选择时间"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125228,6 +126049,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
           placeholder="选择时间"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125290,6 +126112,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hms.vue 1`] =
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125419,6 +126242,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125608,6 +126432,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/show-steps.vu
           placeholder="选择时间"
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125670,6 +126495,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/step.vue 1`] 
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125732,6 +126558,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour.v
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -125796,6 +126623,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour-m
           placeholder=""
           readonly=""
           type="text"
+          unselectable="on"
         />
         <!---->
         <!---->
@@ -130122,6 +130950,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
                   placeholder="请选择"
                   readonly=""
                   type="text"
+                  unselectable="on"
                 />
                 <span
                   class="t-input__input-pre"
@@ -139720,6 +140549,51 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           
         </div>
       </div>
+      <div
+        class="t-form__item t-form-item__"
+        data-v-5396c8f8=""
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            开启修改节点功能
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              data-v-5396c8f8=""
+              disabled="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
       
     </form>
   </div>
@@ -139844,6 +140718,20 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             </span>
           </button>
           <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default t-is-disabled"
+            data-v-5396c8f8=""
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               修改节点label 
+              
+            </span>
+          </button>
+          <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
             data-v-5396c8f8=""
             type="button"
@@ -139934,6 +140822,20 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
             >
               
                后插节点 
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default t-is-disabled"
+            data-v-5396c8f8=""
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               修改节点label 
               
             </span>
           </button>
@@ -141467,6 +142369,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/base.vue 1`] 
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -141549,6 +142452,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -141623,6 +142527,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -141798,6 +142703,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/lazy.vue 1`] 
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -141880,6 +142786,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -141946,6 +142853,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
         placeholder="请输入"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -142003,6 +142911,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/props.vue 1`]
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -142062,6 +142971,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -142169,6 +143079,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -142243,6 +143154,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         placeholder=""
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->

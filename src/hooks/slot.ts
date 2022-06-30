@@ -23,8 +23,6 @@ export function useChildComponentSlots() {
         return item;
       })
       .flat()
-      .filter((item: VNode) =>
-        (item.type as Component).name?.toUpperCase().includes(childComponentName.toUpperCase()),
-      ) as VNode[];
+      .filter((item: VNode) => (item.type as Component).name?.endsWith(childComponentName)) as VNode[];
   };
 }

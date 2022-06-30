@@ -1,11 +1,12 @@
 // 表格 行拖拽 + 列拖拽功能
 import { SetupContext, computed, toRefs, ref, watch, h } from 'vue';
-import Sortable, { SortableEvent, SortableOptions } from 'sortablejs';
+import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
+import { hasClass } from '../../utils/dom';
 import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
 import { BaseTableColumns } from '../interface';
 
@@ -19,7 +20,7 @@ import { BaseTableColumns } from '../interface';
  */
 export default function useDragSort(props: TdPrimaryTableProps, context: SetupContext) {
   const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
-  const { tableDraggableClasses, tableBaseClass } = useClassName();
+  const { tableDraggableClasses, tableBaseClass, tableFullRowClasses } = useClassName();
   const primaryTableRef = ref(null);
   const columns = ref<BaseTableColumns>(props.columns || []);
   // @ts-ignore 判断是否有拖拽列
@@ -71,6 +72,8 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
+      filter: `.${tableFullRowClasses.base}`, // 过滤首行尾行固定
+      onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
         // 处理受控：拖拽列表恢复原始排序
         dragInstanceTmp?.sort(lastRowList.value);

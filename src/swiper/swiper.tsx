@@ -87,7 +87,7 @@ export default defineComponent({
       return {};
     });
     const swiperItems = () => {
-      const swiperItemList = getChildComponentByName('TSwiperItem');
+      const swiperItemList = getChildComponentByName('SwiperItem');
       swiperItemLength.value = swiperItemList.length;
       const items = swiperItemList.map((swiperItem: any, index) => {
         const p = { ...props, ...swiperItem.props };
@@ -241,7 +241,7 @@ export default defineComponent({
           </div>
         );
       }
-      const swiperItemList = getChildComponentByName('TSwiperItem');
+      const swiperItemList = getChildComponentByName('SwiperItem');
       return (
         <ul
           class={[

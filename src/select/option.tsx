@@ -55,7 +55,7 @@ export default defineComponent({
     const labelText = computed(() => props.label || props.value);
 
     const handleClick = (e: MouseEvent | KeyboardEvent) => {
-      if (props.multiple) return;
+      if (props.multiple || props.disabled) return;
       e.stopPropagation();
 
       if (props.createAble) {
