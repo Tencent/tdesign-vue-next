@@ -64,11 +64,5 @@
         "value": "bottom"
       }
     ]
-  },
-  {
-    "name": "range",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

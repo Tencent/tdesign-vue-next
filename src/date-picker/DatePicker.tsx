@@ -178,6 +178,7 @@ export default defineComponent({
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
+      presetsPlacement: props.presetsPlacement,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
