@@ -62,6 +62,7 @@ const rules = {
   account: [
     { required: true, message: '姓名必填', type: 'error', trigger: 'blur' },
     { required: true, message: '姓名必填', type: 'error', trigger: 'change' },
+    { whitespace: true, message: '姓名不能为空' },
     { min: 3, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
     { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
   ],
