@@ -122,7 +122,7 @@ export default defineComponent({
       });
       // 拖拽相关 class
       list.push({
-        [CLASS_NAMES.value.treeNodeDragAble]: node.isDraggable(),
+        [CLASS_NAMES.value.treeNodeDraggable]: node.isDraggable(),
         [CLASS_NAMES.value.treeNodeDragging]: isDragging.value,
         [CLASS_NAMES.value.treeNodeDragTipTop]: isDragOver.value && dropPosition.value < 0,
         [CLASS_NAMES.value.treeNodeDragTipBottom]: isDragOver.value && dropPosition.value > 0,

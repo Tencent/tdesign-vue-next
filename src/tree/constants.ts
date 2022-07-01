@@ -35,7 +35,7 @@ export const useCLASSNAMES = () => {
       treeNodeHidden: `${tree}__item--hidden`,
       treeNodeEnter: `${tree}__item--enter-active`,
       treeNodeLeave: `${tree}__item--leave-active`,
-      treeNodeDragAble: `${tree}__item--dragable`,
+      treeNodeDraggable: `${tree}__item--draggable`,
       treeNodeDragging: `${tree}__item--dragging`,
       treeNodeDragTipTop: `${tree}__item--tip-top`,
       treeNodeDragTipBottom: `${tree}__item--tip-bottom`,
