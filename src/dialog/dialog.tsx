@@ -202,7 +202,7 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      if (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick) {
+      if (props.showOverlay && (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick)) {
         props.onOverlayClick?.({ e });
         emitCloseEvent({
           trigger: 'overlay',
@@ -283,7 +283,7 @@ export default defineComponent({
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
 
-        <div class={wrapClass.value}>
+        <div class={wrapClass.value} onClick={overlayAction}>
           <div class={positionClass.value} style={positionStyle.value}>
             <div
               key="dialog"
@@ -291,6 +291,7 @@ export default defineComponent({
               style={dialogStyle.value}
               v-draggable={isModeLess.value && props.draggable}
               ref="dialogEle"
+              onClick={(e) => e.stopPropagation()}
             >
               <div class={`${COMPONENT_NAME.value}__header`}>
                 {getIcon()}
@@ -329,12 +330,11 @@ export default defineComponent({
       afterLeave,
       hasEventOn,
       renderDialog,
-      overlayAction,
     };
   },
   render() {
-    const { COMPONENT_NAME, overlayAction } = this;
-    const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={overlayAction}></div>;
+    const { COMPONENT_NAME } = this;
+    const maskView = this.isModal && this.showOverlay && <div key="mask" class={this.maskClass}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
