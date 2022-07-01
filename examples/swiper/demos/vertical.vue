@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block--swiper-new">
+  <div class="tdesign-demo-block--swiper">
     <t-swiper direction="vertical" :navigation="{ showSlideBtn: 'never' }" :height="280" :autoplay="false">
       <t-swiper-item>
         <div class="demo-item">1</div>

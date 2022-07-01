@@ -90004,7 +90004,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90171,7 +90171,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90346,7 +90346,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90529,7 +90529,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = 
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90676,7 +90676,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90856,7 +90856,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] =
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -91024,7 +91024,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
 <div>
   <div
-    class="tdesign-demo-block--swiper-new"
+    class="tdesign-demo-block--swiper"
     style="width: 1000px;"
   >
     <h3>
@@ -91364,7 +91364,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/vertical.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
