@@ -38825,7 +38825,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -38919,7 +38919,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39023,7 +39023,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39113,7 +39113,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39625,7 +39625,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -40026,7 +40026,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -43748,7 +43748,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -78999,7 +78999,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
 >
   
   <div
-    class="t-range-input t-range-input-popup"
+    class="t-range-input"
   >
     <div
       class="t-range-input__inner"
@@ -126321,7 +126321,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
     >
       
       <div
-        class="t-range-input t-time-range-picker__group t-range-input-popup"
+        class="t-range-input t-time-range-picker__group"
       >
         <div
           class="t-range-input__inner"

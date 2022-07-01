@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'TRangeInputPopup',
   props,
 
-  setup(props, { slots, expose }) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('range-input-popup');
 
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
@@ -22,7 +22,7 @@ export default defineComponent({
     ]);
 
     return () => (
-      <div class={COMPONENT_NAME.value}>
+      <div class={popupClasses.value}>
         <Popup
           hideEmptyPopup
           content={props.panel}
@@ -35,7 +35,6 @@ export default defineComponent({
             onVisibleChange: onInnerPopupVisibleChange,
             ...props.popupProps,
           }}
-          class={popupClasses.value}
         >
           <RangeInput
             {...{
