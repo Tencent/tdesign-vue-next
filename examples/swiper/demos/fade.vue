@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block--swiper-new">
+  <div class="tdesign-demo-block--swiper">
     <t-swiper animation="fade" :height="280">
       <t-swiper-item>
         <div class="demo-item">1</div>
