@@ -63,9 +63,9 @@ export default function useRowspanAndColspan(
         const cellKey = getCellKey(row, rowKey.value, col.colKey, j);
         const state = skipSpansMap.value.get(cellKey) || {};
         const o = rowspanAndColspan(params) || {};
-        if (o.rowspan > 1 || o.colspan > 1 || state.rowspan || state.colspan) {
-          o.rowspan > 1 && (state.rowspan = o.rowspan);
-          o.colspan > 1 && (state.colspan = o.colspan);
+        if (o.rowspan || o.colspan || state.rowspan || state.colspan) {
+          o.rowspan && (state.rowspan = o.rowspan);
+          o.colspan && (state.colspan = o.colspan);
           skipSpansMap.value.set(cellKey, state);
         }
         onTrRowspanOrColspan?.(params, state);
@@ -82,5 +82,5 @@ export default function useRowspanAndColspan(
     { immediate: true },
   );
 
-  return { skipSpansMap, updateSkipSpansMap };
+  return { skipSpansMap };
 }
