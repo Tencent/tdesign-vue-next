@@ -27,7 +27,8 @@ export default function useOnDrag(treeStore: Ref<TreeStore>) {
 
   const onDrop = (context: { node: TreeNode; dropPosition: number; e: DragEvent }) => {
     const { node, dropPosition } = context;
-    if (node.value === dragNode.value.value) return;
+    if (node.value === dragNode.value.value || node.getParents().some((_node) => _node.value === dragNode.value.value))
+      return;
 
     const nodes = treeStore.value.getNodes() as TreeNode[];
     nodes.some((_node, _index) => {
