@@ -49,13 +49,19 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   });
 
   const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
+    // if exist min or max prop, onChange callback function will pass undefined value when decrease
+    const normalizeChangeFn = (num: number | undefined) => {
+      if (num && !isNaN(num)) {
+        changeFn(num);
+      }
+    };
     return (
       <InputNumber
         {...sliderInputState.value}
         class={sliderNumberClass.value}
         value={val}
         step={config.value.step}
-        onChange={changeFn}
+        onChange={normalizeChangeFn}
         disabled={config.value.disabled}
         min={config.value.min}
         max={config.value.max}
