@@ -95,11 +95,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   function getTreeNodeStyle(level: number) {
     if (level === undefined) return;
-    const indent = props.tree?.indent || 24;
+    const indent = props.tree?.indent === undefined ? 24 : props.tree?.indent;
     // 默认 1px 是为了临界省略
-    return {
-      paddingLeft: `${level * indent || 1}px`,
-    };
+    return indent ? { paddingLeft: `${level * indent || 1}px` } : {};
   }
 
   /**
