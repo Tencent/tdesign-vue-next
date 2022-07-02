@@ -34,6 +34,7 @@ export default function useRowspanAndColspan(
     for (let i = rowIndex; i < maxRowIndex; i++) {
       for (let j = colIndex; j < maxColIndex; j++) {
         if (i !== rowIndex || j !== colIndex) {
+          if (!data.value[i]) return;
           const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
@@ -50,6 +51,7 @@ export default function useRowspanAndColspan(
     rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
   ) => {
     if (!data || !rowspanAndColspan) return;
+    skipSpansMap.value?.clear();
     for (let i = 0, len = data.length; i < len; i++) {
       const row = data[i];
       for (let j = 0, colLen = columns.length; j < colLen; j++) {
