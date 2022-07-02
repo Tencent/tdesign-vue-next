@@ -34,7 +34,6 @@ export default function useSingle(props: TdDatePickerProps) {
   const inputProps = computed(() => ({
     ...props.inputProps,
     ref: inputRef,
-    clearable: props.clearable,
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
     placeholder: props.placeholder || global.value.placeholder[props.mode],
@@ -95,7 +94,7 @@ export default function useSingle(props: TdDatePickerProps) {
     overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean) => {
-      if (disabled) return;
+      if (disabled.value) return;
       popupVisible.value = visible;
       if (!visible) {
         isHoverCell.value = false;
