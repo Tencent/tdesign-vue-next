@@ -1,40 +1,53 @@
-import { computed, toRefs, Ref } from 'vue';
+import { computed, toRefs, ref, Ref, watch } from 'vue';
 import get from 'lodash/get';
+import intersection from 'lodash/intersection';
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
 import TableTreeStore, { KeysType, TableTreeDataMap } from './tree-store';
 import useDefaultValue from '../../hooks/useDefaultValue';
 
-export const childrenMap = new Map();
-
 export interface GetChildrenDataReturnValue {
   allChildren: Array<any>;
   allChildrenKeys: Array<string | number>;
+  leafNodeKeys: Array<string | number>;
 }
+
+// 保存子节点信息，避免重复计算
+export const childrenMap = new Map();
 
 export function getChildrenData(
   treeDataMap: InstanceType<typeof TableTreeStore>['treeDataMap'],
   data: TableRowData,
-  childrenKey: string,
-  rowKey: string,
+  keys: { childrenKey: string; rowKey: string },
   r?: GetChildrenDataReturnValue,
 ): GetChildrenDataReturnValue {
   if (childrenMap.get(data)) return childrenMap.get(data);
-  const result = r || { allChildren: [], allChildrenKeys: [] };
-  const children = get(data, childrenKey);
+  const result = r || { allChildren: [], allChildrenKeys: [], leafNodeKeys: [] };
+  const children = get(data, keys.childrenKey);
   if (!children || !children.length) return result;
-  const selectableChildren = children.filter((item: TableRowData) => !treeDataMap.get(get(item, rowKey))?.disabled);
-  result.allChildren = result.allChildren.concat(selectableChildren);
-  const childrenKeys = selectableChildren.map((item: TableRowData) => get(item, rowKey));
-  result.allChildrenKeys = result.allChildrenKeys.concat(childrenKeys);
+  const selectableChildren = children.filter(
+    (item: TableRowData) => !treeDataMap.get(get(item, keys.rowKey))?.disabled,
+  );
+  result.allChildren = [...new Set(result.allChildren.concat(selectableChildren))];
   for (let i = 0, len = children.length; i < len; i++) {
     const tItem = children[i];
-    const c = get(tItem, childrenKey);
+    const c = get(tItem, keys.childrenKey);
     if (c?.length) {
-      const nextLevelData = getChildrenData(treeDataMap, tItem, childrenKey, rowKey, result);
-      result.allChildren = result.allChildren.concat(nextLevelData.allChildren);
-      result.allChildrenKeys = result.allChildrenKeys.concat(nextLevelData.allChildrenKeys);
+      const nextLevelData = getChildrenData(treeDataMap, tItem, keys, result);
+      result.allChildren = [...new Set(result.allChildren.concat(nextLevelData.allChildren))];
     }
   }
+  // 避免使用 forEach，减少上下文消耗
+  for (let i = 0, len = result.allChildren.length; i < len; i++) {
+    const item = result.allChildren[i];
+    const children = get(item, keys.childrenKey);
+    const rowValue = get(item, keys.rowKey);
+    result.allChildrenKeys.push(rowValue);
+    if (!children || !children.length) {
+      result.leafNodeKeys.push(rowValue);
+    }
+  }
+  result.allChildrenKeys = [...new Set(result.allChildrenKeys)];
+  result.leafNodeKeys = [...new Set(result.leafNodeKeys)];
   return result;
 }
 
@@ -87,11 +100,13 @@ export function getRowDataByKeys(p: GetRowDataParams) {
 type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
 
 export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: Ref<TableTreeDataMap>) {
-  const { selectedRowKeys } = toRefs(props);
-  // eslint-disable-next-line
-  const [_, setTSelectedRowKeys] = useDefaultValue(
+  const { selectedRowKeys, tree, data, indeterminateSelectedRowKeys } = toRefs(props);
+  // 半选状态的节点：子节点选中至少一个，且没有全部选中
+  const tIndeterminateSelectedRowKeys = ref<(string | number)[]>([]);
+
+  const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
-    props.defaultSelectedRowKeys,
+    props.defaultSelectedRowKeys || [],
     props.onSelectChange,
     'selectedRowKeys',
   );
@@ -100,7 +115,75 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
     childrenKey: props.tree?.childrenKey || 'children',
   }));
 
+  watch([tree, treeDataMap, data, tSelectedRowKeys], ([tree, treeDataMap]) => {
+    if (!tree || !treeDataMap.size || tree.checkStrictly) return;
+    updateIndeterminateState();
+  });
+
+  function updateIndeterminateState() {
+    if (!tree.value || tree.value.checkStrictly) return;
+    if (!tSelectedRowKeys.value.length) {
+      tIndeterminateSelectedRowKeys.value = [];
+      return;
+    }
+    const keys: Array<string | number> = [];
+    const parentMap: { [key: string | number]: any[] } = {};
+    for (let i = 0, len = tSelectedRowKeys.value.length; i < len; i++) {
+      const rowValue = tSelectedRowKeys.value[i];
+      const state = treeDataMap.value.get(rowValue);
+      const children = get(state.row, rowDataKeys.value.childrenKey);
+      // 根据选中的叶子结点计算父节点半选状态
+      if (!children || !children.length) {
+        let parentTmp = state.parent;
+        while (parentTmp) {
+          if (!parentMap[parentTmp.id]) {
+            parentMap[parentTmp.id] = [];
+          }
+          parentMap[parentTmp.id].push(state.row);
+          const checkedLength = parentMap[parentTmp.id].length;
+          const { allChildrenKeys } = getChildrenData(treeDataMap.value, parentTmp.row, rowDataKeys.value);
+          const parentTmpIndex = keys.indexOf(parentTmp.id);
+          const selectedIndex = tSelectedRowKeys.value.indexOf(parentTmp.id);
+          if (checkedLength > 0 && checkedLength < allChildrenKeys.length && selectedIndex === -1) {
+            parentTmpIndex === -1 && keys.push(parentTmp.id);
+          } else {
+            parentTmpIndex !== -1 && keys.splice(parentTmpIndex, 1);
+          }
+          parentTmp = parentTmp.parent;
+        }
+      }
+    }
+    tIndeterminateSelectedRowKeys.value = keys;
+  }
+
+  function updateParentCheckedState(
+    selectedKeys: (string | number)[],
+    currentRowKey: string | number,
+    type: 'check' | 'uncheck',
+  ) {
+    if (!tree.value || tree.value.checkStrictly) return;
+    const keys = [...selectedKeys];
+    const state = treeDataMap.value.get(currentRowKey);
+    let parentTmp = state.parent;
+    while (parentTmp) {
+      const { leafNodeKeys } = getChildrenData(treeDataMap.value, parentTmp.row, rowDataKeys.value);
+      const checkedChildrenKeys = intersection(leafNodeKeys, selectedKeys);
+      const selectedIndex = keys.indexOf(parentTmp.id);
+      if (type === 'uncheck') {
+        selectedIndex !== -1 && keys.splice(selectedIndex, 1);
+      } else if (checkedChildrenKeys.length === leafNodeKeys.length) {
+        selectedIndex === -1 && keys.push(parentTmp.id);
+      }
+      parentTmp = parentTmp.parent;
+    }
+    return keys;
+  }
+
   function onInnerSelectChange(rowKeys: SelectChangeParams[0], extraData: SelectChangeParams[1]) {
+    if (!tree.value || tree.value.checkStrictly) {
+      setTSelectedRowKeys(rowKeys, extraData);
+      return;
+    }
     if (extraData.currentRowKey === 'CHECK_ALL_BOX') {
       handleSelectAll(extraData);
     } else {
@@ -130,24 +213,14 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
 
   function handleSelect(rowKeys: SelectChangeParams[0], extraData: SelectChangeParams[1]) {
     let newRowKeys = [...rowKeys];
-    if (props?.tree.checkStrictly === false) {
+    if (props.tree?.checkStrictly === false) {
       if (extraData?.type === 'check') {
-        const result = getChildrenData(
-          treeDataMap.value,
-          extraData.currentRowData,
-          rowDataKeys.value.childrenKey,
-          rowDataKeys.value.rowKey,
-        );
+        const result = getChildrenData(treeDataMap.value, extraData.currentRowData, rowDataKeys.value);
         const { allChildrenKeys } = result;
         childrenMap.set(extraData.currentRowData, result);
         newRowKeys = [...new Set(newRowKeys.concat(allChildrenKeys))];
       } else if (extraData?.type === 'uncheck') {
-        const children = getChildrenData(
-          treeDataMap.value,
-          extraData.currentRowData,
-          rowDataKeys.value.childrenKey,
-          rowDataKeys.value.rowKey,
-        );
+        const children = getChildrenData(treeDataMap.value, extraData.currentRowData, rowDataKeys.value);
         const result = removeChildrenKeys({
           selectedRowKeys: rowKeys,
           removeKeys: children.allChildrenKeys,
@@ -155,6 +228,7 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
         newRowKeys = result.keys;
       }
     }
+    newRowKeys = updateParentCheckedState(newRowKeys, extraData.currentRowKey, extraData.type);
     const newRowData = getRowDataByKeys({ treeDataMap: treeDataMap.value, selectedRowKeys: newRowKeys });
     const newExtraData = {
       ...extraData,
@@ -164,6 +238,10 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
   }
 
   return {
+    // 如果存在受控属性 indeterminateSelectedRowKeys 则优先使用；否则使用内部状态：tIndeterminateSelectedRowKeys
+    tIndeterminateSelectedRowKeys: indeterminateSelectedRowKeys.value
+      ? indeterminateSelectedRowKeys
+      : tIndeterminateSelectedRowKeys,
     onInnerSelectChange,
   };
 }
