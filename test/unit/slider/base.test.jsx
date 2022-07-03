@@ -93,8 +93,8 @@ describe('Slider', () => {
             return <Slider />;
           },
         });
-        const buttonEles = wrapper.findAll('.t-slider__button-wrapper');
-        expect(buttonEles.length < 2).toBeTruthy();
+        const buttons = wrapper.findAll('.t-slider__button-wrapper');
+        expect(buttons.length < 2).toBeTruthy();
       });
       it('range={true} works fine', () => {
         const wrapper = mount({
@@ -102,8 +102,8 @@ describe('Slider', () => {
             return <Slider range />;
           },
         });
-        const buttonEles = wrapper.findAll('.t-slider__button-wrapper');
-        expect(buttonEles.length === 2).toBeTruthy();
+        const buttons = wrapper.findAll('.t-slider__button-wrapper');
+        expect(buttons.length === 2).toBeTruthy();
       });
     });
     // test prop marks
@@ -114,8 +114,8 @@ describe('Slider', () => {
             return <Slider />;
           },
         });
-        const marksEle = wrapper.find('.t-slider__mark');
-        expect(marksEle.exists()).toBeFalsy();
+        const marks = wrapper.find('.t-slider__mark');
+        expect(marks.exists()).toBeFalsy();
       });
       it('marks={array} works find', () => {
         const marksProp = [0, 20, 40, 60, 80, 100];
@@ -124,8 +124,8 @@ describe('Slider', () => {
             return <Slider marks={marksProp} />;
           },
         });
-        const marksItemEles = wrapper.findAll('.t-slider__mark-text');
-        expect(marksItemEles.length === marksProp.length).toBeTruthy();
+        const marksItems = wrapper.findAll('.t-slider__mark-text');
+        expect(marksItems.length === marksProp.length).toBeTruthy();
       });
       it('marks={object} works find', () => {
         const marksProp = {
@@ -141,8 +141,8 @@ describe('Slider', () => {
             return <Slider marks={marksProp} />;
           },
         });
-        const marksItemEles = wrapper.findAll('.t-slider__mark-text');
-        expect(marksItemEles.length === Object.keys(marksProp).length).toBeTruthy();
+        const marksItems = wrapper.findAll('.t-slider__mark-text');
+        expect(marksItems.length === Object.keys(marksProp).length).toBeTruthy();
       });
     });
   });
