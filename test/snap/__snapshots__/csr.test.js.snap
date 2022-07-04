@@ -117940,6 +117940,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
       return true;
     }"
     class="t-table t-table--row-handler-draggable"
+    indeterminateselectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
   >
@@ -119391,6 +119392,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
       row
     }) => __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\\\u6211\\\\u662F \\"), row.key, __vite_ssr_import_0__.createTextVNode(\\" \\\\u53F7\\")])"
     expandedrowkeys=""
+    indeterminateselectedrowkeys=""
     selectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
@@ -119649,11 +119651,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               class=""
             >
               <label
-                class="t-checkbox t-is-disabled"
+                class="t-checkbox"
               >
                 <input
                   class="t-checkbox__former"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -119856,11 +119857,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               class=""
             >
               <label
-                class="t-checkbox t-is-disabled"
+                class="t-checkbox"
               >
                 <input
                   class="t-checkbox__former"
-                  disabled=""
                   type="checkbox"
                 />
                 <span

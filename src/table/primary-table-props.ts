@@ -64,7 +64,6 @@ export default {
   /** 展开行，非受控属性 */
   defaultExpandedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultExpandedRowKeys']>,
-    default: (): TdPrimaryTableProps['defaultExpandedRowKeys'] => [],
   },
   /** 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider` */
   expandIcon: {
@@ -92,14 +91,18 @@ export default {
   },
   /** 隐藏排序文本提示，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `false` */
   hideSortTips: Boolean,
+  /** 半选状态行。选中行请更为使用 `selectedRowKeys` 控制 */
+  indeterminateSelectedRowKeys: {
+    type: Array as PropType<TdPrimaryTableProps['indeterminateSelectedRowKeys']>,
+  },
   /** 是否支持多列排序 */
   multipleSort: Boolean,
-  /** 选中的行，控制属性 */
+  /** 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
   selectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['selectedRowKeys']>,
     default: undefined,
   },
-  /** 选中的行，控制属性，非受控属性 */
+  /** 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
   defaultSelectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
   },
