@@ -5,6 +5,9 @@
 ::: demo demos/single-input
 :::
 
+### 带并发数限制的上传队列
+::: demo demos/file-flow-list-queue-upload :::
+
 ## API
 ### Upload Props
 
