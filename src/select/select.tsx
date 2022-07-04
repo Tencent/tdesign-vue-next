@@ -291,13 +291,14 @@ export default defineComponent({
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
+              autoWidth: true,
               size: props.size,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
             onTagChange={(val, ctx) => {
               removeTag(ctx.index);
             }}
-            tagProps={props.tagProps as TdSelectProps['tagProps']}
+            tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
               ...restPopupProps,
