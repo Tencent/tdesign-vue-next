@@ -23596,7 +23596,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.vue 1`] = `
 <div
-  class="tdesign-demo-block-row t-cascader-demo"
+  class="tdesign-demo-block-row"
 >
   
   <div
