@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, Ref } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -26,7 +26,7 @@ import { useSelectOptions } from './hooks';
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props: TdSelectProps, { slots, expose }) {
+  setup(props: TdSelectProps, { slots, expose, ...res }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
@@ -35,7 +35,7 @@ export default defineComponent({
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
     const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
-
+    const selectInputRef = ref(null);
     const keys = computed(() => ({
       label: props.keys?.label || 'label',
       value: props.keys?.value || 'value',
@@ -97,8 +97,8 @@ export default defineComponent({
         : getSingleContent(innerValue.value, optionsList.value),
     );
 
-    // valueDisplayParmas参数
-    const valueDisplayParmas = computed(() => {
+    // valueDisplayParams参数
+    const valueDisplayParams = computed(() => {
       return props.multiple
         ? (innerValue.value as SelectValue[]).map((value) => ({
             value,
@@ -189,6 +189,8 @@ export default defineComponent({
       }
     };
 
+    const popupContentRef = computed(() => selectInputRef.value?.selectInputRef.getOverlay() as HTMLElement);
+
     const SelectProvide = computed(() => ({
       max: props.max,
       multiple: props.multiple,
@@ -200,6 +202,7 @@ export default defineComponent({
       handlePopupVisibleChange: setInnerPopupVisible,
       handleCreate,
       size: props.size,
+      popupContentRef,
     }));
 
     provide(selectInjectKey, SelectProvide);
@@ -281,6 +284,7 @@ export default defineComponent({
               tips: props.tips,
               minCollapsedNum: props.minCollapsedNum,
             }}
+            ref={selectInputRef}
             class={COMPONENT_NAME.value}
             value={displayText.value}
             disabled={disabled.value}
@@ -317,7 +321,7 @@ export default defineComponent({
             }
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
-                params: { value: valueDisplayParmas.value, onClose: (index: number) => removeTag(index) },
+                params: { value: valueDisplayParams.value, onClose: (index: number) => removeTag(index) },
               })
             }
             onPopupVisibleChange={(val: boolean, context) => {
@@ -358,6 +362,7 @@ export default defineComponent({
                     'panelTopContent',
                     'panelBottomContent',
                     'filter',
+                    'scroll',
                   ])}
                   options={options.value}
                   inputValue={innerInputValue.value}
