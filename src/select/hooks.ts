@@ -21,10 +21,10 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
       const getFormatOption = (option: TdOptionProps) => {
         const { value, label } = keys.value;
         const res = {
+          ...option,
           index: dynamicIndex,
           label: get(option, label),
           value: get(option, value),
-          ...option,
         };
         dynamicIndex++;
         return res;

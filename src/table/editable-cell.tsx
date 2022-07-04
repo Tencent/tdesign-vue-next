@@ -1,6 +1,7 @@
 import { computed, defineComponent, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import get from 'lodash/get';
 import set from 'lodash/set';
+import isFunction from 'lodash/isFunction';
 import { Edit1Icon } from 'tdesign-icons-vue-next';
 import { TableRowData, PrimaryTableCol } from './type';
 import useClassName from './hooks/useClassName';
@@ -56,7 +57,15 @@ export default defineComponent({
     const componentProps = computed(() => {
       const { edit } = col.value;
       if (!edit) return {};
-      const editProps = { ...edit.props };
+      const editProps = isFunction(edit.props)
+        ? edit.props({
+            col: col.value,
+            row: row.value,
+            rowIndex: props.rowIndex,
+            colIndex: props.colIndex,
+            editedRow: currentRow.value,
+          })
+        : { ...edit.props };
       // to remove warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
       delete editProps.onChange;
       delete editProps.value;

@@ -105,9 +105,10 @@ export default defineComponent({
         .map((child) => child.validate(trigger, showErrorMessage));
       const arr = await Promise.all(list);
       const result = formatValidateResult(arr);
+      const firstError = getFirstError(result);
       props.onValidate?.({
         validateResult: result,
-        firstError: getFirstError(result),
+        firstError,
       });
       return result;
     };

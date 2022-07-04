@@ -13,6 +13,7 @@ export * from './affix';
 export * from './anchor';
 export * from './breadcrumb';
 export * from './dropdown';
+export * from './jumper';
 export * from './menu';
 export * from './pagination';
 export * from './steps';

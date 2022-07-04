@@ -42,7 +42,7 @@
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
-import { DatePicker } from 'tdesign-vue-next';
+import { DateRangePickerPanel, Textarea } from 'tdesign-vue-next';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -97,6 +97,10 @@ const columns = computed(() => [
     // 输入框过滤配置
     filter: {
       type: 'input',
+
+      // 文本域搜索
+      // component: Textarea,
+
       resetValue: '',
       // 按下 Enter 键时也触发确认搜索
       confirmEvents: ['onEnter'],
@@ -113,12 +117,14 @@ const columns = computed(() => [
     // 自定义过滤组件：日期过滤配置，请确保自定义组件包含 value 和 onChange 属性
     filter: {
       type: 'custom',
-      // this config is not recommended
-      // component: () => <t-date-picker clearable />,
-      component: DatePicker,
+      component: DateRangePickerPanel,
       props: {
-        clearable: true,
+        firstDayOfWeek: 7,
       },
+      // 是否显示重置取消按钮，一般情况不需要显示
+      showConfirmAndReset: true,
+      // 日期范围是一个组件，重置时需赋值为 []
+      resetValue: [],
     },
   },
 ]);

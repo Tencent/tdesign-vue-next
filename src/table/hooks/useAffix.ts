@@ -245,5 +245,6 @@ export default function useAffix(props: TdBaseTableProps) {
     paginationRef,
     onHorizontalScroll,
     setTableContentRef,
+    updateAffixHeaderOrFooter,
   };
 }

@@ -22,7 +22,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   // controlled and uncontrolled
   const [tExpandedRowKeys, setTExpandedRowKeys] = useDefaultValue(
     expandedRowKeys,
-    props.defaultExpandedRowKeys,
+    props.defaultExpandedRowKeys || [],
     props.onExpandChange,
     'expandedRowKeys',
   );

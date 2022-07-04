@@ -94,7 +94,12 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
       onChange: () => handleSelectChange(row),
     };
     if (column.type === 'single') return <Radio {...selectBoxProps} />;
-    if (column.type === 'multiple') return <Checkbox {...selectBoxProps} />;
+    if (column.type === 'multiple') {
+      const isIndeterminate = props.indeterminateSelectedRowKeys?.length
+        ? props.indeterminateSelectedRowKeys.includes(get(row, props.rowKey))
+        : false;
+      return <Checkbox indeterminate={isIndeterminate} {...selectBoxProps} />;
+    }
     return null;
   }
 
@@ -126,7 +131,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
     setTSelectedRowKeys(allIds, {
-      selectedRowData: filterDataByIds(props.data, allIds, reRowKey),
+      selectedRowData: checked ? filterDataByIds(props.data, allIds, reRowKey) : [],
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });

@@ -43,7 +43,10 @@ export default defineComponent({
       if (props.variant === 'outline') return;
 
       const checkedRadio: HTMLElement = radioGroupRef.value.querySelector(checkedClassName.value);
-      if (!checkedRadio) return;
+      if (!checkedRadio) {
+        barStyle.value = { width: '0px', left: '0px' };
+        return;
+      }
 
       const { offsetWidth, offsetLeft } = checkedRadio;
       // current node is not rendered，fallback to default render

@@ -59,6 +59,21 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     this.initialTreeDataMap(this.treeDataMap, dataSource, columns[0], keys);
   }
 
+  /**
+   * 获取所有节点的唯一标识
+   */
+  getAllUniqueKeys(data: T[], keys: KeysType, arr: T[] = []) {
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i];
+      arr.push(get(item, keys.rowKey));
+      const children = get(item, keys.childrenKey);
+      if (children?.length) {
+        this.getAllUniqueKeys(children, keys, arr);
+      }
+    }
+    return arr;
+  }
+
   toggleExpandData(p: { rowIndex: number; row: T }, dataSource: T[], keys: KeysType) {
     if (!p) {
       log.error('EnhancedTable', 'the node you want to toggleExpand doest not exist in `data`');

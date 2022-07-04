@@ -24,7 +24,19 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 
 export default defineComponent({
   name: 'TInput',
-  props,
+  props: {
+    ...props,
+    showInput: {
+      // 控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
+      type: Boolean,
+      default: true,
+    },
+    keepWrapperWidth: {
+      // 控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
+      type: Boolean,
+      default: false,
+    },
+  },
 
   setup(props, { slots, expose }) {
     const { global } = useConfig('input');
@@ -115,7 +127,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
-          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
+          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
         },
       ];
 
@@ -147,14 +159,16 @@ export default defineComponent({
               </span>
             ) : null}
             {labelContent}
-            <input
-              class={`${COMPONENT_NAME.value}__inner`}
-              {...inputAttrs.value}
-              {...inputEvents}
-              ref={inputRef}
-              value={inputValue.value ?? ''}
-              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-            />
+            {props.showInput && (
+              <input
+                class={`${COMPONENT_NAME.value}__inner`}
+                {...inputAttrs.value}
+                {...inputEvents}
+                ref={inputRef}
+                value={inputValue.value ?? ''}
+                onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+              />
+            )}
             {props.autoWidth && (
               <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}

@@ -23596,7 +23596,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.vue 1`] = `
 <div
-  class="tdesign-demo-block-row t-cascader-demo"
+  class="tdesign-demo-block-row"
 >
   
   <div
@@ -38825,7 +38825,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -38919,7 +38919,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39023,7 +39023,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39113,7 +39113,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -39625,7 +39625,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -40026,7 +40026,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -40245,10 +40245,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40270,7 +40270,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40292,7 +40292,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -40936,10 +40936,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </div>
               </div>
               <div
-                class="t-jumper-jumper"
+                class="t-jumper"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                   title="上个月"
                   type="button"
                 >
@@ -40961,7 +40961,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                   title="当前"
                   type="button"
                 >
@@ -40983,7 +40983,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                   title="下个月"
                   type="button"
                 >
@@ -41685,10 +41685,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -41710,7 +41710,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -41732,7 +41732,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -42359,10 +42359,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -42384,7 +42384,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -42406,7 +42406,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -43055,10 +43055,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </div>
                 </div>
                 <div
-                  class="t-jumper-jumper"
+                  class="t-jumper"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
                     title="上个月"
                     type="button"
                   >
@@ -43080,7 +43080,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
                     title="当前"
                     type="button"
                   >
@@ -43102,7 +43102,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper-jumper__btn"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
                     title="下个月"
                     type="button"
                   >
@@ -43748,7 +43748,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
       >
         
         <div
-          class="t-range-input t-range-input-popup"
+          class="t-range-input"
         >
           <div
             class="t-range-input__inner"
@@ -61695,6 +61695,381 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/jumper/demos/layout.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-up"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-down"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/size.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px; text-align: center;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-jumper"
+    >
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/jumper/demos/tips.vue 1`] = `
+<div
+  class="t-jumper"
+>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+    title="前尘忆梦"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+    title="回到现在"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-round"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+    title="展望未来"
+    type="button"
+  >
+    
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    
+    
+  </button>
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/layout/demos/aside.vue 1`] = `
 <div
   class="tdesign-demo-item--layout"
@@ -78624,7 +78999,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
 >
   
   <div
-    class="t-range-input t-range-input-popup"
+    class="t-range-input"
   >
     <div
       class="t-range-input__inner"
@@ -79238,7 +79613,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -79322,7 +79701,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -79407,7 +79790,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -79527,7 +79914,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
             placeholder="多选支持自定义创建"
             type="text"
           />
-          <!---->
+          <span
+            class="t-input__input-pre"
+          >
+            多选支持自定义创建
+          </span>
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -79779,7 +80170,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -79921,7 +80316,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80107,7 +80506,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80214,7 +80617,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
           placeholder="-请选择-"
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          -请选择-
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80460,7 +80867,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80517,7 +80928,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          -请选择-
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80618,7 +81033,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80798,7 +81217,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -80904,7 +81327,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -81369,7 +81796,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
           placeholder="请输入搜索"
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          请输入搜索
+        </span>
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -81535,7 +81966,11 @@ exports[`csr snapshot test > csr test ./examples/select/demos/scroll-top.vue 1`]
             type="text"
             unselectable="on"
           />
-          <!---->
+          <span
+            class="t-input__input-pre"
+          >
+            
+          </span>
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -82042,7 +82477,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth-mu
     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix t-input--auto-width"
+      class="t-input t-is-default t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -89629,7 +90064,7 @@ exports[`csr snapshot test > csr test ./examples/steps/demos/vertical-sequence.v
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -89796,7 +90231,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -89971,7 +90406,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/card.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90154,7 +90589,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/current.vue 1`] = 
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90301,7 +90736,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fade.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90481,7 +90916,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/fraction.vue 1`] =
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -90649,7 +91084,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/placement.vue 1`] 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
 <div>
   <div
-    class="tdesign-demo-block--swiper-new"
+    class="tdesign-demo-block--swiper"
     style="width: 1000px;"
   >
     <h3>
@@ -90989,7 +91424,7 @@ exports[`csr snapshot test > csr test ./examples/swiper/demos/size.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/swiper/demos/vertical.vue 1`] = `
 <div
-  class="tdesign-demo-block--swiper-new"
+  class="tdesign-demo-block--swiper"
 >
   <div
     class="t-swiper"
@@ -117505,6 +117940,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
       return true;
     }"
     class="t-table t-table--row-handler-draggable"
+    indeterminateselectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
   >
@@ -118956,6 +119392,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
       row
     }) => __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\\\u6211\\\\u662F \\"), row.key, __vite_ssr_import_0__.createTextVNode(\\" \\\\u53F7\\")])"
     expandedrowkeys=""
+    indeterminateselectedrowkeys=""
     selectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
@@ -119214,11 +119651,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               class=""
             >
               <label
-                class="t-checkbox t-is-disabled"
+                class="t-checkbox"
               >
                 <input
                   class="t-checkbox__former"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -119421,11 +119857,10 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               class=""
             >
               <label
-                class="t-checkbox t-is-disabled"
+                class="t-checkbox"
               >
                 <input
                   class="t-checkbox__former"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -122970,7 +123405,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/auto-width.vue 
     class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--auto-width"
+      class="t-input t-is-default t-input--prefix"
     >
       <!---->
       <div
@@ -124213,13 +124648,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -125946,7 +126375,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
     >
       
       <div
-        class="t-range-input t-time-range-picker__group t-range-input-popup"
+        class="t-range-input t-time-range-picker__group"
       >
         <div
           class="t-range-input__inner"
@@ -133365,6 +133794,93 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/checkable.vue 1`] = 
                   
                   
                   number
+                  
+                  
+                </span>
+              </label>
+              
+              
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
+            </div>
+            
+            <!---->
+          </div>
+          
+          <!---->
+          <!---->
+          
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+        style="margin-bottom: 16px;"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: 100px;"
+        >
+          <label
+            for=""
+          >
+            value 别名
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+          style="margin-left: 100px;"
+        >
+          <div
+            class="t-form__controls-content"
+          >
+            
+            <div
+              class="t-radio-group t-size-m t-radio-group--filled"
+            >
+              
+              
+              <label
+                class="t-radio-button t-is-checked"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name="value-type"
+                  type="radio"
+                  value="value"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  不使用别名
+                  
+                  
+                </span>
+              </label>
+              <label
+                class="t-radio-button"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name="value-type"
+                  type="radio"
+                  value="valueAlias"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  valueAlias
                   
                   
                 </span>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block--swiper-new">
+  <div class="tdesign-demo-block--swiper">
     <t-swiper :duration="300" :interval="2000">
       <t-swiper-item>
         <div class="demo-item">1</div>

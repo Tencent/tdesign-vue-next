@@ -89,18 +89,23 @@ const columns = computed(() => [
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
-      props: {
-        multiple: true,
-        minCollapsedNum: 1,
-        options: [
-          { label: 'A', value: 'A' },
-          { label: 'B', value: 'B' },
-          { label: 'C', value: 'C' },
-          { label: 'D', value: 'D' },
-          { label: 'E', value: 'E' },
-          { label: 'G', value: 'G' },
-          { label: 'H', value: 'H' },
-        ],
+      // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
+      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+        console.log(col, row, rowIndex, colIndex, editedRow);
+        return {
+          multiple: true,
+          minCollapsedNum: 1,
+          options: [
+            { label: 'A', value: 'A' },
+            { label: 'B', value: 'B' },
+            { label: 'C', value: 'C' },
+            { label: 'D', value: 'D' },
+            { label: 'E', value: 'E' },
+            // 如果框架选择了 React，则 Letters 隐藏 G 和 H
+            { label: 'G', value: 'G', show: () => editedRow.framework !== 'React' },
+            { label: 'H', value: 'H', show: () => editedRow.framework !== 'React' },
+          ].filter((t) => (t.show === undefined ? true : t.show())),
+        };
       },
       // abortEditOnEvent: ['onChange'],
       onEdited: (context) => {

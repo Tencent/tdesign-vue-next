@@ -1,5 +1,6 @@
 import { defineComponent, watchEffect, computed, ref } from 'vue';
 import dayjs from 'dayjs';
+import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 
 import props from './date-range-picker-props';
@@ -32,6 +33,8 @@ export default defineComponent({
       isFirstValueSelected,
       onChange,
     } = useRange(props);
+
+    const disabled = useFormDisabled();
 
     const formatRef = computed(() =>
       useFormat({
@@ -129,7 +132,7 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick(flag: number, { partial }: { partial: DateRangePickerPartial }) {
+    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const monthCountMap = { date: 1, month: 12, year: 120 };
@@ -137,11 +140,11 @@ export default defineComponent({
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
 
       let next = null;
-      if (flag === -1) {
+      if (trigger === 'prev') {
         next = subtractMonth(current, monthCount);
-      } else if (flag === 0) {
+      } else if (trigger === 'current') {
         next = new Date();
-      } else if (flag === 1) {
+      } else if (trigger === 'next') {
         next = addMonth(current, monthCount);
       }
 
@@ -283,6 +286,7 @@ export default defineComponent({
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
+      presetsPlacement: props.presetsPlacement,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -297,7 +301,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
-          disabled={props.disabled}
+          disabled={disabled.value}
           inputValue={inputValue.value as string[]}
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}

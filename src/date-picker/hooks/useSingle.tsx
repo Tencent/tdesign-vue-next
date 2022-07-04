@@ -2,6 +2,7 @@ import { ref, computed, watchEffect } from 'vue';
 import { CalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
+import { useFormDisabled } from '../../form/hooks';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { TdDatePickerProps, DateValue } from '../type';
 import useFormat from './useFormat';
@@ -10,6 +11,7 @@ import useSingleValue from './useSingleValue';
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { global } = useConfig('datePicker');
+  const disabled = useFormDisabled();
 
   const inputRef = ref();
 
@@ -32,7 +34,6 @@ export default function useSingle(props: TdDatePickerProps) {
   const inputProps = computed(() => ({
     ...props.inputProps,
     ref: inputRef,
-    clearable: props.clearable,
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
     placeholder: props.placeholder || global.value.placeholder[props.mode],
@@ -89,10 +90,11 @@ export default function useSingle(props: TdDatePickerProps) {
   const popupProps = computed(() => ({
     expandAnimation: true,
     ...props.popupProps,
-    disabled: props.disabled,
+    disabled: disabled.value,
     overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean) => {
+      if (disabled.value) return;
       popupVisible.value = visible;
       if (!visible) {
         isHoverCell.value = false;

@@ -2,6 +2,7 @@ import { defineComponent, watchEffect, computed } from 'vue';
 import dayjs from 'dayjs';
 import { usePrefixClass } from '../hooks/useConfig';
 
+import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import useFormat from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
@@ -31,6 +32,8 @@ export default defineComponent({
       inputRef,
       onChange,
     } = useSingle(props);
+
+    const disabled = useFormDisabled();
 
     const formatRef = computed(() =>
       useFormat({
@@ -86,18 +89,18 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick(flag: number) {
+    function onJumperClick({ trigger }: { trigger: string }) {
       const monthCountMap = { date: 1, month: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
       const current = new Date(year.value, month.value);
 
       let next = null;
-      if (flag === -1) {
+      if (trigger === 'prev') {
         next = subtractMonth(current, monthCount);
-      } else if (flag === 0) {
+      } else if (trigger === 'current') {
         next = new Date();
-      } else if (flag === 1) {
+      } else if (trigger === 'next') {
         next = addMonth(current, monthCount);
       }
 
@@ -178,6 +181,7 @@ export default defineComponent({
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
+      presetsPlacement: props.presetsPlacement,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -193,8 +197,9 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
-          disabled={props.disabled}
+          disabled={disabled.value}
           value={inputValue.value}
+          clearable={props.clearable}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           popupVisible={popupVisible.value}
