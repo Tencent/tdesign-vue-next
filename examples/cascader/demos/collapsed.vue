@@ -61,8 +61,9 @@ const handleBlur = (e) => {
   console.log(e);
 };
 
-const collapsedItems = (h, { value, count }) => {
+const collapsedItems = (h, { value, count, collapsedSelectedItems }) => {
   if (!(value instanceof Array) || !count) return;
+  console.log('collapsedItems: ', value, collapsedSelectedItems, count);
   return (
     <t-popup
       v-slots={{
