@@ -23904,7 +23904,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader t-demo-cascader"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
