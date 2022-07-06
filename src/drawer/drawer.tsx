@@ -8,6 +8,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { Styles } from '../common';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -246,7 +247,7 @@ export default defineComponent({
         width: isHorizontal ? '16px' : '100%',
         height: isHorizontal ? '100%' : '16px',
         cursor: isHorizontal ? 'col-resize' : 'row-resize',
-      };
+      } as Styles;
     });
 
     onUpdated(() => {
