@@ -116,10 +116,6 @@ export interface TdDatePickerProps {
    */
   onFocus?: (context: { value: DateValue; e: FocusEvent }) => void;
   /**
-   * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
-   */
-  onInput?: (context: { input: string; value: DateValue; e: InputEvent }) => void;
-  /**
    * 面板选中值后触发
    */
   onPick?: (value: DateValue) => void;
@@ -165,6 +161,11 @@ export interface TdDateRangePickerProps {
    */
   mode?: 'year' | 'month' | 'date';
   /**
+   * 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期
+   * @default true
+   */
+  panelPreselection?: boolean;
+  /**
    * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */
   placeholder?: string | Array<string>;
@@ -191,7 +192,7 @@ export interface TdDateRangePickerProps {
   rangeInputProps?: RangeInputProps;
   /**
    * 日期分隔符
-   * @default ''
+   * @default -
    */
   separator?: string;
   /**
@@ -316,6 +317,7 @@ export interface TdDateRangePickerPanelProps
     | 'mode'
     | 'presets'
     | 'presetsPlacement'
+    | 'panelPreselection'
     | 'timePickerProps'
   > {
   /**
@@ -352,6 +354,10 @@ export interface TdDateRangePickerPanelProps
    * 点击面板时触发
    */
   onPanelClick?: (context: { e: MouseEvent }) => void;
+  /**
+   * 如果存在“确认”按钮，则点击“确认”按钮时触发
+   */
+  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
   /**
    * 时间切换发生变化时触发
    */
