@@ -9,9 +9,13 @@ import './style';
 
 export * from './type';
 export type DatePickerProps = TdDatePickerProps;
-export type DatePickerPanelProps = TdDatePickerPanelProps;
+
+export interface DatePickerPanelProps extends TdDatePickerPanelProps, Pick<TdDatePickerProps, 'modelValue'> {}
+
 export type DateRangePickerProps = TdDateRangePickerProps;
-export type DateRangePickerPanelProps = TdDateRangePickerPanelProps;
+export interface DateRangePickerPanelProps
+  extends TdDateRangePickerPanelProps,
+    Pick<TdDateRangePickerProps, 'modelValue'> {}
 
 export const DatePicker = withInstall(_DatePicker);
 export const DatePickerPanel = withInstall(_DatePickerPanel);

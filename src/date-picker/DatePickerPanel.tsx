@@ -22,6 +22,7 @@ export default defineComponent({
   props: {
     value: datePickerProps.value,
     defaultValue: datePickerProps.defaultValue,
+    modelValue: datePickerProps.modelValue,
     valueType: datePickerProps.valueType,
     disabled: datePickerProps.disabled,
     disableDate: datePickerProps.disableDate,

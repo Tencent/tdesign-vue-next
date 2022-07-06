@@ -9,6 +9,8 @@ import {
   TdDateRangePickerPanelProps,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
+  TdDatePickerPanelProps,
+  TdDatePickerProps,
 } from './type';
 
 import TRangePanel from './panel/RangePanel';
@@ -22,6 +24,7 @@ export default defineComponent({
   props: {
     value: dateRangePickerProps.value,
     defaultValue: dateRangePickerProps.defaultValue,
+    modelValue: dateRangePickerProps.modelValue,
     valueType: dateRangePickerProps.valueType,
     disabled: dateRangePickerProps.disabled,
     disableDate: dateRangePickerProps.disableDate,
