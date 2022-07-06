@@ -25,7 +25,6 @@ export default function useSingleValue(props: TdDatePickerProps) {
   watchEffect(() => {
     if (!value.value) {
       cacheValue.value = '';
-      time.value = formatTime(new Date());
       return;
     }
     if (!isValidDate(value.value, 'valueType')) return;

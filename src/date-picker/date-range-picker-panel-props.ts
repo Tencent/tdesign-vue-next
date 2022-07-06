@@ -77,6 +77,11 @@ export default {
     type: String,
     default: '',
   },
+  /** 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 */
+  panelPreselection: {
+    type: Boolean,
+    default: true,
+  },
   /** 点击日期单元格时触发 */
   onCellClick: Function as PropType<TdDateRangePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */
@@ -87,6 +92,8 @@ export default {
   onMonthChange: Function as PropType<TdDateRangePickerPanelProps['onMonthChange']>,
   /** 点击面板时触发 */
   onPanelClick: Function as PropType<TdDateRangePickerPanelProps['onPanelClick']>,
+  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  onPresetClick: Function as PropType<TdDateRangePickerPanelProps['onPresetClick']>,
   /** 时间切换发生变化时触发 */
   onTimeChange: Function as PropType<TdDateRangePickerPanelProps['onTimeChange']>,
   /** 年份切换发生变化时触发 */

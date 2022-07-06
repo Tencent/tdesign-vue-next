@@ -62,7 +62,6 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
   watchEffect(() => {
     if (!value.value) {
       cacheValue.value = [];
-      time.value = [dayjs().format(timeFormat), dayjs().format(timeFormat)];
       return;
     }
     if (!isValidDate(value.value, 'valueType')) return;
