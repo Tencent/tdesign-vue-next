@@ -88,6 +88,7 @@ export default defineComponent({
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
+            if (!isFilterable.value) return;
             setInputVal(`${value}`);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
