@@ -14,7 +14,11 @@ import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-pick
 
 export default defineComponent({
   name: 'TDateRangePicker',
-  props,
+
+  props: {
+    ...props,
+  },
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker');
 

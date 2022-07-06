@@ -10,13 +10,31 @@ import type {
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
 } from './type';
-import props from './date-picker-panel-props';
+
+import datePickerPanelProps from './date-picker-panel-props';
+import datePickerProps from './props';
 
 import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePickerPanel',
-  props,
+
+  props: {
+    value: datePickerProps.value,
+    defaultValue: datePickerProps.defaultValue,
+    valueType: datePickerProps.valueType,
+    disabled: datePickerProps.disabled,
+    disableDate: datePickerProps.disableDate,
+    enableTimePicker: datePickerProps.enableTimePicker,
+    firstDayOfWeek: datePickerProps.firstDayOfWeek,
+    format: datePickerProps.format,
+    mode: datePickerProps.mode,
+    presets: datePickerProps.presets,
+    presetsPlacement: datePickerProps.presetsPlacement,
+    timePickerProps: datePickerProps.timePickerProps,
+    ...datePickerPanelProps,
+  },
+
   setup(props: TdDatePickerPanelProps) {
     const { cacheValue, value, year, month, time, onChange } = useSingleValue(props);
 
