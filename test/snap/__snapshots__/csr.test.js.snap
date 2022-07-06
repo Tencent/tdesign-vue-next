@@ -37879,6 +37879,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/popconfir
             <!---->
           </div>
         </div>
+        <!---->
       </div>
     </div>
   </div>
@@ -47154,6 +47155,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/attach-parent.vue 
             <!---->
           </div>
         </div>
+        <!---->
       </div>
     </div>
     <div
@@ -47426,6 +47428,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/base.vue 1`] = `
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <button
@@ -47507,6 +47510,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
         </button>
         
       </div>
+      <!---->
     </div>
   </div>
   <!-- 使用 props 自定义 -->
@@ -47566,6 +47570,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
           </button>
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <!-- 单独定义确认/取消按钮 -->
@@ -47625,6 +47630,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <button
@@ -47742,6 +47748,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/no-mask.vue 1`] = 
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <button
@@ -47906,6 +47913,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <button
@@ -47987,6 +47995,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/placement.vue 1`] 
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <div
@@ -48247,6 +48256,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/size.vue 1`] = `
           <!---->
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <div
@@ -48403,6 +48413,195 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/size.vue 1`] = `
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin"
     data-v-d15f6134=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       打开抽屉 
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/drawer/demos/size-draggable.vue 1`] = `
+<div
+  data-v-594ff434=""
+>
+  <!-- @click-cancel 和 :onClickCancel 两种写法都支持； :onClickOverlay 和 @click-overlay 两种写法都支持-->
+  <div
+    class="t-drawer t-drawer--right"
+    data-v-594ff434=""
+    tabindex="0"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        标题名称
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <p
+          data-v-594ff434=""
+        >
+          抽屉的内容
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              确认
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              取消
+            </span>
+          </button>
+          <!---->
+        </div>
+      </div>
+      <div
+        style="z-index: 1; position: absolute; background: transparent; left: 0px; width: 16px; height: 100%; cursor: col-resize;"
+      />
+    </div>
+  </div>
+  <div
+    class="tdesign-radio-button"
+    data-v-594ff434=""
+  >
+    <div
+      class="t-radio-group t-size-m t-radio-group__outline"
+      data-v-594ff434=""
+    >
+      
+      <label
+        class="t-radio-button"
+        data-v-594ff434=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="left"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          从左侧拖拽抽屉
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+        data-v-594ff434=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="right"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          从右侧拖拽抽屉
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+        data-v-594ff434=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="top"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          从上方拖拽抽屉
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+        data-v-594ff434=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          从下方拖拽抽屉
+          
+          
+        </span>
+      </label>
+      
+      <!---->
+    </div>
+  </div>
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin"
+    data-v-594ff434=""
     type="button"
   >
     <span
