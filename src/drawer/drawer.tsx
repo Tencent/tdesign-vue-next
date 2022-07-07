@@ -8,6 +8,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useDrag } from './hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -23,8 +24,8 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
-
     const LOCK_CLASS = usePrefixClass('drawer--lock');
+    const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props);
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -48,6 +49,8 @@ export default defineComponent({
     });
 
     const sizeValue = computed(() => {
+      if (draggedSizeValue.value) return draggedSizeValue.value;
+
       const size = props.size ?? global.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
@@ -215,6 +218,8 @@ export default defineComponent({
       confirmBtnAction,
       cancelBtnAction,
       closeDrawer,
+      enableDrag,
+      draggableLineStyles,
     };
   },
 
@@ -244,6 +249,7 @@ export default defineComponent({
           )}
           <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>
           {this.footer && <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>}
+          {this.sizeDraggable && <div style={this.draggableLineStyles} onMousedown={this.enableDrag}></div>}
         </div>
       </div>
     );
