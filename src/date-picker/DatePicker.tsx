@@ -14,7 +14,11 @@ import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePicker',
-  props,
+
+  props: {
+    ...props,
+  },
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 

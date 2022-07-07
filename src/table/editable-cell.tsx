@@ -178,7 +178,7 @@ export default defineComponent({
       row,
       (row) => {
         let val = get(row, col.value.colKey);
-        if (typeof val === 'object') {
+        if (typeof val === 'object' && val !== null) {
           val = val instanceof Array ? [...val] : { ...val };
         }
         editValue.value = val;
