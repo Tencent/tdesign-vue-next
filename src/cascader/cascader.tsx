@@ -82,6 +82,7 @@ export default defineComponent({
           }}
           inputProps={{ size: props.size, ...(props.inputProps as TdCascaderProps['inputProps']) }}
           tagInputProps={{
+            autoWidth: true,
             size: props.size,
             ...(props.tagInputProps as TdCascaderProps['tagInputProps']),
           }}
