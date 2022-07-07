@@ -286,7 +286,7 @@ export default defineComponent({
             checked={node.checked}
             indeterminate={node.indeterminate}
             disabled={node.isDisabled()}
-            name={node.value}
+            name={node.value.toString()}
             onChange={() => handleChange()}
             ignore="expand,active"
             needRipple={true}
