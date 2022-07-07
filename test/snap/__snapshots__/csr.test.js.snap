@@ -23711,7 +23711,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -23797,7 +23801,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -23875,7 +23883,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -23954,7 +23966,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24070,7 +24086,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24196,7 +24216,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24318,7 +24342,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24492,7 +24520,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24600,7 +24632,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/max.vue 1`] = `
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24676,7 +24712,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -24942,7 +24982,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/show-all-levels.
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -25264,7 +25308,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -25312,7 +25360,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -25360,7 +25412,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -25521,7 +25577,11 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         type="text"
         unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
