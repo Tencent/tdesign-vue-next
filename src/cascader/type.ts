@@ -5,8 +5,11 @@
  * */
 
 import { CheckboxProps } from '../checkbox';
+import { InputProps } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
+import { TagInputProps } from '../tag-input';
+import { TagProps } from '../tag';
 import { TreeNodeModel } from '../tree';
 import { PopupVisibleChangeContext } from '../popup';
 import { TNode, TreeOptionData, SizeEnum } from '../common';
@@ -48,6 +51,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * @default false
    */
   filterable?: boolean;
+  /**
+   * 透传 Input 输入框组件的全部属性
+   */
+  inputProps?: InputProps;
   /**
    * 用来定义 value / label / children 在 `options` 中对应的字段别名
    */
@@ -122,6 +129,14 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * @default medium
    */
   size?: SizeEnum;
+  /**
+   * 透传 TagInput 标签输入框组件的全部属性
+   */
+  tagInputProps?: TagInputProps;
+  /**
+   * 透传 Tag 标签组件全部属性
+   */
+  tagProps?: TagProps;
   /**
    * 展开下一层级的方式
    * @default click
