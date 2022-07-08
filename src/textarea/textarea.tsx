@@ -1,7 +1,7 @@
-import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject } from 'vue';
+import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject, StyleValue } from 'vue';
 import props from './props';
 import { TextareaValue } from './type';
-import { getCharacterLength } from '../utils/helper';
+import { getCharacterLength, omit } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
 
@@ -23,6 +23,7 @@ function getValidAttrs(obj: object): object {
 
 export default defineComponent({
   name: 'TTextarea',
+  inheritAttrs: false,
   props: { ...props },
 
   setup(props, { attrs }) {
@@ -35,6 +36,11 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useFormDisabled();
     const textareaStyle = ref({});
+    const computedStyle = computed(() => {
+      const { style } = attrs as { style: StyleValue };
+      return [style, textareaStyle.value];
+    });
+
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
 
@@ -188,13 +194,13 @@ export default defineComponent({
       const tips = renderTNodeJSX('tips');
 
       return (
-        <div class={textareaClasses.value}>
+        <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
           <textarea
             onInput={handleInput}
             onCompositionend={onCompositionend}
             ref={refTextareaElem}
             value={innerValue.value}
-            style={textareaStyle.value}
+            style={computedStyle.value}
             class={classes.value}
             {...inputEvents}
             {...inputAttrs.value}
