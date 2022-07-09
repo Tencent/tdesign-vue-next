@@ -9,7 +9,13 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
+import {
+  TdPrimaryTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  PrimaryTableCellParams,
+  PrimaryTableRowEditContext,
+} from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
@@ -18,6 +24,8 @@ import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import { getEditableKeysMap } from './utils';
+import { validate } from '../form/form-model';
+import { AllValidateResult } from '../form/type';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -43,6 +51,8 @@ const OMIT_PROPS = [
   'onSelectChange',
   'onSortChange',
 ];
+
+const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
 
 export default defineComponent({
   name: 'TPrimaryTable',
@@ -114,6 +124,49 @@ export default defineComponent({
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
 
+    const validateRowDate = (rowValue: any) => {
+      const rowRules = cellRuleMap.get(rowValue);
+      const list = rowRules.map(
+        (item) =>
+          new Promise<PrimaryTableRowEditContext<TableRowData> & { errorList: AllValidateResult[] }>((resolve) => {
+            const { value, col } = item;
+            if (!col.edit || !col.edit.rules || !col.edit.rules.length) {
+              resolve({ ...item, errorList: [] });
+              return;
+            }
+            validate(value, col.edit.rules).then((r) => {
+              resolve({ ...item, errorList: r.filter((t) => !t.result) });
+            });
+          }),
+      );
+      Promise.all(list).then((results) => {
+        const error = results.filter((t) => t.errorList.length);
+        // 缺少校验文本显示
+        props.onRowValidate?.({ trigger: 'parent', result: error });
+      });
+    };
+
+    const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
+      // 编辑行，预存校验信息，方便最终校验
+      if (props.editableRowKeys) {
+        const rowValue = get(context.row, props.rowKey || 'id');
+        const rules = cellRuleMap.get(rowValue);
+        if (rules) {
+          const index = rules.findIndex((t) => t.col.colKey === context.col.colKey);
+          if (index === -1) {
+            rules.concat(context);
+          } else {
+            rules[index].value = context.value;
+          }
+          cellRuleMap.set(rowValue, rules);
+        } else {
+          cellRuleMap.set(rowValue, [context]);
+        }
+      }
+    };
+
+    context.expose({ validateRowDate });
+
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
     const getColumns = (columns: PrimaryTableCol<TableRowData>[]) => {
       const arr: PrimaryTableCol<TableRowData>[] = [];
@@ -140,7 +193,13 @@ export default defineComponent({
         if (item.edit?.component) {
           const oldCell = item.cell;
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
-            const cellProps: EditableCellProps = { ...p, oldCell, onChange: props.onRowEdit };
+            const cellProps: EditableCellProps = {
+              ...p,
+              oldCell,
+              onChange: props.onRowEdit,
+              onValidate: props.onRowValidate,
+              onRuleChange,
+            };
             if (props.editableRowKeys) {
               cellProps.editable = editableKeysMap.value[get(p.row, props.rowKey || 'id')] || false;
             }

@@ -149,6 +149,8 @@ export default {
   onFilterChange: Function as PropType<TdPrimaryTableProps['onFilterChange']>,
   /** 行编辑时触发 */
   onRowEdit: Function as PropType<TdPrimaryTableProps['onRowEdit']>,
+  /** 行编辑校验完成后出发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验 */
+  onRowValidate: Function as PropType<TdPrimaryTableProps['onRowValidate']>,
   /** 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据 */
   onSelectChange: Function as PropType<TdPrimaryTableProps['onSelectChange']>,
   /** 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序 */

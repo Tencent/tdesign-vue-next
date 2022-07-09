@@ -16,7 +16,7 @@ import { InputProps } from '../input';
 import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
-import { FormRule } from '../form';
+import { FormRule, AllValidateResult } from '../form';
 import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes, ComponentType } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -461,6 +461,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 行编辑时触发
    */
   onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
+  /**
+   * 行编辑校验完成后出发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
+   */
+  onRowValidate?: (context: PrimaryTableRowValidateContext<T>) => void;
   /**
    * 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据
    */
@@ -923,6 +927,10 @@ export interface ExpandOptions<T> {
 }
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
+
+export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: 'self' | 'parent' };
+
+export type TableRowValidateResult<T> = PrimaryTableCellParams<T> & { errorList: AllValidateResult[]; value: any };
 
 export interface SelectOptions<T> {
   selectedRowData: Array<T>;

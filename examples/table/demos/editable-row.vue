@@ -2,12 +2,14 @@
   <div>
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
     <t-table
+      ref="tableRef"
       row-key="key"
       :columns="columns"
       :data="data"
       :editable-row-keys="editableRowKeys"
       bordered
       @row-edit="onRowEdit"
+      @row-validate="onRowValidate"
     />
   </div>
 </template>
@@ -31,9 +33,11 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   createTime: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
 }));
 
+const tableRef = ref();
 const align = ref('left');
 const data = ref([...initData]);
 const editableRowKeys = ref(['1', '2']);
+const currentSaveId = ref('');
 // 保存变化过的行信息
 const editMap = {};
 
@@ -57,24 +61,35 @@ const onCancel = (e) => {
 
 const onSave = (e) => {
   const { id } = e.currentTarget.dataset;
-  updateEditState(id);
-  // TODO: 触发校验规则
-  // 更新 data
-  const current = editMap[id];
-  if (!current) return;
-  data.value.splice(current.rowIndex, 1, current.editedRow);
-  MessagePlugin.success('保存成功');
+  currentSaveId.value = id;
+  // 触发内部校验，而后在 onRowValidate 中接收异步校验结果
+  tableRef.value.validateRowDate(id);
+};
+
+const onRowValidate = (params) => {
+  console.log('validate:', params);
+  if (params.result.length) {
+    const r = params.result[0];
+    MessagePlugin.error(`${r.col.title} ${r.errorList[0].message}`);
+    return;
+  }
+  // 如果是 table 的父组件主动触发校验
+  if (params.trigger === 'parent' && !params.result.length) {
+    const current = editMap[currentSaveId.value];
+    if (!current) return;
+    data.value.splice(current.rowIndex, 1, current.editedRow);
+    MessagePlugin.success('保存成功');
+    updateEditState(currentSaveId.value);
+  }
 };
 
 const onRowEdit = (params) => {
   const { row, rowIndex, col, value } = params;
-  console.log(`${col.colKey} edited value: `, value);
   const oldRowData = editMap[row.key]?.editedRow || row;
   editMap[row.key] = {
     ...params,
     editedRow: { ...oldRowData, [col.colKey]: value },
   };
-  console.log(editMap[row.key]);
 };
 
 const columns = computed(() => [

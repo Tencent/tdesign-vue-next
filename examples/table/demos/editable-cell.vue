@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
-    <t-table row-key="key" :columns="columns" :data="data" bordered />
+    <t-table row-key="key" :columns="columns" :data="data" bordered @row-validate="onRowValidate" />
   </div>
 </template>
 
@@ -26,6 +26,10 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 
 const align = ref('left');
 const data = ref([...initData]);
+
+const onRowValidate = (params) => {
+  console.log('validate:', params);
+};
 
 const columns = computed(() => [
   {
