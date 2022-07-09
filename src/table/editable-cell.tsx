@@ -126,9 +126,9 @@ export default defineComponent({
       if (!edit?.abortEditOnEvent?.length) return {};
       // 自定义退出编辑态的事件
       const tListeners = {};
+      const outsideAbortEvent = edit?.onEdited;
       edit.abortEditOnEvent.forEach((itemEvent) => {
         if (itemEvent === 'onChange') return;
-        const outsideAbortEvent = edit.props[itemEvent];
         tListeners[itemEvent] = (...args: any) => {
           updateAndSaveAbort(
             outsideAbortEvent,
