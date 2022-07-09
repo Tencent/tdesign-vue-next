@@ -14,9 +14,10 @@ import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell from './editable-cell';
+import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { getEditableKeysMap } from './utils';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -105,6 +106,8 @@ export default defineComponent({
       return tAttributes.filter((v) => v);
     });
 
+    const editableKeysMap = computed(() => getEditableKeysMap(props.editableRowKeys, props.data, props.rowKey || 'id'));
+
     // 多个 Hook 共用 primaryTableRef
     onMounted(() => {
       setFilterPrimaryTableRef(primaryTableRef.value);
@@ -137,7 +140,11 @@ export default defineComponent({
         if (item.edit?.component) {
           const oldCell = item.cell;
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
-            return <EditableCell {...p} oldCell={oldCell} v-slots={context.slots} />;
+            const cellProps: EditableCellProps = { ...p, oldCell, onChange: props.onRowEdit };
+            if (props.editableRowKeys) {
+              cellProps.editable = editableKeysMap.value[get(p.row, props.rowKey || 'id')] || false;
+            }
+            return <EditableCell {...cellProps} v-slots={context.slots} />;
           };
         }
         if (item.children?.length) {

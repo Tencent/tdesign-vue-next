@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { Edit1Icon } from 'tdesign-icons-vue-next';
-import { TableRowData, PrimaryTableCol } from './type';
+import { TableRowData, PrimaryTableCol, PrimaryTableRowEditContext } from './type';
 import useClassName from './hooks/useClassName';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
@@ -15,6 +15,9 @@ export interface EditableCellProps {
   col: PrimaryTableCol<TableRowData>;
   colIndex: number;
   oldCell: PrimaryTableCol<TableRowData>['cell'];
+  /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
+  editable?: boolean;
+  onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
 }
 
 export default defineComponent({
@@ -25,6 +28,11 @@ export default defineComponent({
     col: Object as PropType<EditableCellProps['col']>,
     colIndex: Number,
     oldCell: [Function, String] as PropType<EditableCellProps['oldCell']>,
+    editable: {
+      type: Boolean,
+      default: undefined,
+    },
+    onChange: Function as PropType<EditableCellProps['onChange']>,
   },
 
   setup(props: EditableCellProps, context: SetupContext) {
@@ -108,8 +116,10 @@ export default defineComponent({
     const updateAndSaveAbort = (outsideAbortEvent: Function, ...args: any) => {
       validateEdit().then((result) => {
         if (result !== true) return;
+        const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化
-        if (!isSame(editValue.value, get(row.value, col.value.colKey))) {
+        if (!isSame(editValue.value, oldValue)) {
+          editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
@@ -147,6 +157,13 @@ export default defineComponent({
 
     const onEditChange = (val: any, ...args: any) => {
       editValue.value = val;
+      props.onChange?.({
+        row: props.row,
+        rowIndex: props.rowIndex,
+        value: val,
+        col: props.col,
+        colIndex: props.colIndex,
+      });
       if (isAbortEditOnChange.value) {
         const outsideAbortEvent = col.value.edit?.onEdited;
         updateAndSaveAbort(
@@ -163,7 +180,7 @@ export default defineComponent({
 
     const documentClickHandler = (e: PointerEvent) => {
       if (!col.value.edit || !col.value.edit.component) return;
-      if (!isEdit.value || !tableEditableCellRef.value?.$el) return;
+      if (!isEdit.value) return;
       // @ts-ignore
       if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
       const outsideAbortEvent = col.value.edit.onEdited;
@@ -174,10 +191,12 @@ export default defineComponent({
       });
     };
 
+    const cellValue = computed(() => get(row.value, col.value.colKey));
+
     watch(
-      row,
-      (row) => {
-        let val = get(row, col.value.colKey);
+      cellValue,
+      (cellValue) => {
+        let val = cellValue;
         if (typeof val === 'object' && val !== null) {
           val = val instanceof Array ? [...val] : { ...val };
         }
@@ -187,7 +206,7 @@ export default defineComponent({
     );
 
     watch(isEdit, (isEdit) => {
-      if (!col.value.edit || !col.value.edit.component) return;
+      if (!col.value.edit || !col.value.edit.component || props.editable !== undefined) return;
       if (isEdit) {
         document.addEventListener('click', documentClickHandler);
       } else {
@@ -195,59 +214,56 @@ export default defineComponent({
       }
     });
 
-    return {
-      editValue,
-      isEdit,
-      tableBaseClass,
-      cellNode,
-      isAbortEditOnChange,
-      listeners,
-      componentProps,
-      tableEditableCellRef,
-      errorList,
-      onEditChange,
-    };
-  },
+    watch(
+      () => props.editable,
+      () => {
+        // 退出编辑态时，恢复原始值，等待父组件传入新的 data 值
+        if (props.editable === false) {
+          editValue.value = cellValue.value;
+        }
+      },
+    );
 
-  render() {
-    if (!this.isEdit) {
+    return () => {
+      // props.editable = undefined 表示由组件内部控制编辑状态
+      if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
+        return (
+          <div
+            class={tableBaseClass.cellEditable}
+            onClick={(e: MouseEvent) => {
+              isEdit.value = true;
+              e.stopPropagation();
+            }}
+          >
+            {cellNode.value}
+            {col.value.edit?.showEditIcon !== false && <Edit1Icon size="12px" />}
+          </div>
+        );
+      }
+      const component = col.value.edit?.component;
+      if (!component) {
+        log.error('Table', 'edit.component is required.');
+        return null;
+      }
+      const errorMessage = errorList.value?.[0]?.message;
       return (
         <div
-          class={this.tableBaseClass.cellEditable}
+          class={tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
-            this.isEdit = true;
             e.stopPropagation();
           }}
         >
-          {this.cellNode}
-          <Edit1Icon size="12px" />
+          <component
+            ref="tableEditableCellRef"
+            status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
+            tips={errorMessage}
+            {...componentProps.value}
+            {...listeners.value}
+            value={editValue.value}
+            onChange={onEditChange}
+          />
         </div>
       );
-    }
-    // @ts-ignore
-    const component = this.col.edit?.component;
-    if (!component) {
-      log.error('Table', 'edit.component is required.');
-      return null;
-    }
-    const errorMessage = this.errorList?.[0]?.message;
-    return (
-      <div
-        class={this.tableBaseClass.cellEditWrap}
-        onClick={(e: MouseEvent) => {
-          e.stopPropagation();
-        }}
-      >
-        <component
-          ref="tableEditableCellRef"
-          status={errorMessage ? this.errorList?.[0]?.type || 'error' : undefined}
-          tips={errorMessage}
-          {...this.componentProps}
-          {...this.listeners}
-          value={this.editValue}
-          onChange={this.onEditChange}
-        />
-      </div>
-    );
+    };
   },
 });

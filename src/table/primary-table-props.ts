@@ -52,6 +52,10 @@ export default {
   dragSortOptions: {
     type: Object as PropType<TdPrimaryTableProps['dragSortOptions']>,
   },
+  /** 处于编辑状态的行 */
+  editableRowKeys: {
+    type: Array as PropType<TdPrimaryTableProps['editableRowKeys']>,
+  },
   /** 展开行内容，泛型 T 指表格数据类型 */
   expandedRow: {
     type: [String, Function] as PropType<TdPrimaryTableProps['expandedRow']>,
@@ -64,6 +68,7 @@ export default {
   /** 展开行，非受控属性 */
   defaultExpandedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultExpandedRowKeys']>,
+    default: (): TdPrimaryTableProps['defaultExpandedRowKeys'] => [],
   },
   /** 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider` */
   expandIcon: {
@@ -97,14 +102,15 @@ export default {
   },
   /** 是否支持多列排序 */
   multipleSort: Boolean,
-  /** 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
+  /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
   selectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['selectedRowKeys']>,
     default: undefined,
   },
-  /** 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
+  /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
   defaultSelectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
+    default: (): TdPrimaryTableProps['defaultSelectedRowKeys'] => [],
   },
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
   sort: {
@@ -141,6 +147,8 @@ export default {
   onExpandChange: Function as PropType<TdPrimaryTableProps['onExpandChange']>,
   /** 过滤参数发生变化时触发，泛型 T 指表格数据类型 */
   onFilterChange: Function as PropType<TdPrimaryTableProps['onFilterChange']>,
+  /** 行编辑时触发 */
+  onRowEdit: Function as PropType<TdPrimaryTableProps['onRowEdit']>,
   /** 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据 */
   onSelectChange: Function as PropType<TdPrimaryTableProps['onSelectChange']>,
   /** 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序 */

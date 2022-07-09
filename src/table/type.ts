@@ -334,15 +334,21 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   dragSortOptions?: SortableOptions;
   /**
+   * 处于编辑状态的行
+   */
+  editableRowKeys?: Array<string | number>;
+  /**
    * 展开行内容，泛型 T 指表格数据类型
    */
   expandedRow?: TNode<TableExpandedRowParams<T>>;
   /**
    * 展开行
+   * @default []
    */
   expandedRowKeys?: Array<string | number>;
   /**
    * 展开行，非受控属性
+   * @default []
    */
   defaultExpandedRowKeys?: Array<string | number>;
   /**
@@ -384,11 +390,13 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   multipleSort?: boolean;
   /**
-   * 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * @default []
    */
   selectedRowKeys?: Array<string | number>;
   /**
-   * 选中的行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
+   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
+   * @default []
    */
   defaultSelectedRowKeys?: Array<string | number>;
   /**
@@ -449,6 +457,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 过滤参数发生变化时触发，泛型 T 指表格数据类型
    */
   onFilterChange?: (filterValue: FilterValue, context: { col?: PrimaryTableCol<T> }) => void;
+  /**
+   * 行编辑时触发
+   */
+  onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
   /**
    * 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据
    */
@@ -741,6 +753,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    * 校验规则
    */
   rules?: FormRule[];
+  /**
+   * 是否显示编辑图标
+   * @default true
+   */
+  showEditIcon?: boolean;
 }
 
 export interface TableTreeConfig {
@@ -904,6 +921,8 @@ export interface DragSortContext<T> {
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
 }
+
+export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
 
 export interface SelectOptions<T> {
   selectedRowData: Array<T>;
