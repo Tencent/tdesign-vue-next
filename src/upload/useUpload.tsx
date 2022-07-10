@@ -287,7 +287,10 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
       handleBeforeUpload(file).then((canUpload) => {
         if (!canUpload) return;
         const newFiles = uploadCtx.toUploadFiles.concat();
-        newFiles.push(uploadFile);
+        // 判断是否为重复文件条件，已选是否存在检验
+        if (props.allowUploadDuplicateFile || !uploadCtx.toUploadFiles.find((file) => file.name === uploadFile.name)) {
+          newFiles.push(uploadFile);
+        }
         uploadCtx.toUploadFiles = [...new Set(newFiles)];
         uploadCtx.loadingFile = uploadFile;
         if (props.autoUpload) {
