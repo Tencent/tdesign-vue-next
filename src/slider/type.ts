@@ -21,10 +21,10 @@ export interface TdSliderProps {
    */
   inputNumberProps?: InputNumberProps;
   /**
-   * 滑块当前值文本。值为 true 显示默认文案，值为 false 不显示滑块当前值文本，值为 `\${value}%` 则表示组件会根据占位符渲染文案
+   * 滑块当前值文本。不传则默认显示当前数值，值为 `${value}%` 则表示组件会根据占位符渲染文案
    * @default false
    */
-  label?: string | boolean | TNode;
+  label?: string | TNode;
   /**
    * 滑块布局方向
    * @default horizontal

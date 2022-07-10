@@ -1,3 +1,4 @@
+import { TNode } from '../../common';
 /**
  * 计算刻度区间值停止坐标
  * @param position 刻度坐标值 ;
@@ -25,4 +26,32 @@ export const formatSlderValue = (val: number | number[], type: 'first' | 'second
     return val[1];
   }
   return 0;
+};
+
+/**
+ * 格式化label参数
+ * @param label slider传入的label属性
+ * @param val slider传入的value
+ */
+export const formatLabel = (label: TNode | string, val: number) => {
+  if (Boolean(label) === false) {
+    return String(val);
+  }
+  if (typeof label === 'string') {
+    let text = String(val);
+    try {
+      const rule = /\${value}%/g;
+      const enableToReplace = rule.test(label);
+      if (enableToReplace) {
+        text = label.replace(rule, String(val));
+      } else {
+        text = label;
+        throw new Error();
+      }
+    } catch (e) {
+      console.warn(`fail to parse label prop, please pass string such as '\${value}%'`);
+    }
+    return text;
+  }
+  return () => label;
 };
