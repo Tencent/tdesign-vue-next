@@ -33,6 +33,7 @@ const OMIT_PROPS = [
   'hideSortTips',
   'dragSort',
   'defaultExpandedRowKeys',
+  'defaultSelectedRowKeys',
   'columnController',
   'filterRow',
   'sortOnRowDraggable',
@@ -65,7 +66,8 @@ export default defineComponent({
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
-    const primaryTableRef = ref<HTMLDivElement>(null);
+    const errorListMap = ref<Map<string, AllValidateResult[]>>(new Map());
+    const primaryTableRef = ref(null);
     const { tableDraggableClasses, tableBaseClass } = useClassName();
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
@@ -98,6 +100,7 @@ export default defineComponent({
         [tableDraggableClasses.rowHandlerDraggable]: isRowHandlerDraggable.value,
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
+        [tableBaseClass.tableRowEdit]: props.editableRowKeys,
       };
     });
 
@@ -140,9 +143,14 @@ export default defineComponent({
           }),
       );
       Promise.all(list).then((results) => {
-        const error = results.filter((t) => t.errorList.length);
+        const errors = results.filter((t) => t.errorList.length);
+        errors.forEach(({ row, col, errorList }) => {
+          const rowValue = get(row, props.rowKey || 'id');
+          const key = [rowValue, col.colKey].join();
+          errorListMap.value.set(key, errorList);
+        });
         // 缺少校验文本显示
-        props.onRowValidate?.({ trigger: 'parent', result: error });
+        props.onRowValidate?.({ trigger: 'parent', result: errors });
       });
     };
 
@@ -165,7 +173,13 @@ export default defineComponent({
       }
     };
 
-    context.expose({ validateRowDate });
+    // 对外暴露的方法
+    context.expose({
+      validateRowDate,
+      refreshTable: () => {
+        primaryTableRef.value.refreshTable();
+      },
+    });
 
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
     const getColumns = (columns: PrimaryTableCol<TableRowData>[]) => {
@@ -196,12 +210,17 @@ export default defineComponent({
             const cellProps: EditableCellProps = {
               ...p,
               oldCell,
+              tableBaseClass,
               onChange: props.onRowEdit,
               onValidate: props.onRowValidate,
               onRuleChange,
             };
             if (props.editableRowKeys) {
-              cellProps.editable = editableKeysMap.value[get(p.row, props.rowKey || 'id')] || false;
+              const rowValue = get(p.row, props.rowKey || 'id');
+              cellProps.editable = editableKeysMap.value[rowValue] || false;
+              const key = [rowValue, p.col.colKey].join();
+              const errorList = errorListMap.value?.get(key);
+              errorList && (cellProps.errors = errorList);
             }
             return <EditableCell {...cellProps} v-slots={context.slots} />;
           };

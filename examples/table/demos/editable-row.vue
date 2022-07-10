@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="t-table-demo__editable-row">
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
     <t-table
       ref="tableRef"
@@ -7,6 +7,7 @@
       :columns="columns"
       :data="data"
       :editable-row-keys="editableRowKeys"
+      vertical-align="top"
       bordered
       @row-edit="onRowEdit"
       @row-validate="onRowValidate"
@@ -36,7 +37,7 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 const tableRef = ref();
 const align = ref('left');
 const data = ref([...initData]);
-const editableRowKeys = ref(['1', '2']);
+const editableRowKeys = ref(['1']);
 const currentSaveId = ref('');
 // 保存变化过的行信息
 const editMap = {};
@@ -106,6 +107,7 @@ const columns = computed(() => [
       props: {
         clearable: true,
         autofocus: true,
+        autoWidth: true,
       },
       // 校验规则，此处同 Form 表单
       rules: [
@@ -122,7 +124,7 @@ const columns = computed(() => [
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {
-        clearable: true,
+        autoWidth: true,
         options: [
           { label: 'Vue', value: 'Vue' },
           { label: 'React', value: 'React' },
@@ -146,6 +148,7 @@ const columns = computed(() => [
         return {
           multiple: true,
           minCollapsedNum: 1,
+          autoWidth: true,
           options: [
             { label: 'A', value: 'A' },
             { label: 'B', value: 'B' },
@@ -164,6 +167,7 @@ const columns = computed(() => [
   {
     title: 'Date',
     colKey: 'createTime',
+    className: 't-demo-col__datepicker',
     // props, 透传全部属性到 DatePicker 组件
     edit: {
       component: DatePicker,
@@ -173,6 +177,7 @@ const columns = computed(() => [
   {
     title: 'Operate',
     colKey: 'operate',
+    width: 150,
     cell: (h, { row }) => {
       const editable = editableRowKeys.value.includes(row.key);
       return (
@@ -199,12 +204,16 @@ const columns = computed(() => [
 ]);
 </script>
 
-<style scoped>
-.table-operations {
-  margin-bottom: 16px;
-}
+<style lang="less">
+.t-table-demo__editable-row {
+  .table-operations > button {
+    padding: 0 8px;
+    line-height: 22px;
+    height: 22px;
+  }
 
-.table-operations > button {
-  margin-right: 8px;
+  .t-demo-col__datepicker .t-date-picker {
+    width: 120px;
+  }
 }
 </style>

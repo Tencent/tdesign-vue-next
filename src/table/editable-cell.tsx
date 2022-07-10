@@ -4,7 +4,7 @@ import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { Edit1Icon } from 'tdesign-icons-vue-next';
 import { TableRowData, PrimaryTableCol, PrimaryTableRowEditContext, PrimaryTableRowValidateContext } from './type';
-import useClassName from './hooks/useClassName';
+import { TableClassName } from './hooks/useClassName';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
@@ -16,8 +16,10 @@ export interface EditableCellProps {
   col: PrimaryTableCol<TableRowData>;
   colIndex: number;
   oldCell: PrimaryTableCol<TableRowData>['cell'];
+  tableBaseClass?: TableClassName['tableBaseClass'];
   /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
   editable?: boolean;
+  errors?: AllValidateResult[];
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
   onValidate?: (context: PrimaryTableRowValidateContext<TableRowData>) => void;
   onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
@@ -31,8 +33,13 @@ export default defineComponent({
     col: Object as PropType<EditableCellProps['col']>,
     colIndex: Number,
     oldCell: [Function, String] as PropType<EditableCellProps['oldCell']>,
+    tableBaseClass: Object as PropType<EditableCellProps['tableBaseClass']>,
     editable: {
       type: Boolean,
+      default: undefined,
+    },
+    errors: {
+      type: Object as PropType<EditableCellProps['errors']>,
       default: undefined,
     },
     onChange: Function as PropType<EditableCellProps['onChange']>,
@@ -42,7 +49,6 @@ export default defineComponent({
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
-    const { tableBaseClass } = useClassName();
     const tableEditableCellRef = ref(null);
     const isEdit = ref(false);
     const editValue = ref();
@@ -260,12 +266,19 @@ export default defineComponent({
       { immediate: true },
     );
 
+    watch(
+      () => props.errors,
+      () => {
+        errorList.value = props.errors;
+      },
+    );
+
     return () => {
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (
           <div
-            class={tableBaseClass.cellEditable}
+            class={props.tableBaseClass.cellEditable}
             onClick={(e: MouseEvent) => {
               isEdit.value = true;
               e.stopPropagation();
@@ -284,7 +297,7 @@ export default defineComponent({
       const errorMessage = errorList.value?.[0]?.message;
       return (
         <div
-          class={tableBaseClass.cellEditWrap}
+          class={props.tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
             e.stopPropagation();
           }}
