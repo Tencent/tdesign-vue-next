@@ -16,7 +16,7 @@ export default {
     type: [Boolean, Object] as PropType<TdSliderProps['inputNumberProps']>,
     default: false,
   },
-  /** 滑块当前值文本。值为 true 显示默认文案，值为 false 不显示滑块当前值文本，值为 `\${value}%` 则表示组件会根据占位符渲染文案 */
+  /** 滑块当前值文本。不传则默认显示当前数值，值为 `${value}%` 则表示组件会根据占位符渲染文案 */
   label: {
     type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
     default: false,
