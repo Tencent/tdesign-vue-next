@@ -48033,7 +48033,64 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/custom.vue 1`] = `
 exports[`csr snapshot test > csr test ./examples/drawer/demos/destroy.vue 1`] = `
 <div>
   <!-- 动画效果待开发 -->
-  <!---->
+  <div
+    class="t-drawer t-drawer--right"
+    tabindex="0"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        抽屉标题
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <p>
+          抽屉的内容
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              确认
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              取消
+            </span>
+          </button>
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
