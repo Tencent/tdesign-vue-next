@@ -1,5 +1,17 @@
-import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
+import {
+  PropType,
+  defineComponent,
+  ComponentPublicInstance,
+  ref,
+  computed,
+  reactive,
+  nextTick,
+  watchEffect,
+  inject,
+  toRefs,
+} from 'vue';
 import TTooltip from '../tooltip/index';
+import { TdSliderProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
@@ -20,14 +32,16 @@ export default defineComponent({
       type: [Boolean, Object],
       default: true,
     },
+    label: {
+      type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
+      default: false,
+    },
   },
   emits: ['input'],
   setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
-    const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(
-      props.tooltipProps,
-      props.vertical,
-    );
+    const tooltipConfig = computed(() => props);
+    const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(tooltipConfig);
     const parentProps = inject(sliderPropsInjectKey);
     const buttonRef = ref();
 
@@ -210,9 +224,15 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        <TTooltip ref={tooltipRef} disabled={!showTooltip.value} content={String(props.value)} {...tooltipProps.value}>
-          <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
-        </TTooltip>
+        {showTooltip.value ? (
+          <TTooltip ref={tooltipRef} disabled={!showTooltip.value} {...tooltipProps.value}>
+            <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
+          </TTooltip>
+        ) : (
+          <div
+            class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]}
+          ></div>
+        )}
       </div>
     );
   },

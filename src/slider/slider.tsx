@@ -393,6 +393,7 @@ export default defineComponent({
               ref={firstButtonRef}
               disabled={disabled.value}
               tooltip-props={props.tooltipProps}
+              label={props.label}
               onInput={(v: number) => {
                 firstValue.value = v;
               }}
@@ -403,6 +404,7 @@ export default defineComponent({
                 value={secondValue.value}
                 ref={secondButtonRef}
                 disabled={disabled.value}
+                label={props.label}
                 tooltip-props={props.tooltipProps}
                 onInput={(v: number) => {
                   secondValue.value = v;
