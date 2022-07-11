@@ -16,14 +16,13 @@ export default function useInputWidth(
 
   const addListeners = () => {
     watch(
-      () => innerValue.value + props.placeholder + inputPreRef.value.offsetWidth, // 有更好的处理方式再替换
+      () => innerValue.value + props.placeholder,
       () => {
         if (!props.autoWidth) return;
         nextTick(() => {
           updateInputWidth();
         });
       },
-      { immediate: true },
     );
   };
 
