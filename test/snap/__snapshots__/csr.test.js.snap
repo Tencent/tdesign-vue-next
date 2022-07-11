@@ -127232,6 +127232,10 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
 <div
   class="tdesign-demo-block"
 >
+  <h3>
+    时分选择
+  </h3>
+  <br />
   <div
     class="t-time-picker"
   >
@@ -127254,6 +127258,68 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
         <input
           class="t-input__inner"
           placeholder="选择时间"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-time"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <br />
+  <br />
+  <h3>
+    毫秒选择
+  </h3>
+  <br />
+  <div
+    class="t-time-picker"
+  >
+    
+    <div
+      class="t-input__wrap t-select-input"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
           readonly=""
           type="text"
           unselectable="on"
