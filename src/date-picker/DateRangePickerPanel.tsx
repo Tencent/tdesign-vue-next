@@ -1,13 +1,16 @@
 import { defineComponent, computed, ref } from 'vue';
 import dayjs from 'dayjs';
 
-import props from './date-range-picker-panel-props';
+import dateRangePickerPanelProps from './date-range-picker-panel-props';
+import dateRangePickerProps from './date-range-picker-props';
 import {
   DateValue,
   DateRangePickerPartial,
   TdDateRangePickerPanelProps,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
+  TdDatePickerPanelProps,
+  TdDatePickerProps,
 } from './type';
 
 import TRangePanel from './panel/RangePanel';
@@ -17,7 +20,25 @@ import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-pick
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
-  props,
+
+  props: {
+    value: dateRangePickerProps.value,
+    defaultValue: dateRangePickerProps.defaultValue,
+    modelValue: dateRangePickerProps.modelValue,
+    valueType: dateRangePickerProps.valueType,
+    disabled: dateRangePickerProps.disabled,
+    disableDate: dateRangePickerProps.disableDate,
+    enableTimePicker: dateRangePickerProps.enableTimePicker,
+    firstDayOfWeek: dateRangePickerProps.firstDayOfWeek,
+    format: dateRangePickerProps.format,
+    mode: dateRangePickerProps.mode,
+    presets: dateRangePickerProps.presets,
+    presetsPlacement: dateRangePickerProps.presetsPlacement,
+    timePickerProps: dateRangePickerProps.timePickerProps,
+    panelPreselection: dateRangePickerProps.panelPreselection,
+    ...dateRangePickerPanelProps,
+  },
+
   setup(props: TdDateRangePickerPanelProps) {
     const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
 
@@ -278,6 +299,7 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      panelPreselection: props.panelPreselection,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

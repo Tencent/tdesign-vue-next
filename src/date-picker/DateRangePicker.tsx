@@ -14,7 +14,11 @@ import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-pick
 
 export default defineComponent({
   name: 'TDateRangePicker',
-  props,
+
+  props: {
+    ...props,
+  },
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker');
 
@@ -60,7 +64,7 @@ export default defineComponent({
         ) as string[];
 
         // 确保右侧面板月份比左侧大 避免两侧面板月份一致
-        if (value.value.length === 2) {
+        if (value.value.length === 2 && !props.enableTimePicker) {
           const nextMonth = value.value.map((v) => dayjs(v).month());
           if (year[0] === year[1] && nextMonth[0] === nextMonth[1]) {
             nextMonth[0] === 11 ? (nextMonth[0] -= 1) : (nextMonth[1] += 1);
@@ -287,6 +291,8 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      popupVisible: popupVisible.value,
+      panelPreselection: props.panelPreselection,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

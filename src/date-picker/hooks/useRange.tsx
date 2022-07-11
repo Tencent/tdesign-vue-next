@@ -61,9 +61,6 @@ export default function useRange(props: TdDateRangePickerProps) {
       activeIndex.value = position === 'first' ? 0 : 1;
     },
     onChange: (newVal: string[], { e, position }: any) => {
-      const index = position === 'first' ? 0 : 1;
-
-      props.onInput?.({ input: newVal[index], value: value.value, partial: PARTIAL_MAP[position], e });
       inputValue.value = newVal;
 
       // 跳过不符合格式化的输入框内容

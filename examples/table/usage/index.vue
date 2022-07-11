@@ -5,23 +5,10 @@
       ><t-base-table
         v-bind="configProps"
         row-key="index"
-        :data="[
-          { index: 1, platform: '公用' },
-          { index: 2, platform: '私有' },
-        ]"
-        :columns="[
-          {
-            align: 'center',
-            width: '100',
-            colKey: 'index',
-            title: '序号',
-          },
-          {
-            width: 100,
-            colKey: 'platform',
-            title: '平台',
-          },
-        ]"
+        :data="data"
+        :columns="columns"
+        :maxHeight="140"
+        :pagination="{ total: 30 }"
     /></template>
   </base-usage>
 </template>
@@ -30,13 +17,27 @@
 /* eslint-disable */
 import { ref, onMounted } from 'vue';
 import baseConfigJson from './base-table-props.json';
+const data = ref(
+  Array(30)
+    .fill(0)
+    .map((_, i) => ({
+      index: i,
+      platform: '公有',
+      description: '数据源',
+    })),
+);
+const columns = ref([
+  { colKey: 'index', title: 'index' },
+  { colKey: 'platform', title: '平台' },
+  { colKey: 'description', title: '说明' },
+]);
 
 const configList = ref(baseConfigJson);
 const panelList = [{ label: 'baseTable', value: 'baseTable', config: baseConfigJson }];
 
 const usageCodeMap = {
   baseTable:
-    "<t-base-table\n        v-bind=\"configProps\"\n        row-key=\"index\"\n        :data=\"[{index:1,platform:'公用'},{index:2,platform:'私有'}]\"\n        :columns=\"[{\n          align: 'center',\n          width: '100',\n          colKey: 'index',\n          title: '序号',\n        },\n        {\n          width: 100,\n          colKey: 'platform',\n          title: '平台',\n        }]\"\n      />",
+    '<t-base-table\n        v-bind="configProps"\n        row-key="index"\n        :data="data"\n        :columns="columns"\n        :maxHeight="140"\n        :pagination="{ total: 30 }"\n      />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

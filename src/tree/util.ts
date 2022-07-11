@@ -118,6 +118,7 @@ export const getStoreConfig = (props: TdTreeProps) => {
     'activable',
     'activeMultiple',
     'disabled',
+    'draggable',
     'checkable',
     'checkStrictly',
     'load',
@@ -126,18 +127,4 @@ export const getStoreConfig = (props: TdTreeProps) => {
     'filter',
   ]);
   return storeProps;
-};
-
-export const getRightData = (list: TdTreeProps['data'], valueAlias: TdTreeProps['keys']['value']) => {
-  const ds = Array.isArray(list) ? list : [];
-  const key = valueAlias || 'value';
-  return ds.map((item) => {
-    if (item[key]) {
-      item[key] = item[key].toString();
-    }
-    if (item.children && Array.isArray(item.children)) {
-      item.children = getRightData(item.children, key);
-    }
-    return item;
-  });
 };

@@ -1,7 +1,11 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value" :options="options" :show-all-levels="false" />
-    <t-cascader v-model="value2" :options="options" :show-all-levels="false" multiple />
+    <div class="cascader-demo-panel-container">
+      <t-cascader-panel v-model="value" :options="options" />
+    </div>
+    <div class="cascader-demo-panel-container">
+      <t-cascader-panel v-model="value2" :options="options" multiple />
+    </div>
   </div>
 </template>
 
@@ -46,3 +50,9 @@ const options = [
 const value = ref('');
 const value2 = ref([]);
 </script>
+<style>
+.cascader-demo-panel-container {
+  border: 1px solid #eee;
+  width: 100%;
+}
+</style>

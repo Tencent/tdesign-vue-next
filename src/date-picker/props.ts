@@ -105,8 +105,6 @@ export default {
   onChange: Function as PropType<TdDatePickerProps['onChange']>,
   /** 输入框获得焦点时触发 */
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
-  /** 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
-  onInput: Function as PropType<TdDatePickerProps['onInput']>,
   /** 面板选中值后触发 */
   onPick: Function as PropType<TdDatePickerProps['onPick']>,
 };

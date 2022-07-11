@@ -14,7 +14,11 @@ import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePicker',
-  props,
+
+  props: {
+    ...props,
+  },
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 
@@ -182,6 +186,7 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      popupVisible: popupVisible.value,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

@@ -2,13 +2,7 @@ import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
 import Slider from '@/src/slider/index.ts';
-
-const inputNumberPropsInitData = {
-  decimalPlaces: 0,
-  format: (val) => `${val}%`,
-  placeholder: '',
-  theme: 'normal',
-};
+import { formatLabel } from '@/src/slider/util/common.ts';
 
 // ui test
 describe('Slider', () => {
@@ -84,7 +78,58 @@ describe('Slider', () => {
       });
     });
     // test prop label
-    // describe(':props.label', () => {});
+    describe(':props.label', () => {
+      it('label default value is undefined', () => {
+        const testValue = Math.floor(Math.random() * 100);
+        const wrapper = mount(
+          {
+            render() {
+              return <Slider modelValue={testValue} />;
+            },
+          },
+          { attachTo: document.getElementById('#app') },
+        );
+        const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
+        sliderTooltipVm.trigger('mouseenter').then((val) => {
+          const tooltipContent = sliderTooltipVm.componentVM.content;
+          expect(String(tooltipContent) === String(testValue)).toBeTruthy();
+        });
+      });
+      it(`label={string} without \${value}% works fine`, () => {
+        const testLabel = 'test label';
+        const wrapper = mount(
+          {
+            render() {
+              return <Slider label={testLabel} />;
+            },
+          },
+          { attachTo: document.getElementById('#app') },
+        );
+        const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
+        sliderTooltipVm.trigger('mouseenter').then((val) => {
+          const tooltipContent = sliderTooltipVm.componentVM.content;
+          expect(String(tooltipContent) === String(testLabel)).toBeTruthy();
+        });
+      });
+      it(`label={string} with \${value}% works fine`, () => {
+        const testLabel = `label:\${value}%`;
+        const testValue = Math.floor(Math.random() * 100);
+        const wrapper = mount(
+          {
+            render() {
+              return <Slider modelValue={testValue} label={testLabel} />;
+            },
+          },
+          { attachTo: document.getElementById('#app') },
+        );
+        const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
+        sliderTooltipVm.trigger('mouseenter').then((val) => {
+          const tooltipContent = sliderTooltipVm.componentVM.content;
+          const normalizeValue = formatLabel(testLabel, testValue);
+          expect(String(tooltipContent) === String(normalizeValue)).toBeTruthy();
+        });
+      });
+    });
     // test prop range
     describe(':props.range', () => {
       it('range default value is false', () => {

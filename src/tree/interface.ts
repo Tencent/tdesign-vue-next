@@ -54,3 +54,5 @@ export interface TypeGetTNodeOption {
   node?: TreeNode;
   createElement?: typeof h;
 }
+
+export type DropPosition = -1 | 0 | 1;

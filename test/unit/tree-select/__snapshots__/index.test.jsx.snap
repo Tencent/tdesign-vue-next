@@ -102,13 +102,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -591,13 +585,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1015,13 +1003,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1342,13 +1324,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span

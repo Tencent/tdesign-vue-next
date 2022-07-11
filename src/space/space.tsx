@@ -2,15 +2,17 @@ import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { useChildSlots } from '../hooks/slot';
 
 export default defineComponent({
   name: 'TSpace',
 
   props: { ...props },
 
-  setup(props, { slots }) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('space');
     const renderTNodeJSX = useTNodeJSX();
+    const getChildSlots = useChildSlots();
 
     const renderStyle = computed<CSSProperties>(() => {
       const sizeMap = { small: '8px', medium: '16px', large: '24px' };
@@ -37,12 +39,11 @@ export default defineComponent({
     });
 
     function renderChildren() {
-      const children = slots.default();
-      const childCount = children.length;
+      const children = getChildSlots();
       const separatorContent = renderTNodeJSX('separator');
       return children.map((child, index) => {
         // filter last child
-        const showSeparator = index + 1 !== childCount && separatorContent;
+        const showSeparator = index + 1 !== children.length && separatorContent;
         return (
           <Fragment>
             <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>

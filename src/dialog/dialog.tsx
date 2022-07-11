@@ -92,16 +92,14 @@ export default defineComponent({
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
+    const dialogPosition = ref<HTMLElement | null>(null);
     const { global } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
       props.onCancel?.({ e });
-      emitCloseEvent({
-        trigger: 'cancel',
-        e,
-      });
+      emitCloseEvent({ e, trigger: 'cancel' });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
 
@@ -194,20 +192,16 @@ export default defineComponent({
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
-          emitCloseEvent({
-            trigger: 'esc',
-            e,
-          });
+          emitCloseEvent({ e, trigger: 'esc' });
         }
       }
     };
     const overlayAction = (e: MouseEvent) => {
       if (props.showOverlay && (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick)) {
-        props.onOverlayClick?.({ e });
-        emitCloseEvent({
-          trigger: 'overlay',
-          e,
-        });
+        if (e.target === dialogPosition.value) {
+          props.onOverlayClick?.({ e });
+          emitCloseEvent({ e, trigger: 'overlay' });
+        }
       }
     };
     const closeBtnAction = (e: MouseEvent) => {
@@ -282,16 +276,14 @@ export default defineComponent({
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
-
-        <div class={wrapClass.value} onClick={overlayAction}>
-          <div class={positionClass.value} style={positionStyle.value}>
+        <div class={wrapClass.value}>
+          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction} ref={dialogPosition}>
             <div
               key="dialog"
               class={dialogClass.value}
               style={dialogStyle.value}
               v-draggable={isModeLess.value && props.draggable}
-              ref="dialogEle"
-              onClick={(e) => e.stopPropagation()}
+              ref={dialogEle}
             >
               <div class={`${COMPONENT_NAME.value}__header`}>
                 {getIcon()}

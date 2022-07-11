@@ -24,6 +24,7 @@ export default defineComponent({
     time: String,
     firstDayOfWeek: Number,
     partial: String,
+    popupVisible: Boolean,
     onYearChange: Function,
     onMonthChange: Function,
     onJumperClick: Function,
@@ -75,6 +76,8 @@ export default defineComponent({
             <div class={`${COMPONENT_NAME.value}--time-viewer`}>{props.time || defaultTimeValue.value}</div>
             <TTimePickerPanel
               {...{
+                key: props.partial,
+                isShowPanel: props.popupVisible,
                 format: timeFormat,
                 value: props.time,
                 onChange: props.onTimePickerChange,

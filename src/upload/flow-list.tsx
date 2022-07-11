@@ -23,6 +23,8 @@ export default defineComponent({
   name: 'TUploadFlowList',
   props: {
     showUploadProgress: props.showUploadProgress,
+    // 是否过滤重复文件
+    allowUploadDuplicateFile: props.allowUploadDuplicateFile,
     placeholder: props.placeholder,
     autoUpload: props.autoUpload,
     disabled: props.disabled,
@@ -53,8 +55,12 @@ export default defineComponent({
     const waitingUploadFiles = computed(() => {
       const list: Array<UploadFile> = [];
       props.toUploadFiles.forEach((item: UploadFile) => {
-        const r = props.files.filter((t: UploadFile) => t.name === item.name);
-        if (!r.length) {
+        if (!props.allowUploadDuplicateFile) {
+          const r = props.files.filter((t: UploadFile) => t.name === item.name);
+          if (!r.length) {
+            list.push(item);
+          }
+        } else {
           list.push(item);
         }
       });

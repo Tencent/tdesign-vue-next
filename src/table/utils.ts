@@ -155,3 +155,14 @@ export function getAffixProps(mainAffixProps: boolean | AffixProps, subAffixProp
   if (typeof subAffixProps === 'object') return subAffixProps;
   return {};
 }
+
+export function getEditableKeysMap(keys: Array<string | number>, list: any[], rowKey: string) {
+  const map: { [key: string | number]: boolean } = {};
+  for (let i = 0, len = list.length; i < len; i++) {
+    const rowValue = get(list[i], rowKey);
+    if (keys.includes(rowValue)) {
+      map[rowValue] = true;
+    }
+  }
+  return map;
+}

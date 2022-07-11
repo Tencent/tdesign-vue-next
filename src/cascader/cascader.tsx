@@ -80,13 +80,16 @@ export default defineComponent({
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
             ],
           }}
-          inputProps={{ size: props.size }}
+          inputProps={{ size: props.size, ...(props.inputProps as TdCascaderProps['inputProps']) }}
           tagInputProps={{
+            autoWidth: true,
             size: props.size,
+            ...(props.tagInputProps as TdCascaderProps['tagInputProps']),
           }}
+          tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
           {...(props.selectInputProps as TdSelectInputProps)}
           onInputChange={(value) => {
-            if (!visible) return;
+            if (!isFilterable.value) return;
             setInputVal(`${value}`);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
