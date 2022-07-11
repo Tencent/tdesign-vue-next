@@ -4,6 +4,34 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.17.4 `2022-07-11` 
+### 🚀 Features
+- `DatePicker`: 新增 `panelPreselection api` @HQ-Lin ([#1164](https://github.com/Tencent/tdesign-vue-next/pull/1164))
+- `Drawer`: 新增`sizeDraggble`属性 支持通过拖拽改变抽屉宽度/高度 @uyarn ([#1167](https://github.com/Tencent/tdesign-vue-next/pull/1167))
+- `CascaderPanel`: 增加 `cascader-panel` 组件 @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
+- `Cascader`: 增加 `inputProps`, ` tagInputProps`, `tagProps` 属性 @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
+- `Dialog`: 修复打开对话框，出现滚动条([#1163](https://github.com/Tencent/tdesign-vue-next/issues/1163)) @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
+- `Table`: 支持行编辑功能 @chaishi ([#1186](https://github.com/Tencent/tdesign-vue-next/pull/1186))
+- `Upload`: 增加 `allowUploadDuplicateFile` 支持配置相同文件名上传行为 @morningbao ([#1187](https://github.com/Tencent/tdesign-vue-next/pull/1187))
+- `TimePicker`: 支持毫秒使用场景 @uyarn ([#1195](https://github.com/Tencent/tdesign-vue-next/pull/1195))
+- `Tree`:  tree 支持拖拽 @ardor-zhang ([#1119](https://github.com/Tencent/tdesign-vue-next/pull/1119))
+### 🐞 Bug Fixes
+- `Space`: 通过FOR循环的内容 没有实现间隔效果 ([issue #1084](https://github.com/Tencent/tdesign-vue-next/issues/1084)) @pengYYYYY ([#1156](https://github.com/Tencent/tdesign-vue-next/pull/1156))
+- `DatePicker`: 修复日期格式化问题 @HQ-Lin ([#1164](https://github.com/Tencent/tdesign-vue-next/pull/1164))
+- `TimePicker`: 优化可输入模式的使用体验 避免高频输入场景与滚动事件重复更新 `value` 的异常 @uyarn ([#1169](https://github.com/Tencent/tdesign-vue-next/pull/1169))
+- `Tree`: 取消修改 `value` 类型, 将传入 `TCheckBox` 组件的 `name` 转为 `string` 类型 @sufuwang ([#1172](https://github.com/Tencent/tdesign-vue-next/pull/1172))
+- `Cascader`: 修复筛选无法输入问题 @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
+- `DatePicker`: 优化面板月份展示 @HQ-Lin ([#1180](https://github.com/Tencent/tdesign-vue-next/pull/1180))
+- `Transfer`: 全选应该只选择搜索后的结果 @btea ([#1177](https://github.com/Tencent/tdesign-vue-next/pull/1177))
+- `Dialog`: 修复 `dialog` 阻止冒泡导致 `popup` 无法正常关闭 @HQ-Lin ([#1178](https://github.com/Tencent/tdesign-vue-next/pull/1178))
+- `Slider`: 修复 `label` 属性不生效 `bug` @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
+- `Slider`: 修复 `tooltipProps` 为布尔值时丢失响应性问题 @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
+- `Select`: 多选下 `hover` 出现换行的异常 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
+- `Dialog`: 内部样式未使用prefix导致替换前缀方式的样式丢失 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
+- `Input`: `autoWidth` 在部分场景下失效导致组件样式异常 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
+- `Drawer`: 修复开启 `destroyOnClose` 之后，没了动画效果 ([issue #1176](https://github.com/Tencent/tdesign-vue-next/issues/1176)) @pengYYYYY ([#1185](https://github.com/Tencent/tdesign-vue-next/pull/1185))
+- `TreeSelect`: 修复异步加载回显展示问题 @Godlike-meteor ([#1194](https://github.com/Tencent/tdesign-vue-next/pull/1194))
+- `Textarea`: 修复无法传入 `attrs` 中的 `style` @sinbadmaster ([#1179](https://github.com/Tencent/tdesign-vue-next/pull/1179))
 
 ## 🌈 0.17.3 `2022-07-04` 
 ### 🚀 Features
