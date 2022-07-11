@@ -55,6 +55,8 @@ export default defineComponent({
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
       } else if (attrs.rows) {
         textareaStyle.value = { height: 'auto', minHeight: 'auto' };
+      } else if (attrs.style && refTextareaElem.value?.style?.height) {
+        textareaStyle.value = { height: refTextareaElem.value.style.height };
       }
     };
 
@@ -106,6 +108,7 @@ export default defineComponent({
     };
 
     const emitFocus = (e: FocusEvent) => {
+      adjustTextareaHeight();
       if (disabled.value) return;
       focused.value = true;
       props.onFocus?.(innerValue.value, { e });
@@ -113,6 +116,7 @@ export default defineComponent({
 
     const formItem = inject(FormItemInjectionKey, undefined);
     const emitBlur = (e: FocusEvent) => {
+      adjustTextareaHeight();
       focused.value = false;
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
