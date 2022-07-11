@@ -16,7 +16,7 @@ export default function useInputWidth(
 
   const addListeners = () => {
     watch(
-      () => innerValue.value + props.placeholder,
+      () => innerValue.value + props.placeholder + inputPreRef.value.offsetWidth, // 有更好的处理方式再替换
       () => {
         if (!props.autoWidth) return;
         nextTick(() => {
