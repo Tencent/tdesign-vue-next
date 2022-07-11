@@ -215,6 +215,7 @@ export default defineComponent({
           theme={props.theme}
           batchUpload={uploadCtx.canBatchUpload}
           showUploadProgress={props.showUploadProgress}
+          allowUploadDuplicateFile={props.allowUploadDuplicateFile}
           onRemove={handleListRemove}
           onUpload={multipleUpload}
           onCancel={cancelUpload}

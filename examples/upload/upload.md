@@ -12,6 +12,7 @@
 -- | -- | -- | -- | --
 accept | String | - | 接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file) | N
 action | String | - | 上传接口 | N
+allowUploadDuplicateFile | Boolean | false | 是否允许重复上传相同文件名的文件 | N
 autoUpload | Boolean | true | 是否选取文件后自动上传 | N
 beforeUpload | Function | - | 上传文件之前的钩子，参数为上传的文件，返回值决定是否上传。TS 类型：`(file: File | UploadFile) => boolean | Promise<boolean>` | N
 data | Object | - | 上传文件时所需的额外数据。TS 类型：`Record<string, any> | ((file: File) => Record<string, any>)` | N

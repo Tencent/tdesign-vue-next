@@ -145692,6 +145692,141 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/file-flow-list-bat
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/upload/demos/file-flow-list-duplicate.vue 1`] = `
+<div
+  class="t-upload__file-flow-demo"
+>
+  <div>
+    是否重复文件上传：
+    <div
+      class="t-switch t-size-m"
+      disabled="false"
+    >
+      <span
+        class="t-switch__handle"
+      >
+        <!---->
+      </span>
+      <div
+        class="t-switch__content t-size-m"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-upload"
+  >
+    <input
+      accept=""
+      hidden=""
+      multiple=""
+      type="file"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="t-upload__flow t-upload__flow-file-flow"
+    >
+      <div
+        class="t-upload__flow-op"
+      >
+        
+        <div
+          class="t-upload__trigger"
+        >
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              选择文件
+              
+            </span>
+          </button>
+        </div>
+        
+        <small
+          class="t-size-s t-upload__flow-placeholder"
+        >
+          支持批量上传文件，文件格式不限，最多只能上传 10 份文件
+        </small>
+      </div>
+      <table
+        class="t-upload__flow-table"
+      >
+        <tr>
+          <th>
+            文件名
+          </th>
+          <th>
+            文件大小
+          </th>
+          <th>
+            状态
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+        <tr>
+          <td
+            colspan="4"
+          >
+            <div
+              class="t-upload__flow-empty"
+            >
+              点击上方“选择文件”或将文件拖拽到此区域
+            </div>
+          </td>
+        </tr>
+        
+        
+      </table>
+      <!---->
+      <div
+        class="t-upload__flow-bottom"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            取消上传
+            
+          </span>
+        </button>
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            点击上传
+            
+          </span>
+        </button>
+      </div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
 <div
   class="tdesign-demo-upload"
