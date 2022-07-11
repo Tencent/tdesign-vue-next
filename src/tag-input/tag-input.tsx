@@ -143,7 +143,9 @@ export default defineComponent({
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
-        showInput={!this.readonly || !this.tagValue || !this.tagValue?.length}
+        showInput={
+          !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
+        }
         keepWrapperWidth={true}
         onWheel={this.onWheel}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {

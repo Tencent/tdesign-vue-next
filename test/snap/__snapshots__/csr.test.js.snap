@@ -23704,13 +23704,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -23794,13 +23788,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -23876,13 +23864,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -23959,13 +23941,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
         
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -24078,14 +24054,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        disabled=""
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -24209,13 +24178,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -24513,13 +24476,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -24705,13 +24662,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -25570,13 +25521,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <span
         class="t-input__input-pre"
       >
@@ -80163,13 +80108,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -80251,13 +80190,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -80340,13 +80273,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
           
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -80720,13 +80647,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -80866,13 +80787,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
           
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -81055,14 +80970,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          disabled=""
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -81417,13 +81325,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -81583,13 +81485,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -81767,13 +81663,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -81877,13 +81767,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
           </span>
           
         </div>
-        <input
-          class="t-input__inner"
-          placeholder=""
-          readonly=""
-          type="text"
-          unselectable="on"
-        />
+        <!---->
         <span
           class="t-input__input-pre"
         >
@@ -82516,13 +82400,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/scroll-top.vue 1`]
             </span>
             
           </div>
-          <input
-            class="t-input__inner"
-            placeholder=""
-            readonly=""
-            type="text"
-            unselectable="on"
-          />
+          <!---->
           <span
             class="t-input__input-pre"
           >
@@ -83641,13 +83519,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -83823,13 +83695,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -98444,13 +98310,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                         </span>
                         
                       </div>
-                      <input
-                        class="t-input__inner"
-                        placeholder=""
-                        readonly=""
-                        type="text"
-                        unselectable="on"
-                      />
+                      <!---->
                       <span
                         class="t-input__input-pre"
                       >
@@ -125878,7 +125738,13 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           </span>
           
         </div>
-        <!---->
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
         <!---->
         <!---->
         <!---->
@@ -144357,13 +144223,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -144432,13 +144292,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -144691,13 +144545,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
@@ -145059,13 +144907,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         </span>
         
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      <!---->
       <!---->
       <!---->
       <span
