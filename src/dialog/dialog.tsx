@@ -1,4 +1,14 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
+import {
+  computed,
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  Transition,
+  watch,
+  getCurrentInstance,
+} from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
@@ -8,6 +18,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
+import { stack } from './stack';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -104,7 +115,6 @@ export default defineComponent({
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
 
     useDestroyOnClose();
-
     const scrollWidth = ref(0);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
@@ -176,9 +186,19 @@ export default defineComponent({
           document.body.style.cssText = '';
           removeClass(document.body, LOCK_CLASS.value);
         }
+        storeUid(value);
         addKeyboardEvent(value);
       },
     );
+
+    const instance = getCurrentInstance();
+    const storeUid = (flag: boolean) => {
+      if (flag) {
+        stack.push(instance.uid);
+      } else {
+        stack.pop();
+      }
+    };
 
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
@@ -188,7 +208,7 @@ export default defineComponent({
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape') {
+      if (e.code === 'Escape' && stack.top === instance.uid) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
