@@ -18,6 +18,11 @@ export interface TdUploadProps {
    */
   action?: string;
   /**
+   * 是否允许重复上传相同文件名的文件
+   * @default false
+   */
+  allowUploadDuplicateFile?: boolean;
+  /**
    * 是否选取文件后自动上传
    * @default true
    */

@@ -212,6 +212,10 @@ export default defineComponent({
       expanded.value = valueParam;
     };
 
+    const treeNodeLoad = () => {
+      changeNodeInfo();
+    };
+
     const inputChange = (value: InputValue): boolean => {
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
@@ -269,8 +273,9 @@ export default defineComponent({
       if (treeRef.value && (props.treeProps as TreeProps)?.load) {
         if (!isEmpty(props.data)) {
           const node = treeRef.value.getItem(nodeValue);
-          if (!node) return;
-          return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+          if (node) {
+            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+          }
         }
         return { label: nodeValue, value: nodeValue };
       }
@@ -287,8 +292,9 @@ export default defineComponent({
         if (treeRef.value && (props.treeProps as TreeProps)?.load) {
           if (!isEmpty(props.data)) {
             const node = treeRef.value.getItem(nodeValue);
-            if (!node) return;
-            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            if (node) {
+              return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            }
           }
           return { label: nodeValue, value: nodeValue };
         }
@@ -338,6 +344,7 @@ export default defineComponent({
         onChange={treeNodeChange}
         onActive={treeNodeActive}
         onExpand={treeNodeExpand}
+        onLoad={treeNodeLoad}
         expandOnClickNode
         v-slots={{
           empty: () =>

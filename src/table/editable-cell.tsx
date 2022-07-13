@@ -3,11 +3,12 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { Edit1Icon } from 'tdesign-icons-vue-next';
-import { TableRowData, PrimaryTableCol } from './type';
-import useClassName from './hooks/useClassName';
+import { TableRowData, PrimaryTableCol, PrimaryTableRowEditContext, PrimaryTableRowValidateContext } from './type';
+import { TableClassName } from './hooks/useClassName';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
+import { AllValidateResult } from '../form/type';
 
 export interface EditableCellProps {
   row: TableRowData;
@@ -15,6 +16,13 @@ export interface EditableCellProps {
   col: PrimaryTableCol<TableRowData>;
   colIndex: number;
   oldCell: PrimaryTableCol<TableRowData>['cell'];
+  tableBaseClass?: TableClassName['tableBaseClass'];
+  /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
+  editable?: boolean;
+  errors?: AllValidateResult[];
+  onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
+  onValidate?: (context: PrimaryTableRowValidateContext<TableRowData>) => void;
+  onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
 }
 
 export default defineComponent({
@@ -25,15 +33,26 @@ export default defineComponent({
     col: Object as PropType<EditableCellProps['col']>,
     colIndex: Number,
     oldCell: [Function, String] as PropType<EditableCellProps['oldCell']>,
+    tableBaseClass: Object as PropType<EditableCellProps['tableBaseClass']>,
+    editable: {
+      type: Boolean,
+      default: undefined,
+    },
+    errors: {
+      type: Object as PropType<EditableCellProps['errors']>,
+      default: undefined,
+    },
+    onChange: Function as PropType<EditableCellProps['onChange']>,
+    onValidate: Function as PropType<EditableCellProps['onValidate']>,
+    onRuleChange: Function as PropType<EditableCellProps['onRuleChange']>,
   },
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
-    const { tableBaseClass } = useClassName();
     const tableEditableCellRef = ref(null);
     const isEdit = ref(false);
     const editValue = ref();
-    const errorList = ref();
+    const errorList = ref<AllValidateResult[]>();
 
     const currentRow = computed(() => {
       const newRow = { ...row.value };
@@ -81,18 +100,35 @@ export default defineComponent({
       return Boolean(edit.abortEditOnEvent?.includes('onChange'));
     });
 
-    const validateEdit = () => {
+    const validateEdit = (trigger: 'self' | 'parent') => {
       return new Promise((resolve) => {
+        const params: PrimaryTableRowValidateContext<TableRowData> = {
+          result: [
+            {
+              col: props.col,
+              row: props.row,
+              colIndex: props.colIndex,
+              rowIndex: props.rowIndex,
+              errorList: [],
+              value: editValue.value,
+            },
+          ],
+          trigger,
+        };
         if (!col.value.edit?.rules) {
+          props.onValidate?.(params);
           resolve(true);
           return;
         }
         validate(editValue.value, col.value.edit?.rules).then((result) => {
-          errorList.value = result?.filter((t) => !t.result);
-          if (!errorList.value || !errorList.value.length) {
+          const list = result?.filter((t) => !t.result);
+          params.result[0].errorList = list;
+          props.onValidate?.(params);
+          if (!list || !list.length) {
             resolve(true);
           } else {
-            resolve(errorList);
+            errorList.value = list;
+            resolve(list);
           }
         });
       });
@@ -106,10 +142,12 @@ export default defineComponent({
     };
 
     const updateAndSaveAbort = (outsideAbortEvent: Function, ...args: any) => {
-      validateEdit().then((result) => {
+      validateEdit('self').then((result) => {
         if (result !== true) return;
+        const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化
-        if (!isSame(editValue.value, get(row.value, col.value.colKey))) {
+        if (!isSame(editValue.value, oldValue)) {
+          editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
@@ -122,7 +160,8 @@ export default defineComponent({
 
     const listeners = computed<{ [key: string]: Function }>(() => {
       const { edit } = col.value;
-      if (!isEdit.value) return;
+      const isCellEditable = props.editable === undefined;
+      if (!isEdit.value || !isCellEditable) return;
       if (!edit?.abortEditOnEvent?.length) return {};
       // 自定义退出编辑态的事件
       const tListeners = {};
@@ -147,7 +186,17 @@ export default defineComponent({
 
     const onEditChange = (val: any, ...args: any) => {
       editValue.value = val;
-      if (isAbortEditOnChange.value) {
+      const params = {
+        row: props.row,
+        rowIndex: props.rowIndex,
+        value: val,
+        col: props.col,
+        colIndex: props.colIndex,
+      };
+      props.onChange?.(params);
+      props.onRuleChange?.(params);
+      const isCellEditable = props.editable === undefined;
+      if (isCellEditable && isAbortEditOnChange.value) {
         const outsideAbortEvent = col.value.edit?.onEdited;
         updateAndSaveAbort(
           outsideAbortEvent,
@@ -163,7 +212,7 @@ export default defineComponent({
 
     const documentClickHandler = (e: PointerEvent) => {
       if (!col.value.edit || !col.value.edit.component) return;
-      if (!isEdit.value || !tableEditableCellRef.value?.$el) return;
+      if (!isEdit.value) return;
       // @ts-ignore
       if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
       const outsideAbortEvent = col.value.edit.onEdited;
@@ -174,10 +223,12 @@ export default defineComponent({
       });
     };
 
+    const cellValue = computed(() => get(row.value, col.value.colKey));
+
     watch(
-      row,
-      (row) => {
-        let val = get(row, col.value.colKey);
+      cellValue,
+      (cellValue) => {
+        let val = cellValue;
         if (typeof val === 'object' && val !== null) {
           val = val instanceof Array ? [...val] : { ...val };
         }
@@ -187,7 +238,8 @@ export default defineComponent({
     );
 
     watch(isEdit, (isEdit) => {
-      if (!col.value.edit || !col.value.edit.component) return;
+      const isCellEditable = props.editable === undefined;
+      if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
       if (isEdit) {
         document.addEventListener('click', documentClickHandler);
       } else {
@@ -195,59 +247,72 @@ export default defineComponent({
       }
     });
 
-    return {
-      editValue,
-      isEdit,
-      tableBaseClass,
-      cellNode,
-      isAbortEditOnChange,
-      listeners,
-      componentProps,
-      tableEditableCellRef,
-      errorList,
-      onEditChange,
-    };
-  },
+    watch(
+      () => props.editable,
+      () => {
+        // 退出编辑态时，恢复原始值，等待父组件传入新的 data 值
+        if (props.editable === false) {
+          editValue.value = cellValue.value;
+        } else {
+          props.onRuleChange?.({
+            col: col.value,
+            row: row.value,
+            rowIndex: props.rowIndex,
+            colIndex: props.colIndex,
+            value: cellValue.value,
+          });
+        }
+      },
+      { immediate: true },
+    );
 
-  render() {
-    if (!this.isEdit) {
+    watch(
+      () => props.errors,
+      () => {
+        errorList.value = props.errors;
+      },
+    );
+
+    return () => {
+      // props.editable = undefined 表示由组件内部控制编辑状态
+      if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
+        return (
+          <div
+            class={props.tableBaseClass.cellEditable}
+            onClick={(e: MouseEvent) => {
+              isEdit.value = true;
+              e.stopPropagation();
+            }}
+          >
+            {cellNode.value}
+            {col.value.edit?.showEditIcon !== false && <Edit1Icon size="12px" />}
+          </div>
+        );
+      }
+      const component = col.value.edit?.component;
+      if (!component) {
+        log.error('Table', 'edit.component is required.');
+        return null;
+      }
+      const errorMessage = errorList.value?.[0]?.message;
       return (
         <div
-          class={this.tableBaseClass.cellEditable}
+          class={props.tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
-            this.isEdit = true;
             e.stopPropagation();
           }}
         >
-          {this.cellNode}
-          <Edit1Icon size="12px" />
+          <component
+            ref="tableEditableCellRef"
+            status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
+            tips={errorMessage}
+            {...componentProps.value}
+            {...listeners.value}
+            value={editValue.value}
+            onChange={onEditChange}
+          />
         </div>
       );
-    }
-    // @ts-ignore
-    const component = this.col.edit?.component;
-    if (!component) {
-      log.error('Table', 'edit.component is required.');
-      return null;
-    }
-    const errorMessage = this.errorList?.[0]?.message;
-    return (
-      <div
-        class={this.tableBaseClass.cellEditWrap}
-        onClick={(e: MouseEvent) => {
-          e.stopPropagation();
-        }}
-      >
-        <component
-          ref="tableEditableCellRef"
-          status={errorMessage ? this.errorList?.[0]?.type || 'error' : undefined}
-          tips={errorMessage}
-          {...this.componentProps}
-          {...this.listeners}
-          value={this.editValue}
-          onChange={this.onEditChange}
-        />
-      </div>
-    );
+    };
   },
 });

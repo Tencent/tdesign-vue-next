@@ -23,7 +23,6 @@ export default function useInputWidth(
           updateInputWidth();
         });
       },
-      { immediate: true },
     );
   };
 

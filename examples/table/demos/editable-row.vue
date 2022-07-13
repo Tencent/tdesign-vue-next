@@ -1,13 +1,23 @@
 <template>
-  <div>
+  <div class="t-table-demo__editable-row">
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
-    <t-table row-key="key" :columns="columns" :data="data" bordered @row-validate="onRowValidate" />
+    <t-table
+      ref="tableRef"
+      row-key="key"
+      :columns="columns"
+      :data="data"
+      :editable-row-keys="editableRowKeys"
+      vertical-align="top"
+      bordered
+      @row-edit="onRowEdit"
+      @row-validate="onRowValidate"
+    />
   </div>
 </template>
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
-import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
+import { Input, Select, DatePicker, MessagePlugin, Button } from 'tdesign-vue-next';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -24,11 +34,63 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   createTime: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
 }));
 
+const tableRef = ref();
 const align = ref('left');
 const data = ref([...initData]);
+const editableRowKeys = ref(['1']);
+const currentSaveId = ref('');
+// 保存变化过的行信息
+const editMap = {};
+
+const onEdit = (e) => {
+  const { id } = e.currentTarget.dataset;
+  if (!editableRowKeys.value.includes(id)) {
+    editableRowKeys.value.push(id);
+  }
+};
+
+// 更新 editableRowKeys
+const updateEditState = (id) => {
+  const index = editableRowKeys.value.findIndex((t) => t === id);
+  editableRowKeys.value.splice(index, 1);
+};
+
+const onCancel = (e) => {
+  const { id } = e.currentTarget.dataset;
+  updateEditState(id);
+};
+
+const onSave = (e) => {
+  const { id } = e.currentTarget.dataset;
+  currentSaveId.value = id;
+  // 触发内部校验，而后在 onRowValidate 中接收异步校验结果
+  tableRef.value.validateRowDate(id);
+};
 
 const onRowValidate = (params) => {
   console.log('validate:', params);
+  if (params.result.length) {
+    const r = params.result[0];
+    MessagePlugin.error(`${r.col.title} ${r.errorList[0].message}`);
+    return;
+  }
+  // 如果是 table 的父组件主动触发校验
+  if (params.trigger === 'parent' && !params.result.length) {
+    const current = editMap[currentSaveId.value];
+    if (!current) return;
+    data.value.splice(current.rowIndex, 1, current.editedRow);
+    MessagePlugin.success('保存成功');
+    updateEditState(currentSaveId.value);
+  }
+};
+
+const onRowEdit = (params) => {
+  const { row, rowIndex, col, value } = params;
+  const oldRowData = editMap[row.key]?.editedRow || row;
+  editMap[row.key] = {
+    ...params,
+    editedRow: { ...oldRowData, [col.colKey]: value },
+  };
 };
 
 const columns = computed(() => [
@@ -45,20 +107,14 @@ const columns = computed(() => [
       props: {
         clearable: true,
         autofocus: true,
-      },
-      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
-      abortEditOnEvent: ['onEnter'],
-      // 编辑完成，退出编辑态后触发
-      onEdited: (context) => {
-        data.value.splice(context.rowIndex, 1, context.newRowData);
-        console.log('Edit firstName:', context);
-        MessagePlugin.success('Success');
+        autoWidth: true,
       },
       // 校验规则，此处同 Form 表单
       rules: [
         { required: true, message: '不能为空' },
         { max: 10, message: '字符数量不能超过 10', type: 'warning' },
       ],
+      showEditIcon: false,
     },
   },
   {
@@ -68,7 +124,7 @@ const columns = computed(() => [
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {
-        clearable: true,
+        autoWidth: true,
         options: [
           { label: 'Vue', value: 'Vue' },
           { label: 'React', value: 'React' },
@@ -76,14 +132,7 @@ const columns = computed(() => [
           { label: 'Flutter', value: 'Flutter' },
         ],
       },
-      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
-      abortEditOnEvent: ['onChange'],
-      // 编辑完成，退出编辑态后触发
-      onEdited: (context) => {
-        data.value.splice(context.rowIndex, 1, context.newRowData);
-        console.log('Edit Framework:', context);
-        MessagePlugin.success('Success');
-      },
+      showEditIcon: false,
     },
   },
   {
@@ -99,6 +148,7 @@ const columns = computed(() => [
         return {
           multiple: true,
           minCollapsedNum: 1,
+          autoWidth: true,
           options: [
             { label: 'A', value: 'A' },
             { label: 'B', value: 'B' },
@@ -111,29 +161,59 @@ const columns = computed(() => [
           ].filter((t) => (t.show === undefined ? true : t.show())),
         };
       },
-      // abortEditOnEvent: ['onChange'],
-      onEdited: (context) => {
-        data.value.splice(context.rowIndex, 1, context.newRowData);
-        console.log('Edit Letters:', context);
-        MessagePlugin.success('Success');
-      },
+      showEditIcon: false,
     },
   },
   {
     title: 'Date',
     colKey: 'createTime',
+    className: 't-demo-col__datepicker',
+    // props, 透传全部属性到 DatePicker 组件
     edit: {
       component: DatePicker,
-      // props, 透传全部属性到 DatePicker 组件
-      props: {},
-      // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
-      abortEditOnEvent: ['onChange'],
-      onEdited: (context) => {
-        data.value.splice(context.rowIndex, 1, context.newRowData);
-        console.log('Edit Date:', context);
-        MessagePlugin.success('Success');
-      },
+      showEditIcon: false,
+    },
+  },
+  {
+    title: 'Operate',
+    colKey: 'operate',
+    width: 150,
+    cell: (h, { row }) => {
+      const editable = editableRowKeys.value.includes(row.key);
+      return (
+        <div class="table-operations">
+          {!editable && (
+            <Button theme="primary" variant="text" data-id={row.key} onClick={onEdit}>
+              编辑
+            </Button>
+          )}
+          {editable && (
+            <Button theme="primary" variant="text" data-id={row.key} onClick={onSave}>
+              保存
+            </Button>
+          )}
+          {editable && (
+            <Button theme="primary" variant="text" data-id={row.key} onClick={onCancel}>
+              取消
+            </Button>
+          )}
+        </div>
+      );
     },
   },
 ]);
 </script>
+
+<style lang="less">
+.t-table-demo__editable-row {
+  .table-operations > button {
+    padding: 0 8px;
+    line-height: 22px;
+    height: 22px;
+  }
+
+  .t-demo-col__datepicker .t-date-picker {
+    width: 120px;
+  }
+}
+</style>
