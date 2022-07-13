@@ -715,6 +715,7 @@ export function updateRowIndex<T>(
     if (!state) {
       log.warn('Table', 'tree map went wrong');
     }
-    state.rowIndex = rowIndex + (extra?.count || 1) - 1;
+    // state.rowIndex = rowIndex + (extra?.count || 1) - 1;
+    state.rowIndex = rowIndex;
   }
 }
