@@ -91,7 +91,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
 
   const handleClickAllShowColumns = (checked: boolean, ctx: { e: Event }) => {
     if (checked) {
-      const newData = columns.value?.map((t) => t.colKey) || [];
+      const newData = checkboxOptions.value?.map((t) => t.value) || [];
       columnCheckboxKeys.value = newData;
       props.onColumnChange?.({ type: 'check', columns: newData, e: ctx.e });
     } else {
