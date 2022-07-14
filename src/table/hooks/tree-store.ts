@@ -262,7 +262,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
         minRowIndex: firstNewChildrenIndex,
         rowKey: keys.rowKey,
         type: 'add',
-        count: newChildrenData.length,
+        count: Math.max(newChildrenData.length - 1, 0),
       });
     }
 
