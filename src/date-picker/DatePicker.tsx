@@ -50,10 +50,10 @@ export default defineComponent({
     );
 
     watchEffect(() => {
-      if (!props.enableTimePicker) return;
-
       // 面板展开重置数据
       if (popupVisible.value) {
+        year.value = dayjs(value.value || new Date()).year();
+        month.value = dayjs(value.value || new Date()).month();
         cacheValue.value = formatRef.value.formatDate(value.value || new Date());
         time.value = formatRef.value.formatTime(value.value || new Date());
       }
