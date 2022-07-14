@@ -11,6 +11,7 @@ export default function useInputWidth(
   const updateInputWidth = () => {
     if (!inputPreRef.value) return;
     const width = inputPreRef.value.offsetWidth;
+    if (width === 0) return;
     inputRef.value.style.width = `${width}px`;
   };
 
@@ -23,6 +24,7 @@ export default function useInputWidth(
           updateInputWidth();
         });
       },
+      { immediate: true },
     );
   };
 
