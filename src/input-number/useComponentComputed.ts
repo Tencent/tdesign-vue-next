@@ -134,7 +134,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
   watch(
     innerValue,
     (v) => {
-      if (v !== undefined) {
+      if (v !== undefined && typeof v === 'number') {
         inputNumberTools.isValidNumber(v);
       }
     },
