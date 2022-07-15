@@ -40430,10 +40430,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-picker__panel--content"
+          class="t-date-picker__panel-content"
         >
           <div
-            class="t-date-picker__panel--date"
+            class="t-date-picker__panel-date"
           >
             <div
               class="t-date-picker__header"
@@ -40442,7 +40442,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-date-picker__header-controller"
               >
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--month"
+                  class="t-select__wrap t-date-picker__header-controller-month"
                 >
                   
                   <div
@@ -40495,7 +40495,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </div>
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--year"
+                  class="t-select__wrap t-date-picker__header-controller-year"
                 >
                   
                   <div
@@ -41121,10 +41121,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-picker__panel--content"
+          class="t-date-picker__panel-content"
         >
           <div
-            class="t-date-picker__panel--date"
+            class="t-date-picker__panel-date"
           >
             <div
               class="t-date-picker__header"
@@ -41133,7 +41133,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-date-picker__header-controller"
               >
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--month"
+                  class="t-select__wrap t-date-picker__header-controller-month"
                 >
                   
                   <div
@@ -41186,7 +41186,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </div>
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--year"
+                  class="t-select__wrap t-date-picker__header-controller-year"
                 >
                   
                   <div
@@ -41793,10 +41793,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             </div>
           </div>
           <div
-            class="t-date-picker__panel--time"
+            class="t-date-picker__panel-time"
           >
             <div
-              class="t-date-picker__panel--time-viewer"
+              class="t-date-picker__panel-time-viewer"
             >
               00:00:00
             </div>
@@ -41866,14 +41866,14 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-range-picker__panel--content-wrapper"
+          class="t-date-range-picker__panel-content-wrapper"
         >
           
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -41882,7 +41882,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -41935,7 +41935,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -42544,10 +42544,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             <!---->
           </div>
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -42556,7 +42556,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -42609,7 +42609,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -43237,13 +43237,13 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-range-picker__panel--content-wrapper"
+          class="t-date-range-picker__panel-content-wrapper"
         >
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -43252,7 +43252,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -43305,7 +43305,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -43912,10 +43912,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
               </div>
             </div>
             <div
-              class="t-date-picker__panel--time"
+              class="t-date-picker__panel-time"
             >
               <div
-                class="t-date-picker__panel--time-viewer"
+                class="t-date-picker__panel-time-viewer"
               >
                 00:00:00
               </div>
@@ -58264,40 +58264,40 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/iconfont-enhanced.vu
 >
   <div>
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
     />
     <i
-      class="cps-icon cps-icon-home-sheep t-size-m"
+      class="t-icon cps-icon cps-icon-home-sheep t-size-m"
     />
     <i
-      class="cps-icon cps-icon-home-sheep t-size-l"
+      class="t-icon cps-icon cps-icon-home-sheep t-size-l"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="font-size: 25px;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="font-size: 2em;"
     />
   </div>
   <br />
   <div>
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: red;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: green;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: orange;"
     />
     <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
     <i
-      class="t-icon-home t-icon"
+      class="t-icon t-icon-home"
     />
   </div>
   <br />
