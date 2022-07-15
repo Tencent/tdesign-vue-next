@@ -58,13 +58,14 @@ const updateEditState = (id) => {
 const onCancel = (e) => {
   const { id } = e.currentTarget.dataset;
   updateEditState(id);
+  tableRef.value.clearValidateData();
 };
 
 const onSave = (e) => {
   const { id } = e.currentTarget.dataset;
   currentSaveId.value = id;
   // 触发内部校验，而后在 onRowValidate 中接收异步校验结果
-  tableRef.value.validateRowDate(id);
+  tableRef.value.validateRowData(id);
 };
 
 const onRowValidate = (params) => {
@@ -77,9 +78,10 @@ const onRowValidate = (params) => {
   // 如果是 table 的父组件主动触发校验
   if (params.trigger === 'parent' && !params.result.length) {
     const current = editMap[currentSaveId.value];
-    if (!current) return;
-    data.value.splice(current.rowIndex, 1, current.editedRow);
-    MessagePlugin.success('保存成功');
+    if (current) {
+      data.value.splice(current.rowIndex, 1, current.editedRow);
+      MessagePlugin.success('保存成功');
+    }
     updateEditState(currentSaveId.value);
   }
 };

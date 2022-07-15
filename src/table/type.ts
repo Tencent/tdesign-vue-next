@@ -462,7 +462,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
   /**
-   * 行编辑校验完成后出发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
+   * 行编辑校验完成后触发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
    */
   onRowValidate?: (context: PrimaryTableRowValidateContext<T>) => void;
   /**
@@ -473,6 +473,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
+}
+
+/** 组件实例方法 */
+export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 校验行信息，校验完成后，会触发事件 `onRowEdit`。参数 `rowValue` 表示行唯一标识的值
+   */
+  validateRowData: (rowValue: any) => void;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
