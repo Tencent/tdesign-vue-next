@@ -561,11 +561,11 @@ describe('Tree:treeNodeModel', () => {
       const data = [
         {
           value: 't1',
-          info: 'a',
+          label: 'a',
           children: [
             {
               value: 't1.1',
-              info: 'b',
+              label: 'b',
             },
           ],
         },
@@ -573,7 +573,7 @@ describe('Tree:treeNodeModel', () => {
       const wrapper = mount({
         methods: {
           label(createElement, node) {
-            return `${node.value}-${node.data.info}`;
+            return `${node.value}-${node.data.label}`;
           },
         },
         render() {
@@ -584,7 +584,7 @@ describe('Tree:treeNodeModel', () => {
       expect(el.text()).toBe('t1.1-b');
       const node = wrapper.vm.$refs.tree.getItem('t1.1');
       node.setData({
-        info: 'c',
+        label: 'c',
       });
       await delay(1);
       expect(el.text()).toBe('t1.1-c');
