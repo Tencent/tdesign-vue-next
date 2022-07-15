@@ -259,10 +259,10 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       });
       // 更新 rowIndex 之后的下标
       updateRowIndex(this.treeDataMap, dataSource, {
-        minRowIndex: firstNewChildrenIndex,
+        minRowIndex: firstNewChildrenIndex + newChildrenData.length - 1,
         rowKey: keys.rowKey,
         type: 'add',
-        count: Math.max(newChildrenData.length - 1, 0),
+        count: 1,
       });
     }
 

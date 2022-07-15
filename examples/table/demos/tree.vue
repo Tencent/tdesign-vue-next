@@ -175,6 +175,7 @@ const appendTo = (row) => {
 function appendMultipleDataTo(row) {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const randomKey2 = Math.round(Math.random() * Math.random() * 1000) + 10000;
+  const randomKey3 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const newData = [
     {
       id: randomKey1,
@@ -187,6 +188,14 @@ function appendMultipleDataTo(row) {
       key: `我是 ${randomKey2} 号`,
       platform: '私有',
       type: 'Number',
+      list: true,
+    },
+    {
+      id: randomKey3,
+      key: `我是 ${randomKey3} 号`,
+      platform: '私有',
+      type: 'Number',
+      list: true,
     },
   ];
   table.value.appendTo(row?.key, newData);
