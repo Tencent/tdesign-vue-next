@@ -127,7 +127,7 @@ export default defineComponent({
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
 
-    const validateRowDate = (rowValue: any) => {
+    const validateRowData = (rowValue: any) => {
       const rowRules = cellRuleMap.get(rowValue);
       const list = rowRules.map(
         (item) =>
@@ -144,6 +144,7 @@ export default defineComponent({
       );
       Promise.all(list).then((results) => {
         const errors = results.filter((t) => t.errorList.length);
+        errorListMap.value.clear();
         errors.forEach(({ row, col, errorList }) => {
           const rowValue = get(row, props.rowKey || 'id');
           const key = [rowValue, col.colKey].join();
@@ -152,6 +153,10 @@ export default defineComponent({
         // 缺少校验文本显示
         props.onRowValidate?.({ trigger: 'parent', result: errors });
       });
+    };
+
+    const clearValidateData = () => {
+      errorListMap.value.clear();
     };
 
     const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
@@ -175,7 +180,8 @@ export default defineComponent({
 
     // 对外暴露的方法
     context.expose({
-      validateRowDate,
+      validateRowData,
+      clearValidateData,
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },

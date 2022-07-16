@@ -68,22 +68,22 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
   footerAffixedBottom?: boolean | AffixProps;
   /**
-   * 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @deprecated
    */
   footerAffixProps?: AffixProps;
   /**
-   * 表头吸顶。基于 Affix 组件开发，透传全部 Affix 组件属性。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围
+   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @default false
    */
   headerAffixedTop?: boolean | AffixProps;
   /**
-   * 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
    * @deprecated
    */
   headerAffixProps?: AffixProps;
@@ -462,7 +462,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
   /**
-   * 行编辑校验完成后出发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
+   * 行编辑校验完成后触发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
    */
   onRowValidate?: (context: PrimaryTableRowValidateContext<T>) => void;
   /**
@@ -473,6 +473,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
+}
+
+/** 组件实例方法 */
+export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 校验行信息，校验完成后，会触发事件 `onRowEdit`。参数 `rowValue` 表示行唯一标识的值
+   */
+  validateRowData: (rowValue: any) => void;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
