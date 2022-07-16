@@ -111,6 +111,7 @@ export default defineComponent({
         [tableBaseClass.multipleHeader]: isMultipleHeader.value,
         [tableColFixedClasses.leftShadow]: showColumnShadow.left,
         [tableColFixedClasses.rightShadow]: showColumnShadow.right,
+        [tableBaseClass.columnResizableTable]: props.resizable,
       },
     ]);
 

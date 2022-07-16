@@ -5,6 +5,7 @@ export default function useClassName() {
   const classNames = {
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
+      columnResizableTable: `${classPrefix.value}-table--column-resizable`,
       overflowVisible: `${classPrefix.value}-table--overflow-visible`,
       body: `${classPrefix.value}-table__body`,
       content: `${classPrefix.value}-table__content`,

@@ -92594,7 +92594,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
       </label>
     </div>
     <div
-      class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--col-draggable"
+      class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--column-resizable t-table--col-draggable"
       style="position: relative;"
     >
       <!---->
@@ -93811,7 +93811,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
     </label>
   </div>
   <div
-    class="t-table t-table--bordered t-table--striped"
+    class="t-table t-table--bordered t-table--striped t-table--column-resizable"
     style="position: relative;"
   >
     <!---->
@@ -100883,7 +100883,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
   </div>
   <!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
   <div
-    class="t-table t-table--bordered t-table--column-fixed"
+    class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
     data-v-26745d57=""
     style="position: relative;"
   >
@@ -102523,7 +102523,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
     <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
-      class="t-table t-table--bordered t-table--column-fixed"
+      class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
       style="position: relative;"
     >
       <!---->
@@ -113500,7 +113500,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
 exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`] = `
 <div>
   <div
-    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan"
+    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
     style="position: relative;"
   >
     <!---->
