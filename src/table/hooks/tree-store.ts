@@ -259,35 +259,39 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
       });
       // 更新 rowIndex 之后的下标
       updateRowIndex(this.treeDataMap, dataSource, {
-        minRowIndex: firstNewChildrenIndex,
+        minRowIndex: firstNewChildrenIndex + newChildrenData.length - 1,
         rowKey: keys.rowKey,
         type: 'add',
-        count: newChildrenData.length,
+        count: 1,
       });
     }
 
     return dataSource;
   }
 
-  appendToRoot(newData: T, dataSource: T[], keys: KeysType) {
-    const rowValue = get(newData, keys.rowKey);
-    if (!rowValue) {
-      log.error('Table', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
-      return;
+  appendToRoot(newData: T | T[], dataSource: T[], keys: KeysType) {
+    const newDataSource = dataSource.concat(newData);
+    const tmpNewData = newData instanceof Array ? newData : [newData];
+    const dataSourceLen = dataSource.length;
+    for (let i = 0, len = tmpNewData.length; i < len; i++) {
+      const rowValue = get(tmpNewData[i], keys.rowKey);
+      if (!rowValue) {
+        log.error('Table', '`rowKey` could be wrong, can not get rowValue from `data` by `rowKey`.');
+        continue;
+      }
+      const state: TableRowState = {
+        id: rowValue,
+        row: tmpNewData[i],
+        rowIndex: dataSourceLen + i,
+        level: 0,
+        expanded: false,
+        expandChildrenLength: 0,
+        disabled: false,
+      };
+      state.path = [state];
+      this.treeDataMap.set(rowValue, state);
     }
-    dataSource.push(newData);
-    const state: TableRowState = {
-      id: rowValue,
-      row: newData,
-      rowIndex: dataSource.length - 1,
-      level: 0,
-      expanded: false,
-      expandChildrenLength: 0,
-      disabled: false,
-    };
-    state.path = [state];
-    this.treeDataMap.set(rowValue, state);
-    return dataSource;
+    return newDataSource;
   }
 
   /**
