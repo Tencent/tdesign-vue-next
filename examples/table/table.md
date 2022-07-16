@@ -15,10 +15,10 @@ empty | String / Slot / Function | '' | 空表格呈现样式，支持全局配�
 firstFullRow | String / Slot / Function | - | 首行内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fixedRows | Array | - | 固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行。TS 类型：`Array<number>` | N
 footData | Array | [] | 表尾数据源，泛型 T 指表格数据类型。TS 类型：`Array<T>` | N
-footerAffixedBottom | Boolean / Object | false | 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean | AffixProps` | N
-footerAffixProps | Object | - | 已废弃。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`AffixProps` | N
-headerAffixedTop | Boolean / Object | false | 表头吸顶。基于 Affix 组件开发，透传全部 Affix 组件属性。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围。TS 类型：`boolean | AffixProps` | N
-headerAffixProps | Object | - | 已废弃。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`AffixProps`，[Affix API Documents](./affix?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+footerAffixedBottom | Boolean / Object | false | 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean | AffixProps` | N
+footerAffixProps | Object | - | 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。。TS 类型：`AffixProps` | N
+headerAffixedTop | Boolean / Object | false | 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。。TS 类型：`boolean | AffixProps` | N
+headerAffixProps | Object | - | 已废弃。请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`AffixProps`，[Affix API Documents](./affix?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 height | String / Number | - | 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` | N
 horizontalScrollAffixedBottom | Boolean / Object | - | 滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean | AffixProps` | N
 hover | Boolean | false | 是否显示鼠标悬浮状态 | N

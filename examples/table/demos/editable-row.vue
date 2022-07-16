@@ -205,16 +205,13 @@ const columns = computed(() => [
 ]);
 </script>
 
-<style lang="less">
-.t-table-demo__editable-row {
-  .table-operations > button {
-    padding: 0 8px;
-    line-height: 22px;
-    height: 22px;
-  }
-
-  .t-demo-col__datepicker .t-date-picker {
-    width: 120px;
-  }
+<style>
+.t-table-demo__editable-row .table-operations > button {
+  padding: 0 8px;
+  line-height: 22px;
+  height: 22px;
+}
+.t-table-demo__editable-row .t-demo-col__datepicker .t-date-picker {
+  width: 120px;
 }
 </style>
