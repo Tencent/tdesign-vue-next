@@ -65,7 +65,7 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref(null);
-    const { tableDraggableClasses, tableBaseClass } = useClassName();
+    const { tableDraggableClasses, tableBaseClass, tableSelectedClasses } = useClassName();
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
@@ -74,7 +74,7 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props);
+    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props, tableSelectedClasses);
     // 过滤功能
     const {
       hasEmptyCondition,

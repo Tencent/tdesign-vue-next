@@ -129,6 +129,7 @@ export default function useClassName() {
     tableSelectedClasses: {
       selected: `${classPrefix.value}-table__row--selected`,
       disabled: `${classPrefix.value}-table__row--disabled`,
+      checkCell: `${classPrefix.value}-table__cell-check`,
     },
 
     // 过滤功能，全部类名
