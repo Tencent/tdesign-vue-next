@@ -1,6 +1,7 @@
 import { defineComponent, computed, inject } from 'vue';
 import props from './timeline-item.props';
 import { usePrefixClass } from '../hooks/useConfig';
+import { TimeLineInjectionKey } from './constants';
 
 export default defineComponent({
   name: 'TTimelineItem',
@@ -12,8 +13,8 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('timeline-item');
-    const timelineDirection = inject('timelineDirection');
-    const timelineMode = inject('timelineMode');
+    const timelineDirection = inject(TimeLineInjectionKey).direction;
+    const timelineMode = inject(TimeLineInjectionKey).mode;
 
     const renderTimestamp = () => {
       if (props.hideTimestamp) {

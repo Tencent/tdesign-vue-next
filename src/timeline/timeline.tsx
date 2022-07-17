@@ -1,6 +1,7 @@
-import { defineComponent, computed, provide, VNode, Fragment, h } from 'vue';
+import { defineComponent, computed, provide, VNode, Fragment, reactive } from 'vue';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
+import { TimeLineInjectionKey } from './constants';
 
 function filterEmpty(children: VNode[] = []) {
   const nodes: VNode[] = [];
@@ -31,8 +32,14 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('timeline');
-    provide('timelineDirection', props.direction);
-    provide('timelineMode', props.mode);
+
+    provide(
+      TimeLineInjectionKey,
+      reactive({
+        mode: props.mode,
+        direction: props.direction,
+      }),
+    );
 
     const timelineClass = computed(() => [
       `${COMPONENT_NAME.value}`,
