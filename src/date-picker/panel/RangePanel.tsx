@@ -149,7 +149,7 @@ export default defineComponent({
             presetsPlacement={props.presetsPlacement}
           />
         ) : null}
-        <div class={`${COMPONENT_NAME.value}--content-wrapper`}>
+        <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
           {!props.enableTimePicker ? (
             [
               <TPanelContent

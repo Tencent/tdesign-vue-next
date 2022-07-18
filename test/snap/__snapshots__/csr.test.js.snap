@@ -40430,10 +40430,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-picker__panel--content"
+          class="t-date-picker__panel-content"
         >
           <div
-            class="t-date-picker__panel--date"
+            class="t-date-picker__panel-date"
           >
             <div
               class="t-date-picker__header"
@@ -40442,7 +40442,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-date-picker__header-controller"
               >
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--month"
+                  class="t-select__wrap t-date-picker__header-controller-month"
                 >
                   
                   <div
@@ -40495,7 +40495,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </div>
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--year"
+                  class="t-select__wrap t-date-picker__header-controller-year"
                 >
                   
                   <div
@@ -41121,10 +41121,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-picker__panel--content"
+          class="t-date-picker__panel-content"
         >
           <div
-            class="t-date-picker__panel--date"
+            class="t-date-picker__panel-date"
           >
             <div
               class="t-date-picker__header"
@@ -41133,7 +41133,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 class="t-date-picker__header-controller"
               >
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--month"
+                  class="t-select__wrap t-date-picker__header-controller-month"
                 >
                   
                   <div
@@ -41186,7 +41186,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   
                 </div>
                 <div
-                  class="t-select__wrap t-date-picker__header-controller--year"
+                  class="t-select__wrap t-date-picker__header-controller-year"
                 >
                   
                   <div
@@ -41793,10 +41793,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             </div>
           </div>
           <div
-            class="t-date-picker__panel--time"
+            class="t-date-picker__panel-time"
           >
             <div
-              class="t-date-picker__panel--time-viewer"
+              class="t-date-picker__panel-time-viewer"
             >
               00:00:00
             </div>
@@ -41866,14 +41866,14 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-range-picker__panel--content-wrapper"
+          class="t-date-range-picker__panel-content-wrapper"
         >
           
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -41882,7 +41882,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -41935,7 +41935,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -42544,10 +42544,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             <!---->
           </div>
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -42556,7 +42556,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -42609,7 +42609,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -43237,13 +43237,13 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
       >
         <!---->
         <div
-          class="t-date-range-picker__panel--content-wrapper"
+          class="t-date-range-picker__panel-content-wrapper"
         >
           <div
-            class="t-date-picker__panel--content"
+            class="t-date-picker__panel-content"
           >
             <div
-              class="t-date-picker__panel--date"
+              class="t-date-picker__panel-date"
             >
               <div
                 class="t-date-picker__header"
@@ -43252,7 +43252,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   class="t-date-picker__header-controller"
                 >
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--month"
+                    class="t-select__wrap t-date-picker__header-controller-month"
                   >
                     
                     <div
@@ -43305,7 +43305,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     
                   </div>
                   <div
-                    class="t-select__wrap t-date-picker__header-controller--year"
+                    class="t-select__wrap t-date-picker__header-controller-year"
                   >
                     
                     <div
@@ -43912,10 +43912,10 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
               </div>
             </div>
             <div
-              class="t-date-picker__panel--time"
+              class="t-date-picker__panel-time"
             >
               <div
-                class="t-date-picker__panel--time-viewer"
+                class="t-date-picker__panel-time-viewer"
               >
                 00:00:00
               </div>
@@ -46096,6 +46096,23 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       
     </div>
   </transition-stub>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/dialog/demos/multiple.vue 1`] = `
+<div>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       plugin打开多个dialog 
+      
+    </span>
+  </button>
 </div>
 `;
 
@@ -92594,7 +92611,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
       </label>
     </div>
     <div
-      class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--col-draggable"
+      class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--column-resizable t-table--col-draggable"
       style="position: relative;"
     >
       <!---->
@@ -93811,7 +93828,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
     </label>
   </div>
   <div
-    class="t-table t-table--bordered t-table--striped"
+    class="t-table t-table--bordered t-table--striped t-table--column-resizable"
     style="position: relative;"
   >
     <!---->
@@ -100883,7 +100900,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
   </div>
   <!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
   <div
-    class="t-table t-table--bordered t-table--column-fixed"
+    class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
     data-v-26745d57=""
     style="position: relative;"
   >
@@ -102523,7 +102540,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
     <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
-      class="t-table t-table--bordered t-table--column-fixed"
+      class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
       style="position: relative;"
     >
       <!---->
@@ -113500,7 +113517,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
 exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`] = `
 <div>
   <div
-    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan"
+    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
     style="position: relative;"
   >
     <!---->
@@ -117259,7 +117276,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           <tr>
             
             <th
-              class="t-table__th-row-select"
+              class="t-table__cell-check t-table__th-row-select"
               data-colkey="row-select"
             >
               <div
@@ -117353,7 +117370,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -117425,7 +117442,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox t-is-disabled"
@@ -117498,7 +117515,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -117570,7 +117587,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox t-is-disabled"
@@ -117643,7 +117660,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -117780,7 +117797,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           <tr>
             
             <th
-              class="t-table__th-row-select"
+              class="t-table__cell-check t-table__th-row-select"
               data-colkey="row-select"
             >
               <div
@@ -117859,7 +117876,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-radio"
@@ -117932,7 +117949,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-radio t-is-disabled"
@@ -118006,7 +118023,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-radio t-is-checked"
@@ -118079,7 +118096,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-radio t-is-disabled"
@@ -118153,7 +118170,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           >
             
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-radio"
@@ -120588,7 +120605,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </div>
             </th>
             <th
-              class="t-table__th-row-select"
+              class="t-table__cell-check t-table__th-row-select"
               data-colkey="row-select"
             >
               <div
@@ -120692,7 +120709,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </span>
             </td>
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -120795,7 +120812,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </span>
             </td>
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -120898,7 +120915,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </span>
             </td>
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -121001,7 +121018,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </span>
             </td>
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -121104,7 +121121,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
               </span>
             </td>
             <td
-              class=""
+              class="t-table__cell-check"
             >
               <label
                 class="t-checkbox"
@@ -125103,12 +125120,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
           <!---->
           
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentA
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentA
+            </span>
           </span>
           
           
@@ -125132,12 +125152,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
           <!---->
           
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentB
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentB
+            </span>
           </span>
           
           
@@ -125200,12 +125223,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentA
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentA
+            </span>
           </span>
           
           <svg
@@ -125228,12 +125254,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentB
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentB
+            </span>
           </span>
           
           <svg
@@ -125256,12 +125285,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentC
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentC
+            </span>
           </span>
           
           <svg
@@ -134401,7 +134433,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t3"
+        data-value="t5"
         draggable="false"
         style="--level: 0;"
       >
@@ -134439,7 +134471,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t4"
+        data-value="t6"
         draggable="false"
         style="--level: 1;"
       >
@@ -134465,7 +134497,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t5"
+        data-value="t7"
         draggable="false"
         style="--level: 1;"
       >
@@ -134491,7 +134523,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t6"
+        data-value="t8"
         draggable="false"
         style="--level: 0;"
       >
@@ -134529,7 +134561,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t7"
+        data-value="t9"
         draggable="false"
         style="--level: 1;"
       >
@@ -134555,7 +134587,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/activable.vue 1`] = 
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t8"
+        data-value="t10"
         draggable="false"
         style="--level: 1;"
       >
@@ -134598,7 +134630,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t9"
+        data-value="t11"
         draggable="false"
         style="--level: 0;"
       >
@@ -134636,7 +134668,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t12"
+        data-value="t14"
         draggable="false"
         style="--level: 0;"
       >
@@ -134674,7 +134706,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t15"
+        data-value="t17"
         draggable="false"
         style="--level: 0;"
       >
@@ -134712,7 +134744,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/base.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t18"
+        data-value="t20"
         draggable="false"
         style="--level: 0;"
       >
@@ -136583,7 +136615,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
         data-level="0"
-        data-value="t21"
+        data-value="t23"
         draggable="false"
         style="--level: 0;"
       >
@@ -136614,7 +136646,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t21"
+            name="t23"
             type="checkbox"
           />
           <span
@@ -136633,7 +136665,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
         data-level="1"
-        data-value="t22"
+        data-value="t24"
         draggable="false"
         style="--level: 1;"
       >
@@ -136656,82 +136688,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
               fill-opacity="0.9"
             />
           </svg>
-        </span>
-        <label
-          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            disabled=""
-            name="t22"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            1.1
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open t-is-disabled"
-        data-level="2"
-        data-value="t23"
-        draggable="false"
-        style="--level: 2;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            disabled=""
-            name="t23"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            1.1.1
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open t-is-disabled"
-        data-level="2"
-        data-value="t24"
-        draggable="false"
-        style="--level: 2;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
         </span>
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
@@ -136750,7 +136706,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
-            1.1.2
+            1.1
             
           </span>
         </label>
@@ -136758,30 +136714,18 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
-        data-level="1"
+        data-level="2"
         data-value="t25"
         draggable="false"
-        style="--level: 1;"
+        style="--level: 2;"
       >
         <!---->
         <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          class="t-tree__icon t-folder-icon"
           ignore="active"
           trigger="expand"
         >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6 5v6l4.5-3L6 5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+          
         </span>
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
@@ -136800,7 +136744,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
-            1.2
+            1.1.1
             
           </span>
         </label>
@@ -136838,7 +136782,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
-            1.2.1
+            1.1.2
             
           </span>
         </label>
@@ -136846,18 +136790,30 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
-        data-level="2"
+        data-level="1"
         data-value="t27"
         draggable="false"
-        style="--level: 2;"
+        style="--level: 1;"
       >
         <!---->
         <span
-          class="t-tree__icon t-folder-icon"
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
           trigger="expand"
         >
-          
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
         </span>
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
@@ -136876,6 +136832,82 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
+            1.2
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t28"
+        draggable="false"
+        style="--level: 2;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t28"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t29"
+        draggable="false"
+        style="--level: 2;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t29"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
             1.2.2
             
           </span>
@@ -136885,7 +136917,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
         data-level="0"
-        data-value="t28"
+        data-value="t30"
         draggable="false"
         style="--level: 0;"
       >
@@ -136916,7 +136948,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t28"
+            name="t30"
             type="checkbox"
           />
           <span
@@ -136935,7 +136967,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
         data-level="1"
-        data-value="t29"
+        data-value="t31"
         draggable="false"
         style="--level: 1;"
       >
@@ -136954,7 +136986,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t29"
+            name="t31"
             type="checkbox"
           />
           <span
@@ -136973,7 +137005,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
         data-level="1"
-        data-value="t30"
+        data-value="t32"
         draggable="false"
         style="--level: 1;"
       >
@@ -136992,7 +137024,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t30"
+            name="t32"
             type="checkbox"
           />
           <span
@@ -137077,7 +137109,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t31"
+        data-value="t33"
         draggable="false"
         style="--level: 0;"
       >
@@ -137107,7 +137139,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t31"
+            name="t33"
             type="checkbox"
           />
           <span
@@ -137126,7 +137158,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t32"
+        data-value="t34"
         draggable="false"
         style="--level: 1;"
       >
@@ -137157,7 +137189,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t32"
+            name="t34"
             type="checkbox"
           />
           <span
@@ -137176,111 +137208,24 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t33"
-        draggable="false"
-        style="--level: 2;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t33"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            1.1.1
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="t34"
-        draggable="false"
-        style="--level: 2;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t34"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            1.1.2
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
         data-value="t35"
         draggable="false"
-        style="--level: 1;"
+        style="--level: 2;"
       >
         <!---->
         <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          class="t-tree__icon t-folder-icon"
           ignore="active"
           trigger="expand"
         >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6 5v6l4.5-3L6 5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+          
         </span>
         <label
-          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
         >
           <input
             class="t-checkbox__former"
-            disabled=""
             name="t35"
             type="checkbox"
           />
@@ -137291,7 +137236,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
-            1.2
+            1.1.1
             
           </span>
         </label>
@@ -137328,7 +137273,57 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
             class="t-checkbox__label"
           >
             
-            1.2.1
+            1.1.2
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t37"
+        draggable="false"
+        style="--level: 1;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t37"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2
             
           </span>
         </label>
@@ -137337,7 +137332,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t37"
+        data-value="t38"
         draggable="false"
         style="--level: 2;"
       >
@@ -137355,7 +137350,44 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t37"
+            name="t38"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="t39"
+        draggable="false"
+        style="--level: 2;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t39"
             type="checkbox"
           />
           <span
@@ -137374,7 +137406,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t38"
+        data-value="t40"
         draggable="false"
         style="--level: 0;"
       >
@@ -137404,7 +137436,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t38"
+            name="t40"
             type="checkbox"
           />
           <span
@@ -137423,7 +137455,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t39"
+        data-value="t41"
         draggable="false"
         style="--level: 1;"
       >
@@ -137442,7 +137474,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
           <input
             class="t-checkbox__former"
             disabled=""
-            name="t39"
+            name="t41"
             type="checkbox"
           />
           <span
@@ -137461,7 +137493,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t40"
+        data-value="t42"
         draggable="false"
         style="--level: 1;"
       >
@@ -137479,7 +137511,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/disabled.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t40"
+            name="t42"
             type="checkbox"
           />
           <span
@@ -138043,7 +138075,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t41"
+        data-value="t43"
         draggable="false"
         style="--level: 0;"
       >
@@ -138081,7 +138113,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t42"
+        data-value="t44"
         draggable="false"
         style="--level: 1;"
       >
@@ -138119,7 +138151,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t43"
+        data-value="t45"
         draggable="false"
         style="--level: 2;"
       >
@@ -138145,7 +138177,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t44"
+        data-value="t46"
         draggable="false"
         style="--level: 2;"
       >
@@ -138171,7 +138203,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t45"
+        data-value="t47"
         draggable="false"
         style="--level: 1;"
       >
@@ -138209,7 +138241,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t46"
+        data-value="t48"
         draggable="false"
         style="--level: 2;"
       >
@@ -138235,7 +138267,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="2"
-        data-value="t47"
+        data-value="t49"
         draggable="false"
         style="--level: 2;"
       >
@@ -138261,7 +138293,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t48"
+        data-value="t50"
         draggable="false"
         style="--level: 0;"
       >
@@ -138299,7 +138331,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t49"
+        data-value="t51"
         draggable="false"
         style="--level: 1;"
       >
@@ -138325,7 +138357,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-all.vue 1`] =
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t50"
+        data-value="t52"
         draggable="false"
         style="--level: 1;"
       >
@@ -138368,7 +138400,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t51"
+        data-value="t53"
         draggable="false"
         style="--level: 0;"
       >
@@ -138406,7 +138438,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item"
         data-level="1"
-        data-value="t52"
+        data-value="t54"
         draggable="false"
         style="--level: 1;"
       >
@@ -138444,7 +138476,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item"
         data-level="1"
-        data-value="t55"
+        data-value="t57"
         draggable="false"
         style="--level: 1;"
       >
@@ -138482,7 +138514,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t58"
+        data-value="t60"
         draggable="false"
         style="--level: 0;"
       >
@@ -138520,7 +138552,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item"
         data-level="1"
-        data-value="t59"
+        data-value="t61"
         draggable="false"
         style="--level: 1;"
       >
@@ -138546,7 +138578,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-level.vue 1`]
       <div
         class="t-tree__item"
         data-level="1"
-        data-value="t60"
+        data-value="t62"
         draggable="false"
         style="--level: 1;"
       >
@@ -138691,7 +138723,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t61"
+        data-value="t63"
         draggable="false"
         style="--level: 0;"
       >
@@ -138729,7 +138761,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/expand-mutex.vue 1`]
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t68"
+        data-value="t70"
         draggable="false"
         style="--level: 0;"
       >
@@ -138913,7 +138945,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t75"
+        data-value="t77"
         draggable="false"
         style="--level: 0;"
       >
@@ -138945,7 +138977,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t76"
+        data-value="t78"
         draggable="false"
         style="--level: 0;"
       >
@@ -138991,7 +139023,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t77"
+        data-value="t79"
         draggable="false"
         style="--level: 0;"
       >
@@ -139026,7 +139058,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/icon.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t78"
+        data-value="t80"
         draggable="false"
         style="--level: 0;"
       >
@@ -139083,104 +139115,8 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t79"
-        draggable="false"
-        style="--level: 0;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6 5v6l4.5-3L6 5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            <strong>
-              value: t79, label: 1
-            </strong>
-          </span>
-        </span>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t80"
-        draggable="false"
-        style="--level: 1;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            <strong>
-              value: t80, label: 1.1
-            </strong>
-          </span>
-        </span>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
         data-value="t81"
         draggable="false"
-        style="--level: 1;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            <strong>
-              value: t81, label: 1.2
-            </strong>
-          </span>
-        </span>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="t82"
-        draggable="false"
         style="--level: 0;"
       >
         <!---->
@@ -139210,7 +139146,35 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             style="position: relative;"
           >
             <strong>
-              value: t82, label: 2
+              value: t81, label: 1
+            </strong>
+          </span>
+        </span>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t82"
+        draggable="false"
+        style="--level: 1;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <strong>
+              value: t82, label: 1.1
             </strong>
           </span>
         </span>
@@ -139238,7 +139202,47 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             style="position: relative;"
           >
             <strong>
-              value: t83, label: 2.1
+              value: t83, label: 1.2
+            </strong>
+          </span>
+        </span>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t84"
+        draggable="false"
+        style="--level: 0;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <strong>
+              value: t84, label: 2
             </strong>
           </span>
         </span>
@@ -139247,7 +139251,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t84"
+        data-value="t85"
         draggable="false"
         style="--level: 1;"
       >
@@ -139266,7 +139270,35 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
             style="position: relative;"
           >
             <strong>
-              value: t84, label: 2.2
+              value: t85, label: 2.1
+            </strong>
+          </span>
+        </span>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t86"
+        draggable="false"
+        style="--level: 1;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <strong>
+              value: t86, label: 2.2
             </strong>
           </span>
         </span>
@@ -139289,7 +139321,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t85"
+        data-value="t87"
         draggable="false"
         style="--level: 0;"
       >
@@ -139312,94 +139344,6 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
               fill-opacity="0.9"
             />
           </svg>
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t85"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            
-            <span
-              data-v-94055ee8=""
-              style="color: blue;"
-            >
-              label: 1, value: t85
-            </span>
-            
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t86"
-        draggable="false"
-        style="--level: 1;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t86"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            
-            <span
-              data-v-94055ee8=""
-              style="color: blue;"
-            >
-              label: 1.1, value: t86
-            </span>
-            
-            
-          </span>
-        </label>
-        <!---->
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t87"
-        draggable="false"
-        style="--level: 1;"
-      >
-        <!---->
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
         </span>
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
@@ -139422,7 +139366,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
               data-v-94055ee8=""
               style="color: blue;"
             >
-              label: 1.2, value: t87
+              label: 1, value: t87
             </span>
             
             
@@ -139432,30 +139376,18 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open"
-        data-level="0"
+        data-level="1"
         data-value="t88"
         draggable="false"
-        style="--level: 0;"
+        style="--level: 1;"
       >
         <!---->
         <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          class="t-tree__icon t-folder-icon"
           ignore="active"
           trigger="expand"
         >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6 5v6l4.5-3L6 5z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+          
         </span>
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
@@ -139478,7 +139410,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
               data-v-94055ee8=""
               style="color: blue;"
             >
-              label: 2, value: t88
+              label: 1.1, value: t88
             </span>
             
             
@@ -139522,7 +139454,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
               data-v-94055ee8=""
               style="color: blue;"
             >
-              label: 2.1, value: t89
+              label: 1.2, value: t89
             </span>
             
             
@@ -139532,18 +139464,30 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open"
-        data-level="1"
+        data-level="0"
         data-value="t90"
         draggable="false"
-        style="--level: 1;"
+        style="--level: 0;"
       >
         <!---->
         <span
-          class="t-tree__icon t-folder-icon"
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
           trigger="expand"
         >
-          
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6 5v6l4.5-3L6 5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
         </span>
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
@@ -139566,7 +139510,95 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/label.vue 1`] = `
               data-v-94055ee8=""
               style="color: blue;"
             >
-              label: 2.2, value: t90
+              label: 2, value: t90
+            </span>
+            
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t91"
+        draggable="false"
+        style="--level: 1;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t91"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              data-v-94055ee8=""
+              style="color: blue;"
+            >
+              label: 2.1, value: t91
+            </span>
+            
+            
+          </span>
+        </label>
+        <!---->
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t92"
+        draggable="false"
+        style="--level: 1;"
+      >
+        <!---->
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t92"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              data-v-94055ee8=""
+              style="color: blue;"
+            >
+              label: 2.2, value: t92
             </span>
             
             
@@ -142136,7 +142168,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/load.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t91"
+        data-value="t93"
         draggable="false"
         style="--level: 0;"
       >
@@ -142166,7 +142198,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/load.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t91"
+            name="t93"
             type="checkbox"
           />
           <span
@@ -142185,7 +142217,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/load.vue 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t92"
+        data-value="t94"
         draggable="false"
         style="--level: 0;"
       >
@@ -142215,7 +142247,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/load.vue 1`] = `
         >
           <input
             class="t-checkbox__former"
-            name="t92"
+            name="t94"
             type="checkbox"
           />
           <span

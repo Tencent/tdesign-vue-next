@@ -105,8 +105,12 @@ export default defineComponent({
         );
       });
       if (props.animation === 'slide' && items.length > 1) {
-        const first = cloneVNode(items[0]);
-        const last = cloneVNode(items[items.length - 1]);
+        const first = cloneVNode(items[0], {
+          key: 'swiper-item-append',
+        });
+        const last = cloneVNode(items[items.length - 1], {
+          key: 'swiper-item-prepend',
+        });
         items.unshift(last);
         items.push(first);
       }

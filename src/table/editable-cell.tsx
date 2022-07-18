@@ -39,7 +39,7 @@ export default defineComponent({
       default: undefined,
     },
     errors: {
-      type: Object as PropType<EditableCellProps['errors']>,
+      type: Array as PropType<EditableCellProps['errors']>,
       default: undefined,
     },
     onChange: Function as PropType<EditableCellProps['onChange']>,
@@ -115,7 +115,7 @@ export default defineComponent({
           ],
           trigger,
         };
-        if (!col.value.edit?.rules) {
+        if (!col.value.edit || !col.value.edit.rules) {
           props.onValidate?.(params);
           resolve(true);
           return;
@@ -153,6 +153,7 @@ export default defineComponent({
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
         const timer = setTimeout(() => {
           isEdit.value = false;
+          errorList.value = [];
           clearTimeout(timer);
         }, 0);
       });
@@ -253,7 +254,7 @@ export default defineComponent({
         // 退出编辑态时，恢复原始值，等待父组件传入新的 data 值
         if (props.editable === false) {
           editValue.value = cellValue.value;
-        } else {
+        } else if (props.editable === true) {
           props.onRuleChange?.({
             col: col.value,
             row: row.value,

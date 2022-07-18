@@ -24,6 +24,7 @@
       :table-layout="tableLayout ? 'auto' : 'fixed'"
       :size="size"
       :pagination="pagination"
+      resizable
       @row-click="handleRowClick"
     />
   </div>

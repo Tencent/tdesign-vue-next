@@ -124,7 +124,7 @@ export default defineComponent({
         <div class={`${COMPONENT_NAME.value}-controller`}>
           {showMonthPicker && (
             <TSelect
-              class={`${COMPONENT_NAME.value}-controller--month`}
+              class={`${COMPONENT_NAME.value}-controller-month`}
               value={props.month}
               options={monthOptions.value}
               onChange={(val: number) => props.onMonthChange?.(val)}
@@ -132,7 +132,7 @@ export default defineComponent({
             />
           )}
           <TSelect
-            class={`${COMPONENT_NAME.value}-controller--year`}
+            class={`${COMPONENT_NAME.value}-controller-year`}
             value={props.mode === 'year' ? nearestYear.value : props.year}
             options={yearOptions.value}
             onChange={(val: number) => props.onYearChange?.(val)}

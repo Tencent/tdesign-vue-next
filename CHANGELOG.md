@@ -4,6 +4,20 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.18.0 `2022-07-18` 
+### ❗ Breaking Changes
+- `Table`:  可编辑表格行，行校验函数由 `validateRowDate` 更名为 `validateRowData` @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+### 🚀 Features
+- `Table`: 树形结构，支持同时添加多个根节点 @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+- `Table`: 可选中行，扩大选择组件的点击范围 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
+- `Table`: 拖拽调整宽度，非边框模式，悬浮到表头时，显示表头边框 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
+### 🐞 Bug Fixes
+- `Table`: 修复可编辑单元格，校验失败的信息无法清除问题，([issue #1228](https://github.com/Tencent/tdesign-vue-next/issues/1228)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+- `Table`: 树形结构，修复树形结构懒加载顺序问题，([issue #1122](https://github.com/Tencent/tdesign-vue-next/issues/1122)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+- `Swiper`: 动态修改 `swiper item` 会出现 `vue` 警告 @btea ([#1231](https://github.com/Tencent/tdesign-vue-next/pull/1231))
+- `Tree`: 修复节点过滤后被一直锁住的问题 @ardor-zhang ([#1199](https://github.com/Tencent/tdesign-vue-next/pull/1199))
+- `DatePicker`: 调整 `bem` 命名 @HQ-Lin ([#1225](https://github.com/Tencent/tdesign-vue-next/pull/1225))
+
 ## 🌈 0.17.5 `2022-07-14` 
 ### 🚀 Features
 - `Icon`: 新增 `mirror` 和 `rotation` 图标 @uyarn ([#1201](https://github.com/Tencent/tdesign-vue-next/pull/1201))
