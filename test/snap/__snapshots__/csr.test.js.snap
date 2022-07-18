@@ -125120,12 +125120,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
           <!---->
           
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentA
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentA
+            </span>
           </span>
           
           
@@ -125149,12 +125152,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
           <!---->
           
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentB
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentB
+            </span>
           </span>
           
           
@@ -125217,12 +125223,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentA
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentA
+            </span>
           </span>
           
           <svg
@@ -125245,12 +125254,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentB
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentB
+            </span>
           </span>
           
           <svg
@@ -125273,12 +125285,15 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         >
           <!---->
           
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%;"
-          />
-          <span>
-              StudentC
+          <span
+            class="displayItem"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <span>
+                StudentC
+            </span>
           </span>
           
           <svg

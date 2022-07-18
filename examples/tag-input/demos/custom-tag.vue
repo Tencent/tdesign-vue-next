@@ -3,11 +3,10 @@
     <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
     <t-tag-input v-model="tags" clearable :min-collapsed-num="2">
       <template #tag="{ value }">
-        <img
-          src="https://tdesign.gtimg.com/site/avatar.jpg"
-          style="max-width: 20px; max-height: 20px; border-radius: 50%"
-        />
-        <span>&nbsp;&nbsp;{{ value }}</span>
+        <span class="displayItem">
+          <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
+          <span>&nbsp;&nbsp;{{ value }}</span>
+        </span>
       </template>
     </t-tag-input>
 
@@ -23,11 +22,10 @@
           style="margin-right: 4px"
           @close="() => onClose(index)"
         >
-          <img
-            src="https://tdesign.gtimg.com/site/avatar.jpg"
-            style="max-width: 20px; max-height: 20px; border-radius: 50%"
-          />
-          <span>&nbsp;&nbsp;{{ item }}</span>
+          <span class="displayItem">
+            <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
+            <span>&nbsp;&nbsp;{{ item }}</span>
+          </span>
         </t-tag>
       </template>
     </t-tag-input>
@@ -39,3 +37,13 @@ import { ref } from 'vue';
 
 const tags = ref(['StudentA', 'StudentB', 'StudentC']);
 </script>
+<style>
+.displayItem {
+  position: relative;
+}
+.displayItem img {
+  width: 20px;
+  border-radius: 50%;
+  vertical-align: text-top;
+}
+</style>
