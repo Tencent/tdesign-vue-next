@@ -39,7 +39,7 @@ export default defineComponent({
       default: undefined,
     },
     errors: {
-      type: Object as PropType<EditableCellProps['errors']>,
+      type: Array as PropType<EditableCellProps['errors']>,
       default: undefined,
     },
     onChange: Function as PropType<EditableCellProps['onChange']>,
@@ -115,7 +115,7 @@ export default defineComponent({
           ],
           trigger,
         };
-        if (!col.value.edit?.rules) {
+        if (!col.value.edit || !col.value.edit.rules) {
           props.onValidate?.(params);
           resolve(true);
           return;

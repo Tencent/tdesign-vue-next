@@ -23,9 +23,7 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
-import { getEditableKeysMap } from './utils';
-import { validate } from '../form/form-model';
-import { AllValidateResult } from '../form/type';
+import useEditableRow from './hooks/useEditableRow';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -66,9 +64,8 @@ export default defineComponent({
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
-    const errorListMap = ref<Map<string, AllValidateResult[]>>(new Map());
     const primaryTableRef = ref(null);
-    const { tableDraggableClasses, tableBaseClass } = useClassName();
+    const { tableDraggableClasses, tableBaseClass, tableSelectedClasses } = useClassName();
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
@@ -77,7 +74,7 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props);
+    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props, tableSelectedClasses);
     // 过滤功能
     const {
       hasEmptyCondition,
@@ -93,6 +90,8 @@ export default defineComponent({
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
+
+    const { errorListMap, editableKeysMap, validateRowData, onRuleChange, clearValidateData } = useEditableRow(props);
 
     const primaryTableClasses = computed(() => {
       return {
@@ -119,64 +118,11 @@ export default defineComponent({
       return tAttributes.filter((v) => v);
     });
 
-    const editableKeysMap = computed(() => getEditableKeysMap(props.editableRowKeys, props.data, props.rowKey || 'id'));
-
     // 多个 Hook 共用 primaryTableRef
     onMounted(() => {
       setFilterPrimaryTableRef(primaryTableRef.value);
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
-
-    const validateRowData = (rowValue: any) => {
-      const rowRules = cellRuleMap.get(rowValue);
-      const list = rowRules.map(
-        (item) =>
-          new Promise<PrimaryTableRowEditContext<TableRowData> & { errorList: AllValidateResult[] }>((resolve) => {
-            const { value, col } = item;
-            if (!col.edit || !col.edit.rules || !col.edit.rules.length) {
-              resolve({ ...item, errorList: [] });
-              return;
-            }
-            validate(value, col.edit.rules).then((r) => {
-              resolve({ ...item, errorList: r.filter((t) => !t.result) });
-            });
-          }),
-      );
-      Promise.all(list).then((results) => {
-        const errors = results.filter((t) => t.errorList.length);
-        errorListMap.value.clear();
-        errors.forEach(({ row, col, errorList }) => {
-          const rowValue = get(row, props.rowKey || 'id');
-          const key = [rowValue, col.colKey].join();
-          errorListMap.value.set(key, errorList);
-        });
-        // 缺少校验文本显示
-        props.onRowValidate?.({ trigger: 'parent', result: errors });
-      });
-    };
-
-    const clearValidateData = () => {
-      errorListMap.value.clear();
-    };
-
-    const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
-      // 编辑行，预存校验信息，方便最终校验
-      if (props.editableRowKeys) {
-        const rowValue = get(context.row, props.rowKey || 'id');
-        const rules = cellRuleMap.get(rowValue);
-        if (rules) {
-          const index = rules.findIndex((t) => t.col.colKey === context.col.colKey);
-          if (index === -1) {
-            rules.concat(context);
-          } else {
-            rules[index].value = context.value;
-          }
-          cellRuleMap.set(rowValue, rules);
-        } else {
-          cellRuleMap.set(rowValue, [context]);
-        }
-      }
-    };
 
     // 对外暴露的方法
     context.expose({
@@ -225,7 +171,7 @@ export default defineComponent({
               const rowValue = get(p.row, props.rowKey || 'id');
               cellProps.editable = editableKeysMap.value[rowValue] || false;
               const key = [rowValue, p.col.colKey].join();
-              const errorList = errorListMap.value?.get(key);
+              const errorList = errorListMap.value?.[key];
               errorList && (cellProps.errors = errorList);
             }
             return <EditableCell {...cellProps} v-slots={context.slots} />;
