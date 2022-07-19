@@ -231,6 +231,12 @@ export default {
           component: () => import('@/examples/range-input/range-input.md'),
         },
         {
+          title: 'Search 搜索',
+          name: 'search',
+          path: '/vue-next/components/search',
+          component: () => import('@/examples/search/search.md'),
+        },
+        {
           title: 'Select 选择器',
           name: 'select',
           path: '/vue-next/components/select',
@@ -375,6 +381,12 @@ export default {
           name: 'tag',
           path: '/vue-next/components/tag',
           component: () => import('@/examples/tag/tag.md'),
+        },
+        {
+          title: 'Timeline 时间轴',
+          name: 'timeline',
+          path: '/vue-next/components/timeline',
+          component: () => import('@/examples/timeline/timeline.md'),
         },
         {
           title: 'Tooltip 文字提示',
