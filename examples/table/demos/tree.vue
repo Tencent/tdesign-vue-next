@@ -98,7 +98,6 @@ function getData(currentPage = 1) {
           ...obj,
           id: thirdIndex,
           key: `我是 ${thirdIndex}_${currentPage} 号`,
-          list: true,
         };
       });
       return secondObj;
@@ -172,10 +171,9 @@ const appendTo = (row) => {
   // appendMultipleDataTo(row);
 };
 
-function appendMultipleDataTo(row) {
+const appendMultipleDataTo = (row) => {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const randomKey2 = Math.round(Math.random() * Math.random() * 1000) + 10000;
-  const randomKey3 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const newData = [
     {
       id: randomKey1,
@@ -188,19 +186,11 @@ function appendMultipleDataTo(row) {
       key: `我是 ${randomKey2} 号`,
       platform: '私有',
       type: 'Number',
-      list: true,
-    },
-    {
-      id: randomKey3,
-      key: `我是 ${randomKey3} 号`,
-      platform: '私有',
-      type: 'Number',
-      list: true,
     },
   ];
-  table.value.appendTo(row?.key, newData);
+  table.value.appendTo(row.key, newData);
   MessagePlugin.success(`已插入子节点我是 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
-}
+};
 
 // 当前节点之前，新增兄弟节前
 const insertBefore = (row) => {
@@ -357,9 +347,6 @@ const appendToRoot = () => {
     needed: key % 4 === 0 ? '是' : '否',
     description: '数据源',
   });
-
-  // 同时添加多个元素，示例代码有效勿删
-  // appendMultipleDataTo();
 };
 
 const onAbnormalDragSort = (params) => {

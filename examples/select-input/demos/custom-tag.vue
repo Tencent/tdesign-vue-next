@@ -124,6 +124,7 @@ const onTagChange3 = (val) => {
   line-height: 32px;
 }
 .displaySpan {
-  line-height: 24px;
+  display: flex;
+  align-items: center;
 }
 </style>
