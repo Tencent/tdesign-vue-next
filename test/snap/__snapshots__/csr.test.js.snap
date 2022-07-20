@@ -125328,6 +125328,221 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/tag-input/demos/draggable.vue 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
+>
+  <div
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
+  >
+    <div
+      class="t-input t-is-default t-input--prefix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          Vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          React
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          Angular
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
+  >
+    <div
+      class="t-input t-is-default t-input--prefix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <div
+          class="t-tag-input__prefix"
+        >
+          Controlled: 
+        </div>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          Vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          React
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          Angular
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          draggable="true"
+        >
+          <!---->
+          
+          Miniprogram
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] = `
 <div
   class="tdesign-demo-block-column"

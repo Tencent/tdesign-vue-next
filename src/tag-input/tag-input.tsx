@@ -6,12 +6,14 @@ import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
 import useDefault from '../hooks/useDefaultValue';
+import useDragSorter from './hooks/useDragSorter';
 
 const useComponentClassName = () => {
   return {
@@ -43,9 +45,21 @@ export default defineComponent({
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
     });
+    const { classPrefix: prefix } = useConfig();
+    const { getDragProps } = useDragSorter({
+      ...props,
+      sortOnDraggable: props.dragSort,
+      onDragOverCheck: {
+        x: true,
+        targetClassNameRegExp: new RegExp(`^${prefix}-tag`),
+      },
+    });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(props);
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList({
+      ...props,
+      getDragProps,
+    });
 
     const classes = computed(() => {
       return [
