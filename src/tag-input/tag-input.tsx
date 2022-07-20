@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, nextTick } from 'vue';
+import { defineComponent, computed, toRefs, nextTick, reactive } from 'vue';
 
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
@@ -46,6 +46,7 @@ export default defineComponent({
       onMouseleave: props.onMouseleave,
     });
     const { classPrefix: prefix } = useConfig();
+    // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
       ...props,
       sortOnDraggable: props.dragSort,
@@ -56,10 +57,13 @@ export default defineComponent({
     });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList({
-      ...props,
-      getDragProps,
-    });
+    // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
+      reactive({
+        ...toRefs(props),
+        getDragProps,
+      }),
+    );
 
     const classes = computed(() => {
       return [
