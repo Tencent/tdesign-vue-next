@@ -122,7 +122,7 @@ export default defineComponent({
       inputValue.value = nextInputValue;
     }
 
-    // timepicker 点击
+    // timePicker 点击
     function onTimePickerChange(val: string) {
       time.value = val;
 
