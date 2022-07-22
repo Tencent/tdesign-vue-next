@@ -51,6 +51,7 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
   };
 
   const handleEndInput = (e: FocusEvent) => {
+    if (props.readonly) return;
     inputting.value = false;
     const value = inputNumberTools.toValidNumber(filterValue.value);
     if (value !== innerValue.value) {
