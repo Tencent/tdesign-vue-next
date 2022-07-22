@@ -1,4 +1,4 @@
-import { Slots, VNode, Component, getCurrentInstance, Fragment } from 'vue';
+import { Slots, VNode, Component, getCurrentInstance, Fragment, Comment } from 'vue';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景
@@ -41,6 +41,9 @@ export function useChildSlots() {
     const content = slots?.default?.() || [];
 
     return content
+      .filter((item) => {
+        return item.type !== Comment;
+      })
       .map((item) => {
         if (item.children && Array.isArray(item.children) && item.type === Fragment) return item.children;
         return item;
