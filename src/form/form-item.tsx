@@ -127,9 +127,7 @@ export default defineComponent({
       const { statusIcon } = props;
       if (statusIcon === false) return;
 
-      let resultIcon = renderContent('statusIcon', {
-        defaultNode: getDefaultIcon(),
-      });
+      let resultIcon = renderContent('statusIcon', { defaultNode: getDefaultIcon() });
       if (resultIcon) return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
       if (resultIcon === false) return;
 
