@@ -74,16 +74,6 @@ export default defineComponent({
     // 是否展示底部区域
     const isFooterRender = computed(() => showFooter.value || (showActions.value && isPoster2.value));
 
-    if (showLoading.value) {
-      return (
-        renderTNodeJSX('loading') || (
-          <TLoading>
-            <div class={baseCls.value}></div>
-          </TLoading>
-        )
-      );
-    }
-
     // 头部区域渲染逻辑
     const renderHeader = () => {
       if (showHeader.value) return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
@@ -109,18 +99,27 @@ export default defineComponent({
       return <div class={coverCls.value}>{textCover ? <img src={props.cover}></img> : renderTNodeJSX('cover')}</div>;
     };
 
-    return () => (
-      <div class={baseCls.value}>
-        {isHeaderRender.value ? renderHeader() : null}
-        {showCover.value ? renderCover() : null}
-        {showContent.value && <div class={bodyCls.value}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>}
-        {isFooterRender.value && (
-          <div class={footerCls.value}>
-            <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
-            {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
-          </div>
-        )}
-      </div>
-    );
+    return () => {
+      const content = (
+        <div class={baseCls.value}>
+          {isHeaderRender.value ? renderHeader() : null}
+          {showCover.value ? renderCover() : null}
+          {showContent.value && (
+            <div class={bodyCls.value}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>
+          )}
+          {isFooterRender.value && (
+            <div class={footerCls.value}>
+              <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
+              {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
+            </div>
+          )}
+        </div>
+      );
+
+      if (showLoading.value) {
+        return renderTNodeJSX('loading') || <TLoading>{content}</TLoading>;
+      }
+      return content;
+    };
   },
 });
