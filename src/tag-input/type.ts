@@ -201,7 +201,7 @@ export interface TagInputRemoveContext {
 
 export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';
 
-export interface DragSortContext<T> {
+interface DragSortContext<T> {
   currentIndex: number;
   current: T;
   targetIndex: number;

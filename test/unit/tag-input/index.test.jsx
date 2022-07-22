@@ -44,7 +44,7 @@ describe('TagInput', () => {
     it(':status:disabled', () => {
       const wrapper = mount({
         render() {
-          return <TagInput value={tags} diabled />;
+          return <TagInput value={tags} disabled />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
