@@ -2,7 +2,7 @@
   <div>
     <div>
       <t-button @click="appendToRoot">添加根节点</t-button>
-      <t-button theme="default" style="margin-left: 16px" @click="setData1">重置数据</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="resetData">重置数据</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">任意节点展开/收起</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onExpandAllToggle">{{
         expandAll ? '收起全部' : '展开全部'
@@ -129,9 +129,10 @@ const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
 
-const setData1 = () => {
+const resetData = () => {
   // 需要更新数据地址空间
   data.value = getData();
+  table.value.resetData(data.value);
 };
 
 const onEditClick = (row) => {

@@ -69,11 +69,11 @@ export default defineComponent({
         disableDate: props.disableDate,
         start:
           props.isFirstValueSelected && props.activeIndex === 1
-            ? formatDate(props.value[0] as string, format)
+            ? new Date(formatDate(props.value[0] as string, format).setHours(0, 0, 0))
             : undefined,
         end:
           props.isFirstValueSelected && props.activeIndex === 0
-            ? formatDate(props.value[1] as string, format)
+            ? new Date(formatDate(props.value[1] as string, format).setHours(23, 59, 59))
             : undefined,
       }),
     );
