@@ -347,9 +347,8 @@ export default defineComponent({
       },
     ]);
     const helpNode = computed<VNode>(() => {
-      if (props.help) {
-        return <div class={CLASS_NAMES.value.help}>{props.help}</div>;
-      }
+      const help = renderContent('help');
+      if (help) return <div class={CLASS_NAMES.value.help}>{help}</div>;
       return null;
     });
     const extraNode = computed<VNode>(() => {
