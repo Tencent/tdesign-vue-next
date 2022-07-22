@@ -134,7 +134,7 @@ export interface TdTagInputProps {
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
-   * 【开发中】拖拽排序时触发
+   * 拖拽排序时触发
    */
   onDragSort?: (context: TagInputDragSortContext) => void;
   /**
