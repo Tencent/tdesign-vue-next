@@ -79995,14 +79995,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
     <div
       class="t-select__wrap"
     >
@@ -80056,14 +80048,6 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
       <!---->
       
     </div>
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   </div>
   <!---->
   
