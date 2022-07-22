@@ -47,6 +47,7 @@ export default defineComponent({
       }
     };
     const handleClick = (e: MouseEvent) => {
+      e.stopPropagation();
       props.onClick?.({ e });
       if (!radioChecked.value || !props.allowUncheck) return;
       if (radioGroup) {
