@@ -164,7 +164,7 @@ export default defineComponent({
         showInput={
           !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
         }
-        keepWrapperWidth={true}
+        keepWrapperWidth={!this.autoWidth}
         onWheel={this.onWheel}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
           this.setTInputValue(val, { ...context, trigger: 'input' });
