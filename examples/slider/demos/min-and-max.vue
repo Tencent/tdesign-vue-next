@@ -7,6 +7,7 @@
         :max="max"
         :min="min"
         :marks="marks"
+        show-step
         :input-number-props="false"
       />
     </div>
