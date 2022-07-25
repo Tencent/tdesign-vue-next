@@ -6,6 +6,7 @@ import TLoading from '../loading';
 import { UploadFile } from './type';
 import props from './props';
 import { UploadRemoveOptions } from './interface';
+import { UploadConfig } from '../config-provider/type';
 
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -20,6 +21,12 @@ export default defineComponent({
       type: Object as PropType<UploadFile>,
       default: () => {
         return null as UploadFile;
+      },
+    },
+    locale: {
+      type: Object as PropType<UploadConfig>,
+      default: () => {
+        return null as UploadConfig;
       },
     },
     percent: Number,
@@ -92,13 +99,16 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <TLoading />
             <p>
-              {global.value.progress.uploadingText} {Math.min(props.percent, 99)}%
+              {props.locale?.progress?.uploadingText || global.value.progress.uploadingText}{' '}
+              {Math.min(props.percent, 99)}%
             </p>
           </div>
         ) : (
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <AddIcon />
-            <p class={`${prefix.value}-size-s`}>{props.placeholder || global.value.triggerUploadText.image}</p>
+            <p class={`${prefix.value}-size-s`}>
+              {props.placeholder || props.locale?.triggerUploadText?.image || global.value.triggerUploadText.image}
+            </p>
           </div>
         )}
       </li>
