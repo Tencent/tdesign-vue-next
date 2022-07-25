@@ -124,7 +124,7 @@ export default {
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,
-  /** 【开发中】拖拽排序时触发 */
+  /** 拖拽排序时触发 */
   onDragSort: Function as PropType<TdTagInputProps['onDragSort']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,

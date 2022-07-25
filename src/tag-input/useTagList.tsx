@@ -1,5 +1,5 @@
 import { ref, toRefs } from 'vue';
-import { TagInputValue, TdTagInputProps, TagInputChangeContext } from './type';
+import { TagInputValue, TagInputChangeContext, TagInputProps } from './type';
 import { InputValue } from '../input';
 import Tag from '../tag';
 import useVModel from '../hooks/useVModel';
@@ -9,10 +9,11 @@ import { useTNodeJSX } from '../hooks/tnode';
 export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
-export default function useTagList(props: TdTagInputProps) {
+export default function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
-  const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps } = toRefs(props);
+  const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps, getDragProps } =
+    toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
   const oldInputValue = ref<InputValue>();
@@ -75,6 +76,7 @@ export default function useTagList(props: TdTagInputProps) {
               disabled={disabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}
               closable={!readonly.value && !disabled.value}
+              {...getDragProps.value?.(index, item)}
               {...tagProps.value}
             >
               {tagContent ?? item}

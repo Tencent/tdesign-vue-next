@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, nextTick } from 'vue';
+import { defineComponent, computed, toRefs, nextTick, reactive } from 'vue';
 
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
@@ -6,12 +6,14 @@ import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 
-import useTagScroll from './useTagScroll';
+import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
-import useHover from './useHover';
+import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
+import useDragSorter from './hooks/useDragSorter';
 
 const useComponentClassName = () => {
   return {
@@ -43,9 +45,25 @@ export default defineComponent({
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
     });
+    const { classPrefix: prefix } = useConfig();
+    // 这里不需要响应式，因此直接传递参数
+    const { getDragProps } = useDragSorter({
+      ...props,
+      sortOnDraggable: props.dragSort,
+      onDragOverCheck: {
+        x: true,
+        targetClassNameRegExp: new RegExp(`^${prefix}-tag`),
+      },
+    });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(props);
+    // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
+      reactive({
+        ...toRefs(props),
+        getDragProps,
+      }),
+    );
 
     const classes = computed(() => {
       return [
