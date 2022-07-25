@@ -63,6 +63,7 @@ export default defineComponent({
         };
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
+      if (newVal === orgValue.value) return;
       seOrgValue(newVal, e);
     };
 
