@@ -17,13 +17,24 @@ export function useChildComponentSlots() {
     }
     const content = slots?.default?.() || [];
 
-    return content
-      .map((item: VNode) => {
-        if (item.children && Array.isArray(item.children)) return item.children;
-        return item;
-      })
-      .flat()
-      .filter((item: VNode) => (item.type as Component).name?.endsWith(childComponentName)) as VNode[];
+    // 满足基于基础组件封装场景，递归找到子组件
+    const childList: VNode[] = [];
+    const getChildren = (content: VNode[]) => {
+      if (!Array.isArray(content)) return;
+      content.forEach((item: VNode) => {
+        if (item.children && Array.isArray(item.children)) {
+          if (item.type !== Fragment) return;
+          getChildren(item.children as VNode[]);
+        } else {
+          childList.push(item);
+        }
+      });
+      return childList;
+    };
+
+    return getChildren(content).filter((item: VNode) =>
+      (item.type as Component).name?.endsWith(childComponentName),
+    ) as VNode[];
   };
 }
 
