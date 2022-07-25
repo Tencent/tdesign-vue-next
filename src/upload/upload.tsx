@@ -10,6 +10,7 @@ import SingleFile from './single-file';
 
 import props from './props';
 import { UploadCtxType } from './interface';
+import { TdUploadProps } from './type';
 
 import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
@@ -140,6 +141,7 @@ export default defineComponent({
           onClick={triggerUpload}
           onRemove={handleSingleRemove}
           onUpload={upload}
+          locale={props.locale}
         >
           {triggerElement}
         </Dragger>
@@ -147,12 +149,15 @@ export default defineComponent({
     };
 
     const uploadListTriggerText = computed(() => {
-      let uploadText = global.value.triggerUploadText.fileInput;
+      const localeFromProps = props.locale as TdUploadProps['locale'];
+
+      let uploadText = global.value.triggerUploadText.fileInput || localeFromProps?.triggerUploadText?.fileInput;
       if (uploadCtx.toUploadFiles?.length > 0 || uploadCtx.uploadValue?.length > 0) {
         if (props.theme === 'file-input' || (uploadCtx.uploadValue?.length > 0 && canBatchUpload.value)) {
-          uploadText = global.value.triggerUploadText.reupload;
+          uploadText = localeFromProps?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload;
         } else {
-          uploadText = global.value.triggerUploadText.continueUpload;
+          uploadText =
+            localeFromProps?.triggerUploadText?.continueUpload || global.value.triggerUploadText.continueUpload;
         }
       }
       return uploadText;
@@ -160,8 +165,14 @@ export default defineComponent({
 
     const renderTrigger = () => {
       const getDefaultTrigger = () => {
+        const localeFromProps = props.locale as TdUploadProps['locale'];
+
         if (props.theme === 'file-input' || showUploadList.value) {
-          return <t-button variant="outline">{global.value.triggerUploadText.fileInput}</t-button>;
+          return (
+            <t-button variant="outline">
+              {localeFromProps?.triggerUploadText?.fileInput || global.value.triggerUploadText.fileInput}
+            </t-button>
+          );
         }
         const iconSlot = { icon: () => <UploadIcon /> };
         return (
@@ -202,6 +213,7 @@ export default defineComponent({
           onClick={triggerUpload}
           onRemove={handleMultipleRemove}
           onImgPreview={handlePreviewImg}
+          locale={props.locale}
         />
       );
 
@@ -223,6 +235,7 @@ export default defineComponent({
           onChange={handleDragChange}
           onDragenter={handleDragenter}
           onDragleave={handleDragleave}
+          locale={props.locale}
         >
           <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
             {triggerElement}

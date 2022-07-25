@@ -145872,7 +145872,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             <p
               class="t-size-s"
             >
-              点击上传图片
+              请选择图片
             </p>
           </div>
         </li>

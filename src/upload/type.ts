@@ -240,7 +240,7 @@ export interface UploadFile {
    * 文件上传成功后的下载/访问地址
    * @default ''
    */
-  url: string;
+  url?: string;
 }
 
 export type ResponseType = { error?: string; url?: string } & Record<string, any>;
