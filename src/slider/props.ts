@@ -50,6 +50,11 @@ export default {
     type: Number,
     default: 1,
   },
+  /** 是否显示步长刻度 */
+  showStep: {
+    type: Boolean,
+    default: false,
+  },
   modelValue: {
     type: [Number, Array] as PropType<TdSliderProps['value']>,
     default: undefined,
