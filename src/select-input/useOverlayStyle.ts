@@ -35,10 +35,8 @@ export default function useOverlayStyle(props: overlayStyleProps) {
 
   const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
     if (props.disabled || props.readonly) return;
-    // 如果点击触发元素（输入框），则永久显示下拉框
-    const newVisible = context.trigger === 'trigger-element-click' ? true : visible;
-    innerPopupVisible.value = newVisible;
-    props.onPopupVisibleChange?.(newVisible, context);
+    innerPopupVisible.value = visible;
+    props.onPopupVisibleChange?.(visible, context);
   };
 
   const tOverlayStyle = computed(() => {
