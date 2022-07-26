@@ -26498,7 +26498,11 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       placeholder=""
                       type="text"
                     />
-                    <!---->
+                    <span
+                      class="t-input__input-pre"
+                    >
+                      
+                    </span>
                     <!---->
                     <!---->
                   </div>
@@ -26569,7 +26573,11 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       placeholder=""
                       type="text"
                     />
-                    <!---->
+                    <span
+                      class="t-input__input-pre"
+                    >
+                      
+                    </span>
                     <!---->
                     <!---->
                   </div>
@@ -26640,7 +26648,11 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                       placeholder=""
                       type="text"
                     />
-                    <!---->
+                    <span
+                      class="t-input__input-pre"
+                    >
+                      
+                    </span>
                     <!---->
                     <!---->
                   </div>
@@ -59675,7 +59687,11 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
           placeholder="请输入内容"
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          请输入内容
+        </span>
         <!---->
         <!---->
       </div>
@@ -59981,7 +59997,11 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
           placeholder="请输入内容"
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          请输入内容
+        </span>
         <!---->
         <!---->
       </div>
@@ -82970,7 +82990,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth-mu
     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input t-is-default t-input--prefix t-input--suffix t-input--auto-width"
     >
       <!---->
       <div
@@ -83141,7 +83161,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless-m
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83208,7 +83232,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83292,7 +83320,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83400,7 +83432,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83578,7 +83614,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83754,7 +83794,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -83920,7 +83964,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -84081,7 +84129,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -84390,7 +84442,11 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/multiple.vue
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -98338,7 +98394,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
                   >
                     <div
-                      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                     >
                       <!---->
                       <div
@@ -124553,7 +124609,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/auto-width.vue 
     class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
-      class="t-input t-is-default t-input--prefix"
+      class="t-input t-is-default t-input--prefix t-input--auto-width"
     >
       <!---->
       <div
@@ -124687,7 +124743,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -124758,7 +124818,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -124829,7 +124893,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -124892,7 +124960,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -124970,7 +125042,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125072,7 +125148,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125179,7 +125259,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125303,7 +125387,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125401,7 +125489,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/draggable.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125518,7 +125610,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/draggable.vue 1
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125598,7 +125694,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125670,7 +125770,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125701,7 +125805,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/max.vue 1`] = `
         placeholder="最多只能输入 3 个标签"
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        最多只能输入 3 个标签
+      </span>
       <!---->
       <!---->
     </div>
@@ -125775,7 +125883,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125841,7 +125953,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125907,7 +126023,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -125973,7 +126093,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           placeholder=""
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <!---->
       </div>
@@ -126033,7 +126157,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           type="text"
           unselectable="on"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <!---->
       </div>
@@ -126131,7 +126259,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           placeholder=""
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <!---->
       </div>
@@ -126229,7 +126361,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           placeholder=""
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <!---->
       </div>
@@ -126327,7 +126463,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
           placeholder=""
           type="text"
         />
-        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
         <!---->
         <!---->
       </div>
@@ -126427,7 +126567,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -126514,7 +126658,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -126601,7 +126749,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -126688,7 +126840,11 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <!---->
     </div>
@@ -144578,7 +144734,11 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -144647,7 +144807,11 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -144900,7 +145064,11 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -145135,7 +145303,11 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
         placeholder=""
         type="text"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -145262,7 +145434,11 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
         
       </div>
       <!---->
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
