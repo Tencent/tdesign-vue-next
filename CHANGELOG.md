@@ -4,6 +4,24 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.18.1 `2022-07-26` 
+### 🚀 Features
+- `Table`: 树形结构，支持 `resetData` 重置整个树形结构数据 @chaishi ([#1278](https://github.com/Tencent/tdesign-vue-next/pull/1278))
+- `TagInput`: 支持标签拖拽 @ardor-zhang ([#1271](https://github.com/Tencent/tdesign-vue-next/pull/1271))
+- `Slider`: Slider新增showStep属性控制步长刻度值显示 @ChrisLee0211 ([#1287](https://github.com/Tencent/tdesign-vue-next/pull/1287))
+- `Upload`: 支持单组件的文案配置 @uyarn ([#1289](https://github.com/Tencent/tdesign-vue-next/pull/1289))
+- 支持通过CSS Token配置组件圆角 @mingrutough1 ([common#648](https://github.com/Tencent/tdesign-common/pull/648))
+### 🐞 Bug Fixes
+- `DatePicker`: 修复重置日期后面板月份未重置问题 @HQ-Lin ([#1248](https://github.com/Tencent/tdesign-vue-next/pull/1248))
+- `DatePicker`: 修复 `range` 选择器开始时间被禁用问题 @HQ-Lin ([#1270](https://github.com/Tencent/tdesign-vue-next/pull/1270))
+- `Form`: 修复 `help` 插槽不生效的问题([issue #1267](https://github.com/Tencent/tdesign-vue-next/issues/1267)) @k1nz ([#1272](https://github.com/Tencent/tdesign-vue-next/pull/1272))
+- `Dialog`: 修复 `preventScrollThrough` 为 `false` 情况下，`body` 间去了滚动条宽度 @huoyuhao ([#1261](https://github.com/Tencent/tdesign-vue-next/pull/1261))
+- `Table`: 树形结构，懒加载节点重置时（即调用 `setData`）没有清空子节点信息问题 @chaishi ([#1278](https://github.com/Tencent/tdesign-vue-next/pull/1278))
+- `Card`: 修复 `loading` 状态无效 ([issue #1259](https://github.com/Tencent/tdesign-vue-next/issues/1259)) @pengYYYYY ([#1275](https://github.com/Tencent/tdesign-vue-next/pull/1275))
+- `Space`: 组件中若存在 `v-if`，则不渲染的组件间距依然存在 ([issue #1259](https://github.com/Tencent/tdesign-vue-next/issues/1255)) @pengYYYYY ([#1275](https://github.com/Tencent/tdesign-vue-next/pull/1275))
+- `InputNumber`: 修复初始化为 `undefined` 情况下操作按钮 `disabled` 的校验问题  ([issue #1291](https://github.com/Tencent/tdesign-vue-next/issues/1291)) @pengYYYYY ([#1275](https://github.com/Tencent/tdesign-vue-next/pull/1275))
+- `Radio`: 修复点击选择父盒子点击事件触发两次 ([issue #1259](https://github.com/Tencent/tdesign-vue-next/issues/1240)) @pengYYYYY ([#1275](https://github.com/Tencent/tdesign-vue-next/pull/1275))
+- `Select`: 修复`autowidth` 无效 ([issue #1226](https://github.com/Tencent/tdesign-vue-next/issues/1226)) @pengYYYYY ([#1280](https://github.com/Tencent/tdesign-vue-next/pull/1280))
 ## 🌈 0.18.0 `2022-07-18` 
 ### ❗ Breaking Changes
 - `Table`:  可编辑表格行，行校验函数由 `validateRowDate` 更名为 `validateRowData` @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))

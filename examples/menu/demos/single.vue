@@ -44,3 +44,9 @@ const changeHandler = (active) => {
   console.log('change', active);
 };
 </script>
+
+<style>
+.t-menu__operations-icon {
+  box-sizing: border-box;
+}
+</style>

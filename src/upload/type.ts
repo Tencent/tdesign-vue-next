@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { UploadConfig } from '../config-provider/type';
 import { TNode } from '../common';
 
 export interface TdUploadProps {
@@ -50,7 +51,7 @@ export interface TdUploadProps {
    */
   draggable?: boolean;
   /**
-   * 【开发中】用于完全自定义文件列表内容
+   * 用于完全自定义文件列表内容
    */
   fileListDisplay?: TNode;
   /**
@@ -70,7 +71,7 @@ export interface TdUploadProps {
    */
   format?: (file: File) => UploadFile;
   /**
-   * 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。
+   * 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址
    */
   formatResponse?: (response: any, context: FormatResponseContext) => ResponseType;
   /**
@@ -83,6 +84,10 @@ export interface TdUploadProps {
    */
   isBatchUpload?: boolean;
   /**
+   * 上传组件文本语言配置，支持自定义配置组件中的全部文本
+   */
+  locale?: UploadConfig;
+  /**
    * 用于控制文件上传数量，值为 0 则不限制
    * @default 0
    */
@@ -91,7 +96,7 @@ export interface TdUploadProps {
    * HTTP 请求类型
    * @default POST
    */
-  method?: 'POST' | 'GET' | 'PUT' | 'OPTION';
+  method?: 'POST' | 'GET' | 'PUT' | 'OPTION' | 'PATCH' | 'post' | 'get' | 'put' | 'option' | 'patch';
   /**
    * 是否支持多选文件
    * @default false
@@ -99,7 +104,7 @@ export interface TdUploadProps {
   multiple?: boolean;
   /**
    * 文件上传时的名称
-   * @default 'file'
+   * @default file
    */
   name?: string;
   /**
@@ -162,9 +167,13 @@ export interface TdUploadProps {
    */
   onDragenter?: (context: { e: DragEvent }) => void;
   /**
-   * 拖拽结束时触发
+   * 离开拖拽区域时触发
    */
   onDragleave?: (context: { e: DragEvent }) => void;
+  /**
+   * 拖拽结束时触发
+   */
+  onDrop?: (context: { e: DragEvent }) => void;
   /**
    * 上传失败后触发
    */

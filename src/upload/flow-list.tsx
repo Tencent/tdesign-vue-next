@@ -14,6 +14,7 @@ import { UploadFile } from './type';
 import { FlowRemoveContext } from './interface';
 import props from './props';
 import { returnFileSize, abridgeName } from './util';
+import { UploadConfig } from '../config-provider/type';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useFormDisabled } from '../form/hooks';
@@ -41,6 +42,12 @@ export default defineComponent({
     onDragleave: Function as PropType<(e: DragEvent) => void>,
     onDragenter: Function as PropType<(e: DragEvent) => void>,
     onImgPreview: Function as PropType<(options: MouseEvent, file: UploadFile) => void>,
+    locale: {
+      type: Object as PropType<UploadConfig>,
+      default: () => {
+        return null as UploadConfig;
+      },
+    },
   },
   setup(props) {
     const target = ref(null);
@@ -90,10 +97,11 @@ export default defineComponent({
     );
 
     const uploadText = computed(() => {
+      const localeFromProps = props.locale;
       if (isUploading.value) return `${global.value.progress.uploadingText}...`;
       return failedList.value && failedList.value.length
-        ? global.value.triggerUploadText.reupload
-        : global.value.triggerUploadText.normal;
+        ? localeFromProps?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload
+        : localeFromProps?.triggerUploadText?.normal || global.value.triggerUploadText.normal;
     });
 
     const handleDrop = (event: DragEvent) => {
@@ -136,6 +144,8 @@ export default defineComponent({
     };
 
     const getStatusMap = (file: UploadFile) => {
+      const localeProgressFromProps = props.locale?.progress;
+
       const iconMap = {
         success: <CheckCircleFilledIcon />,
         fail: <ErrorCircleFilledIcon />,
@@ -143,10 +153,13 @@ export default defineComponent({
         waiting: <TimeFilledIcon />,
       };
       const textMap = {
-        success: global.value.progress.successText,
-        fail: global.value.progress.failText,
-        progress: `${global.value.progress.uploadingText} ${Math.min(file.percent, 99)}%`,
-        waiting: global.value.progress.waitingText,
+        success: localeProgressFromProps?.successText || global.value.progress.successText,
+        fail: localeProgressFromProps?.failText || global.value.progress.failText,
+        progress: `${localeProgressFromProps?.uploadingText || global.value.progress.uploadingText} ${Math.min(
+          file.percent,
+          99,
+        )}%`,
+        waiting: localeProgressFromProps?.waitingText || global.value.progress.waitingText,
       };
       return {
         iconMap,
@@ -172,7 +185,7 @@ export default defineComponent({
             class={`${UPLOAD_NAME.value}__flow-button`}
             onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
           >
-            {global.value.triggerUploadText.delete}
+            {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
           </span>
         </td>
       );
@@ -187,7 +200,7 @@ export default defineComponent({
             class={`${UPLOAD_NAME.value}__flow-button`}
             onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: null })}
           >
-            {global.value.triggerUploadText.delete}
+            {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
           </span>
         </td>
       ) : (
@@ -199,10 +212,10 @@ export default defineComponent({
       props.theme === 'file-flow' && (
         <table class={`${UPLOAD_NAME.value}__flow-table`}>
           <tr>
-            <th>{global.value.file.fileNameText}</th>
-            <th>{global.value.file.fileSizeText}</th>
-            <th>{global.value.file.fileStatusText}</th>
-            <th>{global.value.file.fileOperationText}</th>
+            <th>{props.locale?.file?.fileNameText || global.value.file.fileNameText}</th>
+            <th>{props.locale?.file?.fileSizeText || global.value.file.fileSizeText}</th>
+            <th>{props.locale?.file?.fileStatusText || global.value.file.fileStatusText}</th>
+            <th>{props.locale?.file?.fileOperationText || global.value.file.fileOperationText}</th>
           </tr>
           {showInitial.value && (
             <tr>
@@ -290,7 +303,7 @@ export default defineComponent({
       !props.autoUpload && (
         <div class={`${UPLOAD_NAME.value}__flow-bottom`}>
           <TButton theme="default" onClick={props.onCancel} disabled={!allowUpload.value}>
-            {global.value.cancelUploadText}
+            {props.locale?.cancelUploadText || global.value.cancelUploadText}
           </TButton>
           <TButton
             disabled={!allowUpload.value}

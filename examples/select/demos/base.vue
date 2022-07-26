@@ -20,7 +20,7 @@ const options1 = [
   { label: '人工智能', value: '5' },
   // 可以使用渲染函数自定义下拉选项内容和样式
   {
-    label: '计算场景',
+    label: '计算场景（高性能计算）',
     value: '6',
     content: () => <span>计算场景（高性能计算）</span>,
   },

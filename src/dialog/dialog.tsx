@@ -169,7 +169,7 @@ export default defineComponent({
       (value) => {
         if (value) {
           if (isModal.value && !props.showInAttachedElement) {
-            if (scrollWidth.value > 0) {
+            if (scrollWidth.value > 0 && props.preventScrollThrough) {
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
             }

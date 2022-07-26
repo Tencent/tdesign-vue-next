@@ -4,7 +4,7 @@
  */
 
 import { onMounted, onUnmounted, ref, toRefs } from 'vue';
-import { TdTagInputProps } from './type';
+import { TdTagInputProps } from '../type';
 
 export default function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();

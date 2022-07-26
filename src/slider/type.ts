@@ -55,6 +55,10 @@ export interface TdSliderProps {
    */
   step?: number;
   /**
+   * 是否显示步长刻度
+   */
+  showStep?: boolean;
+  /**
    * 透传提示组件属性
    */
   tooltipProps?: TooltipProps;

@@ -151,7 +151,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}`,
           `${COMPONENT_NAME.value}--${props.theme}`,
           {
-            [`${classPrefix}-is-hidden`]: !visible.value,
+            [`${classPrefix.value}-is-hidden`]: !visible.value,
           },
         ]}
       >

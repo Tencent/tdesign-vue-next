@@ -14,6 +14,7 @@ max | Number | 100 | 滑块范围最大值 | N
 min | Number | 0 | 滑块范围最小值 | N
 range | Boolean | false | 双游标滑块 | N
 step | Number | 1 | 步长 | N
+showStep | Boolean | false | 是否显示步长刻度 | N
 tooltipProps | Object | - | 透传提示组件属性。TS 类型：`TooltipProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 value | Number / Array | - | 滑块值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`SliderValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 defaultValue | Number / Array | - | 滑块值。非受控属性。TS 类型：`SliderValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N

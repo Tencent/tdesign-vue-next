@@ -108,10 +108,7 @@ export default function useRange(props: TdDateRangePickerProps) {
         popupVisible.value = true;
         return;
       }
-      if (visible) {
-        // 展开后重置点击次数
-        isFirstValueSelected.value = false;
-      } else {
+      if (!visible) {
         isHoverCell.value = false;
         inputValue.value = formatDate(value.value);
       }

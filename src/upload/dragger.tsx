@@ -6,6 +6,7 @@ import TLoading from '../loading';
 import { UploadFile } from './type';
 import props from './props';
 import { returnFileSize, getCurrentDate, abridgeName } from './util';
+import { UploadConfig } from '../config-provider/type';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -28,6 +29,12 @@ export default defineComponent({
     },
     percent: {
       type: Number,
+    },
+    locale: {
+      type: Object as PropType<UploadConfig>,
+      default: () => {
+        return null as UploadConfig;
+      },
     },
     autoUpload: props.autoUpload,
     theme: props.theme,
@@ -123,7 +130,7 @@ export default defineComponent({
                 class={`${UPLOAD_NAME.value}__dragger-progress-cancel`}
                 onClick={props.onCancel}
               >
-                {global.value.cancelUploadText}
+                {props.locale?.cancelUploadText || global.value.cancelUploadText}
               </TButton>
             )}
             {!props.autoUpload && props.loadingFile?.status === 'waiting' && (
@@ -132,7 +139,7 @@ export default defineComponent({
                 theme="primary"
                 onClick={(e: MouseEvent) => props.onUpload({ ...props.loadingFile }, e)}
               >
-                {global.value.triggerUploadText.normal}
+                {props.locale?.triggerUploadText?.normal || global.value.triggerUploadText.normal}
               </TButton>
             )}
           </div>
@@ -147,10 +154,10 @@ export default defineComponent({
                   props.onClick(e);
                 }}
               >
-                {global.value.triggerUploadText.reupload}
+                {props.locale?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload}
               </TButton>
               <TButton theme="danger" variant="text" onClick={props.onRemove}>
-                {global.value.triggerUploadText.delete}
+                {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
               </TButton>
             </div>
           )}
@@ -161,7 +168,9 @@ export default defineComponent({
     const renderDefaultDragElement = () => {
       const unActiveElement = (
         <div>
-          <span class={`${UPLOAD_NAME.value}--highlight`}>{global.value.triggerUploadText.normal}</span>
+          <span class={`${UPLOAD_NAME.value}--highlight`}>
+            {props.locale?.triggerUploadText?.normal || global.value.triggerUploadText.normal}
+          </span>
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;{global.value.dragger.draggingText}</span>
         </div>
       );

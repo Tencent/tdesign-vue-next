@@ -151,6 +151,45 @@ describe('Slider', () => {
         expect(buttons.length === 2).toBeTruthy();
       });
     });
+    // test prop showStep
+    describe(':props.showStep', () => {
+      it('showStep default value is false', async () => {
+        const wrapper = mount({
+          render() {
+            return <Slider />;
+          },
+        });
+        await nextTick();
+        const stopElements = wrapper.findAll('.t-slider__stop');
+        expect(stopElements.length <= 0).toBeTruthy();
+      });
+      it('showStep={true} works fine', async () => {
+        const wrapper = mount({
+          render() {
+            return <Slider showStep />;
+          },
+        });
+        await nextTick();
+        const stopElements = wrapper.findAll('.t-slider__stop');
+        expect(stopElements.length > 0).toBeTruthy();
+      });
+      it('showStep={true} works fine with prop.step={number}', async () => {
+        const step = Math.floor(Math.random() * 100);
+        const stepCount = 100 / step;
+        const result = [];
+        for (let i = 1; i < stepCount; i++) {
+          result.push(i);
+        }
+        const wrapper = mount({
+          render() {
+            return <Slider showStep step={step} />;
+          },
+        });
+        await nextTick();
+        const stopElements = wrapper.findAll('.t-slider__stop');
+        expect(stopElements.length === result.length).toBeTruthy();
+      });
+    });
     // test prop marks
     describe(':props.marks', () => {
       it('marks default value is empty array', () => {
