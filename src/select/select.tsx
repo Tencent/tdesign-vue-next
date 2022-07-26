@@ -292,7 +292,6 @@ export default defineComponent({
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
-              autoWidth: true,
               size: props.size,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
