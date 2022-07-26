@@ -153,11 +153,6 @@ export default defineComponent({
         `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
-      if (['modeless', 'modal'].includes(props.mode)) {
-        if (isModal.value && props.showInAttachedElement) {
-          dialogClass.push(`${COMPONENT_NAME.value}--absolute`);
-        }
-      }
       return dialogClass;
     });
     const dialogStyle = computed(() => {
