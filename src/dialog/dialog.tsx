@@ -356,7 +356,7 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        't-dialog__ctx--fixed': this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
         [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },

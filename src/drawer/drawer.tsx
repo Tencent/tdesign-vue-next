@@ -70,7 +70,10 @@ export default defineComponent({
     });
 
     const wrapperClasses = computed(() => {
-      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${props.placement}`];
+      return [
+        `${COMPONENT_NAME.value}__content-wrapper`,
+        `${COMPONENT_NAME.value}__content-wrapper--${props.placement}`,
+      ];
     });
 
     const parentNode = computed<HTMLElement>(() => {
