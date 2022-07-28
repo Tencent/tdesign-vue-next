@@ -58326,7 +58326,7 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/iconfont-enhanced.vu
     />
     <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
     <i
-      class="t-icon t-icon-home"
+      class="t-icon-home t-icon"
     />
   </div>
   <br />
