@@ -11,6 +11,15 @@
     "tdesign",
     "typescript"
   ],
+  "exports": {
+    ".": {
+      "import": "./es/index.mjs",
+      "require": "./lib/index-lib.js"
+    },
+    "./es/*": "./es/*",
+    "./esm/*": "./esm/*",
+    "./lib/*": "./lib/*"
+  },
   "main": "lib/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
