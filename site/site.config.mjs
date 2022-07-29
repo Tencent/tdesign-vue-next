@@ -122,6 +122,12 @@ export default {
           component: () => import('@/examples/anchor/anchor.md'),
         },
         {
+          title: 'BackTop 回到顶部',
+          name: 'backTop',
+          path: '/vue-next/components/back-top',
+          component: () => import('@/examples/back-top/back-top.md'),
+        },
+        {
           title: 'Breadcrumb 面包屑',
           name: 'breadcrumb',
           path: '/vue-next/components/breadcrumb',
