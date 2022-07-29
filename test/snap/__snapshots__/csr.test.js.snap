@@ -119066,7 +119066,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         class="t-button__text"
       >
         
-        重置数据
+        重置/更新数据
         
       </span>
     </button>
