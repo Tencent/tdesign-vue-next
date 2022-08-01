@@ -167,6 +167,18 @@ module.exports = {
         {label: 'baseTable', value: 'baseTable', config: baseConfigJson},
       ];
     `,
+    script: `
+      const data = ref(Array(30).fill(0).map((_, i) => ({
+        index: i,
+        platform: '公有',
+        description: '数据源',
+      })));
+      const columns = ref([
+        {colKey: 'index', title: 'index'},
+        {colKey: 'platform', title: '平台'},
+        {colKey: 'description', title: '说明'},
+      ]);
+    `,
     panelChangeStr: `
       function onPanelChange(panel) {
         configList.value = panelList.find(item => item.value === panel).config;
@@ -177,18 +189,10 @@ module.exports = {
       baseTable: `<t-base-table
         v-bind="configProps"
         row-key="index"
-        :data="[{index:1,platform:'公用'},{index:2,platform:'私有'}]"
-        :columns="[{
-          align: 'center',
-          width: '100',
-          colKey: 'index',
-          title: '序号',
-        },
-        {
-          width: 100,
-          colKey: 'platform',
-          title: '平台',
-        }]"
+        :data="data"
+        :columns="columns"
+        :maxHeight="140"
+        :pagination="{ total: 30 }"
       />`,
     },
   },

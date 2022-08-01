@@ -111,6 +111,19 @@ describe('Input', () => {
       expect(fn).toBeCalled();
     });
 
+    it('@keydown', () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return <Input onKeydown={fn} />;
+        },
+      });
+      const inputElemWrapper = wrapper.find('input');
+      inputElemWrapper.setValue('text');
+      inputElemWrapper.trigger('keydown');
+      expect(fn).toBeCalled();
+    });
+
     it('@change', () => {
       const fn = vi.fn();
       const wrapper = mount({

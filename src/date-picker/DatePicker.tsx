@@ -14,7 +14,11 @@ import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePicker',
-  props,
+
+  props: {
+    ...props,
+  },
+
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 
@@ -46,10 +50,10 @@ export default defineComponent({
     );
 
     watchEffect(() => {
-      if (!props.enableTimePicker) return;
-
       // 面板展开重置数据
       if (popupVisible.value) {
+        year.value = dayjs(value.value || new Date()).year();
+        month.value = dayjs(value.value || new Date()).month();
         cacheValue.value = formatRef.value.formatDate(value.value || new Date());
         time.value = formatRef.value.formatTime(value.value || new Date());
       }
@@ -118,7 +122,7 @@ export default defineComponent({
       inputValue.value = nextInputValue;
     }
 
-    // timepicker 点击
+    // timePicker 点击
     function onTimePickerChange(val: string) {
       time.value = val;
 
@@ -182,6 +186,7 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      popupVisible: popupVisible.value,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -199,6 +204,7 @@ export default defineComponent({
         <TSelectInput
           disabled={disabled.value}
           value={inputValue.value}
+          clearable={props.clearable}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           popupVisible={popupVisible.value}

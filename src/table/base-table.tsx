@@ -111,6 +111,7 @@ export default defineComponent({
         [tableBaseClass.multipleHeader]: isMultipleHeader.value,
         [tableColFixedClasses.leftShadow]: showColumnShadow.left,
         [tableColFixedClasses.rightShadow]: showColumnShadow.right,
+        [tableBaseClass.columnResizableTable]: props.resizable,
       },
     ]);
 
@@ -266,6 +267,7 @@ export default defineComponent({
   render() {
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
+    const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
@@ -289,13 +291,13 @@ export default defineComponent({
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
         ref="affixHeaderRef"
-        style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixHeader) }}
+        style={{ width: `${this.tableWidth - 1}px`, opacity: Number(this.showAffixHeader) }}
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
-            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+            {columns.map((col) => (
               <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
             ))}
           </colgroup>
@@ -347,7 +349,7 @@ export default defineComponent({
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
             <colgroup>
-              {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+              {columns.map((col) => (
                 <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
               ))}
             </colgroup>
@@ -357,7 +359,7 @@ export default defineComponent({
               isFixedHeader={this.isFixedHeader}
               rowAndColFixedPosition={rowAndColFixedPosition}
               footData={this.footData}
-              columns={this.columns}
+              columns={columns}
               rowAttributes={this.rowAttributes}
               rowClassName={this.rowClassName}
               thWidthList={this.thWidthList}
@@ -406,7 +408,7 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           <colgroup>
-            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
+            {columns.map((col) => (
               <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
             ))}
           </colgroup>
@@ -428,7 +430,7 @@ export default defineComponent({
             isFixedHeader={this.isFixedHeader}
             rowAndColFixedPosition={rowAndColFixedPosition}
             footData={this.footData}
-            columns={this.columns}
+            columns={columns}
             rowAttributes={this.rowAttributes}
             rowClassName={this.rowClassName}
           ></TFoot>

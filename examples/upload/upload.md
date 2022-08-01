@@ -12,23 +12,25 @@
 -- | -- | -- | -- | --
 accept | String | - | 接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file) | N
 action | String | - | 上传接口 | N
+allowUploadDuplicateFile | Boolean | false | 是否允许重复上传相同文件名的文件 | N
 autoUpload | Boolean | true | 是否选取文件后自动上传 | N
 beforeUpload | Function | - | 上传文件之前的钩子，参数为上传的文件，返回值决定是否上传。TS 类型：`(file: File | UploadFile) => boolean | Promise<boolean>` | N
 data | Object | - | 上传文件时所需的额外数据。TS 类型：`Record<string, any> | ((file: File) => Record<string, any>)` | N
 default | String / Slot / Function | - | 触发上传的内容，同 trigger。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | false | 是否禁用 | N
 draggable | Boolean | false | 是否启用拖拽上传 | N
-fileListDisplay | Slot / Function | - | 【开发中】用于完全自定义文件列表内容。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+fileListDisplay | Slot / Function | - | 用于完全自定义文件列表内容。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 files | Array | - | 已上传文件列表。支持语法糖 `v-model` 或 `v-model:files`。TS 类型：`Array<UploadFile>` | N
 defaultFiles | Array | - | 已上传文件列表。非受控属性。TS 类型：`Array<UploadFile>` | N
 format | Function | - | 文件上传前转换文件数据。TS 类型：`(file: File) => UploadFile` | N
-formatResponse | Function | - | 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+formatResponse | Function | - | 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 headers | Object | - | 设置上传的请求头部。TS 类型：`{[key: string]: string}` | N
 isBatchUpload | Boolean | false | 文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件 | N
+locale | Object | - | 上传组件文本语言配置，支持自定义配置组件中的全部文本。TS 类型：`UploadConfig` `import { UploadConfig } from '../config-provider/type'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 max | Number | 0 | 用于控制文件上传数量，值为 0 则不限制 | N
-method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTION | N
+method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTION/PATCH/post/get/put/option/patch | N
 multiple | Boolean | false | 是否支持多选文件 | N
-name | String | 'file' | 文件上传时的名称 | N
+name | String | file | 文件上传时的名称 | N
 placeholder | String | - | 占位符 | N
 requestMethod | Function | - | 自定义上传方法。返回值 status 表示上传成功或失败，error 表示上传失败的原因，response 表示请求上传成功后的返回数据，response.url 表示上传成功后的图片地址。示例一：`{ status: 'fail', error: '上传失败', response }`。示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。TS 类型：`(files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>` `interface RequestMethodResponse { status: 'success' | 'fail'; error?: string; response: { url?: string; [key: string]: any } }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 showUploadProgress | Boolean | true | 是否显示上传进度 | N
@@ -42,7 +44,8 @@ withCredentials | Boolean | false | 上传请求时是否携带 cookie | N
 onCancelUpload | Function |  | TS 类型：`() => void`<br/>点击「取消上传」时触发 | N
 onChange | Function |  | TS 类型：`(value: Array<UploadFile>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/> | N
 onDragenter | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>进入拖拽区域时触发 | N
-onDragleave | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>拖拽结束时触发 | N
+onDragleave | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>离开拖拽区域时触发 | N
+onDrop | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>拖拽结束时触发 | N
 onFail | Function |  | TS 类型：`(options: { e: ProgressEvent; file: UploadFile }) => void`<br/>上传失败后触发 | N
 onPreview | Function |  | TS 类型：`(options: { file: UploadFile; e: MouseEvent }) => void`<br/>点击预览时触发 | N
 onProgress | Function |  | TS 类型：`(options: ProgressContext) => void`<br/>上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface ProgressContext { e?: ProgressEvent; file: UploadFile; percent: number; type: UploadProgressType }`<br/><br/>`type UploadProgressType = 'real' | 'mock'`<br/> | N
@@ -54,10 +57,11 @@ onSuccess | Function |  | TS 类型：`(context: SuccessContext) => void`<br/>�
 
 名称 | 参数 | 描述
 -- | -- | --
-cancel-upload | - | 点击「取消上传」时触发
+cancel-upload | \- | 点击「取消上传」时触发
 change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/>
 dragenter | `(context: { e: DragEvent })` | 进入拖拽区域时触发
-dragleave | `(context: { e: DragEvent })` | 拖拽结束时触发
+dragleave | `(context: { e: DragEvent })` | 离开拖拽区域时触发
+drop | `(context: { e: DragEvent })` | 拖拽结束时触发
 fail | `(options: { e: ProgressEvent; file: UploadFile })` | 上传失败后触发
 preview | `(options: { file: UploadFile; e: MouseEvent })` | 点击预览时触发
 progress | `(options: ProgressContext)` | 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface ProgressContext { e?: ProgressEvent; file: UploadFile; percent: number; type: UploadProgressType }`<br/><br/>`type UploadProgressType = 'real' | 'mock'`<br/>

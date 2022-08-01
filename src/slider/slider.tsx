@@ -45,10 +45,10 @@ export default defineComponent({
     const firstButtonRef = ref<SliderButtonType>();
     const secondButtonRef = ref<SliderButtonType>();
 
-    const sliderState = reactive({
-      // TODO: 该属性应该是暴露出来的api供用户配置才对
-      showSteps: false,
-    });
+    // const sliderState = reactive({
+    //   // TODO: 该属性应该是暴露出来的api供用户配置才对
+    //   showSteps: true,
+    // });
     const firstValue = ref(formatSlderValue(sliderValue.value, 'first'));
     const secondValue = ref(formatSlderValue(sliderValue.value, 'second'));
     const dragging = ref(false);
@@ -105,7 +105,7 @@ export default defineComponent({
       return Math.max(firstValue.value, secondValue.value);
     });
     const steps = computed(() => {
-      if (!sliderState.showSteps || props.min > props.max) return [];
+      if (!props.showStep || props.min > props.max) return [];
       if (props.step === 0) {
         console.warn('[Element Warn][Slider]step should not be 0.');
         return [];
@@ -117,11 +117,12 @@ export default defineComponent({
         result.push(i * stepWidth);
       }
       if (props.range) {
-        return result.filter(
+        const r = result.filter(
           (step) =>
             step < (100 * (minValue.value - props.min)) / rangeDiff.value ||
-            props.step > (100 * (maxValue.value - props.min)) / rangeDiff.value,
+            props.step > (100 * (maxValue.value - props.max)) / rangeDiff.value,
         );
+        return r;
       }
       return result.filter((step) => step > (100 * (firstValue.value - props.min)) / rangeDiff.value);
     });
@@ -393,6 +394,7 @@ export default defineComponent({
               ref={firstButtonRef}
               disabled={disabled.value}
               tooltip-props={props.tooltipProps}
+              label={props.label}
               onInput={(v: number) => {
                 firstValue.value = v;
               }}
@@ -403,13 +405,14 @@ export default defineComponent({
                 value={secondValue.value}
                 ref={secondButtonRef}
                 disabled={disabled.value}
+                label={props.label}
                 tooltip-props={props.tooltipProps}
                 onInput={(v: number) => {
                   secondValue.value = v;
                 }}
               />
             )}
-            {sliderState.showSteps && (
+            {props.showStep && (
               <div>
                 {steps.value.map((item, key) => (
                   <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />

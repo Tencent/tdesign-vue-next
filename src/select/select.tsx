@@ -63,6 +63,7 @@ export default defineComponent({
         };
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
+      if (newVal === orgValue.value) return;
       seOrgValue(newVal, e);
     };
 
@@ -297,7 +298,7 @@ export default defineComponent({
             onTagChange={(val, ctx) => {
               removeTag(ctx.index);
             }}
-            tagProps={props.tagProps as TdSelectProps['tagProps']}
+            tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
               ...restPopupProps,

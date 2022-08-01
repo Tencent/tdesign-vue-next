@@ -128,7 +128,7 @@ export default defineComponent({
         props.checkedValue.length > 0 &&
         (props.isTreeMode
           ? allValue.every((item) => props.checkedValue.includes(item))
-          : props.dataSource.every(
+          : (props.search ? filteredData.value : props.dataSource).every(
               (item: TransferItemOption) => item.disabled || props.checkedValue.includes(item.value),
             ))
       );
@@ -158,7 +158,10 @@ export default defineComponent({
     };
     const handleCheckedAllChange = (checked: boolean) => {
       if (checked) {
-        const allValue = getDataValues(props.dataSource, [], { isTreeMode: props.isTreeMode, include: false });
+        const allValue = getDataValues(props.search ? filteredData.value : props.dataSource, [], {
+          isTreeMode: props.isTreeMode,
+          include: false,
+        });
         handleCheckedChange(allValue);
       } else {
         handleCheckedChange([]);
@@ -251,53 +254,51 @@ export default defineComponent({
       });
     };
 
-    return () => {
-      return (
-        <div class={`${classPrefix.value}-transfer__list ${classPrefix.value}-transfer__list-${props.listType}`}>
-          <div class={`${classPrefix.value}-transfer__list-header`}>
-            <div>
-              {props.checkAll && (
-                <TCheckbox
-                  disabled={props.disabled || !props.dataSource.length}
-                  checked={isAllChecked.value}
-                  indeterminate={indeterminate.value}
-                  onChange={handleCheckedAllChange}
-                />
-              )}
-              <span>
-                {t(global.value.title, {
-                  checked: props.checkedValue.length,
-                  total: totalCount.value,
-                })}
-              </span>
-            </div>
-            {renderTitle()}
-          </div>
-          <div
-            class={[
-              `${classPrefix.value}-transfer__list-body`,
-              props.search ? `${classPrefix.value}-transfer__list--with-search` : '',
-            ]}
-          >
-            {props.search && (
-              <Search
-                searchValue={filterValue.value}
-                placeholder={t(global.value.placeholder)}
-                onChange={handleSearch}
-                disabled={props.disabled}
-                search={props.search}
+    return () => (
+      <div class={`${classPrefix.value}-transfer__list ${classPrefix.value}-transfer__list-${props.listType}`}>
+        <div class={`${classPrefix.value}-transfer__list-header`}>
+          <div>
+            {props.checkAll && (
+              <TCheckbox
+                disabled={props.disabled || !props.dataSource.length}
+                checked={isAllChecked.value}
+                indeterminate={indeterminate.value}
+                onChange={handleCheckedAllChange}
               />
             )}
-            {curPageData.value.length > 0 ? renderContent() : renderEmpty()}
+            <span>
+              {t(global.value.title, {
+                checked: props.checkedValue.length,
+                total: totalCount.value,
+              })}
+            </span>
           </div>
-          {props.pagination && pageSize.value > 0 && pageTotal.value > 0 && (
-            <div class={`${classPrefix.value}-transfer__list-pagination`}>
-              <Pagination {...paginationProps.value} onChange={handlePaginationChange} />
-            </div>
-          )}
-          {renderFooter()}
+          {renderTitle()}
         </div>
-      );
-    };
+        <div
+          class={[
+            `${classPrefix.value}-transfer__list-body`,
+            props.search ? `${classPrefix.value}-transfer__list--with-search` : '',
+          ]}
+        >
+          {props.search && (
+            <Search
+              searchValue={filterValue.value}
+              placeholder={t(global.value.placeholder)}
+              onChange={handleSearch}
+              disabled={props.disabled}
+              search={props.search}
+            />
+          )}
+          {curPageData.value.length > 0 ? renderContent() : renderEmpty()}
+        </div>
+        {props.pagination && pageSize.value > 0 && pageTotal.value > 0 && (
+          <div class={`${classPrefix.value}-transfer__list-pagination`}>
+            <Pagination {...paginationProps.value} onChange={handlePaginationChange} />
+          </div>
+        )}
+        {renderFooter()}
+      </div>
+    );
   },
 });

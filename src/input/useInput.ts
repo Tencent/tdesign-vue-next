@@ -138,6 +138,14 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     { immediate: true },
   );
 
+  watch(
+    () => props.type,
+    (v) => {
+      renderType.value = v;
+    },
+    { immediate: true },
+  );
+
   expose({
     focus,
     blur,

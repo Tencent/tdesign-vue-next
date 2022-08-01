@@ -21,7 +21,7 @@ export default defineComponent({
 
     const treeDataMap = ref(store.value.treeDataMap);
 
-    const { onInnerSelectChange } = useTreeSelect(props, treeDataMap);
+    const { tIndeterminateSelectedRowKeys, onInnerSelectChange } = useTreeSelect(props, treeDataMap);
 
     // 影响列和单元格内容的因素有：树形节点需要添加操作符 [+] [-]
     const getColumns = (columns: PrimaryTableCol<TableRowData>[]) => {
@@ -61,6 +61,7 @@ export default defineComponent({
       store,
       dataSource,
       tColumns,
+      tIndeterminateSelectedRowKeys,
       onDragSortChange,
       onInnerSelectChange,
       /** 对外暴露的方法 */
@@ -73,6 +74,8 @@ export default defineComponent({
       ...this.$props,
       data: this.dataSource,
       columns: this.tColumns,
+      // 半选状态节点
+      indeterminateSelectedRowKeys: this.tIndeterminateSelectedRowKeys,
       // 树形结构不允许本地数据分页
       disableDataPage: Boolean(this.tree && Object.keys(this.tree).length),
       onSelectChange: this.onInnerSelectChange,

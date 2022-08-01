@@ -127,9 +127,7 @@ export default defineComponent({
       const { statusIcon } = props;
       if (statusIcon === false) return;
 
-      let resultIcon = renderContent('statusIcon', {
-        defaultNode: getDefaultIcon(),
-      });
+      let resultIcon = renderContent('statusIcon', { defaultNode: getDefaultIcon() });
       if (resultIcon) return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
       if (resultIcon === false) return;
 
@@ -349,9 +347,8 @@ export default defineComponent({
       },
     ]);
     const helpNode = computed<VNode>(() => {
-      if (props.help) {
-        return <div class={CLASS_NAMES.value.help}>{props.help}</div>;
-      }
+      const help = renderContent('help');
+      if (help) return <div class={CLASS_NAMES.value.help}>{help}</div>;
       return null;
     });
     const extraNode = computed<VNode>(() => {

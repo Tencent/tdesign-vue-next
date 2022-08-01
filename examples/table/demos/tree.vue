@@ -2,7 +2,7 @@
   <div>
     <div>
       <t-button @click="appendToRoot">添加根节点</t-button>
-      <t-button theme="default" style="margin-left: 16px" @click="setData1">重置数据</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="resetData">重置/更新数据</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">任意节点展开/收起</t-button>
       <t-button theme="default" style="margin-left: 16px" @click="onExpandAllToggle">{{
         expandAll ? '收起全部' : '展开全部'
@@ -98,6 +98,7 @@ function getData(currentPage = 1) {
           ...obj,
           id: thirdIndex,
           key: `我是 ${thirdIndex}_${currentPage} 号`,
+          list: true,
         };
       });
       return secondObj;
@@ -129,9 +130,12 @@ const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
 
-const setData1 = () => {
+const resetData = () => {
   // 需要更新数据地址空间
-  data.value = getData();
+  const newData = getData();
+  // 直接赋值，仅在 keys 发生变化时会重置；无论什么情况都希望更新数据，请使用 table.value.resetData(newData)
+  // data.value = newData;
+  table.value.resetData(newData);
 };
 
 const onEditClick = (row) => {
@@ -171,9 +175,10 @@ const appendTo = (row) => {
   // appendMultipleDataTo(row);
 };
 
-const appendMultipleDataTo = (row) => {
+function appendMultipleDataTo(row) {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const randomKey2 = Math.round(Math.random() * Math.random() * 1000) + 10000;
+  const randomKey3 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const newData = [
     {
       id: randomKey1,
@@ -186,11 +191,19 @@ const appendMultipleDataTo = (row) => {
       key: `我是 ${randomKey2} 号`,
       platform: '私有',
       type: 'Number',
+      list: true,
+    },
+    {
+      id: randomKey3,
+      key: `我是 ${randomKey3} 号`,
+      platform: '私有',
+      type: 'Number',
+      list: true,
     },
   ];
-  table.value.appendTo(row.key, newData);
+  table.value.appendTo(row?.key, newData);
   MessagePlugin.success(`已插入子节点我是 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
-};
+}
 
 // 当前节点之前，新增兄弟节前
 const insertBefore = (row) => {
@@ -347,6 +360,9 @@ const appendToRoot = () => {
     needed: key % 4 === 0 ? '是' : '否',
     description: '数据源',
   });
+
+  // 同时添加多个元素，示例代码有效勿删
+  // appendMultipleDataTo();
 };
 
 const onAbnormalDragSort = (params) => {

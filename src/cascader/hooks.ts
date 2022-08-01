@@ -144,6 +144,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         store.append(options);
         statusContext.treeStore = store;
       } else {
+        if (isEqual(treeStore.config.options, options)) return;
         treeStore.reload(options);
         treeStore.refreshNodes();
       }
@@ -188,7 +189,8 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
       if (isValueInvalid(innerValue.value, cascaderContext.value)) {
         setValue(multiple ? [] : '', 'invalid-value');
-        console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
+      } else {
+        statusContext.scopeVal = multiple ? [] : '';
       }
 
       if (!isEmptyValues(innerValue)) {

@@ -7,7 +7,8 @@ import TreeNode from '../_common/js/tree/tree-node';
 
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
-import { getMark, getNode, getStoreConfig, getRightData } from './util';
+import useOnDrag from './hooks/useOnDrag';
+import { getMark, getNode, getStoreConfig } from './util';
 
 import { TypeEventState, TypeTreeNodeModel } from './interface';
 
@@ -110,6 +111,7 @@ export default function useTree(props: TdTreeProps) {
   // 节点渲染
   const renderTreeNodeViews = () => {
     const nodes = treeStore.value.getNodes();
+
     treeNodeViews.value = nodes
       .filter((node: TreeNode) => node.visible)
       .map((node: TreeNode) => {
@@ -135,6 +137,8 @@ export default function useTree(props: TdTreeProps) {
     });
   };
 
+  useOnDrag(treeStore);
+
   // 更新展开状态
   const updateExpanded = () => {
     const { expandParent } = props;
@@ -158,7 +162,7 @@ export default function useTree(props: TdTreeProps) {
 
   // 初始化
   const init = () => {
-    let options = getRightData(props.data, props.keys?.value);
+    let options = props.data;
     const store = new TreeStore({
       ...getStoreConfig(props),
       onLoad: (info: TypeEventState) => {
@@ -197,13 +201,13 @@ export default function useTree(props: TdTreeProps) {
     renderTreeNodeViews();
   };
 
-  // ------- 监听start -------
+  // ------ 监听start ------
 
   // data变化，重构 tree
   watch(
     () => props.data,
     (list) => {
-      list = getRightData(props.data, props.keys?.value);
+      list = props.data;
       cacheMap.clear();
 
       treeStore.value.reload(list);

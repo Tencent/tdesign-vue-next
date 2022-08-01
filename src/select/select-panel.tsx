@@ -115,6 +115,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__dropdown-inner`,
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
+        onClick={(e) => e.stopPropagation()}
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}

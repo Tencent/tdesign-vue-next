@@ -5,6 +5,7 @@ export default function useClassName() {
   const classNames = {
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
+      columnResizableTable: `${classPrefix.value}-table--column-resizable`,
       overflowVisible: `${classPrefix.value}-table--overflow-visible`,
       body: `${classPrefix.value}-table__body`,
       content: `${classPrefix.value}-table__content`,
@@ -13,6 +14,7 @@ export default function useClassName() {
       tdLastRow: `${classPrefix.value}-table__td-last-row`,
       tdFirstCol: `${classPrefix.value}-table__td-first-col`,
       thCellInner: `${classPrefix.value}-table__th-cell-inner`,
+      tableRowEdit: `${classPrefix.value}-table--row-edit`,
       cellEditable: `${classPrefix.value}-table__cell--editable`,
       cellEditWrap: `${classPrefix.value}-table__cell-wrap`,
       bordered: `${classPrefix.value}-table--bordered`,
@@ -127,6 +129,7 @@ export default function useClassName() {
     tableSelectedClasses: {
       selected: `${classPrefix.value}-table__row--selected`,
       disabled: `${classPrefix.value}-table__row--disabled`,
+      checkCell: `${classPrefix.value}-table__cell-check`,
     },
 
     // 过滤功能，全部类名
@@ -177,3 +180,5 @@ export default function useClassName() {
 
   return classNames;
 }
+
+export type TableClassName = ReturnType<typeof useClassName>;

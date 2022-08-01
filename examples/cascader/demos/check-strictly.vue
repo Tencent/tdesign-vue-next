@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row t-cascader-demo">
+  <div class="tdesign-demo-block-row">
     <t-cascader v-model="value1" :options="options" check-strictly />
     <t-cascader v-model="value2" :options="options" check-strictly multiple />
   </div>

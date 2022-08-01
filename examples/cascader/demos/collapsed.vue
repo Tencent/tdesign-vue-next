@@ -2,7 +2,7 @@
   <div class="tdesign-demo-block-row">
     <t-cascader v-model="value" :options="options" :on-remove="handleBlur" multiple :min-collapsed-num="1" />
     <t-cascader v-model="value" :options="options" :collapsed-items="collapsedItems" multiple :min-collapsed-num="1" />
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable :min-collapsed-num="1">
+    <t-cascader v-model="value" :options="options" multiple clearable :min-collapsed-num="1">
       <template #collapsedItems="{ collapsedSelectedItems, count }">
         <t-popup>
           <template #content>

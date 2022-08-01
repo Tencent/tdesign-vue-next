@@ -1,10 +1,17 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-row">
     <t-cascader
       v-model="value"
       :keys="{ label: 'name', value: 'code', children: 'items' }"
       :options="options"
       clearable
+    />
+    <t-cascader
+      v-model="value2"
+      :keys="{ label: 'name', value: 'code', children: 'items' }"
+      :options="options"
+      clearable
+      multiple
     />
   </div>
 </template>
@@ -48,4 +55,5 @@ const options = [
 ];
 
 const value = ref('1.1');
+const value2 = ref(['1.1']);
 </script>

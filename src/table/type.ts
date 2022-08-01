@@ -16,7 +16,7 @@ import { InputProps } from '../input';
 import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
-import { FormRule } from '../form';
+import { FormRule, AllValidateResult } from '../form';
 import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes, ComponentType } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -68,22 +68,22 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
   footerAffixedBottom?: boolean | AffixProps;
   /**
-   * 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @deprecated
    */
   footerAffixProps?: AffixProps;
   /**
-   * 表头吸顶。基于 Affix 组件开发，透传全部 Affix 组件属性。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围
+   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @default false
    */
   headerAffixedTop?: boolean | AffixProps;
   /**
-   * 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
    * @deprecated
    */
   headerAffixProps?: AffixProps;
@@ -334,6 +334,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   dragSortOptions?: SortableOptions;
   /**
+   * 处于编辑状态的行
+   */
+  editableRowKeys?: Array<string | number>;
+  /**
    * 展开行内容，泛型 T 指表格数据类型
    */
   expandedRow?: TNode<TableExpandedRowParams<T>>;
@@ -377,16 +381,22 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   hideSortTips?: boolean;
   /**
+   * 半选状态行。选中行请更为使用 `selectedRowKeys` 控制
+   */
+  indeterminateSelectedRowKeys?: Array<string | number>;
+  /**
    * 是否支持多列排序
    * @default false
    */
   multipleSort?: boolean;
   /**
-   * 选中的行，控制属性
+   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * @default []
    */
   selectedRowKeys?: Array<string | number>;
   /**
-   * 选中的行，控制属性，非受控属性
+   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
+   * @default []
    */
   defaultSelectedRowKeys?: Array<string | number>;
   /**
@@ -448,6 +458,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onFilterChange?: (filterValue: FilterValue, context: { col?: PrimaryTableCol<T> }) => void;
   /**
+   * 行编辑时触发
+   */
+  onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
+  /**
+   * 行编辑校验完成后触发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
+   */
+  onRowValidate?: (context: PrimaryTableRowValidateContext<T>) => void;
+  /**
    * 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据
    */
   onSelectChange?: (selectedRowKeys: Array<string | number>, options: SelectOptions<T>) => void;
@@ -455,6 +473,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
+}
+
+/** 组件实例方法 */
+export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 校验行信息，校验完成后，会触发事件 `onRowEdit`。参数 `rowValue` 表示行唯一标识的值
+   */
+  validateRowData: (rowValue: any) => void;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
@@ -739,6 +765,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    * 校验规则
    */
   rules?: FormRule[];
+  /**
+   * 是否显示编辑图标
+   * @default true
+   */
+  showEditIcon?: boolean;
 }
 
 export interface TableTreeConfig {
@@ -902,6 +933,12 @@ export interface DragSortContext<T> {
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
 }
+
+export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
+
+export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: 'self' | 'parent' };
+
+export type TableRowValidateResult<T> = PrimaryTableCellParams<T> & { errorList: AllValidateResult[]; value: any };
 
 export interface SelectOptions<T> {
   selectedRowData: Array<T>;

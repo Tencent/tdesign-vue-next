@@ -1,4 +1,4 @@
-import { Slots, VNode, Component, getCurrentInstance } from 'vue';
+import { Slots, VNode, Component, getCurrentInstance, Fragment, Comment } from 'vue';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景
@@ -17,12 +17,48 @@ export function useChildComponentSlots() {
     }
     const content = slots?.default?.() || [];
 
+    // 满足基于基础组件封装场景，递归找到子组件
+    const childList: VNode[] = [];
+    const getChildren = (content: VNode[]) => {
+      if (!Array.isArray(content)) return;
+      content.forEach((item: VNode) => {
+        if (item.children && Array.isArray(item.children)) {
+          if (item.type !== Fragment) return;
+          getChildren(item.children as VNode[]);
+        } else {
+          childList.push(item);
+        }
+      });
+      return childList;
+    };
+
+    return getChildren(content).filter((item: VNode) =>
+      (item.type as Component).name?.endsWith(childComponentName),
+    ) as VNode[];
+  };
+}
+
+/**
+ * 渲染default slot，获取slot child
+ * @param childComponentName
+ * @param slots
+ * @example const getChildSlots = useChildSlots()
+ * @example getChildSlots()
+ */
+export function useChildSlots() {
+  const instance = getCurrentInstance();
+  return () => {
+    const { slots } = instance;
+    const content = slots?.default?.() || [];
+
     return content
-      .map((item: VNode) => {
-        if (item.children && Array.isArray(item.children)) return item.children;
+      .filter((item) => {
+        return item.type !== Comment;
+      })
+      .map((item) => {
+        if (item.children && Array.isArray(item.children) && item.type === Fragment) return item.children;
         return item;
       })
-      .flat()
-      .filter((item: VNode) => (item.type as Component).name?.endsWith(childComponentName)) as VNode[];
+      .flat();
   };
 }

@@ -13,14 +13,16 @@ import {
   TdPrimaryTableProps,
 } from '../type';
 import { filterDataByIds, isRowSelectedDisabled } from '../utils';
-import useClassName from './useClassName';
+import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
 import log from '../../_common/js/log';
 
-export default function useRowSelect(props: TdPrimaryTableProps) {
+export default function useRowSelect(
+  props: TdPrimaryTableProps,
+  tableSelectedClasses: TableClassName['tableSelectedClasses'],
+) {
   const { selectedRowKeys, columns, data, rowKey } = toRefs(props);
-  const { tableSelectedClasses } = useClassName();
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
@@ -62,9 +64,13 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   function getSelectedHeader() {
     const isIndeterminate =
       intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
+    const isChecked =
+      intersectionKeys.value.length !== 0 &&
+      canSelectedRows.value.length !== 0 &&
+      intersectionKeys.value.length === canSelectedRows.value.length;
     return () => (
       <Checkbox
-        checked={intersectionKeys.value.length === canSelectedRows.value.length}
+        checked={isChecked}
         indeterminate={isIndeterminate}
         disabled={!canSelectedRows.value.length}
         onChange={handleSelectAll}
@@ -94,7 +100,12 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
       onChange: () => handleSelectChange(row),
     };
     if (column.type === 'single') return <Radio {...selectBoxProps} />;
-    if (column.type === 'multiple') return <Checkbox {...selectBoxProps} />;
+    if (column.type === 'multiple') {
+      const isIndeterminate = props.indeterminateSelectedRowKeys?.length
+        ? props.indeterminateSelectedRowKeys.includes(get(row, props.rowKey))
+        : false;
+      return <Checkbox indeterminate={isIndeterminate} {...selectBoxProps} />;
+    }
     return null;
   }
 
@@ -126,7 +137,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
     setTSelectedRowKeys(allIds, {
-      selectedRowData: filterDataByIds(props.data, allIds, reRowKey),
+      selectedRowData: checked ? filterDataByIds(props.data, allIds, reRowKey) : [],
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });
@@ -138,6 +149,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
     return {
       ...col,
       width: col.width || 64,
+      className: tableSelectedClasses.checkCell,
       cell: (_: typeof h, p: PrimaryTableCellParams<TableRowData>) => renderSelectCell(p),
       title: col.type === 'multiple' ? getSelectedHeader() : '',
     };

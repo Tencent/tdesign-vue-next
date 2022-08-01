@@ -18,6 +18,8 @@ export default {
     type: String,
     default: '',
   },
+  /** 是否允许重复上传相同文件名的文件 */
+  allowUploadDuplicateFile: Boolean,
   /** 是否选取文件后自动上传 */
   autoUpload: {
     type: Boolean,
@@ -39,7 +41,7 @@ export default {
   disabled: Boolean,
   /** 是否启用拖拽上传 */
   draggable: Boolean,
-  /** 【开发中】用于完全自定义文件列表内容 */
+  /** 用于完全自定义文件列表内容 */
   fileListDisplay: {
     type: Function as PropType<TdUploadProps['fileListDisplay']>,
   },
@@ -60,7 +62,7 @@ export default {
   format: {
     type: Function as PropType<TdUploadProps['format']>,
   },
-  /** 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。 */
+  /** 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址 */
   formatResponse: {
     type: Function as PropType<TdUploadProps['formatResponse']>,
   },
@@ -70,6 +72,10 @@ export default {
   },
   /** 文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件 */
   isBatchUpload: Boolean,
+  /** 上传组件文本语言配置，支持自定义配置组件中的全部文本 */
+  locale: {
+    type: Object as PropType<TdUploadProps['locale']>,
+  },
   /** 用于控制文件上传数量，值为 0 则不限制 */
   max: {
     type: Number,
@@ -81,7 +87,7 @@ export default {
     default: 'POST' as TdUploadProps['method'],
     validator(val: TdUploadProps['method']): boolean {
       if (!val) return true;
-      return ['POST', 'GET', 'PUT', 'OPTION'].includes(val);
+      return ['POST', 'GET', 'PUT', 'OPTION', 'PATCH', 'post', 'get', 'put', 'option', 'patch'].includes(val);
     },
   },
   /** 是否支持多选文件 */
@@ -142,8 +148,10 @@ export default {
   onChange: Function as PropType<TdUploadProps['onChange']>,
   /** 进入拖拽区域时触发 */
   onDragenter: Function as PropType<TdUploadProps['onDragenter']>,
-  /** 拖拽结束时触发 */
+  /** 离开拖拽区域时触发 */
   onDragleave: Function as PropType<TdUploadProps['onDragleave']>,
+  /** 拖拽结束时触发 */
+  onDrop: Function as PropType<TdUploadProps['onDrop']>,
   /** 上传失败后触发 */
   onFail: Function as PropType<TdUploadProps['onFail']>,
   /** 点击预览时触发 */
