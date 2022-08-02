@@ -121906,6 +121906,21 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                   <span
                     class="t-tabs__nav-item-text-wrapper"
                   >
+                    选项卡1
+                  </span>
+                </div>
+                <!---->
+              </div>
+              <div
+                class="t-tabs__nav-item t-size-m"
+                draggable="false"
+              >
+                <div
+                  class="t-tabs__nav-item-wrapper"
+                >
+                  <span
+                    class="t-tabs__nav-item-text-wrapper"
+                  >
                     选项卡2
                   </span>
                 </div>
@@ -122181,21 +122196,6 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
                 </div>
                 <!---->
               </div>
-              <div
-                class="t-tabs__nav-item t-size-m"
-                draggable="false"
-              >
-                <div
-                  class="t-tabs__nav-item-wrapper"
-                >
-                  <span
-                    class="t-tabs__nav-item-text-wrapper"
-                  >
-                    选项卡21
-                  </span>
-                </div>
-                <!---->
-              </div>
               
             </div>
           </div>
@@ -122213,7 +122213,7 @@ exports[`csr snapshot test > csr test ./examples/tabs/demos/combination.vue 1`] 
         <p
           style="padding: 25px;"
         >
-          选项卡2
+          选项卡1
         </p>
         
       </div>
