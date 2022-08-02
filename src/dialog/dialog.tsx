@@ -153,11 +153,6 @@ export default defineComponent({
         `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
-      if (['modeless', 'modal'].includes(props.mode)) {
-        if (isModal.value && props.showInAttachedElement) {
-          dialogClass.push(`${COMPONENT_NAME.value}--absolute`);
-        }
-      }
       return dialogClass;
     });
     const dialogStyle = computed(() => {
@@ -356,7 +351,7 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        't-dialog__ctx--fixed': this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
         [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },

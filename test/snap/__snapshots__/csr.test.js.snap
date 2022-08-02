@@ -44457,7 +44457,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
           class="t-dialog__position t-dialog--center"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--absolute"
+            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
           >
             <div
               class="t-dialog__header"
@@ -119066,7 +119066,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
         class="t-button__text"
       >
         
-        重置数据
+        重置/更新数据
         
       </span>
     </button>
