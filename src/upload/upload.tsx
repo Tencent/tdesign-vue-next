@@ -73,7 +73,12 @@ export default defineComponent({
     const { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef } =
       useActions(props, uploadCtx, disabled);
 
-    expose({ triggerUpload });
+    expose({
+      triggerUpload,
+      setPercent: (val: number) => {
+        uploadCtx.percent = val;
+      },
+    });
 
     // input 节点
     const renderInput = () => {
@@ -217,31 +222,38 @@ export default defineComponent({
         />
       );
 
-    const renderFlowList = (triggerElement: VNode) =>
-      showUploadList.value && (
-        <FlowList
-          files={uploadValue.value}
-          placeholder={props.placeholder}
-          autoUpload={props.autoUpload}
-          toUploadFiles={uploadCtx.toUploadFiles}
-          theme={props.theme}
-          batchUpload={uploadCtx.canBatchUpload}
-          showUploadProgress={props.showUploadProgress}
-          allowUploadDuplicateFile={props.allowUploadDuplicateFile}
-          onRemove={handleListRemove}
-          onUpload={multipleUpload}
-          onCancel={cancelUpload}
-          onImgPreview={handlePreviewImg}
-          onChange={handleDragChange}
-          onDragenter={handleDragenter}
-          onDragleave={handleDragleave}
-          locale={props.locale}
-        >
-          <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
-            {triggerElement}
-          </div>
-        </FlowList>
+    const renderFlowList = (triggerElement: VNode) => {
+      let { theme } = props;
+      if (props.multiple && props.theme === 'file' && props.draggable) {
+        theme = 'file-flow';
+      }
+      return (
+        showUploadList.value && (
+          <FlowList
+            files={uploadValue.value}
+            placeholder={props.placeholder}
+            autoUpload={props.autoUpload}
+            toUploadFiles={uploadCtx.toUploadFiles}
+            theme={theme}
+            batchUpload={uploadCtx.canBatchUpload}
+            showUploadProgress={props.showUploadProgress}
+            allowUploadDuplicateFile={props.allowUploadDuplicateFile}
+            onRemove={handleListRemove}
+            onUpload={multipleUpload}
+            onCancel={cancelUpload}
+            onImgPreview={handlePreviewImg}
+            onChange={handleDragChange}
+            onDragenter={handleDragenter}
+            onDragleave={handleDragleave}
+            locale={props.locale}
+          >
+            <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
+              {triggerElement}
+            </div>
+          </FlowList>
+        )
       );
+    };
 
     const renderDialog = () =>
       ['image', 'image-flow', 'custom'].includes(props.theme) && (
