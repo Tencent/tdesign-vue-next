@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { h, defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -187,6 +187,8 @@ export default defineComponent({
         let label;
         if (panel?.children?.label) {
           label = panel.children.label();
+        } else if (typeof panel.label === 'function') {
+          label = panel.label(h);
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }
