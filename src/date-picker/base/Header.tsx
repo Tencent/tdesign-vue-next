@@ -23,7 +23,7 @@ export default defineComponent({
     const { global } = useConfig('datePicker');
 
     const yearOptions = ref(initOptions(props.year));
-    const showMonthPicker = props.mode === 'date';
+    const showMonthPicker = props.mode === 'date' || props.mode === 'week';
 
     // 年份选择展示区间
     const nearestYear = computed(

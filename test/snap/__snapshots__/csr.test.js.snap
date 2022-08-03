@@ -40664,7 +40664,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </thead>
                 <tbody>
                   
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -40738,7 +40740,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40812,7 +40816,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40886,7 +40892,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40960,7 +40968,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--now"
@@ -41034,7 +41044,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -41355,7 +41367,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </thead>
                 <tbody>
                   
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -41429,7 +41443,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41503,7 +41519,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41577,7 +41595,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41651,7 +41671,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--now"
@@ -41725,7 +41747,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42104,7 +42128,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42178,7 +42204,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42252,7 +42280,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42326,7 +42356,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42400,7 +42432,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--now"
@@ -42474,7 +42508,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42778,7 +42814,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42852,7 +42890,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42926,7 +42966,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43000,7 +43042,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43074,7 +43118,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43148,7 +43194,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43474,7 +43522,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43548,7 +43598,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43622,7 +43674,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43696,7 +43750,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43770,7 +43826,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--now"
@@ -43844,7 +43902,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43981,6 +44041,318 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             </span>
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-picker"
+    >
+      
+      <div
+        class="t-input__wrap t-select-input t-select-input--empty"
+      >
+        <div
+          class="t-input t-is-default t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-range-picker"
+    >
+      <div
+        class="t-range-input-popup"
+      >
+        
+        <div
+          class="t-range-input"
+        >
+          <div
+            class="t-range-input__inner"
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-input__wrap t-range-input__inner-left"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <div
+              class="t-range-input__inner-separator"
+            >
+              -
+            </div>
+            <div
+              class="t-input__wrap t-range-input__inner-right"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <span
+              class="t-range-input__suffix t-range-input__suffix-icon"
+            >
+              <svg
+                class="t-icon t-icon-calendar"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
+        </div>
+        <!---->
+        
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-picker"
+    >
+      
+      <div
+        class="t-input__wrap t-select-input t-select-input--empty"
+      >
+        <div
+          class="t-input t-is-default t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-range-picker"
+    >
+      <div
+        class="t-range-input-popup"
+      >
+        
+        <div
+          class="t-range-input"
+        >
+          <div
+            class="t-range-input__inner"
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-input__wrap t-range-input__inner-left"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <div
+              class="t-range-input__inner-separator"
+            >
+              -
+            </div>
+            <div
+              class="t-input__wrap t-range-input__inner-right"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <span
+              class="t-range-input__suffix t-range-input__suffix-icon"
+            >
+              <svg
+                class="t-icon t-icon-calendar"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
+        </div>
+        <!---->
+        
       </div>
     </div>
   </div>

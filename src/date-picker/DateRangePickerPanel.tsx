@@ -9,13 +9,11 @@ import {
   TdDateRangePickerPanelProps,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
-  TdDatePickerPanelProps,
-  TdDatePickerProps,
 } from './type';
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
-import useFormat from './hooks/useFormat';
+import { formatDate, getDefaultFormat } from './hooks/useFormat';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
@@ -43,9 +41,8 @@ export default defineComponent({
     const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
 
     const formatRef = computed(() =>
-      useFormat({
+      getDefaultFormat({
         mode: props.mode,
-        value: props.value,
         enableTimePicker: props.enableTimePicker,
         format: props.format,
         valueType: props.valueType,
@@ -62,7 +59,10 @@ export default defineComponent({
     function onCellMouseEnter(date: Date) {
       isHoverCell.value = true;
       const nextValue = [...(hoverValue.value as string[])];
-      nextValue[activeIndex.value] = formatRef.value.formatDate(date) as string;
+      nextValue[activeIndex.value] = formatDate(date, {
+        format: formatRef.value.format,
+        targetFormat: formatRef.value.format,
+      }) as string;
       hoverValue.value = nextValue;
     }
 
@@ -78,7 +78,10 @@ export default defineComponent({
       isSelected.value = true;
 
       const nextValue = [...(cacheValue.value as string[])];
-      nextValue[activeIndex.value] = formatRef.value.formatDate(date) as string;
+      nextValue[activeIndex.value] = formatDate(date, {
+        format: formatRef.value.format,
+        targetFormat: formatRef.value.format,
+      }) as string;
       cacheValue.value = nextValue;
 
       // 有时间选择器走 confirm 逻辑
@@ -87,7 +90,10 @@ export default defineComponent({
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (nextValue.length === 2 && !props.enableTimePicker && isFirstValueSelected.value) {
         onChange?.(
-          formatRef.value.formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          formatDate(nextValue, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+          }) as DateValue[],
           {
             dayjsValue: nextValue.map((v) => dayjs(v)),
             trigger: 'pick',
@@ -188,7 +194,10 @@ export default defineComponent({
       time.value = nextTime;
 
       isSelected.value = true;
-      cacheValue.value = formatRef.value.formatDate(nextInputValue);
+      cacheValue.value = formatDate(nextInputValue, {
+        format: formatRef.value.format,
+        targetFormat: formatRef.value.format,
+      });
 
       props.onTimeChange?.({
         time: val,
@@ -202,12 +211,13 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
-      const notValidIndex = nextValue.findIndex((v) => !v || !formatRef.value.isValidDate(v));
-
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (notValidIndex === -1 && nextValue.length === 2 && isFirstValueSelected.value) {
+      if (nextValue.length === 2 && isFirstValueSelected.value) {
         onChange?.(
-          formatRef.value.formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          formatDate(nextValue, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+          }) as DateValue[],
           {
             dayjsValue: nextValue.map((v) => dayjs(v)),
             trigger: 'confirm',
@@ -233,7 +243,10 @@ export default defineComponent({
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
         onChange?.(
-          formatRef.value.formatDate(presetValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          formatDate(presetValue, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+          }) as DateValue[],
           {
             dayjsValue: presetValue.map((p) => dayjs(p)),
             trigger: 'preset',
