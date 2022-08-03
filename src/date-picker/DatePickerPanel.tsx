@@ -188,7 +188,7 @@ export default defineComponent({
       year: year.value,
       month: month.value,
       mode: props.mode,
-      format: props.format,
+      format: formatRef.value.format,
       presets: props.presets,
       time: time.value as string,
       disableDate: props.disableDate,
