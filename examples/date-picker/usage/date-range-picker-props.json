@@ -33,8 +33,16 @@
         "value": "year"
       },
       {
+        "label": "quarter",
+        "value": "quarter"
+      },
+      {
         "label": "month",
         "value": "month"
+      },
+      {
+        "label": "week",
+        "value": "week"
       },
       {
         "label": "date",
