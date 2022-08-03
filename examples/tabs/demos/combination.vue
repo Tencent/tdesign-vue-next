@@ -7,8 +7,8 @@
       </t-radio-group>
     </div>
     <t-tabs v-model="value" :theme="theme">
-      <t-tab-panel v-for="index in 20" :key="index" :value="index + ''" :label="`选项卡${index + 1}`">
-        <p style="padding: 25px">选项卡{{ index + 1 }}</p>
+      <t-tab-panel v-for="index in 20" :key="index" :value="index + ''" :label="`选项卡${index}`">
+        <p style="padding: 25px">选项卡{{ index }}</p>
       </t-tab-panel>
     </t-tabs>
   </div>

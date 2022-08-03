@@ -4,12 +4,17 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-## 🌈 0.18.2 `2022-08-02` 
+
+## 🌈 0.19.0 `2022-08-03` 
+
+### ❗️ BREAKING CHANGES
+- 调整全局 `border-radius` 样式 token，`@border-radius` 改名为 `@border-radius-default`，支持更多圆角 token。 使用 esm 包修改 less token 的业务需要注意 @mingrutough1 [common #666](https://github.com/Tencent/tdesign-common/pull/666)，组件库中各组件实现圆角也做了统一调整，详情参见 https://github.com/Tencent/tdesign/discussions/158
+- 
 ### 🚀 Features
 - `SelectInput`: `SelectInput` 及相关的 `Select/Cascader/TreeSelect` 组件交互调整，再次点击输入框时也可以收起下拉框。 @xiaosansiji ([#1299](https://github.com/Tencent/tdesign-vue-next/pull/1299))
 - `Upload`: 增加 `setPercent ` 实例方法用于满足自定义上传方法时设置上传进度([issue #1266](https://github.com/Tencent/tdesign-vue-next/issues/1266)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
 ### 🐞 Bug Fixes
-- `dialog`: 删除冗余的样式 @huoyuhao ([#1305](https://github.com/Tencent/tdesign-vue-next/pull/1305))
+- `Dialog`: 删除冗余的样式 @huoyuhao ([#1305](https://github.com/Tencent/tdesign-vue-next/pull/1305))
 - `Table`: 树形结构，展开全部功能，默认不应该展开懒加载节点 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
 - `Table`: 多级表头，表尾列显示异常 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
 - `Table`: 吸顶的多级表头，左侧边线缺失问题 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
@@ -19,9 +24,11 @@ docClass: timeline
 - `Tabs`: 修复 `tabpanel` 组件的 `label` 不能根据函数进行自定义展示 ([issue #1311](https://github.com/Tencent/tdesign-vue-next/issues/1311)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
 - `Upload`: 修复 ` draggable` 和 `multiple` 组合使用时组件无输出([issue #1326](https://github.com/Tencent/tdesign-vue-next/issues/1326)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
 - `ClassPrefix`：替换遗漏的 `classprefix` @uyarn ([#1300](https://github.com/Tencent/tdesign-vue-next/pull/1300))
+- `Tabs`: 修复组合场景下的示例 @LAWTED ([#1334](https://github.com/Tencent/tdesign-vue-next/pull/1334))
 
 ### 🚧 Others
 - `Table`: 修复 `validateRowDate` 拼写错误到 `validateRowData`  ([issue #1321](https://github.com/Tencent/tdesign-vue-next/issues/1321)) @pengYYYYY ([#1317](https://github.com/Tencent/tdesign-vue-next/pull/1317))
+
 
 
 ## 🌈 0.18.1 `2022-07-26` 
