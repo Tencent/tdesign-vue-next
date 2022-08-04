@@ -262,6 +262,7 @@ export default defineComponent({
         </div>
         <div class={`${baseClassName}__gradient-degree`} title={`${degree}deg`}>
           <TInputNumber
+            size="small"
             theme="normal"
             min={0}
             max={360}
