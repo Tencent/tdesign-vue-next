@@ -11,6 +11,7 @@ import {
   onMounted,
 } from 'vue';
 import pick from 'lodash/pick';
+import forIn from 'lodash/forIn';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
@@ -152,7 +153,7 @@ export default defineComponent({
     };
 
     const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
-    const { data } = toRefs<any>(props);
+    const { data, emptyContent } = toRefs<any>(props);
     const {
       trs = null,
       scrollHeight = null,
@@ -267,6 +268,19 @@ export default defineComponent({
   render() {
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
+
+    /**
+     * 判断空数据逻辑
+     */
+    // 遍历每一行的数据
+    for (let i = data.length; i--; ) {
+      // 遍历每一列的数据
+      forIn(data[i], (value, key) => {
+        if (value === undefined || value === null || value === '') {
+          data[i][key] = this.emptyContent;
+        }
+      });
+    }
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;

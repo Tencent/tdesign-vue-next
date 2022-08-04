@@ -55,6 +55,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   empty?: string | TNode;
   /**
+   * 表格内容为空时展现的字符串
+   * @default '-'
+   */
+  emptyContent?: string;
+  /**
    * 首行内容
    */
   firstFullRow?: string | TNode;

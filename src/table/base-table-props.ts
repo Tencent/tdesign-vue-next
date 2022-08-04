@@ -36,6 +36,11 @@ export default {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
     default: '',
   },
+  /** 表格内容为空时展现的字符串 */
+  emptyContent: {
+    type: [String, Function] as PropType<TdBaseTableProps['emptyContent']>,
+    default: '-',
+  },
   /** 首行内容 */
   firstFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,

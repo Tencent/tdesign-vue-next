@@ -37,6 +37,7 @@ export const extendTableProps = [
   'rowAttributes',
   'loading',
   'empty',
+  'emptyContent',
   'fixedRows',
   'firstFullRow',
   'lastFullRow',
