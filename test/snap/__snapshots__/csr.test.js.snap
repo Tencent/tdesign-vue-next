@@ -28262,7 +28262,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -28275,35 +28274,63 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
-      </div>
-      <div
-        class="t-color-picker__slider t-color-picker__alpha t-color-picker--bg-alpha"
-      >
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--alpha-type t-color-picker__alpha t-color-picker--bg-alpha"
+          >
+            <div
+              class="t-color-picker__slider-padding"
+            />
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 186px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 248px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
       <div
         class="t-color-picker__format"
@@ -28312,14 +28339,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -28337,11 +28364,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -28381,7 +28404,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -28414,7 +28437,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -28447,7 +28470,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -28480,7 +28503,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1.15;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="100"
               >
                 <!---->
@@ -29171,7 +29194,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -29184,24 +29206,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
-      <!---->
       <div
         class="t-color-picker__format"
       >
@@ -29209,14 +29252,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -29234,11 +29277,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -29278,7 +29317,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -29311,7 +29350,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -29344,7 +29383,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -30045,7 +30084,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -30058,24 +30096,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -30083,14 +30142,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -30108,11 +30167,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -30152,7 +30207,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -30185,7 +30240,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -30218,7 +30273,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -31035,7 +31090,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -31048,24 +31102,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -31073,14 +31148,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -31098,11 +31173,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -31142,7 +31213,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -31175,7 +31246,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -31208,7 +31279,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -31916,7 +31987,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -31929,24 +31999,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
-      <!---->
       <div
         class="t-color-picker__format"
       >
@@ -31954,14 +32045,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -31979,11 +32070,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -32023,7 +32110,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -32057,7 +32144,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -32091,7 +32178,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -32793,7 +32880,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -32806,24 +32892,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -32831,14 +32938,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -32856,11 +32963,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -32900,7 +33003,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -32933,7 +33036,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -32966,7 +33069,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -33205,7 +33308,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -33218,24 +33320,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -33243,14 +33366,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -33268,11 +33391,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -33312,7 +33431,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -33345,7 +33464,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -33378,7 +33497,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->

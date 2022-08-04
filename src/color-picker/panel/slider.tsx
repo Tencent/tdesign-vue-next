@@ -23,6 +23,10 @@ export default defineComponent({
     railStyle: {
       type: Object as PropType<any>,
     },
+    type: {
+      type: String as PropType<'hue' | 'alpha'>,
+      default: 'hue',
+    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
@@ -87,11 +91,17 @@ export default defineComponent({
     };
   },
   render() {
-    const { baseClassName, className, railStyle, styles } = this;
+    const { baseClassName, className, railStyle, styles, type, color } = this;
+    const paddingStyle = {
+      background: `linear-gradient(90deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.0) 93%, ${color.rgb} 93%, ${color.rgb} 100%)`,
+    };
     return (
-      <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
-        <div class={`${baseClassName}__rail`} style={railStyle}></div>
-        <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
+      <div class={[`${baseClassName}__slider-wrapper`, `${baseClassName}__slider-wrapper--${type}-type`]}>
+        {type === 'alpha' && <div className={`${baseClassName}__slider-padding`} style={paddingStyle} />}
+        <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
+          <div class={`${baseClassName}__rail`} style={railStyle}></div>
+          <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
+        </div>
       </div>
     );
   },
