@@ -18,7 +18,7 @@ export default function useInputNumberAction(
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const disabledReduce = computed(
-    () => props.disabled || isError.value || Number(innerValue.value) - props.step < props.min,
+    () => props.disabled || isError.value || (Number(innerValue.value) || 0) - props.step < props.min,
   );
   const disabledAdd = computed(
     () => props.disabled || isError.value || Number(innerValue.value) + props.step > props.max,
@@ -80,6 +80,7 @@ export default function useInputNumberAction(
     if (actionType !== 'input') {
       clearInput();
     }
+
     handleChange(value, { type: actionType, e });
   };
 

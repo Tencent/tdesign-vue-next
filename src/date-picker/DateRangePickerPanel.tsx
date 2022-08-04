@@ -1,27 +1,56 @@
 import { defineComponent, computed, ref } from 'vue';
 import dayjs from 'dayjs';
 
-import props from './date-range-picker-panel-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import dateRangePickerPanelProps from './date-range-picker-panel-props';
+import dateRangePickerProps from './date-range-picker-props';
+import {
+  DateValue,
+  DateRangePickerPartial,
+  TdDateRangePickerPanelProps,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+  TdDatePickerPanelProps,
+  TdDatePickerProps,
+} from './type';
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
 import useFormat from './hooks/useFormat';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils-new';
+import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
-  props,
-  setup(props) {
+
+  props: {
+    value: dateRangePickerProps.value,
+    defaultValue: dateRangePickerProps.defaultValue,
+    modelValue: dateRangePickerProps.modelValue,
+    valueType: dateRangePickerProps.valueType,
+    disabled: dateRangePickerProps.disabled,
+    disableDate: dateRangePickerProps.disableDate,
+    enableTimePicker: dateRangePickerProps.enableTimePicker,
+    firstDayOfWeek: dateRangePickerProps.firstDayOfWeek,
+    format: dateRangePickerProps.format,
+    mode: dateRangePickerProps.mode,
+    presets: dateRangePickerProps.presets,
+    presetsPlacement: dateRangePickerProps.presetsPlacement,
+    timePickerProps: dateRangePickerProps.timePickerProps,
+    panelPreselection: dateRangePickerProps.panelPreselection,
+    ...dateRangePickerPanelProps,
+  },
+
+  setup(props: TdDateRangePickerPanelProps) {
     const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
 
-    const { formatDate, isValidDate, format } = useFormat({
-      mode: props.mode,
-      value: props.value,
-      enableTimePicker: props.enableTimePicker,
-      format: props.format,
-      valueType: props.valueType,
-    });
+    const formatRef = computed(() =>
+      useFormat({
+        mode: props.mode,
+        value: props.value,
+        enableTimePicker: props.enableTimePicker,
+        format: props.format,
+        valueType: props.valueType,
+      }),
+    );
 
     // 记录面板是否选中过
     const isSelected = ref(false);
@@ -33,7 +62,7 @@ export default defineComponent({
     function onCellMouseEnter(date: Date) {
       isHoverCell.value = true;
       const nextValue = [...(hoverValue.value as string[])];
-      nextValue[activeIndex.value] = formatDate(date) as string;
+      nextValue[activeIndex.value] = formatRef.value.formatDate(date) as string;
       hoverValue.value = nextValue;
     }
 
@@ -49,54 +78,47 @@ export default defineComponent({
       isSelected.value = true;
 
       const nextValue = [...(cacheValue.value as string[])];
-      nextValue[activeIndex.value] = formatDate(date) as string;
+      nextValue[activeIndex.value] = formatRef.value.formatDate(date) as string;
       cacheValue.value = nextValue;
-
-      // date 模式自动切换年月
-      if (props.mode === 'date') {
-        // 选择了不属于面板中展示月份的日期
-        const partialIndex = partial === 'start' ? 0 : 1;
-        const isAdditional = dayjs(date).month() !== month[partialIndex];
-        if (isAdditional) {
-          // 保证左侧时间小于右侧
-          if (activeIndex.value === 0) month.value = [dayjs(date).month(), Math.min(dayjs(date).month() + 1, 11)];
-          if (activeIndex.value === 1) month.value = [Math.max(dayjs(date).month() - 1, 0), dayjs(date).month()];
-        }
-      }
 
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (nextValue.length === 2 && !props.enableTimePicker && isFirstValueSelected.value) {
-        onChange?.(formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[], {
-          dayjsValue: nextValue.map((v) => dayjs(v)),
-          trigger: 'pick',
-        });
+        onChange?.(
+          formatRef.value.formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          {
+            dayjsValue: nextValue.map((v) => dayjs(v)),
+            trigger: 'pick',
+          },
+        );
         isFirstValueSelected.value = false;
       } else {
         isFirstValueSelected.value = true;
       }
+
+      props.onCellClick?.({ date: value.value.map((v) => dayjs(v).toDate()), e, partial });
     }
 
     // 头部快速切换
-    function onJumperClick(flag: number, { partial }: { partial: DateRangePickerPartial }) {
+    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const triggerMap = {
-        '-1': 'arrow-previous',
-        '1': 'arrow-next',
+        prev: 'arrow-previous',
+        next: 'arrow-next',
       };
       const monthCountMap = { date: 1, month: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
 
       let next = null;
-      if (flag === -1) {
+      if (trigger === 'prev') {
         next = subtractMonth(current, monthCount);
-      } else if (flag === 0) {
+      } else if (trigger === 'current') {
         next = new Date();
-      } else if (flag === 1) {
+      } else if (trigger === 'next') {
         next = addMonth(current, monthCount);
       }
 
@@ -127,16 +149,16 @@ export default defineComponent({
         props.onYearChange?.({
           partial,
           year: nextYear[partialIndex],
-          date: value.value,
-          trigger: flag === 0 ? 'today' : `year-${triggerMap[flag]}`,
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
         });
       }
       if (month.value.some((m) => !nextMonth.includes(m))) {
         props.onMonthChange?.({
           partial,
           month: nextMonth[partialIndex],
-          date: value.value,
-          trigger: flag === 0 ? 'today' : `month-${triggerMap[flag]}`,
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
         });
       }
 
@@ -150,9 +172,9 @@ export default defineComponent({
 
       const nextInputValue = [...(cacheValue.value as DateValue[])];
       const changedInputValue = cacheValue.value[activeIndex.value];
-      const currentDate = !dayjs(changedInputValue, format).isValid()
+      const currentDate = !dayjs(changedInputValue, formatRef.value.format).isValid()
         ? dayjs().year(year.value[activeIndex.value]).month(month.value[activeIndex.value])
-        : dayjs(changedInputValue, format);
+        : dayjs(changedInputValue, formatRef.value.format);
       // am pm 12小时制转化 24小时制
       let nextHours = hours;
       if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
@@ -166,11 +188,11 @@ export default defineComponent({
       time.value = nextTime;
 
       isSelected.value = true;
-      cacheValue.value = formatDate(nextInputValue);
+      cacheValue.value = formatRef.value.formatDate(nextInputValue);
 
       props.onTimeChange?.({
         time: val,
-        date: value.value,
+        date: value.value.map((v) => dayjs(v).toDate()),
         partial: activeIndex.value ? 'end' : 'start',
         trigger: 'time-hour',
       });
@@ -180,22 +202,25 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v));
+      const notValidIndex = nextValue.findIndex((v) => !v || !formatRef.value.isValidDate(v));
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (notValidIndex === -1 && nextValue.length === 2 && isFirstValueSelected.value) {
-        onChange?.(formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[], {
-          dayjsValue: nextValue.map((v) => dayjs(v)),
-          trigger: 'confirm',
-        });
-        year.value = nextValue.map((v) => dayjs(v, format).year());
-        month.value = nextValue.map((v) => dayjs(v, format).month());
+        onChange?.(
+          formatRef.value.formatDate(nextValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          {
+            dayjsValue: nextValue.map((v) => dayjs(v)),
+            trigger: 'confirm',
+          },
+        );
+        year.value = nextValue.map((v) => dayjs(v, formatRef.value.format).year());
+        month.value = nextValue.map((v) => dayjs(v, formatRef.value.format).month());
         isFirstValueSelected.value = false;
       } else {
         isFirstValueSelected.value = true;
       }
 
-      props.onConfirm?.({ date: value.value, e });
+      props.onConfirm?.({ date: value.value.map((v) => dayjs(v).toDate()), e });
     }
 
     // 预设
@@ -207,10 +232,13 @@ export default defineComponent({
       if (!Array.isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
-        onChange?.(formatDate(presetValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[], {
-          dayjsValue: presetValue.map((p) => dayjs(p)),
-          trigger: 'preset',
-        });
+        onChange?.(
+          formatRef.value.formatDate(presetValue, { formatType: 'valueType', sortType: 'swap' }) as DateValue[],
+          {
+            dayjsValue: presetValue.map((p) => dayjs(p)),
+            trigger: 'preset',
+          },
+        );
       }
     }
 
@@ -227,8 +255,9 @@ export default defineComponent({
       year.value = nextYear;
 
       props.onYearChange?.({
-        year: year.value,
-        date: value.value,
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
         trigger: 'year-select',
       });
     }
@@ -248,8 +277,9 @@ export default defineComponent({
       month.value = nextMonth;
 
       props.onMonthChange?.({
-        year: month.value,
-        date: value.value,
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
         trigger: 'month-select',
       });
     }
@@ -268,6 +298,8 @@ export default defineComponent({
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
+      presetsPlacement: props.presetsPlacement,
+      panelPreselection: props.panelPreselection,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

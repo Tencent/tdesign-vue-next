@@ -1,17 +1,19 @@
 // 基础
 export * from './button';
-export * from './divider';
 export * from './icon';
 
 // 布局
 export * from './grid';
 export * from './layout';
+export * from './divider';
+export * from './space';
 
 // 导航
 export * from './affix';
 export * from './anchor';
 export * from './breadcrumb';
 export * from './dropdown';
+export * from './jumper';
 export * from './menu';
 export * from './pagination';
 export * from './steps';
@@ -53,6 +55,7 @@ export * from './tag';
 export * from './tooltip';
 export * from './tree';
 export * from './collapse';
+export * from './watermark';
 
 // 消息提醒
 

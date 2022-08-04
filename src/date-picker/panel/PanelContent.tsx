@@ -24,6 +24,7 @@ export default defineComponent({
     time: String,
     firstDayOfWeek: Number,
     partial: String,
+    popupVisible: Boolean,
     onYearChange: Function,
     onMonthChange: Function,
     onJumperClick: Function,
@@ -44,15 +45,17 @@ export default defineComponent({
     const defaultTimeValue = computed(() => dayjs().format(timeFormat));
 
     return () => (
-      <div class={`${COMPONENT_NAME.value}--content`}>
-        <div class={`${COMPONENT_NAME.value}--${props.mode}`}>
+      <div class={`${COMPONENT_NAME.value}-content`}>
+        <div class={`${COMPONENT_NAME.value}-${props.mode}`}>
           <TDateHeader
             mode={props.mode}
             year={props.year}
             month={props.month}
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
             onYearChange={(val: number) => props.onYearChange?.(val, { partial: props.partial })}
-            onJumperClick={(val: number) => props.onJumperClick?.(val, { partial: props.partial })}
+            onJumperClick={({ trigger }: { trigger: string }) =>
+              props.onJumperClick?.({ trigger, partial: props.partial })
+            }
           />
 
           <TDateTable
@@ -69,10 +72,12 @@ export default defineComponent({
         </div>
 
         {props.enableTimePicker && (
-          <div class={`${COMPONENT_NAME.value}--time`}>
-            <div class={`${COMPONENT_NAME.value}--time-viewer`}>{props.time || defaultTimeValue.value}</div>
+          <div class={`${COMPONENT_NAME.value}-time`}>
+            <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || defaultTimeValue.value}</div>
             <TTimePickerPanel
               {...{
+                key: props.partial,
+                isShowPanel: props.popupVisible,
                 format: timeFormat,
                 value: props.time,
                 onChange: props.onTimePickerChange,

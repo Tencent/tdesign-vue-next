@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="tdesign-demo-block--swiper-new" :style="{ width: '1000px' }">
+    <div class="tdesign-demo-block--swiper" :style="{ width: '1000px' }">
       <h3>large</h3>
       <t-swiper :navigation="{ size: 'large' }">
         <t-swiper-item>

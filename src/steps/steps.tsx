@@ -89,7 +89,7 @@ export default defineComponent({
       if (props.options?.length) {
         options = props.sequence === 'reverse' ? props.options.slice().reverse() : props.options;
       } else {
-        const nodes: VNode[] = getChildComponentByName('TStepItem') as VNode[];
+        const nodes: VNode[] = getChildComponentByName('StepItem') as VNode[];
         options = getOptionListBySlots(nodes);
       }
       return options;
@@ -98,7 +98,7 @@ export default defineComponent({
     const renderContent = () => {
       let content = null;
       const options = getOptions();
-      const nodes: VNode[] = getChildComponentByName('TStepItem') as VNode[];
+      const nodes: VNode[] = getChildComponentByName('StepItem') as VNode[];
 
       content = options.map((item, index) => {
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;

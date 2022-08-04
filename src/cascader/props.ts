@@ -26,8 +26,16 @@ export default {
   empty: {
     type: [String, Function] as PropType<TdCascaderProps['empty']>,
   },
+  /** 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据 */
+  filter: {
+    type: Function as PropType<TdCascaderProps['filter']>,
+  },
   /** 是否可搜索 */
   filterable: Boolean,
+  /** 透传 Input 输入框组件的全部属性 */
+  inputProps: {
+    type: Object as PropType<TdCascaderProps['inputProps']>,
+  },
   /** 用来定义 value / label / children 在 `options` 中对应的字段别名 */
   keys: {
     type: Object as PropType<TdCascaderProps['keys']>,
@@ -99,6 +107,14 @@ export default {
       return ['large', 'medium', 'small'].includes(val);
     },
   },
+  /** 透传 TagInput 标签输入框组件的全部属性 */
+  tagInputProps: {
+    type: Object as PropType<TdCascaderProps['tagInputProps']>,
+  },
+  /** 透传 Tag 标签组件全部属性 */
+  tagProps: {
+    type: Object as PropType<TdCascaderProps['tagProps']>,
+  },
   /** 展开下一层级的方式 */
   trigger: {
     type: String as PropType<TdCascaderProps['trigger']>,
@@ -111,11 +127,11 @@ export default {
   /** 选中项的值 */
   value: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    defaultValue: undefined,
+    default: undefined,
   },
   modelValue: {
     type: [String, Number, Array] as PropType<TdCascaderProps['value']>,
-    defaultValue: undefined,
+    default: undefined,
   },
   /** 选中项的值，非受控属性 */
   defaultValue: {

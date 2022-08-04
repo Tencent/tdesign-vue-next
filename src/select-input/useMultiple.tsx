@@ -55,6 +55,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       tagProps: props.tagProps,
       label: props.label,
       autoWidth: props.autoWidth,
+      readonly: props.readonly,
       placeholder: tPlaceholder.value,
       minCollapsedNum: props.minCollapsedNum,
       collapsedItems: props.collapsedItems,
@@ -86,7 +87,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         onChange={onTagInputChange}
         onClear={p.onInnerClear}
         onBlur={(val, context) => {
-          // 筛选器统一特性：失去焦点时，清空输入内容
           props.onBlur?.(props.value, { ...context, tagInputValue: val });
         }}
         onEnter={(val, context) => {

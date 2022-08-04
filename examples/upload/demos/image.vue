@@ -7,6 +7,11 @@
         theme="image"
         tips="请选择单张图片文件上传（上传成功状态演示）"
         accept="image/*"
+        :locale="{
+          triggerUploadText: {
+            image: '请选择图片',
+          },
+        }"
         @fail="handleFail"
       ></t-upload>
     </div>

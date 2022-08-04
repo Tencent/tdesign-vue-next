@@ -8,10 +8,10 @@ export default function useInputWidth(
   innerValue: Ref<InputValue>,
 ) {
   const composing = ref(false);
-
   const updateInputWidth = () => {
     if (!inputPreRef.value) return;
     const width = inputPreRef.value.offsetWidth;
+    if (width === 0) return;
     inputRef.value.style.width = `${width}px`;
   };
 

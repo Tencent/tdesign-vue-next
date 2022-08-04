@@ -1,4 +1,4 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { h, defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
@@ -130,7 +130,7 @@ export default defineComponent({
       adjustScrollLeft();
     };
     // watch
-    watch([scrollLeft, () => props.placement], totalAdjust);
+    watch([scrollLeft, () => props.placement, () => props.panels], totalAdjust);
 
     // life times
     useResize(debounce(totalAdjust), navsContainerRef.value);
@@ -187,6 +187,8 @@ export default defineComponent({
         let label;
         if (panel?.children?.label) {
           label = panel.children.label();
+        } else if (typeof panel.label === 'function') {
+          label = panel.label(h);
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }

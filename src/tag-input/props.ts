@@ -23,7 +23,7 @@ export default {
   /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
   excessTagsDisplayType: {
     type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
-    default: 'scroll' as TdTagInputProps['excessTagsDisplayType'],
+    default: 'break-line' as TdTagInputProps['excessTagsDisplayType'],
     validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
       if (!val) return true;
       return ['scroll', 'break-line'].includes(val);
@@ -61,7 +61,7 @@ export default {
     type: String,
     default: undefined,
   },
-  /** 是否只读，值为真会隐藏标签移除按钮和输入框 */
+  /** 只读状态，值为真会隐藏标签移除按钮和输入框 */
   readonly: Boolean,
   /** 尺寸 */
   size: {
@@ -75,9 +75,10 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdTagInputProps['status']>,
+    default: 'default' as TdTagInputProps['status'],
     validator(val: TdTagInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error'].includes(val);
+      return ['success', 'warning', 'error', 'default'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */
@@ -123,7 +124,7 @@ export default {
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,
-  /** 【开发中】拖拽排序时触发 */
+  /** 拖拽排序时触发 */
   onDragSort: Function as PropType<TdTagInputProps['onDragSort']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,

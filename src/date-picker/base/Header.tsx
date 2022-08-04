@@ -1,5 +1,5 @@
 import { defineComponent, PropType, ref, computed } from 'vue';
-import TJumper from '../../pagination/jumper';
+import TJumper from '../../jumper/jumper';
 import TSelect from '../../select/select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
@@ -87,19 +87,19 @@ export default defineComponent({
     // hover title
     const labelMap = {
       year: {
-        prevTitle: global.value.preDecade,
-        currentTitle: global.value.now,
-        nextTitle: global.value.nextDecade,
+        prev: global.value.preDecade,
+        current: global.value.now,
+        next: global.value.nextDecade,
       },
       month: {
-        prevTitle: global.value.preYear,
-        currentTitle: global.value.now,
-        nextTitle: global.value.nextYear,
+        prev: global.value.preYear,
+        current: global.value.now,
+        next: global.value.nextYear,
       },
       date: {
-        prevTitle: global.value.preMonth,
-        currentTitle: global.value.now,
-        nextTitle: global.value.nextMonth,
+        prev: global.value.preMonth,
+        current: global.value.now,
+        next: global.value.nextMonth,
       },
     };
 
@@ -124,7 +124,7 @@ export default defineComponent({
         <div class={`${COMPONENT_NAME.value}-controller`}>
           {showMonthPicker && (
             <TSelect
-              class={`${COMPONENT_NAME.value}-controller--month`}
+              class={`${COMPONENT_NAME.value}-controller-month`}
               value={props.month}
               options={monthOptions.value}
               onChange={(val: number) => props.onMonthChange?.(val)}
@@ -132,25 +132,25 @@ export default defineComponent({
             />
           )}
           <TSelect
-            class={`${COMPONENT_NAME.value}-controller--year`}
+            class={`${COMPONENT_NAME.value}-controller-year`}
             value={props.mode === 'year' ? nearestYear.value : props.year}
             options={yearOptions.value}
             onChange={(val: number) => props.onYearChange?.(val)}
             popupProps={{ attach: (triggerNode: HTMLDivElement) => triggerNode.parentElement }}
             panelTopContent={() => (
               <div class={`${classPrefix.value}-select-option`} onClick={handlePanelTopClick}>
-                更多...
+                ...
               </div>
             )}
             panelBottomContent={() => (
               <div class={`${classPrefix.value}-select-option`} onClick={handlePanelBottomClick}>
-                更多...
+                ...
               </div>
             )}
           />
         </div>
 
-        <TJumper {...labelMap[props.mode]} size="small" onJumperClick={props.onJumperClick} />
+        <TJumper tips={labelMap[props.mode]} size="small" onChange={props.onJumperClick} />
       </div>
     );
   },

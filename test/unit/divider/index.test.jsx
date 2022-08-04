@@ -5,10 +5,10 @@ import Divider from '@/src/divider/index.ts';
 describe('Divider', () => {
   // test props api
   describe(':props', () => {
-    it(':theme', () => {
+    it(':layout', () => {
       const wrapper = mount({
         render() {
-          return <Divider theme="vertical"></Divider>;
+          return <Divider layout="vertical"></Divider>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

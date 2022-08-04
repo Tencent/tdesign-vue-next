@@ -33,7 +33,7 @@ function initYearMonthTime(value: DateValue[], mode = 'date', format: string, ti
   };
 }
 
-export default function useRange(props: TdDateRangePickerProps) {
+export default function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
@@ -62,7 +62,6 @@ export default function useRange(props: TdDateRangePickerProps) {
   watchEffect(() => {
     if (!value.value) {
       cacheValue.value = [];
-      time.value = [dayjs().format(timeFormat), dayjs().format(timeFormat)];
       return;
     }
     if (!isValidDate(value.value, 'valueType')) return;

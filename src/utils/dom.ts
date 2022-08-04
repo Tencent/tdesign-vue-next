@@ -260,3 +260,15 @@ export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLEle
     parentEle.scrollTop = selectedBottom - parentEle.clientHeight;
   }
 };
+
+export const requestSubmit = (target: HTMLFormElement) => {
+  if (!(target instanceof HTMLFormElement)) {
+    throw new Error('target must be HTMLFormElement');
+  }
+  const submitter = document.createElement('input');
+  submitter.type = 'submit';
+  submitter.hidden = true;
+  target.appendChild(submitter);
+  submitter.click();
+  target.removeChild(submitter);
+};

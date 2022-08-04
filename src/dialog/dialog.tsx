@@ -1,4 +1,14 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
+import {
+  computed,
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  Transition,
+  watch,
+  getCurrentInstance,
+} from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
@@ -8,6 +18,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
+import { stack } from './stack';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -92,21 +103,18 @@ export default defineComponent({
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
+    const dialogPosition = ref<HTMLElement | null>(null);
     const { global } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
       props.onCancel?.({ e });
-      emitCloseEvent({
-        trigger: 'cancel',
-        e,
-      });
+      emitCloseEvent({ e, trigger: 'cancel' });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
 
     useDestroyOnClose();
-
     const scrollWidth = ref(0);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
@@ -145,11 +153,6 @@ export default defineComponent({
         `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
-      if (['modeless', 'modal'].includes(props.mode)) {
-        if (isModal.value && props.showInAttachedElement) {
-          dialogClass.push(`${COMPONENT_NAME.value}--absolute`);
-        }
-      }
       return dialogClass;
     });
     const dialogStyle = computed(() => {
@@ -161,11 +164,11 @@ export default defineComponent({
       (value) => {
         if (value) {
           if (isModal.value && !props.showInAttachedElement) {
-            if (scrollWidth.value > 0) {
+            if (scrollWidth.value > 0 && props.preventScrollThrough) {
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
             }
-            !isModeLess.value && addClass(document.body, LOCK_CLASS.value);
+            !isModeLess.value && props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
             nextTick(() => {
               if (mousePosition && dialogEle.value) {
                 dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -178,9 +181,19 @@ export default defineComponent({
           document.body.style.cssText = '';
           removeClass(document.body, LOCK_CLASS.value);
         }
+        storeUid(value);
         addKeyboardEvent(value);
       },
     );
+
+    const instance = getCurrentInstance();
+    const storeUid = (flag: boolean) => {
+      if (flag) {
+        stack.push(instance.uid);
+      } else {
+        stack.pop();
+      }
+    };
 
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
@@ -190,28 +203,20 @@ export default defineComponent({
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape') {
+      if (e.code === 'Escape' && stack.top === instance.uid) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (props.closeOnEscKeydown) {
-          emitCloseEvent({
-            trigger: 'esc',
-            e,
-          });
+        if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
+          emitCloseEvent({ e, trigger: 'esc' });
         }
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      // 如果不是modal模式 默认没有mask 也就没有相关点击事件
-      if (props.mode !== 'modal') return;
-      props.onOverlayClick?.({ e });
-      // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
-      // 根据当前点击元素和绑定元素判断是否是点击mask
-      if (e.target === e.currentTarget && props.closeOnOverlayClick) {
-        emitCloseEvent({
-          trigger: 'overlay',
-          e,
-        });
+      if (props.showOverlay && (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick)) {
+        if (e.target === dialogPosition.value) {
+          props.onOverlayClick?.({ e });
+          emitCloseEvent({ e, trigger: 'overlay' });
+        }
       }
     };
     const closeBtnAction = (e: MouseEvent) => {
@@ -254,10 +259,10 @@ export default defineComponent({
     };
     const getIcon = () => {
       const icon = {
-        info: <InfoCircleFilledIcon class="t-is-info" />,
-        warning: <ErrorCircleFilledIcon class="t-is-warning" />,
-        danger: <ErrorCircleFilledIcon class="t-is-error" />,
-        success: <CheckCircleFilledIcon class="t-is-success" />,
+        info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
+        warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
+        danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
+        success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
       };
       return icon[props.theme];
     };
@@ -286,15 +291,14 @@ export default defineComponent({
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
-
         <div class={wrapClass.value}>
-          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction}>
+          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction} ref={dialogPosition}>
             <div
               key="dialog"
               class={dialogClass.value}
               style={dialogStyle.value}
               v-draggable={isModeLess.value && props.draggable}
-              ref="dialogEle"
+              ref={dialogEle}
             >
               <div class={`${COMPONENT_NAME.value}__header`}>
                 {getIcon()}
@@ -347,7 +351,7 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        't-dialog__ctx--fixed': this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
         [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },

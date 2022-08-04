@@ -32,6 +32,7 @@ const VALIDATE_MAP = {
   url: isURL,
   email: isEmail,
   required: (val: ValueType): boolean => !isValueEmpty(val),
+  whitespace: (val: ValueType): boolean => !(/^\s+$/.test(val) || val === ''),
   boolean: (val: ValueType): boolean => typeof val === 'boolean',
   max: (val: ValueType, num: number): boolean => (isNumber(val) ? val <= num : getCharacterLength(val) <= num),
   min: (val: ValueType, num: number): boolean => (isNumber(val) ? val >= num : getCharacterLength(val) >= num),

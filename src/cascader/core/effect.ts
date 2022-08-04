@@ -1,7 +1,7 @@
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
-import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
+import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
 import { getFullPathLabel, getTreeValue } from './helper';
 
 /**
@@ -12,8 +12,8 @@ import { getFullPathLabel, getTreeValue } from './helper';
  * @param cascaderContext
  */
 export function expendClickEffect(
-  propsTrigger: CascaderProps['trigger'],
-  trigger: CascaderProps['trigger'],
+  propsTrigger: TdCascaderProps['trigger'],
+  trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
@@ -129,7 +129,7 @@ export function closeIconClickEffect(cascaderContext: CascaderContextType) {
 export function handleRemoveTagEffect(
   cascaderContext: CascaderContextType,
   index: number,
-  onRemove: CascaderProps['onRemove'],
+  onRemove: TdCascaderProps['onRemove'],
 ) {
   const { disabled, setValue, value, valueType, treeStore } = cascaderContext;
 
@@ -169,14 +169,21 @@ export const treeNodesEffect = (
   inputVal: CascaderContextType['inputVal'],
   treeStore: CascaderContextType['treeStore'],
   setTreeNodes: CascaderContextType['setTreeNodes'],
+  filter: CascaderContextType['filter'],
 ) => {
   if (!treeStore) return;
   let nodes = [];
   if (inputVal) {
-    nodes = treeStore.nodes.filter((node: TreeNode) => {
-      const fullPathLabel = getFullPathLabel(node);
-      return fullPathLabel.toLocaleLowerCase().indexOf(`${inputVal}`.toLocaleLowerCase()) > -1 && node.isLeaf();
-    });
+    const filterMethods = (node: TreeNode) => {
+      if (!node.isLeaf()) return;
+      if (isFunction(filter)) {
+        return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
+      }
+      const fullPathLabel = getFullPathLabel(node, '');
+      return fullPathLabel.indexOf(`${inputVal}`) > -1;
+    };
+
+    nodes = treeStore.nodes.filter(filterMethods);
   } else {
     nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
   }

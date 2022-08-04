@@ -67,6 +67,9 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
       const stringInfo = getCharacterLength(val, props.maxcharacter);
       val = typeof stringInfo === 'object' && stringInfo.characters;
     }
+    if (props.type === 'number' && typeof props.maxlength === 'number' && props.maxlength > 0) {
+      val = val.substring(0, props.maxlength);
+    }
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
     nextTick(() => setInputElValue(innerValue.value));
@@ -96,9 +99,9 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
       inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
-    // @ts-ignore 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
+    // 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
     if (!isClearIcon()) {
-      props.onBlur?.(props.value, { e });
+      props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     }
   };
@@ -131,6 +134,14 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     innerValue,
     (v) => {
       inputValue.value = v;
+    },
+    { immediate: true },
+  );
+
+  watch(
+    () => props.type,
+    (v) => {
+      renderType.value = v;
     },
     { immediate: true },
   );

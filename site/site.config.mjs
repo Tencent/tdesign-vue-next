@@ -67,12 +67,6 @@ export default {
           component: () => import('@/examples/button/button.md'),
         },
         {
-          title: 'Divider 分割线',
-          name: 'divider',
-          path: '/vue-next/components/divider',
-          component: () => import('@/examples/divider/divider.md'),
-        },
-        {
           title: 'Icon 图标',
           name: 'icon',
           path: '/vue-next/components/icon',
@@ -85,6 +79,12 @@ export default {
       type: 'component',
       children: [
         {
+          title: 'Divider 分割线',
+          name: 'divider',
+          path: '/vue-next/components/divider',
+          component: () => import('@/examples/divider/divider.md'),
+        },
+        {
           title: 'Grid 栅格',
           name: 'grid',
           path: '/vue-next/components/grid',
@@ -95,6 +95,12 @@ export default {
           name: 'layout',
           path: '/vue-next/components/layout',
           component: () => import('@/examples/layout/layout.md'),
+        },
+        {
+          title: 'Space 间距',
+          name: 'space',
+          path: '/vue-next/components/space',
+          component: () => import('@/examples/space/space.md'),
         },
       ],
     },
@@ -126,6 +132,12 @@ export default {
           name: 'dropdown',
           path: '/vue-next/components/dropdown',
           component: () => import('@/examples/dropdown/dropdown.md'),
+        },
+        {
+          title: 'Jumper 跳转',
+          name: 'jumper',
+          path: '/vue-next/components/jumper',
+          component: () => import('@/examples/jumper/jumper.md'),
         },
         {
           title: 'Menu 导航菜单',
@@ -375,6 +387,13 @@ export default {
           name: 'tree',
           path: '/vue-next/components/tree',
           component: () => import('@/examples/tree/tree.md'),
+        },
+        {
+          title: 'Watermark 水印',
+          name: 'watermark',
+          docType: 'data',
+          path: '/vue-next/components/watermark',
+          component: () => import('@/examples/watermark/watermark.md'),
         },
       ],
     },

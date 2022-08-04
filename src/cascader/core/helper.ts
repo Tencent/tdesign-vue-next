@@ -2,7 +2,7 @@ import isEmpty from 'lodash/isEmpty';
 import {
   TreeNode,
   CascaderContextType,
-  CascaderProps,
+  TdCascaderProps,
   CascaderValue,
   TreeNodeValue,
   TreeOptionData,
@@ -14,17 +14,14 @@ import {
  * @param cascaderContext
  * @returns
  */
-export function getSingleContent(cascaderContext: CascaderContextType) {
-  const { value, multiple, treeStore, showAllLevels, setValue } = cascaderContext;
+export function getSingleContent(cascaderContext: CascaderContextType): string {
+  const { value, multiple, treeStore, showAllLevels } = cascaderContext;
   if (multiple || !value) return '';
 
   if (Array.isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
-    if (value) {
-      setValue(multiple ? [] : '', 'invalid-value');
-    }
-    return '';
+    return value as string;
   }
   const path = node && node[0].getPath();
   if (path && path.length) {
@@ -76,11 +73,11 @@ export function getPanels(treeNodes: CascaderContextType['treeNodes']) {
  * @param node
  * @returns
  */
-export function getFullPathLabel(node: TreeNode) {
+export function getFullPathLabel(node: TreeNode, separator = '/') {
   return node
     .getPath()
     .map((node: TreeNode) => node.label)
-    .join('/');
+    .join(separator);
 }
 
 /**
@@ -113,7 +110,7 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
  * @param multiple
  * @returns
  */
-export const getCascaderValue = (value: CascaderValue, valueType: CascaderProps['valueType'], multiple: boolean) => {
+export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProps['valueType'], multiple: boolean) => {
   if (valueType === 'single') {
     return value;
   }

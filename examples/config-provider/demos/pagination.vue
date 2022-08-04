@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" style="padding: 16px">
+  <t-config-provider :global-config="globalConfig">
     <t-pagination v-model="current" :total="36" show-jumper :max-page-btn="5" />
   </t-config-provider>
 </template>

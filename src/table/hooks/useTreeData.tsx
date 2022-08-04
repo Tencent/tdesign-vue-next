@@ -3,7 +3,14 @@ import { AddRectangleIcon, MinusRectangleIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import TableTreeStore, { SwapParams } from './tree-store';
-import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, TableRowValue, TableRowState } from '../type';
+import {
+  TdEnhancedTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  TableRowValue,
+  TableRowState,
+  PrimaryTableCellParams,
+} from '../type';
 import useClassName from './useClassName';
 import { renderCell } from '../tr';
 import { useConfig } from '../../hooks/useConfig';
@@ -30,39 +37,36 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
-  const foldIcon = computed(() => {
-    const params = { type: 'fold' };
+  const foldIcon = (context: PrimaryTableCellParams<TableRowData>) => {
+    const params = { ...context, type: 'fold' };
     const defaultFoldIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultFoldIcon,
       params,
     });
-  });
+  };
 
-  const expandIcon = computed(() => {
-    const params = { type: 'expand' };
+  const expandIcon = (context: PrimaryTableCellParams<TableRowData>) => {
+    const params = { ...context, type: 'expand' };
     const defaultExpandIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <AddRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultExpandIcon,
       params,
     });
-  });
+  };
+
+  const uniqueKeys = computed(() => store.value?.getAllUniqueKeys(data.value, rowDataKeys.value)?.join() || '');
 
   watch(
-    [data],
-    ([data]) => {
-      if (!data) return;
+    [uniqueKeys],
+    () => {
+      if (!data.value) return;
       // 如果没有树形解构，则不需要相关逻辑
-      if (!props.tree || !Object.keys(props.tree).length) {
-        dataSource.value = data;
+      if (!props.tree) {
+        dataSource.value = data.value;
         return;
       }
-      let newVal = cloneDeep(data);
-      store.value.initialTreeStore(newVal, props.columns, rowDataKeys.value);
-      if (props.tree?.defaultExpandAll) {
-        newVal = store.value.expandAll(newVal, rowDataKeys.value);
-      }
-      dataSource.value = newVal;
+      resetData(data.value);
     },
     { immediate: true },
   );
@@ -73,7 +77,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   // });
 
   onUnmounted(() => {
-    if (!props.tree || !Object.keys(props.tree).length) return;
+    if (!props.tree) return;
     store.value.treeDataMap?.clear();
     store.value = null;
   });
@@ -86,13 +90,20 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     { immediate: true },
   );
 
+  function resetData(data: TableRowData[]) {
+    let newVal = cloneDeep(data);
+    store.value.initialTreeStore(newVal, props.columns, rowDataKeys.value);
+    if (props.tree?.defaultExpandAll) {
+      newVal = store.value.expandAll(newVal, rowDataKeys.value);
+    }
+    dataSource.value = newVal;
+  }
+
   function getTreeNodeStyle(level: number) {
     if (level === undefined) return;
-    const indent = props.tree?.indent || 24;
+    const indent = props.tree?.indent === undefined ? 24 : props.tree?.indent;
     // 默认 1px 是为了临界省略
-    return {
-      paddingLeft: `${level * indent || 1}px`,
-    };
+    return indent ? { paddingLeft: `${level * indent || 1}px` } : {};
   }
 
   /**
@@ -125,7 +136,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   }
 
   function formatTreeColumn(col: PrimaryTableCol): PrimaryTableCol {
-    if (!props.tree || !Object.keys(props.tree).length || col.colKey !== treeNodeCol.value.colKey) return col;
+    if (!props.tree || col.colKey !== treeNodeCol.value.colKey) return col;
     const newCol = { ...treeNodeCol.value };
     newCol.cell = (h, p) => {
       const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots);
@@ -133,13 +144,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
-      if (childrenNodes && childrenNodes instanceof Array) {
+      if ((childrenNodes && childrenNodes instanceof Array) || childrenNodes === true) {
         const iconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
-          ? foldIcon.value
-          : expandIcon.value;
+          ? foldIcon(p)
+          : expandIcon(p);
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
-            {!!childrenNodes.length && (
+            {!!(childrenNodes.length || childrenNodes === true) && (
               <span class={tableTreeClasses.icon} onClick={() => toggleExpandData(p, 'expand-fold-icon')}>
                 {iconNode}
               </span>
@@ -196,7 +207,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * @param key 当前节点唯一标识，值为空，则表示给根节点添加元素
    * @param newData 待添加的新节点
    */
-  function appendTo<T>(key: TableRowValue = '', newData: T) {
+  function appendTo<T>(key: TableRowValue = '', newData: T | T[]) {
     if (!key) {
       dataSource.value = store.value.appendToRoot(newData, dataSource.value, rowDataKeys.value);
       return;
@@ -273,5 +284,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     expandAll,
     foldAll,
     getTreeNode,
+    resetData,
   };
 }

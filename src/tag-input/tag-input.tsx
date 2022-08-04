@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, nextTick } from 'vue';
+import { defineComponent, computed, toRefs, nextTick, reactive } from 'vue';
 
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
@@ -6,12 +6,14 @@ import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 
-import useTagScroll from './useTagScroll';
+import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
-import useHover from './useHover';
+import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
+import useDragSorter from './hooks/useDragSorter';
 
 const useComponentClassName = () => {
   return {
@@ -43,9 +45,25 @@ export default defineComponent({
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
     });
+    const { classPrefix: prefix } = useConfig();
+    // 这里不需要响应式，因此直接传递参数
+    const { getDragProps } = useDragSorter({
+      ...props,
+      sortOnDraggable: props.dragSort,
+      onDragOverCheck: {
+        x: true,
+        targetClassNameRegExp: new RegExp(`^${prefix}-tag`),
+      },
+    });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(props);
+    // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
+      reactive({
+        ...toRefs(props),
+        getDragProps,
+      }),
+    );
 
     const classes = computed(() => {
       return [
@@ -69,6 +87,8 @@ export default defineComponent({
     );
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+      // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
+      context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
       onInnerEnter(value, context);
       nextTick(() => {
@@ -131,8 +151,7 @@ export default defineComponent({
         ref="tagInputRef"
         readonly={this.readonly}
         value={this.tInputValue}
-        onWheel={this.onWheel}
-        autoWidth={this.autoWidth}
+        autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
         size={this.size}
         disabled={this.disabled}
         label={() => this.renderLabel({ displayNode, label })}
@@ -142,6 +161,11 @@ export default defineComponent({
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
+        showInput={
+          !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
+        }
+        keepWrapperWidth={!this.autoWidth}
+        onWheel={this.onWheel}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
           this.setTInputValue(val, { ...context, trigger: 'input' });
         }}

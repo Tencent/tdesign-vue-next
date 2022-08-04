@@ -25,6 +25,7 @@ exports[`Select > :props > :bordered 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -80,6 +81,7 @@ exports[`Select > :props > :clearable 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -135,6 +137,7 @@ exports[`Select > :props > :creatable 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -191,6 +194,7 @@ exports[`Select > :props > :disabled 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -247,6 +251,7 @@ exports[`Select > :props > :labelInValue 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -302,6 +307,7 @@ exports[`Select > :props > :loading 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -348,7 +354,7 @@ exports[`Select > :props > :multiple 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -365,8 +371,13 @@ exports[`Select > :props > :multiple 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
-      <!---->
+      <span
+        class="t-input__input-pre"
+      >
+        请选择
+      </span>
       <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -420,6 +431,7 @@ exports[`Select > :props > :placeholder 1`] = `
         placeholder="please select"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -476,6 +488,7 @@ exports[`Select > :props > :remote 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -531,6 +544,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -586,6 +600,7 @@ exports[`Select > :props > :size 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -641,6 +656,7 @@ exports[`Select Option > :props > :disabled 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -696,6 +712,7 @@ exports[`Select Option > :props > :label 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -751,6 +768,7 @@ exports[`Select Option > :props > :value 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->
@@ -806,6 +824,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
         placeholder="请选择"
         readonly=""
         type="text"
+        unselectable="on"
       />
       <!---->
       <!---->

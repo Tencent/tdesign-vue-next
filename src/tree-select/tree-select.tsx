@@ -130,6 +130,13 @@ export default defineComponent({
       return 'value';
     });
 
+    const realChildren = computed(() => {
+      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
+        return (props.treeProps as TreeProps).keys.children || 'children';
+      }
+      return 'children';
+    });
+
     // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
@@ -205,6 +212,10 @@ export default defineComponent({
       expanded.value = valueParam;
     };
 
+    const treeNodeLoad = () => {
+      changeNodeInfo();
+    };
+
     const inputChange = (value: InputValue): boolean => {
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
@@ -262,8 +273,9 @@ export default defineComponent({
       if (treeRef.value && (props.treeProps as TreeProps)?.load) {
         if (!isEmpty(props.data)) {
           const node = treeRef.value.getItem(nodeValue);
-          if (!node) return;
-          return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+          if (node) {
+            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+          }
         }
         return { label: nodeValue, value: nodeValue };
       }
@@ -280,8 +292,9 @@ export default defineComponent({
         if (treeRef.value && (props.treeProps as TreeProps)?.load) {
           if (!isEmpty(props.data)) {
             const node = treeRef.value.getItem(nodeValue);
-            if (!node) return;
-            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            if (node) {
+              return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            }
           }
           return { label: nodeValue, value: nodeValue };
         }
@@ -297,8 +310,8 @@ export default defineComponent({
         if (data[i][realValue.value] === targetValue) {
           return { label: data[i][realLabel.value], value: data[i][realValue.value] };
         }
-        if (data[i]?.children) {
-          const result = getTreeNode(data[i]?.children, targetValue);
+        if (data[i]?.[realChildren.value]) {
+          const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
           if (!isNil(result)) {
             return result;
           }
@@ -331,6 +344,7 @@ export default defineComponent({
         onChange={treeNodeChange}
         onActive={treeNodeActive}
         onExpand={treeNodeExpand}
+        onLoad={treeNodeLoad}
         expandOnClickNode
         v-slots={{
           empty: () =>

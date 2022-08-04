@@ -105,7 +105,7 @@ export default defineComponent({
             : messageContent}
           {hasCollapse ? (
             <div
-              class="t-alert__collapse"
+              class={`${COMPONENT_NAME.value}__collapse`}
               onClick={() => {
                 collapsed.value = !collapsed.value;
               }}
@@ -151,7 +151,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}`,
           `${COMPONENT_NAME.value}--${props.theme}`,
           {
-            [`${classPrefix}-is-hidden`]: !visible.value,
+            [`${classPrefix.value}-is-hidden`]: !visible.value,
           },
         ]}
       >

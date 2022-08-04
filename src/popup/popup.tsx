@@ -284,6 +284,15 @@ export default defineComponent({
         updatePopper();
       },
     );
+    const updateScrollTop: Function = inject('updateScrollTop', () => {});
+    watch(
+      () => [innerVisible.value, overlayEl.value],
+      () => {
+        if (innerVisible.value && overlayEl.value && updateScrollTop) {
+          updateScrollTop?.(overlayEl.value);
+        }
+      },
+    );
 
     watch(
       () => props.placement,

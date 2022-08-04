@@ -101,7 +101,7 @@ export default defineComponent({
           />
         </td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
-        <tdesign-theme-generator />
+        <td-theme-generator />
       </td-doc-layout>
     );
   },

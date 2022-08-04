@@ -25,6 +25,7 @@ export type UploadCtxType = {
   canBatchUpload: boolean;
   loadingFile: UploadFile;
   toUploadFiles: UploadFile[];
+  percent: number;
   errorMsg: string;
 };
 

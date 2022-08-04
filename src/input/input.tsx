@@ -24,7 +24,19 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 
 export default defineComponent({
   name: 'TInput',
-  props,
+  props: {
+    ...props,
+    showInput: {
+      // 控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
+      type: Boolean,
+      default: true,
+    },
+    keepWrapperWidth: {
+      // 控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
+      type: Boolean,
+      default: false,
+    },
+  },
 
   setup(props, { slots, expose }) {
     const { global } = useConfig('input');
@@ -50,7 +62,8 @@ export default defineComponent({
         maxlength: props.maxlength,
         name: props.name || undefined,
         type: renderType.value,
-        autocomplete: renderType.value === 'password' ? 'on' : undefined,
+        autocomplete: props.autocomplete ?? (global.value.autocomplete || undefined),
+        unselectable: props.readonly ? 'on' : undefined,
       }),
     );
 
@@ -78,6 +91,18 @@ export default defineComponent({
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
       const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
 
+      if (props.type === 'password') {
+        if (renderType.value === 'password') {
+          suffixIcon = (
+            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        } else if (renderType.value === 'text') {
+          suffixIcon = (
+            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        }
+      }
+
       if (showClear.value) {
         suffixIcon = (
           <CloseCircleFilledIcon
@@ -102,21 +127,9 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
-          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
+          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
         },
       ];
-
-      if (props.type === 'password') {
-        if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        }
-      }
 
       const inputEvents = getValidAttrs({
         onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
@@ -146,16 +159,18 @@ export default defineComponent({
               </span>
             ) : null}
             {labelContent}
-            <input
-              class={`${COMPONENT_NAME.value}__inner`}
-              {...inputAttrs.value}
-              {...inputEvents}
-              ref={inputRef}
-              value={inputValue.value ?? ''}
-              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-            />
+            {props.showInput && (
+              <input
+                class={`${COMPONENT_NAME.value}__inner`}
+                {...inputAttrs.value}
+                {...inputEvents}
+                ref={inputRef}
+                value={inputValue.value ?? ''}
+                onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+              />
+            )}
             {props.autoWidth && (
-              <span ref={inputPreRef} className={`${classPrefix.value}-input__input-pre`}>
+              <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}
               </span>
             )}

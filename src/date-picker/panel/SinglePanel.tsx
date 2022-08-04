@@ -4,25 +4,9 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDatePickerProps, DateValue } from '../type';
-import type { TdTimePickerProps } from '../../time-picker';
+import { getDefaultFormat } from '../hooks/useFormat';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
-
-export interface DatePickerPanelProps extends TdDatePickerProps {
-  year?: number;
-  month?: number;
-  time?: string;
-  onPanelClick?: (context: { e: MouseEvent }) => void;
-  onCellClick?: (date: Date, context: { e: MouseEvent }) => void;
-  onCellMouseEnter?: (date: Date) => void;
-  onCellMouseLeave?: (context: { e: MouseEvent }) => void;
-  onJumperClick?: (flag: number) => void;
-  onConfirmClick?: (context: { e: MouseEvent }) => void;
-  onPresetClick?: (preset: DateValue | (() => DateValue), context: { e: MouseEvent }) => void;
-  onYearChange?: (year: number) => void;
-  onMonthChange?: (month: number) => void;
-  onTimePickerChange?: TdTimePickerProps['onChange'];
-}
 
 export default defineComponent({
   name: 'TSinglePanel',
@@ -45,6 +29,7 @@ export default defineComponent({
     year: Number,
     month: Number,
     time: String,
+    popupVisible: Boolean,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -60,10 +45,20 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     const { global } = useConfig('datePicker');
 
+    const { format } = getDefaultFormat({
+      mode: props.mode,
+      format: props.format,
+      enableTimePicker: props.enableTimePicker,
+    });
+
+    // 兼容数据格式不标准场景 YYYY-MM-D
+    const formatDate = (newDate: DateValue, format: string) =>
+      dayjs(newDate).isValid() ? dayjs(newDate).toDate() : dayjs(newDate, format).toDate();
+
     const disableDateOptions = computed(() =>
       useDisableDate({
+        format,
         mode: props.mode,
-        format: props.format,
         disableDate: props.disableDate,
       }),
     );
@@ -73,19 +68,20 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? dayjs(props.value).toDate() : undefined,
+        start: props.value ? formatDate(props.value, format) : undefined,
         firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
 
     const panelContentProps = computed(() => ({
+      format,
       mode: props.mode,
       year: props.year,
       month: props.month,
-      format: props.format,
       firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
       tableData: tableData.value,
+      popupVisible: props.popupVisible,
 
       enableTimePicker: props.enableTimePicker,
       timePickerProps: props.timePickerProps,

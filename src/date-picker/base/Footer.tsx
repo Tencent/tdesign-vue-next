@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TButton from '../../button';
 
@@ -17,10 +17,10 @@ export default defineComponent({
     const presetsClass = usePrefixClass('date-picker__presets');
     const { t, global } = useConfig('datePicker');
 
-    const footerClass = [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.presetsPlacement}`];
+    const footerClass = computed(() => [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.presetsPlacement}`]);
 
     return () => (
-      <div class={footerClass}>
+      <div class={footerClass.value}>
         {
           <div class={presetsClass.value}>
             {props.presets &&

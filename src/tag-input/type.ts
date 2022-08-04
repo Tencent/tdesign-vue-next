@@ -3,8 +3,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
-
-import { InputProps, InputValue } from '../input';
+import { Ref } from 'vue';
+import { InputProps } from '../input';
+import { InputValue } from '../input';
 import { TagProps } from '../tag';
 import { TNode } from '../common';
 
@@ -35,7 +36,7 @@ export interface TdTagInputProps {
   dragSort?: boolean;
   /**
    * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
-   * @default scroll
+   * @default break-line
    */
   excessTagsDisplayType?: 'scroll' | 'break-line';
   /**
@@ -44,10 +45,12 @@ export interface TdTagInputProps {
   inputProps?: InputProps;
   /**
    * 输入框的值
+   * @default ''
    */
   inputValue?: InputValue;
   /**
    * 输入框的值，非受控属性
+   * @default ''
    */
   defaultInputValue?: InputValue;
   /**
@@ -68,7 +71,7 @@ export interface TdTagInputProps {
    */
   placeholder?: string;
   /**
-   * 是否只读，值为真会隐藏标签移除按钮和输入框
+   * 只读状态，值为真会隐藏标签移除按钮和输入框
    * @default false
    */
   readonly?: boolean;
@@ -79,8 +82,9 @@ export interface TdTagInputProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
+   * @default default
    */
-  status?: 'success' | 'warning' | 'error';
+  status?: 'success' | 'warning' | 'error' | 'default';
   /**
    * 后置图标前的后置内容
    */
@@ -130,14 +134,9 @@ export interface TdTagInputProps {
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
-   * 【开发中】拖拽排序时触发
+   * 拖拽排序时触发
    */
-  onDragSort?: (context: {
-    currentIndex: number;
-    current: string | number;
-    targetIndex: number;
-    target: string | number;
-  }) => void;
+  onDragSort?: (context: TagInputDragSortContext) => void;
   /**
    * 按键按下 Enter 时触发
    */
@@ -179,6 +178,14 @@ export interface TagInputChangeContext {
 
 export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
 
+export interface TagInputDragSortContext {
+  newTags: TagInputValue;
+  currentIndex: number;
+  current: string | number;
+  targetIndex: number;
+  target: string | number;
+}
+
 export interface InputValueChangeContext {
   e?: InputEvent | MouseEvent | KeyboardEvent;
   trigger: 'input' | 'clear' | 'enter';
@@ -193,3 +200,34 @@ export interface TagInputRemoveContext {
 }
 
 export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';
+
+interface DragSortContext<T> {
+  currentIndex: number;
+  current: T;
+  targetIndex: number;
+  target: T;
+}
+
+export interface DragSortProps<T> {
+  sortOnDraggable: boolean;
+  onDragSort?: (context: DragSortContext<T>) => void;
+  onDragOverCheck?: {
+    x?: boolean;
+    targetClassNameRegExp?: RegExp;
+  };
+}
+
+type DragFnType = (e?: DragEvent, index?: number, record?: any) => void;
+interface DragSortInnerData {
+  dragging?: boolean;
+  onDragStart?: DragFnType;
+  onDragOver?: DragFnType;
+  onDrop?: DragFnType;
+  onDragEnd?: DragFnType;
+}
+
+export interface DragSortInnerProps extends DragSortInnerData {
+  getDragProps?: (index?: number, record?: any, tagRef?: Ref<HTMLElement>) => DragSortInnerData;
+}
+
+export interface TagInputProps extends TdTagInputProps, DragSortInnerProps {}

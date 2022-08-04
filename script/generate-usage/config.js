@@ -160,20 +160,24 @@ module.exports = {
   table: {
     importStr: `
       import baseConfigJson from './base-table-props.json';\n
-      import primaryConfigJson from './primary-table-props.json';\n
     `,
     configStr: `const configList = ref(baseConfigJson);`,
-    script: `
-      const visible = ref(false);
-      const handleClick = () => {
-        visible.value = !visible.value;
-      };
-    `,
     panelStr: `
       const panelList = [
         {label: 'baseTable', value: 'baseTable', config: baseConfigJson},
-        {label: 'primaryTable', value: 'primaryTable', config: primaryConfigJson}
       ];
+    `,
+    script: `
+      const data = ref(Array(30).fill(0).map((_, i) => ({
+        index: i,
+        platform: '公有',
+        description: '数据源',
+      })));
+      const columns = ref([
+        {colKey: 'index', title: 'index'},
+        {colKey: 'platform', title: '平台'},
+        {colKey: 'description', title: '说明'},
+      ]);
     `,
     panelChangeStr: `
       function onPanelChange(panel) {
@@ -182,44 +186,14 @@ module.exports = {
       }
     `,
     render: {
-      baseTable: `<t-table
+      baseTable: `<t-base-table
         v-bind="configProps"
         row-key="index"
-        :data="[{index:1,platform:'公用'},{index:2,platform:'私有'}]"
-        :columns="[{
-          align: 'center',
-          width: '100',
-          colKey: 'index',
-          title: '序号',
-        },
-        {
-          width: 100,
-          colKey: 'platform',
-          title: '平台',
-        }]"
+        :data="data"
+        :columns="columns"
+        :maxHeight="140"
+        :pagination="{ total: 30 }"
       />`,
-      primaryTable: `
-        <div>
-          <t-button @click="visible = true">列配置</t-button>
-          <t-table
-            v-bind="configProps"
-            row-key="index"
-            v-model:columnControllerVisible="visible"
-            :data="[{index:1,platform:'公用'},{index:2,platform:'私有'}]"
-            :columns="[{
-              align: 'center',
-              width: '100',
-              colKey: 'index',
-              title: '序号',
-            },
-            {
-              width: 100,
-              colKey: 'platform',
-              title: '平台',
-            }]"
-          />
-        </div>
-      `,
     },
   },
   tabs: {
@@ -571,6 +545,22 @@ module.exports = {
       `,
     },
   },
+  watermark: {
+    panelStr: `const panelList = [{label: 'watermark', value: 'watermark'}];`,
+    render: {
+      watermark: `
+        <t-watermark
+          v-bind="configProps"
+          :watermark-content="{
+            text: '文字水印',
+          }"
+          :y="120"
+          :x="80"
+        ><div style="width:height: 200px" /></t-watermark>
+      `,
+    },
+  },
+
   dialog: {
     panelStr: `const panelList = [{label: 'dialog', value: 'dialog'}];`,
     script: `
@@ -648,6 +638,27 @@ module.exports = {
         <t-card v-bind="configProps">
           仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。
         </t-card>
+      `,
+    },
+  },
+  space: {
+    panelStr: `const panelList = [{label: 'space', value: 'space'}];`,
+    render: {
+      space: `
+        <t-space v-bind="configProps">
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+          <t-button>Button</t-button>
+        </t-space>
+      `,
+    },
+  },
+  jumper: {
+    panelStr: `const panelList = [{label: 'jumper', value: 'jumper'}];`,
+    render: {
+      jumper: `
+        <t-jumper v-bind="configProps"></t-jumper>
       `,
     },
   },

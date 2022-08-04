@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, PropType, Slots } from 'vue';
+import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
@@ -28,12 +28,13 @@ export default defineComponent({
       default: (): SelectOption[] => [],
     },
   },
-  setup(props) {
+  setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const { t, global } = useConfig('select');
     const tSelect = inject(selectInjectKey);
+    const innerRef = ref<HTMLElement>(null);
 
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
@@ -45,10 +46,23 @@ export default defineComponent({
           return props.filter(`${props.inputValue}`, option);
         }
 
-        return option.label.indexOf(`${props.inputValue}`) > -1;
+        return option.label?.indexOf(`${props.inputValue}`) > -1;
       };
 
-      return props.options.filter(filterMethods);
+      const res: SelectOption[] = [];
+      props.options.forEach((option) => {
+        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+          res.push({
+            ...option,
+            children: (option as SelectOptionGroup).children.filter(filterMethods),
+          });
+        }
+        if (filterMethods(option)) {
+          res.push(option);
+        }
+      });
+
+      return res;
     });
 
     const isEmpty = computed(() => !displayOptions.value.length);
@@ -90,12 +104,18 @@ export default defineComponent({
       }[tSelect.value.size];
     });
 
+    expose({
+      innerRef,
+    });
+
     return () => (
       <div
+        ref={innerRef}
         class={[
           `${COMPONENT_NAME.value}__dropdown-inner`,
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
+        onClick={(e) => e.stopPropagation()}
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}

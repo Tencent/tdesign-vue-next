@@ -9,14 +9,21 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
+import {
+  TdPrimaryTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  PrimaryTableCellParams,
+  PrimaryTableRowEditContext,
+} from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell from './editable-cell';
+import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import useEditableRow from './hooks/useEditableRow';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -24,6 +31,7 @@ const OMIT_PROPS = [
   'hideSortTips',
   'dragSort',
   'defaultExpandedRowKeys',
+  'defaultSelectedRowKeys',
   'columnController',
   'filterRow',
   'sortOnRowDraggable',
@@ -43,6 +51,8 @@ const OMIT_PROPS = [
   'onSortChange',
 ];
 
+const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
+
 export default defineComponent({
   name: 'TPrimaryTable',
 
@@ -54,8 +64,8 @@ export default defineComponent({
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
-    const primaryTableRef = ref<HTMLDivElement>(null);
-    const { tableDraggableClasses, tableBaseClass } = useClassName();
+    const primaryTableRef = ref(null);
+    const { tableDraggableClasses, tableBaseClass, tableSelectedClasses } = useClassName();
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
@@ -64,7 +74,7 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props);
+    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props, tableSelectedClasses);
     // 过滤功能
     const {
       hasEmptyCondition,
@@ -73,11 +83,15 @@ export default defineComponent({
       renderFirstFilterRow,
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
+
     // 拖拽排序功能
-    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef } = useDragSort(props);
+    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef, setDragSortColumns } =
+      useDragSort(props, context);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
+
+    const { errorListMap, editableKeysMap, validateRowData, onRuleChange, clearValidateData } = useEditableRow(props);
 
     const primaryTableClasses = computed(() => {
       return {
@@ -85,6 +99,7 @@ export default defineComponent({
         [tableDraggableClasses.rowHandlerDraggable]: isRowHandlerDraggable.value,
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
+        [tableBaseClass.tableRowEdit]: props.editableRowKeys,
       };
     });
 
@@ -107,6 +122,15 @@ export default defineComponent({
     onMounted(() => {
       setFilterPrimaryTableRef(primaryTableRef.value);
       setDragSortPrimaryTableRef(primaryTableRef.value);
+    });
+
+    // 对外暴露的方法
+    context.expose({
+      validateRowData,
+      clearValidateData,
+      refreshTable: () => {
+        primaryTableRef.value.refreshTable();
+      },
     });
 
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
@@ -135,7 +159,22 @@ export default defineComponent({
         if (item.edit?.component) {
           const oldCell = item.cell;
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
-            return <EditableCell {...p} oldCell={oldCell} v-slots={context.slots} />;
+            const cellProps: EditableCellProps = {
+              ...p,
+              oldCell,
+              tableBaseClass,
+              onChange: props.onRowEdit,
+              onValidate: props.onRowValidate,
+              onRuleChange,
+            };
+            if (props.editableRowKeys) {
+              const rowValue = get(p.row, props.rowKey || 'id');
+              cellProps.editable = editableKeysMap.value[rowValue] || false;
+              const key = [rowValue, p.col.colKey].join();
+              const errorList = errorListMap.value?.[key];
+              errorList && (cellProps.errors = errorList);
+            }
+            return <EditableCell {...cellProps} v-slots={context.slots} />;
           };
         }
         if (item.children?.length) {
@@ -223,11 +262,13 @@ export default defineComponent({
       }
 
       return (
+        // @ts-ignore
         <BaseTable
           ref={primaryTableRef}
           v-slots={context.slots}
           {...baseTableProps}
           class={primaryTableClasses.value}
+          onLeafColumnsChange={setDragSortColumns}
         />
       );
     };

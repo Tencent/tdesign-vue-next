@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space>
     <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
     <t-select v-model="value1" :options="options1" placeholder="请选择云解决方案" />
 
@@ -7,7 +7,7 @@
     <t-select v-model="value2" placeholder="请选择云产品">
       <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
@@ -20,7 +20,7 @@ const options1 = [
   { label: '人工智能', value: '5' },
   // 可以使用渲染函数自定义下拉选项内容和样式
   {
-    label: '计算场景',
+    label: '计算场景（高性能计算）',
     value: '6',
     content: () => <span>计算场景（高性能计算）</span>,
   },
@@ -37,13 +37,3 @@ const options2 = [
 const value1 = ref('');
 const value2 = ref('');
 </script>
-<style scoped>
-.tdesign-demo-select-base {
-  width: 450px;
-  display: flex;
-}
-
-.tdesign-demo-select-base .t-select__wrap + .t-select__wrap {
-  margin-left: 36px;
-}
-</style>

@@ -19,7 +19,9 @@ spline: explain
   .
   <a href="https://github.com/Tencent/tdesign-vue-next-starter">代码仓库</a>
   ·
-  <a href="https://github.com/Tencent/tdesign-vue-next-starter/issues/new">反馈问题</a>
+  <a href="https://github.com/Tencent/tdesign-vue-next-starter/issues/new?assignees=&labels=&template=bug-report.zh-CN.yml&title=%5B%E7%BB%84%E4%BB%B6%E5%90%8D%E7%A7%B0%5D+%E6%8F%8F%E8%BF%B0%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%87%E9%A2%98">反馈问题</a>
+  ·
+  <a href="https://tdesign.tencent.com/starter/docs/vue-next/community-link">社区生态</a>
 </p>
 <p>
   <img src="https://tdesign.gtimg.com/starter/starter.png" style="border-radius:6px;border:1px solid var(--component-border)"/>

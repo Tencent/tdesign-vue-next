@@ -43,6 +43,11 @@ export default {
   },
   /** 是否禁用树操作 */
   disabled: Boolean,
+  /** 是否禁用树操作 */
+  draggable: {
+    type: Boolean,
+    default: false,
+  },
   /** 数据为空时展示的文本 */
   empty: {
     type: [String, Function] as PropType<TdTreeProps['empty']>,

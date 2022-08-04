@@ -12,12 +12,6 @@
     "options": []
   },
   {
-    "name": "label",
-    "type": "Boolean",
-    "defaultValue": true,
-    "options": []
-  },
-  {
     "name": "layout",
     "type": "enum",
     "defaultValue": "horizontal",

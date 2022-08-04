@@ -4,9 +4,10 @@
       :bordered="true"
       :data="data"
       :columns="columns"
-      :row-key="rowKey"
+      row-key="i"
       :size="size"
       :rowspan-and-colspan="rowspanAndColspan"
+      resizable
     />
   </div>
 </template>
@@ -88,6 +89,5 @@ const rowspanAndColspan = ({ col, rowIndex, colIndex }) => {
   }
 };
 
-const rowKey = 'default';
 const size = 'small';
 </script>

@@ -49,21 +49,31 @@ export default {
     type: Array as PropType<TdBaseTableProps['footData']>,
     default: (): TdBaseTableProps['footData'] => [],
   },
-  /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixProps.container` 调整固钉的吸顶范围 */
-  footerAffixedBottom: Boolean,
-  /** 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  footerAffixedBottom: {
+    type: [Boolean, Object] as PropType<TdBaseTableProps['footerAffixedBottom']>,
+    default: false,
+  },
+  /** 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。 */
   footerAffixProps: {
     type: Object as PropType<TdBaseTableProps['footerAffixProps']>,
   },
-  /** 表头吸顶。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动，默认为整个窗口。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixProps.container` 调整固钉的吸顶范围 */
-  headerAffixedTop: Boolean,
-  /** 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  /** 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。 */
+  headerAffixedTop: {
+    type: [Boolean, Object] as PropType<TdBaseTableProps['headerAffixedTop']>,
+    default: false,
+  },
+  /** 已废弃。请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
   headerAffixProps: {
     type: Object as PropType<TdBaseTableProps['headerAffixProps']>,
   },
   /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` */
   height: {
     type: [String, Number] as PropType<TdBaseTableProps['height']>,
+  },
+  /** 滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  horizontalScrollAffixedBottom: {
+    type: [Boolean, Object] as PropType<TdBaseTableProps['horizontalScrollAffixedBottom']>,
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
@@ -87,6 +97,10 @@ export default {
   /** 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true` */
   pagination: {
     type: Object as PropType<TdBaseTableProps['pagination']>,
+  },
+  /** 分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  paginationAffixedBottom: {
+    type: [Boolean, Object] as PropType<TdBaseTableProps['paginationAffixedBottom']>,
   },
   /** 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]` */
   resizable: Boolean,

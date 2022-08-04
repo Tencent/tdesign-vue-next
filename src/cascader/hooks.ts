@@ -1,5 +1,6 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
 import isEqual from 'lodash/isEqual';
+import isFunction from 'lodash/isFunction';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
@@ -15,7 +16,6 @@ import {
   TreeNodeModel,
   CascaderChangeSource,
   CascaderValue,
-  CascaderContextType,
 } from './interface';
 
 // 全局状态
@@ -35,7 +35,7 @@ export const useContext = (
 
   return {
     statusContext,
-    cascaderContext: computed<CascaderContextType>(() => {
+    cascaderContext: computed(() => {
       const {
         size,
         checkStrictly,
@@ -48,7 +48,6 @@ export const useContext = (
         disabled,
         showAllLevels,
         minCollapsedNum,
-        loading,
         valueType,
       } = props;
       return {
@@ -64,7 +63,6 @@ export const useContext = (
         disabled,
         showAllLevels,
         minCollapsedNum,
-        loading,
         valueType,
         visible: innerPopupVisible.value,
         ...statusContext,
@@ -100,10 +98,14 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
   const { cascaderContext, statusContext } = useContext(props, setInnerValue, innerPopupVisible, setPopupVisible);
 
+  const isFilterable = computed(() => {
+    return Boolean(props.filterable || isFunction(props.filter));
+  });
+
   // 更新treeNodes
   const updatedTreeNodes = () => {
     const { inputVal, treeStore, setTreeNodes } = cascaderContext.value;
-    treeNodesEffect(inputVal, treeStore, setTreeNodes);
+    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter);
   };
 
   // 更新节点展开状态
@@ -123,7 +125,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       if (!options.length && !treeStore) return;
 
       if (!treeStore) {
-        const treeStore = new TreeStore({
+        const store = new TreeStore({
           keys: {
             ...keys,
             children: typeof keys.children === 'string' ? keys.children : 'children',
@@ -134,14 +136,15 @@ export const useCascaderContext = (props: TdCascaderProps) => {
           checkStrictly,
           onLoad: () => {
             nextTick(() => {
-              treeStore.refreshNodes();
+              store.refreshNodes();
               updatedTreeNodes();
             });
           },
         });
-        treeStore.append(options);
-        statusContext.treeStore = treeStore;
+        store.append(options);
+        statusContext.treeStore = store;
       } else {
+        if (isEqual(treeStore.config.options, options)) return;
         treeStore.reload(options);
         treeStore.refreshNodes();
       }
@@ -186,7 +189,8 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
       if (isValueInvalid(innerValue.value, cascaderContext.value)) {
         setValue(multiple ? [] : '', 'invalid-value');
-        console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
+      } else {
+        statusContext.scopeVal = multiple ? [] : '';
       }
 
       if (!isEmptyValues(innerValue)) {
@@ -201,7 +205,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
 
   watch(
-    () => innerPopupVisible.value && props.filterable,
+    () => innerPopupVisible.value && isFilterable.value,
     (visible) => {
       const { setInputVal } = cascaderContext.value;
       if (visible) {
@@ -218,7 +222,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   );
 
   return {
-    setInnerValue,
     cascaderContext,
+    isFilterable,
   };
 };

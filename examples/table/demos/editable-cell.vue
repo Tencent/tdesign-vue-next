@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
-    <t-table row-key="key" :columns="columns" :data="data" bordered />
+    <t-table row-key="key" :columns="columns" :data="data" bordered @row-validate="onRowValidate" />
   </div>
 </template>
 
@@ -26,6 +26,10 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 
 const align = ref('left');
 const data = ref([...initData]);
+
+const onRowValidate = (params) => {
+  console.log('validate:', params);
+};
 
 const columns = computed(() => [
   {
@@ -89,18 +93,23 @@ const columns = computed(() => [
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
-      props: {
-        multiple: true,
-        minCollapsedNum: 1,
-        options: [
-          { label: 'A', value: 'A' },
-          { label: 'B', value: 'B' },
-          { label: 'C', value: 'C' },
-          { label: 'D', value: 'D' },
-          { label: 'E', value: 'E' },
-          { label: 'G', value: 'G' },
-          { label: 'H', value: 'H' },
-        ],
+      // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
+      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+        console.log(col, row, rowIndex, colIndex, editedRow);
+        return {
+          multiple: true,
+          minCollapsedNum: 1,
+          options: [
+            { label: 'A', value: 'A' },
+            { label: 'B', value: 'B' },
+            { label: 'C', value: 'C' },
+            { label: 'D', value: 'D' },
+            { label: 'E', value: 'E' },
+            // 如果框架选择了 React，则 Letters 隐藏 G 和 H
+            { label: 'G', value: 'G', show: () => editedRow.framework !== 'React' },
+            { label: 'H', value: 'H', show: () => editedRow.framework !== 'React' },
+          ].filter((t) => (t.show === undefined ? true : t.show())),
+        };
       },
       // abortEditOnEvent: ['onChange'],
       onEdited: (context) => {
@@ -113,12 +122,10 @@ const columns = computed(() => [
   {
     title: 'Date',
     colKey: 'createTime',
-    // props, 透传全部属性到 DatePicker 组件
     edit: {
       component: DatePicker,
-      props: {
-        mode: 'date',
-      },
+      // props, 透传全部属性到 DatePicker 组件
+      props: {},
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
       abortEditOnEvent: ['onChange'],
       onEdited: (context) => {
@@ -130,12 +137,3 @@ const columns = computed(() => [
   },
 ]);
 </script>
-<style scoped>
-.table-operations {
-  margin-bottom: 16px;
-}
-
-.table-operations > button {
-  margin-right: 8px;
-}
-</style>

@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 10:19:08
  * */
 
 import { ButtonProps } from '../button';
@@ -29,12 +28,10 @@ export interface TdDrawerProps {
   closeBtn?: string | boolean | TNode;
   /**
    * 按下 ESC 时是否触发抽屉关闭事件
-   * @default true
    */
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发抽屉关闭事件
-   * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -52,12 +49,13 @@ export interface TdDrawerProps {
    */
   destroyOnClose?: boolean;
   /**
-   * 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 TNode 表示自定义底部内容
+   * 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容
    * @default true
    */
   footer?: boolean | TNode;
   /**
    * 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容
+   * @default true
    */
   header?: string | boolean | TNode;
   /**
@@ -87,7 +85,6 @@ export interface TdDrawerProps {
   showOverlay?: boolean;
   /**
    * 尺寸，支持 'small', 'medium', 'large'，'35px', '30%',  '3em' 等。纵向抽屉调整的是抽屉宽度，横向抽屉调整的是抽屉高度
-   * @default small
    */
   size?: string;
   /**

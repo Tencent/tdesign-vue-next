@@ -87,7 +87,7 @@ export default defineComponent({
       return {};
     });
     const swiperItems = () => {
-      const swiperItemList = getChildComponentByName('TSwiperItem');
+      const swiperItemList = getChildComponentByName('SwiperItem');
       swiperItemLength.value = swiperItemList.length;
       const items = swiperItemList.map((swiperItem: any, index) => {
         const p = { ...props, ...swiperItem.props };
@@ -105,8 +105,12 @@ export default defineComponent({
         );
       });
       if (props.animation === 'slide' && items.length > 1) {
-        const first = cloneVNode(items[0]);
-        const last = cloneVNode(items[items.length - 1]);
+        const first = cloneVNode(items[0], {
+          key: 'swiper-item-append',
+        });
+        const last = cloneVNode(items[items.length - 1], {
+          key: 'swiper-item-prepend',
+        });
         items.unshift(last);
         items.push(first);
       }
@@ -241,7 +245,7 @@ export default defineComponent({
           </div>
         );
       }
-      const swiperItemList = getChildComponentByName('TSwiperItem');
+      const swiperItemList = getChildComponentByName('SwiperItem');
       return (
         <ul
           class={[

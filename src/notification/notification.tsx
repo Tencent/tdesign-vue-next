@@ -37,11 +37,11 @@ export default defineComponent({
       } else if (props.theme) {
         const iconType =
           props.theme === 'success' ? (
-            <CheckCircleFilledIcon class={`t-is-${props.theme}`} />
+            <CheckCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
           ) : (
-            <InfoCircleFilledIcon class={`t-is-${props.theme}`} />
+            <InfoCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
           );
-        iconContent = <div class="t-notification__icon">{iconType}</div>;
+        iconContent = <div class={`t-notification__icon`}>{iconType}</div>;
       }
       return iconContent;
     };
