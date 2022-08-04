@@ -21,7 +21,7 @@ function formatRange({ newDate, format, targetFormat }: { newDate: any; format: 
   }
 
   // 格式化失败提示
-  if (dayjsDateList.some((r) => !r.isValid())) {
+  if (dayjsDateList.some((r) => r && !r.isValid())) {
     console.error(
       `请检查 format、valueType、value 格式是否有效.\nformat: '${format}' valueType: '${targetFormat}' value: '${newDate}'`,
     );
