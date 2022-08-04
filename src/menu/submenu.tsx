@@ -101,8 +101,8 @@ export default defineComponent({
       }, 0);
     };
     const handleMouseLeavePopup = (e: any) => {
-      const { toElement } = e;
-      let target = toElement;
+      const { toElement, relatedTarget } = e;
+      let target = toElement || relatedTarget;
       const isSubmenu = (el: Element) => el === submenuRef.value;
 
       while (target !== document && !isSubmenu(target)) {
