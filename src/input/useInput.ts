@@ -100,7 +100,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     }
     focused.value = false;
     // 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
-    if (!isClearIcon()) {
+    if (!(isClearIcon() || props.readonly)) {
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     }
