@@ -69,8 +69,13 @@ export default defineComponent({
 
         // 空数据重置为当前年月
         if (!value.value.length) {
-          year.value = initYearMonthTime(value.value, props.mode, formatRef.value.format).year;
-          month.value = [dayjs().month(), dayjs().month() + 1];
+          year.value = initYearMonthTime({ value: value.value, mode: props.mode, format: formatRef.value.format }).year;
+          month.value = initYearMonthTime({
+            value: value.value,
+            mode: props.mode,
+            format: formatRef.value.format,
+            enableTimePicker: props.enableTimePicker,
+          }).month;
         } else if (value.value.length === 2 && !props.enableTimePicker) {
           // 确保右侧面板月份比左侧大 避免两侧面板月份一致
           const nextMonth = value.value.map((v: string) =>

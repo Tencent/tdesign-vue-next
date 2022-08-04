@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import type { DateValue } from '../type';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
+import log from '../../_common/js/log';
 
 export const TIME_FORMAT = 'HH:mm:ss';
 
@@ -22,7 +23,8 @@ function formatRange({ newDate, format, targetFormat }: { newDate: any; format: 
 
   // 格式化失败提示
   if (dayjsDateList.some((r) => r && !r.isValid())) {
-    console.error(
+    log.error(
+      'DatePicker',
       `请检查 format、valueType、value 格式是否有效.\nformat: '${format}' valueType: '${targetFormat}' value: '${newDate}'`,
     );
     return [];
@@ -44,7 +46,8 @@ function formatSingle({ newDate, format, targetFormat }: { newDate: any; format:
 
   // 格式化失败提示
   if (!dayJsDate.isValid()) {
-    console.error(
+    log.error(
+      'DatePicker',
       `请检查 format、valueType、value 格式是否有效.\nformat: '${format}' valueType: '${targetFormat}' value: '${newDate}'`,
     );
     return '';

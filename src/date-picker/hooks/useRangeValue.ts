@@ -2,14 +2,26 @@ import { ref, toRefs, watchEffect, computed } from 'vue';
 import dayjs from 'dayjs';
 import useVModel from '../../hooks/useVModel';
 
-import { TdDateRangePickerProps, DateValue } from '../type';
+import { TdDateRangePickerProps, DateRangeValue } from '../type';
 import { isValidDate, formatDate, formatTime, getDefaultFormat, parseToDayjs } from './useFormat';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
 
 // 初始化面板年份月份
-export function initYearMonthTime(value: DateValue[], mode = 'date', format: string, timeFormat = 'HH:mm:ss') {
+export function initYearMonthTime({
+  value,
+  mode = 'date',
+  format,
+  timeFormat = 'HH:mm:ss',
+  enableTimePicker,
+}: {
+  value: DateRangeValue;
+  mode: string;
+  format: string;
+  timeFormat?: string;
+  enableTimePicker?: boolean;
+}) {
   const defaultYearMonthTime = {
     year: [dayjs().year(), dayjs().year()],
     month: [dayjs().month(), dayjs().month()],
@@ -19,7 +31,7 @@ export function initYearMonthTime(value: DateValue[], mode = 'date', format: str
     defaultYearMonthTime.year[1] += 10;
   } else if (mode === 'month' || mode === 'quarter') {
     defaultYearMonthTime.year[1] += 1;
-  } else if (mode === 'date' || mode === 'week') {
+  } else if ((mode === 'date' || mode === 'week') && !enableTimePicker) {
     defaultYearMonthTime.month[1] += 1;
   }
 
@@ -65,9 +77,23 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
   }
 
   const isFirstValueSelected = ref(false); // 记录面板点击次数，两次后才自动关闭
-  const time = ref(initYearMonthTime(value.value, props.mode, formatRef.value.format, formatRef.value.timeFormat).time);
-  const month = ref(initYearMonthTime(value.value, props.mode, formatRef.value.format).month);
-  const year = ref(initYearMonthTime(value.value, props.mode, formatRef.value.format).year);
+  const time = ref(
+    initYearMonthTime({
+      value: value.value,
+      mode: props.mode,
+      format: formatRef.value.format,
+      timeFormat: formatRef.value.timeFormat,
+    }).time,
+  );
+  const month = ref(
+    initYearMonthTime({
+      value: value.value,
+      mode: props.mode,
+      format: formatRef.value.format,
+      enableTimePicker: props.enableTimePicker,
+    }).month,
+  );
+  const year = ref(initYearMonthTime({ value: value.value, mode: props.mode, format: formatRef.value.format }).year);
   const cacheValue = ref(
     formatDate(value.value, { format: formatRef.value.format, targetFormat: formatRef.value.format }),
   ); // 选择阶段预选状态
