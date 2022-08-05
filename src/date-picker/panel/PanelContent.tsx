@@ -32,6 +32,7 @@ export default defineComponent({
     onCellClick: Function,
     onCellMouseLeave: Function,
     onTimePickerChange: Function,
+    value: [String, Number, Array, Date],
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -62,6 +63,8 @@ export default defineComponent({
             mode={props.mode}
             data={props.tableData}
             time={props.time}
+            value={props.value}
+            format={props.format}
             firstDayOfWeek={props.firstDayOfWeek}
             onCellClick={(date: Date, { e }: { e: MouseEvent }) =>
               props.onCellClick?.(date, { e, partial: props.partial })
