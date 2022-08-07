@@ -93618,6 +93618,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
           <tfoot
             class="t-table__footer"
           >
+            <!---->
             
             <tr
               class="t-tdesign__custom-footer-tr"
@@ -96305,11 +96306,90 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
 
 exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1`] = `
 <div
-  class="tdesign-demo-block-column-large"
+  class="tdesign-demo-block-column-large tdesign-demo__table"
 >
-  <!-- rowClassName="tdesign-demo__row-custom-name" -->
+  <div>
+    <!-- 表尾有 3 种方式 -->
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          普通表尾
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="full"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          通栏表尾
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="custom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          自定义表尾合并列
+          
+          
+        </span>
+      </label>
+      
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+    </div>
+  </div>
+  <!-- footData 之所以是数组，是为了支持多行表尾数据 -->
   <div
-    class="t-table"
+    class="t-table t-table--bordered"
     style="position: relative;"
   >
     <!---->
@@ -96552,6 +96632,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
         <tfoot
           class="t-table__footer"
         >
+          <!---->
           
           <tr
             class="t-tdesign__custom-footer-tr"
@@ -96565,11 +96646,13 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
               </b>
             </td>
             <td>
-              <span>
+              <div
+                style="width: 100%; text-align: center;"
+              >
                 第 
                 1
                  行
-              </span>
+              </div>
             </td>
             <td>
               全部类型
@@ -96581,7 +96664,9 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
             </td>
             <td>
               
-               插槽渲染表尾 
+              <b>
+                必传(插槽)
+              </b>
               
             </td>
             <td>
@@ -102934,6 +103019,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
         <tfoot
           class="t-table__footer"
         >
+          <!---->
           
           <tr
             class=""
@@ -104253,6 +104339,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
           <tfoot
             class="t-table__footer"
           >
+            <!---->
             
             <tr
               class=""

@@ -49,23 +49,27 @@ export default {
     type: Array as PropType<TdBaseTableProps['footData']>,
     default: (): TdBaseTableProps['footData'] => [],
   },
+  /** 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。 */
+  footerAffixProps: {
+    type: Object as PropType<TdBaseTableProps['footerAffixProps']>,
+  },
   /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性 */
   footerAffixedBottom: {
     type: [Boolean, Object] as PropType<TdBaseTableProps['footerAffixedBottom']>,
     default: false,
   },
-  /** 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。 */
-  footerAffixProps: {
-    type: Object as PropType<TdBaseTableProps['footerAffixProps']>,
+  /** 表尾总结行 */
+  footerSummary: {
+    type: [String, Function] as PropType<TdBaseTableProps['footerSummary']>,
+  },
+  /** 已废弃。请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  headerAffixProps: {
+    type: Object as PropType<TdBaseTableProps['headerAffixProps']>,
   },
   /** 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。 */
   headerAffixedTop: {
     type: [Boolean, Object] as PropType<TdBaseTableProps['headerAffixedTop']>,
     default: false,
-  },
-  /** 已废弃。请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
-  headerAffixProps: {
-    type: Object as PropType<TdBaseTableProps['headerAffixProps']>,
   },
   /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` */
   height: {
@@ -121,6 +125,10 @@ export default {
   /** 用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }` */
   rowspanAndColspan: {
     type: Function as PropType<TdBaseTableProps['rowspanAndColspan']>,
+  },
+  /** 用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }` */
+  rowspanAndColspanInFooter: {
+    type: Function as PropType<TdBaseTableProps['rowspanAndColspanInFooter']>,
   },
   /** 懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100` */
   scroll: {

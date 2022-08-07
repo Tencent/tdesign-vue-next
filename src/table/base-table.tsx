@@ -30,6 +30,7 @@ import { ROW_LISTENERS } from './tr';
 import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
+import { Styles } from '../common';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -297,9 +298,13 @@ export default defineComponent({
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
-            {columns.map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -349,9 +354,13 @@ export default defineComponent({
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
             <colgroup>
-              {columns.map((col) => (
-                <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-              ))}
+              {columns.map((col) => {
+                const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+                if (col.minWidth) {
+                  style.minWidth = formatCSSUnit(col.minWidth);
+                }
+                return <col key={col.colKey} style={style}></col>;
+              })}
             </colgroup>
             <TFoot
               rowKey={this.rowKey}
@@ -363,6 +372,7 @@ export default defineComponent({
               rowAttributes={this.rowAttributes}
               rowClassName={this.rowClassName}
               thWidthList={this.thWidthList}
+              rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
             ></TFoot>
           </table>
         </div>
@@ -408,9 +418,13 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           <colgroup>
-            {columns.map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -433,6 +447,7 @@ export default defineComponent({
             columns={columns}
             rowAttributes={this.rowAttributes}
             rowClassName={this.rowClassName}
+            rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
           ></TFoot>
         </table>
       </div>
