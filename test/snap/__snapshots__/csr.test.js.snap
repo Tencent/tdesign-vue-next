@@ -38558,6 +38558,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -38939,6 +38940,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -85066,7 +85068,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
       <!---->
       
       <div
-        class="t-input__tips t-input__tips--normal"
+        class="t-input__tips t-input__tips--default"
       >
         这是禁用状态文本提示
       </div>
@@ -85112,7 +85114,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
       <!---->
       
       <div
-        class="t-input__tips t-input__tips--normal"
+        class="t-input__tips t-input__tips--default"
       >
         这是普通状态的文本提示
       </div>
@@ -93680,6 +93682,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <div
@@ -94190,6 +94193,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -94359,6 +94363,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
       </span>
     </label>
   </div>
+  <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
   <div
     class="t-table t-table--bordered t-table--striped t-table--column-resizable"
     style="position: relative;"
@@ -94574,7 +94579,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
             <td
               class=""
             >
-              {}
+              -
             </td>
             <td
               class=""
@@ -94660,7 +94665,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
             <td
               class=""
             >
-              0
+              -
             </td>
             <td
               class=""
@@ -94692,6 +94697,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -95055,6 +95061,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-cell.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -95418,6 +95425,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -96118,6 +96126,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -96686,6 +96695,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -96842,6 +96852,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-header.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -97211,6 +97222,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/data-sort.vue 1`] =
         <!---->
         <!---->
         <div
+          class="t-table__pagination-wrap"
           style="opacity: 1;"
         >
           <!---->
@@ -97458,6 +97470,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-col-sort.vue 1
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -97707,6 +97720,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort.vue 1`] =
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -98074,6 +98088,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -98748,6 +98763,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -98764,6 +98780,21 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
 <div
   class="t-table-demo__editable-row"
 >
+  <div>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        校验全部
+        
+      </span>
+    </button>
+  </div>
+  <br />
   <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
   <div
     class="t-table t-table--bordered t-vertical-align-top t-table--row-edit"
@@ -99418,6 +99449,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -99551,6 +99583,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -99687,6 +99720,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -99821,6 +99855,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -100703,6 +100738,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -101293,6 +101329,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -101965,6 +102002,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -103055,6 +103093,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -104381,6 +104420,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -113523,6 +113563,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/lazy.vue 1`] = `
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -113720,6 +113761,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -113921,6 +113963,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -114120,6 +114163,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -114397,6 +114441,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -116592,6 +116637,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multi-header.vue 1`
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -116974,6 +117020,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multiple-sort.vue 1
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -117357,6 +117404,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -117681,6 +117729,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
   <!---->
   <!---->
   <div
+    class="t-table__pagination-wrap"
     style="opacity: 1;"
   >
     <div
@@ -118357,6 +118406,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -118868,6 +118918,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -119199,6 +119250,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/show-columns.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -119608,6 +119660,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/single-sort.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -120949,6 +121002,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -121823,6 +121877,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -121944,6 +121999,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/virtual-scroll.vue 
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
