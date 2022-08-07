@@ -20,7 +20,7 @@
     >
       <!-- 如果是通栏表尾，只需设置 footer-summary，支持同名 Props 属性 footerSummary -->
       <!-- 通栏表尾和普通表尾，允许同时存在 -->
-      <template v-if="footerType === 'full'" #footer-summary>
+      <template v-if="footerType === 'full'" #footerSummary>
         <div class="t-table__row-filter-inner">通栏总结行信息</div>
       </template>
       <template #t-foot-required> <b>必传(插槽)</b> </template>
