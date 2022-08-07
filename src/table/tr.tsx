@@ -19,7 +19,7 @@ import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, PrimaryTableCellParams } from './type';
+import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from './type';
 import baseTableProps from './base-table-props';
 import useLazyLoad from './hooks/useLazyLoad';
 import { RowAndColFixedPosition } from './interface';
@@ -30,6 +30,7 @@ export interface RenderTdExtra {
   columnLength: number;
   dataLength: number;
   cellSpans: RowspanColspan;
+  cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
 }
 
 export interface RenderEllipsisCellParams {
@@ -47,6 +48,7 @@ export const TABLE_PROPS = [
   'rowAttributes',
   'rowspanAndColspan',
   'scroll',
+  'cellEmptyContent',
   'onCellClick',
   'onRowClick',
   'onRowDblclick',
@@ -74,11 +76,18 @@ export interface TrProps extends TrCommonProps {
   tableElm?: any;
   // HTMLDivElement
   tableContentElm?: any;
+  cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
 
-export function renderCell(params: BaseTableCellParams<TableRowData>, slots: SetupContext['slots']) {
+export function renderCell(
+  params: BaseTableCellParams<TableRowData>,
+  slots: SetupContext['slots'],
+  extra?: {
+    cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
+  },
+) {
   const { col, row } = params;
   if (isFunction(col.cell)) {
     return col.cell(h, params);
@@ -92,7 +101,15 @@ export function renderCell(params: BaseTableCellParams<TableRowData>, slots: Set
   if (isFunction(col.render)) {
     return col.render(h, { ...params, type: 'cell' });
   }
-  return get(row, col.colKey);
+  const r = get(row, col.colKey);
+  // 0 和 false 属于正常可用之，不能使用兜底逻辑 cellEmptyContent
+  if (![undefined, '', null].includes(r)) return r;
+  // cellEmptyContent 作为空数据兜底显示，用户可自定义
+  if (extra?.cellEmptyContent) {
+    return isFunction(extra.cellEmptyContent) ? extra.cellEmptyContent(h, params) : extra.cellEmptyContent;
+  }
+  if (slots.cellEmptyContent) return slots.cellEmptyContent(params);
+  return r;
 }
 
 // 表格行组件
@@ -232,7 +249,7 @@ export default defineComponent({
     renderTd(params: BaseTableCellParams<TableRowData>, extra: RenderTdExtra) {
       const { col, colIndex, rowIndex } = params;
       const { cellSpans, dataLength, rowAndColFixedPosition } = extra;
-      const cellNode = renderCell(params, this.tSlots);
+      const cellNode = renderCell(params, this.tSlots, { cellEmptyContent: extra.cellEmptyContent });
       const tdStyles = getColumnFixedStyles(col, colIndex, rowAndColFixedPosition, this.tableColFixedClasses);
       const customClasses = isFunction(col.className) ? col.className({ ...params, type: 'td' }) : col.className;
       const classes = [
@@ -283,6 +300,7 @@ export default defineComponent({
         rowAndColFixedPosition,
         columnLength: this.columns.length,
         cellSpans,
+        cellEmptyContent: this.cellEmptyContent,
       });
     });
     return (

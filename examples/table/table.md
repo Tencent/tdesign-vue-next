@@ -8,6 +8,7 @@
 allowResizeColumnWidth | Boolean | undefined | 已废弃。是否允许调整列宽。请更为使用 `resizable` | N
 bordered | Boolean | false | 是否显示表格边框 | N
 bottomContent | String / Slot / Function | - | 表格底部内容，可以用于自定义列设置等。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+cellEmptyContent | String / Slot / Function | - | 单元格数据为空时呈现的内容。TS 类型：`string | TNode<BaseTableCellParams<T>>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 columns | Array | [] | 列配置，泛型 T 指表格数据类型。TS 类型：`Array<BaseTableCol<T>>` | N
 data | Array | [] | 数据源，泛型 T 指表格数据类型。TS 类型：`Array<T>` | N
 disableDataPage | Boolean | false | 是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页 | N

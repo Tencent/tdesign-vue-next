@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### BaseTable Props
 
 name | type | default | description | required
@@ -9,6 +8,7 @@ name | type | default | description | required
 allowResizeColumnWidth | Boolean | undefined | `deprecated`。allow to resize column width | N
 bordered | Boolean | false | show table bordered | N
 bottomContent | String / Slot / Function | - | Typescript：`string | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+cellEmptyContent | String / Slot / Function | - | Typescript：`string | TNode<BaseTableCellParams<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 columns | Array | [] | table column configs。Typescript：`Array<BaseTableCol<T>>` | N
 data | Array | [] | table data。Typescript：`Array<T>` | N
 disableDataPage | Boolean | false | \- | N

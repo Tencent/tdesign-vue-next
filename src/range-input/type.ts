@@ -13,7 +13,6 @@ import { TNode } from '../common';
 export interface TdRangeInputProps {
   /**
    * 输入框高亮状态序号
-   * @default 0
    */
   activeIndex?: number;
   /**
@@ -84,14 +83,17 @@ export interface TdRangeInputProps {
   tips?: string | TNode;
   /**
    * 范围输入框的值
+   * @default []
    */
   value?: RangeInputValue;
   /**
    * 范围输入框的值，非受控属性
+   * @default []
    */
   defaultValue?: RangeInputValue;
   /**
    * 范围输入框的值
+   * @default []
    */
   modelValue?: RangeInputValue;
   /**

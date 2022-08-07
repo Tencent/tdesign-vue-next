@@ -42,7 +42,6 @@ export interface TdDatePickerProps {
   firstDayOfWeek?: number;
   /**
    * 用于格式化日期，全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format)
-   * @default ''
    */
   format?: string;
   /**
@@ -76,6 +75,10 @@ export interface TdDatePickerProps {
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
   /**
+   * 输入框状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 用于自定义组件后置图标
    */
   suffixIcon?: TNode;
@@ -83,6 +86,10 @@ export interface TdDatePickerProps {
    * 透传 TimePicker 组件属性
    */
   timePickerProps?: TimePickerProps;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 选中值
    * @default ''
@@ -196,6 +203,10 @@ export interface TdDateRangePickerProps {
    */
   separator?: string;
   /**
+   * 输入框状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 组件后置图标
    */
   suffixIcon?: TNode;
@@ -203,6 +214,10 @@ export interface TdDateRangePickerProps {
    * 透传 TimePicker 组件属性
    */
   timePickerProps?: TimePickerProps;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 选中值
    * @default []

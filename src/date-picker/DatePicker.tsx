@@ -237,6 +237,8 @@ export default defineComponent({
         <TSelectInput
           disabled={disabled.value}
           value={inputValue.value}
+          status={props.status}
+          tips={props.tips}
           clearable={props.clearable}
           popupProps={popupProps.value}
           inputProps={inputProps.value}

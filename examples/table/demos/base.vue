@@ -14,6 +14,7 @@
       <t-checkbox v-model="tableLayout"> 宽度自适应 </t-checkbox>
     </div>
 
+    <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
     <t-table
       row-key="index"
       :data="data"
@@ -24,6 +25,7 @@
       :table-layout="tableLayout ? 'auto' : 'fixed'"
       :size="size"
       :pagination="pagination"
+      cell-empty-content="-"
       resizable
       @row-click="handleRowClick"
     />
@@ -40,7 +42,7 @@ for (let i = 0; i < total; i++) {
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
     type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
+    default: ['0', '[]'][i % 5],
     detail: {
       position: `读取 ${i} 个数据的嵌套信息值`,
     },

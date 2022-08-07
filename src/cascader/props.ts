@@ -107,6 +107,14 @@ export default {
       return ['large', 'medium', 'small'].includes(val);
     },
   },
+  /** 输入框状态 */
+  status: {
+    type: String as PropType<TdCascaderProps['status']>,
+    validator(val: TdCascaderProps['status']): boolean {
+      if (!val) return true;
+      return ['default', 'success', 'warning', 'error'].includes(val);
+    },
+  },
   /** 透传 TagInput 标签输入框组件的全部属性 */
   tagInputProps: {
     type: Object as PropType<TdCascaderProps['tagInputProps']>,
@@ -114,6 +122,10 @@ export default {
   /** 透传 Tag 标签组件全部属性 */
   tagProps: {
     type: Object as PropType<TdCascaderProps['tagProps']>,
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdCascaderProps['tips']>,
   },
   /** 展开下一层级的方式 */
   trigger: {

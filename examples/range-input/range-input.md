@@ -1,14 +1,13 @@
 :: BASE_DOC ::
 
 ## API
-
 ### RangeInput Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-activeIndex | Number | 0 | 输入框高亮状态序号 | N
+activeIndex | Number | - | 输入框高亮状态序号 | N
 clearable | Boolean | false | 是否可清空 | N
-disabled | Boolean / Array | false | 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用。TS 类型：`boolean | Array<boolean>` | N
+disabled | Boolean | false | 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用 | N
 format | Array / Function | - | 指定输入框展示值的格式。TS 类型：`InputFormatType | Array<InputFormatType>` | N
 inputProps | Object / Array | - | 透传 Input 输入框组件全部属性，数组第一项表示第一个输入框属性，第二项表示第二个输入框属性。示例：`[{ label: 'A', name: 'A-name' }, { label: 'B',  name: 'B-name' }]`。TS 类型：`InputProps | Array<InputProps>`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
 label | String / Slot / Function | - | 左侧内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -22,8 +21,8 @@ status | String | - | 输入框状态。可选项：success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | Array | - | 范围输入框的值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`RangeInputValue` `type RangeInputValue = Array<InputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
-defaultValue | Array | - | 范围输入框的值。非受控属性。TS 类型：`RangeInputValue` `type RangeInputValue = Array<InputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
+value | Array | [] | 范围输入框的值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`RangeInputValue` `type RangeInputValue = Array<InputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
+defaultValue | Array | [] | 范围输入框的值。非受控属性。TS 类型：`RangeInputValue` `type RangeInputValue = Array<InputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
 onBlur | Function |  | TS 类型：`(value: RangeInputValue, context?: { e?: FocusEvent; position?: RangeInputPosition }) => void`<br/>范围输入框失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: RangeInputValue, context?: { e?: InputEvent | MouseEvent; position?: RangeInputPosition; trigger?: 'input' | 'clear' })    => void`<br/>范围输入框值发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts)。<br/>`type RangeInputPosition = 'first' | 'second' | 'all'`<br/> | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>清空按钮点击时触发 | N
@@ -59,7 +58,7 @@ select | `(options?: {position?: RangeInputPosition})` | \- | 使其中一个输
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 autoWidth | Boolean | false | 宽度随内容自适应 | N
-disabled | Boolean / Array | false | 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用。TS 类型：`boolean | Array<boolean>` | N
+disabled | Boolean | false | 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用 | N
 inputValue | Array | - | 输入框的值。支持语法糖 `v-model:inputValue`。TS 类型：`RangeInputValue` | N
 defaultInputValue | Array | - | 输入框的值。非受控属性。TS 类型：`RangeInputValue` | N
 panel | Slot / Function | - | 下拉框内容，可完全自定义。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
