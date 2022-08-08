@@ -26,7 +26,7 @@ import { useSelectOptions } from './hooks';
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props: TdSelectProps, { slots }) {
+  setup(props: TdSelectProps, { slots, expose }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
@@ -264,6 +264,13 @@ export default defineComponent({
       });
     };
     provide('updateScrollTop', updateScrollTop);
+
+    expose({
+      getDisplayValue: () => {
+        return displayText.value
+      }
+    })
+
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
