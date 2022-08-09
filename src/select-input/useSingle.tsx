@@ -70,7 +70,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       value: singleValueDisplay ? undefined : displayedValue,
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
-      readonly: !props.allowInput,
+      readonly: !props.allowInput || props.readonly,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(props.clearable && (inputValue.value || displayedValue) && !props.disabled),
