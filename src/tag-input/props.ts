@@ -78,7 +78,7 @@ export default {
     default: 'default' as TdTagInputProps['status'],
     validator(val: TdTagInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error', 'default'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */
@@ -124,7 +124,7 @@ export default {
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,
-  /** 拖拽排序时触发 */
+  /** 【开发中】拖拽排序时触发 */
   onDragSort: Function as PropType<TdTagInputProps['onDragSort']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,

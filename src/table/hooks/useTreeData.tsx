@@ -139,7 +139,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     if (!props.tree || col.colKey !== treeNodeCol.value.colKey) return col;
     const newCol = { ...treeNodeCol.value };
     newCol.cell = (h, p) => {
-      const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots);
+      const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots, {
+        cellEmptyContent: props.cellEmptyContent,
+      });
       const currentState = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey));
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };

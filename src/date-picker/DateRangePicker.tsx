@@ -356,6 +356,8 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           disabled={disabled.value}
+          status={props.status}
+          tips={props.tips}
           inputValue={inputValue.value as string[]}
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}

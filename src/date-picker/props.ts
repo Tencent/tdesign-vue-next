@@ -31,7 +31,7 @@ export default {
   /** 用于格式化日期，全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
-    default: '',
+    default: undefined,
   },
   /** 透传给输入框（Input）组件的参数 */
   inputProps: {
@@ -72,6 +72,14 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
+  /** 输入框状态 */
+  status: {
+    type: String as PropType<TdDatePickerProps['status']>,
+    validator(val: TdDatePickerProps['status']): boolean {
+      if (!val) return true;
+      return ['default', 'success', 'warning', 'error'].includes(val);
+    },
+  },
   /** 用于自定义组件后置图标 */
   suffixIcon: {
     type: Function as PropType<TdDatePickerProps['suffixIcon']>,
@@ -79,6 +87,10 @@ export default {
   /** 透传 TimePicker 组件属性 */
   timePickerProps: {
     type: Object as PropType<TdDatePickerProps['timePickerProps']>,
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdDatePickerProps['tips']>,
   },
   /** 选中值 */
   value: {

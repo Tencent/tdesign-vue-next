@@ -21,7 +21,7 @@ export default function useRowspanAndColspan(
   data: Ref<TableRowData[]>,
   columns: Ref<BaseTableCol<TableRowData>[]>,
   rowKey: Ref<string>,
-  rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
+  rowspanAndColspan: Ref<TableRowspanAndColspanFunc<TableRowData>>,
 ) {
   const skipSpansMap = ref(new Map<string, SkipSpansValue>());
 
@@ -34,7 +34,7 @@ export default function useRowspanAndColspan(
     for (let i = rowIndex; i < maxRowIndex; i++) {
       for (let j = colIndex; j < maxColIndex; j++) {
         if (i !== rowIndex || j !== colIndex) {
-          if (!data.value[i]) return;
+          if (!data.value[i] || !columns.value[j]) return;
           const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
@@ -52,6 +52,7 @@ export default function useRowspanAndColspan(
   ) => {
     if (!data || !rowspanAndColspan) return;
     skipSpansMap.value?.clear();
+    if (!data || !rowspanAndColspan) return;
     for (let i = 0, len = data.length; i < len; i++) {
       const row = data[i];
       for (let j = 0, colLen = columns.length; j < colLen; j++) {
@@ -76,10 +77,10 @@ export default function useRowspanAndColspan(
   };
 
   watch(
-    () => [data.value, columns.value],
+    () => [data.value, columns.value, rowspanAndColspan],
     () => {
       if (!data || !rowspanAndColspan) return;
-      updateSkipSpansMap(data.value, columns.value, rowspanAndColspan);
+      updateSkipSpansMap(data.value, columns.value, rowspanAndColspan?.value);
     },
     { immediate: true },
   );

@@ -276,6 +276,8 @@ export default defineComponent({
               multiple: props.multiple,
               clearable: props.clearable,
               loading: props.loading,
+              status: props.status,
+              tips: props.tips,
               minCollapsedNum: props.minCollapsedNum,
             }}
             class={COMPONENT_NAME.value}
