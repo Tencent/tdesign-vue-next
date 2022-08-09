@@ -267,9 +267,9 @@ export default defineComponent({
 
     expose({
       getDisplayValue: () => {
-        return displayText.value
-      }
-    })
+        return displayText.value;
+      },
+    });
 
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
