@@ -72208,7 +72208,121 @@ exports[`csr snapshot test > csr test ./src/jumper/_example/size.vue 1`] = `
   </div>
   <!---->
   
-  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/icon/demos/iconfont.vue 1`] = `
+<div
+  class="t-demo-iconfont"
+>
+  <div
+    class="t-demo-row"
+  >
+    <i
+      class="t-icon t-icon-loading"
+    />
+    <i
+      class="t-icon t-icon-close"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+    />
+  </div>
+  <br />
+  <div
+    class="t-demo-row"
+  >
+    <i
+      class="t-icon t-icon-check-circle-filled t-size-s"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled t-size-m"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled t-size-l"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+      style="font-size: 25px;"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+      style="font-size: 2em;"
+    />
+  </div>
+  <br />
+  <div
+    class="t-demo-row"
+  >
+    <i
+      class="t-icon t-icon-check-circle-filled"
+      style="color: red;"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+      style="color: green;"
+    />
+    <i
+      class="t-icon t-icon-check-circle-filled"
+      style="color: orange;"
+    />
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/icon/demos/iconfont-enhanced.vue 1`] = `
+<div
+  class="t-demo-iconfont"
+>
+  <div>
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep t-size-m"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep t-size-l"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+      style="font-size: 25px;"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+      style="font-size: 2em;"
+    />
+  </div>
+  <br />
+  <div>
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+      style="color: red;"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+      style="color: green;"
+    />
+    <i
+      class="t-icon cps-icon cps-icon-home-sheep"
+      style="color: orange;"
+    />
+    <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
+    <i
+      class="t-icon t-icon-home"
+    />
+  </div>
+  <br />
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/icon/demos/single.vue 1`] = `
+<div
+  class="t-demo-iconfont"
+>
   <div
     class="t-space-item"
   >
