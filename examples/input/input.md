@@ -62,3 +62,10 @@ mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
 wheel | `(context: { e: WheelEvent })` | 输入框中滚动鼠标时触发
+
+### Input Method
+
+名称 | 参数 | 描述
+-- | -- | --
+blur | - | 让输入框失去焦点
+focus | - | 让输入框获得焦点

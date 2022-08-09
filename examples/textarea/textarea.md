@@ -34,3 +34,10 @@ focus | `(value: TextareaValue, context: { e: FocusEvent })` | 获得焦点时�
 keydown | `(value: TextareaValue, context: { e: KeyboardEvent })` | 键盘按下时触发
 keypress | `(value: TextareaValue, context: { e: KeyboardEvent })` | 按下字符键时触发（keydown -> keypress -> keyup）
 keyup | `(value: TextareaValue, context: { e: KeyboardEvent })` | 释放键盘时触发
+
+### Textarea Method
+
+名称 | 参数 | 描述
+-- | -- | --
+blur | - | 让输入框失去焦点
+focus | - | 让输入框获得焦点
