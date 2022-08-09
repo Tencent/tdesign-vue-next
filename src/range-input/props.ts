@@ -59,7 +59,7 @@ export default {
     type: String as PropType<TdRangeInputProps['status']>,
     validator(val: TdRangeInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */

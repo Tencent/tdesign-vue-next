@@ -37,6 +37,18 @@ export default {
   },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
+  /** 输入框状态 */
+  status: {
+    type: String as PropType<TdRangeInputPopupProps['status']>,
+    validator(val: TdRangeInputPopupProps['status']): boolean {
+      if (!val) return true;
+      return ['default', 'success', 'warning', 'error'].includes(val);
+    },
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdRangeInputPopupProps['tips']>,
+  },
   /** 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发等 */
   onInputChange: Function as PropType<TdRangeInputPopupProps['onInputChange']>,
   /** 下拉框显示或隐藏时触发 */
