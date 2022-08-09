@@ -1,11 +1,12 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { getCharacterLength } from '../utils/helper';
-import { TdInputProps, InputValue } from './type';
+import { InputValue } from './type';
+import { ExtendsTdInputProps } from './input';
 import { FormItemInjectionKey } from '../form/const';
 
 import useVModel from '../hooks/useVModel';
 
-export default function useInput(props: TdInputProps, expose: (exposed: Record<string, any>) => void) {
+export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
   const clearIconRef = ref(null);
@@ -100,7 +101,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     }
     focused.value = false;
     // 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
-    if (!(isClearIcon() || props.readonly)) {
+    if (!isClearIcon() && props.allowTriggerBlur) {
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     }
