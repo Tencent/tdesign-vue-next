@@ -63,7 +63,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
-    const allowTriggerBlur = props.allowInput && !props.readonly;
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
@@ -73,8 +72,10 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       readonly: !props.allowInput || props.readonly,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
-      showClearIconOnEmpty: Boolean(props.clearable && (inputValue.value || displayedValue) && !props.disabled),
-      allowTriggerBlur,
+      showClearIconOnEmpty: Boolean(
+        props.clearable && (inputValue.value || displayedValue) && !props.disabled && !props.readonly,
+      ),
+      allowTriggerBlur: props.allowInput && !props.readonly,
       ...props.inputProps,
     };
 
