@@ -4,7 +4,7 @@ import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../utils';
 import { AllValidateResult } from '../../form/type';
 import { validate } from '../../form/form-model';
-import { PrimaryTableRowEditContext, PrimaryTableRowValidateContext, TableRowData, TableErrorListMap } from '../type';
+import { PrimaryTableRowEditContext, TableRowData, TableErrorListMap } from '../type';
 
 const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
 
