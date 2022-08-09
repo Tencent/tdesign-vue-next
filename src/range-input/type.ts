@@ -190,14 +190,6 @@ export interface TdRangeInputPopupProps {
    */
   readonly?: boolean;
   /**
-   * 输入框状态
-   */
-  status?: 'success' | 'warning' | 'error';
-  /**
-   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
-   */
-  tips?: string | TNode;
-  /**
    * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发等
    */
   onInputChange?: (value: RangeInputValue, context?: RangeInputValueChangeContext) => void;
