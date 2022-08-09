@@ -58793,40 +58793,40 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/iconfont-enhanced.vu
 >
   <div>
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
     />
     <i
-      class="cps-icon cps-icon-home-sheep t-size-m"
+      class="t-icon cps-icon cps-icon-home-sheep t-size-m"
     />
     <i
-      class="cps-icon cps-icon-home-sheep t-size-l"
+      class="t-icon cps-icon cps-icon-home-sheep t-size-l"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="font-size: 25px;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="font-size: 2em;"
     />
   </div>
   <br />
   <div>
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: red;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: green;"
     />
     <i
-      class="cps-icon cps-icon-home-sheep"
+      class="t-icon cps-icon cps-icon-home-sheep"
       style="color: orange;"
     />
     <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
     <i
-      class="t-icon-home t-icon"
+      class="t-icon t-icon-home"
     />
   </div>
   <br />
