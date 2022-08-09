@@ -265,12 +265,6 @@ export default defineComponent({
     };
     provide('updateScrollTop', updateScrollTop);
 
-    expose({
-      getDisplayValue: () => {
-        return displayText.value;
-      },
-    });
-
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (

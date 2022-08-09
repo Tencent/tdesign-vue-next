@@ -25,7 +25,7 @@ export interface TdDrawerProps {
   /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
    */
-  closeBtn?: string | boolean | TNode;
+  closeBtn?: string | boolean | TNode | null;
   /**
    * 按下 ESC 时是否触发抽屉关闭事件
    */
@@ -127,7 +127,7 @@ export interface TdDrawerProps {
   onOverlayClick?: (context: { e: MouseEvent }) => void;
 }
 
-export type FooterButton = string | ButtonProps | TNode;
+export type FooterButton = string | ButtonProps | TNode | null;
 
 export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
