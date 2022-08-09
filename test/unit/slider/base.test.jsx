@@ -36,12 +36,13 @@ describe('Slider', () => {
     });
     // test prop inputNumberProps
     describe(':props.inputNumberProps', () => {
-      it('inputNumberProps default value is false', () => {
+      it('inputNumberProps default value is false', async () => {
         const wrapper = mount({
           render() {
             return <Slider />;
           },
         });
+        await nextTick();
         const inputEle = wrapper.find('.t-input');
         expect(inputEle.exists()).toBeFalsy();
       });

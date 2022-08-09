@@ -26,7 +26,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
 
-  setup(props, { attrs }) {
+  setup(props, { attrs, expose }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
@@ -43,6 +43,9 @@ export default defineComponent({
 
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
+
+    const focus = () => refTextareaElem.value?.focus();
+    const blur = () => refTextareaElem.value?.blur();
 
     // methods
     const adjustTextareaHeight = () => {
@@ -169,6 +172,11 @@ export default defineComponent({
         }
       },
     );
+
+    expose({
+      focus,
+      blur,
+    });
 
     onMounted(() => {
       adjustTextareaHeight();

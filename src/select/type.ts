@@ -162,6 +162,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   size?: SizeEnum;
   /**
+   * 输入框状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 透传 TagInput 标签输入框组件的全部属性
    */
   tagInputProps?: TagInputProps;
@@ -169,6 +173,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 透传 Tag 标签组件全部属性
    */
   tagProps?: TagProps;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 选中值
    */

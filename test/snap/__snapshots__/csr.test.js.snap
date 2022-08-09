@@ -28262,7 +28262,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -28275,35 +28274,63 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
-      </div>
-      <div
-        class="t-color-picker__slider t-color-picker__alpha t-color-picker--bg-alpha"
-      >
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--alpha-type t-color-picker__alpha t-color-picker--bg-alpha"
+          >
+            <div
+              class="t-color-picker__slider-padding"
+            />
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 186px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 248px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
       <div
         class="t-color-picker__format"
@@ -28312,14 +28339,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -28337,11 +28364,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -28381,7 +28404,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -28414,7 +28437,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -28447,7 +28470,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -28480,7 +28503,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
               style="flex: 1.15;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="100"
               >
                 <!---->
@@ -29171,7 +29194,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -29184,24 +29206,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
-      <!---->
       <div
         class="t-color-picker__format"
       >
@@ -29209,14 +29252,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -29234,11 +29277,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -29278,7 +29317,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -29311,7 +29350,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -29344,7 +29383,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-input-number--normal"
+                class="t-input-number t-size-s t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -30045,7 +30084,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -30058,24 +30096,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -30083,14 +30142,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -30108,11 +30167,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -30152,7 +30207,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -30185,7 +30240,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -30218,7 +30273,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -31035,7 +31090,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -31048,24 +31102,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -31073,14 +31148,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -31098,11 +31173,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -31142,7 +31213,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -31175,7 +31246,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -31208,7 +31279,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -31916,7 +31987,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           />
         </div>
       </div>
-      <!---->
     </div>
     <div
       class="t-color-picker__body"
@@ -31929,24 +31999,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+          style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
           tabindex="0"
         />
       </div>
       <div
-        class="t-color-picker__slider t-color-picker__hue"
+        class="t-color-picker__sliders-wrapper"
       >
         <div
-          class="t-color-picker__rail"
-        />
-        <span
-          class="t-color-picker__thumb"
-          role="slider"
-          style="left: 150px; color: rgb(0, 82, 217);"
-          tabindex="0"
-        />
+          class="t-color-picker__sliders"
+        >
+          <div
+            class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+          >
+            <!---->
+            <div
+              class="t-color-picker__slider"
+            >
+              <div
+                class="t-color-picker__rail"
+              />
+              <span
+                class="t-color-picker__thumb"
+                role="slider"
+                style="left: 112px; color: rgb(0, 82, 217);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div
+          class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+        >
+          <span
+            class="t-color-picker__sliders-preview-inner"
+            style="background: rgb(0, 82, 217);"
+          />
+        </div>
       </div>
-      <!---->
       <div
         class="t-color-picker__format"
       >
@@ -31954,14 +32045,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
           class="t-color-picker__format--item"
         >
           <div
-            class="t-select__wrap"
+            class="t-select__wrap t-color-picker__format-mode-select"
           >
             
             <div
               class="t-input__wrap t-select-input t-select"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -31979,11 +32070,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   type="text"
                   unselectable="on"
                 />
-                <span
-                  class="t-input__input-pre"
-                >
-                  RGB
-                </span>
+                <!---->
                 <!---->
                 <span
                   class="t-input__suffix t-input__suffix-icon"
@@ -32023,7 +32110,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="0"
               >
                 <!---->
@@ -32057,7 +32144,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="82"
               >
                 <!---->
@@ -32091,7 +32178,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
               style="flex: 1;"
             >
               <div
-                class="t-input-number t-size-m t-is-disabled t-input-number--normal"
+                class="t-input-number t-size-s t-is-disabled t-input-number--normal"
                 title="217"
               >
                 <!---->
@@ -32793,7 +32880,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -32806,24 +32892,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -32831,14 +32938,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -32856,11 +32963,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -32900,7 +33003,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -32933,7 +33036,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -32966,7 +33069,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -33205,7 +33308,6 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             />
           </div>
         </div>
-        <!---->
       </div>
       <div
         class="t-color-picker__body"
@@ -33218,24 +33320,45 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
+            style="color: rgb(0, 82, 217); left: 230px; top: 25px;"
             tabindex="0"
           />
         </div>
         <div
-          class="t-color-picker__slider t-color-picker__hue"
+          class="t-color-picker__sliders-wrapper"
         >
           <div
-            class="t-color-picker__rail"
-          />
-          <span
-            class="t-color-picker__thumb"
-            role="slider"
-            style="left: 150px; color: rgb(0, 82, 217);"
-            tabindex="0"
-          />
+            class="t-color-picker__sliders"
+          >
+            <div
+              class="t-color-picker__slider-wrapper t-color-picker__slider-wrapper--hue-type t-color-picker__hue"
+            >
+              <!---->
+              <div
+                class="t-color-picker__slider"
+              >
+                <div
+                  class="t-color-picker__rail"
+                />
+                <span
+                  class="t-color-picker__thumb"
+                  role="slider"
+                  style="left: 112px; color: rgb(0, 82, 217);"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div
+            class="t-color-picker__sliders-preview t-color-picker--bg-alpha"
+          >
+            <span
+              class="t-color-picker__sliders-preview-inner"
+              style="background: rgb(0, 82, 217);"
+            />
+          </div>
         </div>
-        <!---->
         <div
           class="t-color-picker__format"
         >
@@ -33243,14 +33366,14 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
             class="t-color-picker__format--item"
           >
             <div
-              class="t-select__wrap"
+              class="t-select__wrap t-color-picker__format-mode-select"
             >
               
               <div
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -33268,11 +33391,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     type="text"
                     unselectable="on"
                   />
-                  <span
-                    class="t-input__input-pre"
-                  >
-                    RGB
-                  </span>
+                  <!---->
                   <!---->
                   <span
                     class="t-input__suffix t-input__suffix-icon"
@@ -33312,7 +33431,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="0"
                 >
                   <!---->
@@ -33345,7 +33464,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="82"
                 >
                   <!---->
@@ -33378,7 +33497,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                 style="flex: 1;"
               >
                 <div
-                  class="t-input-number t-size-m t-input-number--normal"
+                  class="t-input-number t-size-s t-input-number--normal"
                   title="217"
                 >
                   <!---->
@@ -38015,33 +38134,42 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
     >
       jump to
       <div
-        class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+        class="t-input-adornment t-input-adornment--append"
       >
         <!---->
         <div
-          class="t-input__wrap"
-          unselectable="off"
+          class="t-input-number t-size-m t-input-number--normal t-pagination__input"
         >
+          <!---->
           <div
-            class="t-input t-is-default"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <!---->
-            <!---->
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input t-is-default"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
           <!---->
         </div>
-        <!---->
+        <span
+          class="t-input-adornment__append"
+        >
+          / 4 
+        </span>
       </div>
-      
     </div>
   </div>
   
@@ -38439,6 +38567,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -38820,6 +38949,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/table.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -40664,7 +40794,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </thead>
                 <tbody>
                   
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -40738,7 +40870,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40812,7 +40946,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40886,7 +41022,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -40960,7 +41098,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--now"
@@ -41034,7 +41174,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -41355,7 +41497,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                 </thead>
                 <tbody>
                   
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -41429,7 +41573,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41503,7 +41649,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41577,7 +41725,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell"
@@ -41651,7 +41801,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--now"
@@ -41725,7 +41877,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                     </td>
                     
                   </tr>
-                  <tr>
+                  <tr
+                    class="t-date-picker__table-date-row"
+                  >
                     
                     <td
                       class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42104,7 +42258,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42178,7 +42334,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42252,7 +42410,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42326,7 +42486,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42400,7 +42562,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--now"
@@ -42474,7 +42638,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42778,7 +42944,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -42852,7 +43020,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -42926,7 +43096,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43000,7 +43172,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43074,7 +43248,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43148,7 +43324,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43474,7 +43652,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43548,7 +43728,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43622,7 +43804,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43696,7 +43880,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell"
@@ -43770,7 +43956,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--now"
@@ -43844,7 +44032,9 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                       </td>
                       
                     </tr>
-                    <tr>
+                    <tr
+                      class="t-date-picker__table-date-row"
+                    >
                       
                       <td
                         class="t-date-picker__cell t-date-picker__cell--additional"
@@ -43981,6 +44171,318 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
             </span>
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-picker"
+    >
+      
+      <div
+        class="t-input__wrap t-select-input t-select-input--empty"
+      >
+        <div
+          class="t-input t-is-default t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-range-picker"
+    >
+      <div
+        class="t-range-input-popup"
+      >
+        
+        <div
+          class="t-range-input"
+        >
+          <div
+            class="t-range-input__inner"
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-input__wrap t-range-input__inner-left"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <div
+              class="t-range-input__inner-separator"
+            >
+              -
+            </div>
+            <div
+              class="t-input__wrap t-range-input__inner-right"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <span
+              class="t-range-input__suffix t-range-input__suffix-icon"
+            >
+              <svg
+                class="t-icon t-icon-calendar"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
+        </div>
+        <!---->
+        
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-picker"
+    >
+      
+      <div
+        class="t-input__wrap t-select-input t-select-input--empty"
+      >
+        <div
+          class="t-input t-is-default t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon"
+          >
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-date-range-picker"
+    >
+      <div
+        class="t-range-input-popup"
+      >
+        
+        <div
+          class="t-range-input"
+        >
+          <div
+            class="t-range-input__inner"
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-input__wrap t-range-input__inner-left"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <div
+              class="t-range-input__inner-separator"
+            >
+              -
+            </div>
+            <div
+              class="t-input__wrap t-range-input__inner-right"
+            >
+              <div
+                class="t-input t-is-default"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <span
+              class="t-range-input__suffix t-range-input__suffix-icon"
+            >
+              <svg
+                class="t-icon t-icon-calendar"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
+        </div>
+        <!---->
+        
       </div>
     </div>
   </div>
@@ -73384,33 +73886,42 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
     >
       跳至
       <div
-        class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+        class="t-input-adornment t-input-adornment--append"
       >
         <!---->
         <div
-          class="t-input__wrap"
-          unselectable="off"
+          class="t-input-number t-size-m t-input-number--normal t-pagination__input"
         >
+          <!---->
           <div
-            class="t-input t-is-default"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <!---->
-            <!---->
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input t-is-default"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
           <!---->
         </div>
-        <!---->
+        <span
+          class="t-input-adornment__append"
+        >
+          / 6 页
+        </span>
       </div>
-      页
     </div>
   </div>
 </div>
@@ -74170,61 +74681,46 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
     </div>
     <!---->
     <div
-      class="t-select__wrap t-pagination__select"
+      class="t-pagination__jump"
     >
-      
+      跳至
       <div
-        class="t-input__wrap t-select-input t-select"
+        class="t-input-adornment t-input-adornment--append"
       >
+        <!---->
         <div
-          class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+          class="t-input-number t-size-m t-input-number--normal t-pagination__input"
         >
           <!---->
           <div
-            class="t-input__prefix"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            
-            <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            readonly=""
-            type="text"
-            unselectable="on"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            1/20
-          </span>
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon"
-          >
-            <svg
-              class="t-fake-arrow t-select__right-icon"
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-input t-is-default"
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder=""
+                type="text"
               />
-            </svg>
-          </span>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!---->
         </div>
-        <!---->
+        <span
+          class="t-input-adornment__append"
+        >
+          / 20 页
+        </span>
       </div>
-      <!---->
-      
     </div>
     <div
       class="t-pagination__btn t-pagination__btn-next"
@@ -74338,61 +74834,46 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
     </div>
     <!---->
     <div
-      class="t-select__wrap t-pagination__select"
+      class="t-pagination__jump"
     >
-      
+      跳至
       <div
-        class="t-input__wrap t-select-input t-select"
+        class="t-input-adornment t-input-adornment--append"
       >
+        <!---->
         <div
-          class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+          class="t-input-number t-size-s t-input-number--normal t-pagination__input"
         >
           <!---->
           <div
-            class="t-input__prefix"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            
-            <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            readonly=""
-            type="text"
-            unselectable="on"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            1/20
-          </span>
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon"
-          >
-            <svg
-              class="t-fake-arrow t-select__right-icon"
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-input t-is-default"
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder=""
+                type="text"
               />
-            </svg>
-          </span>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!---->
         </div>
-        <!---->
+        <span
+          class="t-input-adornment__append"
+        >
+          / 20 页
+        </span>
       </div>
-      <!---->
-      
     </div>
     <div
       class="t-pagination__btn t-pagination__btn-next"
@@ -84575,7 +85056,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
       <!---->
       
       <div
-        class="t-input__tips t-input__tips--normal"
+        class="t-input__tips t-input__tips--default"
       >
         这是禁用状态文本提示
       </div>
@@ -84621,7 +85102,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
       <!---->
       
       <div
-        class="t-input__tips t-input__tips--normal"
+        class="t-input__tips t-input__tips--default"
       >
         这是普通状态的文本提示
       </div>
@@ -93127,6 +93608,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
           <tfoot
             class="t-table__footer"
           >
+            <!---->
             
             <tr
               class="t-tdesign__custom-footer-tr"
@@ -93188,6 +93670,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <div
@@ -93698,6 +94181,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/async-loading.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -93867,6 +94351,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
       </span>
     </label>
   </div>
+  <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
   <div
     class="t-table t-table--bordered t-table--striped t-table--column-resizable"
     style="position: relative;"
@@ -94082,7 +94567,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
             <td
               class=""
             >
-              {}
+              -
             </td>
             <td
               class=""
@@ -94168,7 +94653,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
             <td
               class=""
             >
-              0
+              -
             </td>
             <td
               class=""
@@ -94200,6 +94685,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -94563,6 +95049,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-cell.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -94926,6 +95413,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -95626,6 +96114,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -95814,11 +96303,90 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
 
 exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1`] = `
 <div
-  class="tdesign-demo-block-column-large"
+  class="tdesign-demo-block-column-large tdesign-demo__table"
 >
-  <!-- rowClassName="tdesign-demo__row-custom-name" -->
+  <div>
+    <!-- 表尾有 3 种方式 -->
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          普通表尾
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="full"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          通栏表尾
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="custom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          自定义表尾合并列
+          
+          
+        </span>
+      </label>
+      
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+    </div>
+  </div>
+  <!-- footData 之所以是数组，是为了支持多行表尾数据 -->
   <div
-    class="t-table"
+    class="t-table t-table--bordered"
     style="position: relative;"
   >
     <!---->
@@ -96061,6 +96629,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
         <tfoot
           class="t-table__footer"
         >
+          <!---->
           
           <tr
             class="t-tdesign__custom-footer-tr"
@@ -96074,11 +96643,13 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
               </b>
             </td>
             <td>
-              <span>
+              <div
+                style="width: 100%; text-align: center;"
+              >
                 第 
                 1
                  行
-              </span>
+              </div>
             </td>
             <td>
               全部类型
@@ -96090,7 +96661,9 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
             </td>
             <td>
               
-               插槽渲染表尾 
+              <b>
+                必传(插槽)
+              </b>
               
             </td>
             <td>
@@ -96110,6 +96683,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-footer.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -96266,6 +96840,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-header.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -96635,6 +97210,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/data-sort.vue 1`] =
         <!---->
         <!---->
         <div
+          class="t-table__pagination-wrap"
           style="opacity: 1;"
         >
           <!---->
@@ -96882,6 +97458,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-col-sort.vue 1
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -97131,6 +97708,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort.vue 1`] =
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -97498,6 +98076,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -98172,6 +98751,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -98188,6 +98768,21 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
 <div
   class="t-table-demo__editable-row"
 >
+  <div>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        校验全部
+        
+      </span>
+    </button>
+  </div>
+  <br />
   <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
   <div
     class="t-table t-table--bordered t-vertical-align-top t-table--row-edit"
@@ -98842,6 +99437,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -98975,6 +99571,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -99111,6 +99708,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -99245,6 +99843,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/empty.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -100127,6 +100726,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/expandable.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -100717,6 +101317,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/filter-controlled.v
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -101389,6 +101990,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-column.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -102443,6 +103045,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
         <tfoot
           class="t-table__footer"
         >
+          <!---->
           
           <tr
             class=""
@@ -102478,6 +103081,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -103762,6 +104366,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
           <tfoot
             class="t-table__footer"
           >
+            <!---->
             
             <tr
               class=""
@@ -103803,6 +104408,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/fixed-header-col.vu
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -112945,6 +113551,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/lazy.vue 1`] = `
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -113142,6 +113749,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -113343,6 +113951,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -113542,6 +114151,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/loading.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -113819,6 +114429,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/merge-cells.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -116014,6 +116625,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multi-header.vue 1`
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -116396,6 +117008,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/multiple-sort.vue 1
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -116779,6 +117392,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -116947,33 +117561,42 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
           >
             跳至
             <div
-              class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+              class="t-input-adornment t-input-adornment--append"
             >
               <!---->
               <div
-                class="t-input__wrap"
-                unselectable="off"
+                class="t-input-number t-size-m t-input-number--normal t-pagination__input"
               >
+                <!---->
                 <div
-                  class="t-input t-is-default"
+                  class="t-input__wrap"
+                  unselectable="off"
                 >
-                  <!---->
-                  <!---->
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                    placeholder=""
-                    type="text"
-                  />
-                  <!---->
-                  <!---->
+                  <div
+                    class="t-input t-is-default"
+                  >
+                    <!---->
+                    <!---->
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                      placeholder=""
+                      type="text"
+                    />
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
                   <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
+              <span
+                class="t-input-adornment__append"
+              >
+                / 12 页
+              </span>
             </div>
-            页
           </div>
         </div>
       </div>
@@ -117103,6 +117726,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
   <!---->
   <!---->
   <div
+    class="t-table__pagination-wrap"
     style="opacity: 1;"
   >
     <div
@@ -117232,33 +117856,42 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
         >
           跳至
           <div
-            class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+            class="t-input-adornment t-input-adornment--append"
           >
             <!---->
             <div
-              class="t-input__wrap"
-              unselectable="off"
+              class="t-input-number t-size-m t-input-number--normal t-pagination__input"
             >
+              <!---->
               <div
-                class="t-input t-is-default"
+                class="t-input__wrap"
+                unselectable="off"
               >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder=""
-                  type="text"
-                />
-                <!---->
-                <!---->
+                <div
+                  class="t-input t-is-default"
+                >
+                  <!---->
+                  <!---->
+                  <input
+                    autocomplete="off"
+                    class="t-input__inner"
+                    placeholder=""
+                    type="text"
+                  />
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
                 <!---->
               </div>
               <!---->
             </div>
-            <!---->
+            <span
+              class="t-input-adornment__append"
+            >
+              / 1 页
+            </span>
           </div>
-          页
         </div>
       </div>
     </div>
@@ -117779,6 +118412,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -118290,6 +118924,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -118621,6 +119256,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/show-columns.vue 1`
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -119030,6 +119666,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/single-sort.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -120371,6 +121008,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <div
@@ -121245,6 +121883,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree-select.vue 1`]
     <!---->
     <!---->
     <div
+      class="t-table__pagination-wrap"
       style="opacity: 1;"
     >
       <!---->
@@ -121366,6 +122005,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/virtual-scroll.vue 
       <!---->
       <!---->
       <div
+        class="t-table__pagination-wrap"
         style="opacity: 1;"
       >
         <!---->
@@ -129279,7 +129919,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/base.vue 1`] = `
       class="t-transfer__operations"
     >
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
         type="button"
       >
         
@@ -129898,7 +130538,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/checked.vue 1`] 
       class="t-transfer__operations"
     >
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
         type="button"
       >
         
@@ -132587,61 +133227,46 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
           </div>
           <!---->
           <div
-            class="t-select__wrap t-pagination__select"
+            class="t-pagination__jump"
           >
-            
+            跳至
             <div
-              class="t-input__wrap t-select-input t-select"
+              class="t-input-adornment t-input-adornment--append"
             >
+              <!---->
               <div
-                class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input-number t-size-s t-input-number--normal t-pagination__input"
               >
                 <!---->
                 <div
-                  class="t-input__prefix"
+                  class="t-input__wrap"
+                  unselectable="off"
                 >
-                  
-                  <!---->
-                  <!---->
-                  
-                </div>
-                <input
-                  class="t-input__inner"
-                  placeholder="请选择"
-                  readonly=""
-                  type="text"
-                  unselectable="on"
-                />
-                <span
-                  class="t-input__input-pre"
-                >
-                  1/2
-                </span>
-                <!---->
-                <span
-                  class="t-input__suffix t-input__suffix-icon"
-                >
-                  <svg
-                    class="t-fake-arrow t-select__right-icon"
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="t-input t-is-default"
                   >
-                    <path
-                      d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                      stroke="black"
-                      stroke-opacity="0.9"
-                      stroke-width="1.3"
+                    <!---->
+                    <!---->
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                      placeholder=""
+                      type="text"
                     />
-                  </svg>
-                </span>
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
+                <!---->
               </div>
-              <!---->
+              <span
+                class="t-input-adornment__append"
+              >
+                / 2 页
+              </span>
             </div>
-            <!---->
-            
           </div>
           <div
             class="t-pagination__btn t-pagination__btn-next"

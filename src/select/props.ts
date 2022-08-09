@@ -131,6 +131,14 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** 输入框状态 */
+  status: {
+    type: String as PropType<TdSelectProps['status']>,
+    validator(val: TdSelectProps['status']): boolean {
+      if (!val) return true;
+      return ['default', 'success', 'warning', 'error'].includes(val);
+    },
+  },
   /** 透传 TagInput 标签输入框组件的全部属性 */
   tagInputProps: {
     type: Object as PropType<TdSelectProps['tagInputProps']>,
@@ -138,6 +146,10 @@ export default {
   /** 透传 Tag 标签组件全部属性 */
   tagProps: {
     type: Object as PropType<TdSelectProps['tagProps']>,
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdSelectProps['tips']>,
   },
   /** 选中值 */
   value: {

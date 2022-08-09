@@ -311,19 +311,31 @@ export default defineComponent({
       );
     };
 
+    const isGradient = this.mode === 'linear-gradient';
     return (
-      <div
-        class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {this.mode === 'linear-gradient' ? (
-            <LinearGradient {...baseProps} onChange={this.handleGradientChange} />
-          ) : null}
+          {isGradient ? <LinearGradient {...baseProps} onChange={this.handleGradientChange} /> : null}
+
           <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
-          <HueSlider {...baseProps} onChange={this.handleHueChange} />
-          {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+
+          <div class={[`${baseClassName}__sliders-wrapper`]}>
+            <div class={[`${baseClassName}__sliders`]}>
+              <HueSlider {...baseProps} onChange={this.handleHueChange} />
+              {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+            </div>
+
+            <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
+              <span
+                class={`${baseClassName}__sliders-preview-inner`}
+                style={{
+                  background: isGradient ? this.color.linearGradient : this.color.rgba,
+                }}
+              />
+            </div>
+          </div>
+
           <FormatPanel
             {...this.$props}
             color={this.color}

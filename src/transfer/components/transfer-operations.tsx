@@ -76,7 +76,7 @@ export default defineComponent({
     return () => (
       <div class={`${classPrefix.value}-transfer__operations`}>
         <Button
-          variant={props.rightDisabled ? 'outline' : 'base'}
+          variant="outline"
           key={props.rightDisabled ? 'right-outline' : 'right-base'}
           disabled={props.rightDisabled}
           onClick={moveToRight}
@@ -85,7 +85,7 @@ export default defineComponent({
           {renderButton(h, 'right')}
         </Button>
         <Button
-          variant={props.leftDisabled ? 'outline' : 'base'}
+          variant="outline"
           key={props.rightDisabled ? 'left-outline' : 'left-base'}
           disabled={props.leftDisabled}
           onClick={moveToLeft}

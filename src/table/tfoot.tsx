@@ -1,10 +1,12 @@
-import { SetupContext, h, defineComponent, PropType } from 'vue';
+import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
-import { BaseTableCellParams, TableRowData, TdBaseTableProps } from './type';
+import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
+import { useTNodeJSX } from '../hooks/tnode';
+import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';
 import { RowAndColFixedPosition } from './interface';
 import useClassName from './hooks/useClassName';
 import { Styles } from '../common';
@@ -21,6 +23,7 @@ export interface TFootProps {
   rowClassName: TdBaseTableProps['rowClassName'];
   // 表尾吸底内容宽度
   thWidthList?: { [colKey: string]: number };
+  rowspanAndColspanInFooter: TdBaseTableProps['rowspanAndColspanInFooter'];
 }
 
 export default defineComponent({
@@ -35,11 +38,15 @@ export default defineComponent({
     rowAttributes: [Array, Object, Function] as PropType<TFootProps['rowAttributes']>,
     rowClassName: [Array, String, Object, Function] as PropType<TFootProps['rowClassName']>,
     thWidthList: [Object] as PropType<TFootProps['thWidthList']>,
+    rowspanAndColspanInFooter: Function as PropType<TFootProps['rowspanAndColspanInFooter']>,
   },
 
   // eslint-disable-next-line
   setup(props: TFootProps, context: SetupContext) {
+    const renderTNode = useTNodeJSX();
     const classnames = useClassName();
+    const { footData, columns, rowKey, rowspanAndColspanInFooter } = toRefs(props);
+    const { skipSpansMap } = useRowspanAndColspan(footData, columns, rowKey, rowspanAndColspanInFooter);
     const renderTFootCell = (p: BaseTableCellParams<TableRowData>) => {
       const { col, row } = p;
       if (isFunction(col.foot)) {
@@ -52,51 +59,73 @@ export default defineComponent({
     };
 
     return {
+      skipSpansMap,
       ...classnames,
       renderTFootCell,
+      renderTNode,
     };
   },
 
   render() {
-    if (!this.footData || !this.footData.length || !this.columns) return null;
+    if (!this.columns) return null;
     const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
-    return (
-      <tfoot class={theadClasses}>
-        {this.footData.map((row, rowIndex) => {
-          const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
-          // 自定义行类名
-          const customClasses = formatRowClassNames(
-            this.rowClassName,
-            { row, rowIndex, type: 'foot' },
-            this.rowKey || 'id',
-          );
-          return (
-            <tr key={rowIndex} {...trAttributes} class={customClasses}>
-              {this.columns.map((col, colIndex) => {
-                const tdStyles = getColumnFixedStyles(
+    const footerDomList = this.footData.map((row, rowIndex) => {
+      const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
+      // 自定义行类名
+      const customClasses = formatRowClassNames(
+        this.rowClassName,
+        { row, rowIndex, type: 'foot' },
+        this.rowKey || 'id',
+      );
+      return (
+        <tr {...trAttributes} key={rowIndex} class={customClasses}>
+          {this.columns.map((col, colIndex) => {
+            const cellSpans: RowspanColspan = {};
+            let spanState = null;
+            if (this.skipSpansMap.size) {
+              const cellKey = getCellKey(row, this.rowKey, col.colKey, colIndex);
+              spanState = this.skipSpansMap.get(cellKey) || {};
+              spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
+              spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
+              if (spanState.skipped) return null;
+            }
+            const tdStyles = getColumnFixedStyles(
+              col,
+              colIndex,
+              this.rowAndColFixedPosition,
+              this.tableColFixedClasses,
+            );
+            const style: Styles = { ...tdStyles.style };
+            if (this.thWidthList?.[col.colKey]) {
+              style.width = `${this.thWidthList[col.colKey]}px`;
+            }
+            return (
+              <td {...{ key: col.colKey, ...cellSpans }} class={tdStyles.classes} style={style}>
+                {this.renderTFootCell({
+                  row,
+                  rowIndex,
                   col,
                   colIndex,
-                  this.rowAndColFixedPosition,
-                  this.tableColFixedClasses,
-                );
-                const style: Styles = { ...tdStyles.style };
-                if (this.thWidthList?.[col.colKey]) {
-                  style.width = `${this.thWidthList[col.colKey]}px`;
-                }
-                return (
-                  <td key={col.colKey} class={tdStyles.classes} style={style}>
-                    {this.renderTFootCell({
-                      row,
-                      rowIndex,
-                      col,
-                      colIndex,
-                    })}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
+                })}
+              </td>
+            );
+          })}
+        </tr>
+      );
+    });
+    const footerSummary = this.renderTNode('footerSummary');
+    // 都不存在，则不需要渲染 footer
+    if (!footerSummary && (!this.footData || !this.footData.length)) return null;
+    return (
+      <tfoot ref="tFooterRef" class={theadClasses}>
+        {footerSummary && (
+          <tr class={this.tableFullRowClasses.base}>
+            <td colspan={this.columns.length}>
+              <div class={this.tableFullRowClasses.innerFullElement}>{footerSummary}</div>
+            </td>
+          </tr>
+        )}
+        {footerDomList}
       </tfoot>
     );
   },

@@ -29,6 +29,7 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: [String, Number] as PropType<TdSelectInputProps['inputValue']>,
+    default: undefined,
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
@@ -64,19 +65,20 @@ export default {
   popupProps: {
     type: Object as PropType<TdSelectInputProps['popupProps']>,
   },
-  /** 是否显示下拉框，受控属性 */
+  /** 是否显示下拉框 */
   popupVisible: {
     type: Boolean,
     default: undefined,
   },
-  /** 是否只读，值为真会隐藏输入框，且无法打开下拉框 */
+  /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 输入框状态 */
   status: {
     type: String as PropType<TdSelectInputProps['status']>,
+    default: 'default' as TdSelectInputProps['status'],
     validator(val: TdSelectInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */
@@ -119,7 +121,7 @@ export default {
   onEnter: Function as PropType<TdSelectInputProps['onEnter']>,
   /** 聚焦时触发 */
   onFocus: Function as PropType<TdSelectInputProps['onFocus']>,
-  /** 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等 */
+  /** 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发等 */
   onInputChange: Function as PropType<TdSelectInputProps['onInputChange']>,
   /** 进入输入框时触发 */
   onMouseenter: Function as PropType<TdSelectInputProps['onMouseenter']>,
