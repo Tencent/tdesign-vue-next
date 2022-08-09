@@ -3,6 +3,7 @@ import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
 import props from './props';
+import { TdInputProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -11,6 +12,12 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
+
+export interface ExtendsTdInputProps extends TdInputProps {
+  showInput: boolean;
+  keepWrapperWidth: boolean;
+  allowTriggerBlur: boolean;
+}
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -35,6 +42,10 @@ export default defineComponent({
       // 控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
       type: Boolean,
       default: false,
+    },
+    allowTriggerBlur: {
+      type: Boolean,
+      default: true,
     },
   },
 
