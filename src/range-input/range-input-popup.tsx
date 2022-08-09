@@ -4,12 +4,13 @@ import { usePrefixClass } from '../hooks/useConfig';
 import RangeInput from './range-input';
 import props from './range-input-popup-props';
 import useOverlayStyle from '../select-input/useOverlayStyle';
+import { TdRangeInputPopupProps } from './type';
 
 export default defineComponent({
   name: 'TRangeInputPopup',
   props,
 
-  setup(props) {
+  setup(props: TdRangeInputPopupProps) {
     const COMPONENT_NAME = usePrefixClass('range-input-popup');
 
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
