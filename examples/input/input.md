@@ -6,9 +6,10 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 align | String | left | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
+allowInputOverMax | Boolean | false | 超出maxlength或maxcharacter之后是否还允许输入 | N
+autoWidth | Boolean | false | 宽度随内容自适应 | N
 autocomplete | String | undefined | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) | N
 autofocus | Boolean | false | 自动聚焦 | N
-autoWidth | Boolean | false | 宽度随内容自适应 | N
 clearable | Boolean | false | 是否可清空 | N
 disabled | Boolean | false | 是否禁用输入框 | N
 format | Function | - | 【开发中】指定输入框展示值的格式。TS 类型：`InputFormatType` `type InputFormatType = (value: InputValue) => number | string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
@@ -63,9 +64,9 @@ mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
 wheel | `(context: { e: WheelEvent })` | 输入框中滚动鼠标时触发
 
-### Input Method
+### InputInstanceFunctions 组件实例方法
 
-名称 | 参数 | 描述
--- | -- | --
-blur | - | 让输入框失去焦点
-focus | - | 让输入框获得焦点
+名称 | 参数 | 返回值 | 描述
+-- | -- | -- | --
+blur | \- | \- | 主动调用输入框失去焦点
+focus | \- | \- | 主动调用输入框获得焦点
