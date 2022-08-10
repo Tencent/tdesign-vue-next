@@ -12,6 +12,7 @@ export default function useTableData(props: any) {
     disableDate: props.disableDate,
     firstDayOfWeek: props.firstDayOfWeek ?? global.value.firstDayOfWeek,
     monthLocal: global.value.months,
+    quarterLocal: global.value.quarters,
     showWeekOfYear: props.mode === 'week',
   };
 
