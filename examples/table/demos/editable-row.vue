@@ -96,6 +96,8 @@ const onRowValidate = (params) => {
 function onValidateTableData() {
   // 执行结束后触发事件 validate
   tableRef.value.validateTableData();
+  // with async validate
+  // tableRef.value.validateTableData().then((result) => console.log(result));
 }
 
 // 表格全量数据校验反馈事件，tableRef.value.validateTableData() 执行结束后触发

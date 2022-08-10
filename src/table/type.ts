@@ -772,6 +772,22 @@ export interface TableColumnController {
   placement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
+/** 可编辑表格单元格props **/
+export type TableEditableCellProps<T> = { [key: string]: any };
+
+/** 可编辑表格单元格props为function时的入参 **/
+export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> {
+  /**
+   * 当前编辑的表格行数据
+   */
+  editedRow: T;
+}
+
+/** 可编辑表格单元格functional props **/
+export type TableEditableCellFunctionalProps<T> = (
+  params: TableEditableCellPropsParams<T>,
+) => TableEditableCellProps<T>;
+
 export interface TableEditableCellConfig<T extends TableRowData = TableRowData> {
   /**
    * 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态。示例：`abortEditOnEvent: ['onChange']`
@@ -788,7 +804,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
   /**
    * 透传给组件 `edit.component` 的属性
    */
-  props?: { [key: string]: any };
+  props?: TableEditableCellProps<T> | TableEditableCellFunctionalProps<T>;
   /**
    * 校验规则
    */

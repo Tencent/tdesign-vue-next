@@ -277,7 +277,7 @@ name | type | default | description | required
 abortEditOnEvent | Array | - | Typescript：`string[]` | N
 component | \- | - | component definition。Typescript：`ComponentType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 onEdited | Function | - | trigger on finishing editing。Typescript：`(context: { trigger: string; newRowData: T; rowIndex: number }) => void` | N
-props | Object | - | props of `edit.component`。Typescript：`{ [key: string]: any }` | N
+props | Object / Function | - | props of `edit.component`。Typescript：`TableEditableCellProps<T> | TableEditableCellFunctionalProps<T>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/table/type.ts) | N
 rules | Array | - | form rules。Typescript：`FormRule[]`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 showEditIcon | Boolean | true | show edit icon | N
 
