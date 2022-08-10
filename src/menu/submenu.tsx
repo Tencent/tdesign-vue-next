@@ -185,7 +185,7 @@ export default defineComponent({
       if (!this.isNested && this.isHead) {
         placement = 'bottom-left';
       }
-      const overlayStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
+      const overlayInnerStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
       const popupWrapper = (
         <div
           class={[
@@ -213,7 +213,7 @@ export default defineComponent({
           overlayClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
-          overlayStyle={overlayStyle}
+          overlayInnerStyle={overlayInnerStyle}
           v-slots={slots}
         >
           <div ref="submenuRef" class={this.submenuClass}>

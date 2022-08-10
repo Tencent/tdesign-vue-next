@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
 
-export type overlayStyleProps = Pick<
+export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
   'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'disabled'
 >;
@@ -12,7 +12,7 @@ export type overlayStyleProps = Pick<
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
 
-export default function useOverlayStyle(props: overlayStyleProps) {
+export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
 
@@ -23,13 +23,17 @@ export default function useOverlayStyle(props: overlayStyleProps) {
       popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
         ? popupElement.offsetWidth
         : triggerElement.offsetWidth;
-    let otherOverlayStyle: CSSProperties = {};
-    if (popupProps.value && typeof popupProps.value.overlayStyle === 'object' && !popupProps.value.overlayStyle.width) {
-      otherOverlayStyle = popupProps.value.overlayStyle;
+    let otherOverlayInnerStyle: CSSProperties = {};
+    if (
+      popupProps.value &&
+      typeof popupProps.value.overlayInnerStyle === 'object' &&
+      !popupProps.value.overlayInnerStyle.width
+    ) {
+      otherOverlayInnerStyle = popupProps.value.overlayInnerStyle;
     }
     return {
       width: `${Math.min(width, MAX_POPUP_WIDTH)}px`,
-      ...otherOverlayStyle,
+      ...otherOverlayInnerStyle,
     };
   };
 
@@ -39,11 +43,11 @@ export default function useOverlayStyle(props: overlayStyleProps) {
     props.onPopupVisibleChange?.(visible, context);
   };
 
-  const tOverlayStyle = computed(() => {
-    let result: TdPopupProps['overlayStyle'] = {};
-    const overlayStyle = popupProps.value?.overlayStyle || {};
-    if (isFunction(overlayStyle) || (isObject(overlayStyle) && overlayStyle.width)) {
-      result = overlayStyle;
+  const tOverlayInnerStyle = computed(() => {
+    let result: TdPopupProps['overlayInnerStyle'] = {};
+    const overlayInnerStyle = popupProps.value?.overlayInnerStyle || {};
+    if (isFunction(overlayInnerStyle) || (isObject(overlayInnerStyle) && overlayInnerStyle.width)) {
+      result = overlayInnerStyle;
     } else if (!autoWidth.value) {
       result = matchWidthFunc;
     }
@@ -51,7 +55,7 @@ export default function useOverlayStyle(props: overlayStyleProps) {
   });
 
   return {
-    tOverlayStyle,
+    tOverlayInnerStyle,
     innerPopupVisible,
     onInnerPopupVisibleChange,
   };
