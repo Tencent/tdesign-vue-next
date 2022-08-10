@@ -5,7 +5,7 @@ import { TdSelectInputProps } from './type';
 
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
-import useOverlayStyle from './useOverlayStyle';
+import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 
 const useComponentClassName = () => {
@@ -33,7 +33,7 @@ export default defineComponent({
     const { multiple, value, popupVisible, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
     const { renderSelectMultiple } = useMultiple(props, context);
-    const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
+    const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
     const popupClasses = computed(() => [
       NAME_CLASS.value,
@@ -51,7 +51,7 @@ export default defineComponent({
       selectInputWrapRef,
       innerPopupVisible,
       commonInputProps,
-      tOverlayStyle,
+      tOverlayInnerStyle,
       selectInputRef,
       popupClasses,
       onInnerClear,
@@ -78,7 +78,7 @@ export default defineComponent({
         {...{
           onVisibleChange: this.onInnerPopupVisibleChange,
           ...(this.popupProps as TdSelectInputProps['popupProps']),
-          overlayStyle: this.tOverlayStyle,
+          overlayInnerStyle: this.tOverlayInnerStyle,
         }}
       >
         {this.multiple

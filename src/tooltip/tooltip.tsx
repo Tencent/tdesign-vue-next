@@ -71,17 +71,19 @@ export default defineComponent({
       onVisibleChange: onTipVisibleChange,
     }));
 
-    const overlayStyle = computed(() => {
+    const overlayInnerStyle = computed(() => {
       if (props.placement !== 'mouse' || offsetX.value === 0) {
-        return props.overlayStyle;
+        return props.overlayInnerStyle;
       }
       const offsetStyle = (triggerEl: HTMLElement) => ({
         transform: `translateX(${offsetX.value - triggerEl.getBoundingClientRect().left}px)`,
       });
-      if (props.overlayStyle) {
+      if (props.overlayInnerStyle) {
         return (triggerEl: HTMLElement, popupEl: HTMLElement) => ({
           ...offsetStyle(triggerEl),
-          ...(isFunction(props.overlayStyle) ? props.overlayStyle(triggerEl, popupEl) : props.overlayStyle),
+          ...(isFunction(props.overlayInnerStyle)
+            ? props.overlayInnerStyle(triggerEl, popupEl)
+            : props.overlayInnerStyle),
         });
       }
       return offsetStyle;
@@ -109,7 +111,12 @@ export default defineComponent({
     });
 
     return () => (
-      <Popup ref={popupRef} visible={innerVisible.value} {...popupProps.value} overlayStyle={overlayStyle.value} />
+      <Popup
+        ref={popupRef}
+        visible={innerVisible.value}
+        {...popupProps.value}
+        overlayInnerStyle={overlayInnerStyle.value}
+      />
     );
   },
 });

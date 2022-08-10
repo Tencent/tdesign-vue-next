@@ -7,7 +7,7 @@ const initialProps: TooltipProps & { overlayClassName: string } = {
   visible: false,
   trigger: 'hover',
   showArrow: true,
-  overlayStyle: undefined,
+  overlayInnerStyle: undefined,
   overlayClassName: undefined,
   attach: 'body',
   theme: 'default',

@@ -110,7 +110,7 @@ export default function useRange(props: TdDateRangePickerProps) {
   const popupProps = computed(() => ({
     expandAnimation: true,
     ...props.popupProps,
-    overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
+    overlayInnerStyle: props.popupProps?.overlayInnerStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
       // 输入框点击不关闭面板

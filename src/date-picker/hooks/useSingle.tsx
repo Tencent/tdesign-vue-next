@@ -98,7 +98,7 @@ export default function useSingle(props: TdDatePickerProps) {
     expandAnimation: true,
     ...props.popupProps,
     disabled: disabled.value,
-    overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
+    overlayInnerStyle: props.popupProps?.overlayInnerStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
       if (disabled.value) return;
