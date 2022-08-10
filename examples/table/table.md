@@ -167,7 +167,7 @@ validate | `(context: PrimaryTableValidateContext)` | 可编辑行表格，全�
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
 validateRowData | `(rowValue: any)` | \- | 必需。校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
-validateTableData | \- | \- | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`
+validateTableData | \- | `Promise<PrimaryTableValidateContext>` | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`，并返回校验结果。
 
 ### PrimaryTableCol
 

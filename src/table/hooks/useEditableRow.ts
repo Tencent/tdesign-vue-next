@@ -72,16 +72,17 @@ export default function useRowEdit(props: PrimaryTableProps) {
   /**
    * 校验整个表格数据（对外开放方法，修改时需慎重）
    */
-  const validateTableData = () => {
+  const validateTableData = async () => {
     const promiseList = [];
     const data = props.data || [];
     for (let i = 0, len = data.length; i < len; i++) {
       const rowValue = get(data[i], props.rowKey || 'id');
       promiseList.push(validateOneRowData(rowValue));
     }
-    Promise.all(promiseList).then(() => {
-      props.onValidate?.({ result: errorListMap.value });
-    });
+    await Promise.all(promiseList);
+    const result = { result: errorListMap.value };
+    props.onValidate?.(result);
+    return result;
   };
 
   const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {

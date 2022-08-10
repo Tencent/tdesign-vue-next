@@ -504,7 +504,7 @@ export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRow
   /**
    * 校验表格全部数据，校验完成后，会触发事件 `onValidate`
    */
-  validateTableData: () => void;
+  validateTableData: () => Promise<PrimaryTableValidateContext>;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
