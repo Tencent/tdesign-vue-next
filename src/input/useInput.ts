@@ -5,12 +5,14 @@ import { ExtendsTdInputProps } from './input';
 import { FormItemInjectionKey } from '../form/const';
 
 import useVModel from '../hooks/useVModel';
+import { useFormDisabled } from '../form/hooks';
 
 export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
   const clearIconRef = ref(null);
   const innerClickElement = ref();
+  const disabled = useFormDisabled();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const isHover = ref(false);
@@ -21,7 +23,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const showClear = computed(() => {
     return (
-      ((innerValue.value && !props.disabled && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
+      ((innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
       isHover.value
     );
   });
