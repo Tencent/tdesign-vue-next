@@ -3,6 +3,7 @@ import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
+import { useFormDisabled } from '../form/hooks';
 
 export type overlayStyleProps = Pick<
   TdSelectInputProps,
@@ -15,6 +16,7 @@ const MAX_POPUP_WIDTH = 1000;
 export default function useOverlayStyle(props: overlayStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
+  const disable = useFormDisabled();
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     // 避免因滚动条出现文本省略，预留宽度 8
@@ -34,7 +36,7 @@ export default function useOverlayStyle(props: overlayStyleProps) {
   };
 
   const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
-    if (props.disabled || props.readonly) return;
+    if (disable.value || props.readonly) return;
     innerPopupVisible.value = visible;
     props.onPopupVisibleChange?.(visible, context);
   };

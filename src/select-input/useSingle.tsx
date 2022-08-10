@@ -8,6 +8,7 @@ import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
+import { useFormDisabled } from '../form/hooks';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -45,8 +46,12 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     'inputValue',
   );
   const renderTNode = useTNodeJSX();
+  const disable = useFormDisabled();
 
-  const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
+  const commonInputProps = computed<SelectInputCommonProperties>(() => ({
+    ...pick(props, COMMON_PROPERTIES),
+    disabled: disable.value,
+  }));
 
   const onInnerClear = (context: { e: MouseEvent }) => {
     context?.e?.stopPropagation();
@@ -71,9 +76,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       autoWidth: props.autoWidth,
       readonly: !props.allowInput || props.readonly,
       placeholder: singleValueDisplay ? '' : props.placeholder,
-      suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(
-        props.clearable && (inputValue.value || displayedValue) && !props.disabled && !props.readonly,
+        props.clearable && (inputValue.value || displayedValue) && !disable.value && !props.readonly,
       ),
       allowTriggerBlur: props.allowInput && !props.readonly,
       ...props.inputProps,
