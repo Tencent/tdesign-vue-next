@@ -59,6 +59,7 @@ export default defineComponent({
       {
         [`${classPrefix.value}-is-opened`]: popupVisible.value,
       },
+      'narrow-scrollbar',
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
