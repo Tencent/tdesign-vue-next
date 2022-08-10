@@ -6,11 +6,11 @@ import { AllValidateResult } from '../../form/type';
 import { validate } from '../../form/form-model';
 import { PrimaryTableRowEditContext, PrimaryTableRowValidateContext, TableRowData, TableErrorListMap } from '../type';
 
-const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
-
 export type ErrorListObjectType = PrimaryTableRowEditContext<TableRowData> & { errorList: AllValidateResult[] };
 
 export default function useRowEdit(props: PrimaryTableProps) {
+  // 当前表格列校验规则
+  const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
   // 校验不通过的错误信息，其中 key 值为 [rowValue, col.colKey].join('__')
   const errorListMap = ref<TableErrorListMap>({});
   // 处于编辑态的表格行
