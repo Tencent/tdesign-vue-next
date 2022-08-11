@@ -67,6 +67,12 @@ export default {
           component: () => import('@/examples/button/button.md'),
         },
         {
+          title: 'Link 文字',
+          name: 'link',
+          path: '/vue-next/components/link',
+          component: () => import('@/examples/link/link.md'),
+        },
+        {
           title: 'Icon 图标',
           name: 'icon',
           path: '/vue-next/components/icon',
