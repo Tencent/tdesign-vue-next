@@ -1,6 +1,7 @@
 // 基础
 export * from './button';
 export * from './icon';
+export * from './link';
 
 // 布局
 export * from './grid';
