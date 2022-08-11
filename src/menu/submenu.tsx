@@ -10,6 +10,7 @@ import {
   Slots,
   toRefs,
   reactive,
+  nextTick,
 } from 'vue';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
@@ -28,6 +29,7 @@ export default defineComponent({
     const menu = inject<TdMenuInterface>('TdMenu');
     const { theme, activeValues, expandValues, mode, isHead, open } = menu;
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
+    const { setSubPopup, closeParentPopup } = submenu ?? {};
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
@@ -42,6 +44,8 @@ export default defineComponent({
     });
     const isNested = ref(false); // 是否嵌套
 
+    const popupWrapperRef = ref<HTMLElement>();
+    const subPopupRef = ref<HTMLElement>();
     const submenuRef = ref<HTMLElement>();
     useRipple(submenuRef, rippleColor);
 
@@ -83,30 +87,50 @@ export default defineComponent({
       },
     ]);
 
+    const passSubPopupRefToParent = (val: HTMLElement) => {
+      if (typeof setSubPopup === 'function') {
+        setSubPopup(val);
+      }
+    };
+
     // methods
     const handleMouseEnter = () => {
       if (props.disabled) return;
       setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
+          // popupVisible设置为TRUE之后打开popup，因此需要在nextTick中确保可以拿到ref值
+          nextTick().then(() => {
+            passSubPopupRefToParent(popupWrapperRef.value);
+          });
         }
         popupVisible.value = true;
       }, 0);
     };
+
+    const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
+    const loopInPopup = (el: HTMLElement): boolean => {
+      if (!el) return false;
+      return targetInPopup(el) || loopInPopup(el.parentElement);
+    };
+
     const handleMouseLeave = (e: MouseEvent) => {
       setTimeout(() => {
-        const inPopup = (e.relatedTarget as HTMLElement)?.classList.contains(`${classPrefix.value}-menu__popup`);
+        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
         if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
       }, 0);
     };
+
     const handleMouseLeavePopup = (e: any) => {
       const { toElement, relatedTarget } = e;
       let target = toElement || relatedTarget;
-      const isSubmenu = (el: Element) => el === submenuRef.value;
 
-      while (target !== document && !isSubmenu(target)) {
+      if (target === subPopupRef.value) return;
+
+      const isSubmenu = (el: Element) => el === submenuRef.value;
+      while (target !== null && target !== document && !isSubmenu(target)) {
         target = target.parentNode;
       }
 
@@ -115,6 +139,8 @@ export default defineComponent({
       if (!isSubmenu(target)) {
         popupVisible.value = false;
       }
+
+      closeParentPopup?.(e);
     };
     const handleEnterPopup = () => {
       isCursorInPopup.value = true;
@@ -140,6 +166,14 @@ export default defineComponent({
           if (submenu) {
             submenu.addMenuItem(item);
           }
+        },
+        setSubPopup: (ref: HTMLElement) => {
+          subPopupRef.value = ref;
+        },
+        closeParentPopup: (e: MouseEvent) => {
+          const related = e.relatedTarget as HTMLElement;
+          if (loopInPopup(related)) return;
+          handleMouseLeavePopup(e);
         },
       }),
     );
@@ -171,6 +205,7 @@ export default defineComponent({
       popupClass,
       submenuClass,
       submenuRef,
+      popupWrapperRef,
       popupVisible,
       isCursorInPopup,
       handleEnterPopup,
@@ -186,9 +221,12 @@ export default defineComponent({
       if (!this.isNested && this.isHead) {
         placement = 'bottom-left';
       }
-      const overlayInnerStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
+      const overlayInnerStyle =
+        this.isNested && this.isHead ? { marginLeft: '16px' } : { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
+
       const popupWrapper = (
         <div
+          ref="popupWrapperRef"
           class={[
             // ...this.popupClass,
             `${this.classPrefix}-menu__spacer`,
@@ -198,12 +236,6 @@ export default defineComponent({
           onMouseleave={this.handleMouseLeavePopup}
         >
           <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
-        </div>
-      );
-      const popupInside = (
-        <div ref="submenuRef" class={this.submenuClass}>
-          {triggerElement}
-          <div class={this.popupClass}>{popupWrapper}</div>
         </div>
       );
       const slots = {
@@ -223,7 +255,7 @@ export default defineComponent({
         </Popup>
       );
 
-      return this.isNested ? popupInside : realPopup;
+      return realPopup;
     },
     renderHeadSubmenu() {
       const icon = renderTNodeJSX(this, 'icon');
