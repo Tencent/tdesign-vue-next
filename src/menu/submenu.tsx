@@ -235,7 +235,9 @@ export default defineComponent({
           onMouseenter={this.handleEnterPopup}
           onMouseleave={this.handleMouseLeavePopup}
         >
-          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+          <ul class={`${this.classPrefix}-menu__popup-wrapper narrow-scrollbar`}>
+            {renderContent(this, 'default', 'content')}
+          </ul>
         </div>
       );
       const slots = {
