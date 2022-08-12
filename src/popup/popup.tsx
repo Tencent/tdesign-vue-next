@@ -10,7 +10,6 @@ import {
   provide,
   InjectionKey,
   onUnmounted,
-  onMounted,
   nextTick,
   toRefs,
 } from 'vue';
@@ -39,7 +38,7 @@ const injectionKey = Symbol('popup') as InjectionKey<{
   hasTrigger: ComputedRef<TriggerMap>;
 }>;
 
-function getPopperPlacement(placement: TdPopupProps['placement']) {
+function getPopperPlacement(placement: TdPopupProps['placement']): Placement {
   return placement.replace(/-(left|top)$/, '-start').replace(/-(right|bottom)$/, '-end') as Placement;
 }
 
@@ -105,16 +104,15 @@ export default defineComponent({
 
     const prefixCls = usePrefixClass('popup');
     const { STATUS: commonCls } = useCommonClassName();
-    const overlayCls = computed(() => [
+    const overlayCls: any = computed(() => [
       `${prefixCls.value}__content`,
       {
         [`${prefixCls.value}__content--text`]: typeof props.content === 'string',
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
-      props.overlayClassName,
     ]);
-    const hasTrigger = computed(() =>
+    const hasTrigger: any = computed(() =>
       triggers.reduce(
         (map, trigger) => ({
           ...map,
@@ -124,14 +122,26 @@ export default defineComponent({
       ),
     );
 
-    function updateOverlayStyle() {
+    function getOverlayStyle() {
       const { overlayStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
       if (typeof overlayStyle === 'function') {
-        setStyle(overlayEl.value, overlayStyle(triggerEl.value, overlayEl.value));
-      } else if (typeof overlayStyle === 'object') {
-        setStyle(overlayEl.value, overlayStyle);
+        return overlayStyle(triggerEl.value, overlayEl.value);
+      }
+      if (typeof overlayStyle === 'object') {
+        return overlayStyle;
+      }
+    }
+
+    function updateOverlayInnerStyle() {
+      const { overlayInnerStyle } = props;
+
+      if (!triggerEl.value || !overlayEl.value) return;
+      if (typeof overlayInnerStyle === 'function') {
+        setStyle(overlayEl.value, overlayInnerStyle(triggerEl.value, overlayEl.value));
+      } else if (typeof overlayInnerStyle === 'object') {
+        setStyle(overlayEl.value, overlayInnerStyle);
       }
     }
 
@@ -143,7 +153,7 @@ export default defineComponent({
       }
 
       popper = createPopper(triggerEl.value, popperEl.value, {
-        placement: getPopperPlacement(props.placement),
+        placement: getPopperPlacement(props.placement as TdPopupProps['placement']),
         onFirstUpdate: () => {
           nextTick(updatePopper);
         },
@@ -280,7 +290,7 @@ export default defineComponent({
     watch(
       () => [props.overlayStyle, overlayEl.value],
       () => {
-        updateOverlayStyle();
+        updateOverlayInnerStyle();
         updatePopper();
       },
     );
@@ -365,23 +375,28 @@ export default defineComponent({
       triggerClicked,
       updatePopper,
       destroyPopper,
-      updateOverlayStyle,
+      getOverlayStyle,
+      updateOverlayInnerStyle,
       emitVisible,
       onMouseEnter,
       onMouseLeave,
     };
   },
   render() {
-    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, onScroll } = this;
+    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, onScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
     const overlay =
       innerVisible || !destroyOnClose ? (
         <div
-          class={prefixCls}
+          class={[prefixCls, this.overlayClassName]}
           ref="popperEl"
-          style={[hidePopup && { visibility: 'hidden', pointerEvents: 'none' }, { zIndex: this.zIndex }]}
+          style={[
+            hidePopup && { visibility: 'hidden', pointerEvents: 'none' },
+            { zIndex: this.zIndex },
+            getOverlayStyle(),
+          ]}
           vShow={innerVisible}
           onMousedown={() => {
             this.contentClicked = true;
@@ -420,7 +435,7 @@ export default defineComponent({
         onContentMounted={() => {
           if (innerVisible) {
             this.updatePopper();
-            this.updateOverlayStyle();
+            this.updateOverlayInnerStyle();
           }
         }}
         onResize={() => {

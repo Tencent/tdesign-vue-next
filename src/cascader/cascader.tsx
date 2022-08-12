@@ -76,7 +76,7 @@ export default defineComponent({
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
-            overlayStyle: panels.value.length ? { width: 'auto' } : '',
+            overlayInnerStyle: panels.value.length ? { width: 'auto' } : '',
             overlayClassName: [
               overlayClassName.value,
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,

@@ -117,7 +117,7 @@ export default defineComponent({
           disabled={disabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{
-            overlayStyle: {
+            overlayInnerStyle: {
               width: 'auto',
             },
             onVisibleChange: handleShowPopup,
