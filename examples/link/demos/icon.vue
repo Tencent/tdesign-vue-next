@@ -9,7 +9,7 @@
         跳转链接
       </t-link>
       <t-link theme="danger" hover="color" href="https://tdesign.tencent.com/" target="_blank">
-        <template #suffix-icon>
+        <template #suffixIcon>
           <JumpIcon />
         </template>
         跳转链接
