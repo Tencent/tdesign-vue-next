@@ -73,7 +73,7 @@ export default {
           component: () => import('@/examples/icon/icon.md'),
         },
         {
-          title: 'Link 文字',
+          title: 'Link 链接',
           name: 'link',
           path: '/vue-next/components/link',
           component: () => import('@/examples/link/link.md'),

@@ -30,8 +30,8 @@ export default defineComponent({
     };
     return () => {
       const linkContent = renderContent('default', 'content');
-      const prefix = renderTNodeJSX('prefix-icon');
-      const suffix = renderTNodeJSX('suffix-icon');
+      const prefix = renderTNodeJSX('prefixIcon');
+      const suffix = renderTNodeJSX('suffixIcon');
 
       return (
         <a

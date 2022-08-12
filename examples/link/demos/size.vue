@@ -40,5 +40,5 @@
 </template>
 
 <script setup>
-import { LinkIcon } from 'tdesign-icons-vue-next';
+import { JumpIcon } from 'tdesign-icons-vue-next';
 </script>

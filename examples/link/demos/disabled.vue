@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { LinkIcon, JumpIcon } from 'tdesign-icons-vue-next';
+import { JumpIcon } from 'tdesign-icons-vue-next';
 
 const clickLink = () => {
   console.log('不触发');
