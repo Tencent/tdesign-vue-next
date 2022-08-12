@@ -298,8 +298,8 @@ export default defineComponent({
 
     if (this.mode === 'popup') {
       events = {
-        onmouseenter: this.handleMouseEnter,
-        onmouseleave: this.handleMouseLeave,
+        onMouseenter: this.handleMouseEnter,
+        onMouseleave: this.handleMouseLeave,
       };
     }
     if (Object.keys(this.$slots).length > 0) {
