@@ -31,7 +31,7 @@ export default defineComponent({
   setup(props, context) {
     const { tableSortClasses, negativeRotate180 } = useClassName();
     const renderTNode = useTNodeDefault();
-    const { t, global } = useConfig('table');
+    const { t, globalConfig } = useConfig('table');
 
     const allowSortTypes = computed<SortTypeEnums>(() =>
       props.sortType === 'all' ? ['asc', 'desc'] : [props.sortType],
@@ -43,7 +43,7 @@ export default defineComponent({
 
     return {
       t,
-      global,
+      globalConfig,
       tableSortClasses,
       negativeRotate180,
       allowSortTypes,
@@ -54,7 +54,7 @@ export default defineComponent({
 
   methods: {
     getSortIcon(direction: string, activeClass: string) {
-      const defaultIcon = this.t(this.global.sortIcon) || <ChevronDownIcon />;
+      const defaultIcon = this.t(this.globalConfig.sortIcon) || <ChevronDownIcon />;
       const icon = this.renderTNode('sortIcon', defaultIcon);
       const sortClassName = [
         activeClass,
@@ -74,14 +74,14 @@ export default defineComponent({
     const { tableSortClasses } = this;
     const classes = [tableSortClasses.trigger, { [tableSortClasses.doubleIcon]: this.allowSortTypes.length > 1 }];
     const tooltips = {
-      asc: this.global.sortAscendingOperationText,
-      desc: this.global.sortDescendingOperationText,
+      asc: this.globalConfig.sortAscendingOperationText,
+      desc: this.globalConfig.sortDescendingOperationText,
     };
     const sortButton = this.allowSortTypes.map((direction: string) => {
       const activeClass = direction === this.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
-      const cancelTips = this.global.sortCancelOperationText;
+      const cancelTips = this.globalConfig.sortCancelOperationText;
       const tips = direction === this.sortOrder ? cancelTips : tooltips[direction];
-      if (this.hideSortTips ?? this.global.hideSortTips) return this.getSortIcon(direction, activeClass);
+      if (this.hideSortTips ?? this.globalConfig.hideSortTips) return this.getSortIcon(direction, activeClass);
       return (
         <Tooltip
           content={tips}

@@ -24,7 +24,7 @@ export default defineComponent({
 
   setup(props, { expose }) {
     const renderTNodeContent = useContent();
-    const { classPrefix: prefix, global } = useConfig('upload');
+    const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
     const { files, modelValue } = toRefs(props);
 
@@ -156,13 +156,13 @@ export default defineComponent({
     const uploadListTriggerText = computed(() => {
       const localeFromProps = props.locale as TdUploadProps['locale'];
 
-      let uploadText = global.value.triggerUploadText.fileInput || localeFromProps?.triggerUploadText?.fileInput;
+      let uploadText = globalConfig.value.triggerUploadText.fileInput || localeFromProps?.triggerUploadText?.fileInput;
       if (uploadCtx.toUploadFiles?.length > 0 || uploadCtx.uploadValue?.length > 0) {
         if (props.theme === 'file-input' || (uploadCtx.uploadValue?.length > 0 && canBatchUpload.value)) {
-          uploadText = localeFromProps?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload;
+          uploadText = localeFromProps?.triggerUploadText?.reupload || globalConfig.value.triggerUploadText.reupload;
         } else {
           uploadText =
-            localeFromProps?.triggerUploadText?.continueUpload || global.value.triggerUploadText.continueUpload;
+            localeFromProps?.triggerUploadText?.continueUpload || globalConfig.value.triggerUploadText.continueUpload;
         }
       }
       return uploadText;
@@ -175,7 +175,7 @@ export default defineComponent({
         if (props.theme === 'file-input' || showUploadList.value) {
           return (
             <t-button variant="outline">
-              {localeFromProps?.triggerUploadText?.fileInput || global.value.triggerUploadText.fileInput}
+              {localeFromProps?.triggerUploadText?.fileInput || globalConfig.value.triggerUploadText.fileInput}
             </t-button>
           );
         }

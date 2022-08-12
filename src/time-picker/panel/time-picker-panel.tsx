@@ -20,7 +20,7 @@ export default defineComponent({
     const { steps, isFooterDisplay, isShowPanel } = toRefs(props);
     const triggerScroll = ref(false);
     const panelRef = ref();
-    const { global } = useConfig('timePicker');
+    const { globalConfig } = useConfig('timePicker');
     const showNowTimeBtn = computed(() => !!steps.value.filter((v) => v > 1).length);
 
     const defaultValue = computed(() => {
@@ -78,7 +78,7 @@ export default defineComponent({
               onClick={() => props.handleConfirmClick(defaultValue.value)}
               size="small"
             >
-              {global.value.confirm}
+              {globalConfig.value.confirm}
             </TButton>
             {!showNowTimeBtn.value ? (
               <TButton
@@ -87,7 +87,7 @@ export default defineComponent({
                 size="small"
                 onClick={() => props.onChange(dayjs().format(props.format))}
               >
-                {global.value.now}
+                {globalConfig.value.now}
               </TButton>
             ) : null}
           </div>

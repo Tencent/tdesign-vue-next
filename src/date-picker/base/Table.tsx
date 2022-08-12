@@ -22,8 +22,8 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__table');
-    const { global } = useConfig('datePicker');
-    const { weekdays, weekAbbreviation } = global.value;
+    const { globalConfig } = useConfig('datePicker');
+    const { weekdays, weekAbbreviation } = globalConfig.value;
 
     const weekArr = computed(() => {
       const _weekArr = [];

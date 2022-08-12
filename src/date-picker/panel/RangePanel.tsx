@@ -46,7 +46,7 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
-    const { global } = useConfig('datePicker');
+    const { globalConfig } = useConfig('datePicker');
 
     const { format } = getDefaultFormat({
       mode: props.mode,
@@ -89,7 +89,7 @@ export default defineComponent({
         year: props.year[0],
         month: props.month[0],
         mode: props.mode,
-        firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+        firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
@@ -110,7 +110,7 @@ export default defineComponent({
         year: props.year[1],
         month: props.month[1],
         mode: props.mode,
-        firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+        firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
@@ -118,7 +118,7 @@ export default defineComponent({
     const panelContentProps = computed(() => ({
       format,
       mode: props.mode,
-      firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+      firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
 
       popupVisible: props.popupVisible,
       enableTimePicker: props.enableTimePicker,

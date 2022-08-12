@@ -24,7 +24,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
     const overlayClassName = usePrefixClass('cascader__popup');
-    const { global } = useConfig('cascader');
+    const { globalConfig } = useConfig('cascader');
 
     // 拿到全局状态的上下文
     const { cascaderContext, isFilterable } = useCascaderContext(props);
@@ -38,7 +38,7 @@ export default defineComponent({
     const inputPlaceholder = computed(
       () =>
         (cascaderContext.value.visible && !props.multiple && getSingleContent(cascaderContext.value)) ||
-        (props.placeholder ?? global.value.placeholder),
+        (props.placeholder ?? globalConfig.value.placeholder),
     );
 
     const renderSuffixIcon = () => {

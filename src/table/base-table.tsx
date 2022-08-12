@@ -61,7 +61,7 @@ export default defineComponent({
     const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
     // 表格基础样式类
     const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
-    const { global } = useConfig('table');
+    const { globalConfig } = useConfig('table');
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
@@ -215,7 +215,7 @@ export default defineComponent({
     return {
       thList,
       isVirtual,
-      global,
+      globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
       tableWidth,

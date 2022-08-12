@@ -104,7 +104,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogPosition = ref<HTMLElement | null>(null);
-    const { global } = useConfig('dialog');
+    const { globalConfig } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -206,13 +206,13 @@ export default defineComponent({
       if (e.code === 'Escape' && stack.top === instance.uid) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
+        if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
         }
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      if (props.showOverlay && (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick)) {
+      if (props.showOverlay && (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick)) {
         if (e.target === dialogPosition.value) {
           props.onOverlayClick?.({ e });
           emitCloseEvent({ e, trigger: 'overlay' });
@@ -275,14 +275,14 @@ export default defineComponent({
         <div>
           {getCancelBtn({
             cancelBtn: props.cancelBtn,
-            globalCancel: global.value.cancel,
+            globalCancel: globalConfig.value.cancel,
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
             theme: props.theme,
             confirmBtn: props.confirmBtn,
-            globalConfirm: global.value.confirm,
-            globalConfirmBtnTheme: global.value.confirmBtnTheme,
+            globalConfirm: globalConfig.value.confirm,
+            globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
             className: `${COMPONENT_NAME.value}__confirm`,
           })}
         </div>

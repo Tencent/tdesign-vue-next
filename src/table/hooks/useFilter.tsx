@@ -24,7 +24,7 @@ function filterEmptyData(data: FilterValue) {
 
 export default function useFilter(props: TdPrimaryTableProps, context: SetupContext) {
   const primaryTableRef = ref(null);
-  const { t, global } = useConfig('table');
+  const { t, globalConfig } = useConfig('table');
   const renderTNode = useTNodeDefault();
   const { filterValue } = toRefs(props);
   const { tableFilterClasses, isFocusClass } = useClassName();
@@ -57,13 +57,13 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         <span>
           {/* 搜索 “{getFilterResultContent()}”， */}
           {/* 找到 {props.pagination?.total || props.data?.length} 条结果 */}
-          {t(global.value.searchResultText, {
+          {t(globalConfig.value.searchResultText, {
             result: getFilterResultContent(),
             count: props.pagination?.total || props.data?.length,
           })}
         </span>
         <TButton theme="primary" variant="text" onClick={onResetAll}>
-          {global.value.clearFilterResultButtonText}
+          {globalConfig.value.clearFilterResultButtonText}
         </TButton>
       </div>
     );
