@@ -35,6 +35,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   bottomContent?: string | TNode;
   /**
+   * 单元格数据为空时呈现的内容
+   */
+  cellEmptyContent?: string | TNode<BaseTableCellParams<T>>;
+  /**
    * 列配置，泛型 T 指表格数据类型
    * @default []
    */
@@ -68,25 +72,29 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
-   * @default false
-   */
-  footerAffixedBottom?: boolean | AffixProps;
-  /**
    * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @deprecated
    */
   footerAffixProps?: AffixProps;
   /**
-   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
+   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
-  headerAffixedTop?: boolean | AffixProps;
+  footerAffixedBottom?: boolean | AffixProps;
+  /**
+   * 表尾总结行
+   */
+  footerSummary?: string | TNode;
   /**
    * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
    * @deprecated
    */
   headerAffixProps?: AffixProps;
+  /**
+   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
+   * @default false
+   */
+  headerAffixedTop?: boolean | AffixProps;
   /**
    * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    */
@@ -146,6 +154,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`
    */
   rowspanAndColspan?: TableRowspanAndColspanFunc<T>;
+  /**
+   * 用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`
+   */
+  rowspanAndColspanInFooter?: TableRowspanAndColspanFunc<T>;
   /**
    * 懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100`
    */
@@ -277,6 +289,10 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   foot?: string | TNode<{ col: BaseTableCol; colIndex: number }>;
   /**
+   * 透传 CSS 属性 `min-width` 到 `<col>` 元素。⚠️ 仅少部分浏览器支持，如：使用 [TablesNG](https://docs.google.com/document/d/16PFD1GtMI9Zgwu0jtPaKZJ75Q2wyZ9EZnVbBacOfiNA/preview) 渲染的 Chrome 浏览器支持 `minWidth`
+   */
+  minWidth?: string | number;
+  /**
    * 自定义表头或单元格，泛型 T 指表格数据类型
    */
   render?: TNode<BaseTableRenderParams<T>>;
@@ -338,6 +354,15 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   editableRowKeys?: Array<string | number>;
   /**
+   * 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`
+   * @default true
+   */
+  expandIcon?: boolean | TNode<ExpandArrowRenderParams<T>>;
+  /**
+   * 是否允许点击行展开
+   */
+  expandOnRowClick?: boolean;
+  /**
    * 展开行内容，泛型 T 指表格数据类型
    */
   expandedRow?: TNode<TableExpandedRowParams<T>>;
@@ -351,15 +376,6 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * @default []
    */
   defaultExpandedRowKeys?: Array<string | number>;
-  /**
-   * 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider`
-   * @default true
-   */
-  expandIcon?: boolean | TNode<ExpandArrowRenderParams<T>>;
-  /**
-   * 是否允许点击行展开
-   */
-  expandOnRowClick?: boolean;
   /**
    * 自定义过滤图标，支持全局配置 `GlobalConfigProvider`
    */
@@ -412,7 +428,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   sortIcon?: TNode;
   /**
-   * 允许表格行拖拽时排序。请更为使用 `dragSort="row"`
+   * 允许表格行拖拽时排序。请更为使用 `dragSort=\"row\"`
    * @default false
    * @deprecated
    */
@@ -462,7 +478,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onRowEdit?: (context: PrimaryTableRowEditContext<T>) => void;
   /**
-   * 行编辑校验完成后触发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
+   * 行编辑校验完成后触发，即组件实例方法 `validateRowData` 执行结束后触发。`result` 表示校验结果，`trigger=self` 表示编辑组件内部触发的校验，`trigger='parent'` 表示表格父组件触发的校验
    */
   onRowValidate?: (context: PrimaryTableRowValidateContext<T>) => void;
   /**
@@ -473,14 +489,22 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
+  /**
+   * 可编辑行表格，全部数据校验完成后触发。即组件实例方法 `validateTableData` 执行结束后触发
+   */
+  onValidate?: (context: PrimaryTableValidateContext) => void;
 }
 
 /** 组件实例方法 */
 export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
   /**
-   * 校验行信息，校验完成后，会触发事件 `onRowEdit`。参数 `rowValue` 表示行唯一标识的值
+   * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
   validateRowData: (rowValue: any) => void;
+  /**
+   * 校验表格全部数据，校验完成后，会触发事件 `onValidate`
+   */
+  validateTableData: () => void;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
@@ -519,15 +543,15 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    */
   render?: TNode<PrimaryTableRenderParams<T>>;
   /**
-   * 该列是否支持排序。值为 true 表示该列支持排序；值类型为函数，表示对本地数据 `data` 进行排序，返回值参考 [MDN Array.sort](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)。泛型 T 指表格数据类型
-   * @default false
-   */
-  sorter?: boolean | SorterFun<T>;
-  /**
    * 当前列支持排序的方式，desc 表示当前列只能进行降序排列；asc 表示当前列只能进行升序排列；all 表示当前列既可升序排列，又可以降序排列
    * @default all
    */
   sortType?: SortType;
+  /**
+   * 该列是否支持排序。值为 true 表示该列支持排序；值类型为函数，表示对本地数据 `data` 进行排序，返回值参考 [MDN Array.sort](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)。泛型 T 指表格数据类型
+   * @default false
+   */
+  sorter?: boolean | SorterFun<T>;
   /**
    * 自定义表头渲染。值类型为 Function 表示以函数形式渲染表头。值类型为 string 表示使用插槽渲染，插槽名称为 title 的值。优先级高于 render
    */
@@ -596,6 +620,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
    * 树形结构中，移除指定节点
    */
   remove: (key: TableRowValue) => void;
+  /**
+   * 重置或更新整个表格数据
+   */
+  resetData: (newData: T[]) => void;
   /**
    * 树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
    */
@@ -760,7 +788,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
   /**
    * 透传给组件 `edit.component` 的属性
    */
-  props?: { [key: string]: any };
+  props?: TableEditableCellProps<T>;
   /**
    * 校验规则
    */
@@ -866,15 +894,15 @@ export interface TableColumnResizeConfig {
 
 export type DataType = TableRowData;
 
+export interface ExpandArrowRenderParams<T> {
+  row: T;
+  index: number;
+}
+
 export interface TableExpandedRowParams<T> {
   row: T;
   index: number;
   columns: PrimaryTableCol<T>[] | BaseTableCol<T>[];
-}
-
-export interface ExpandArrowRenderParams<T> {
-  row: T;
-  index: number;
 }
 
 export type FilterValue = { [key: string]: any };
@@ -936,7 +964,9 @@ export interface ExpandOptions<T> {
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
 
-export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: 'self' | 'parent' };
+export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger };
+
+export type TableValidateTrigger = 'self' | 'parent';
 
 export type TableRowValidateResult<T> = PrimaryTableCellParams<T> & { errorList: AllValidateResult[]; value: any };
 
@@ -951,6 +981,12 @@ export interface SortOptions<T> {
   currentDataSource?: Array<T>;
   col: PrimaryTableCol;
 }
+
+export interface PrimaryTableValidateContext {
+  result: TableErrorListMap;
+}
+
+export type TableErrorListMap = { [key: string]: AllValidateResult[] };
 
 export interface PrimaryTableCellParams<T> {
   row: T;
@@ -968,9 +1004,9 @@ export interface PrimaryTableRenderParams<T> extends PrimaryTableCellParams<T> {
   type: RenderType;
 }
 
-export type SorterFun<T> = (a: T, b: T) => number;
-
 export type SortType = 'desc' | 'asc' | 'all';
+
+export type SorterFun<T> = (a: T, b: T) => number;
 
 export interface TableAbnormalDragSortContext<T> {
   code: number;
@@ -996,3 +1032,15 @@ export interface SwapParams<T> {
 export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any };
 
 export type FilterType = 'input' | 'single' | 'multiple';
+
+export type TableEditableCellProps<T> =
+  | TablePlainObject
+  | ((params: TableEditableCellPropsParams<T>) => TablePlainObject);
+
+export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> {
+  editedRow: T;
+}
+
+export interface TablePlainObject {
+  [key: string]: any;
+}

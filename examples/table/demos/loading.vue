@@ -15,7 +15,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'row',
     ellipsis: true,
     colKey: 'type',
@@ -24,7 +23,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test',
     ellipsis: true,
     colKey: 'platform',
@@ -33,7 +31,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test2',
     ellipsis: true,
     colKey: 'property',
@@ -42,7 +39,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test4',
     ellipsis: true,
     colKey: 'default',
@@ -51,7 +47,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test3',
     ellipsis: true,
     colKey: 'needed',
@@ -60,7 +55,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'row',
     ellipsis: true,
     colKey: 'description',

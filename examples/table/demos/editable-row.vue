@@ -1,5 +1,9 @@
 <template>
   <div class="t-table-demo__editable-row">
+    <div>
+      <t-button @click="onValidateTableData">校验全部</t-button>
+    </div>
+    <br />
     <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
     <t-table
       ref="tableRef"
@@ -11,6 +15,7 @@
       bordered
       @row-edit="onRowEdit"
       @row-validate="onRowValidate"
+      @validate="onValidate"
     />
   </div>
 </template>
@@ -18,6 +23,7 @@
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
 import { Input, Select, DatePicker, MessagePlugin, Button } from 'tdesign-vue-next';
+import dayjs from 'dayjs';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -64,35 +70,61 @@ const onCancel = (e) => {
 const onSave = (e) => {
   const { id } = e.currentTarget.dataset;
   currentSaveId.value = id;
-  // 触发内部校验，而后在 onRowValidate 中接收异步校验结果
-  tableRef.value.validateRowData(id);
+  // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
+  tableRef.value.validateRowData(id).then((params) => {
+    console.log('Event Table Promise Validate:', params);
+    if (params.result.length) {
+      const r = params.result[0];
+      MessagePlugin.error(`${r.col.title} ${r.errorList[0].message}`);
+      return;
+    }
+    // 如果是 table 的父组件主动触发校验
+    if (params.trigger === 'parent' && !params.result.length) {
+      const current = editMap[currentSaveId.value];
+      if (current) {
+        data.value.splice(current.rowIndex, 1, current.editedRow);
+        MessagePlugin.success('保存成功');
+      }
+      updateEditState(currentSaveId.value);
+    }
+  });
 };
 
+// 行校验反馈事件，tableRef.value.validateRowData 执行结束后触发
 const onRowValidate = (params) => {
-  console.log('validate:', params);
-  if (params.result.length) {
-    const r = params.result[0];
-    MessagePlugin.error(`${r.col.title} ${r.errorList[0].message}`);
-    return;
-  }
-  // 如果是 table 的父组件主动触发校验
-  if (params.trigger === 'parent' && !params.result.length) {
-    const current = editMap[currentSaveId.value];
-    if (current) {
-      data.value.splice(current.rowIndex, 1, current.editedRow);
-      MessagePlugin.success('保存成功');
-    }
-    updateEditState(currentSaveId.value);
-  }
+  console.log('Event Table Row Validate:', params);
 };
+
+function onValidateTableData() {
+  // 执行结束后触发事件 validate
+  tableRef.value.validateTableData().then((params) => {
+    console.log('Promise Table Data Validate:', params);
+    const cellKeys = Object.keys(params.result);
+    const firstError = params.result[cellKeys[0]];
+    if (firstError) {
+      MessagePlugin.warning(firstError[0].message);
+    }
+  });
+}
+
+// 表格全量数据校验反馈事件，tableRef.value.validateTableData() 执行结束后触发
+function onValidate(params) {
+  console.log('Event Table Data Validate:', params);
+}
 
 const onRowEdit = (params) => {
   const { row, rowIndex, col, value } = params;
   const oldRowData = editMap[row.key]?.editedRow || row;
+  const editedRow = { ...oldRowData, [col.colKey]: value };
   editMap[row.key] = {
     ...params,
-    editedRow: { ...oldRowData, [col.colKey]: value },
+    editedRow,
   };
+
+  // ⚠️ 重要：以下内容应用于全量数据校验（单独的行校验不需要）
+  // const newData = [...data.value];
+  // newData[rowIndex] = editedRow;
+  // data.value = newData;
 };
 
 const columns = computed(() => [
@@ -126,6 +158,7 @@ const columns = computed(() => [
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {
+        clearable: true,
         autoWidth: true,
         options: [
           { label: 'Vue', value: 'Vue' },
@@ -134,6 +167,8 @@ const columns = computed(() => [
           { label: 'Flutter', value: 'Flutter' },
         ],
       },
+      // 校验规则，此处同 Form 表单
+      rules: [{ required: true, message: '不能为空' }],
       showEditIcon: false,
     },
   },
@@ -162,6 +197,8 @@ const columns = computed(() => [
           ].filter((t) => (t.show === undefined ? true : t.show())),
         };
       },
+      // 校验规则，此处同 Form 表单
+      rules: [{ validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' }],
       showEditIcon: false,
     },
   },
@@ -173,6 +210,13 @@ const columns = computed(() => [
     edit: {
       component: DatePicker,
       showEditIcon: false,
+      // 校验规则，此处同 Form 表单
+      rules: [
+        {
+          validator: (val) => dayjs(val).isAfter(dayjs()),
+          message: '只能选择今天以后日期',
+        },
+      ],
     },
   },
   {

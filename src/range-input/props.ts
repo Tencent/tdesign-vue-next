@@ -9,14 +9,13 @@ import { PropType } from 'vue';
 
 export default {
   /** 输入框高亮状态序号 */
-  activeIndex: Number,
+  activeIndex: {
+    type: Number,
+  },
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+  disabled: Boolean,
   /** 指定输入框展示值的格式 */
   format: {
     type: [Array, Function] as PropType<TdRangeInputProps['format']>,
@@ -60,7 +59,7 @@ export default {
     type: String as PropType<TdRangeInputProps['status']>,
     validator(val: TdRangeInputProps['status']): boolean {
       if (!val) return true;
-      return ['success', 'warning', 'error'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */
@@ -87,6 +86,7 @@ export default {
   /** 范围输入框的值，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdRangeInputProps['defaultValue']>,
+    default: (): TdRangeInputProps['defaultValue'] => [],
   },
   /** 范围输入框失去焦点时触发 */
   onBlur: Function as PropType<TdRangeInputProps['onBlur']>,

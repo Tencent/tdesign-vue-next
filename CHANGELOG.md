@@ -5,6 +5,29 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.19.1 `2022-08-09` 
+### 🚀 Features
+- `DatePicker`: 支持周、季度选择器 @HQ-Lin ([#1336](https://github.com/Tencent/tdesign-vue-next/pull/1336))
+- `Pagination`: 极简模式下合并快速跳转与页码跳转控制器 @HQ-Lin ([#1359](https://github.com/Tencent/tdesign-vue-next/pull/1359))
+- `Style`: 新增字体相关 `CSS Token`，支持通过CSS Token修改字体相关配置 具体请参考 [font tokens](https://github.com/Tencent/tdesign-common/blob/develop/style/web/theme/_font.less) @uyarn ([#1358](https://github.com/Tencent/tdesign-vue-next/pull/1358))
+- `Textarea`: 增加 `focus` 和 `blur` 实例方法 @timi137137 ([#1349](https://github.com/Tencent/tdesign-vue-next/pull/1349))
+- `Input`: 增加 `focus` 和 `blur` 实例方法 @timi137137 ([#1349](https://github.com/Tencent/tdesign-vue-next/pull/1349))
+- `Table`: 支持使用插槽 `footer-summary` 定义通栏表尾，同时支持同名属性 Props `footer-summary` 渲染通栏表尾 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 由于表格支持定义多行表尾，因而本次支持使用 `rowspanAndColspanInFooter` 定义表尾行数据合并单元格，使用方法同 `rowspanAndColspan`，[issue#1047](https://github.com/Tencent/tdesign-vue-next/issues/1047) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`:  支持 `min-width` 透传到元素 `<col>`，[issues#708](https://github.com/Tencent/tdesign-vue/issues/708) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 新增 `cellEmptyContent`，当列数据为空时显示指定值，[issues#1320](https://github.com/Tencent/tdesign-vue-next/issues/1320) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 可编辑行功能，新增实例方法 `validate`，支持校验表格内的全部数据，[issue#1341](https://github.com/Tencent/tdesign-vue-next/issues/1341) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+### 🐞 Bug Fixes
+- `Menu`:  使用 `relatedTarget` 标准属性兼容浏览器差异，修复在火狐浏览器无法收起的问题 ([issue #1312](https://github.com/Tencent/tdesign-vue-next/issues/1312)), ([issue #1243](https://github.com/Tencent/tdesign-vue-next/issues/1243)) ([issue #1198](https://github.com/Tencent/tdesign-vue-next/issues/1198)) @sinbadmaster ([#1345](https://github.com/Tencent/tdesign-vue-next/pull/1345))
+- `ColorPicker`: 优化更新 `color-picker` 组件样式 @S-mohan ([#1346](https://github.com/Tencent/tdesign-vue-next/pull/1346))
+- `Table`: 修复深色模式下垂直和水平方向滚动条交汇处出现白点的样式问题 by @RayJason @uyarn ([#1358](https://github.com/Tencent/tdesign-vue-next/pull/1358))
+- `Table`: 行选中会触发重置列宽调整的结果 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 可编辑行功能，提交校验时只校验了第一列，[issue#1339](https://github.com/Tencent/tdesign-vue-next/issues/1339) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 列配置功能，带边框模式，移除分页组件边框下方多余的边框 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Dialog`: 修复 `confirm-btn` 类型问题 ([issue #1347](https://github.com/Tencent/tdesign-vue-next/issues/1347)) @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
+- `Dropdown`: 修复 `popupElem` 为空时的组件内部报错 ([issue #1344](https://github.com/Tencent/tdesign-vue-next/issues/1344)) @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
+- `TagInput`: 修复 `taginput` 空值时缺失 `padding` 的问题 @uyarn  @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
+
 ## 🌈 0.19.0 `2022-08-03` 
 
 ### ❗️ BREAKING CHANGES

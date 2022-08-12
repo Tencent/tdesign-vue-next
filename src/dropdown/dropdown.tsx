@@ -16,7 +16,7 @@ export default defineComponent({
     const popupElem = ref(null);
 
     const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
-      if (props.hideAfterItemClick) {
+      if (props.hideAfterItemClick && popupElem.value) {
         popupElem.value.handleClose();
       }
       props.onClick?.(data, context);

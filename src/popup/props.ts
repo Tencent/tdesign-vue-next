@@ -25,11 +25,15 @@ export default {
   destroyOnClose: Boolean,
   /** 是否禁用组件 */
   disabled: Boolean,
-  /** 【开发中】浮层是否隐藏空内容，默认不隐藏 */
+  /** 浮层是否隐藏空内容，默认不隐藏 */
   hideEmptyPopup: Boolean,
   /** 浮层类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]` */
   overlayClassName: {
     type: [String, Object, Array] as PropType<TdPopupProps['overlayClassName']>,
+  },
+  /** 浮层内容部分样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点 */
+  overlayInnerStyle: {
+    type: [Boolean, Object, Function] as PropType<TdPopupProps['overlayInnerStyle']>,
   },
   /** 浮层样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点 */
   overlayStyle: {
@@ -37,7 +41,7 @@ export default {
   },
   /** 浮层出现位置 */
   placement: {
-    type: String as PropType<TdPopupProps['placement']>,
+    type: String,
     default: 'top',
   },
   /** 是否显示浮层箭头 */
@@ -72,6 +76,6 @@ export default {
   },
   /** 下拉选项滚动事件 */
   onScroll: Function as PropType<TdPopupProps['onScroll']>,
-  /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=document` 表示右击触发 */
+  /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发 */
   onVisibleChange: Function as PropType<TdPopupProps['onVisibleChange']>,
 };

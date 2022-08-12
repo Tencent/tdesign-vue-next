@@ -30,6 +30,7 @@ import { ROW_LISTENERS } from './tr';
 import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
+import { Styles } from '../common';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -288,18 +289,27 @@ export default defineComponent({
       opacity: headerOpacity,
       marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
     };
+    // 多级表头左边线缺失
+    const affixedMultipleHeaderLeftBorder = this.bordered && this.isMultipleHeader ? 1 : 0;
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
         ref="affixHeaderRef"
-        style={{ width: `${this.tableWidth - 1}px`, opacity: Number(this.showAffixHeader) }}
+        style={{
+          width: `${this.tableWidth - affixedMultipleHeaderLeftBorder}px`,
+          opacity: Number(this.showAffixHeader),
+        }}
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
-            {columns.map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -349,9 +359,13 @@ export default defineComponent({
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
             <colgroup>
-              {columns.map((col) => (
-                <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-              ))}
+              {columns.map((col) => {
+                const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+                if (col.minWidth) {
+                  style.minWidth = formatCSSUnit(col.minWidth);
+                }
+                return <col key={col.colKey} style={style}></col>;
+              })}
             </colgroup>
             <TFoot
               rowKey={this.rowKey}
@@ -363,6 +377,8 @@ export default defineComponent({
               rowAttributes={this.rowAttributes}
               rowClassName={this.rowClassName}
               thWidthList={this.thWidthList}
+              footerSummary={this.footerSummary}
+              rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
             ></TFoot>
           </table>
         </div>
@@ -392,6 +408,7 @@ export default defineComponent({
       trs: this.trs,
       bufferSize: this.bufferSize,
       scroll: this.scroll,
+      cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
       handleRowMounted: this.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
@@ -408,9 +425,13 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           <colgroup>
-            {columns.map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -433,6 +454,8 @@ export default defineComponent({
             columns={columns}
             rowAttributes={this.rowAttributes}
             rowClassName={this.rowClassName}
+            footerSummary={this.footerSummary}
+            rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
           ></TFoot>
         </table>
       </div>
@@ -453,7 +476,11 @@ export default defineComponent({
     const topContent = this.renderTNode('topContent');
     const bottomContent = this.renderTNode('bottomContent');
     const pagination = (
-      <div ref="paginationRef" style={{ opacity: Number(this.showAffixPagination) }}>
+      <div
+        ref="paginationRef"
+        class={this.tableBaseClass.paginationWrap}
+        style={{ opacity: Number(this.showAffixPagination) }}
+      >
         {this.renderPagination()}
       </div>
     );

@@ -71,10 +71,12 @@ export default defineComponent({
           placeholder={inputPlaceholder.value}
           multiple={props.multiple}
           loading={props.loading}
+          status={props.status}
+          tips={props.tips}
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
-            overlayStyle: panels.value.length ? { width: 'auto' } : '',
+            overlayInnerStyle: panels.value.length ? { width: 'auto' } : '',
             overlayClassName: [
               overlayClassName.value,
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
