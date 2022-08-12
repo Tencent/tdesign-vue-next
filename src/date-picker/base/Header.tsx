@@ -103,8 +103,17 @@ export default defineComponent({
       },
     };
 
+    // 滚动顶部底部自动加载
+    function handleScroll({ e }: any) {
+      if (e.target.scrollTop === 0) {
+        handlePanelTopClick(e);
+      } else if (e.target.scrollTop === e.target.scrollHeight - e.target.clientHeight) {
+        handlePanelBottomClick(e);
+      }
+    }
+
     function handlePanelTopClick(e: MouseEvent) {
-      e.stopPropagation();
+      e?.stopPropagation?.();
 
       const firstYear = yearOptions.value[0].value;
       const options = loadMoreYear(firstYear, 'reduce');
@@ -112,7 +121,7 @@ export default defineComponent({
     }
 
     function handlePanelBottomClick(e: MouseEvent) {
-      e.stopPropagation();
+      e?.stopPropagation?.();
 
       const lastYear = yearOptions.value.slice(-1)[0].value;
       const options = loadMoreYear(lastYear, 'add');
@@ -128,7 +137,7 @@ export default defineComponent({
               value={props.month}
               options={monthOptions.value}
               onChange={(val: number) => props.onMonthChange?.(val)}
-              popupProps={{ attach: (triggerNode: HTMLDivElement) => triggerNode.parentElement }}
+              popupProps={{ overlayClassName: `${COMPONENT_NAME.value}-controller-month-popup` }}
             />
           )}
           <TSelect
@@ -136,7 +145,10 @@ export default defineComponent({
             value={props.mode === 'year' ? nearestYear.value : props.year}
             options={yearOptions.value}
             onChange={(val: number) => props.onYearChange?.(val)}
-            popupProps={{ attach: (triggerNode: HTMLDivElement) => triggerNode.parentElement }}
+            popupProps={{
+              onScroll: handleScroll,
+              overlayClassName: `${COMPONENT_NAME.value}-controller-year-popup`,
+            }}
             panelTopContent={() => (
               <div class={`${classPrefix.value}-select-option`} onClick={handlePanelTopClick}>
                 ...

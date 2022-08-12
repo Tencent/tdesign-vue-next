@@ -303,7 +303,7 @@ export default defineComponent({
             }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
-              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
+              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
             }}
             label={() => renderTNodeJSX('prefixIcon')}
