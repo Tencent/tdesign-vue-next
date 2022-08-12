@@ -56,9 +56,9 @@ export default defineComponent({
           target={props.target}
           onClick={handleClick}
         >
-          {prefixIcon ? <span class="t-link__prefix-icon">{prefixIcon}</span> : null}
+          {prefixIcon ? <span class={`${COMPONENT_NAME.value}__prefix-icon`}>{prefixIcon}</span> : null}
           {linkContent}
-          {suffixIcon ? <span class="t-link__suffix-icon">{suffixIcon}</span> : null}
+          {suffixIcon ? <span class={`${COMPONENT_NAME.value}__suffix-icon`}>{suffixIcon}</span> : null}
         </a>
       );
     };
