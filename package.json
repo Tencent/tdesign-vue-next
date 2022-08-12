@@ -47,7 +47,7 @@
     "url": "https://github.com/Tencent/tdesign-vue-next/issues"
   },
   "scripts": {
-    "init": "git submodule init && git submodule update",
+    "init": "node script/init/index.js",
     "start": "npm run init && npm run dev",
     "dev": "cd site && vite",
     "site": "cd site && vite build --debug",
