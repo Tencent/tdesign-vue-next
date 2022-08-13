@@ -457,6 +457,7 @@ export default defineComponent({
             bordered={this.bordered}
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
+            thWidthList={this.thWidthList}
             resizable={this.resizable}
             columnResizeParams={this.columnResizeParams}
           />
