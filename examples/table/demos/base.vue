@@ -26,7 +26,6 @@
       :size="size"
       :pagination="pagination"
       cell-empty-content="-"
-      resizable
       @row-click="handleRowClick"
     />
   </div>
