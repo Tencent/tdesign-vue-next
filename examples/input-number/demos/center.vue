@@ -1,27 +1,47 @@
 <template>
-  <div>
+  <t-space direction="vertical">
+    <t-input-number v-model="value1" :step="0.1" :max="5" auto-width />
+
+    <t-input-number v-model="decimalValue" :step="0.18" :max="5" style="width: 200px" />
+
     <t-input-number
-      v-model="value"
+      v-model="value2"
       theme="row"
-      size="medium"
       :max="15"
       :min="-2"
       :disabled="false"
+      :tips="tips"
+      suffix="个"
+      style="width: 250px"
       @change="handleChange"
+      @validate="onValidate"
       @focus="handleFocus"
       @blur="handleBlur"
       @keydown-enter="handleKeydownEnter"
       @keydown="handleKeydown"
       @keyup="handleKeyup"
       @keypress="handleKeypress"
-    />
-  </div>
+    ></t-input-number>
+  </t-space>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-const value = ref(3);
+const value1 = ref('');
+const value2 = ref(100);
+const decimalValue = ref(3);
+const error = ref(undefined);
+
+const tips = computed(() => {
+  if (error.value === 'exceed-maximum') return 'number can not be exceed maximum';
+  if (error.value === 'below-minimum') return 'number can not be below minimum';
+  return undefined;
+});
+
+const onValidate = (p) => {
+  error.value = p.error;
+};
 
 const handleChange = (v, ctx) => {
   console.info('change', v, ctx);

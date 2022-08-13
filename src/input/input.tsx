@@ -1,7 +1,5 @@
-import { defineComponent, h, computed } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import camelCase from 'lodash/camelCase';
-import kebabCase from 'lodash/kebabCase';
 import props from './props';
 
 // hooks
@@ -27,18 +25,18 @@ export default defineComponent({
   props: {
     ...props,
     showInput: {
-      // 控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
+      // 没有这个 API，请勿使用，即将删除。控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
       type: Boolean,
       default: true,
     },
     keepWrapperWidth: {
-      // 控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
+      // 没有这个 API，请勿使用，即将删除。控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
       type: Boolean,
       default: false,
     },
   },
 
-  setup(props, { slots, expose }) {
+  setup(props, { expose }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
@@ -47,8 +45,19 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
-    const { isHover, inputRef, inputPreRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } =
-      useInput(props, expose);
+    const {
+      isHover,
+      tStatus,
+      inputRef,
+      inputPreRef,
+      renderType,
+      showClear,
+      focused,
+      inputValue,
+      innerValue,
+      limitNumber,
+      ...inputHandle
+    } = useInput(props, expose);
     useInputWidth(props, inputPreRef, inputRef, innerValue);
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
@@ -59,7 +68,7 @@ export default defineComponent({
         disabled: disabled.value,
         readonly: props.readonly,
         placeholder: tPlaceholder.value,
-        maxlength: props.maxlength,
+        maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (global.value.autocomplete || undefined),
@@ -67,29 +76,24 @@ export default defineComponent({
       }),
     );
 
-    const renderIcon = (icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon') => {
-      if (typeof icon === 'function') {
-        return icon(h);
-      }
-      // 插槽名称为中划线
-      if (slots[kebabCase(iconType)]) {
-        return slots[kebabCase(iconType)](null);
-      }
-      // 插槽名称为驼峰
-      if (slots[camelCase(iconType)]) {
-        return slots[camelCase(iconType)](null);
-      }
-      return null;
-    };
-
     return () => {
-      const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
-      let suffixIcon = renderIcon(props.suffixIcon, 'suffix-icon');
+      const prefixIcon = renderTNodeJSX('prefixIcon');
+      let suffixIcon = renderTNodeJSX('suffixIcon');
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
+      const limitNode =
+        limitNumber.value && props.showLimitNumber ? (
+          <div class={`${classPrefix.value}-input__limit-number`}>{limitNumber.value}</div>
+        ) : null;
 
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
-      const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
+      const suffixContent =
+        suffix || limitNode ? (
+          <div class={`${COMPONENT_NAME.value}__suffix`}>
+            {suffix}
+            {limitNode}
+          </div>
+        ) : null;
 
       if (props.type === 'password') {
         if (renderType.value === 'password') {
@@ -121,7 +125,7 @@ export default defineComponent({
           [SIZE.value[props.size]]: props.size !== 'medium',
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
-          [`${classPrefix.value}-is-${props.status}`]: props.status,
+          [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value,
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
           [`${classPrefix.value}-is-readonly`]: props.readonly,
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
