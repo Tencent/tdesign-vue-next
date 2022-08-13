@@ -48,8 +48,8 @@ export default defineComponent({
             label={props.label}
             suffix={props.suffix}
             on={p.listeners}
-            slots={context.slots}
-            props={props.inputProps}
+            {...props.inputProps}
+            v-slots={context.slots}
             value={p.userInput.value}
             onChange={p.onInnerInputChange}
           />
