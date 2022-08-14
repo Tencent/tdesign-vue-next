@@ -20,7 +20,7 @@ export default defineComponent({
   setup(props) {
     const { classPrefix } = useConfig('classPrefix');
     const COMPONENT_NAME = usePrefixClass('date-picker__header');
-    const { global } = useConfig('datePicker');
+    const { globalConfig } = useConfig('datePicker');
 
     const yearOptions = ref(initOptions(props.year));
     const showMonthPicker = props.mode === 'date' || props.mode === 'week';
@@ -33,7 +33,7 @@ export default defineComponent({
     );
 
     const monthOptions = computed(() =>
-      global.value.months.map((item: string, index: number) => ({ label: item, value: index })),
+      globalConfig.value.months.map((item: string, index: number) => ({ label: item, value: index })),
     );
 
     function initOptions(year: number) {
@@ -87,19 +87,19 @@ export default defineComponent({
     // hover title
     const labelMap = {
       year: {
-        prev: global.value.preDecade,
-        current: global.value.now,
-        next: global.value.nextDecade,
+        prev: globalConfig.value.preDecade,
+        current: globalConfig.value.now,
+        next: globalConfig.value.nextDecade,
       },
       month: {
-        prev: global.value.preYear,
-        current: global.value.now,
-        next: global.value.nextYear,
+        prev: globalConfig.value.preYear,
+        current: globalConfig.value.now,
+        next: globalConfig.value.nextYear,
       },
       date: {
-        prev: global.value.preMonth,
-        current: global.value.now,
-        next: global.value.nextMonth,
+        prev: globalConfig.value.preMonth,
+        current: globalConfig.value.now,
+        next: globalConfig.value.nextMonth,
       },
     };
 

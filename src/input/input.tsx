@@ -39,7 +39,7 @@ export default defineComponent({
   },
 
   setup(props, { slots, expose }) {
-    const { global } = useConfig('input');
+    const { globalConfig } = useConfig('input');
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
@@ -52,7 +52,7 @@ export default defineComponent({
     useInputWidth(props, inputPreRef, inputRef, innerValue);
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
-    const tPlaceholder = computed(() => props.placeholder ?? global.value.placeholder);
+    const tPlaceholder = computed(() => props.placeholder ?? globalConfig.value.placeholder);
     const inputAttrs = computed(() =>
       getValidAttrs({
         autofocus: props.autofocus,
@@ -62,7 +62,7 @@ export default defineComponent({
         maxlength: props.maxlength,
         name: props.name || undefined,
         type: renderType.value,
-        autocomplete: props.autocomplete ?? (global.value.autocomplete || undefined),
+        autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
         unselectable: props.readonly ? 'on' : undefined,
       }),
     );

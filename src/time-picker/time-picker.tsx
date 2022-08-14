@@ -24,7 +24,7 @@ export default defineComponent({
   setup(props) {
     const currentValue = ref('');
     const isShowPanel = ref(false);
-    const { global } = useConfig('timePicker');
+    const { globalConfig } = useConfig('timePicker');
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
@@ -98,7 +98,7 @@ export default defineComponent({
           onInputChange={handleInputChange}
           onBlur={handleInputBlur}
           onPopupVisibleChange={handleShowPopup}
-          placeholder={!innerValue.value ? props.placeholder || global.value.placeholder : undefined}
+          placeholder={!innerValue.value ? props.placeholder || globalConfig.value.placeholder : undefined}
           value={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputProps={props.inputProps}

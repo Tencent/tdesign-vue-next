@@ -6,15 +6,15 @@ import { GlobalConfigProvider } from './type';
 export * from './type';
 
 /**
- * component global config
+ * component globalConfig
  * @param componentName
- * @returns {t, global}
+ * @returns {t, globalConfig}
  * useConfig('pagination')
  */
 export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
   const injectGlobalConfig = inject(configProviderInjectKey, null);
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
-  const global = computed(() => mergedGlobalConfig.value[componentName]);
+  const globalConfig = computed(() => mergedGlobalConfig.value[componentName]);
 
   const classPrefix = computed(() => {
     return mergedGlobalConfig.value.classPrefix;
@@ -44,7 +44,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
 
   return {
     t,
-    global,
+    globalConfig,
     classPrefix,
   };
 }

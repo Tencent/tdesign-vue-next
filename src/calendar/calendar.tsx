@@ -27,7 +27,7 @@ export default defineComponent({
   props: { ...props },
   setup(props, { slots }) {
     const renderContent = useContent();
-    const { t, global } = useConfig(COMPONENT_NAME);
+    const { t, globalConfig } = useConfig(COMPONENT_NAME);
     // 组件内部状态管理
     const { state, toToday, checkDayVisibled } = useState(props);
 
@@ -105,7 +105,7 @@ export default defineComponent({
           const disabled = checkMonthAndYearSelecterDisabled(i, state.curSelectedMonth);
           re.push({
             value: i,
-            label: t(global.value.yearSelection, { year: i }),
+            label: t(globalConfig.value.yearSelection, { year: i }),
             disabled,
           });
         }
@@ -123,7 +123,7 @@ export default defineComponent({
           const disabled = checkMonthAndYearSelecterDisabled(state.curSelectedYear, i);
           re.push({
             value: i,
-            label: t(global.value.monthSelection, { month: i }),
+            label: t(globalConfig.value.monthSelection, { month: i }),
             disabled,
           });
         }
@@ -140,8 +140,8 @@ export default defineComponent({
     const modeSelect = {
       optionList: computed<ModeOption[]>(() => {
         return [
-          { value: 'month', label: t(global.value.monthRadio) },
-          { value: 'year', label: t(global.value.yearRadio) },
+          { value: 'month', label: t(globalConfig.value.monthRadio) },
+          { value: 'year', label: t(globalConfig.value.yearRadio) },
         ];
       }),
       isVisible: computed<boolean>(() => {
@@ -154,7 +154,7 @@ export default defineComponent({
     // 显示\隐藏周末按钮
     const weekendBtn = {
       text: computed<string>(() => {
-        return state.isShowWeekend ? t(global.value.hideWeekend) : t(global.value.showWeekend);
+        return state.isShowWeekend ? t(globalConfig.value.hideWeekend) : t(globalConfig.value.showWeekend);
       }),
       vBind: computed<object>(() => {
         const c = controller.configData.value.weekend;
@@ -175,7 +175,7 @@ export default defineComponent({
     // 今天\本月按钮
     const currentBtn = {
       text: computed<string>(() => {
-        return state.curSelectedMode === 'month' ? t(global.value.today) : t(global.value.thisMonth);
+        return state.curSelectedMode === 'month' ? t(globalConfig.value.today) : t(globalConfig.value.thisMonth);
       }),
       vBind: computed<object>(() => {
         const c = controller.configData.value.current;
@@ -355,7 +355,7 @@ export default defineComponent({
                         item={item}
                         theme={props.theme}
                         t={t}
-                        global={global.value}
+                        global={globalConfig.value}
                         cell={props.cell}
                         fillWithZero={props.fillWithZero}
                         onClick={(e: MouseEvent) => clickCell(e, item)}
@@ -399,7 +399,7 @@ export default defineComponent({
                     item={item}
                     theme={props.theme}
                     t={t}
-                    global={global.value}
+                    global={globalConfig.value}
                     cell={props.cell}
                     fillWithZero={props.fillWithZero}
                     onClick={(e: MouseEvent) => clickCell(e, item)}

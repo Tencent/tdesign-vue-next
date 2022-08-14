@@ -42,7 +42,7 @@ export default defineComponent({
 
   setup(props) {
     const disabled = useFormDisabled();
-    const { classPrefix: prefix, global } = useConfig('upload');
+    const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
     const { STATUS } = useCommonClassName();
 
@@ -99,7 +99,7 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <TLoading />
             <p>
-              {props.locale?.progress?.uploadingText || global.value.progress.uploadingText}{' '}
+              {props.locale?.progress?.uploadingText || globalConfig.value.progress.uploadingText}{' '}
               {Math.min(props.percent, 99)}%
             </p>
           </div>
@@ -107,7 +107,9 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <AddIcon />
             <p class={`${prefix.value}-size-s`}>
-              {props.placeholder || props.locale?.triggerUploadText?.image || global.value.triggerUploadText.image}
+              {props.placeholder ||
+                props.locale?.triggerUploadText?.image ||
+                globalConfig.value.triggerUploadText.image}
             </p>
           </div>
         )}
