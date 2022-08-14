@@ -93153,7 +93153,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
       >
         <!---->
         <table
-          class="t-table--layout-auto"
+          class="t-table--layout-fixed"
         >
           <colgroup>
             
@@ -94353,7 +94353,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
   </div>
   <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
   <div
-    class="t-table t-table--bordered t-table--striped t-table--column-resizable"
+    class="t-table t-table--bordered t-table--striped"
     style="position: relative;"
   >
     <!---->

@@ -8,6 +8,7 @@
       :size="size"
       :rowspan-and-colspan="rowspanAndColspan"
       resizable
+      table-layout="fixed"
     />
   </div>
 </template>

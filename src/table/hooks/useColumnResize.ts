@@ -1,11 +1,19 @@
 import { ref, Ref, reactive, CSSProperties } from 'vue';
+import isNumber from 'lodash/isNumber';
 import { BaseTableCol, TableRowData } from '../type';
+import { RecalculateColumnWidthFunc } from '../interface';
 
 const DEFAULT_MIN_WIDTH = 80;
 const DEFAULT_MAX_WIDTH = 600;
 
-export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, refreshTable: () => void) {
+export default function useColumnResize(
+  tableContentRef: Ref<HTMLDivElement>,
+  refreshTable: () => void,
+  getThWidthList: () => { [colKeys: string]: number },
+  updateThWidthList: (data: { [colKeys: string]: number }) => void,
+) {
   const resizeLineRef = ref<HTMLDivElement>();
+  const notCalculateWidthCols = ref<string[]>([]);
 
   const resizeLineParams = {
     isDragging: false,
@@ -20,34 +28,34 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
     bottom: '0',
   });
 
+  const setNotCalculateWidthCols = (colKeys: string[]) => {
+    notCalculateWidthCols.value = colKeys;
+  };
+
   // 表格列宽拖拽事件
   // 只在表头显示拖拽图标
-  const onColumnMouseover = (e: MouseEvent, col: BaseTableCol<TableRowData>) => {
+  const onColumnMouseover = (e: MouseEvent) => {
     if (!resizeLineRef.value) return;
 
     const target = (e.target as HTMLElement).closest('th');
     const targetBoundRect = target.getBoundingClientRect();
     if (!resizeLineParams.isDragging) {
-      const minWidth = col.resize?.minWidth || DEFAULT_MIN_WIDTH;
-      const maxWidth = col.resize?.maxWidth || DEFAULT_MAX_WIDTH;
       // 当离右边框的距离不超过 8 时，显示拖拽图标
-      const distance = 8;
-      if (
-        targetBoundRect.width >= minWidth &&
-        targetBoundRect.width <= maxWidth &&
-        targetBoundRect.right - e.pageX <= distance
-      ) {
-        target.style.cursor = 'col-resize';
-        resizeLineParams.draggingCol = target;
-      } else {
-        target.style.cursor = '';
-        resizeLineParams.draggingCol = null;
+      if (!resizeLineParams.isDragging) {
+        const distance = 8;
+        if (targetBoundRect.right - e.pageX <= distance) {
+          target.style.cursor = 'col-resize';
+          resizeLineParams.draggingCol = target;
+        } else {
+          target.style.cursor = '';
+          resizeLineParams.draggingCol = null;
+        }
       }
     }
   };
 
   // 调整表格列宽
-  const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>) => {
+  const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>, nearCol: BaseTableCol<TableRowData>) => {
     // 非 resize 的点击，不做处理
     if (!resizeLineParams.draggingCol) return;
 
@@ -74,6 +82,26 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
       resizeLineStyle.bottom = `${parent.bottom - tableBoundRect.bottom}px`;
     }
 
+    const setThWidthListByColumnDrag = (
+      dragCol: BaseTableCol<TableRowData>,
+      dragWidth: number,
+      nearCol: BaseTableCol<TableRowData>,
+    ) => {
+      const thWidthList = getThWidthList();
+
+      const propColWidth = isNumber(dragCol.width) ? dragCol.width : parseFloat(dragCol.width);
+      const propNearColWidth = isNumber(nearCol.width) ? nearCol.width : parseFloat(nearCol.width);
+      const oldWidth = thWidthList[dragCol.colKey] || propColWidth;
+      const oldNearWidth = thWidthList[nearCol.colKey] || propNearColWidth;
+
+      updateThWidthList({
+        [dragCol.colKey]: dragWidth,
+        [nearCol.colKey]: Math.max(nearCol.resize?.minWidth || DEFAULT_MIN_WIDTH, oldWidth + oldNearWidth - dragWidth),
+      });
+
+      setNotCalculateWidthCols([dragCol.colKey, nearCol.colKey]);
+    };
+
     // 拖拽时鼠标可能会超出 table 范围，需要给 document 绑定拖拽相关事件
     const onDragEnd = () => {
       if (resizeLineParams.isDragging) {
@@ -81,7 +109,8 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
         const width = Math.ceil(parseInt(resizeLineStyle.left, 10) - colLeft) || 0;
         // 为了避免精度问题，导致 width 宽度超出 [minColWidth, maxColWidth] 的范围，需要对比目标宽度和最小/最大宽度
         // eslint-disable-next-line
-        col.width = `${Math.max(Math.min(width, maxColWidth), minColWidth)}px`;
+        // col.width = `${Math.max(Math.min(width, maxColWidth), minColWidth)}px`;
+        setThWidthListByColumnDrag(col, width, nearCol);
 
         // 恢复设置
         resizeLineParams.isDragging = false;
@@ -114,10 +143,112 @@ export default function useColumnResize(tableContentRef: Ref<HTMLDivElement>, re
     document.ondragstart = () => false;
   };
 
+  const recalculateColWidth: RecalculateColumnWidthFunc = (
+    columns: BaseTableCol<TableRowData>[],
+    thWidthList: { [colKey: string]: number },
+    tableLayout: string,
+    tableElmWidth: number,
+  ): void => {
+    let actualWidth = 0;
+    const missingWidthCols: BaseTableCol<TableRowData>[] = [];
+    const thMap: { [colKey: string]: number } = {};
+
+    columns.forEach((col) => {
+      if (!thWidthList[col.colKey]) {
+        thMap[col.colKey] = isNumber(col.width) ? col.width : parseFloat(col.width);
+      } else {
+        thMap[col.colKey] = thWidthList[col.colKey];
+      }
+      const originWidth = thMap[col.colKey];
+      if (originWidth) {
+        actualWidth += originWidth;
+      } else {
+        missingWidthCols.push(col);
+      }
+    });
+
+    let tableWidth = tableElmWidth;
+    let needUpdate = false;
+    if (tableWidth > 0) {
+      if (missingWidthCols.length) {
+        if (actualWidth < tableWidth) {
+          const widthDiff = tableWidth - actualWidth;
+          const avgWidth = widthDiff / missingWidthCols.length;
+          missingWidthCols.forEach((col) => {
+            thMap[col.colKey] = avgWidth;
+          });
+        } else if (tableLayout === 'fixed') {
+          missingWidthCols.forEach((col) => {
+            const originWidth = thMap[col.colKey] || 100;
+            thMap[col.colKey] = isNumber(originWidth) ? originWidth : parseFloat(originWidth);
+          });
+        } else {
+          const extraWidth = missingWidthCols.length * 100;
+          const totalWidth = extraWidth + actualWidth;
+          columns.forEach((col) => {
+            if (!thMap[col.colKey]) {
+              thMap[col.colKey] = (100 / totalWidth) * tableWidth;
+            } else {
+              thMap[col.colKey] = (thMap[col.colKey] / totalWidth) * tableWidth;
+            }
+          });
+        }
+        needUpdate = true;
+      } else {
+        if (notCalculateWidthCols.value.length) {
+          let sum = 0;
+          notCalculateWidthCols.value.forEach((colKey) => {
+            sum += thMap[colKey];
+          });
+          actualWidth -= sum;
+          tableWidth -= sum;
+        }
+
+        if (actualWidth !== tableWidth || notCalculateWidthCols.value.length) {
+          columns.forEach((col) => {
+            if (notCalculateWidthCols.value.includes(col.colKey)) return;
+            thMap[col.colKey] = (thMap[col.colKey] / actualWidth) * tableWidth;
+          });
+          needUpdate = true;
+        }
+      }
+    } else {
+      missingWidthCols.forEach((col) => {
+        const originWidth = thMap[col.colKey] || 100;
+        thMap[col.colKey] = isNumber(originWidth) ? originWidth : parseFloat(originWidth);
+      });
+
+      needUpdate = true;
+    }
+
+    // 列宽转为整数
+    if (needUpdate) {
+      let addon = 0;
+      Object.keys(thMap).forEach((key) => {
+        const width = thMap[key];
+        addon += width - Math.floor(width);
+        thMap[key] = Math.floor(width) + (addon > 1 ? 1 : 0);
+        if (addon > 1) {
+          addon -= 1;
+        }
+      });
+      if (addon > 0.5) {
+        thMap[columns[0].colKey] += 1;
+      }
+    }
+
+    updateThWidthList(thMap);
+
+    if (notCalculateWidthCols.value.length) {
+      notCalculateWidthCols.value = [];
+    }
+  };
+
   return {
     resizeLineRef,
     resizeLineStyle,
     onColumnMouseover,
     onColumnMousedown,
+    recalculateColWidth,
   };
 }
