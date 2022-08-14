@@ -94,6 +94,11 @@ export default defineComponent({
             setInputVal(`${value}`);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
+            if (!(val as []).length && ctx.trigger === 'clear') {
+              ctx.e?.stopPropagation();
+              closeIconClickEffect(cascaderContext.value);
+              return;
+            }
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
@@ -111,9 +116,6 @@ export default defineComponent({
               value: cascaderContext.value.value,
               e: context.e,
             });
-          }}
-          onClear={() => {
-            closeIconClickEffect(cascaderContext.value);
           }}
           v-slots={{
             panel: () => (
