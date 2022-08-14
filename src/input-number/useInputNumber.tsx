@@ -128,8 +128,9 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange = (val: string, ctx: { e: InputEvent }) => {
     if (!canInputNumber(val, props.largeNumber)) return;
     userInput.value = val;
-    // 大数-字符串；普通数-数字
-    const newVal = props.largeNumber || !val ? val : Number(val);
+    const isDelete = ctx.e.inputType === 'deleteContentBackward';
+    // 大数-字符串；普通数-数字。此处是了将 2e3，2.1e3 等内容转换为数字
+    const newVal = isDelete || props.largeNumber || !val ? val : Number(val);
     if (newVal !== tValue.value && !['-', '.', 'e', 'E'].includes(val.slice(-1))) {
       setTValue(newVal, { type: 'input', e: ctx.e });
     }
@@ -194,13 +195,13 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const listeners = {
-    blur: handleBlur,
-    focus: handleFocus,
-    keydown: handleKeydown,
-    keyup: handleKeyup,
-    keypress: handleKeypress,
-    enter: handleEnter,
-    click: focus,
+    onBlur: handleBlur,
+    onFocus: handleFocus,
+    onKeydown: handleKeydown,
+    onKeyup: handleKeyup,
+    onKeypress: handleKeypress,
+    onEnter: handleEnter,
+    onClick: focus,
   };
 
   return {

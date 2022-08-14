@@ -47,7 +47,7 @@ export default defineComponent({
             status={status}
             label={props.label}
             suffix={props.suffix}
-            on={p.listeners}
+            {...p.listeners}
             {...props.inputProps}
             v-slots={context.slots}
             value={p.userInput.value}
