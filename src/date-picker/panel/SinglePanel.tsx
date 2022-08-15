@@ -42,7 +42,7 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
-    const { global } = useConfig('datePicker');
+    const { globalConfig } = useConfig('datePicker');
 
     const { format } = getDefaultFormat({
       mode: props.mode,
@@ -64,7 +64,7 @@ export default defineComponent({
         month: props.month,
         mode: props.mode,
         start: props.value ? parseToDayjs(props.value, format).toDate() : undefined,
-        firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+        firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
@@ -75,7 +75,7 @@ export default defineComponent({
       mode: props.mode,
       year: props.year,
       month: props.month,
-      firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+      firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
       tableData: tableData.value,
       popupVisible: props.popupVisible,
 

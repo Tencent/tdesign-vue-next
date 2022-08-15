@@ -4,14 +4,15 @@ import { getWeeks, getYears, getMonths, getQuarters, flagActive } from '../../_c
 
 export default function useTableData(props: any) {
   // 国际化文本初始化
-  const { global } = useConfig('datePicker');
+  const { globalConfig } = useConfig('datePicker');
 
   const options = {
     minDate: props.minDate,
     maxDate: props.maxDate,
     disableDate: props.disableDate,
-    firstDayOfWeek: props.firstDayOfWeek ?? global.value.firstDayOfWeek,
-    monthLocal: global.value.months,
+    firstDayOfWeek: props.firstDayOfWeek ?? globalConfig.value.firstDayOfWeek,
+    monthLocal: globalConfig.value.months,
+    quarterLocal: globalConfig.value.quarters,
     showWeekOfYear: props.mode === 'week',
   };
 

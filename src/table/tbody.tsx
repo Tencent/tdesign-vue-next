@@ -91,7 +91,7 @@ export default defineComponent({
   setup(props: TableBodyProps) {
     const renderTNode = useTNodeJSX();
     const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
-    const { t, global } = useConfig('table');
+    const { t, globalConfig } = useConfig('table');
     const { tableFullRowClasses, tableBaseClass } = useClassName();
     const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, rowspanAndColspan);
 
@@ -99,7 +99,7 @@ export default defineComponent({
 
     return {
       t,
-      global,
+      globalConfig,
       renderTNode,
       tableFullRowClasses,
       tbodyClasses,
@@ -117,7 +117,7 @@ export default defineComponent({
               class={[this.tableBaseClass.empty, { [this.tableFullRowClasses.innerFullRow]: this.isWidthOverflow }]}
               style={this.isWidthOverflow ? { width: `${this.tableWidth}px` } : {}}
             >
-              {this.renderTNode('empty') || this.t(this.global.empty)}
+              {this.renderTNode('empty') || this.t(this.globalConfig.empty)}
             </div>
           </td>
         </tr>

@@ -11,7 +11,7 @@ export const PARTIAL_MAP = { first: 'start', second: 'end' };
 
 export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
-  const { global } = useConfig('datePicker');
+  const { globalConfig } = useConfig('datePicker');
 
   const isMountedRef = ref(false);
   const inputRef = ref();
@@ -42,7 +42,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
     separator: props.separator,
-    placeholder: props.placeholder || global.value.placeholder[props.mode],
+    placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
     activeIndex: popupVisible.value ? activeIndex.value : undefined,
     suffixIcon: props.suffixIcon || (() => <CalendarIcon />),
     class: {
@@ -110,7 +110,7 @@ export default function useRange(props: TdDateRangePickerProps) {
   const popupProps = computed(() => ({
     expandAnimation: true,
     ...props.popupProps,
-    overlayStyle: props.popupProps?.overlayStyle ?? { width: 'auto' },
+    overlayInnerStyle: props.popupProps?.overlayInnerStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
       // 输入框点击不关闭面板

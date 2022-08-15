@@ -14,7 +14,7 @@ export default defineComponent({
     const stepsState = inject('StepsState', undefined);
     const stepsProps = inject('StepsProps', undefined);
 
-    const { global } = useConfig('steps');
+    const { globalConfig } = useConfig('steps');
     const canClick = computed(() => {
       return props.status !== 'process' && !stepsProps?.readonly;
     });
@@ -44,8 +44,8 @@ export default defineComponent({
             icon = <CheckIcon />;
             break;
           case 'error':
-            if (isFunction(global.value.errorIcon)) {
-              icon = global.value.errorIcon(h);
+            if (isFunction(globalConfig.value.errorIcon)) {
+              icon = globalConfig.value.errorIcon(h);
             } else {
               icon = <CloseIcon />;
             }

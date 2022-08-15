@@ -134,7 +134,7 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
 
 export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   const xhrReq = ref<XMLHttpRequest>(null);
-  const { global, t } = useConfig('upload');
+  const { globalConfig, t } = useConfig('upload');
   // 上传状态
   const { handleProgress, handleMockProgress, handleSuccess, onError } = useUploadProgress(props, uploadCtx);
 
@@ -147,7 +147,7 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
       // 有参数 message 则使用，没有就使用全局 locale 配置
       uploadCtx.errorMsg = sizeLimit.message
         ? t(sizeLimit.message, { sizeLimit: sizeLimit.size })
-        : `${t(global.value.sizeLimitMessage, { sizeLimit: sizeLimit.size })} ${sizeLimit.unit}`;
+        : `${t(globalConfig.value.sizeLimitMessage, { sizeLimit: sizeLimit.size })} ${sizeLimit.unit}`;
     }
     return rSize;
   };

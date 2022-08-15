@@ -58,12 +58,12 @@ export function abridgeName(inputName: string, leftCount = 5, rightcount = 7): s
  * [x] Gigabyte 吉字节(十进制)   GB    1000 Megabytes
  */
 
-// 各个单位和 KB 的关系
+// 各个单位和 KB 的关系，以KB为基准
 const SIZE_MAP = {
   B: 1024,
   KB: 1,
-  MB: 1048576, // 1024 * 1024
-  GB: 1073741824, // 1024 * 1024 * 1024
+  MB: 1024, // 1024 * 1024
+  GB: 1048576, // 1024 * 1024 * 1024
 };
 
 /**

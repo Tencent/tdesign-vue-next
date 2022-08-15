@@ -20,6 +20,13 @@
           <t-menu-item value="1-5-1"> 子菜单1-5-1 </t-menu-item>
           <t-menu-item value="1-5-2"> 子菜单1-5-2 </t-menu-item>
           <t-menu-item value="1-5-3"> 子菜单1-5-3 </t-menu-item>
+          <t-menu-item value="1-5-4"> 子菜单1-5-4 </t-menu-item>
+          <t-menu-item value="1-5-5"> 子菜单1-5-5 </t-menu-item>
+          <t-menu-item value="1-5-6"> 子菜单1-5-6 </t-menu-item>
+          <t-menu-item value="1-5-7"> 子菜单1-5-7 </t-menu-item>
+          <t-menu-item value="1-5-8"> 子菜单1-5-8 </t-menu-item>
+          <t-menu-item value="1-5-9"> 子菜单1-5-9 </t-menu-item>
+          <t-menu-item value="1-5-10"> 子菜单1-5-10 </t-menu-item>
         </t-submenu>
       </t-submenu>
       <t-submenu value="2" title="菜单2">

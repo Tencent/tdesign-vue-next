@@ -277,7 +277,7 @@ placement | String | top-right | 列配置按钮基于表格的放置位置：�
 abortEditOnEvent | Array | - | 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态。示例：`abortEditOnEvent: ['onChange']`。TS 类型：`string[]` | N
 component | \- | - | 组件定义，如：`Input` `Select`。对于完全自定义的组件（非组件库内的组件），组件需要支持 `value` 和 `onChange` ；如果还需要支持校验规则，则组件还需实现 `tips` 和 `status` 两个 API，实现规则可参考 `Input` 组件。TS 类型：`ComponentType`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 onEdited | Function | - | 编辑完成后，退出编辑模式时触发。TS 类型：`(context: { trigger: string; newRowData: T; rowIndex: number }) => void` | N
-props | Object | - | 透传给组件 `edit.component` 的属性。TS 类型：`{ [key: string]: any }` | N
+props | Object | - | 透传给组件 `edit.component` 的属性。TS 类型：`TableEditableCellProps<T>` `type TableEditableCellProps<T> = TablePlainObject | ((params: TableEditableCellPropsParams<T>) => TablePlainObject)` `interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> { editedRow: T }` `interface TablePlainObject{ [key: string]: any }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rules | Array | - | 校验规则。TS 类型：`FormRule[]`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 showEditIcon | Boolean | true | 是否显示编辑图标 | N
 

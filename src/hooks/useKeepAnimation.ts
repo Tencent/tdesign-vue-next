@@ -4,10 +4,10 @@ import { EAnimationType } from '../config-provider/context';
 const { expand, ripple, fade } = EAnimationType;
 
 export default function useKeepAnimation() {
-  const { global } = useConfig('animation');
+  const { globalConfig } = useConfig('animation');
 
   const keepAnimation = (type: EAnimationType) => {
-    const animationConfig = global.value;
+    const animationConfig = globalConfig.value;
     return animationConfig && !animationConfig.exclude?.includes(type) && animationConfig.include?.includes(type);
   };
   return {

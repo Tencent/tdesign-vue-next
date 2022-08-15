@@ -23,6 +23,7 @@ export interface TFootProps {
   rowClassName: TdBaseTableProps['rowClassName'];
   // 表尾吸底内容宽度
   thWidthList?: { [colKey: string]: number };
+  footerSummary?: TdBaseTableProps['footerSummary'];
   rowspanAndColspanInFooter: TdBaseTableProps['rowspanAndColspanInFooter'];
 }
 
@@ -38,6 +39,7 @@ export default defineComponent({
     rowAttributes: [Array, Object, Function] as PropType<TFootProps['rowAttributes']>,
     rowClassName: [Array, String, Object, Function] as PropType<TFootProps['rowClassName']>,
     thWidthList: [Object] as PropType<TFootProps['thWidthList']>,
+    footerSummary: [String, Function] as PropType<TFootProps['footerSummary']>,
     rowspanAndColspanInFooter: Function as PropType<TFootProps['rowspanAndColspanInFooter']>,
   },
 
@@ -69,7 +71,7 @@ export default defineComponent({
   render() {
     if (!this.columns) return null;
     const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
-    const footerDomList = this.footData.map((row, rowIndex) => {
+    const footerDomList = this.footData?.map((row, rowIndex) => {
       const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
       // 自定义行类名
       const customClasses = formatRowClassNames(
@@ -80,6 +82,7 @@ export default defineComponent({
       return (
         <tr {...trAttributes} key={rowIndex} class={customClasses}>
           {this.columns.map((col, colIndex) => {
+            // 合并单元格过滤
             const cellSpans: RowspanColspan = {};
             let spanState = null;
             if (this.skipSpansMap.size) {

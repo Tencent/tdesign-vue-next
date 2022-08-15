@@ -50,7 +50,7 @@ export default defineComponent({
   setup(props: TableFilterControllerProps) {
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
-    const { t, global } = useConfig('table');
+    const { t, globalConfig } = useConfig('table');
     const filterPopupVisible = ref(false);
 
     const onFilterPopupVisibleChange = (visible: boolean) => {
@@ -60,7 +60,7 @@ export default defineComponent({
 
     return {
       t,
-      global,
+      globalConfig,
       filterPopupVisible,
       triggerElementRef,
       renderTNode,
@@ -127,7 +127,7 @@ export default defineComponent({
               this.filterPopupVisible = false;
             }}
           >
-            {this.global.resetText}
+            {this.globalConfig.resetText}
           </TButton>
           <TButton
             theme="primary"
@@ -137,7 +137,7 @@ export default defineComponent({
               this.filterPopupVisible = false;
             }}
           >
-            {this.global.confirmText}
+            {this.globalConfig.confirmText}
           </TButton>
         </div>
       );
@@ -145,7 +145,7 @@ export default defineComponent({
 
     const column = this.column as any;
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
-    const defaultFilterIcon = this.t(this.global.filterIcon) || <FilterIcon />;
+    const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
     return (
       <Popup
         attach={this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined}

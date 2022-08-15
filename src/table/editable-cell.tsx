@@ -225,6 +225,14 @@ export default defineComponent({
       if (!isEdit.value) return;
       // @ts-ignore
       if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
+      // @ts-ignore 如果点击到 Popup 复层也直接返回
+      for (let i = 0, len = e.path.length; i < len; i++) {
+        // @ts-ignore
+        const node = e.path[i];
+        if (node.classList?.value?.includes('popup__content')) {
+          return;
+        }
+      }
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, {
         trigger: 'document',

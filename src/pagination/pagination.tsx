@@ -45,7 +45,7 @@ export default defineComponent({
       'pageSize',
     );
 
-    const { t, global } = useConfig('pagination');
+    const { t, globalConfig } = useConfig('pagination');
     const COMPONENT_NAME = usePrefixClass('pagination');
 
     const { pageCount, ...CLASS_MAP } = usePaginationClasses(props, innerCurrent, innerPageSize, COMPONENT_NAME);
@@ -74,7 +74,7 @@ export default defineComponent({
         typeof option === 'object'
           ? option
           : {
-              label: t(global.value.itemsPerPage, { size: option }),
+              label: t(globalConfig.value.itemsPerPage, { size: option }),
               value: Number(option),
             },
       );
@@ -204,8 +204,8 @@ export default defineComponent({
 
       const Jumper = (
         <div class={CLASS_MAP.jumperClass.value}>
-          {t(global.value.jumpTo)}
-          <TInputAdornment append={`/ ${pageCount.value} ${t(global.value.page)}`}>
+          {t(globalConfig.value.jumpTo)}
+          <TInputAdornment append={`/ ${pageCount.value} ${t(globalConfig.value.page)}`}>
             <TInputNumber
               class={CLASS_MAP.jumperInputClass.value}
               v-model={jumpIndex.value}
@@ -227,7 +227,7 @@ export default defineComponent({
           {/* 数据统计区 */}
           {renderTNodeJSX(
             'totalContent',
-            <div class={CLASS_MAP.totalClass.value}>{t(global.value.total, { total })}</div>,
+            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
           )}
 
           {/* 分页器 */}

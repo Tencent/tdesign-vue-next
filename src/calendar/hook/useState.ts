@@ -8,7 +8,7 @@ import { TdCalendarProps } from '../type';
 import { CalendarState } from '../interface';
 
 export function useState(props: TdCalendarProps) {
-  const { global } = useConfig(COMPONENT_NAME);
+  const { globalConfig } = useConfig(COMPONENT_NAME);
 
   const state = reactive<CalendarState>({
     realFirstDayOfWeek: 1,
@@ -55,7 +55,7 @@ export function useState(props: TdCalendarProps) {
   watch(
     () => props.firstDayOfWeek,
     () => {
-      state.realFirstDayOfWeek = props.firstDayOfWeek ?? global.value.firstDayOfWeek ?? 1;
+      state.realFirstDayOfWeek = props.firstDayOfWeek ?? globalConfig.value.firstDayOfWeek ?? 1;
     },
     { immediate: true },
   );

@@ -23,7 +23,7 @@ export default defineComponent({
   setup(props) {
     const renderTNodeJSXDefault = useTNodeDefault();
     const COMPONENT_NAME = usePrefixClass('cascader');
-    const { global, t } = useConfig('cascader');
+    const { globalConfig, t } = useConfig('cascader');
 
     const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
@@ -80,7 +80,7 @@ export default defineComponent({
           ? renderPanels()
           : renderTNodeJSXDefault(
               'empty',
-              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{global.value.empty}</div>,
+              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{globalConfig.value.empty}</div>,
             )}
       </div>
     );

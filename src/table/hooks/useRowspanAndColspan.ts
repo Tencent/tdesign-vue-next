@@ -50,7 +50,6 @@ export default function useRowspanAndColspan(
     columns: BaseTableCol<TableRowData>[],
     rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
   ) => {
-    if (!data || !rowspanAndColspan) return;
     skipSpansMap.value?.clear();
     if (!data || !rowspanAndColspan) return;
     for (let i = 0, len = data.length; i < len; i++) {
@@ -79,7 +78,6 @@ export default function useRowspanAndColspan(
   watch(
     () => [data.value, columns.value, rowspanAndColspan],
     () => {
-      if (!data || !rowspanAndColspan) return;
       updateSkipSpansMap(data.value, columns.value, rowspanAndColspan?.value);
     },
     { immediate: true },

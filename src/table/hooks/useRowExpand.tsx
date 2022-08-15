@@ -17,7 +17,7 @@ import { useConfig } from '../../hooks/useConfig';
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);
   const renderTNode = useTNodeJSX();
-  const { t, global } = useConfig('table');
+  const { t, globalConfig } = useConfig('table');
   const { tableExpandClasses, positiveRotate90, tableFullRowClasses } = useClassName();
   // controlled and uncontrolled
   const [tExpandedRowKeys, setTExpandedRowKeys] = useDefaultValue(
@@ -51,7 +51,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     const currentId = get(row, props.rowKey || 'id');
     const expanded = tExpandedRowKeys.value.includes(currentId);
     const icon = renderTNode('expandIcon', {
-      defaultNode: t(global.value.expandIcon) || <ChevronRightCircleIcon />,
+      defaultNode: t(globalConfig.value.expandIcon) || <ChevronRightCircleIcon />,
       params: { row, index: rowIndex },
     });
     if (!icon) return null;

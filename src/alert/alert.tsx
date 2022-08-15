@@ -17,7 +17,7 @@ export default defineComponent({
   name: 'TAlert',
   props,
   setup(props) {
-    const { global, classPrefix } = useConfig('alert');
+    const { globalConfig, classPrefix } = useConfig('alert');
     const COMPONENT_NAME = usePrefixClass('alert');
     const renderTNodeJSX = useTNodeJSX();
 
@@ -110,7 +110,7 @@ export default defineComponent({
                 collapsed.value = !collapsed.value;
               }}
             >
-              {collapsed.value ? global.value.expandText : global.value.collapseText}
+              {collapsed.value ? globalConfig.value.expandText : globalConfig.value.collapseText}
             </div>
           ) : null}
         </div>
