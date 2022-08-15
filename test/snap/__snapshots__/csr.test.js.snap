@@ -81627,6 +81627,512 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./examples/search/demos/base.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          <div
+            style="cursor: default;"
+          >
+            
+            搜索
+            
+          </div>
+          
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="false"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <div
+            style="cursor: default;"
+          >
+            
+            搜索
+            
+          </div>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          <div
+            style="cursor: default;"
+          >
+            
+            搜索
+            
+          </div>
+          
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/batch.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    <div
+      batch="true"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/clearable.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/history.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="true"
+      showicon="true"
+      suggestions="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/size.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-size-s t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-search"
+  >
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions=""
+    >
+      <div
+        class="t-input t-size-l t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/suggestion.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/search/demos/suggestionSlot.vue 1`] = `
+<div>
+  <div
+    class="t-search"
+  >
+    
+    <div
+      batch="false"
+      class="t-input__wrap"
+      history="false"
+      showicon="true"
+      suggestions="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+    >
+      <div
+        class="t-input t-is-default t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入搜索内容"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          
+          <svg
+            class="t-icon t-icon-search t-search-suffix-icon"
+            style="font-size: 18px;"
+          >
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+          
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <br />
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
 <div
   class="t-space t-space-horizontal"
