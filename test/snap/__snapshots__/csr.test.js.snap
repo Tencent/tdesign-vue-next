@@ -37206,6 +37206,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    style="width: 400px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -37263,6 +37264,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    style="width: 400px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -37322,6 +37324,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
+    style="width: 400px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -37378,6 +37381,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
+    style="width: 400px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -37443,6 +37447,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
+    style="width: 400px;"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -52278,11 +52283,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                         </div>
                         
                       </div>
-                      <div
-                        class="t-dialog__footer"
-                      >
-                        <!---->
-                      </div>
+                      <!---->
                     </div>
                   </div>
                 </div>
@@ -84493,6 +84494,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autocomplete
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty"
+    style="width: 300px;"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -84696,6 +84698,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless.v
   
   <div
     class="t-input__wrap t-select-input t-select-input--borderless"
+    style="width: 200px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix"
@@ -85774,6 +85777,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
   
   <div
     class="t-input__wrap t-select-input"
+    style="width: 300px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -85831,6 +85835,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
   
   <div
     class="t-input__wrap t-select-input"
+    style="width: 300px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -86104,6 +86109,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/single.vue 1
   
   <div
     class="t-input__wrap t-select-input"
+    style="width: 300px;"
   >
     <div
       class="t-input t-is-default t-input--prefix t-input--suffix"
@@ -147456,11 +147462,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/custom-drag.vue 1`
                 </div>
                 
               </div>
-              <div
-                class="t-dialog__footer"
-              >
-                <!---->
-              </div>
+              <!---->
             </div>
           </div>
         </div>
@@ -148077,11 +148079,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
                   </div>
                   
                 </div>
-                <div
-                  class="t-dialog__footer"
-                >
-                  <!---->
-                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -148204,11 +148202,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
                   </div>
                   
                 </div>
-                <div
-                  class="t-dialog__footer"
-                >
-                  <!---->
-                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -148331,11 +148325,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
                   </div>
                   
                 </div>
-                <div
-                  class="t-dialog__footer"
-                >
-                  <!---->
-                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -148459,11 +148449,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
                   </div>
                   
                 </div>
-                <div
-                  class="t-dialog__footer"
-                >
-                  <!---->
-                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -148629,11 +148615,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/img-flow-list.vue 
                 </div>
                 
               </div>
-              <div
-                class="t-dialog__footer"
-              >
-                <!---->
-              </div>
+              <!---->
             </div>
           </div>
         </div>
@@ -148960,11 +148942,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/single-custom.vue 
                   </div>
                   
                 </div>
-                <div
-                  class="t-dialog__footer"
-                >
-                  <!---->
-                </div>
+                <!---->
               </div>
             </div>
           </div>
