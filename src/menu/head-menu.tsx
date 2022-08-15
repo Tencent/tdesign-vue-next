@@ -60,7 +60,7 @@ export default defineComponent({
           } else if (type === 'remove') {
             expanded.splice(index, 1);
           }
-        } else {
+        } else if (mode.value === 'normal' && value !== undefined) {
           expanded.splice(0, 1);
           if (index === -1) {
             expanded.push(value);
@@ -154,7 +154,7 @@ export default defineComponent({
     const formatContent = () => {
       let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      if (mode.value === 'popup' && menuRef.value && innerRef.value) {
+      if (menuRef.value && innerRef.value) {
         const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
           (item) => item.nodeName !== '#text' || item.nodeValue,
         ) as HTMLElement[];
@@ -178,7 +178,11 @@ export default defineComponent({
         const subMore = slot.slice(sliceIndex);
 
         if (subMore.length) {
-          slot = defaultSlot.concat(<Submenu title={() => <EllipsisIcon />}>{subMore}</Submenu>);
+          slot = defaultSlot.concat(
+            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
+              {subMore}
+            </Submenu>,
+          );
         }
       }
       return slot;
