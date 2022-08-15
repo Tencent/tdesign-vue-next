@@ -1,8 +1,15 @@
 import { computed, defineComponent } from 'vue';
-import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
+import {
+  AddIcon as TdAddIcon,
+  RemoveIcon as TdRemoveIcon,
+  ChevronDownIcon as TdChevronDownIcon,
+  ChevronUpIcon as TdChevronUpIcon,
+} from 'tdesign-icons-vue-next';
+
 import TButton from '../button';
 import TInput, { InputProps } from '../input';
 import props from './props';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 // hooks
 import { usePrefixClass } from '../hooks/useConfig';
@@ -13,6 +20,12 @@ export default defineComponent({
   props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-number');
+    const { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } = useGlobalIcon({
+      AddIcon: TdAddIcon,
+      RemoveIcon: TdRemoveIcon,
+      ChevronDownIcon: TdChevronDownIcon,
+      ChevronUpIcon: TdChevronUpIcon,
+    });
 
     const {
       reduceEvents,

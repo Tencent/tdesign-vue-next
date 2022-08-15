@@ -2,7 +2,8 @@ import { computed, defineComponent, PropType, ref, SetupContext, toRefs, watch }
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
-import { Edit1Icon } from 'tdesign-icons-vue-next';
+import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
+
 import {
   TableRowData,
   PrimaryTableCol,
@@ -11,6 +12,7 @@ import {
   TdBaseTableProps,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
@@ -61,6 +63,8 @@ export default defineComponent({
     const isEdit = ref(false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
+
+    const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
     const currentRow = computed(() => {
       const newRow = { ...row.value };

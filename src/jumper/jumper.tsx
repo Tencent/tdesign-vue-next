@@ -1,8 +1,16 @@
 import { defineComponent, computed } from 'vue';
 import isObject from 'lodash/isObject';
-import { ChevronLeftIcon, RoundIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } from 'tdesign-icons-vue-next';
+import {
+  ChevronLeftIcon as TdChevronLeftIcon,
+  RoundIcon as TdRoundIcon,
+  ChevronRightIcon as TdChevronRightIcon,
+  ChevronUpIcon as TdChevronUpIcon,
+  ChevronDownIcon as TdChevronDownIcon,
+} from 'tdesign-icons-vue-next';
+
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TButton from '../button';
 
 export default defineComponent({
@@ -12,6 +20,13 @@ export default defineComponent({
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('jumper');
+    const { ChevronLeftIcon, RoundIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } = useGlobalIcon({
+      ChevronLeftIcon: TdChevronLeftIcon,
+      RoundIcon: TdRoundIcon,
+      ChevronRightIcon: TdChevronRightIcon,
+      ChevronUpIcon: TdChevronUpIcon,
+      ChevronDownIcon: TdChevronDownIcon,
+    });
 
     const titleConfig = computed<{
       prev?: string;

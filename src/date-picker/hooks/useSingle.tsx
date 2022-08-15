@@ -1,9 +1,10 @@
 import { ref, computed, watchEffect } from 'vue';
-import { CalendarIcon } from 'tdesign-icons-vue-next';
+import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
 import { useFormDisabled } from '../../form/hooks';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
 import { isValidDate, formatDate, formatTime, getDefaultFormat } from './useFormat';
 import useSingleValue from './useSingleValue';
@@ -11,6 +12,7 @@ import useSingleValue from './useSingleValue';
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { globalConfig } = useConfig('datePicker');
+  const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
   const disabled = useFormDisabled();
 
   const inputRef = ref();

@@ -1,8 +1,9 @@
 import { defineComponent } from 'vue';
-import { FileCopyIcon } from 'tdesign-icons-vue-next';
+import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
@@ -10,6 +11,7 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     const { globalConfig, classPrefix } = useConfig('anchor');
+    const { FileCopyIcon } = useGlobalIcon({ FileCopyIcon: TdFileCopyIcon });
     const COMPONENT_NAME = usePrefixClass('anchor');
     /**
      * 复制当前target的链接

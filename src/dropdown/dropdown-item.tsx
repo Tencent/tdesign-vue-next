@@ -1,9 +1,11 @@
 import { defineComponent, ref, inject } from 'vue';
-import { ChevronRightIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+
 import TDivider from '../divider';
 import itemProps from './dropdown-item-props';
 import useRipple from '../hooks/useRipple';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useContent } from '../hooks/tnode';
 import { injectKey } from './const';
 
@@ -31,6 +33,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const COMPONENT_NAME = usePrefixClass('dropdown__item');
     const classPrefix = usePrefixClass();
+    const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
 
     const dropdownProvider = inject(injectKey);
     const { handleMenuClick } = dropdownProvider;

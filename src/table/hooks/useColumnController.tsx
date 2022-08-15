@@ -2,7 +2,8 @@
  * 自定义显示列控制器，即列配置
  */
 import { computed, ref, SetupContext, toRefs, watch } from 'vue';
-import { SettingIcon } from 'tdesign-icons-vue-next';
+import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
+
 import intersection from 'lodash/intersection';
 import Checkbox, {
   CheckboxGroup,
@@ -14,6 +15,7 @@ import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
 import { useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
@@ -32,6 +34,7 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
   const { classPrefix, globalConfig } = useConfig('table');
+  const { SettingIcon } = useGlobalIcon({ SettingIcon: TdSettingIcon });
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
 

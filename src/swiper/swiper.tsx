@@ -1,6 +1,8 @@
 import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
-import { ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
+import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+
 import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useChildComponentSlots } from '../hooks';
 import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
@@ -18,6 +20,10 @@ export default defineComponent({
   props: { ...props },
   setup(props) {
     const prefix = usePrefixClass();
+    const { ChevronLeftIcon, ChevronRightIcon } = useGlobalIcon({
+      ChevronLeftIcon: TdChevronLeftIcon,
+      ChevronRightIcon: TdChevronRightIcon,
+    });
     let swiperTimer = 0;
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;

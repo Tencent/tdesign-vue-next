@@ -1,16 +1,18 @@
 import { defineComponent, VNode, computed, CSSProperties } from 'vue';
 import {
-  CloseCircleFilledIcon,
-  CheckCircleFilledIcon,
-  ErrorCircleFilledIcon,
-  CloseIcon,
-  CheckIcon,
-  ErrorIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
+  CheckIcon as TdCheckIcon,
+  ErrorIcon as TdErrorIcon,
 } from 'tdesign-icons-vue-next';
+
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
@@ -19,6 +21,16 @@ export default defineComponent({
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('progress');
+    const { CloseCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon, CheckIcon, ErrorIcon } =
+      useGlobalIcon({
+        CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+        CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+        ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+        CloseIcon: TdCloseIcon,
+        CheckIcon: TdCheckIcon,
+        ErrorIcon: TdErrorIcon,
+      });
+
     const statusStyle = computed(() => {
       if (props.percentage >= 100) {
         return 'success';

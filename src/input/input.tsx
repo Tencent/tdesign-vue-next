@@ -1,5 +1,10 @@
 import { defineComponent, h, computed } from 'vue';
-import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  BrowseIcon as TdBrowseIcon,
+  BrowseOffIcon as TdBrowseOffIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
 import props from './props';
@@ -8,6 +13,7 @@ import { TdInputProps } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
@@ -51,6 +57,11 @@ export default defineComponent({
 
   setup(props, { slots, expose }) {
     const { globalConfig } = useConfig('input');
+    const { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } = useGlobalIcon({
+      BrowseIcon: TdBrowseIcon,
+      BrowseOffIcon: TdBrowseOffIcon,
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+    });
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');

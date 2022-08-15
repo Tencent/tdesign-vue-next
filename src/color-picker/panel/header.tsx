@@ -1,10 +1,12 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+
 import props from '../props';
 import { COLOR_MODES } from '../const';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'PanelHeader',
@@ -26,6 +28,7 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
+    const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const modeValue = ref(props.mode);
     const handleModeChange = (v: string) => props.onModeChange(v);
     watch(
@@ -34,6 +37,7 @@ export default defineComponent({
     );
     return {
       baseClassName,
+      CloseIcon,
       modeValue,
       handleModeChange,
     };
@@ -42,7 +46,7 @@ export default defineComponent({
     if (this.colorModes?.length === 1) {
       return null;
     }
-    const { baseClassName } = this;
+    const { baseClassName, CloseIcon } = this;
     return (
       <div class={`${baseClassName}__head`}>
         <div class={`${baseClassName}__mode`}>

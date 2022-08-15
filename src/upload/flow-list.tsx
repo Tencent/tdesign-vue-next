@@ -1,12 +1,12 @@
 import { defineComponent, ref, PropType, computed } from 'vue';
-
 import {
-  TimeFilledIcon,
-  CheckCircleFilledIcon,
-  ErrorCircleFilledIcon,
-  DeleteIcon,
-  BrowseIcon,
+  TimeFilledIcon as TdTimeFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  DeleteIcon as TdDeleteIcon,
+  BrowseIcon as TdBrowseIcon,
 } from 'tdesign-icons-vue-next';
+
 import TButton from '../button';
 import TLoading from '../loading';
 
@@ -19,6 +19,7 @@ import { UploadConfig } from '../config-provider/type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUploadFlowList',
@@ -56,6 +57,13 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const disabled = useFormDisabled();
     const { classPrefix: prefix, globalConfig } = useConfig('upload');
+    const { TimeFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, DeleteIcon, BrowseIcon } = useGlobalIcon({
+      TimeFilledIcon: TdTimeFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+      DeleteIcon: TdDeleteIcon,
+      BrowseIcon: TdBrowseIcon,
+    });
     const UPLOAD_NAME = usePrefixClass('upload');
     const { SIZE } = useCommonClassName();
 

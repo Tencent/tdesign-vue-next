@@ -1,8 +1,10 @@
 import { defineComponent, createElementVNode, PropType, h } from 'vue';
-import { ChevronRightIcon, ChevronLeftIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
+
 import Button from '../../button';
 import { TNode } from '../../common';
 import { usePrefixClass } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import props from '../props';
 
 export default defineComponent({
@@ -23,6 +25,10 @@ export default defineComponent({
   emits: ['moveToRight', 'moveToLeft'],
   setup(props, { slots, emit }) {
     const classPrefix = usePrefixClass();
+    const { ChevronRightIcon, ChevronLeftIcon } = useGlobalIcon({
+      ChevronRightIcon: TdChevronRightIcon,
+      ChevronLeftIcon: TdChevronLeftIcon,
+    });
     const moveToRight = () => {
       emit('moveToRight');
     };
