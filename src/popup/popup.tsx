@@ -89,11 +89,6 @@ export default defineComponent({
     const mouseInRange = ref(false);
     /** mark popup as clicked when mousedown, reset after mouseup */
     const contentClicked = ref(false);
-    /**
-     * mark reference as clicked when click,
-     * reset after click event bubbles to document
-     */
-    const triggerClicked = ref(false);
 
     const triggerEl = ref<HTMLElement>(null);
     const overlayEl = ref<HTMLElement>(null);
@@ -216,15 +211,16 @@ export default defineComponent({
       );
     }
 
-    function handleDocumentClick() {
-      if (contentClicked.value || triggerClicked.value) {
-        triggerClicked.value = false;
-        // clear the flag if mouseup handler is failed
+    function handleDocumentClick(ev?: MouseEvent) {
+      if (contentClicked.value) {
+        // clear the flag after mousedown
         setTimeout(() => {
           contentClicked.value = false;
         });
         return;
       }
+      // ignore document event when clicking trigger element
+      if (triggerEl.value.contains(ev.target as Node)) return;
       visibleState.value = 0;
       emitVisible(false, { trigger: 'document' });
     }
@@ -250,8 +246,6 @@ export default defineComponent({
       }
     }
 
-    onUnmounted(destroyPopper);
-
     const trigger = attachListeners(triggerEl);
 
     watch(
@@ -267,8 +261,6 @@ export default defineComponent({
           trigger.add('focusout', () => handleClose({ trigger: 'trigger-element-blur' }));
         } else if (hasTrigger.value.click) {
           trigger.add('click', (e) => {
-            // override nested popups with trigger hover due to higher priority
-            visibleState.value = 0;
             handleToggle({ e, trigger: 'trigger-element-click' });
           });
         } else if (hasTrigger.value['context-menu']) {
@@ -277,11 +269,6 @@ export default defineComponent({
             // MouseEvent.button
             // 2: Secondary button pressed, usually the right button
             e.button === 2 && handleToggle({ trigger: 'context-menu' });
-          });
-        }
-        if (!hasTrigger.value['context-menu']) {
-          trigger.add('click', () => {
-            triggerClicked.value = true;
           });
         }
       },
@@ -325,7 +312,7 @@ export default defineComponent({
         if (visible) {
           preventClosing(true);
           if (!hasDocumentEvent) {
-            on(document, 'click', handleDocumentClick);
+            on(document, 'click', handleDocumentClick, true);
             hasDocumentEvent = true;
           }
           // focus trigger esc 隐藏浮层
@@ -339,12 +326,18 @@ export default defineComponent({
         } else {
           preventClosing(false);
           // destruction is delayed until after animation ends
-          off(document, 'click', handleDocumentClick);
+          off(document, 'click', handleDocumentClick, true);
           hasDocumentEvent = false;
           mouseInRange.value = false;
         }
       },
     );
+
+    onUnmounted(() => {
+      parent?.preventClosing(false);
+      destroyPopper();
+      off(document, 'click', handleDocumentClick, true);
+    });
 
     provide(injectionKey, {
       preventClosing,
@@ -372,7 +365,6 @@ export default defineComponent({
       overlayCls,
       hasTrigger,
       contentClicked,
-      triggerClicked,
       updatePopper,
       destroyPopper,
       getOverlayStyle,
@@ -400,13 +392,6 @@ export default defineComponent({
           vShow={innerVisible}
           onMousedown={() => {
             this.contentClicked = true;
-          }}
-          onMouseup={() => {
-            // make sure to execute after document click is triggered
-            setTimeout(() => {
-              // clear the flag which was set by mousedown
-              this.contentClicked = false;
-            });
           }}
           {...(hasTrigger.hover && {
             onMouseenter: this.onMouseEnter,
