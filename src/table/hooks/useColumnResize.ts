@@ -153,6 +153,7 @@ export default function useColumnResize(
     const missingWidthCols: BaseTableCol<TableRowData>[] = [];
     const thMap: { [colKey: string]: number } = {};
 
+    // 计算现有列的列宽总和
     columns.forEach((col) => {
       if (!thWidthList[col.colKey]) {
         thMap[col.colKey] = isNumber(col.width) ? col.width : parseFloat(col.width);
@@ -169,8 +170,11 @@ export default function useColumnResize(
 
     let tableWidth = tableElmWidth;
     let needUpdate = false;
+    // 表宽没有初始化时，默认给没有指定列宽的列指定宽度为100px
     if (tableWidth > 0) {
+      // 存在没有指定列宽的列
       if (missingWidthCols.length) {
+        // 当前列宽总宽度小于表宽，将剩余宽度平均分配给未指定宽度的列
         if (actualWidth < tableWidth) {
           const widthDiff = tableWidth - actualWidth;
           const avgWidth = widthDiff / missingWidthCols.length;
@@ -178,11 +182,13 @@ export default function useColumnResize(
             thMap[col.colKey] = avgWidth;
           });
         } else if (tableLayout === 'fixed') {
+          // 当前列表总宽度大于等于表宽，且当前排版模式为fixed，默认填充100px
           missingWidthCols.forEach((col) => {
             const originWidth = thMap[col.colKey] || 100;
             thMap[col.colKey] = isNumber(originWidth) ? originWidth : parseFloat(originWidth);
           });
         } else {
+          // 当前列表总宽度大于等于表宽，且当前排版模式为auto，默认填充100px，然后按比例重新分配各列宽度
           const extraWidth = missingWidthCols.length * 100;
           const totalWidth = extraWidth + actualWidth;
           columns.forEach((col) => {
@@ -195,7 +201,9 @@ export default function useColumnResize(
         }
         needUpdate = true;
       } else {
+        // 所有列都已经指定宽度
         if (notCalculateWidthCols.value.length) {
+          // 存在不允许重新计算宽度的列（一般是resize后的两列），这些列不参与后续计算
           let sum = 0;
           notCalculateWidthCols.value.forEach((colKey) => {
             sum += thMap[colKey];
@@ -203,7 +211,7 @@ export default function useColumnResize(
           actualWidth -= sum;
           tableWidth -= sum;
         }
-
+        // 重新计算其他列的宽度，按表格剩余宽度进行按比例分配
         if (actualWidth !== tableWidth || notCalculateWidthCols.value.length) {
           columns.forEach((col) => {
             if (notCalculateWidthCols.value.includes(col.colKey)) return;
@@ -213,6 +221,7 @@ export default function useColumnResize(
         }
       }
     } else {
+      // 表格宽度未初始化，默认填充100px
       missingWidthCols.forEach((col) => {
         const originWidth = thMap[col.colKey] || 100;
         thMap[col.colKey] = isNumber(originWidth) ? originWidth : parseFloat(originWidth);
