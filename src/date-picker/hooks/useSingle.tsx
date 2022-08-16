@@ -10,7 +10,7 @@ import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
-  const { global } = useConfig('datePicker');
+  const { globalConfig } = useConfig('datePicker');
   const disabled = useFormDisabled();
 
   const inputRef = ref();
@@ -39,7 +39,7 @@ export default function useSingle(props: TdDatePickerProps) {
     ref: inputRef,
     prefixIcon: props.prefixIcon,
     readonly: !props.allowInput,
-    placeholder: props.placeholder || global.value.placeholder[props.mode],
+    placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
     suffixIcon: props.suffixIcon || (() => <CalendarIcon />),
     class: [
       {

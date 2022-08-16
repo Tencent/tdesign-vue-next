@@ -7,6 +7,7 @@ import TagInput, { TagInputValue, InputValueChangeContext } from '../tag-input';
 import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useFormDisabled } from '../form/hooks';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
@@ -30,6 +31,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     props.onInputChange,
     'inputValue',
   );
+  const disable = useFormDisabled();
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
@@ -70,7 +72,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         },
         ...props.inputProps,
       },
-      suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       ...props.tagInputProps,
     };
 

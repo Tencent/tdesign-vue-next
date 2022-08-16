@@ -27,7 +27,7 @@ export default defineComponent({
 
   setup(props) {
     const componentName = usePrefixClass('time-range-picker');
-    const { global } = useConfig('timePicker');
+    const { globalConfig } = useConfig('timePicker');
     const { classPrefix } = useConfig('classPrefix');
 
     const disabled = useFormDisabled();
@@ -130,7 +130,7 @@ export default defineComponent({
             clearable: props.clearable,
             class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
-            placeholder: props.placeholder || [global.value.placeholder, global.value.placeholder],
+            placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             suffixIcon: () => <TimeIcon />,
             onClear: handleClear,
             onClick: handleClick,

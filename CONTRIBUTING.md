@@ -158,6 +158,12 @@ import './button.less';
 
 UI 开发规范参考子仓库 README [子仓库 README](https://github.com/Tencent/tdesign-common/blob/main/style/web/README.md)
 
+### 新建组件
+
+```shell
+npm run generate:component
+```
+
 ### API 规范
 
 API 会由管理员统一生成

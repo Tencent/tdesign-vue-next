@@ -1,6 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import props from './props';
+import { TdInputProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -9,6 +10,12 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
+
+export interface ExtendsTdInputProps extends TdInputProps {
+  showInput: boolean;
+  keepWrapperWidth: boolean;
+  allowTriggerBlur: boolean;
+}
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -34,10 +41,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    allowTriggerBlur: {
+      type: Boolean,
+      default: true,
+    },
   },
 
-  setup(props, { expose }) {
-    const { global } = useConfig('input');
+  setup(props, { slots, expose }) {
+    const { globalConfig } = useConfig('input');
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
@@ -61,7 +72,7 @@ export default defineComponent({
     useInputWidth(props, inputPreRef, inputRef, innerValue);
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
-    const tPlaceholder = computed(() => props.placeholder ?? global.value.placeholder);
+    const tPlaceholder = computed(() => props.placeholder ?? globalConfig.value.placeholder);
     const inputAttrs = computed(() =>
       getValidAttrs({
         autofocus: props.autofocus,
@@ -71,7 +82,7 @@ export default defineComponent({
         maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
-        autocomplete: props.autocomplete ?? (global.value.autocomplete || undefined),
+        autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
         unselectable: props.readonly ? 'on' : undefined,
       }),
     );

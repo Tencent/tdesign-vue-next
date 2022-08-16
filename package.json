@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.19.1",
+  "version": "0.20.1",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -56,6 +56,7 @@
     "site:preview": "cd site && vite build --mode preview",
     "postsite:preview": "cp _site/index.html _site/404.html",
     "generate:usage": "node script/generate-usage/index.js",
+    "generate:component": "node script/init/index.js",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc && npm run build:nuxt-es",
     "build:nuxt-es": "node script/build-nuxt.js",

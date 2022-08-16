@@ -32,7 +32,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('select');
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
-    const { t, global } = useConfig('select');
+    const { t, globalConfig } = useConfig('select');
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
 
@@ -124,13 +124,13 @@ export default defineComponent({
         {/* 空状态 */}
         {isEmpty.value &&
           renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(global.value.empty)}</div>,
+            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
           })}
         {/* loading状态 */}
         {!isEmpty.value &&
           props.loading &&
           renderDefaultTNode('loadingText', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(global.value.loadingText)}</div>,
+            defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
           })}
         {renderTNodeJSX('panelBottomContent')}
       </div>

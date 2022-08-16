@@ -31,6 +31,7 @@ import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
+import log from '../_common/js/log';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -60,7 +61,9 @@ export default defineComponent({
     const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
     // 表格基础样式类
     const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
-    const { global } = useConfig('table');
+    const { globalConfig } = useConfig('table');
+    const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
+    const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
     // 固定表头和固定列逻辑
     const {
@@ -80,7 +83,10 @@ export default defineComponent({
       emitScrollEvent,
       setUseFixedTableElmRef,
       updateColumnFixedShadow,
-    } = useFixed(props, context);
+      getThWidthList,
+      updateThWidthList,
+      setRecalculateColWidthFuncRef,
+    } = useFixed(props, context, finalColumns);
 
     // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
     const {
@@ -96,12 +102,12 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const { dataSource, isPaginateData, renderPagination } = usePagination(props);
 
     // 列宽拖拽逻辑
-    const columnResizeParams = useColumnResize(tableContentRef, refreshTable);
-    const { resizeLineRef, resizeLineStyle } = columnResizeParams;
+    const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);
+    const { resizeLineRef, resizeLineStyle, recalculateColWidth } = columnResizeParams;
+    setRecalculateColWidthFuncRef(recalculateColWidth);
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -209,7 +215,7 @@ export default defineComponent({
     return {
       thList,
       isVirtual,
-      global,
+      globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
       tableWidth,
@@ -270,6 +276,10 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
+    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
+    if (columnResizable && this.tableLayout === 'auto') {
+      log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
+    }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     /**
@@ -304,7 +314,9 @@ export default defineComponent({
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
             {columns.map((col) => {
-              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              const style: Styles = {
+                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+              };
               if (col.minWidth) {
                 style.minWidth = formatCSSUnit(col.minWidth);
               }
@@ -360,7 +372,9 @@ export default defineComponent({
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
             <colgroup>
               {columns.map((col) => {
-                const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+                const style: Styles = {
+                  width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+                };
                 if (col.minWidth) {
                   style.minWidth = formatCSSUnit(col.minWidth);
                 }
@@ -426,7 +440,9 @@ export default defineComponent({
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           <colgroup>
             {columns.map((col) => {
-              const style: Styles = { width: formatCSSUnit(col.width) || defaultColWidth };
+              const style: Styles = {
+                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+              };
               if (col.minWidth) {
                 style.minWidth = formatCSSUnit(col.minWidth);
               }
@@ -441,6 +457,7 @@ export default defineComponent({
             bordered={this.bordered}
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
+            thWidthList={this.thWidthList}
             resizable={this.resizable}
             columnResizeParams={this.columnResizeParams}
           />

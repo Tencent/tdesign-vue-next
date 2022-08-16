@@ -53,7 +53,7 @@ export default defineComponent({
   setup(props) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
-    const { global } = useConfig('form');
+    const { globalConfig } = useConfig('form');
     const form = inject(FormInjectionKey, undefined);
 
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
@@ -61,7 +61,8 @@ export default defineComponent({
     const needRequiredMark = computed(() => {
       const { requiredMark } = props;
       if (typeof requiredMark === 'boolean') return requiredMark;
-      const parentRequiredMark = form?.requiredMark === undefined ? global.value.requiredMark : form?.requiredMark;
+      const parentRequiredMark =
+        form?.requiredMark === undefined ? globalConfig.value.requiredMark : form?.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
       return Boolean(parentRequiredMark && isRequired);
     });
@@ -203,7 +204,7 @@ export default defineComponent({
       }
     };
 
-    const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? global.value.errorMessage);
+    const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? globalConfig.value.errorMessage);
     const innerRules = computed<FormRule[]>(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];

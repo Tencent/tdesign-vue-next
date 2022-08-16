@@ -34,7 +34,7 @@ export default defineComponent({
   setup(props) {
     const { steps, value, format, position, triggerScroll } = toRefs(props);
 
-    const { global } = useConfig('timePicker');
+    const { globalConfig } = useConfig('timePicker');
 
     const { classPrefix } = useConfig();
 
@@ -326,7 +326,7 @@ export default defineComponent({
                   ? TWELVE_HOUR_FORMAT.test(format.value) && el === '00'
                     ? '12'
                     : el
-                  : global.value[el === AM ? 'anteMeridiem' : 'postMeridiem']}
+                  : globalConfig.value[el === AM ? 'anteMeridiem' : 'postMeridiem']}
               </li>
             ))}
           </ul>

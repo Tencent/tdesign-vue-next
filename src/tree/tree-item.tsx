@@ -30,7 +30,7 @@ export default defineComponent({
 
     const CLASS_NAMES = useCLASSNAMES();
 
-    const { global } = useConfig('tree');
+    const { globalConfig } = useConfig('tree');
 
     const handleClick = (evt: MouseEvent) => {
       const { node } = props;
@@ -190,8 +190,8 @@ export default defineComponent({
 
     const renderIcon = () => {
       const getFolderIcon = () => {
-        if (isFunction(global.value.folderIcon)) {
-          return global.value.folderIcon(h);
+        if (isFunction(globalConfig.value.folderIcon)) {
+          return globalConfig.value.folderIcon(h);
         }
         return <CaretRightSmallIcon />;
       };
