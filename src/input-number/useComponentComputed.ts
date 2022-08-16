@@ -66,6 +66,10 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
     props.onBlur?.(innerValue.value, { e });
   };
 
+  const handleEnter = (e: KeyboardEvent) => {
+    props.onEnter?.(innerValue.value, { e });
+  };
+
   const handleFocus = (e: FocusEvent) => {
     handleStartInput();
     props.onFocus?.(innerValue.value, { e });
@@ -105,6 +109,9 @@ export default function useComponentComputed(COMPONENT_NAME: Ref<string>, props:
     },
     onKeypress: (inputValue: InputValue, { e }: { e: KeyboardEvent }) => {
       keyboardEvents.handleKeypress(e);
+    },
+    onEnter: (inputValue: InputValue, { e }: { e: KeyboardEvent }) => {
+      handleEnter(e);
     },
   }));
 

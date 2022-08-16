@@ -40,6 +40,10 @@ export interface TdPopupProps {
    */
   overlayClassName?: ClassName;
   /**
+   * 浮层内容部分类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`
+   */
+  overlayInnerClassName?: ClassName;
+  /**
    * 浮层内容部分样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点
    */
   overlayInnerStyle?: Styles | ((triggerElement: HTMLElement, popupElement: HTMLElement) => Styles);

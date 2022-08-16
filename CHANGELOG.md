@@ -5,6 +5,49 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.1 `2022-08-16` 
+### 🚀 Features
+- `Popup`: 新增 `overlayInnerClassName` 支持设置浮层内容样式名 @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
+### 🐞 Bug Fixes
+- `Menu`: 修复下拉样式问题 ([issue #1429](https://github.com/Tencent/tdesign-vue-next/issues/1429)) @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
+- `DatePicker`: 修复有值时面板切换失效问题 @HQ-Lin ([#1425](https://github.com/Tencent/tdesign-vue-next/pull/1425))
+
+## 🌈 0.20.0 `2022-08-15` 
+### ❗️ BREAKING CHANGES
+-  `Popup`: `overlayStyle` 调整为控制 `t-popup` 层级，新增 `overlayInnerStyle` 控制 `t-popup__content` 层级与原先 `overlayStyle` 效果一致。@HQ-Lin ([#1383](https://github.com/Tencent/tdesign-vue-next/pull/1383))
+### 🚀 Features
+- `Icon`: 新增`qq`、`wechat`、`wecom`、`relativity`和`pin-filled`等图标 @uyarn ([#1382](https://github.com/Tencent/tdesign-vue-next/pull/1382))
+- `Table`: 可编辑行功能，校验函数 `validateRowData` 和 `validateTableData` 返回值支持 `Promise` 对象 @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
+- `Table`: 增加 `footerSummary` 到 `props` @chaishi ([#1371](https://github.com/Tencent/tdesign-vue-next/pull/1371))
+- `DatePicker`: 支持季度国际化配置 @HQ-Lin ([#1379](https://github.com/Tencent/tdesign-vue-next/pull/1379))
+- `Link`: 新增 `Link` 组件 @huoyuhao ([#1391](https://github.com/Tencent/tdesign-vue-next/pull/1391))
+### 🐞 Bug Fixes
+- `Table`: 可编辑单元格，多选和日期选择，点击下拉浮层中的内容会导致退出编辑，[tdesign-vue-next#issue1384](https://github.com/Tencent/tdesign-vue-next/issues/1384) @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
+- `DatePicker`: 修复下拉样式问题  @HQ-Lin ([#1397](https://github.com/Tencent/tdesign-vue-next/pull/1397))
+- `Menu`: 修复在 `nuxt3` 里面鼠标悬浮或者点击子菜单不出现 元素代码里面出现一瞬间就消失了 ([issue #937](https://github.com/Tencent/tdesign-vue-next/issues/937)) @zhangpaopao0609 ([#1400](https://github.com/Tencent/tdesign-vue-next/pull/1400))
+- `Menu`: `t-menu-item` 大于 `8` 个将会溢出 @zhangpaopao0609 ([#1377](https://github.com/Tencent/tdesign-vue-next/pull/1377))
+- `Tabs`: 修复 `Tabs` 选项卡在 `nuxt3 ssr` 应用中报错 `window is not defined` ([issue #1262](https://github.com/Tencent/tdesign-vue-next/issues/1262)) @zhangpaopao0609 ([#1398](https://github.com/Tencent/tdesign-vue-next/pull/1398))
+- `Table`: 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
+- `SelectInput`: 修复属性 `props.readonly = true` 或 `props.allowInput = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `SelectInput`: 修复当 `readonly` 或 `disabled` 属性为  `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `SelectInput`: 修复同时开启 `readonly` 和 `allowInput` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `SelectInput`: 修复在 `Form` 组件中使用禁用态表单不生效的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Select`: 修复属性 `props.readonly = true` 或 `props.filterable = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Select`: 修复当 `readonly` 或 `disabled` 属性为 `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Select`: 修复同时开启 `readonly` 和 `filterable` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Input`: 修复在表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Cascader`: 修复在表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `Table`: 宽度计算函数添加注释 @ZTao-z ([#1413](https://github.com/Tencent/tdesign-vue-next/pull/1413))
+- `Popup`: 修复嵌套使用点击 trigger 元素时异常关闭 ([issue #1227](https://github.com/Tencent/tdesign-vue-next/issues/1227)) @ikeq ([#1419](https://github.com/Tencent/tdesign-vue-next/pull/1419))
+- `Transfer`: 穿梭框 `checked` 和 `value` 的值不在 `data` 时会报错 ([issue #1404](https://github.com/Tencent/tdesign-vue-next/issues/1404)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `Upload`: `size-limit ` 使用 `MB` 以上单位时校验错误 ([issue #1386](https://github.com/Tencent/tdesign-vue-next/issues/1386)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `Dialog`: 对话框 `footer` 不显示情况下，`body padding` 与 `dialog padding` 冲突 ([issue #1380](https://github.com/Tencent/tdesign-vue-next/issues/1380)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `Tree`: 组件实例方法 `setItem` 参数错误 ([issue #1410](https://github.com/Tencent/tdesign-vue-next/issues/1410)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `SelectInput`: 外部传入 `style` 无法透传到 `Input` ([issue #1385](https://github.com/Tencent/tdesign-vue-next/issues/1385)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `InputNumber`: 修复无法触发 `onEnter` 方法 ([issue #1396](https://github.com/Tencent/tdesign-vue-next/issues/1396)) ([issue #1352](https://github.com/Tencent/tdesign-vue-next/issues/1352)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `Table`: 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
+- `Nuxt3`: 修复因 `nuxt3` 将 `global `作为关键词，编译为 `globalThis` 导致的组件运行错误 ([issue #1388](https://github.com/Tencent/tdesign-vue-next/issues/1388)) ([issue #1361](https://github.com/Tencent/tdesign-vue-next/issues/1361))([issue #988](https://github.com/Tencent/tdesign-vue-next/issues/988)) @zhangpaopao0609 ([#1401](https://github.com/Tencent/tdesign-vue-next/pull/1401))
+
 ## 🌈 0.19.1 `2022-08-09` 
 ### 🚀 Features
 - `DatePicker`: 支持周、季度选择器 @HQ-Lin ([#1336](https://github.com/Tencent/tdesign-vue-next/pull/1336))

@@ -302,6 +302,7 @@ export default defineComponent({
       );
       const bodyClassName =
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -323,7 +324,7 @@ export default defineComponent({
                 </span>
               ) : null}
               <div class={bodyClassName}>{body}</div>
-              <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+              {footerContent && <div class={`${COMPONENT_NAME.value}__footer`}>{footerContent}</div>}
             </div>
           </div>
         </div>
