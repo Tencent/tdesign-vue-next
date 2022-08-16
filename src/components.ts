@@ -29,6 +29,7 @@ export * from './input-adornment';
 export * from './input';
 export * from './input-number';
 export * from './radio';
+export * from './search';
 export * from './select';
 export * from './slider';
 export * from './switch';

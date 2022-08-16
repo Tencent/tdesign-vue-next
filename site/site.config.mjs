@@ -237,6 +237,12 @@ export default {
           component: () => import('@/examples/range-input/range-input.md'),
         },
         {
+          title: 'Search 搜索',
+          name: 'search',
+          path: '/vue-next/components/search',
+          component: () => import('@/examples/search/search.md'),
+        },
+        {
           title: 'Select 选择器',
           name: 'select',
           path: '/vue-next/components/select',
