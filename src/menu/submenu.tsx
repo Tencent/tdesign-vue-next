@@ -211,7 +211,7 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={[...this.popupClass]}
+          overlayInnerClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
           overlayInnerStyle={overlayInnerStyle}
@@ -241,7 +241,7 @@ export default defineComponent({
         icon,
         <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={this.arrowClass}
+          overlayInnerClassName={this.arrowClass}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
         />,
       ];
@@ -270,7 +270,7 @@ export default defineComponent({
           <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
           {hasContent && (
             <FakeArrow
-              overlayClassName={this.arrowClass}
+              overlayInnerClassName={this.arrowClass}
               overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
             />
           )}
@@ -284,7 +284,7 @@ export default defineComponent({
         icon,
         <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={this.arrowClass}
+          overlayInnerClassName={this.arrowClass}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
         />,
       ];
