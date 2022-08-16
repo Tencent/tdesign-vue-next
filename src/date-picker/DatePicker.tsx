@@ -1,4 +1,4 @@
-import { defineComponent, watchEffect, computed } from 'vue';
+import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { usePrefixClass } from '../hooks/useConfig';
 
@@ -48,9 +48,9 @@ export default defineComponent({
       }),
     );
 
-    watchEffect(() => {
+    watch(popupVisible, (visible) => {
       // 面板展开重置数据
-      if (popupVisible.value) {
+      if (visible) {
         year.value = parseToDayjs(value.value || new Date(), formatRef.value.format).year();
         month.value = parseToDayjs(value.value || new Date(), formatRef.value.format).month();
         time.value = formatTime(value.value || new Date(), formatRef.value.timeFormat);

@@ -1,4 +1,4 @@
-import { defineComponent, watchEffect, computed, ref } from 'vue';
+import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -53,9 +53,9 @@ export default defineComponent({
     // 记录面板是否选中过
     const isSelected = ref(false);
 
-    watchEffect(() => {
+    watch(popupVisible, (visible) => {
       // 面板展开重置数据
-      if (popupVisible.value) {
+      if (visible) {
         isSelected.value = false;
         isFirstValueSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {

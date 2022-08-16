@@ -5,6 +5,13 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.1 `2022-08-16` 
+### 🚀 Features
+- `Popup`: 新增 `overlayInnerClassName` 支持设置浮层内容样式名 @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
+### 🐞 Bug Fixes
+- `Menu`: 修复下拉样式问题 ([issue #1429](https://github.com/Tencent/tdesign-vue-next/issues/1429)) @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
+- `DatePicker`: 修复有值时面板切换失效问题 @HQ-Lin ([#1425](https://github.com/Tencent/tdesign-vue-next/pull/1425))
+
 ## 🌈 0.20.0 `2022-08-15` 
 ### ❗️ BREAKING CHANGES
 -  `Popup`: `overlayStyle` 调整为控制 `t-popup` 层级，新增 `overlayInnerStyle` 控制 `t-popup__content` 层级与原先 `overlayStyle` 效果一致。@HQ-Lin ([#1383](https://github.com/Tencent/tdesign-vue-next/pull/1383))
