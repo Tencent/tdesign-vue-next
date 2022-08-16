@@ -211,7 +211,7 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={[...this.popupClass]}
+          overlayInnerClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
           overlayInnerStyle={overlayInnerStyle}

@@ -52,6 +52,7 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
       if (!tooltipProps?.placement) {
         normalizeProps.value.placement = placement;
       }
+      // @ts-ignore
       return { ...normalizeProps.value, ...tooltipProps, content };
     }
     return { ...normalizeProps.value, placement, content };

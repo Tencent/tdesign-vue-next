@@ -399,7 +399,7 @@ export default defineComponent({
           })}
         >
           <div
-            class={this.overlayCls}
+            class={[this.overlayCls, this.overlayInnerClassName]}
             ref="overlayEl"
             {...(onScroll && {
               onScroll(e: WheelEvent) {
