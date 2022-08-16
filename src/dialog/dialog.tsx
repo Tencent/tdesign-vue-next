@@ -134,7 +134,7 @@ export default defineComponent({
         `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
       ];
     });
-    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
+    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`, 'narrow-scrollbar']);
 
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
@@ -175,6 +175,8 @@ export default defineComponent({
                   mousePosition.y - dialogEle.value.offsetTop
                 }px`;
               }
+              // 清楚已选择鼠标焦点 避免entry事件多次触发
+              (document.activeElement as HTMLElement).blur();
             });
           }
         } else {
@@ -198,8 +200,17 @@ export default defineComponent({
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
         document.addEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.addEventListener('keydown', keyboardEnterEvent);
       } else {
         document.removeEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
+      }
+    };
+    // 回车出发确认事件
+    const keyboardEnterEvent = (e: KeyboardEvent) => {
+      const { code } = e;
+      if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
+        props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {

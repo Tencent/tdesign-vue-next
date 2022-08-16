@@ -35764,7 +35764,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
         
         <!---->
         <div
-          class=""
+          class="narrow-scrollbar"
         >
           <div
             class=""
@@ -35840,7 +35840,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
         
         <!---->
         <div
-          class=""
+          class="narrow-scrollbar"
         >
           <div
             class=""
@@ -35928,7 +35928,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
         
         <!---->
         <div
-          class=""
+          class="narrow-scrollbar"
         >
           <div
             class=""
@@ -36016,7 +36016,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
         
         <!---->
         <div
-          class=""
+          class="narrow-scrollbar"
         >
           <div
             class=""
@@ -36104,7 +36104,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/dialog.vu
         
         <!---->
         <div
-          class=""
+          class="narrow-scrollbar"
         >
           <div
             class=""
@@ -44700,7 +44700,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/async.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -44872,7 +44872,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -44981,7 +44981,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--center"
@@ -45074,7 +45074,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/attach.vue 1`] = `
       class="t-dialog__mask"
     />
     <div
-      class="t-dialog__wrap"
+      class="t-dialog__wrap narrow-scrollbar"
     >
       <div
         class="t-dialog__position t-dialog--top"
@@ -45194,7 +45194,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/base.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45328,7 +45328,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45408,7 +45408,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45488,7 +45488,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/custom.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45620,7 +45620,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45714,7 +45714,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45803,7 +45803,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -45899,7 +45899,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class=""
+        class="narrow-scrollbar"
       >
         <div
           class=""
@@ -45992,7 +45992,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class=""
+        class="narrow-scrollbar"
       >
         <div
           class=""
@@ -46085,7 +46085,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class=""
+        class="narrow-scrollbar"
       >
         <div
           class=""
@@ -46178,7 +46178,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/icon.vue 1`] = `
       
       <!---->
       <div
-        class=""
+        class="narrow-scrollbar"
       >
         <div
           class=""
@@ -46369,7 +46369,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       
       <!---->
       <div
-        class=""
+        class="narrow-scrollbar"
       >
         <div
           class=""
@@ -46460,7 +46460,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -46554,7 +46554,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       
       <!---->
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -46798,7 +46798,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -46878,7 +46878,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--center"
@@ -46958,7 +46958,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -47039,7 +47039,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/position.vue 1`] =
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--center"
@@ -47365,7 +47365,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -47470,7 +47470,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -47575,7 +47575,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -47671,7 +47671,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -47767,7 +47767,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/warning.vue 1`] = 
         class="t-dialog__mask"
       />
       <div
-        class="t-dialog__wrap"
+        class="t-dialog__wrap narrow-scrollbar"
       >
         <div
           class="t-dialog__position t-dialog--top"
@@ -52260,7 +52260,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   class="t-dialog__mask"
                 />
                 <div
-                  class="t-dialog__wrap"
+                  class="t-dialog__wrap narrow-scrollbar"
                 >
                   <div
                     class="t-dialog__position t-dialog--top"
@@ -147748,7 +147748,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/custom-drag.vue 1`
           class="t-dialog__mask"
         />
         <div
-          class="t-dialog__wrap"
+          class="t-dialog__wrap narrow-scrollbar"
         >
           <div
             class="t-dialog__position t-dialog--top"
@@ -148365,7 +148365,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog__wrap"
+            class="t-dialog__wrap narrow-scrollbar"
           >
             <div
               class="t-dialog__position t-dialog--top"
@@ -148488,7 +148488,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog__wrap"
+            class="t-dialog__wrap narrow-scrollbar"
           >
             <div
               class="t-dialog__position t-dialog--top"
@@ -148611,7 +148611,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog__wrap"
+            class="t-dialog__wrap narrow-scrollbar"
           >
             <div
               class="t-dialog__position t-dialog--top"
@@ -148735,7 +148735,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/image.vue 1`] = `
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog__wrap"
+            class="t-dialog__wrap narrow-scrollbar"
           >
             <div
               class="t-dialog__position t-dialog--top"
@@ -148901,7 +148901,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/img-flow-list.vue 
           class="t-dialog__mask"
         />
         <div
-          class="t-dialog__wrap"
+          class="t-dialog__wrap narrow-scrollbar"
         >
           <div
             class="t-dialog__position t-dialog--top"
@@ -149228,7 +149228,7 @@ exports[`csr snapshot test > csr test ./examples/upload/demos/single-custom.vue 
             class="t-dialog__mask"
           />
           <div
-            class="t-dialog__wrap"
+            class="t-dialog__wrap narrow-scrollbar"
           >
             <div
               class="t-dialog__position t-dialog--top"
