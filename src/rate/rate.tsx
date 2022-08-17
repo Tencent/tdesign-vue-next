@@ -29,8 +29,9 @@ export default defineComponent({
     // 评分图标
     const RateIcon = (iconProps: any) => {
       if (slots.icon !== undefined) {
-        const CustomRateIcon = renderTNodeJSX('icon')[0];
-        return <CustomRateIcon {...iconProps} />;
+        return renderTNodeJSX('icon', {
+          params: iconProps,
+        });
       }
 
       return <StarFilledIcon {...iconProps} />;

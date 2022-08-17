@@ -570,7 +570,6 @@ module.exports = {
       `,
     },
   },
-
   dialog: {
     panelStr: `const panelList = [{label: 'dialog', value: 'dialog'}];`,
     script: `
