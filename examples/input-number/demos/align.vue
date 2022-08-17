@@ -1,14 +1,14 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <div style="width: 20%">
-      <t-input-number :default-value="100" align="left" style="width: 120px" />
-      <t-input-number :default-value="200" align="center" style="width: 120px" />
-      <t-input-number :default-value="300" align="right" style="width: 120px" />
-    </div>
-    <div style="width: 20%">
-      <t-input-number :default-value="100" align="left" theme="normal" style="width: 120px" />
-      <t-input-number :default-value="200" align="center" theme="normal" style="width: 120px" />
-      <t-input-number :default-value="300" align="right" theme="normal" style="width: 120px" />
-    </div>
-  </div>
+  <t-space>
+    <t-space direction="vertical">
+      <t-input-number :default-value="100" align="left" />
+      <t-input-number :default-value="200" align="center" />
+      <t-input-number :default-value="300" align="right" />
+    </t-space>
+    <t-space direction="vertical" style="margin-left: 100px">
+      <t-input-number :default-value="100" align="left" theme="normal" />
+      <t-input-number :default-value="200" align="center" theme="normal" />
+      <t-input-number :default-value="300" align="right" theme="normal" />
+    </t-space>
+  </t-space>
 </template>

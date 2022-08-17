@@ -17,6 +17,10 @@ export default {
       return ['left', 'center', 'right'].includes(val);
     },
   },
+  /** 超出maxlength或maxcharacter之后是否还允许输入 */
+  allowInputOverMax: Boolean,
+  /** 宽度随内容自适应 */
+  autoWidth: Boolean,
   /** 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
   autocomplete: {
     type: String,
@@ -24,8 +28,6 @@ export default {
   },
   /** 自动聚焦 */
   autofocus: Boolean,
-  /** 宽度随内容自适应 */
-  autoWidth: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
@@ -68,6 +70,8 @@ export default {
   readonly: Boolean,
   /** 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 */
   showClearIconOnEmpty: Boolean,
+  /** 是否在右侧显示字数限制文本 */
+  showLimitNumber: Boolean,
   /** 输入框尺寸 */
   size: {
     type: String as PropType<TdInputProps['size']>,
@@ -80,7 +84,6 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
-    default: 'default' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
@@ -146,6 +149,8 @@ export default {
   onMouseleave: Function as PropType<TdInputProps['onMouseleave']>,
   /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
   onPaste: Function as PropType<TdInputProps['onPaste']>,
+  /** 字数超出限制时触发 */
+  onValidate: Function as PropType<TdInputProps['onValidate']>,
   /** 输入框中滚动鼠标时触发 */
   onWheel: Function as PropType<TdInputProps['onWheel']>,
 };

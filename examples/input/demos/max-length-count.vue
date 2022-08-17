@@ -1,13 +1,36 @@
 <template>
-  <div class="tdesign-demo-block-column" style="max-width: 500px">
-    <t-input v-model="input" :maxlength="5" :suffix="suffix" />
-  </div>
+  <t-space direction="vertical" class="t-demo__input-status" style="max-width: 500px">
+    <!-- 内置 -->
+    <t-input v-model="input1" :maxlength="5" show-limit-number placeholder="内置字数限制" />
+
+    <t-input
+      v-model="input2"
+      :maxlength="5"
+      show-limit-number
+      allow-input-over-max
+      placeholder="字数超出时允许继续输入"
+      :tips="errorTips"
+      :status="errorTips ? 'error' : ''"
+      @validate="onValidate"
+    />
+
+    <!-- 自定义 -->
+    <t-input v-model="input3" :maxlength="5" :suffix="suffix" placeholder="自定义字数限制" />
+  </t-space>
 </template>
 <script setup>
 import { ref, computed } from 'vue';
 
-const input = ref('');
+const input1 = ref('');
+const input2 = ref('');
+const input3 = ref('');
+const errorTips = ref('');
+
 const suffix = computed(() => {
-  return `${input.value.length}/5`;
+  return `${input3.value.length}/5`;
 });
+
+const onValidate = ({ error }) => {
+  errorTips.value = error ? '字数已超出' : '';
+};
 </script>
