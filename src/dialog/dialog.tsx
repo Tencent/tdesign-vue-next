@@ -134,8 +134,7 @@ export default defineComponent({
         `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
       ];
     });
-    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`, 'narrow-scrollbar']);
-
+    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
