@@ -1,5 +1,6 @@
 import { ref, reactive, watch, toRefs, SetupContext, onMounted, computed, onBeforeMount, ComputedRef } from 'vue';
 import get from 'lodash/get';
+import debounce from 'lodash/debounce';
 import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
@@ -293,11 +294,11 @@ export default function useFixed(
   };
 
   let shadowLastScrollLeft: number;
-  const updateColumnFixedShadow = (target: HTMLElement) => {
+  const updateColumnFixedShadow = (target: HTMLElement, extra?: { skipScrollLimit?: boolean }) => {
     if (!isFixedColumn.value || !target) return;
     const { scrollLeft } = target;
     // 只有左右滚动，需要更新固定列阴影
-    if (shadowLastScrollLeft === scrollLeft) return;
+    if (shadowLastScrollLeft === scrollLeft && (!extra || !extra.skipScrollLimit)) return;
     shadowLastScrollLeft = scrollLeft;
     const isShowRight = target.clientWidth + scrollLeft < target.scrollWidth;
     showColumnShadow.left = scrollLeft > 0;
@@ -464,15 +465,15 @@ export default function useFixed(
     { immediate: true },
   );
 
-  const refreshTable = () => {
+  const refreshTable = debounce(() => {
     updateTableWidth();
     updateFixedHeader();
     updateThWidthListHandler();
     if (isFixedColumn.value || isFixedHeader.value) {
       updateFixedStatus();
-      updateColumnFixedShadow(tableContentRef.value);
+      updateColumnFixedShadow(tableContentRef.value, { skipScrollLimit: true });
     }
-  };
+  }, 30);
 
   const onResize = refreshTable;
 
@@ -486,15 +487,14 @@ export default function useFixed(
       }
       clearTimeout(timer);
     });
-    if (isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value) {
+    const isWatchResize = isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value || !data.value.length;
+    if (isWatchResize) {
       on(window, 'resize', onResize);
     }
   });
 
   onBeforeMount(() => {
-    if (isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value) {
-      off(window, 'resize', onResize);
-    }
+    off(window, 'resize', onResize);
   });
 
   const setData = (dataSource: TableRowData[]) => {
