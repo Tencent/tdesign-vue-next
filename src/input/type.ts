@@ -18,6 +18,11 @@ export interface TdInputProps {
    */
   allowInputOverMax?: boolean;
   /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
+  /**
    * 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
    */
   autocomplete?: string;
@@ -27,18 +32,12 @@ export interface TdInputProps {
    */
   autofocus?: boolean;
   /**
-   * 宽度随内容自适应
-   * @default false
-   */
-  autoWidth?: boolean;
-  /**
    * 是否可清空
    * @default false
    */
   clearable?: boolean;
   /**
    * 是否禁用输入框
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -85,13 +84,17 @@ export interface TdInputProps {
    */
   showClearIconOnEmpty?: boolean;
   /**
+   * 是否在右侧显示字数限制文本
+   * @default false
+   */
+  showLimitNumber?: boolean;
+  /**
    * 输入框尺寸
    * @default medium
    */
   size?: SizeEnum;
   /**
    * 输入框状态
-   * @default default
    */
   status?: 'default' | 'success' | 'warning' | 'error';
   /**
@@ -175,6 +178,10 @@ export interface TdInputProps {
    * 粘贴事件，`pasteValue` 表示粘贴板的内容
    */
   onPaste?: (context: { e: ClipboardEvent; pasteValue: string }) => void;
+  /**
+   * 字数超出限制时触发
+   */
+  onValidate?: (context: { error?: 'exceed-maximum' | 'below-minimum' }) => void;
   /**
    * 输入框中滚动鼠标时触发
    */

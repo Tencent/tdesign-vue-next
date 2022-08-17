@@ -18134,7 +18134,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -18183,7 +18183,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -28035,7 +28035,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-input--prefix t-input--auto-width"
+            class="t-input t-input--prefix t-input--auto-width"
           >
             <!---->
             <div
@@ -28092,7 +28092,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-input--prefix t-input--auto-width"
+            class="t-input t-input--prefix t-input--auto-width"
           >
             <!---->
             <div
@@ -28153,7 +28153,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-input--prefix t-input--auto-width"
+            class="t-input t-input--prefix t-input--auto-width"
           >
             <!---->
             <div
@@ -28413,7 +28413,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -28429,6 +28429,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -28446,7 +28447,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -28462,6 +28463,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -28479,7 +28481,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -28495,6 +28497,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -28512,7 +28515,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -28528,6 +28531,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -29326,7 +29330,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -29342,6 +29346,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -29359,7 +29364,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -29375,6 +29380,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -29392,7 +29398,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default t-align-center"
+                    class="t-input t-align-center"
                   >
                     <!---->
                     <!---->
@@ -29408,6 +29414,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -30216,7 +30223,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -30232,6 +30239,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -30249,7 +30257,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -30265,6 +30273,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -30282,7 +30291,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -30298,6 +30307,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -31222,7 +31232,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -31238,6 +31248,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -31255,7 +31266,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -31271,6 +31282,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -31288,7 +31300,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -31304,6 +31316,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -31877,7 +31890,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-disab
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-disabled t-is-default t-input--prefix t-input--auto-width"
+          class="t-input t-is-disabled t-input--prefix t-input--auto-width"
         >
           <!---->
           <div
@@ -32119,7 +32132,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-disabled t-is-default t-align-center"
+                    class="t-input t-is-disabled t-align-center"
                   >
                     <!---->
                     <!---->
@@ -32136,6 +32149,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -32153,7 +32167,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-disabled t-is-default t-align-center"
+                    class="t-input t-is-disabled t-align-center"
                   >
                     <!---->
                     <!---->
@@ -32170,6 +32184,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -32187,7 +32202,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-disabled t-is-default t-align-center"
+                    class="t-input t-is-disabled t-align-center"
                   >
                     <!---->
                     <!---->
@@ -32204,6 +32219,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
             </div>
@@ -33012,7 +33028,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33028,6 +33044,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33045,7 +33062,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33061,6 +33078,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33078,7 +33096,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33094,6 +33112,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33440,7 +33459,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33456,6 +33475,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33473,7 +33493,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33489,6 +33509,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33506,7 +33527,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     unselectable="off"
                   >
                     <div
-                      class="t-input t-is-default t-align-center"
+                      class="t-input t-align-center"
                     >
                       <!---->
                       <!---->
@@ -33522,6 +33543,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                     </div>
                     <!---->
                   </div>
+                  <!---->
                   <!---->
                 </div>
               </div>
@@ -33597,7 +33619,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/trigger.vue 
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default t-input--prefix t-input--auto-width"
+          class="t-input t-input--prefix t-input--auto-width"
         >
           <!---->
           <div
@@ -36234,7 +36256,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -36286,7 +36308,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -36386,7 +36408,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -36971,7 +36993,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -38151,7 +38173,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -38167,6 +38189,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
             </div>
             <!---->
           </div>
+          <!---->
           <!---->
         </div>
         <span
@@ -39287,7 +39310,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -39313,7 +39336,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -39381,7 +39404,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -39407,7 +39430,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -39485,7 +39508,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -39509,7 +39532,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -39575,7 +39598,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -39599,7 +39622,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -40087,7 +40110,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -40113,7 +40136,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -40488,7 +40511,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -40512,7 +40535,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44270,7 +44293,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44294,7 +44317,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44426,7 +44449,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44450,7 +44473,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44582,7 +44605,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -44606,7 +44629,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -48700,7 +48723,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
             data-v-0aadc15c=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -48730,7 +48753,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
             data-v-0aadc15c=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -48760,7 +48783,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
             data-v-0aadc15c=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -49893,7 +49916,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
             data-v-9f2cf57a=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -49944,7 +49967,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
             data-v-9f2cf57a=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -50070,7 +50093,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -50119,7 +50142,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -50463,7 +50486,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -50518,7 +50541,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -50573,7 +50596,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -50645,7 +50668,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -50980,7 +51003,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -51031,7 +51054,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
             data-v-d73f2e70=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -51178,7 +51201,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -51227,7 +51250,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -51301,7 +51324,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -51467,7 +51490,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-disabled t-is-default"
+              class="t-input t-is-disabled"
             >
               <!---->
               <!---->
@@ -52116,7 +52139,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               unselectable="off"
             >
               <div
-                class="t-input t-is-disabled t-is-default"
+                class="t-input t-is-disabled"
               >
                 <!---->
                 <!---->
@@ -52133,6 +52156,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               </div>
               <!---->
             </div>
+            <!---->
             <!---->
           </div>
           
@@ -52489,7 +52513,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -52544,7 +52568,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -52599,7 +52623,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -52671,7 +52695,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -52986,7 +53010,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -53037,7 +53061,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
             data-v-0ef92f00=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -53236,7 +53260,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
             data-v-9c22f148=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -53286,7 +53310,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
             data-v-9c22f148=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -53359,7 +53383,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix"
+              class="t-input t-input--prefix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -53416,7 +53440,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix t-input--suffix"
+              class="t-input t-input--prefix t-input--suffix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -53619,7 +53643,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -53668,7 +53692,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -53953,7 +53977,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -54002,7 +54026,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -54532,7 +54556,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                     class="t-input__wrap"
                   >
                     <div
-                      class="t-input t-is-default"
+                      class="t-input"
                     >
                       <!---->
                       <!---->
@@ -54908,7 +54932,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                     class="t-input__wrap"
                   >
                     <div
-                      class="t-input t-is-default"
+                      class="t-input"
                     >
                       <!---->
                       <!---->
@@ -55290,7 +55314,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -55343,7 +55367,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -55396,7 +55420,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -55551,7 +55575,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -55606,7 +55630,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -55661,7 +55685,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -55733,7 +55757,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -55788,7 +55812,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-remove t-size-m"
                 fill="none"
@@ -55804,14 +55827,13 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               </svg>
               
               
-              
             </button>
             <div
               class="t-input__wrap"
               unselectable="off"
             >
               <div
-                class="t-input t-is-default t-align-center"
+                class="t-input t-align-center"
               >
                 <!---->
                 <!---->
@@ -55832,7 +55854,6 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-add t-size-m"
                 fill="none"
@@ -55848,8 +55869,8 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               </svg>
               
               
-              
             </button>
+            <!---->
           </div>
           
           <!---->
@@ -56169,7 +56190,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56220,7 +56241,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
             data-v-01218810=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56419,7 +56440,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56468,7 +56489,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56517,7 +56538,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56566,7 +56587,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56615,7 +56636,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56664,7 +56685,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56713,7 +56734,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56797,7 +56818,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -56859,7 +56880,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -59033,7 +59054,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -59058,7 +59079,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -59091,7 +59112,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -59124,7 +59145,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59143,7 +59164,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-align-center"
+      class="t-input t-align-center"
     >
       <!---->
       <!---->
@@ -59162,7 +59183,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-align-right"
+      class="t-input t-align-right"
     >
       <!---->
       <!---->
@@ -59189,7 +59210,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/auto-width.vue 1`] 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--auto-width"
+      class="t-input t-input--auto-width"
     >
       <!---->
       <!---->
@@ -59220,7 +59241,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59239,7 +59260,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59258,7 +59279,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -59276,6 +59297,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
         class="t-input__suffix"
       >
         元
+        <!---->
       </div>
       <!---->
     </div>
@@ -59293,7 +59315,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/clearable.vue 1`] =
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59320,7 +59342,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/focus.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59380,7 +59402,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         style="width: 100px;"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59399,7 +59421,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59426,7 +59448,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59445,7 +59467,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59472,7 +59494,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59491,7 +59513,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59519,7 +59541,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         style="width: 100px;"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59544,7 +59566,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         style="width: 100px;"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59564,7 +59586,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         style="width: 100px;"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59584,7 +59606,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
         style="width: 100px;"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -59607,33 +59629,114 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/input/demos/max-length-count.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
-  style="max-width: 500px;"
+  class="t-space t-space-vertical t-demo__input-status"
+  style="gap: 16px; max-width: 500px;"
 >
+  
+  
   <div
-    class="t-input__wrap"
+    class="t-space-item"
   >
     <div
-      class="t-input t-is-default t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        maxlength="5"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
       <div
-        class="t-input__suffix"
+        class="t-input t-input--suffix"
       >
-        0/5
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          maxlength="5"
+          placeholder="内置字数限制"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          <!---->
+          <div
+            class="t-input__limit-number"
+          >
+            0/5
+          </div>
+        </div>
+        <!---->
       </div>
       <!---->
     </div>
-    <!---->
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="字数超出时允许继续输入"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          <!---->
+          <div
+            class="t-input__limit-number"
+          >
+            0/5
+          </div>
+        </div>
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          maxlength="5"
+          placeholder="自定义字数限制"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          0/5
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -59646,7 +59749,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -59710,7 +59813,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -59779,7 +59882,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-size-l t-is-default"
+      class="t-input t-size-l"
     >
       <!---->
       <!---->
@@ -59798,7 +59901,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -59817,7 +59920,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-size-s t-is-default"
+      class="t-input t-size-s"
     >
       <!---->
       <!---->
@@ -59837,220 +59940,332 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
-  style="max-width: 500px;"
+  class="t-space t-space-horizontal t-demo__input-status"
+  style="gap: 16px; max-width: 500px;"
 >
+  
+  
   <div
-    class="t-input__wrap"
+    class="t-space-item"
   >
     <div
-      class="t-input t-is-disabled t-is-default"
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
     >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-disabled"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              disabled=""
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-readonly"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              readonly=""
+              type="text"
+              unselectable="on"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
-      <input
-        class="t-input__inner"
-        disabled=""
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
+      
+      
     </div>
-    <!---->
   </div>
+  <!---->
+  
+  
   <div
-    class="t-input__wrap"
+    class="t-space-item"
   >
     <div
-      class="t-input t-is-default t-is-readonly"
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
     >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-success"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-warning"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-error"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
       <!---->
-      <!---->
+      
+      
     </div>
-    <!---->
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-input__wrap"
+    class="t-space-item"
   >
     <div
-      class="t-input t-is-default"
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
     >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="t-input__tips t-input__tips--normal"
+          >
+            这是普通文本提示
+          </div>
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-success"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="t-input__tips t-input__tips--success"
+          >
+            校验通过文本提示
+          </div>
+        </div>
+      </div>
       <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-warning"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="t-input__tips t-input__tips--warning"
+          >
+            校验不通过文本提示
+          </div>
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-input__wrap"
+        >
+          <div
+            class="t-input t-is-error"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="t-input__tips t-input__tips--error"
+          >
+            校验存在严重问题文本提示
+          </div>
+        </div>
+      </div>
       <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-success"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-warning"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-error"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <br />
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-default"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-input__tips t-input__tips--default"
-    >
-      这是普通文本提示
-    </div>
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-success"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-input__tips t-input__tips--success"
-    >
-      校验通过文本提示
-    </div>
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-warning"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-input__tips t-input__tips--warning"
-    >
-      校验不通过文本提示
+      
+      
     </div>
   </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-error"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-input__tips t-input__tips--error"
-    >
-      校验存在严重问题文本提示
-    </div>
-  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -60149,7 +60364,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -60459,7 +60674,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -60526,7 +60741,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -60552,316 +60767,369 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    style="width: 20%;"
+    class="t-space-item"
   >
     <div
-      class="t-input-number t-size-m t-input-number--row"
-      style="width: 120px;"
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-remove t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M3.5 7.35h9v1.3h-9v-1.3z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input-number t-size-m t-input-number--row"
         >
-          <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
-          <!---->
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-remove t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M3.5 7.35h9v1.3h-9v-1.3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-add t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
           <!---->
         </div>
-        <!---->
       </div>
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-add t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="t-input-number t-size-m t-input-number--row"
-      style="width: 120px;"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-remove t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M3.5 7.35h9v1.3h-9v-1.3z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+      <!---->
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default t-align-center"
+          class="t-input-number t-size-m t-input-number--row"
         >
-          <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
-          <!---->
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-remove t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M3.5 7.35h9v1.3h-9v-1.3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input t-align-center"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-add t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
           <!---->
         </div>
-        <!---->
       </div>
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-add t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="t-input-number t-size-m t-input-number--row"
-      style="width: 120px;"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-remove t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M3.5 7.35h9v1.3h-9v-1.3z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+      <!---->
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default t-align-right"
+          class="t-input-number t-size-m t-input-number--row"
         >
-          <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
-          <!---->
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-remove t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M3.5 7.35h9v1.3h-9v-1.3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input t-align-right"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+            type="button"
+          >
+            
+            <svg
+              class="t-icon t-icon-add t-size-m"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+            
+          </button>
           <!---->
         </div>
-        <!---->
       </div>
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-        type="button"
-      >
-        
-        
-        <svg
-          class="t-icon t-icon-add t-size-m"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    style="width: 20%;"
+    class="t-space-item"
   >
     <div
-      class="t-input-number t-size-m t-input-number--normal"
-      style="width: 120px;"
+      class="t-space t-space-vertical"
+      style="gap: 16px; margin-left: 100px;"
     >
-      <!---->
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input-number t-size-m t-input-number--normal"
         >
           <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
           <!---->
           <!---->
         </div>
-        <!---->
       </div>
       <!---->
-    </div>
-    <div
-      class="t-input-number t-size-m t-input-number--normal"
-      style="width: 120px;"
-    >
-      <!---->
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default t-align-center"
+          class="t-input-number t-size-m t-input-number--normal"
         >
           <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input t-align-center"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
           <!---->
           <!---->
         </div>
-        <!---->
       </div>
       <!---->
-    </div>
-    <div
-      class="t-input-number t-size-m t-input-number--normal"
-      style="width: 120px;"
-    >
-      <!---->
+      
+      
       <div
-        class="t-input__wrap"
-        unselectable="off"
+        class="t-space-item"
       >
         <div
-          class="t-input t-is-default t-align-right"
+          class="t-input-number t-size-m t-input-number--normal"
         >
           <!---->
-          <!---->
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
+          <div
+            class="t-input__wrap"
+            unselectable="off"
+          >
+            <div
+              class="t-input t-align-right"
+            >
+              <!---->
+              <!---->
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
           <!---->
           <!---->
         </div>
-        <!---->
       </div>
       <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -60874,7 +61142,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-m"
@@ -60891,14 +61158,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center t-input--auto-width"
+        class="t-input t-align-center t-input--auto-width"
       >
         <!---->
         <!---->
@@ -60923,7 +61189,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-add t-size-m"
         fill="none"
@@ -60939,85 +61204,255 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-input-number t-size-m t-input-number--row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-remove t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M3.5 7.35h9v1.3h-9v-1.3z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
     <div
-      class="t-input__wrap"
-      unselectable="off"
+      class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"
     >
-      <div
-        class="t-input t-is-default t-align-center"
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
       >
-        <!---->
-        <!---->
-        <input
-          autocomplete="off"
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
-        <!---->
-        <!---->
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center t-input--auto-width"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <span
+            class="t-input__input-pre"
+          >
+            请输入
+          </span>
+          <!---->
+          <!---->
+        </div>
         <!---->
       </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
       <!---->
     </div>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-add t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 200px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 250px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-is-error t-align-center t-input--suffix"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <div
+            class="t-input__suffix"
+          >
+            个
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -61031,7 +61466,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-remove t-size-m"
         fill="none"
@@ -61047,14 +61481,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -61075,7 +61508,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-add t-size-m"
         fill="none"
@@ -61091,8 +61523,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
@@ -61103,10 +61535,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
     class="t-input-number t-size-m t-is-disabled t-input-number--row"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+      disabled=""
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-m"
@@ -61123,14 +61555,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-disabled t-is-default t-align-center"
+        class="t-input t-is-disabled t-align-center"
       >
         <!---->
         <!---->
@@ -61148,10 +61579,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
       <!---->
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
+      disabled=""
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-add t-size-m"
@@ -61168,8 +61599,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
@@ -61183,7 +61614,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-m"
@@ -61200,14 +61630,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -61228,7 +61657,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-add t-size-m"
         fill="none"
@@ -61244,193 +61672,632 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/format.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-input-number t-size-m t-input-number--row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-remove t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M3.5 7.35h9v1.3h-9v-1.3z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
     <div
-      class="t-input__wrap"
-      unselectable="off"
+      class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"
     >
-      <div
-        class="t-input t-is-default t-align-center"
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
       >
-        <!---->
-        <!---->
-        <input
-          autocomplete="off"
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
-        <!---->
-        <!---->
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center t-input--auto-width"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <span
+            class="t-input__input-pre"
+          >
+            3 %
+          </span>
+          <!---->
+          <!---->
+        </div>
         <!---->
       </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
       <!---->
     </div>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      type="button"
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"
     >
-      
-      
-      <svg
-        class="t-icon t-icon-add t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
       >
-        <path
-          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center t-input--auto-width"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <span
+            class="t-input__input-pre"
+          >
+            3.01 %
+          </span>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./examples/input-number/demos/large-number.vue 1`] = `
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <div>
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 300px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
+  </div>
+  <div>
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 300px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-remove t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-add t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/left.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-input-number t-size-m t-is-controls-right t-input-number--column"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-chevron-down t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
     <div
-      class="t-input__wrap"
-      unselectable="off"
+      class="t-input-number t-size-m t-is-controls-right t-input-number--column"
     >
-      <div
-        class="t-input t-is-default"
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
       >
-        <!---->
-        <!---->
-        <input
-          autocomplete="off"
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
-        <!---->
-        <!---->
+        
+        <svg
+          class="t-icon t-icon-chevron-down t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
         <!---->
       </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-up t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
       <!---->
     </div>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-chevron-up t-size-m"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
-          fill="currentColor"
-          fill-opacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-is-controls-right t-input-number--column"
+      style="width: 150px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-down t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center t-input--prefix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            数字
+          </div>
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-up t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-input-number t-size-m t-input-number--normal"
+    class="t-space-item"
   >
-    <!---->
     <div
-      class="t-input__wrap"
-      unselectable="off"
+      class="t-input-number t-size-m t-input-number--normal"
     >
+      <!---->
       <div
-        class="t-input t-is-default"
+        class="t-input__wrap"
+        unselectable="off"
       >
-        <!---->
-        <!---->
-        <input
-          autocomplete="off"
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
-        <!---->
-        <!---->
+        <div
+          class="t-input"
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
-    <!---->
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--normal"
+    >
+      <!---->
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-right t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <span>
+              金额：
+            </span>
+            
+          </div>
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <div
+            class="t-input__suffix"
+          >
+            
+            <span>
+              元
+            </span>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--normal"
+    >
+      <!---->
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-right t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            机器：
+          </div>
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <div
+            class="t-input__suffix"
+          >
+            台
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -61443,7 +62310,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-s"
@@ -61460,14 +62326,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -61487,7 +62352,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-add t-size-s"
@@ -61504,8 +62368,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
   <div
     class="t-input-number t-size-m t-input-number--row"
@@ -61515,7 +62379,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-m"
@@ -61532,14 +62395,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -61559,7 +62421,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-add t-size-m"
@@ -61576,8 +62437,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
   <div
     class="t-input-number t-size-l t-input-number--row"
@@ -61586,7 +62447,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-l"
@@ -61603,14 +62463,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -61631,7 +62490,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-add t-size-l"
         fill="none"
@@ -61647,642 +62505,112 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1`] = `
 <div
+  class="tdesign-demo-block-column-large"
   data-v-6ec32b3c=""
 >
+  <div
+    data-v-6ec32b3c=""
+  >
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      data-v-6ec32b3c=""
+    >
+      
+      <label
+        class="t-radio-button"
+        data-v-6ec32b3c=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="hide"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          隐藏文本提示
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+        data-v-6ec32b3c=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="align-left"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          文本提示左对齐
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+        data-v-6ec32b3c=""
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="align-input"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          文本提示对齐输入框
+          
+          
+        </span>
+      </label>
+      
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+    </div>
+  </div>
   <form
     class="t-form"
     data-v-6ec32b3c=""
   >
     
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          禁用
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-is-disabled t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input t-is-disabled t-is-default t-align-center"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  disabled=""
-                  placeholder="请输入"
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          只读
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="on"
-            >
-              <div
-                class="t-input t-is-default t-align-center t-is-readonly"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  readonly=""
-                  type="text"
-                  unselectable="on"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          正常
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input t-is-default t-align-center"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          成功
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input t-is-success t-align-center"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          警告
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input t-is-warning t-align-center"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__"
-      data-v-6ec32b3c=""
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          错误
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input-number t-size-m t-input-number--row"
-            data-v-6ec32b3c=""
-          >
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-remove t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M3.5 7.35h9v1.3h-9v-1.3z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input t-is-error t-align-center"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-              type="button"
-            >
-              
-              
-              <svg
-                class="t-icon t-icon-add t-size-m"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              
-              
-              
-            </button>
-          </div>
-          
-          <!---->
-        </div>
-        
-        <!---->
-        <!---->
-        
-      </div>
-    </div>
+    <!-- 隐藏文本提示 -->
+    <!--v-if-->
+    <!-- 文本提示左对齐 -->
+    <!--v-if-->
+    <!-- 文本提示对齐输入框 -->
+    
     <div
       class="t-form__item t-form-item__"
       data-v-6ec32b3c=""
@@ -62314,7 +62642,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-remove t-size-m"
                 fill="none"
@@ -62330,14 +62657,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               </svg>
               
               
-              
             </button>
             <div
               class="t-input__wrap"
               unselectable="off"
             >
               <div
-                class="t-input t-is-default t-align-center"
+                class="t-input t-align-center"
               >
                 <!---->
                 <!---->
@@ -62352,7 +62678,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
               </div>
               <div
-                class="t-input__tips t-input__tips--default"
+                class="t-input__tips t-input__tips--normal"
               >
                 这是普通文本提示
               </div>
@@ -62361,7 +62687,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
               type="button"
             >
-              
               
               <svg
                 class="t-icon t-icon-add t-size-m"
@@ -62378,8 +62703,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               </svg>
               
               
-              
             </button>
+            <!---->
           </div>
           
           <!---->
@@ -62390,6 +62715,9 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
         
       </div>
     </div>
+    <br
+      data-v-6ec32b3c=""
+    />
     <div
       class="t-form__item t-form-item__"
       data-v-6ec32b3c=""
@@ -62421,7 +62749,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-remove t-size-m"
                 fill="none"
@@ -62435,7 +62762,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                   fill-opacity="0.9"
                 />
               </svg>
-              
               
               
             </button>
@@ -62469,7 +62795,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-add t-size-m"
                 fill="none"
@@ -62485,8 +62810,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               </svg>
               
               
-              
             </button>
+            <!---->
           </div>
           
           <!---->
@@ -62497,6 +62822,9 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
         
       </div>
     </div>
+    <br
+      data-v-6ec32b3c=""
+    />
     <div
       class="t-form__item t-form-item__"
       data-v-6ec32b3c=""
@@ -62528,7 +62856,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-remove t-size-m"
                 fill="none"
@@ -62542,7 +62869,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                   fill-opacity="0.9"
                 />
               </svg>
-              
               
               
             </button>
@@ -62576,7 +62902,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-add t-size-m"
                 fill="none"
@@ -62592,8 +62917,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               </svg>
               
               
-              
             </button>
+            <!---->
           </div>
           
           <!---->
@@ -62604,6 +62929,9 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
         
       </div>
     </div>
+    <br
+      data-v-6ec32b3c=""
+    />
     <div
       class="t-form__item t-form-item__"
       data-v-6ec32b3c=""
@@ -62635,7 +62963,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-remove t-size-m"
                 fill="none"
@@ -62649,7 +62976,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                   fill-opacity="0.9"
                 />
               </svg>
-              
               
               
             </button>
@@ -62683,7 +63009,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               type="button"
             >
               
-              
               <svg
                 class="t-icon t-icon-add t-size-m"
                 fill="none"
@@ -62699,8 +63024,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
               </svg>
               
               
-              
             </button>
+            <!---->
           </div>
           
           <!---->
@@ -62711,6 +63036,10 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
         
       </div>
     </div>
+    <br
+      data-v-6ec32b3c=""
+    />
+    
     
   </form>
 </div>
@@ -62725,7 +63054,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
-      
       
       <svg
         class="t-icon t-icon-remove t-size-m"
@@ -62742,14 +63070,13 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       </svg>
       
       
-      
     </button>
     <div
       class="t-input__wrap"
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -62770,7 +63097,6 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       type="button"
     >
       
-      
       <svg
         class="t-icon t-icon-add t-size-m"
         fill="none"
@@ -62786,8 +63112,8 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
       </svg>
       
       
-      
     </button>
+    <!---->
   </div>
 </div>
 `;
@@ -72188,7 +72514,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
       data-v-6136b774=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -72208,7 +72534,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
       data-v-6136b774=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -73916,7 +74242,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
       data-v-eaaebe6c=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -73936,7 +74262,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
       data-v-eaaebe6c=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -75039,7 +75365,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -75055,6 +75381,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
             </div>
             <!---->
           </div>
+          <!---->
           <!---->
         </div>
         <span
@@ -75838,7 +76165,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -75854,6 +76181,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
             </div>
             <!---->
           </div>
+          <!---->
           <!---->
         </div>
         <span
@@ -75991,7 +76319,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -76007,6 +76335,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
             </div>
             <!---->
           </div>
+          <!---->
           <!---->
         </div>
         <span
@@ -77087,7 +77416,7 @@ exports[`csr snapshot test > csr test ./examples/popup/demos/trigger.vue 1`] = `
     data-v-5235c13e=""
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -81165,7 +81494,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
       class="t-input__wrap t-range-input__inner-left"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -81189,7 +81518,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
       class="t-input__wrap t-range-input__inner-right"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -81228,7 +81557,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81252,7 +81581,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81293,7 +81622,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81317,7 +81646,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81349,7 +81678,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81373,7 +81702,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81405,7 +81734,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81429,7 +81758,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81468,7 +81797,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81492,7 +81821,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81524,7 +81853,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81548,7 +81877,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81580,7 +81909,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -81604,7 +81933,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -85861,6 +86190,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         class="t-input__suffix"
       >
         单位：元
+        <!---->
       </div>
       <span
         class="t-input__suffix t-input__suffix-icon"
@@ -100034,7 +100364,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default t-input--auto-width"
+                    class="t-input t-input--auto-width"
                   >
                     <!---->
                     <!---->
@@ -118719,7 +119049,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -118735,6 +119065,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
               <span
@@ -119014,7 +119345,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default"
+                  class="t-input"
                 >
                   <!---->
                   <!---->
@@ -119030,6 +119361,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                 </div>
                 <!---->
               </div>
+              <!---->
               <!---->
             </div>
             <span
@@ -129778,7 +130110,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
             class="t-input__wrap t-range-input__inner-left"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -129802,7 +130134,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
             class="t-input__wrap t-range-input__inner-right"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -130504,7 +130836,7 @@ exports[`csr snapshot test > csr test ./examples/tooltip/demos/trigger.vue 1`] =
     data-v-3b714cd5=""
   >
     <div
-      class="t-input t-is-default"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -134389,7 +134721,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -134405,6 +134737,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
                   </div>
                   <!---->
                 </div>
+                <!---->
                 <!---->
               </div>
               <span
@@ -134606,7 +134939,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -135186,7 +135519,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -138092,7 +138425,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       data-v-c6bef3b4=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -138123,7 +138456,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       data-v-c6bef3b4=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -138154,7 +138487,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
       data-v-c6bef3b4=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -140947,7 +141280,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
       data-v-120c6910=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -144648,7 +144981,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
         data-v-5396c8f8=""
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -145315,7 +145648,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       data-v-84d5a29a=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -145346,7 +145679,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       data-v-84d5a29a=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -145377,7 +145710,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
       data-v-84d5a29a=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -145867,7 +146200,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       data-v-debf06ea=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -145898,7 +146231,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       data-v-debf06ea=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -145929,7 +146262,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
       data-v-debf06ea=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
