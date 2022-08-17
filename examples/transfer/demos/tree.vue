@@ -61,6 +61,11 @@ const items = [
       },
     ],
   },
+  {
+    value: '3',
+    label: '3',
+    children: [],
+  },
 ];
 
 const targetValue = ref([]);

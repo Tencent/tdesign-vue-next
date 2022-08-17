@@ -120,7 +120,7 @@ function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferV
     return needMatch;
   }
 
-  if (data.children) {
+  if (data.children?.length) {
     return data.children.some((item) => isTreeNodeValid(item, filterValues, needMatch));
   }
   return !needMatch;
