@@ -36224,7 +36224,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/input.vue
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--suffix"
+      class="t-input t-input--suffix"
     >
       <!---->
       <!---->
