@@ -18,7 +18,7 @@ import { useTNodeDefault } from '../../hooks';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);
-  const { t, global } = useConfig('table');
+  const { t, globalConfig } = useConfig('table');
   const store = ref(new TableTreeStore());
   const treeNodeCol = ref<PrimaryTableCol>();
   const dataSource = ref<TdEnhancedTableProps['data']>([]);
@@ -39,7 +39,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   const foldIcon = (context: PrimaryTableCellParams<TableRowData>) => {
     const params = { ...context, type: 'fold' };
-    const defaultFoldIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
+    const defaultFoldIcon = t(globalConfig.value.treeExpandAndFoldIcon, h, params) || <MinusRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultFoldIcon,
       params,
@@ -48,7 +48,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   const expandIcon = (context: PrimaryTableCellParams<TableRowData>) => {
     const params = { ...context, type: 'expand' };
-    const defaultExpandIcon = t(global.value.treeExpandAndFoldIcon, h, params) || <AddRectangleIcon />;
+    const defaultExpandIcon = t(globalConfig.value.treeExpandAndFoldIcon, h, params) || <AddRectangleIcon />;
     return renderTNode('treeExpandAndFoldIcon', {
       defaultNode: defaultExpandIcon,
       params,
@@ -139,7 +139,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     if (!props.tree || col.colKey !== treeNodeCol.value.colKey) return col;
     const newCol = { ...treeNodeCol.value };
     newCol.cell = (h, p) => {
-      const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots);
+      const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots, {
+        cellEmptyContent: props.cellEmptyContent,
+      });
       const currentState = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey));
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };

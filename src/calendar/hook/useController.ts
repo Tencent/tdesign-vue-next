@@ -38,7 +38,7 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
 });
 
 export function userController(props: TdCalendarProps, state: CalendarState) {
-  const { global } = useConfig(COMPONENT_NAME);
+  const { globalConfig } = useConfig(COMPONENT_NAME);
 
   const options = computed<ControllerOptions>(() => {
     const dayJsFilterDate = dayjs(`${state.curSelectedYear}-${state.curSelectedMonth}`);
@@ -51,7 +51,7 @@ export function userController(props: TdCalendarProps, state: CalendarState) {
     return re;
   });
   const configData = computed<Record<string, any>>(() => {
-    const controllerConfig = props.controllerConfig ?? global.value.controllerConfig ?? true;
+    const controllerConfig = props.controllerConfig ?? globalConfig.value.controllerConfig ?? true;
     if (typeof controllerConfig === 'boolean') {
       return getDefaultControllerConfigData(controllerConfig);
     }

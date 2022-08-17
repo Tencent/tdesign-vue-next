@@ -31,7 +31,7 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>
 }
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
-  const { classPrefix, global } = useConfig('table');
+  const { classPrefix, globalConfig } = useConfig('table');
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
 
@@ -103,7 +103,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
 
   const handleToggleColumnController = () => {
     dialogInstance.value = DialogPlugin.confirm({
-      header: global.value.columnConfigTitleText,
+      header: globalConfig.value.columnConfigTitleText,
       body: () => {
         const widthMode = columnController.value?.displayType === 'fixed-width' ? 'fixed' : 'auto';
         const checkedLength = intersectionChecked.value.length;
@@ -119,11 +119,11 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
             <div class={`${classPrefix.value}-table__column-controller-body`}>
               {/* 请选择需要在表格中显示的数据列 */}
               <p class={`${classPrefix.value}-table__column-controller-desc`}>
-                {global.value.columnConfigDescriptionText}
+                {globalConfig.value.columnConfigDescriptionText}
               </p>
               <div class={`${classPrefix.value}-table__column-controller-block`}>
                 <Checkbox indeterminate={isIndeterminate} checked={isCheckedAll} onChange={handleClickAllShowColumns}>
-                  {global.value.selectAllText}
+                  {globalConfig.value.selectAllText}
                 </Checkbox>
               </div>
               <div class={`${classPrefix.value}-table__column-controller-block`}>
@@ -139,8 +139,8 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         );
         return defaultNode;
       },
-      confirmBtn: global.value.confirmText,
-      cancelBtn: global.value.cancelText,
+      confirmBtn: globalConfig.value.confirmText,
+      cancelBtn: globalConfig.value.cancelText,
       width: 612,
       onConfirm: () => {
         setTDisplayColumns([...columnCheckboxKeys.value]);
@@ -193,7 +193,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
           theme="default"
           variant="outline"
           onClick={handleToggleColumnController}
-          content={global.value.columnConfigButtonText}
+          content={globalConfig.value.columnConfigButtonText}
           v-slots={{
             icon: () => <SettingIcon />,
           }}

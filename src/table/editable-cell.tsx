@@ -3,7 +3,13 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { Edit1Icon } from 'tdesign-icons-vue-next';
-import { TableRowData, PrimaryTableCol, PrimaryTableRowEditContext, PrimaryTableRowValidateContext } from './type';
+import {
+  TableRowData,
+  PrimaryTableCol,
+  PrimaryTableRowEditContext,
+  PrimaryTableRowValidateContext,
+  TdBaseTableProps,
+} from './type';
 import { TableClassName } from './hooks/useClassName';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
@@ -20,6 +26,7 @@ export interface EditableCellProps {
   /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
   editable?: boolean;
   errors?: AllValidateResult[];
+  cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
   onValidate?: (context: PrimaryTableRowValidateContext<TableRowData>) => void;
   onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
@@ -34,6 +41,7 @@ export default defineComponent({
     colIndex: Number,
     oldCell: [Function, String] as PropType<EditableCellProps['oldCell']>,
     tableBaseClass: Object as PropType<EditableCellProps['tableBaseClass']>,
+    cellEmptyContent: [Function, String] as PropType<EditableCellProps['cellEmptyContent']>,
     editable: {
       type: Boolean,
       default: undefined,
@@ -69,6 +77,7 @@ export default defineComponent({
           colIndex: props.colIndex,
         },
         context.slots,
+        { cellEmptyContent: props.cellEmptyContent },
       );
       return node;
     });
@@ -216,6 +225,14 @@ export default defineComponent({
       if (!isEdit.value) return;
       // @ts-ignore
       if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
+      // @ts-ignore 如果点击到 Popup 复层也直接返回
+      for (let i = 0, len = e.path.length; i < len; i++) {
+        // @ts-ignore
+        const node = e.path[i];
+        if (node.classList?.value?.includes('popup__content')) {
+          return;
+        }
+      }
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, {
         trigger: 'document',

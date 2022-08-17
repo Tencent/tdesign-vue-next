@@ -8,7 +8,7 @@ import { useConfig } from '../../hooks/useConfig';
 
 export default function useAsyncLoading(props: TdPrimaryTableProps, context: SetupContext) {
   const renderTNode = useTNodeJSX();
-  const { global } = useConfig('table');
+  const { globalConfig } = useConfig('table');
   const { isLoadingClass, isLoadMoreClass, asyncLoadingClass } = useClassName();
 
   const classes = computed(() => [
@@ -29,8 +29,8 @@ export default function useAsyncLoading(props: TdPrimaryTableProps, context: Set
     if (isString(asyncLoadingNode)) {
       const { asyncLoading } = props;
       const loadingText = {
-        'load-more': global.value.loadingMoreText,
-        loading: global.value.loadingText,
+        'load-more': globalConfig.value.loadingMoreText,
+        loading: globalConfig.value.loadingText,
       }[String(asyncLoading)];
       return (
         <div class={classes.value} onClick={onLoadClick}>

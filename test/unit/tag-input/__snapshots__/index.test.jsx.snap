@@ -103,7 +103,11 @@ exports[`TagInput > :props > :basic 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -161,7 +165,11 @@ exports[`TagInput > :props > :collapsed 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -276,7 +284,11 @@ exports[`TagInput > :props > :draggable 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -392,7 +404,11 @@ exports[`TagInput > :props > :label 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -503,7 +519,11 @@ exports[`TagInput > :props > :max 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -567,7 +587,11 @@ exports[`TagInput > :props > :status:disabled 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -678,7 +702,11 @@ exports[`TagInput > :props > :status:error 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -743,7 +771,11 @@ exports[`TagInput > :props > :status:readonly 1`] = `
       type="text"
       unselectable="on"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -854,7 +886,11 @@ exports[`TagInput > :props > :status:success 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -965,7 +1001,11 @@ exports[`TagInput > :props > :status:warning 1`] = `
       placeholder=""
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      
+    </span>
     <!---->
     <!---->
   </div>
@@ -992,7 +1032,11 @@ exports[`TagInput > <slot> > <collapsedTags> 1`] = `
       placeholder="请输入"
       type="text"
     />
-    <!---->
+    <span
+      class="t-input__input-pre"
+    >
+      请输入
+    </span>
     <!---->
     <!---->
   </div>

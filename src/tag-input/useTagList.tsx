@@ -1,5 +1,6 @@
 import { ref, toRefs } from 'vue';
-import { TagInputValue, TagInputChangeContext, TagInputProps } from './type';
+import { TagInputValue, TagInputChangeContext } from './type';
+import { TagInputProps } from './interface';
 import { InputValue } from '../input';
 import Tag from '../tag';
 import useVModel from '../hooks/useVModel';

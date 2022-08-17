@@ -459,7 +459,9 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
         const children = get(item, keys.childrenKey);
         const originalExpanded = state.expanded;
         state.rowIndex = this.expandAllRowIndex;
-        state.expanded = true;
+        if (children !== true && children?.length) {
+          state.expanded = true;
+        }
         state.expandChildrenLength = children?.length || 0;
         this.expandAllRowIndex += 1;
         if (!parentExpanded) {

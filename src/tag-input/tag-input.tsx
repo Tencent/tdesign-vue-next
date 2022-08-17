@@ -151,7 +151,7 @@ export default defineComponent({
         ref="tagInputRef"
         readonly={this.readonly}
         value={this.tInputValue}
-        autoWidth={this.autoWidth}
+        autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
         size={this.size}
         disabled={this.disabled}
         label={() => this.renderLabel({ displayNode, label })}
@@ -164,7 +164,7 @@ export default defineComponent({
         showInput={
           !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
         }
-        keepWrapperWidth={true}
+        keepWrapperWidth={!this.autoWidth}
         onWheel={this.onWheel}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
           this.setTInputValue(val, { ...context, trigger: 'input' });

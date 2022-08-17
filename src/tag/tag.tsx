@@ -8,7 +8,7 @@ export default defineComponent({
   name: 'TTag',
   props,
   setup(props) {
-    const { global: tagGlobalConfig } = useConfig('tag');
+    const { globalConfig: tagGlobalConfig } = useConfig('tag');
     const COMPONENT_NAME = usePrefixClass('tag');
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();

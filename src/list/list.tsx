@@ -12,7 +12,7 @@ export default defineComponent({
     ...props,
   },
   setup(props: TdListProps) {
-    const { global } = useConfig('list');
+    const { globalConfig } = useConfig('list');
     const COMPONENT_NAME = usePrefixClass('list');
     const { SIZE } = useCommonClassName();
     const renderTNodeJSX = useTNodeJSX();
@@ -66,12 +66,12 @@ export default defineComponent({
           return (
             <div>
               <TLoading />
-              <span>{global.value.loadingText}</span>
+              <span>{globalConfig.value.loadingText}</span>
             </div>
           );
         }
         if (props.asyncLoading === LOAD_MORE) {
-          return <span>{global.value.loadingMoreText}</span>;
+          return <span>{globalConfig.value.loadingMoreText}</span>;
         }
       }
       return renderTNodeJSX('asyncLoading');

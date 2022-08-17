@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'TAnchorTarget',
   props,
   setup(props, { slots }) {
-    const { global, classPrefix } = useConfig('anchor');
+    const { globalConfig, classPrefix } = useConfig('anchor');
     const COMPONENT_NAME = usePrefixClass('anchor');
     /**
      * 复制当前target的链接
@@ -20,7 +20,7 @@ export default defineComponent({
       const a = document.createElement('a');
       a.href = `#${props.id}`;
       copyText(a.href);
-      Message.success(global.value.copySuccessText, 1000);
+      Message.success(globalConfig.value.copySuccessText, 1000);
     };
     return () => {
       const { default: children } = slots;
@@ -30,7 +30,7 @@ export default defineComponent({
       return (
         <TAG id={id} class={className}>
           {children && children(null)}
-          <t-popup content={global.value.copyText} placement="top" showArrow class={iconClassName}>
+          <t-popup content={globalConfig.value.copyText} placement="top" showArrow class={iconClassName}>
             <FileCopyIcon onClick={toCopyText} />
           </t-popup>
         </TAG>

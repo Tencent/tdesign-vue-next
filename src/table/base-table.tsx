@@ -30,6 +30,8 @@ import { ROW_LISTENERS } from './tr';
 import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
+import { Styles } from '../common';
+import log from '../_common/js/log';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -59,7 +61,9 @@ export default defineComponent({
     const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
     // 表格基础样式类
     const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
-    const { global } = useConfig('table');
+    const { globalConfig } = useConfig('table');
+    const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
+    const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
     // 固定表头和固定列逻辑
     const {
@@ -79,7 +83,10 @@ export default defineComponent({
       emitScrollEvent,
       setUseFixedTableElmRef,
       updateColumnFixedShadow,
-    } = useFixed(props, context);
+      getThWidthList,
+      updateThWidthList,
+      setRecalculateColWidthFuncRef,
+    } = useFixed(props, context, finalColumns);
 
     // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
     const {
@@ -95,12 +102,12 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const { dataSource, isPaginateData, renderPagination } = usePagination(props);
 
     // 列宽拖拽逻辑
-    const columnResizeParams = useColumnResize(tableContentRef, refreshTable);
-    const { resizeLineRef, resizeLineStyle } = columnResizeParams;
+    const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);
+    const { resizeLineRef, resizeLineStyle, recalculateColWidth } = columnResizeParams;
+    setRecalculateColWidthFuncRef(recalculateColWidth);
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -208,7 +215,7 @@ export default defineComponent({
     return {
       thList,
       isVirtual,
-      global,
+      globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
       tableWidth,
@@ -267,7 +274,12 @@ export default defineComponent({
   render() {
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
+    const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
+    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
+    if (columnResizable && this.tableLayout === 'auto') {
+      log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
+    }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     /**
@@ -287,18 +299,29 @@ export default defineComponent({
       opacity: headerOpacity,
       marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
     };
+    // 多级表头左边线缺失
+    const affixedMultipleHeaderLeftBorder = this.bordered && this.isMultipleHeader ? 1 : 0;
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
         ref="affixHeaderRef"
-        style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixHeader) }}
+        style={{
+          width: `${this.tableWidth - affixedMultipleHeaderLeftBorder}px`,
+          opacity: Number(this.showAffixHeader),
+        }}
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           <colgroup>
-            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = {
+                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+              };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -348,9 +371,15 @@ export default defineComponent({
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
             <colgroup>
-              {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-                <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-              ))}
+              {columns.map((col) => {
+                const style: Styles = {
+                  width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+                };
+                if (col.minWidth) {
+                  style.minWidth = formatCSSUnit(col.minWidth);
+                }
+                return <col key={col.colKey} style={style}></col>;
+              })}
             </colgroup>
             <TFoot
               rowKey={this.rowKey}
@@ -358,10 +387,12 @@ export default defineComponent({
               isFixedHeader={this.isFixedHeader}
               rowAndColFixedPosition={rowAndColFixedPosition}
               footData={this.footData}
-              columns={this.columns}
+              columns={columns}
               rowAttributes={this.rowAttributes}
               rowClassName={this.rowClassName}
               thWidthList={this.thWidthList}
+              footerSummary={this.footerSummary}
+              rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
             ></TFoot>
           </table>
         </div>
@@ -391,6 +422,7 @@ export default defineComponent({
       trs: this.trs,
       bufferSize: this.bufferSize,
       scroll: this.scroll,
+      cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
       handleRowMounted: this.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
@@ -407,9 +439,15 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           <colgroup>
-            {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-              <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
-            ))}
+            {columns.map((col) => {
+              const style: Styles = {
+                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+              };
+              if (col.minWidth) {
+                style.minWidth = formatCSSUnit(col.minWidth);
+              }
+              return <col key={col.colKey} style={style}></col>;
+            })}
           </colgroup>
           <THead
             v-slots={this.$slots}
@@ -419,6 +457,7 @@ export default defineComponent({
             bordered={this.bordered}
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
+            thWidthList={this.thWidthList}
             resizable={this.resizable}
             columnResizeParams={this.columnResizeParams}
           />
@@ -429,9 +468,11 @@ export default defineComponent({
             isFixedHeader={this.isFixedHeader}
             rowAndColFixedPosition={rowAndColFixedPosition}
             footData={this.footData}
-            columns={this.columns}
+            columns={columns}
             rowAttributes={this.rowAttributes}
             rowClassName={this.rowClassName}
+            footerSummary={this.footerSummary}
+            rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
           ></TFoot>
         </table>
       </div>
@@ -452,7 +493,11 @@ export default defineComponent({
     const topContent = this.renderTNode('topContent');
     const bottomContent = this.renderTNode('bottomContent');
     const pagination = (
-      <div ref="paginationRef" style={{ opacity: Number(this.showAffixPagination) }}>
+      <div
+        ref="paginationRef"
+        class={this.tableBaseClass.paginationWrap}
+        style={{ opacity: Number(this.showAffixPagination) }}
+      >
         {this.renderPagination()}
       </div>
     );

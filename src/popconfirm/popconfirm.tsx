@@ -13,7 +13,7 @@ export default defineComponent({
   props,
 
   setup(props) {
-    const { global } = useConfig('popconfirm');
+    const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
 
     const { visible, modelValue } = toRefs(props);
@@ -53,7 +53,7 @@ export default defineComponent({
     const renderContent = () => {
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
-        globalCancel: global.value.cancel,
+        globalCancel: globalConfig.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
         size: 'small',
       });
@@ -61,8 +61,8 @@ export default defineComponent({
       const confirmBtn = getConfirmBtn({
         theme: props.theme,
         confirmBtn: props.confirmBtn,
-        globalConfirm: global.value.confirm,
-        globalConfirmBtnTheme: global.value.confirmBtnTheme,
+        globalConfirm: globalConfig.value.confirm,
+        globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
         className: `${COMPONENT_NAME.value}__confirm`,
         size: 'small',
       });

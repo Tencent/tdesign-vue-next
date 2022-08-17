@@ -48,6 +48,7 @@ export default defineComponent({
         rail-style={this.railStyle}
         max-value={100}
         disabled={this.disabled}
+        type="alpha"
       />
     );
   },

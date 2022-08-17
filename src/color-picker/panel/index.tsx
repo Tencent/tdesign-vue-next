@@ -33,7 +33,7 @@ export default defineComponent({
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();
-    const { t, global } = useConfig('colorPicker');
+    const { t, globalConfig } = useConfig('colorPicker');
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -249,7 +249,7 @@ export default defineComponent({
       baseClassName,
       statusClassNames,
       t,
-      global,
+      globalConfig,
       color,
       mode,
       formatModel,
@@ -267,7 +267,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { baseClassName, statusClassNames, t, global, recentColors, recentlyUsedColors, swatchColors } = this;
+    const { baseClassName, statusClassNames, t, globalConfig, recentColors, recentlyUsedColors, swatchColors } = this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
@@ -290,7 +290,7 @@ export default defineComponent({
             {showUsedColors ? (
               <SwatchesPanel
                 {...baseProps}
-                title={t(global.recentColorTitle)}
+                title={t(globalConfig.recentColorTitle)}
                 editable
                 colors={this.recentlyUsedColors as string[]}
                 handleAddColor={this.addRecentlyUsedColor}
@@ -301,7 +301,7 @@ export default defineComponent({
             {showSystemColors ? (
               <SwatchesPanel
                 {...baseProps}
-                title={t(global.swatchColorTitle)}
+                title={t(globalConfig.swatchColorTitle)}
                 colors={systemColors}
                 onSetColor={(color: string) => this.handleSetColor('system', color)}
               />
@@ -311,19 +311,31 @@ export default defineComponent({
       );
     };
 
+    const isGradient = this.mode === 'linear-gradient';
     return (
-      <div
-        class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {this.mode === 'linear-gradient' ? (
-            <LinearGradient {...baseProps} onChange={this.handleGradientChange} />
-          ) : null}
+          {isGradient ? <LinearGradient {...baseProps} onChange={this.handleGradientChange} /> : null}
+
           <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
-          <HueSlider {...baseProps} onChange={this.handleHueChange} />
-          {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+
+          <div class={[`${baseClassName}__sliders-wrapper`]}>
+            <div class={[`${baseClassName}__sliders`]}>
+              <HueSlider {...baseProps} onChange={this.handleHueChange} />
+              {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+            </div>
+
+            <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
+              <span
+                class={`${baseClassName}__sliders-preview-inner`}
+                style={{
+                  background: isGradient ? this.color.linearGradient : this.color.rgba,
+                }}
+              />
+            </div>
+          </div>
+
           <FormatPanel
             {...this.$props}
             color={this.color}

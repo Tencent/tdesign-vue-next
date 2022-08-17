@@ -26,12 +26,12 @@ import { useSelectOptions } from './hooks';
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props: TdSelectProps, { slots }) {
+  setup(props: TdSelectProps, { slots, expose }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
-    const { global, t } = useConfig('select');
+    const { globalConfig, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
     const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
@@ -87,7 +87,7 @@ export default defineComponent({
       () =>
         ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsList.value)) ||
           props.placeholder) ??
-        t(global.value.placeholder),
+        t(globalConfig.value.placeholder),
     );
 
     // selectInput 展示值
@@ -108,7 +108,7 @@ export default defineComponent({
     });
 
     const isFilterable = computed(() => {
-      return Boolean(props.filterable || global.value.filterable || isFunction(props.filter));
+      return Boolean(props.filterable || globalConfig.value.filterable || isFunction(props.filter));
     });
 
     // 移除tag
@@ -264,6 +264,7 @@ export default defineComponent({
       });
     };
     provide('updateScrollTop', updateScrollTop);
+
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
@@ -276,6 +277,8 @@ export default defineComponent({
               multiple: props.multiple,
               clearable: props.clearable,
               loading: props.loading,
+              status: props.status,
+              tips: props.tips,
               minCollapsedNum: props.minCollapsedNum,
             }}
             class={COMPONENT_NAME.value}
@@ -292,7 +295,6 @@ export default defineComponent({
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
-              autoWidth: true,
               size: props.size,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
@@ -301,7 +303,7 @@ export default defineComponent({
             }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
-              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
+              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
             }}
             label={() => renderTNodeJSX('prefixIcon')}

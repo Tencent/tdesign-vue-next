@@ -91,7 +91,8 @@ export default defineComponent({
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
 
-    const { errorListMap, editableKeysMap, validateRowData, onRuleChange, clearValidateData } = useEditableRow(props);
+    const { errorListMap, editableKeysMap, validateRowData, validateTableData, onRuleChange, clearValidateData } =
+      useEditableRow(props);
 
     const primaryTableClasses = computed(() => {
       return {
@@ -127,6 +128,7 @@ export default defineComponent({
     // 对外暴露的方法
     context.expose({
       validateRowData,
+      validateTableData,
       clearValidateData,
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
@@ -163,6 +165,7 @@ export default defineComponent({
               ...p,
               oldCell,
               tableBaseClass,
+              cellEmptyContent: props.cellEmptyContent,
               onChange: props.onRowEdit,
               onValidate: props.onRowValidate,
               onRuleChange,
@@ -170,7 +173,7 @@ export default defineComponent({
             if (props.editableRowKeys) {
               const rowValue = get(p.row, props.rowKey || 'id');
               cellProps.editable = editableKeysMap.value[rowValue] || false;
-              const key = [rowValue, p.col.colKey].join();
+              const key = [rowValue, p.col.colKey].join('__');
               const errorList = errorListMap.value?.[key];
               errorList && (cellProps.errors = errorList);
             }
