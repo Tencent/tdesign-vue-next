@@ -28,6 +28,7 @@
 组件实例方法-更新弹框：`DialogInstance.update()`
 
 {{ plugin }}
+
 ## API
 ### Dialog Props
 
