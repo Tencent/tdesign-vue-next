@@ -23,18 +23,27 @@ export const useDrag = (props: TdDrawerProps) => {
   const handleMousemove = (e: MouseEvent) => {
     // 鼠标移动时计算draggedSizeValue的值
     const { x, y } = e;
+    const maxHeight = document.documentElement.clientHeight;
+    const maxWidth = document.documentElement.clientWidth;
+    const offsetHeight = 8;
+    const offsetWidth = 8;
+
     if (isSizeDragging.value && props.sizeDraggable) {
       if (props.placement === 'right') {
-        draggedSizeValue.value = `${document.documentElement.clientWidth - x + 8}px`;
+        const moveLeft = Math.min(Math.max(maxWidth - x + offsetWidth, offsetWidth), maxWidth);
+        draggedSizeValue.value = `${moveLeft}px`;
       }
       if (props.placement === 'left') {
-        draggedSizeValue.value = `${x + 8}px`;
+        const moveRight = Math.min(Math.max(x + offsetWidth, offsetWidth), maxWidth);
+        draggedSizeValue.value = `${moveRight}px`;
       }
       if (props.placement === 'top') {
-        draggedSizeValue.value = `${y + 8}px`;
+        const moveBottom = Math.min(Math.max(y + offsetHeight, offsetHeight), maxHeight);
+        draggedSizeValue.value = `${moveBottom}px`;
       }
       if (props.placement === 'bottom') {
-        draggedSizeValue.value = `${document.documentElement.clientHeight - y + 8}px`;
+        const moveTop = Math.min(Math.max(maxHeight - y + offsetHeight, offsetHeight), maxHeight);
+        draggedSizeValue.value = `${moveTop}px`;
       }
     }
   };
