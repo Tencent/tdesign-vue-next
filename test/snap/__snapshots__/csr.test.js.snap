@@ -136249,7 +136249,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
             </span>
           </label>
           <span>
-            0 / 5 项
+            0 / 6 项
           </span>
         </div>
         <span>
@@ -136645,6 +136645,43 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/tree.vue 1`] = `
                   >
                     
                     2.2
+                    
+                  </span>
+                </label>
+                <!---->
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="0"
+                data-value="3"
+                draggable="false"
+                style="--level: 0;"
+              >
+                <!---->
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="3"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    3
                     
                   </span>
                 </label>
