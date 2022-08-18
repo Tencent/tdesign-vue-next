@@ -74411,7 +74411,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/plugin.vue 1
         class="t-button__text"
       >
         
-        1000s
+        1000ms
         
       </span>
     </button>
@@ -74425,7 +74425,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/plugin.vue 1
         class="t-button__text"
       >
         
-        2000s
+        2000ms
         
       </span>
     </button>
