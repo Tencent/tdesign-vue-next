@@ -1,6 +1,8 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { isServer, addClass, removeClass } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
@@ -20,6 +22,7 @@ export default defineComponent({
     const destroyOnCloseVisible = ref(false);
     const isVisible = ref(false);
     const { globalConfig } = useConfig('drawer');
+    const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');

@@ -1,9 +1,15 @@
 import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
-import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import {
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
+} from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
+
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animate';
 
 export default defineComponent({
@@ -15,6 +21,11 @@ export default defineComponent({
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('notification');
     const { classPrefix } = useConfig('classPrefix');
+    const { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } = useGlobalIcon({
+      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      CloseIcon: TdCloseIcon,
+    });
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
     const timer = ref(null);

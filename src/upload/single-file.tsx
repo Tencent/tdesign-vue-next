@@ -1,13 +1,18 @@
 import { defineComponent, PropType, computed } from 'vue';
 
-import { CloseCircleFilledIcon, ErrorCircleFilledIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TLoading from '../loading';
+import {
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 
+import TLoading from '../loading';
 import props from './props';
 import { UploadFile } from './type';
 import { abridgeName } from './util';
 
 import { useTNodeJSX } from '../hooks/tnode';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 const SingleFileProps = {
@@ -41,6 +46,11 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { classPrefix: prefix } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { CloseCircleFilledIcon, ErrorCircleFilledIcon, CheckCircleFilledIcon } = useGlobalIcon({
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+    });
 
     const showProgress = computed(() => {
       return !!(props.loadingFile && props.loadingFile.status === 'progress');

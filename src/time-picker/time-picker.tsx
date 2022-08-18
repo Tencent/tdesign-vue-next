@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { TimeIcon } from 'tdesign-icons-vue-next';
+import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput from '../select-input';
@@ -13,6 +13,7 @@ import props from './props';
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 dayjs.extend(customParseFormat);
 
@@ -25,6 +26,7 @@ export default defineComponent({
     const currentValue = ref('');
     const isShowPanel = ref(false);
     const { globalConfig } = useConfig('timePicker');
+    const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 

@@ -1,6 +1,8 @@
 import { ref, computed, watchEffect } from 'vue';
-import { CalendarIcon } from 'tdesign-icons-vue-next';
+import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
+
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 
 import { TdDateRangePickerProps, DateValue } from '../type';
@@ -12,6 +14,7 @@ export const PARTIAL_MAP = { first: 'start', second: 'end' };
 export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
   const { globalConfig } = useConfig('datePicker');
+  const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
 
   const isMountedRef = ref(false);
   const inputRef = ref();

@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs, nextTick, reactive } from 'vue';
 
-import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
 
 import { TdTagInputProps } from './type';
@@ -8,6 +8,7 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
@@ -30,6 +31,7 @@ export default defineComponent({
 
   setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
+    const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
     const { inputValue } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
@@ -108,6 +110,7 @@ export default defineComponent({
 
     return {
       CLEAR_CLASS,
+      CloseCircleFilledIcon,
       tagValue,
       tInputValue,
       isHover,
@@ -132,6 +135,8 @@ export default defineComponent({
   },
 
   render() {
+    const { CloseCircleFilledIcon } = this;
+
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (

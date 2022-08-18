@@ -1,18 +1,33 @@
-import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import { defineComponent, SetupContext } from 'vue';
+import {
+  AddIcon as TdAddIcon,
+  RemoveIcon as TdRemoveIcon,
+  ChevronDownIcon as TdChevronDownIcon,
+  ChevronUpIcon as TdChevronUpIcon,
+} from 'tdesign-icons-vue-next';
+
 import TButton from '../button';
 import TInput from '../input';
 import props from './props';
+
+// hooks
+import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+
 import { TdInputNumberProps } from './type';
 import useInputNumber from './useInputNumber';
 
 export default defineComponent({
   name: 'TInputNumber',
-
   props,
-
   // 保持纯净（逻辑和节点渲染分开）
   setup(props: TdInputNumberProps, context: SetupContext) {
+    const { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } = useGlobalIcon({
+      AddIcon: TdAddIcon,
+      RemoveIcon: TdRemoveIcon,
+      ChevronDownIcon: TdChevronDownIcon,
+      ChevronUpIcon: TdChevronUpIcon,
+    });
     const p = useInputNumber(props);
     const { inputRef } = p;
 

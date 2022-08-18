@@ -1,6 +1,7 @@
 import { defineComponent, PropType, ref, h } from 'vue';
-import { FilterIcon } from 'tdesign-icons-vue-next';
+import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
 import isEmpty from 'lodash/isEmpty';
+
 import Popup from '../popup';
 import { CheckboxGroup } from '../checkbox';
 import { RadioGroup } from '../radio';
@@ -9,6 +10,7 @@ import TButton from '../button';
 import { useTNodeDefault } from '../hooks/tnode';
 import { PrimaryTableCol, FilterValue } from './type';
 import { useConfig } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export interface TableFilterControllerProps {
   tFilterValue: FilterValue;
@@ -51,6 +53,7 @@ export default defineComponent({
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
     const { t, globalConfig } = useConfig('table');
+    const { FilterIcon } = useGlobalIcon({ FilterIcon: TdFilterIcon });
     const filterPopupVisible = ref(false);
 
     const onFilterPopupVisibleChange = (visible: boolean) => {
@@ -61,6 +64,7 @@ export default defineComponent({
     return {
       t,
       globalConfig,
+      FilterIcon,
       filterPopupVisible,
       triggerElementRef,
       renderTNode,
@@ -144,6 +148,8 @@ export default defineComponent({
     };
 
     const column = this.column as any;
+    const FilterIcon = this.FilterIcon as any;
+
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
     const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
     return (

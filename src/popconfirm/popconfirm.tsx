@@ -1,6 +1,11 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
@@ -15,6 +20,10 @@ export default defineComponent({
   setup(props) {
     const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
+    const { InfoCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
 
     const { visible, modelValue } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(
