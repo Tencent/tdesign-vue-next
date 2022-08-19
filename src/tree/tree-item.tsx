@@ -290,7 +290,7 @@ export default defineComponent({
             disabled={node.isDisabled()}
             name={node.value.toString()}
             onChange={() => handleChange()}
-            ignore="expand,active"
+            ignore="expand"
             needRipple={true}
             {...itemCheckProps}
           >
