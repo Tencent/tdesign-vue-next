@@ -1,4 +1,4 @@
-import _Guide from './Guide';
+import _Guide from './guide';
 import withInstall from '../utils/withInstall';
 import { TdGuideProps } from './type';
 

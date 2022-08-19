@@ -1,3 +1,5 @@
 <template>
-  <t-guide theme="primary">Guide</t-guide>
+  <div class="t-loading-demo">
+    <t-loading></t-loading>
+  </div>
 </template>

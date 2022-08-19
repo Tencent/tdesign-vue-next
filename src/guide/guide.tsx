@@ -14,7 +14,7 @@ export default defineComponent({
     const { classPrefix } = useConfig('classPrefix');
 
     return () => {
-      return <div>guide</div>;
+      return <span>guid</span>;
     };
   },
 });
