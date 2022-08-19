@@ -63,6 +63,7 @@ export * from './watermark';
 export * from './alert';
 export * from './dialog';
 export * from './drawer';
+export * from './guide';
 export * from './loading';
 export * from './message';
 export * from './notification';

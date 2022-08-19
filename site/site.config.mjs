@@ -426,6 +426,12 @@ export default {
           component: () => import('@/examples/drawer/drawer.md'),
         },
         {
+          title: 'Guide 引导',
+          name: 'guide',
+          path: '/vue-next/components/guide',
+          component: () => import('@/examples/guide/guide.md'),
+        },
+        {
           title: 'Message 全局提示',
           name: 'message',
           path: '/vue-next/components/message',
