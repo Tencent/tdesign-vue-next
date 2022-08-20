@@ -80,6 +80,10 @@ export default defineComponent({
 
       const listeners = {
         onClick: (e: MouseEvent) => {
+          if (props.disabled) {
+            e.stopPropagation();
+            return;
+          }
           props.onClick?.({ e });
         },
       };
