@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TableRowData } from './type';
 import { TdPrimaryTableProps } from '../table/type';
 import { PropType } from 'vue';
 
@@ -105,6 +106,11 @@ export default {
   /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
   selectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['selectedRowKeys']>,
+    default: undefined,
+  },
+  /** 选中行的数据集，非控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
+  selectedRowData: {
+    type: Array as PropType<TableRowData>,
     default: undefined,
   },
   /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */

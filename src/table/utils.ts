@@ -70,11 +70,16 @@ export function formatRowClassNames(
 }
 
 export function filterDataByIds(
-  data: Array<object> = [],
+  data: Array<TableRowData> = [],
   ids: Array<string | number> = [],
   byId = 'id',
-): Array<object> {
+): Array<TableRowData> {
   return data.filter((d: Record<string, any> = {}) => ids.includes(d[byId]));
+}
+
+export function dataDeDuplication(data: Array<TableRowData> = []): Array<TableRowData> {
+  const map = new Map();
+  return data.filter((item) => !map.has(item.id) && map.set(item.id, 1));
 }
 
 export const INNER_PRE_NAME = '@@inner-';

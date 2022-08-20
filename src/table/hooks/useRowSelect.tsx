@@ -12,7 +12,7 @@ import {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { filterDataByIds, isRowSelectedDisabled } from '../utils';
+import { filterDataByIds, isRowSelectedDisabled, dataDeDuplication } from '../utils';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
@@ -22,13 +22,20 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, data, rowKey } = toRefs(props);
+  const { selectedRowKeys, selectedRowData, columns, data, rowKey } = toRefs(props);
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
     props.defaultSelectedRowKeys || [],
     props.onSelectChange,
     'selectedRowKeys',
+  );
+  const defaultSelectedRowData = filterDataByIds(props.data, props.defaultSelectedRowKeys || [], props.rowKey || 'id');
+  const [tSelectedRowData, setTSelectedRowData] = useDefaultValue(
+    selectedRowData,
+    defaultSelectedRowData,
+    () => {},
+    'selectedRowData',
   );
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
   const canSelectedRows = computed(() => props.data.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex)));
@@ -113,6 +120,7 @@ export default function useRowSelect(
 
   function handleSelectChange(row: TableRowData = {}) {
     let selectedRowKeys = [...tSelectedRowKeys.value];
+    let selectedRowData = [...tSelectedRowData.value];
     const reRowKey = props.rowKey || 'id';
     const id = get(row, reRowKey);
     const selectedRowIndex = selectedRowKeys.indexOf(id);
@@ -125,8 +133,12 @@ export default function useRowSelect(
       log.warn('Table', '`column.type` must be one of `multiple` and `single`');
       return;
     }
+    selectedRowData = isExisted
+      ? filterDataByIds(selectedRowData, selectedRowKeys, reRowKey)
+      : selectedRowData.concat(row);
+    setTSelectedRowData(selectedRowData);
     setTSelectedRowKeys(selectedRowKeys, {
-      selectedRowData: filterDataByIds(props.data, selectedRowKeys, reRowKey),
+      selectedRowData,
       currentRowKey: id,
       currentRowData: row,
       type: isExisted ? 'uncheck' : 'check',
@@ -138,8 +150,10 @@ export default function useRowSelect(
     const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
+    const allData = dataDeDuplication(filterDataByIds(tSelectedRowData.value.concat(props.data), allIds, reRowKey));
+    setTSelectedRowData(allData);
     setTSelectedRowKeys(allIds, {
-      selectedRowData: checked ? filterDataByIds(props.data, allIds, reRowKey) : [],
+      selectedRowData: allData,
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });

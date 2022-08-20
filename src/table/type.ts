@@ -411,6 +411,11 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   selectedRowKeys?: Array<string | number>;
   /**
+   * 选中行的数据集，非控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * @default []
+   */
+  selectedRowData?: Array<TableRowData>;
+  /**
    * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
    * @default []
    */
