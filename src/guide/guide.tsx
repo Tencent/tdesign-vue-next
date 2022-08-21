@@ -11,7 +11,7 @@ import TransferDom from '../utils/transfer-dom';
 
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
 
 import Button from '../button';
 import Popup from '../popup';
@@ -25,7 +25,7 @@ export default defineComponent({
   directives: {
     TransferDom,
   },
-  props,
+  props: { ...props },
   setup(props) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
@@ -34,9 +34,9 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('guide');
     const { SIZE } = useCommonClassName();
 
-    const { current, hideCounter, hidePrev, hideSkip, steps } = toRefs(props);
+    const { current, modelValue, hideCounter, hidePrev, hideSkip, steps } = toRefs(props);
 
-    const [innerCurrent, setInnerCurrent] = useDefaultValue(current, props.defaultCurrent, props.onChange, 'current');
+    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
 
     // 覆盖层，用于覆盖所有元素
     // const overlayLayer = ref<JSX.Element>();
@@ -56,6 +56,8 @@ export default defineComponent({
     const dialogRef = ref<HTMLElement>();
     // 是否开始展示
     const actived = ref<boolean>(false);
+    // 步骤总数
+    const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
 
@@ -109,25 +111,28 @@ export default defineComponent({
       }
     };
 
-    const handleSkip = () => {
+    const handleSkip = (e: MouseEvent) => {
       actived.value = false;
-      setInnerCurrent(-1);
+      setInnerCurrent(-1, stepsTotal.value - 1, { e });
       destoryTooltipElm();
-      props.onSkip?.();
+      props.onSkip?.(-1, stepsTotal.value, { e });
     };
-    const handlePrev = () => {
-      setInnerCurrent(innerCurrent.value - 1);
-      props.onClickPrevStep?.();
+
+    const handlePrev = (e: MouseEvent) => {
+      setInnerCurrent(innerCurrent.value - 1, stepsTotal.value - 1, { e });
+      props.onClickPrevStep?.(innerCurrent.value, innerCurrent.value - 1, stepsTotal.value, { e });
     };
-    const handleNext = () => {
-      setInnerCurrent(innerCurrent.value + 1);
-      props.onClickNextStep?.();
+
+    const handleNext = (e: MouseEvent) => {
+      setInnerCurrent(innerCurrent.value + 1, stepsTotal.value - 1, { e });
+      props.onClickNextStep?.(innerCurrent.value, innerCurrent.value + 1, stepsTotal.value, { e });
     };
-    const handleFinish = () => {
+
+    const handleFinish = (e: MouseEvent) => {
       actived.value = false;
-      setInnerCurrent(-1);
+      setInnerCurrent(-1, stepsTotal.value - 1, { e });
       destoryTooltipElm();
-      props.onFinish?.();
+      props.onFinish?.(-1, stepsTotal.value - 1, { e });
     };
 
     watch(innerCurrent, (val) => {
@@ -135,7 +140,18 @@ export default defineComponent({
         actived.value = true;
         showGuide();
       } else {
-        console.info('当前引导的步骤', val + 1);
+        actived.value = false;
+        console.info('当前引导的步骤', val);
+      }
+    });
+
+    onMounted(() => {
+      if (innerCurrent.value >= 0 && innerCurrent.value < stepsTotal.value) {
+        actived.value = true;
+        showGuide();
+      } else {
+        actived.value = false;
+        console.info('当前引导的步骤', innerCurrent.value);
       }
     });
 
