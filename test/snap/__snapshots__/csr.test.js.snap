@@ -99616,8 +99616,13 @@ exports[`csr snapshot test > csr test ./examples/table/demos/drag-sort-handler.v
 exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1`] = `
 <div>
   <!-- 当前示例包含：输入框、单选、多选、日期 等场景 -->
+  <!-- editableCellState 用于控制某些单元格为只读状态 -->
   <div
     class="t-table t-table--bordered"
+    editablecellstate="cellParams => {
+      // 第一行不允许编辑
+      return cellParams.rowIndex === 0;
+    }"
     style="position: relative;"
   >
     <!---->
@@ -99699,110 +99704,22 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
             <td
               class=""
             >
-              <div
-                class="t-table__cell--editable"
-              >
-                Eric
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
-                  >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
-                    />
-                  </g>
-                </svg>
-              </div>
+              Eric
             </td>
             <td
               class=""
             >
-              <div
-                class="t-table__cell--editable"
-              >
-                Vue
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
-                  >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
-                    />
-                  </g>
-                </svg>
-              </div>
+              Vue Framework
             </td>
             <td
               class=""
             >
-              <div
-                class="t-table__cell--editable"
-              >
-                A
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
-                  >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
-                    />
-                  </g>
-                </svg>
-              </div>
+              A
             </td>
             <td
               class=""
             >
-              <div
-                class="t-table__cell--editable"
-              >
-                2021-11-01
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
-                  >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
-                    />
-                  </g>
-                </svg>
-              </div>
+              2021-11-01
             </td>
             
           </tr>
@@ -99814,27 +99731,28 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               class=""
             >
               <div
-                class="t-table__cell--editable"
+                class="t-table__cell-wrap"
               >
-                Gilberta
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <div
+                  class="t-input__wrap"
                 >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
+                  <div
+                    class="t-input"
                   >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    <!---->
+                    <!---->
+                    <input
+                      autofocus=""
+                      class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
-                  </g>
-                </svg>
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
               </div>
             </td>
             <td
@@ -99843,7 +99761,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               <div
                 class="t-table__cell--editable"
               >
-                React
+                React Framework
                 <svg
                   class="t-icon t-icon-edit-1"
                   fill="none"
@@ -99928,27 +99846,28 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               class=""
             >
               <div
-                class="t-table__cell--editable"
+                class="t-table__cell-wrap"
               >
-                Heriberto
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <div
+                  class="t-input__wrap"
                 >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
+                  <div
+                    class="t-input"
                   >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    <!---->
+                    <!---->
+                    <input
+                      autofocus=""
+                      class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
-                  </g>
-                </svg>
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
               </div>
             </td>
             <td
@@ -99957,7 +99876,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               <div
                 class="t-table__cell--editable"
               >
-                Miniprogram
+                Miniprogram Framework
                 <svg
                   class="t-icon t-icon-edit-1"
                   fill="none"
@@ -100042,27 +99961,28 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               class=""
             >
               <div
-                class="t-table__cell--editable"
+                class="t-table__cell-wrap"
               >
-                Lazarus
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <div
+                  class="t-input__wrap"
                 >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
+                  <div
+                    class="t-input"
                   >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    <!---->
+                    <!---->
+                    <input
+                      autofocus=""
+                      class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
-                  </g>
-                </svg>
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
               </div>
             </td>
             <td
@@ -100071,7 +99991,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               <div
                 class="t-table__cell--editable"
               >
-                Flutter
+                Flutter Framework
                 <svg
                   class="t-icon t-icon-edit-1"
                   fill="none"
@@ -100156,27 +100076,28 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               class=""
             >
               <div
-                class="t-table__cell--editable"
+                class="t-table__cell-wrap"
               >
-                Eric
-                <svg
-                  class="t-icon t-icon-edit-1"
-                  fill="none"
-                  height="1em"
-                  style="font-size: 12px;"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <div
+                  class="t-input__wrap"
                 >
-                  <g
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                    opacity="0.9"
+                  <div
+                    class="t-input"
                   >
-                    <path
-                      d="M14.13 4.95L10.9 1.71l.7-.71 3.25 3.24-.7.71zM5.97 13.11l-3.61.72a.3.3 0 01-.35-.35l.72-3.61 7.3-7.3 3.24 3.24-7.3 7.3zm5.89-7.3l-1.83-1.83-6.38 6.38-.46 2.29 2.29-.46 6.38-6.38zM15 11h-4v1h4v-1zM15 13H8.5v1H15v-1z"
+                    <!---->
+                    <!---->
+                    <input
+                      autofocus=""
+                      class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
-                  </g>
-                </svg>
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
               </div>
             </td>
             <td
@@ -100185,7 +100106,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
               <div
                 class="t-table__cell--editable"
               >
-                Vue
+                Vue Framework
                 <svg
                   class="t-icon t-icon-edit-1"
                   fill="none"
@@ -119136,6 +119057,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
 exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue 1`] = `
 <div
   class="t-table t-table--bordered t-table--striped"
+  selectedrowkeys=""
   style="position: relative;"
 >
   <!---->
@@ -119150,7 +119072,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
       <colgroup>
         
         <col
-          style="width: 200px;"
+          style="width: 64px;"
         />
         <col
           style="width: 200px;"
@@ -119170,6 +119092,32 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
         <tr>
           
           <th
+            class="t-table__cell-check t-table__th-row-select"
+            data-colkey="row-select"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <label
+                class="t-checkbox t-is-disabled"
+              >
+                <input
+                  class="t-checkbox__former"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="t-checkbox__input"
+                />
+                <span
+                  class="t-checkbox__label"
+                >
+                  <!---->
+                </span>
+              </label>
+            </div>
+          </th>
+          <th
             class="t-table__th-name"
             data-colkey="name"
           >
@@ -119177,16 +119125,6 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
               class="t-table__th-cell-inner"
             >
               UNKNOWN_USER
-            </div>
-          </th>
-          <th
-            class="t-table__th-gender"
-            data-colkey="gender"
-          >
-            <div
-              class="t-table__th-cell-inner"
-            >
-              性别
             </div>
           </th>
           <th
@@ -119455,7 +119393,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
             style="width: 50px;"
           />
           <col
-            style="width: 150px;"
+            style="width: 120px;"
           />
           <col
             style="width: 100px;"
@@ -119463,7 +119401,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-multiple.vue
           <col />
           <col />
           <col
-            style="width: 200px;"
+            style="width: 150px;"
           />
           
         </colgroup>
@@ -119977,7 +119915,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
             style="width: 50px;"
           />
           <col
-            style="width: 150px;"
+            style="width: 120px;"
           />
           <col
             style="width: 100px;"
@@ -119985,7 +119923,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/select-single.vue 1
           <col />
           <col />
           <col
-            style="width: 200px;"
+            style="width: 150px;"
           />
           
         </colgroup>

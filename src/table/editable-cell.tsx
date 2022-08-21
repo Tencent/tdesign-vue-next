@@ -27,6 +27,7 @@ export interface EditableCellProps {
   tableBaseClass?: TableClassName['tableBaseClass'];
   /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
   editable?: boolean;
+  readonly?: boolean;
   errors?: AllValidateResult[];
   cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
@@ -48,6 +49,9 @@ export default defineComponent({
       type: Boolean,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+    },
     errors: {
       type: Array as PropType<EditableCellProps['errors']>,
       default: undefined,
@@ -60,7 +64,7 @@ export default defineComponent({
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
     const tableEditableCellRef = ref(null);
-    const isEdit = ref(false);
+    const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
 
@@ -259,15 +263,19 @@ export default defineComponent({
       { immediate: true },
     );
 
-    watch(isEdit, (isEdit) => {
-      const isCellEditable = props.editable === undefined;
-      if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
-      if (isEdit) {
-        document.addEventListener('click', documentClickHandler);
-      } else {
-        document.removeEventListener('click', documentClickHandler);
-      }
-    });
+    watch(
+      isEdit,
+      (isEdit) => {
+        const isCellEditable = props.editable === undefined;
+        if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
+        if (isEdit) {
+          document.addEventListener('click', documentClickHandler);
+        } else {
+          document.removeEventListener('click', documentClickHandler);
+        }
+      },
+      { immediate: true },
+    );
 
     watch(
       () => props.editable,
@@ -296,6 +304,9 @@ export default defineComponent({
     );
 
     return () => {
+      if (props.readonly) {
+        return cellNode.value;
+      }
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (

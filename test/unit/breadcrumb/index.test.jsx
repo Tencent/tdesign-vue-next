@@ -32,8 +32,8 @@ describe('Breadcrumb', () => {
       });
       await nextTick();
       const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items.at(0).find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
-      expect(items.at(1).find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
+      expect(items[0].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
+      expect(items[1].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
     });
     it('options	', async () => {
       const wrapper = mount({
@@ -185,8 +185,8 @@ describe('BreadcrumbItem', () => {
       });
       await nextTick();
       const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items.at(0).find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 100px;');
-      expect(items.at(1).find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
+      expect(items[0].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 100px;');
+      expect(items[1].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
     });
   });
 
