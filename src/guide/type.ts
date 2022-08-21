@@ -4,6 +4,180 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode, SizeEnum } from '../common';
+import { ButtonProps } from '../button';
+import { TNode, AttachNode } from '../common';
 
-export interface TdGuideProps {}
+export interface TdGuideProps {
+  /**
+   * 用于自定义渲染计数部分
+   */
+  counter?: TNode;
+  /**
+   * 当前步骤，即整个引导的进度。
+   */
+  current?: number;
+  /**
+   * 当前步骤，即整个引导的进度。，非受控属性
+   */
+  defaultCurrent?: number;
+  /**
+   * 当前步骤，即整个引导的进度。
+   */
+  modelValue?: number;
+  /**
+   * 透传 完成 的全部属性
+   * @default{ content: '完成', theme: 'primary' }
+   */
+  finishButtonProps?: ButtonProps;
+  /**
+   * 是否隐藏计数
+   * @default false
+   */
+  hideCounter?: boolean;
+  /**
+   * 是否隐藏上一步按钮
+   * @default false
+   */
+  hidePrev?: boolean;
+  /**
+   * 是否隐藏跳过按钮
+   * @default false
+   */
+  hideSkip?: boolean;
+  /**
+   * 起始序号
+   * @default 0
+   */
+  initialNum?: number;
+  /**
+   * 是否出现遮罩层
+   * @default true
+   */
+  mask?: boolean;
+  /**
+   * 引导框的类型
+   * @default popup
+   */
+  mode?: 'popup' | 'dialog';
+  /**
+   * 透传 下一步按钮 的全部属性
+   * @default{ content: '下一步', theme: 'primary' }
+   */
+  nextButtonProps?: ButtonProps;
+  /**
+   * 透传 上一步按钮 的全部属性
+   * @default{ content: '上一步', theme: 'primary' }
+   */
+  prevButtonProps?: ButtonProps;
+  /**
+   * 透传 跳过按钮 的全部属性
+   * @default { content: '跳过', theme: 'default' }
+   */
+  skipButtonProps?: ButtonProps;
+  /**
+   * 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。
+   */
+  steps?: Array<TdGuideStepProps>;
+  /**
+   * 当前步骤发生变化时触发
+   */
+  onChange?: (current: number, total: number, context?: { e?: MouseEvent }) => void;
+  /**
+   * 点击下一步时触发
+   */
+  onClickNextStep?: (next: number, current: number, total: number, context?: { e?: MouseEvent }) => void;
+  /**
+   * 点击上一步时触发
+   */
+  onClickPrevStep?: (prev: number, current: number, total: number, context?: { e?: MouseEvent }) => void;
+  /**
+   * 点击完成按钮时触发
+   */
+  onFinish?: (current: number, total: number, context?: { e?: MouseEvent }) => void;
+  /**
+   * 点击跳过按钮时触发
+   */
+  onSkip?: (current: number, total: number, context?: { e?: MouseEvent }) => void;
+}
+
+export interface TdGuideStepProps {
+  /**
+   * 自定义内容，同 content
+   */
+  children?: string | TNode;
+  /**
+   * 用户自定义引导弹框的内容，一旦存在，此时除 `placement`、`offset`和`element` 外，其它属性全部失效）
+   */
+  content?: string | TNode;
+  /**
+   * 当前步骤的描述内容
+   * @default ''
+   */
+  description?: string;
+  /**
+   * 高亮的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'#tdesign' 或 () => document.querySelector('#tdesign')
+   */
+  element: AttachNode;
+  /**
+   * 是否出现遮罩层
+   * @default true
+   */
+  mask?: boolean;
+  /**
+   * 当前步骤引导框的类型
+   * @default popup
+   */
+  mode?: 'popup' | 'dialog';
+  /**
+   * 用于自定义当前引导框的下一步按钮的内容
+   */
+  nextButtonProps?: ButtonProps;
+  /**
+   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10px', '8px']
+   */
+  offset?: Array<string | number>;
+  /**
+   * 引导框相对于高亮元素出现的位置
+   * @default top
+   */
+  placement?: StepPopupPlacement | StepDialogPlacement;
+  /**
+   * 用于自定义当前引导框的上一步按钮的内容
+   */
+  prevButtonProps?: ButtonProps;
+  /**
+   * 用于自定义当前步骤引导框的跳过按钮的内容
+   */
+  skipButtonProps?: ButtonProps;
+  /**
+   * 覆盖引导框的类名
+   * @default ''
+   */
+  stepOverlayClass?: string;
+  /**
+   * 当前步骤的标题内容
+   * @default ''
+   */
+  title?: string;
+}
+
+export type StepPopupPlacement =
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'left-top'
+  | 'left-bottom'
+  | 'right-top'
+  | 'right-bottom';
+
+export type StepDialogPlacement = 'top' | 'center';
+
+export type CrossProps = Pick<
+  TdGuideStepProps,
+  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'mask'
+>;

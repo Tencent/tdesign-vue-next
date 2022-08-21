@@ -1,20 +1,285 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, h, nextTick, onMounted, ref, toRefs, watch } from 'vue';
+
+import props from './props';
+import setStyle from './utils/setStyle';
+import getScrollParent from './utils/getScrollParent';
+import getOffset from './utils/getOffset';
+import getTargetElm from './utils/getTargetElm';
+import scrollTo from './utils/scrollTo';
+
+import TransferDom from '../utils/transfer-dom';
+
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import props from './props';
+import useDefaultValue from '../hooks/useDefaultValue';
+
+import Button from '../button';
+import Popup from '../popup';
+import Dialog from '../dialog';
+
+import { TdGuideProps, TdGuideStepProps, CrossProps } from './type';
+import { defalutCrossProps, tooltipZIndex } from './const';
 
 export default defineComponent({
   name: 'TGuide',
-  props: { ...props },
+  directives: {
+    TransferDom,
+  },
+  props,
   setup(props) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
-    const COMPONENT_NAME = usePrefixClass('link');
-    const { STATUS, SIZE } = useCommonClassName();
-    const { classPrefix } = useConfig('classPrefix');
+
+    const classPrefix = usePrefixClass();
+    const COMPONENT_NAME = usePrefixClass('guide');
+    const { SIZE } = useCommonClassName();
+
+    const { current, hideCounter, hidePrev, hideSkip, steps } = toRefs(props);
+
+    const [innerCurrent, setInnerCurrent] = useDefaultValue(current, props.defaultCurrent, props.onChange, 'current');
+
+    // 覆盖层，用于覆盖所有元素
+    // const overlayLayer = ref<JSX.Element>();
+    // 高亮层，用于高亮元素
+    // const highlightLayer = ref<JSX.Element>();
+    // 覆盖层，用于覆盖所有元素
+    const overlayLayerRef = ref<HTMLElement>();
+    // 高亮层，用于高亮元素
+    const highlightLayerRef = ref<HTMLElement>();
+    // 提示层，用于高亮元素
+    const referenceLayerRef = ref<HTMLElement>();
+    // 当前高亮的元素
+    const currentHighlightLayerElm = ref<HTMLElement>();
+    // 下一个高亮的元素
+    const nextHighlightLayerElm = ref<HTMLElement>();
+    // dialog ref
+    const dialogRef = ref<HTMLElement>();
+    // 是否开始展示
+    const actived = ref<boolean>(false);
+    // 当前步骤的信息
+    const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
+
+    // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
+    const getCurrentCrossProps = (propsName: keyof CrossProps) =>
+      currentStepInfo.value[propsName] || props[propsName] || defalutCrossProps[propsName];
+    // 当前是否为 popup
+    const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
+
+    // 滑动到元素位置
+    const scrollParentToElement = (element: HTMLElement) => {
+      const parent = getScrollParent(element);
+      if (parent === document.body) return;
+      parent.scrollTop = element.offsetTop - parent.offsetTop;
+    };
+
+    // 设置高亮层的位置
+    const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
+      const elementPosition = getOffset(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+      setStyle(highlighLayer, {
+        width: `${elementPosition.width}px`,
+        height: `${elementPosition.height}px`,
+        top: `${elementPosition.top}px`,
+        left: `${elementPosition.left}px`,
+      });
+    };
+
+    const showPopupGuide = () => {
+      const currentElement = getTargetElm(currentStepInfo.value.element);
+      nextHighlightLayerElm.value = currentElement;
+      nextTick(() => {
+        scrollParentToElement(nextHighlightLayerElm.value);
+        setHighlightLayerPosition(highlightLayerRef.value);
+        setHighlightLayerPosition(referenceLayerRef.value);
+        scrollTo(nextHighlightLayerElm.value);
+        currentHighlightLayerElm.value = currentElement;
+      });
+    };
+
+    const destoryTooltipElm = () => {
+      referenceLayerRef.value?.parentNode.removeChild(referenceLayerRef.value);
+      highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
+      overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
+    };
+
+    const showGuide = () => {
+      if (isPopup.value) {
+        showPopupGuide();
+      } else {
+        destoryTooltipElm();
+      }
+    };
+
+    const handleSkip = () => {
+      actived.value = false;
+      setInnerCurrent(-1);
+      destoryTooltipElm();
+      props.onSkip?.();
+    };
+    const handlePrev = () => {
+      setInnerCurrent(innerCurrent.value - 1);
+      props.onClickPrevStep?.();
+    };
+    const handleNext = () => {
+      setInnerCurrent(innerCurrent.value + 1);
+      props.onClickNextStep?.();
+    };
+    const handleFinish = () => {
+      actived.value = false;
+      setInnerCurrent(-1);
+      destoryTooltipElm();
+      props.onFinish?.();
+    };
+
+    watch(innerCurrent, (val) => {
+      if (val >= 0 && val < steps.value.length) {
+        actived.value = true;
+        showGuide();
+      } else {
+        console.info('当前引导的步骤', val + 1);
+      }
+    });
 
     return () => {
-      return <span>guid</span>;
+      const renderOverlayLayer = () => (
+        <div ref={overlayLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__overlay`} />
+      );
+
+      const renderHighlightLayer = () => (
+        <div ref={highlightLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__highlight`} />
+      );
+
+      const renderCounter = () => {
+        const stepsLength = props.steps.length;
+        const popupDefaultCounter = (
+          <div class={`${COMPONENT_NAME.value}__counter`}>
+            <span>
+              {innerCurrent.value + 1}/{stepsLength}
+            </span>
+          </div>
+        );
+        const dialogDefaultCounter = (
+          <div class={`${COMPONENT_NAME.value}__counter`}>
+            {props.steps.map((_, i) => (
+              <span
+                class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
+              ></span>
+            ))}
+          </div>
+        );
+        return <>{!hideCounter.value && (isPopup.value ? popupDefaultCounter : dialogDefaultCounter)}</>;
+      };
+
+      const renderAction = (mode: TdGuideProps['mode']) => {
+        const stepsLength = props.steps.length;
+        const isLast = innerCurrent.value === stepsLength - 1;
+        const isFirst = innerCurrent.value === 0;
+        const buttonSize = mode === 'popup' ? 'small' : 'medium';
+        return (
+          <div class={`${COMPONENT_NAME.value}__action`}>
+            {!hideSkip.value && !isLast && (
+              <Button
+                class={`${COMPONENT_NAME.value}__skip`}
+                theme="default"
+                size={buttonSize}
+                variant="base"
+                onClick={handleSkip}
+              >
+                跳过
+              </Button>
+            )}
+            {!hidePrev.value && !isFirst && (
+              <Button
+                class={`${COMPONENT_NAME.value}__prev`}
+                theme="primary"
+                size={buttonSize}
+                variant="base"
+                onClick={handlePrev}
+              >
+                上一步
+              </Button>
+            )}
+            {!isLast && (
+              <Button
+                class={`${COMPONENT_NAME.value}__next`}
+                theme="primary"
+                size={buttonSize}
+                variant="base"
+                onClick={handleNext}
+              >
+                下一步
+              </Button>
+            )}
+            {isLast && (
+              <Button
+                class={`${COMPONENT_NAME.value}__finish`}
+                theme="primary"
+                size={buttonSize}
+                variant="base"
+                onClick={handleFinish}
+              >
+                完成
+              </Button>
+            )}
+          </div>
+        );
+      };
+
+      const renderPopupContent = () => {
+        const title = <div class={`${COMPONENT_NAME.value}__title`}>标题</div>;
+        const desc = <div class={`${COMPONENT_NAME.value}__desc`}>描述</div>;
+        const action = (
+          <div class={`${COMPONENT_NAME.value}__footer--popup`}>
+            {renderCounter()}
+            {renderAction('popup')}
+          </div>
+        );
+
+        return (
+          <div class={`${COMPONENT_NAME.value}__tooltip`}>
+            {title}
+            {desc}
+            {action}
+          </div>
+        );
+      };
+
+      const renderReferenceLayer = () => (
+        <Popup visible={true} v-slots={{ content: renderPopupContent }} show-arrow zIndex={tooltipZIndex}>
+          <div ref={referenceLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__reference`} />
+        </Popup>
+      );
+
+      const renderPopupGuide = () => {
+        return (
+          <>
+            {renderOverlayLayer()}
+            {renderHighlightLayer()}
+            {renderReferenceLayer()}
+          </>
+        );
+      };
+
+      const renderDialogGuide = () => {
+        // todo 类型 infer
+        return (
+          <Dialog
+            ref={dialogRef}
+            visible={true}
+            showOverlay={getCurrentCrossProps('mask') as boolean}
+            footer={false}
+            closeBtn={false}
+            zIndex={tooltipZIndex}
+          >
+            <p>This is a dialog</p>
+            <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
+              {renderCounter()}
+              {renderAction('dialog')}
+            </div>
+          </Dialog>
+        );
+      };
+
+      return actived.value && (getCurrentCrossProps('mode') === 'popup' ? renderPopupGuide() : renderDialogGuide());
     };
   },
 });
