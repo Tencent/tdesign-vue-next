@@ -52,6 +52,10 @@ export default {
   dragSortOptions: {
     type: Object as PropType<TdPrimaryTableProps['dragSortOptions']>,
   },
+  /** 单元格是否允许编辑。返回值为 `true` 则表示可编辑；返回值为 `false` 则表示不可编辑，只读状态 */
+  editableCellState: {
+    type: Function as PropType<TdPrimaryTableProps['editableCellState']>,
+  },
   /** 处于编辑状态的行 */
   editableRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['editableRowKeys']>,

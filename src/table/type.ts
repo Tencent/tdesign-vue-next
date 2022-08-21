@@ -350,6 +350,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   dragSortOptions?: SortableOptions;
   /**
+   * 单元格是否允许编辑。返回值为 `true` 则表示可编辑；返回值为 `false` 则表示不可编辑，只读状态
+   */
+  editableCellState?: EditableCellType<T>;
+  /**
    * 处于编辑状态的行
    */
   editableRowKeys?: Array<string | number>;
@@ -782,6 +786,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   component?: ComponentType;
   /**
+   * 单元格默认状态是否为编辑态
+   * @default false
+   */
+  defaultEditable?: boolean;
+  /**
    * 编辑完成后，退出编辑模式时触发
    */
   onEdited?: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
@@ -893,6 +902,8 @@ export interface TableColumnResizeConfig {
 }
 
 export type DataType = TableRowData;
+
+export type EditableCellType<T> = (params: PrimaryTableCellParams<T>) => boolean;
 
 export interface ExpandArrowRenderParams<T> {
   row: T;
