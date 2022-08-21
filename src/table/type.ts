@@ -342,9 +342,9 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽。`drag-col` 已废弃，请勿使用
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。
    */
-  dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
+  dragSort?: 'row' | 'row-handler' | 'col' | 'row-handler-col' | 'drag-col';
   /**
    * 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)
    */
@@ -960,6 +960,7 @@ export interface DragSortContext<T> {
 
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
+  currentRowData: T;
 }
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };

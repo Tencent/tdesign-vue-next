@@ -5,16 +5,23 @@
     :row-key="rowKey"
     :loading="isLoading"
     :pagination="pagination"
+    :selected-row-keys="selectedRowKeys"
     bordered
     stripe
     @change="rehandleChange"
     @page-change="onPageChange"
+    @select-change="onSelectChange"
   />
 </template>
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
 
 const columns = [
+  {
+    colKey: 'row-select',
+    type: 'multiple',
+    width: 64,
+  },
   {
     width: 200,
     colKey: 'name',
@@ -23,11 +30,11 @@ const columns = [
       return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
   },
-  {
-    width: 200,
-    colKey: 'gender',
-    title: '性别',
-  },
+  // {
+  //   width: 200,
+  //   colKey: 'gender',
+  //   title: '性别',
+  // },
   {
     width: 200,
     colKey: 'phone',
@@ -46,6 +53,7 @@ const columns = [
 
 const data = ref([]);
 const isLoading = ref(false);
+const selectedRowKeys = ref([]);
 
 const pagination = reactive({
   current: 1,
@@ -95,6 +103,11 @@ onMounted(async () => {
     pageSize: pagination.pageSize || pagination.defaultPageSize,
   });
 });
+
+const onSelectChange = (value, params) => {
+  selectedRowKeys.value = value;
+  console.log(value, params);
+};
 
 const rowKey = 'phone';
 </script>

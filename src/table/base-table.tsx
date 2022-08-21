@@ -147,9 +147,13 @@ export default defineComponent({
       },
     );
 
-    watch(spansAndLeafNodes, () => {
-      props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
-    });
+    watch(
+      spansAndLeafNodes,
+      () => {
+        props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
+      },
+      { immediate: true },
+    );
 
     const onFixedChange = () => {
       nextTick(() => {

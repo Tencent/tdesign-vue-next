@@ -138,9 +138,9 @@ const expandedRow = (h, { row }) => (
   </div>
 );
 
-const rehandleExpandChange = (value, { expandedRowData }) => {
+const rehandleExpandChange = (value, params) => {
   expandedRowKeys.value = value;
-  console.log('rehandleExpandChange', value, expandedRowData);
+  console.log('rehandleExpandChange', value, params);
 };
 
 const rehandleClickOp = ({ text, row }) => {

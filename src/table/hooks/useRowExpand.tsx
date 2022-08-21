@@ -46,6 +46,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     index !== -1 ? newKeys.splice(index, 1) : newKeys.push(currentId);
     setTExpandedRowKeys(newKeys, {
       expandedRowData: props.data.filter((t) => newKeys.includes(get(t, props.rowKey || 'id'))),
+      currentRowData: row,
     });
   };
 
