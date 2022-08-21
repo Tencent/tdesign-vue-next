@@ -401,6 +401,13 @@ export default {
           path: '/vue-next/components/watermark',
           component: () => import('@/examples/watermark/watermark.md'),
         },
+        {
+          title: 'Rate 评分',
+          name: 'rate',
+          docType: 'data',
+          path: '/vue-next/components/rate',
+          component: () => import('@/examples/rate/rate.md'),
+        },
       ],
     },
     {

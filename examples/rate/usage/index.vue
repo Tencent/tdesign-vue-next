@@ -1,18 +1,22 @@
+<!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="renderCode" :config-list="configList">
-    <template #default="data">
-      <component :is="renderComp(data)" />
-    </template>
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+    <template #rate="{ configProps }"><t-rate v-bind="configProps"></t-rate></template>
   </base-usage>
 </template>
 
 <script setup lang="jsx">
-import { compile, ref, watchEffect, computed } from 'vue/dist/vue.esm-bundler.js';
-import configList from './props.json';
+/* eslint-disable */
+import { ref, onMounted } from 'vue';
+import configJson from './props.json';
 
-const renderCode = '<t-button>确定</t-button>';
+const configList = ref(configJson);
+const panelList = [{ label: 'rate', value: 'rate' }];
 
-const renderComp = (data) => {
-  return data?.usageCode ? compile(data.usageCode) : null;
-};
+const usageCodeMap = { rate: '\n        <t-rate\n          v-bind="configProps"\n        ></t-rate>\n      ' };
+const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
+
+function onPanelChange(panel) {
+  usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
+}
 </script>
