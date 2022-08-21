@@ -263,15 +263,19 @@ export default defineComponent({
       { immediate: true },
     );
 
-    watch(isEdit, (isEdit) => {
-      const isCellEditable = props.editable === undefined;
-      if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
-      if (isEdit) {
-        document.addEventListener('click', documentClickHandler);
-      } else {
-        document.removeEventListener('click', documentClickHandler);
-      }
-    });
+    watch(
+      isEdit,
+      (isEdit) => {
+        const isCellEditable = props.editable === undefined;
+        if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
+        if (isEdit) {
+          document.addEventListener('click', documentClickHandler);
+        } else {
+          document.removeEventListener('click', documentClickHandler);
+        }
+      },
+      { immediate: true },
+    );
 
     watch(
       () => props.editable,
