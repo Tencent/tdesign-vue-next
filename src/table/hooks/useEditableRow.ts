@@ -42,12 +42,12 @@ export default function useRowEdit(props: PrimaryTableProps) {
     const list = rowRules.map(
       (item) =>
         new Promise<ErrorListObjectType>((resolve) => {
-          const { row, col } = item;
+          const { editedRow, col } = item;
           if (!col.edit || !col.edit.rules || !col.edit.rules.length) {
             resolve({ ...item, errorList: [] });
             return;
           }
-          validate(row[col.colKey], col.edit.rules).then((r) => {
+          validate(editedRow[col.colKey], col.edit.rules).then((r) => {
             resolve({ ...item, errorList: r.filter((t) => !t.result) });
           });
         }),
@@ -110,8 +110,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
         if (index === -1) {
           rules.push(context);
         } else {
-          rules[index].value = context.value;
-          rules[index].row = context.row;
+          rules[index] = context;
         }
         cellRuleMap.set(rowValue, rules);
       } else {

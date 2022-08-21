@@ -210,6 +210,7 @@ export default defineComponent({
         value: val,
         col: props.col,
         colIndex: props.colIndex,
+        editedRow: { ...props.row, [props.col.colKey]: val },
       };
       props.onChange?.(params);
       props.onRuleChange?.(params);
@@ -290,6 +291,7 @@ export default defineComponent({
             rowIndex: props.rowIndex,
             colIndex: props.colIndex,
             value: cellValue.value,
+            editedRow: row.value,
           });
         }
       },

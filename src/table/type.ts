@@ -974,7 +974,7 @@ export interface ExpandOptions<T> {
   currentRowData: T;
 }
 
-export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
+export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T };
 
 export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger };
 
