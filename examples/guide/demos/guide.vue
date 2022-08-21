@@ -8,6 +8,7 @@
     <t-guide
       v-model="current"
       :steps="steps"
+      :finish-button-props="{ content: '自定义完成' }"
       @change="handleChange"
       @click-prev-step="handelClickPrevStep"
       @click-next-step="handleClickNextStep"
@@ -20,10 +21,26 @@
 import { ref } from 'vue';
 
 const steps = [
-  { element: '#guide1' },
-  { element: '#guide2', mode: 'dialog' },
-  { element: '#guide3' },
-  { element: '#guide4' },
+  {
+    element: '#guide1',
+    title: '新手引导标题',
+    description: '新手引导的说明文案。',
+    nextButtonProps: { content: '自定义下一步', theme: 'success' },
+  },
+  {
+    element: '#guide2',
+    title: '新手引导标题',
+    description: '新手引导的说明文案。',
+    mode: 'dialog',
+    prevButtonProps: { content: '自定义上一步', theme: 'success' },
+  },
+  {
+    element: '#guide3',
+    title: '新手引导标题',
+    description: '新手引导的说明文案。',
+    skipButtonProps: { content: '自定义跳过', variant: 'outline' },
+  },
+  { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。' },
 ];
 
 const current = ref(-1);

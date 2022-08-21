@@ -13,11 +13,11 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 
-import Button from '../button';
+import Button, { TdButtonProps } from '../button';
 import Popup from '../popup';
 import Dialog from '../dialog';
 
-import { TdGuideProps, TdGuideStepProps, CrossProps } from './type';
+import { TdGuideProps, TdGuideStepProps, CrossProps, StepDialogPlacement } from './type';
 import { defalutCrossProps, tooltipZIndex } from './const';
 
 export default defineComponent({
@@ -199,9 +199,8 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleSkip}
-              >
-                跳过
-              </Button>
+                {...(getCurrentCrossProps('skipButtonProps') as TdButtonProps)}
+              />
             )}
             {!hidePrev.value && !isFirst && (
               <Button
@@ -210,9 +209,8 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
-              >
-                上一步
-              </Button>
+                {...(getCurrentCrossProps('prevButtonProps') as TdButtonProps)}
+              />
             )}
             {!isLast && (
               <Button
@@ -221,9 +219,8 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleNext}
-              >
-                下一步
-              </Button>
+                {...(getCurrentCrossProps('nextButtonProps') as TdButtonProps)}
+              />
             )}
             {isLast && (
               <Button
@@ -232,17 +229,25 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleFinish}
-              >
-                完成
-              </Button>
+                {...(props.finishButtonProps as TdButtonProps)}
+              />
             )}
           </div>
         );
       };
 
+      const renderTooltipBody = () => {
+        const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
+        const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{currentStepInfo.value.description}</div>;
+        return (
+          <>
+            {title}
+            {desc}
+          </>
+        );
+      };
+
       const renderPopupContent = () => {
-        const title = <div class={`${COMPONENT_NAME.value}__title`}>标题</div>;
-        const desc = <div class={`${COMPONENT_NAME.value}__desc`}>描述</div>;
         const action = (
           <div class={`${COMPONENT_NAME.value}__footer--popup`}>
             {renderCounter()}
@@ -252,15 +257,21 @@ export default defineComponent({
 
         return (
           <div class={`${COMPONENT_NAME.value}__tooltip`}>
-            {title}
-            {desc}
+            {renderTooltipBody()}
             {action}
           </div>
         );
       };
 
       const renderReferenceLayer = () => (
-        <Popup visible={true} v-slots={{ content: renderPopupContent }} show-arrow zIndex={tooltipZIndex}>
+        <Popup
+          visible={true}
+          v-slots={{ content: renderPopupContent }}
+          show-arrow
+          zIndex={tooltipZIndex}
+          overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
+          placement={currentStepInfo.value.placement}
+        >
           <div ref={referenceLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__reference`} />
         </Popup>
       );
@@ -285,8 +296,9 @@ export default defineComponent({
             footer={false}
             closeBtn={false}
             zIndex={tooltipZIndex}
+            placement={currentStepInfo.value.placement as StepDialogPlacement}
           >
-            <p>This is a dialog</p>
+            {renderTooltipBody()}
             <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
               {renderCounter()}
               {renderAction('dialog')}
