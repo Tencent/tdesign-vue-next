@@ -5,6 +5,7 @@
     <div id="guide2" class="guide-item">guide2</div>
     <div id="guide3" class="guide-item">guide3</div>
     <div id="guide4" class="guide-item">guide4</div>
+    <div id="guide5" class="guide-item">guide5</div>
     <t-guide
       v-model="current"
       :steps="steps"
@@ -31,16 +32,18 @@ const steps = [
     element: '#guide2',
     title: '新手引导标题',
     description: '新手引导的说明文案。',
-    mode: 'dialog',
     prevButtonProps: { content: '自定义上一步', theme: 'success' },
   },
   {
     element: '#guide3',
     title: '新手引导标题',
     description: '新手引导的说明文案。',
+    mode: 'dialog',
     skipButtonProps: { content: '自定义跳过', variant: 'outline' },
   },
-  { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。' },
+
+  { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。', mask: false },
+  { element: '#guide5', title: '新手引导标题', description: '新手引导的说明文案。' },
 ];
 
 const current = ref(-1);
@@ -96,8 +99,15 @@ const handleSkip = (current, total, context) => {
 }
 
 #guide4 {
+  margin-top: 600px;
+  margin-left: 10%;
+  width: 300px;
+  height: 300px;
+}
+
+#guide5 {
   margin-top: 1400px;
-  margin-left: 20%;
+  margin-left: 50%;
   width: 400px;
   height: 400px;
 }

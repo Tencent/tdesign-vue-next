@@ -63,7 +63,7 @@ export default defineComponent({
 
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = (propsName: keyof CrossProps) =>
-      currentStepInfo.value[propsName] || props[propsName] || defalutCrossProps[propsName];
+      currentStepInfo.value[propsName] ?? props[propsName] ?? defalutCrossProps[propsName];
     // 当前是否为 popup
     const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
 
@@ -160,9 +160,12 @@ export default defineComponent({
         <div ref={overlayLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__overlay`} />
       );
 
-      const renderHighlightLayer = () => (
-        <div ref={highlightLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__highlight`} />
-      );
+      const renderHighlightLayer = () => {
+        const highlightClass = `${COMPONENT_NAME.value}__highlight`;
+        const isMask = getCurrentCrossProps('mask');
+        const classes = [highlightClass, `${highlightClass}--${isMask ? 'mask' : 'nomask'}`];
+        return <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} />;
+      };
 
       const renderCounter = () => {
         const stepsLength = props.steps.length;
