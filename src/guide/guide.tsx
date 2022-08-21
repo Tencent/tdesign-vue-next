@@ -168,29 +168,34 @@ export default defineComponent({
       };
 
       const renderCounter = () => {
-        const stepsLength = props.steps.length;
+        const popupSlotCounter = renderTNodeJSX('counter', {
+          params: { total: stepsTotal.value, current: innerCurrent.value },
+        });
+
         const popupDefaultCounter = (
           <div class={`${COMPONENT_NAME.value}__counter`}>
-            <span>
-              {innerCurrent.value + 1}/{stepsLength}
-            </span>
+            {popupSlotCounter || (
+              <span>
+                {innerCurrent.value + 1}/{stepsTotal.value}
+              </span>
+            )}
           </div>
         );
         const dialogDefaultCounter = (
           <div class={`${COMPONENT_NAME.value}__counter`}>
-            {props.steps.map((_, i) => (
-              <span
-                class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
-              ></span>
-            ))}
+            {popupSlotCounter ||
+              props.steps.map((_, i) => (
+                <span
+                  class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
+                ></span>
+              ))}
           </div>
         );
         return <>{!hideCounter.value && (isPopup.value ? popupDefaultCounter : dialogDefaultCounter)}</>;
       };
 
       const renderAction = (mode: TdGuideProps['mode']) => {
-        const stepsLength = props.steps.length;
-        const isLast = innerCurrent.value === stepsLength - 1;
+        const isLast = innerCurrent.value === stepsTotal.value - 1;
         const isFirst = innerCurrent.value === 0;
         const buttonSize = mode === 'popup' ? 'small' : 'medium';
         return (

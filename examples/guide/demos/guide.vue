@@ -15,7 +15,9 @@
       @click-next-step="handleClickNextStep"
       @finish="handleFinish"
       @skip="handleSkip"
-    />
+    >
+      <template #counter="{ current, total }"> {{ current }}/{{ total }} </template>
+    </t-guide>
   </div>
 </template>
 <script setup>
@@ -27,6 +29,7 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案。',
     nextButtonProps: { content: '自定义下一步', theme: 'success' },
+    placement: 'right',
   },
   {
     element: '#guide2',
@@ -42,7 +45,7 @@ const steps = [
     skipButtonProps: { content: '自定义跳过', variant: 'outline' },
   },
 
-  { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。', mask: false },
+  { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。', mask: false, placement: 'bottom' },
   { element: '#guide5', title: '新手引导标题', description: '新手引导的说明文案。' },
 ];
 
