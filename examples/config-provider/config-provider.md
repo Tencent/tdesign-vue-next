@@ -1,5 +1,38 @@
 :: BASE_DOC ::
 
+### 全局组件前缀
+
+TDesign 的组件前缀统一为`t`，在一些业务场景中，有需要改变组件前缀来满足业务的使用场景。
+可以使用`esm`版本（保证您可以修改less vars)，通过全局配置修改`classPrefix`，并配合 less-loader 修改`@prefix`这个 less vars 来保证组件样式的正常。
+
+```js
+import Vue from 'vue'
+import TDesign from 'tdesign-vue-next/esm'
+
+Vue.createApp({}).use(TDesign)
+
+...
+
+<t-config-provider :globalConfig="{ classPrefix: 'any'}">
+    <t-button>TDesign to any design</t-button>
+</t-config-provider>
+```
+
+```js
+{
+    loaderOptions: {
+        less: {
+            lessOptions: {
+                modifyVars: {
+                    '@prefix': 'any', // 请注意需要与classPrefix保持一致
+                },
+                javascriptEnabled: true,
+            },
+        },
+    }
+}
+```
+
 ## API
 ### GlobalConfigProvider
 
