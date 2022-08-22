@@ -40,7 +40,7 @@ const steps = [
   {
     element: '#guide3',
     title: '新手引导标题',
-    description: '新手引导的说明文案。',
+    description: '此处显示本页引导的说明文案，可按需要撰写，如内容过多可折行显示。图文也可按需自由设计。',
     mode: 'dialog',
     skipButtonProps: { content: '自定义跳过', variant: 'outline' },
   },

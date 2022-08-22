@@ -7,7 +7,7 @@ import elementInViewport from './elementInViewport';
  * @api private
  * @param {Object} element
  */
-export default function scrollTo(element) {
+export default function scrollTo(element: HTMLElement) {
   const rect = element.getBoundingClientRect();
 
   if (!elementInViewport(element)) {

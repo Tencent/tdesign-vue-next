@@ -181,3 +181,8 @@ export type CrossProps = Pick<
   TdGuideStepProps,
   'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'mask'
 >;
+
+export type ScrollTo = {
+  x: number;
+  y: number;
+};

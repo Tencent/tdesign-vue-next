@@ -8,6 +8,7 @@ import getTargetElm from './utils/getTargetElm';
 import scrollTo from './utils/scrollTo';
 
 import TransferDom from '../utils/transfer-dom';
+import { addClass, removeClass } from '../utils/dom';
 
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
@@ -32,6 +33,7 @@ export default defineComponent({
 
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('guide');
+    const LOCK_CLASS = usePrefixClass('guide--lock');
     const { SIZE } = useCommonClassName();
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps } = toRefs(props);
@@ -53,13 +55,14 @@ export default defineComponent({
     // 下一个高亮的元素
     const nextHighlightLayerElm = ref<HTMLElement>();
     // dialog ref
-    const dialogRef = ref<HTMLElement>();
+    const dialogTooltipRef = ref<HTMLElement>();
     // 是否开始展示
     const actived = ref<boolean>(false);
     // 步骤总数
     const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
+    const scrollCache: number[] = [];
 
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = (propsName: keyof CrossProps) =>
@@ -77,6 +80,12 @@ export default defineComponent({
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
       const elementPosition = getOffset(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+      if (!isPopup.value) {
+        const _scrollLeft = window.scrollX || window.pageXOffset || document.documentElement.scrollLeft;
+        const _scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        elementPosition.left += _scrollLeft;
+        elementPosition.top += _scrollTop;
+      }
       setStyle(highlighLayer, {
         width: `${elementPosition.width}px`,
         height: `${elementPosition.height}px`,
@@ -99,22 +108,44 @@ export default defineComponent({
 
     const destoryTooltipElm = () => {
       referenceLayerRef.value?.parentNode.removeChild(referenceLayerRef.value);
-      highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
-      overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
+    };
+
+    const showDialogGuide = () => {
+      nextTick(() => {
+        const currentElement = dialogTooltipRef.value;
+        nextHighlightLayerElm.value = currentElement;
+        scrollParentToElement(nextHighlightLayerElm.value);
+        setHighlightLayerPosition(highlightLayerRef.value);
+        scrollTo(nextHighlightLayerElm.value);
+        currentHighlightLayerElm.value = currentElement;
+      });
+    };
+
+    const destoryDialogTooltipElm = () => {
+      dialogTooltipRef.value?.parentNode.removeChild(dialogTooltipRef.value);
     };
 
     const showGuide = () => {
       if (isPopup.value) {
+        destoryDialogTooltipElm();
         showPopupGuide();
       } else {
         destoryTooltipElm();
+        showDialogGuide();
       }
+    };
+
+    const destoryGuide = () => {
+      destoryTooltipElm();
+      destoryDialogTooltipElm();
+      highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
+      overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
     };
 
     const handleSkip = (e: MouseEvent) => {
       actived.value = false;
       setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      destoryTooltipElm();
+      destoryGuide();
       props.onSkip?.(-1, stepsTotal.value, { e });
     };
 
@@ -131,16 +162,20 @@ export default defineComponent({
     const handleFinish = (e: MouseEvent) => {
       actived.value = false;
       setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      destoryTooltipElm();
+      destoryGuide();
       props.onFinish?.(-1, stepsTotal.value - 1, { e });
     };
 
     watch(innerCurrent, (val) => {
       if (val >= 0 && val < steps.value.length) {
-        actived.value = true;
+        if (!actived.value) {
+          actived.value = true;
+          addClass(document.body, LOCK_CLASS.value);
+        }
         showGuide();
       } else {
         actived.value = false;
+        removeClass(document.body, LOCK_CLASS.value);
         console.info('当前引导的步骤', val);
       }
     });
@@ -285,37 +320,57 @@ export default defineComponent({
       );
 
       const renderPopupGuide = () => {
+        return <>{renderReferenceLayer()}</>;
+      };
+
+      const renderDialogGuide = () => {
+        return (
+          <>
+            <div v-transfer-dom="body" class={`${COMPONENT_NAME.value}__dialog`}>
+              <div
+                ref={dialogTooltipRef}
+                class={[`${COMPONENT_NAME.value}__reference`, `${COMPONENT_NAME.value}__reference--dialog`]}
+              >
+                {renderTooltipBody()}
+                <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
+                  {renderCounter()}
+                  {renderAction('dialog')}
+                </div>
+              </div>
+            </div>
+          </>
+        );
+        // todo 类型 infer
+        // return (
+        //   <Dialog
+        //     ref={dialogRef}
+        //     visible={true}
+        //     showOverlay={getCurrentCrossProps('mask') as boolean}
+        //     footer={false}
+        //     closeBtn={false}
+        //     zIndex={tooltipZIndex}
+        //     placement={currentStepInfo.value.placement as StepDialogPlacement}
+        //   >
+        //     {renderTooltipBody()}
+        //     <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
+        //       {renderCounter()}
+        //       {renderAction('dialog')}
+        //     </div>
+        //   </Dialog>
+        // );
+      };
+
+      const renderGuide = () => {
         return (
           <>
             {renderOverlayLayer()}
             {renderHighlightLayer()}
-            {renderReferenceLayer()}
+            {getCurrentCrossProps('mode') === 'popup' ? renderPopupGuide() : renderDialogGuide()}
           </>
         );
       };
 
-      const renderDialogGuide = () => {
-        // todo 类型 infer
-        return (
-          <Dialog
-            ref={dialogRef}
-            visible={true}
-            showOverlay={getCurrentCrossProps('mask') as boolean}
-            footer={false}
-            closeBtn={false}
-            zIndex={tooltipZIndex}
-            placement={currentStepInfo.value.placement as StepDialogPlacement}
-          >
-            {renderTooltipBody()}
-            <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
-              {renderCounter()}
-              {renderAction('dialog')}
-            </div>
-          </Dialog>
-        );
-      };
-
-      return actived.value && (getCurrentCrossProps('mode') === 'popup' ? renderPopupGuide() : renderDialogGuide());
+      return <>{actived.value && renderGuide()}</>;
     };
   },
 });
