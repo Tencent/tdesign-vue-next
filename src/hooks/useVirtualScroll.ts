@@ -252,6 +252,7 @@ const useVirtualScroll = ({
     } else {
       updateVisibleData();
     }
+
     container.value && (container.value.scrollTop = 0);
   });
   let mounted = false;
