@@ -21,7 +21,7 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent, getNewMultipleValue } from './helper';
-import { useSelectOptions } from './hooks';
+import { useSelectOptions } from './hooks/useSelectOptions';
 
 export default defineComponent({
   name: 'TSelect',

@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, PropType, Slots, ref, onMounted, onBeforeUnmount } from 'vue';
+import { computed, defineComponent, inject, PropType, Slots, ref, ComputedRef } from 'vue';
 import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
 import { Styles } from '../common';
@@ -10,8 +10,7 @@ import TdSelectProps from './props';
 
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import useVirtualScroll from '../hooks/useVirtualScroll';
-
+import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import { selectInjectKey } from './helper';
 
 export default defineComponent({
@@ -41,20 +40,7 @@ export default defineComponent({
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
 
-    const {
-      type,
-      rowHeight = 28, // 默认每行高度28
-      bufferSize = 20,
-      isFixedRowHeight = false,
-      threshold = 100,
-    } = props.scroll || {};
-
-    const isVirtual = computed(
-      () => props.scroll?.type === 'virtual' && props.options?.length > (props.scroll?.threshold || 100),
-    );
-
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
-
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
     const displayOptions = computed(() => {
@@ -85,53 +71,12 @@ export default defineComponent({
       return res;
     });
 
-    const {
-      trs = null,
-      visibleData = null,
-      handleScroll: handleVirtualScroll = null,
-      scrollHeight = null,
-      translateY = null,
-      handleRowMounted = null,
-    } = type === 'virtual'
-      ? useVirtualScroll({
-          container: popupContentRef,
-          data: displayOptions,
-          fixedHeight: isFixedRowHeight,
-          lineHeight: rowHeight,
-          bufferSize,
-          threshold,
-        })
-      : {};
-    let lastScrollY = -1;
-
-    const onInnerVirtualScroll = (e: WheelEvent) => {
-      if (!isVirtual.value) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      const top = target.scrollTop;
-      // 排除横向滚动出发的纵向虚拟滚动计算
-      if (Math.abs(lastScrollY - top) > 5) {
-        handleVirtualScroll();
-        lastScrollY = top;
-      } else {
-        lastScrollY = -1;
-      }
-    };
-
-    // 监听popup滚动 处理虚拟滚动时的virtualData变化
-    onMounted(() => {
-      if (props.scroll?.type === 'virtual') {
-        popupContentRef.value?.addEventListener('scroll', onInnerVirtualScroll);
-      }
-    });
-
-    // 卸载时取消监听
-    onBeforeUnmount(() => {
-      if (props.scroll?.type === 'virtual') {
-        popupContentRef.value?.removeEventListener('scroll', onInnerVirtualScroll);
-      }
-    });
+    const { trs, scrollHeight, translateY, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } =
+      usePanelVirtualScroll({
+        scroll: props.scroll,
+        popupContentRef,
+        options: displayOptions,
+      });
 
     const isEmpty = computed(() => !displayOptions.value.length);
 
@@ -167,7 +112,7 @@ export default defineComponent({
                       trs,
                       scrollType: props.scroll?.type,
                       isVirtual: isVirtual.value,
-                      bufferSize,
+                      bufferSize: props.scroll?.bufferSize,
                       key: `${item.$index || ''}_${index}`,
                     }
                   : {
@@ -194,63 +139,7 @@ export default defineComponent({
       innerRef,
     });
 
-    if (isVirtual.value) {
-      return () => (
-        <div>
-          <div
-            style={
-              {
-                position: 'absolute',
-                width: '1px',
-                height: '1px',
-                transition: 'transform 0.2s',
-                transform: `translate(0, ${scrollHeight.value}px)`,
-                '-ms-transform': `translate(0, ${scrollHeight.value}px)`,
-                '-moz-transform': `translate(0, ${scrollHeight.value}px)`,
-                '-webkit-transform': `translate(0, ${scrollHeight.value}px)`,
-              } as Styles
-            }
-          ></div>
-          <div
-            ref={innerRef}
-            class={[
-              `${COMPONENT_NAME.value}__dropdown-inner`,
-              `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
-            ]}
-            onClick={(e) => e.stopPropagation()}
-            style={
-              {
-                transform: `translate(0, ${translateY.value}px)`,
-                '-ms-transform': `translate(0, ${translateY.value}px)`,
-                '-moz-transform': `translate(0, ${translateY.value}px)`,
-                '-webkit-transform': `translate(0, ${translateY.value}px)`,
-              } as Styles
-            }
-          >
-            {renderTNodeJSX('panelTopContent')}
-            {/* create option */}
-            {showCreateOption.value && renderCreateOption()}
-            {!isEmpty.value && !props.loading && renderOptionsContent(visibleData.value)}
-            {/* 空状态 */}
-            {isEmpty.value &&
-              renderDefaultTNode('empty', {
-                defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-              })}
-            {/* loading状态 */}
-            {!isEmpty.value &&
-              props.loading &&
-              renderDefaultTNode('loadingText', {
-                defaultNode: (
-                  <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>
-                ),
-              })}
-            {renderTNodeJSX('panelBottomContent')}
-          </div>
-        </div>
-      );
-    }
-
-    return () => (
+    const renderPanel = (options: ComputedRef<SelectOption[]>, extraStyle?: ComputedRef<Styles>) => (
       <div
         ref={innerRef}
         class={[
@@ -258,24 +147,36 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
         onClick={(e) => e.stopPropagation()}
+        style={extraStyle.value}
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}
         {showCreateOption.value && renderCreateOption()}
-        {!isEmpty.value && !props.loading && renderOptionsContent(displayOptions.value)}
-        {/* 空状态 */}
-        {isEmpty.value &&
-          renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-          })}
         {/* loading状态 */}
-        {!isEmpty.value &&
-          props.loading &&
+        {props.loading &&
           renderDefaultTNode('loadingText', {
             defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
           })}
+        {/* 空状态 */}
+        {!props.loading &&
+          isEmpty.value &&
+          renderDefaultTNode('empty', {
+            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
+          })}
+        {!isEmpty.value && !props.loading && renderOptionsContent(options.value)}
         {renderTNodeJSX('panelBottomContent')}
       </div>
     );
+
+    if (isVirtual.value) {
+      return () => (
+        <div>
+          <div style={cursorStyle.value}></div>
+          {renderPanel(visibleData as ComputedRef<SelectOption[]>, panelStyle)}
+        </div>
+      );
+    }
+
+    return () => renderPanel(displayOptions);
   },
 });

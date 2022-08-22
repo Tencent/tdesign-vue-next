@@ -2,8 +2,8 @@ import { computed, Slots, VNode, Ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
 
-import { useChildComponentSlots } from '../hooks/slot';
-import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue } from './type';
+import { useChildComponentSlots } from '../../hooks/slot';
+import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue } from '../type';
 
 type UniOption = (TdOptionProps | SelectOptionGroup) & {
   index?: number;
