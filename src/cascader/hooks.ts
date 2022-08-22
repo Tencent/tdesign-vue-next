@@ -119,7 +119,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   watch(
     () => props.options,
     () => {
-      const { options, keys = {}, checkStrictly } = props;
+      const { options, keys = {}, checkStrictly, lazy, load, valueMode } = props;
       const { treeStore } = statusContext;
 
       if (!options.length && !treeStore) return;
@@ -133,6 +133,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
           checkable: true,
           expandMutex: true,
           expandParent: true,
+          lazy,
+          load,
+          valueMode,
           checkStrictly,
           onLoad: () => {
             nextTick(() => {
