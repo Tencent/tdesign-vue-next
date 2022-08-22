@@ -339,6 +339,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__reference`,
           `${COMPONENT_NAME.value}__dialog`,
           {
+            [`${COMPONENT_NAME.value}__dialog--nomask`]: !getCurrentCrossProps('mask'),
             [currentStepInfo.value.stepOverlayClass]: !!currentStepInfo.value.stepOverlayClass,
           },
         ];
