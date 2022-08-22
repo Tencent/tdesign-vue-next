@@ -41,10 +41,6 @@ export default defineComponent({
     const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
 
     // 覆盖层，用于覆盖所有元素
-    // const overlayLayer = ref<JSX.Element>();
-    // 高亮层，用于高亮元素
-    // const highlightLayer = ref<JSX.Element>();
-    // 覆盖层，用于覆盖所有元素
     const overlayLayerRef = ref<HTMLElement>();
     // 高亮层，用于高亮元素
     const highlightLayerRef = ref<HTMLElement>();
@@ -282,12 +278,23 @@ export default defineComponent({
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{currentStepInfo.value.description}</div>;
-        return (
-          <>
-            {title}
-            {desc}
-          </>
-        );
+        const { content } = currentStepInfo.value;
+        let renderBody;
+        if (content) {
+          if (typeof content === 'string') {
+            renderBody = content;
+          } else {
+            renderBody = h(currentStepInfo.value.content);
+          }
+        } else {
+          renderBody = (
+            <>
+              {title}
+              {desc}
+            </>
+          );
+        }
+        return renderBody;
       };
 
       const renderPopupContent = () => {
@@ -324,13 +331,21 @@ export default defineComponent({
       };
 
       const renderDialogGuide = () => {
+        const wrapperClasses = [
+          `${COMPONENT_NAME.value}__wrapper`,
+          { [`${COMPONENT_NAME.value}__wrapper--center`]: currentStepInfo.value.placement === 'center' },
+        ];
+        const dialogClasses = [
+          `${COMPONENT_NAME.value}__reference`,
+          `${COMPONENT_NAME.value}__dialog`,
+          {
+            [currentStepInfo.value.stepOverlayClass]: !!currentStepInfo.value.stepOverlayClass,
+          },
+        ];
         return (
           <>
-            <div v-transfer-dom="body" class={`${COMPONENT_NAME.value}__dialog`}>
-              <div
-                ref={dialogTooltipRef}
-                class={[`${COMPONENT_NAME.value}__reference`, `${COMPONENT_NAME.value}__reference--dialog`]}
-              >
+            <div v-transfer-dom="body" class={wrapperClasses}>
+              <div ref={dialogTooltipRef} class={dialogClasses}>
                 {renderTooltipBody()}
                 <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
                   {renderCounter()}
@@ -340,24 +355,6 @@ export default defineComponent({
             </div>
           </>
         );
-        // todo 类型 infer
-        // return (
-        //   <Dialog
-        //     ref={dialogRef}
-        //     visible={true}
-        //     showOverlay={getCurrentCrossProps('mask') as boolean}
-        //     footer={false}
-        //     closeBtn={false}
-        //     zIndex={tooltipZIndex}
-        //     placement={currentStepInfo.value.placement as StepDialogPlacement}
-        //   >
-        //     {renderTooltipBody()}
-        //     <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
-        //       {renderCounter()}
-        //       {renderAction('dialog')}
-        //     </div>
-        //   </Dialog>
-        // );
       };
 
       const renderGuide = () => {

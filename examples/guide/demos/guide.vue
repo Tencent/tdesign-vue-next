@@ -16,12 +16,13 @@
       @finish="handleFinish"
       @skip="handleSkip"
     >
-      <template #counter="{ current, total }"> {{ current }}/{{ total }} </template>
+      <template #counter="{ total }"> {{ current }}/{{ total }} </template>
     </t-guide>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue';
+import Base from './base.vue';
 
 const steps = [
   {
@@ -36,13 +37,17 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案。',
     prevButtonProps: { content: '自定义上一步', theme: 'success' },
+    content: Base,
   },
   {
     element: '#guide3',
     title: '新手引导标题',
     description: '此处显示本页引导的说明文案，可按需要撰写，如内容过多可折行显示。图文也可按需自由设计。',
     mode: 'dialog',
+    // mask: false,
+    // placement: 'center',
     skipButtonProps: { content: '自定义跳过', variant: 'outline' },
+    content: '自定义内容',
   },
 
   { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。', mask: false, placement: 'bottom' },
