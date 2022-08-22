@@ -21,6 +21,8 @@ import Dialog from '../dialog';
 import { TdGuideProps, TdGuideStepProps, CrossProps, StepDialogPlacement } from './type';
 import { defalutCrossProps, tooltipZIndex } from './const';
 
+import { GuidePopupStepContent } from './guide-step';
+
 export default defineComponent({
   name: 'TGuide',
   directives: {
@@ -58,7 +60,6 @@ export default defineComponent({
     const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
-    const scrollCache: number[] = [];
 
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = (propsName: keyof CrossProps) =>
@@ -278,23 +279,12 @@ export default defineComponent({
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{currentStepInfo.value.description}</div>;
-        const { content } = currentStepInfo.value;
-        let renderBody;
-        if (content) {
-          if (typeof content === 'string') {
-            renderBody = content;
-          } else {
-            renderBody = h(currentStepInfo.value.content);
-          }
-        } else {
-          renderBody = (
-            <>
-              {title}
-              {desc}
-            </>
-          );
-        }
-        return renderBody;
+        return (
+          <>
+            {title}
+            {desc}
+          </>
+        );
       };
 
       const renderPopupContent = () => {
@@ -313,18 +303,28 @@ export default defineComponent({
         );
       };
 
-      const renderReferenceLayer = () => (
-        <Popup
-          visible={true}
-          v-slots={{ content: renderPopupContent }}
-          show-arrow
-          zIndex={tooltipZIndex}
-          overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
-          placement={currentStepInfo.value.placement}
-        >
-          <div ref={referenceLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__reference`} />
-        </Popup>
-      );
+      const renderReferenceLayer = () => {
+        const { content } = currentStepInfo.value;
+        let renderBody;
+        if (content) {
+          renderBody = () => <GuidePopupStepContent content={content} />;
+        } else {
+          renderBody = renderPopupContent;
+        }
+
+        return (
+          <Popup
+            visible={true}
+            v-slots={{ content: renderBody }}
+            show-arrow={!content}
+            zIndex={tooltipZIndex}
+            overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
+            placement={currentStepInfo.value.placement}
+          >
+            <div ref={referenceLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__reference`} />
+          </Popup>
+        );
+      };
 
       const renderPopupGuide = () => {
         return <>{renderReferenceLayer()}</>;

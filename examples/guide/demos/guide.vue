@@ -37,7 +37,7 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案。',
     prevButtonProps: { content: '自定义上一步', theme: 'success' },
-    content: Base,
+    // content: (h) => h(Base),
   },
   {
     element: '#guide3',
