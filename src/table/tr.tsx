@@ -21,7 +21,7 @@ import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
 import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from './type';
 import baseTableProps from './base-table-props';
-import useLazyLoad from '../hooks/useLazyLoad';
+import useLazyLoad from './hooks/useLazyLoad';
 import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 
