@@ -1,19 +1,35 @@
 <template>
-  <!-- 开启虚拟滚动 请为select的panel设定好height 通过popupProps进行透传 -->
-  <t-select
-    v-model="value"
-    :options="options"
-    placeholder="请选择"
-    :scroll="{ type: 'virtual' }"
-    :popup-props="{ overlayInnerStyle: { height: '300px' } }"
-  />
+  <t-space>
+    <!-- 开启虚拟滚动 请为select的panel设定好height 通过popupProps进行透传 -->
+    <t-select
+      v-model="value"
+      :options="options"
+      placeholder="请选择"
+      style="width: 300px"
+      :scroll="{ type: 'virtual' }"
+      :popup-props="{ overlayInnerStyle: { height: '300px' } }"
+    />
+    <t-select
+      v-model="value2"
+      :options="options"
+      placeholder="请选择"
+      style="width: 300px"
+      :scroll="{ type: 'virtual' }"
+      :popup-props="{ overlayInnerStyle: { height: '300px' } }"
+    >
+      <t-option v-for="(item, index) in options" :key="index" :label="item.label" :value="item.value"></t-option>
+    </t-select>
+  </t-space>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 const options = [];
-for (let i = 0; i < 5000; i++) {
+for (let i = 0; i < 10000; i++) {
   options.push({ label: `选项${i + 1}`, value: String(i) });
 }
 
-const value = '';
+const value = ref('');
+const value2 = ref('');
 </script>
