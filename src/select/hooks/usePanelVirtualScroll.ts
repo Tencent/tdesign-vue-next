@@ -19,7 +19,7 @@ export const usePanelVirtualScroll = (props: {
     scrollHeight = null,
     translateY = null,
     handleRowMounted = null,
-  } = props.scroll.type === 'virtual'
+  } = props.scroll?.type === 'virtual'
     ? useVirtualScroll({
         container: props.popupContentRef,
         data: props.options,
