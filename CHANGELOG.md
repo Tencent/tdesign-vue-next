@@ -5,6 +5,46 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.2 `2022-08-23` 
+### 🚀 Features
+- `Table`: 
+   - 支持行拖拽排序和列拖拽排序同时存在，([issue#1290](https://github.com/Tencent/tdesign-vue/issues/1290)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 行展开功能，新增事件参数 `currentRowData`，表示当前展开行 @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 可编辑单元格/行功能，新增 `editableCellState` 用于控制单元格是否可编辑，([issue#1387](https://github.com/Tencent/tdesign-vue-next/issues/1387)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 可编辑单元格/行功能，新增 `edit.defaultEditable` 用于设置初始状态是否为编辑态 @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+- `Select`: 
+   - 支持开启虚拟滚动处理大量数据的场景 @uyarn ([#1451](https://github.com/Tencent/tdesign-vue-next/pull/1451))
+   - 调整 `loading` 态显示优先于 `empty` 属性 @skytt  @uyarn ([#1451](https://github.com/Tencent/tdesign-vue-next/pull/1451))
+- `InputNumber`: 支持超过 `16` 位的大数字 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+- `ConfigProvider`: 支持自定义全局 `icon`  @zhangpaopao0609 ([#1420](https://github.com/Tencent/tdesign-vue-next/pull/1420))
+- `Rate`: 新增 `rate` 组件 @Yilun-Sun ([#1415](https://github.com/Tencent/tdesign-vue-next/pull/1415))
+- `Dialog`: 增加弹窗回车事件 `API` @huoyuhao ([#1433](https://github.com/Tencent/tdesign-vue-next/pull/1433))
+
+### 🐞 Bug Fixes
+- `Table`: 
+   - 修复吸顶表头，末尾有 `1px` 未对齐 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+   - 修复窗口变化时，固定列阴影未更新问题 ([issue #1289](https://github.com/Tencent/tdesign-vue/issues/1289)) @chaishi ([#1439](https://github.com/Tencent/tdesign-vue-next/pull/1439))
+   - 修复行选中功能，多选，分页数据异步加载，`onSelectChange` 参数 `selectedRowData` 数据不完整问题，表示当前展开行，([issue#1364](https://github.com/Tencent/tdesign-vue-next/issues/1364)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 修复可编辑行，联动数据校验问题，([issue#1444](https://github.com/Tencent/tdesign-vue-next/issues/1444)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+- `Tree`: 
+   - `tree` 可选时 `onActive` 失效 ([issue #1409](https://github.com/Tencent/tdesign-vue-next/issues/1409)) @zhangpaopao0609 ([#1453](https://github.com/Tencent/tdesign-vue-next/pull/1453))
+   - 修正 `setItem` 无法正确 展开，高亮，选中节点 ([issue #1428](https://github.com/Tencent/tdesign-vue-next/issues/1428)) @PDieE ([#1465](https://github.com/Tencent/tdesign-vue-next/pull/1465))
+- `Cascader`: 
+   - 修复异步获取 `options` 后的懒加载无效 ([issue #1448](https://github.com/Tencent/tdesign-vue-next/issues/1448)) ([issue #1223](https://github.com/Tencent/tdesign-vue/issues/1223)) @pengYYYYY ([#1471](https://github.com/Tencent/tdesign-vue-next/pull/1471))
+   - 修复 `value` 不是 `options` 的健值会报错 ([issue #1293](https://github.com/Tencent/tdesign-react/issues/1293)) @pengYYYYY ([#1471](https://github.com/Tencent/tdesign-vue-next/pull/1471))
+- `InputNumber`: 修复数字精度问题 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+- `Transfer`: `Transfer` 与 `Tree` 结合使用时，当 children 为空数组时，应当展示父节点 ([issue #1366](https://github.com/Tencent/tdesign-vue-next/issues/1366)) @zhangpaopao0609 ([#1438](https://github.com/Tencent/tdesign-vue-next/pull/1438))
+- `Drawer`: 修复拖拽改变抽屉高度时可超出屏幕的问题 @sechi747 ([#1450](https://github.com/Tencent/tdesign-vue-next/pull/1450))
+- `Tabs`: 修复 `card` 主题下 `onDragSort` 的 `targetIndex` 参数不正确的问题 @sechi747 ([#1455](https://github.com/Tencent/tdesign-vue-next/pull/1455))
+- `Breadcrumb`: 修复了设置disabled属性后仍触发点击事件的问题 @sechi747 ([#1461](https://github.com/Tencent/tdesign-vue-next/pull/1461))
+- `DaterPicker`: 调整默认展示时间为 00:00:00 @HQ-Lin ([#1458](https://github.com/Tencent/tdesign-vue-next/pull/1458))
+- `Slider`: 修复 `Slider` 输入框无法输入 `0` 问题 @ChrisLee0211 ([#1469](https://github.com/Tencent/tdesign-vue-next/pull/1469))
+
+
+### 🚧 Others
+- `Breadcrumb`: 增加 `breadcrumb` 单元测试 @xxxlj ([#1459](https://github.com/Tencent/tdesign-vue-next/pull/1459))
+
+
 ## 🌈 0.20.1 `2022-08-16` 
 ### 🚀 Features
 - `Popup`: 新增 `overlayInnerClassName` 支持设置浮层内容样式名 @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
