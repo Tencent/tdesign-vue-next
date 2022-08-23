@@ -1,8 +1,10 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
-import { DeleteIcon, AddIcon } from 'tdesign-icons-vue-next';
+import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-vue-next';
+
 import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import baseProps from './base-props';
 
 export default defineComponent({
@@ -36,6 +38,7 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
+    const { DeleteIcon, AddIcon } = useGlobalIcon({ DeleteIcon: TdDeleteIcon, AddIcon: TdAddIcon });
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
     const visiblePopConfirm = ref<boolean>(false);
@@ -70,6 +73,8 @@ export default defineComponent({
 
     return {
       baseClassName,
+      DeleteIcon,
+      AddIcon,
       statusClassNames,
       selectedColorIndex,
       visiblePopConfirm,
@@ -80,7 +85,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { baseClassName, statusClassNames, title, editable } = this;
+    const { baseClassName, DeleteIcon, AddIcon, statusClassNames, title, editable } = this;
     const swatchesClass = `${baseClassName}__swatches`;
 
     const renderActions = () => {

@@ -1,9 +1,11 @@
 import { computed, defineComponent, h, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+
 import props from './step-item-props';
 import { SlotReturnValue } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks';
 
 export default defineComponent({
@@ -14,7 +16,8 @@ export default defineComponent({
     const stepsState = inject('StepsState', undefined);
     const stepsProps = inject('StepsProps', undefined);
 
-    const { global } = useConfig('steps');
+    const { globalConfig } = useConfig('steps');
+    const { CheckIcon, CloseIcon } = useGlobalIcon({ CheckIcon: TdCheckIcon, CloseIcon: TdCloseIcon });
     const canClick = computed(() => {
       return props.status !== 'process' && !stepsProps?.readonly;
     });
@@ -44,8 +47,8 @@ export default defineComponent({
             icon = <CheckIcon />;
             break;
           case 'error':
-            if (isFunction(global.value.errorIcon)) {
-              icon = global.value.errorIcon(h);
+            if (isFunction(globalConfig.value.errorIcon)) {
+              icon = globalConfig.value.errorIcon(h);
             } else {
               icon = <CloseIcon />;
             }

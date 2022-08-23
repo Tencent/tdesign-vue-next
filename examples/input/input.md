@@ -6,11 +6,12 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 align | String | left | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
+allowInputOverMax | Boolean | false | 超出maxlength或maxcharacter之后是否还允许输入 | N
+autoWidth | Boolean | false | 宽度随内容自适应 | N
 autocomplete | String | undefined | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) | N
 autofocus | Boolean | false | 自动聚焦 | N
-autoWidth | Boolean | false | 宽度随内容自适应 | N
 clearable | Boolean | false | 是否可清空 | N
-disabled | Boolean | false | 是否禁用输入框 | N
+disabled | Boolean | - | 是否禁用输入框 | N
 format | Function | - | 【开发中】指定输入框展示值的格式。TS 类型：`InputFormatType` `type InputFormatType = (value: InputValue) => number | string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 inputClass | String / Object / Array | - | t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`。TS 类型：`ClassName`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -21,8 +22,9 @@ placeholder | String | undefined | 占位符 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 readonly | Boolean | false | 只读状态 | N
 showClearIconOnEmpty | Boolean | false | 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 | N
+showLimitNumber | Boolean | false | 是否在右侧显示字数限制文本 | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | default | 输入框状态。可选项：default/success/warning/error | N
+status | String | - | 输入框状态。可选项：default/success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -42,6 +44,7 @@ onKeyup | Function |  | TS 类型：`(value: InputValue, context: { e: KeyboardE
 onMouseenter | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>进入输入框时触发 | N
 onMouseleave | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>离开输入框时触发 | N
 onPaste | Function |  | TS 类型：`(context: { e: ClipboardEvent; pasteValue: string }) => void`<br/>粘贴事件，`pasteValue` 表示粘贴板的内容 | N
+onValidate | Function |  | TS 类型：`(context: { error?: 'exceed-maximum' | 'below-minimum' }) => void`<br/>字数超出限制时触发 | N
 onWheel | Function |  | TS 类型：`(context: { e: WheelEvent }) => void`<br/>输入框中滚动鼠标时触发 | N
 
 ### Input Events
@@ -61,4 +64,5 @@ keyup | `(value: InputValue, context: { e: KeyboardEvent })` | 释放键盘时�
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
+validate | `(context: { error?: 'exceed-maximum' | 'below-minimum' })` | 字数超出限制时触发
 wheel | `(context: { e: WheelEvent })` | 输入框中滚动鼠标时触发

@@ -12,7 +12,12 @@ import {
   VNode,
   watch,
 } from 'vue';
-import { CheckCircleFilledIcon, CloseCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -41,8 +46,9 @@ import {
 } from './const';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
-type IconConstructor = typeof ErrorCircleFilledIcon;
+type IconConstructor = typeof TdErrorCircleFilledIcon;
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -53,7 +59,12 @@ export default defineComponent({
   setup(props) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
-    const { global } = useConfig('form');
+    const { globalConfig } = useConfig('form');
+    const { CheckCircleFilledIcon, CloseCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const form = inject(FormInjectionKey, undefined);
 
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
@@ -61,7 +72,8 @@ export default defineComponent({
     const needRequiredMark = computed(() => {
       const { requiredMark } = props;
       if (typeof requiredMark === 'boolean') return requiredMark;
-      const parentRequiredMark = form?.requiredMark === undefined ? global.value.requiredMark : form?.requiredMark;
+      const parentRequiredMark =
+        form?.requiredMark === undefined ? globalConfig.value.requiredMark : form?.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
       return Boolean(parentRequiredMark && isRequired);
     });
@@ -203,7 +215,7 @@ export default defineComponent({
       }
     };
 
-    const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? global.value.errorMessage);
+    const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? globalConfig.value.errorMessage);
     const innerRules = computed<FormRule[]>(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];

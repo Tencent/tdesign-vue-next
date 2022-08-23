@@ -27,7 +27,7 @@
         <t-checkbox-group v-model="formData.course" :options="courseOptions"></t-checkbox-group>
       </t-form-item>
       <t-form-item label="学院" name="college">
-        <t-select v-model="formData.college" class="demo-select-base" clearable>
+        <t-select v-model="formData.college" class="demo-select-base" clearable filterable>
           <t-option v-for="(item, index) in options" :key="index" :value="item.value" :label="item.label">
             {{ item.label }}
           </t-option>
@@ -74,7 +74,11 @@ const rules = {
   ],
   gender: [{ required: true, message: '性别必填', type: 'warning' }],
   course: [{ required: true, message: '课程必填', type: 'warning' }],
-  college: [{ required: true, message: '学院必选', type: 'warning', trigger: 'blur' }],
+  college: [
+    // 注意：trigger: blur 仅在输入框或选择框失去焦点时触发，需要注意配合 trigger: change 使用
+    { required: true, message: '学院必选', type: 'warning', trigger: 'blur' },
+    { required: true, message: '学院必选', type: 'warning', trigger: 'change' },
+  ],
   'content.url': [
     { required: true, message: '个人网站必填', type: 'warning' },
     {

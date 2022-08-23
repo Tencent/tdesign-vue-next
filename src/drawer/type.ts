@@ -127,7 +127,7 @@ export interface TdDrawerProps {
   onOverlayClick?: (context: { e: MouseEvent }) => void;
 }
 
-export type FooterButton = string | ButtonProps | TNode;
+export type FooterButton = string | ButtonProps | TNode | null;
 
 export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 

@@ -4,12 +4,13 @@ import get from 'lodash/get';
 import pick from 'lodash/pick';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../hooks/useConfig';
-import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { useTNodeJSX } from '../hooks/tnode';
 import useClassName from './hooks/useClassName';
 import baseTableProps from './base-table-props';
 import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
+import { BaseTableProps, RowAndColFixedPosition } from './interface';
+import { TdBaseTableProps } from './type';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
@@ -27,6 +28,7 @@ export interface TableBodyProps extends BaseTableProps {
   bufferSize: number;
   // HTMLDivElement
   tableContentElm: any;
+  cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
   handleRowMounted: () => void;
 }
 
@@ -42,6 +44,7 @@ export const extendTableProps = [
   'lastFullRow',
   'rowspanAndColspan',
   'scroll',
+  'cellEmptyContent',
   'onCellClick',
   'onPageChange',
   'onRowClick',
@@ -85,18 +88,18 @@ export default defineComponent({
   },
 
   // eslint-disable-next-line
-  setup(props: TableBodyProps, { emit }: SetupContext) {
+  setup(props: TableBodyProps) {
     const renderTNode = useTNodeJSX();
-    const { data, columns, rowKey } = toRefs(props);
-    const { t, global } = useConfig('table');
+    const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
+    const { t, globalConfig } = useConfig('table');
     const { tableFullRowClasses, tableBaseClass } = useClassName();
-    const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, props.rowspanAndColspan);
+    const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, rowspanAndColspan);
 
     const tbodyClasses = computed(() => [tableBaseClass.body]);
 
     return {
       t,
-      global,
+      globalConfig,
       renderTNode,
       tableFullRowClasses,
       tbodyClasses,
@@ -114,7 +117,7 @@ export default defineComponent({
               class={[this.tableBaseClass.empty, { [this.tableFullRowClasses.innerFullRow]: this.isWidthOverflow }]}
               style={this.isWidthOverflow ? { width: `${this.tableWidth}px` } : {}}
             >
-              {this.renderTNode('empty') || this.t(this.global.empty)}
+              {this.renderTNode('empty') || this.t(this.globalConfig.empty)}
             </div>
           </td>
         </tr>

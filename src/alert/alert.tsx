@@ -1,23 +1,34 @@
 import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
 import {
-  CheckCircleFilledIcon,
-  CloseIcon,
-  ErrorCircleFilledIcon,
-  HelpCircleFilledIcon,
-  InfoCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  HelpCircleFilledIcon as TdHelpCircleFilledIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAlert',
   props,
   setup(props) {
-    const { global, classPrefix } = useConfig('alert');
+    const { globalConfig, classPrefix } = useConfig('alert');
+    const { CheckCircleFilledIcon, CloseIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, InfoCircleFilledIcon } =
+      useGlobalIcon({
+        CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+        CloseIcon: TdCloseIcon,
+        ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+        HelpCircleFilledIcon: TdHelpCircleFilledIcon,
+        InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      });
     const COMPONENT_NAME = usePrefixClass('alert');
     const renderTNodeJSX = useTNodeJSX();
 
@@ -110,7 +121,7 @@ export default defineComponent({
                 collapsed.value = !collapsed.value;
               }}
             >
-              {collapsed.value ? global.value.expandText : global.value.collapseText}
+              {collapsed.value ? globalConfig.value.expandText : globalConfig.value.collapseText}
             </div>
           ) : null}
         </div>

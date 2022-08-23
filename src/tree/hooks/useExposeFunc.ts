@@ -15,7 +15,7 @@ export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (expose
     if (node && spec) {
       ['expanded', 'actived', 'checked'].forEach((name) => {
         if (keys.includes(name)) {
-          node[`set${upperFirst(name)}`](spec);
+          node[`set${upperFirst(name)}`](spec[name], { directly: true });
         }
       });
     }

@@ -1,6 +1,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 
-import { AddIcon, DeleteIcon, BrowseIcon } from 'tdesign-icons-vue-next';
+import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon, BrowseIcon as TdBrowseIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
 import { UploadFile } from './type';
@@ -9,6 +9,7 @@ import { UploadRemoveOptions } from './interface';
 import { UploadConfig } from '../config-provider/type';
 
 import { useFormDisabled } from '../form/hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 // props
@@ -42,8 +43,13 @@ export default defineComponent({
 
   setup(props) {
     const disabled = useFormDisabled();
-    const { classPrefix: prefix, global } = useConfig('upload');
+    const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { AddIcon, DeleteIcon, BrowseIcon } = useGlobalIcon({
+      AddIcon: TdAddIcon,
+      DeleteIcon: TdDeleteIcon,
+      BrowseIcon: TdBrowseIcon,
+    });
     const { STATUS } = useCommonClassName();
 
     const showTrigger = computed(() => {
@@ -99,7 +105,7 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <TLoading />
             <p>
-              {props.locale?.progress?.uploadingText || global.value.progress.uploadingText}{' '}
+              {props.locale?.progress?.uploadingText || globalConfig.value.progress.uploadingText}{' '}
               {Math.min(props.percent, 99)}%
             </p>
           </div>
@@ -107,7 +113,9 @@ export default defineComponent({
           <div class={`${UPLOAD_NAME.value}__card-container ${UPLOAD_NAME.value}__card-box`}>
             <AddIcon />
             <p class={`${prefix.value}-size-s`}>
-              {props.placeholder || props.locale?.triggerUploadText?.image || global.value.triggerUploadText.image}
+              {props.placeholder ||
+                props.locale?.triggerUploadText?.image ||
+                globalConfig.value.triggerUploadText.image}
             </p>
           </div>
         )}

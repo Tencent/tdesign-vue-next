@@ -70,6 +70,7 @@ function getDataValues(
   }
   return data
     .filter((item) => {
+      if (!item) return false;
       const isInclude = filterValues.includes(item.value);
       return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
     })
@@ -119,7 +120,7 @@ function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferV
     return needMatch;
   }
 
-  if (data.children) {
+  if (data.children?.length) {
     return data.children.some((item) => isTreeNodeValid(item, filterValues, needMatch));
   }
   return !needMatch;
@@ -166,7 +167,7 @@ function filterTransferData(
   if (!isTreeMode) {
     if (needMatch) {
       // 正向过滤。要保持filterValues顺序
-      return filterValues.map((value) => data.find((item) => item.value === value));
+      return filterValues.map((value) => data.find((item) => item.value === value)).filter((item) => !!item);
     }
     // 反向过滤
     return data.filter((item) => {

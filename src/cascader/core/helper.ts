@@ -14,17 +14,14 @@ import {
  * @param cascaderContext
  * @returns
  */
-export function getSingleContent(cascaderContext: CascaderContextType) {
-  const { value, multiple, treeStore, showAllLevels, setValue } = cascaderContext;
+export function getSingleContent(cascaderContext: CascaderContextType): string {
+  const { value, multiple, treeStore, showAllLevels } = cascaderContext;
   if (multiple || !value) return '';
 
   if (Array.isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
-    if (value) {
-      setValue(multiple ? [] : '', 'invalid-value');
-    }
-    return '';
+    return value as string;
   }
   const path = node && node[0].getPath();
   if (path && path.length) {
@@ -48,10 +45,12 @@ export function getMultipleContent(cascaderContext: CascaderContextType) {
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!node) return [];
 
-  return (value as TreeNodeValue[]).map((item: TreeNodeValue) => {
-    const node = treeStore.getNodes(item);
-    return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
-  });
+  return (value as TreeNodeValue[])
+    .map((item: TreeNodeValue) => {
+      const node = treeStore.getNodes(item);
+      return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
+    })
+    .filter((item) => !!item);
 }
 
 /**
@@ -78,7 +77,7 @@ export function getPanels(treeNodes: CascaderContextType['treeNodes']) {
  */
 export function getFullPathLabel(node: TreeNode, separator = '/') {
   return node
-    .getPath()
+    ?.getPath()
     .map((node: TreeNode) => node.label)
     .join(separator);
 }

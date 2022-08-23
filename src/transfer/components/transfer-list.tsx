@@ -67,7 +67,7 @@ export default defineComponent({
   props: { ...props },
   setup(props) {
     const classPrefix = usePrefixClass();
-    const { t, global } = useConfig('transfer');
+    const { t, globalConfig } = useConfig('transfer');
     // 搜索框输入内容
     const filterValue = ref('');
     // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
@@ -228,7 +228,7 @@ export default defineComponent({
       );
     };
     const renderEmpty = () => {
-      const empty = props.empty || t(global.value.empty);
+      const empty = props.empty || t(globalConfig.value.empty);
       const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
       return (
         <div class={`${classPrefix.value}-transfer__empty`}>
@@ -267,7 +267,7 @@ export default defineComponent({
               />
             )}
             <span>
-              {t(global.value.title, {
+              {t(globalConfig.value.title, {
                 checked: props.checkedValue.length,
                 total: totalCount.value,
               })}
@@ -284,7 +284,7 @@ export default defineComponent({
           {props.search && (
             <Search
               searchValue={filterValue.value}
-              placeholder={t(global.value.placeholder)}
+              placeholder={t(globalConfig.value.placeholder)}
               onChange={handleSearch}
               disabled={props.disabled}
               search={props.search}

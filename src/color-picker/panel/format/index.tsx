@@ -66,7 +66,8 @@ export default defineComponent({
       <div class={`${baseClassName}__format`}>
         <div class={`${baseClassName}__format--item`}>
           <TSelect
-            autoWidth={true}
+            size="small"
+            class={`${baseClassName}__format-mode-select`}
             {...selectInputProps}
             popupProps={{
               overlayClassName: `${baseClassName}__select-options`,

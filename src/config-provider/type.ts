@@ -56,6 +56,10 @@ export interface GlobalConfigProvider {
    */
   form?: FormConfig;
   /**
+   * icon 全局配置，用来覆盖内置 tdesign-icons
+   */
+  icon?: IconConfig;
+  /**
    * 输入框组件全局配置
    */
   input?: InputConfig;
@@ -176,7 +180,7 @@ export interface CalendarConfig {
    */
   monthRadio?: string;
   /**
-   * 语言配置，"月"选择描述文本。示例：`'{month} 月'`
+   * 语言配置，\"月\"选择描述文本。示例：`'{month} 月'`
    * @default ''
    */
   monthSelection?: string;
@@ -242,7 +246,7 @@ export interface ColorPickerConfig {
    */
   recentColorTitle?: string;
   /**
-   * 语言配置，"系统预设颜色" 区域标题文本
+   * 语言配置，\"系统预设颜色\" 区域标题文本
    * @default ''
    */
   swatchColorTitle?: string;
@@ -283,7 +287,7 @@ export interface TimePickerConfig {
    */
   now?: string;
   /**
-   * 语言配置，"请选择时间"占位符描述文本
+   * 语言配置，\"请选择时间\"占位符描述文本
    * @default ''
    */
   placeholder?: string;
@@ -326,7 +330,7 @@ export interface DatePickerConfig {
    */
   monthAriaLabel?: string;
   /**
-   * 星期文本描述，默认值：['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+   * 星期文本描述，默认值：['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月']
    */
   months?: string[];
   /**
@@ -364,14 +368,18 @@ export interface DatePickerConfig {
    */
   preMonth?: string;
   /**
-   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
-   */
-  presets?: ConfigPresetDate;
-  /**
    * 语言配置，“上一年” 描述文本
    * @default ''
    */
   preYear?: string;
+  /**
+   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
+   */
+  presets?: ConfigPresetDate;
+  /**
+   * 季度文本描述，默认值：['1 季度', '2 季度', '3 季度', '4 季度']
+   */
+  quarters?: string[];
   /**
    * 语言配置，“ 至 ” 范围分隔符描述文本，示例：' ~ '
    * @default ''
@@ -410,10 +418,12 @@ export interface DialogConfig {
   cancel?: string | ButtonProps;
   /**
    * 按下 ESC 时是否触发对话框关闭事件
+   * @default true
    */
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发关闭事件
+   * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -434,10 +444,12 @@ export interface DrawerConfig {
   cancel?: string | ButtonProps;
   /**
    * 按下 ESC 时是否触发抽屉关闭事件
+   * @default true
    */
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发关闭事件
+   * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -447,7 +459,7 @@ export interface DrawerConfig {
   confirm?: string | ButtonProps;
   /**
    * 尺寸配置，配置Drawer尺寸
-   * @default ''
+   * @default small
    */
   size?: string;
 }
@@ -577,6 +589,7 @@ export interface SelectConfig {
   empty?: string;
   /**
    * 全局配置是否可筛选
+   * @default false
    */
   filterable?: boolean;
   /**
@@ -799,4 +812,8 @@ export interface UploadTriggerUploadText {
   reupload?: string;
   continueUpload: string;
   delete?: string;
+}
+
+export interface IconConfig {
+  [name: string]: any;
 }

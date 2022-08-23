@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { TimeIcon } from 'tdesign-icons-vue-next';
+import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
 import { RangeInputPopup, RangeInputPosition } from '../range-input';
 import TimePickerPanel from './panel/time-picker-panel';
@@ -16,6 +16,7 @@ import { TimeRangeValue } from './interface';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(customParseFormat);
@@ -27,8 +28,9 @@ export default defineComponent({
 
   setup(props) {
     const componentName = usePrefixClass('time-range-picker');
-    const { global } = useConfig('timePicker');
+    const { globalConfig } = useConfig('timePicker');
     const { classPrefix } = useConfig('classPrefix');
+    const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
     const disabled = useFormDisabled();
     const currentPanelIdx = ref(undefined);
@@ -117,7 +119,7 @@ export default defineComponent({
           disabled={disabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{
-            overlayStyle: {
+            overlayInnerStyle: {
               width: 'auto',
             },
             onVisibleChange: handleShowPopup,
@@ -130,7 +132,7 @@ export default defineComponent({
             clearable: props.clearable,
             class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
-            placeholder: props.placeholder || [global.value.placeholder, global.value.placeholder],
+            placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             suffixIcon: () => <TimeIcon />,
             onClear: handleClear,
             onClick: handleClick,

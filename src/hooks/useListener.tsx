@@ -17,11 +17,15 @@ export function useListener(type: string, listener: () => void): void {
 export function useResize(listener: () => void, observer?: HTMLElement) {
   useListener('resize', listener);
 
-  if (!window.ResizeObserver || !observer) return;
-  const resizeObserver = new window.ResizeObserver(listener);
-  resizeObserver.observe(observer);
+  let resizeObserver: ResizeObserver = null;
+
+  onMounted(() => {
+    if (!window.ResizeObserver || !observer) return;
+    resizeObserver = new window.ResizeObserver(listener);
+    resizeObserver.observe(observer);
+  });
 
   onBeforeUnmount(() => {
-    resizeObserver.disconnect();
+    resizeObserver?.disconnect();
   });
 }

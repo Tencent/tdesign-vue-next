@@ -1,6 +1,7 @@
 import { VNode, defineComponent, reactive, computed, toRefs } from 'vue';
 
-import { UploadIcon } from 'tdesign-icons-vue-next';
+import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
+
 import Dragger from './dragger';
 import ImageCard from './image';
 import FlowList from './flow-list';
@@ -14,6 +15,7 @@ import { TdUploadProps } from './type';
 
 import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
@@ -24,8 +26,9 @@ export default defineComponent({
 
   setup(props, { expose }) {
     const renderTNodeContent = useContent();
-    const { classPrefix: prefix, global } = useConfig('upload');
+    const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { UploadIcon } = useGlobalIcon({ UploadIcon: TdUploadIcon });
     const { files, modelValue } = toRefs(props);
 
     // 合并上传相关状态
@@ -73,7 +76,12 @@ export default defineComponent({
     const { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef } =
       useActions(props, uploadCtx, disabled);
 
-    expose({ triggerUpload });
+    expose({
+      triggerUpload,
+      setPercent: (val: number) => {
+        uploadCtx.percent = val;
+      },
+    });
 
     // input 节点
     const renderInput = () => {
@@ -151,13 +159,13 @@ export default defineComponent({
     const uploadListTriggerText = computed(() => {
       const localeFromProps = props.locale as TdUploadProps['locale'];
 
-      let uploadText = global.value.triggerUploadText.fileInput || localeFromProps?.triggerUploadText?.fileInput;
+      let uploadText = globalConfig.value.triggerUploadText.fileInput || localeFromProps?.triggerUploadText?.fileInput;
       if (uploadCtx.toUploadFiles?.length > 0 || uploadCtx.uploadValue?.length > 0) {
         if (props.theme === 'file-input' || (uploadCtx.uploadValue?.length > 0 && canBatchUpload.value)) {
-          uploadText = localeFromProps?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload;
+          uploadText = localeFromProps?.triggerUploadText?.reupload || globalConfig.value.triggerUploadText.reupload;
         } else {
           uploadText =
-            localeFromProps?.triggerUploadText?.continueUpload || global.value.triggerUploadText.continueUpload;
+            localeFromProps?.triggerUploadText?.continueUpload || globalConfig.value.triggerUploadText.continueUpload;
         }
       }
       return uploadText;
@@ -170,7 +178,7 @@ export default defineComponent({
         if (props.theme === 'file-input' || showUploadList.value) {
           return (
             <t-button variant="outline">
-              {localeFromProps?.triggerUploadText?.fileInput || global.value.triggerUploadText.fileInput}
+              {localeFromProps?.triggerUploadText?.fileInput || globalConfig.value.triggerUploadText.fileInput}
             </t-button>
           );
         }
@@ -217,31 +225,38 @@ export default defineComponent({
         />
       );
 
-    const renderFlowList = (triggerElement: VNode) =>
-      showUploadList.value && (
-        <FlowList
-          files={uploadValue.value}
-          placeholder={props.placeholder}
-          autoUpload={props.autoUpload}
-          toUploadFiles={uploadCtx.toUploadFiles}
-          theme={props.theme}
-          batchUpload={uploadCtx.canBatchUpload}
-          showUploadProgress={props.showUploadProgress}
-          allowUploadDuplicateFile={props.allowUploadDuplicateFile}
-          onRemove={handleListRemove}
-          onUpload={multipleUpload}
-          onCancel={cancelUpload}
-          onImgPreview={handlePreviewImg}
-          onChange={handleDragChange}
-          onDragenter={handleDragenter}
-          onDragleave={handleDragleave}
-          locale={props.locale}
-        >
-          <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
-            {triggerElement}
-          </div>
-        </FlowList>
+    const renderFlowList = (triggerElement: VNode) => {
+      let { theme } = props;
+      if (props.multiple && props.theme === 'file' && props.draggable) {
+        theme = 'file-flow';
+      }
+      return (
+        showUploadList.value && (
+          <FlowList
+            files={uploadValue.value}
+            placeholder={props.placeholder}
+            autoUpload={props.autoUpload}
+            toUploadFiles={uploadCtx.toUploadFiles}
+            theme={theme}
+            batchUpload={uploadCtx.canBatchUpload}
+            showUploadProgress={props.showUploadProgress}
+            allowUploadDuplicateFile={props.allowUploadDuplicateFile}
+            onRemove={handleListRemove}
+            onUpload={multipleUpload}
+            onCancel={cancelUpload}
+            onImgPreview={handlePreviewImg}
+            onChange={handleDragChange}
+            onDragenter={handleDragenter}
+            onDragleave={handleDragleave}
+            locale={props.locale}
+          >
+            <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
+              {triggerElement}
+            </div>
+          </FlowList>
+        )
       );
+    };
 
     const renderDialog = () =>
       ['image', 'image-flow', 'custom'].includes(props.theme) && (

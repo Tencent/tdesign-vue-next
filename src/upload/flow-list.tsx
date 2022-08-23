@@ -1,12 +1,12 @@
 import { defineComponent, ref, PropType, computed } from 'vue';
-
 import {
-  TimeFilledIcon,
-  CheckCircleFilledIcon,
-  ErrorCircleFilledIcon,
-  DeleteIcon,
-  BrowseIcon,
+  TimeFilledIcon as TdTimeFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  DeleteIcon as TdDeleteIcon,
+  BrowseIcon as TdBrowseIcon,
 } from 'tdesign-icons-vue-next';
+
 import TButton from '../button';
 import TLoading from '../loading';
 
@@ -19,6 +19,7 @@ import { UploadConfig } from '../config-provider/type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUploadFlowList',
@@ -55,7 +56,14 @@ export default defineComponent({
 
     const renderTNodeJSX = useTNodeJSX();
     const disabled = useFormDisabled();
-    const { classPrefix: prefix, global } = useConfig('upload');
+    const { classPrefix: prefix, globalConfig } = useConfig('upload');
+    const { TimeFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, DeleteIcon, BrowseIcon } = useGlobalIcon({
+      TimeFilledIcon: TdTimeFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+      DeleteIcon: TdDeleteIcon,
+      BrowseIcon: TdBrowseIcon,
+    });
     const UPLOAD_NAME = usePrefixClass('upload');
     const { SIZE } = useCommonClassName();
 
@@ -98,10 +106,10 @@ export default defineComponent({
 
     const uploadText = computed(() => {
       const localeFromProps = props.locale;
-      if (isUploading.value) return `${global.value.progress.uploadingText}...`;
+      if (isUploading.value) return `${globalConfig.value.progress.uploadingText}...`;
       return failedList.value && failedList.value.length
-        ? localeFromProps?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload
-        : localeFromProps?.triggerUploadText?.normal || global.value.triggerUploadText.normal;
+        ? localeFromProps?.triggerUploadText?.reupload || globalConfig.value.triggerUploadText.reupload
+        : localeFromProps?.triggerUploadText?.normal || globalConfig.value.triggerUploadText.normal;
     });
 
     const handleDrop = (event: DragEvent) => {
@@ -138,7 +146,7 @@ export default defineComponent({
           onDragover={handleDragover}
           onDragleave={handleDragleave}
         >
-          {dragActive.value ? global.value.dragger.dragDropText : global.value.dragger.clickAndDragText}
+          {dragActive.value ? globalConfig.value.dragger.dragDropText : globalConfig.value.dragger.clickAndDragText}
         </div>
       );
     };
@@ -153,13 +161,13 @@ export default defineComponent({
         waiting: <TimeFilledIcon />,
       };
       const textMap = {
-        success: localeProgressFromProps?.successText || global.value.progress.successText,
-        fail: localeProgressFromProps?.failText || global.value.progress.failText,
-        progress: `${localeProgressFromProps?.uploadingText || global.value.progress.uploadingText} ${Math.min(
+        success: localeProgressFromProps?.successText || globalConfig.value.progress.successText,
+        fail: localeProgressFromProps?.failText || globalConfig.value.progress.failText,
+        progress: `${localeProgressFromProps?.uploadingText || globalConfig.value.progress.uploadingText} ${Math.min(
           file.percent,
           99,
         )}%`,
-        waiting: localeProgressFromProps?.waitingText || global.value.progress.waitingText,
+        waiting: localeProgressFromProps?.waitingText || globalConfig.value.progress.waitingText,
       };
       return {
         iconMap,
@@ -185,7 +193,7 @@ export default defineComponent({
             class={`${UPLOAD_NAME.value}__flow-button`}
             onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
           >
-            {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
+            {props.locale?.triggerUploadText?.delete || globalConfig.value.triggerUploadText.delete}
           </span>
         </td>
       );
@@ -200,7 +208,7 @@ export default defineComponent({
             class={`${UPLOAD_NAME.value}__flow-button`}
             onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: null })}
           >
-            {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
+            {props.locale?.triggerUploadText?.delete || globalConfig.value.triggerUploadText.delete}
           </span>
         </td>
       ) : (
@@ -212,10 +220,10 @@ export default defineComponent({
       props.theme === 'file-flow' && (
         <table class={`${UPLOAD_NAME.value}__flow-table`}>
           <tr>
-            <th>{props.locale?.file?.fileNameText || global.value.file.fileNameText}</th>
-            <th>{props.locale?.file?.fileSizeText || global.value.file.fileSizeText}</th>
-            <th>{props.locale?.file?.fileStatusText || global.value.file.fileStatusText}</th>
-            <th>{props.locale?.file?.fileOperationText || global.value.file.fileOperationText}</th>
+            <th>{props.locale?.file?.fileNameText || globalConfig.value.file.fileNameText}</th>
+            <th>{props.locale?.file?.fileSizeText || globalConfig.value.file.fileSizeText}</th>
+            <th>{props.locale?.file?.fileStatusText || globalConfig.value.file.fileStatusText}</th>
+            <th>{props.locale?.file?.fileOperationText || globalConfig.value.file.fileOperationText}</th>
           </tr>
           {showInitial.value && (
             <tr>
@@ -303,7 +311,7 @@ export default defineComponent({
       !props.autoUpload && (
         <div class={`${UPLOAD_NAME.value}__flow-bottom`}>
           <TButton theme="default" onClick={props.onCancel} disabled={!allowUpload.value}>
-            {props.locale?.cancelUploadText || global.value.cancelUploadText}
+            {props.locale?.cancelUploadText || globalConfig.value.cancelUploadText}
           </TButton>
           <TButton
             disabled={!allowUpload.value}

@@ -1,5 +1,8 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
-import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TLoading from '../loading';
 
@@ -10,6 +13,7 @@ import { UploadConfig } from '../config-provider/type';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUploadDragger',
@@ -51,8 +55,12 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const target = ref(null);
     const dragActive = ref(false);
-    const { global } = useConfig('upload');
+    const { globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const { SIZE } = useCommonClassName();
 
     // status
@@ -117,10 +125,10 @@ export default defineComponent({
             {!props.loadingFile && !!props.file && <CheckCircleFilledIcon />}
           </div>
           <small class={`${SIZE.value.small}`}>
-            {global.value.file.fileSizeText}：{returnFileSize(size.value)}
+            {globalConfig.value.file.fileSizeText}：{returnFileSize(size.value)}
           </small>
           <small class={`${SIZE.value.small}`}>
-            {global.value.file.fileOperationDateText}：{getCurrentDate()}
+            {globalConfig.value.file.fileOperationDateText}：{getCurrentDate()}
           </small>
           <div class={`${UPLOAD_NAME.value}__dragger-btns`}>
             {['progress', 'waiting'].includes(props.loadingFile?.status) && (
@@ -130,7 +138,7 @@ export default defineComponent({
                 class={`${UPLOAD_NAME.value}__dragger-progress-cancel`}
                 onClick={props.onCancel}
               >
-                {props.locale?.cancelUploadText || global.value.cancelUploadText}
+                {props.locale?.cancelUploadText || globalConfig.value.cancelUploadText}
               </TButton>
             )}
             {!props.autoUpload && props.loadingFile?.status === 'waiting' && (
@@ -139,7 +147,7 @@ export default defineComponent({
                 theme="primary"
                 onClick={(e: MouseEvent) => props.onUpload({ ...props.loadingFile }, e)}
               >
-                {props.locale?.triggerUploadText?.normal || global.value.triggerUploadText.normal}
+                {props.locale?.triggerUploadText?.normal || globalConfig.value.triggerUploadText.normal}
               </TButton>
             )}
           </div>
@@ -154,10 +162,10 @@ export default defineComponent({
                   props.onClick(e);
                 }}
               >
-                {props.locale?.triggerUploadText?.reupload || global.value.triggerUploadText.reupload}
+                {props.locale?.triggerUploadText?.reupload || globalConfig.value.triggerUploadText.reupload}
               </TButton>
               <TButton theme="danger" variant="text" onClick={props.onRemove}>
-                {props.locale?.triggerUploadText?.delete || global.value.triggerUploadText.delete}
+                {props.locale?.triggerUploadText?.delete || globalConfig.value.triggerUploadText.delete}
               </TButton>
             </div>
           )}
@@ -169,12 +177,12 @@ export default defineComponent({
       const unActiveElement = (
         <div>
           <span class={`${UPLOAD_NAME.value}--highlight`}>
-            {props.locale?.triggerUploadText?.normal || global.value.triggerUploadText.normal}
+            {props.locale?.triggerUploadText?.normal || globalConfig.value.triggerUploadText.normal}
           </span>
-          <span>&nbsp;&nbsp;/&nbsp;&nbsp;{global.value.dragger.draggingText}</span>
+          <span>&nbsp;&nbsp;/&nbsp;&nbsp;{globalConfig.value.dragger.draggingText}</span>
         </div>
       );
-      const activeElement = <div>{global.value.dragger.dragDropText}</div>;
+      const activeElement = <div>{globalConfig.value.dragger.dragDropText}</div>;
       return dragActive.value ? activeElement : unActiveElement;
     };
 

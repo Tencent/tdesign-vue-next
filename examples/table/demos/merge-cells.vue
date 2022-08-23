@@ -8,6 +8,7 @@
       :size="size"
       :rowspan-and-colspan="rowspanAndColspan"
       resizable
+      table-layout="fixed"
     />
   </div>
 </template>
@@ -25,7 +26,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test',
     colKey: 'platform',
     title: '平台',
@@ -33,7 +33,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'row',
     colKey: 'type',
     title: '类型',
@@ -41,7 +40,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test4',
     colKey: 'default',
     title: '默认值',
@@ -49,7 +47,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'test3',
     colKey: 'needed',
     title: '是否必传',
@@ -57,7 +54,6 @@ const columns = [
   {
     align: 'left',
     width: '100',
-    minWidth: '100',
     className: 'row',
     colKey: 'description',
     title: '说明',

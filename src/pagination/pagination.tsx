@@ -1,18 +1,21 @@
 import { defineComponent, computed, ref, watch, toRefs } from 'vue';
 import isNaN from 'lodash/isNaN';
 import {
-  PageFirstIcon,
-  PageLastIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronLeftDoubleIcon,
-  ChevronRightDoubleIcon,
-  EllipsisIcon,
+  PageFirstIcon as TdPageFirstIcon,
+  PageLastIcon as TdPageLastIcon,
+  ChevronLeftIcon as TdChevronLeftIcon,
+  ChevronRightIcon as TdChevronRightIcon,
+  ChevronLeftDoubleIcon as TdChevronLeftDoubleIcon,
+  ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
+  EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
+
 import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
+import TInputAdornment from '../input-adornment';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
@@ -44,8 +47,25 @@ export default defineComponent({
       'pageSize',
     );
 
-    const { t, global } = useConfig('pagination');
+    const { t, globalConfig } = useConfig('pagination');
     const COMPONENT_NAME = usePrefixClass('pagination');
+    const {
+      PageFirstIcon,
+      PageLastIcon,
+      ChevronLeftIcon,
+      ChevronRightIcon,
+      ChevronLeftDoubleIcon,
+      ChevronRightDoubleIcon,
+      EllipsisIcon,
+    } = useGlobalIcon({
+      PageFirstIcon: TdPageFirstIcon,
+      PageLastIcon: TdPageLastIcon,
+      ChevronLeftIcon: TdChevronLeftIcon,
+      ChevronRightIcon: TdChevronRightIcon,
+      ChevronLeftDoubleIcon: TdChevronLeftDoubleIcon,
+      ChevronRightDoubleIcon: TdChevronRightDoubleIcon,
+      EllipsisIcon: TdEllipsisIcon,
+    });
 
     const { pageCount, ...CLASS_MAP } = usePaginationClasses(props, innerCurrent, innerPageSize, COMPONENT_NAME);
 
@@ -73,7 +93,7 @@ export default defineComponent({
         typeof option === 'object'
           ? option
           : {
-              label: t(global.value.itemsPerPage, { size: option }),
+              label: t(globalConfig.value.itemsPerPage, { size: option }),
               value: Number(option),
             },
       );
@@ -198,15 +218,35 @@ export default defineComponent({
     };
 
     return () => {
-      const { total, pageSizeOptions, size, disabled, showJumper, showPageSize } = props;
+      const { total, pageSizeOptions, size, disabled, showPageSize } = props;
       if (pageCount.value < 1) return null;
+
+      const Jumper = (
+        <div class={CLASS_MAP.jumperClass.value}>
+          {t(globalConfig.value.jumpTo)}
+          <TInputAdornment append={`/ ${pageCount.value} ${t(globalConfig.value.page)}`}>
+            <TInputNumber
+              class={CLASS_MAP.jumperInputClass.value}
+              v-model={jumpIndex.value}
+              onBlur={onJumperChange}
+              onEnter={onJumperChange}
+              max={pageCount.value}
+              min={min}
+              size={size}
+              disabled={disabled}
+              theme="normal"
+              placeholder=""
+            />
+          </TInputAdornment>
+        </div>
+      );
 
       return (
         <div class={CLASS_MAP.paginationClass.value}>
           {/* 数据统计区 */}
           {renderTNodeJSX(
             'totalContent',
-            <div class={CLASS_MAP.totalClass.value}>{t(global.value.total, { total })}</div>,
+            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
           )}
 
           {/* 分页器 */}
@@ -285,17 +325,7 @@ export default defineComponent({
             </ul>
           ) : null}
           {/* 极简版 */}
-          {props.showPageNumber && props.theme === 'simple' ? (
-            <Select
-              size={size}
-              value={innerCurrent}
-              disabled={disabled}
-              class={CLASS_MAP.simpleClass.value}
-              autoWidth={true}
-              onChange={(value) => toPage(value as number)}
-              options={pageCountOption.value}
-            />
-          ) : null}
+          {props.theme === 'simple' && Jumper}
           {/* 向后按钮 */}
           {props.showPreviousAndNextBtn ? (
             <div
@@ -316,25 +346,8 @@ export default defineComponent({
               <PageLastIcon />
             </div>
           ) : null}
-          {/* 跳转 */}
-          {showJumper ? (
-            <div class={CLASS_MAP.jumperClass.value}>
-              {t(global.value.jumpTo)}
-              <TInputNumber
-                class={CLASS_MAP.jumperInputClass.value}
-                v-model={jumpIndex.value}
-                onBlur={onJumperChange}
-                onEnter={onJumperChange}
-                max={pageCount.value}
-                min={min}
-                size={size}
-                disabled={disabled}
-                theme="normal"
-                placeholder=""
-              />
-              {t(global.value.page)}
-            </div>
-          ) : null}
+          {/* 快速跳转 */}
+          {props.theme === 'default' && props.showJumper && Jumper}
         </div>
       );
     };

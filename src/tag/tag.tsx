@@ -1,15 +1,18 @@
 import { computed, defineComponent, h, VNode } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+
 import props from './props';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TTag',
   props,
   setup(props) {
-    const { global: tagGlobalConfig } = useConfig('tag');
+    const { globalConfig: tagGlobalConfig } = useConfig('tag');
     const COMPONENT_NAME = usePrefixClass('tag');
+    const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const { SIZE } = useCommonClassName();

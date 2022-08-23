@@ -59,6 +59,7 @@ export default defineComponent({
       {
         [`${classPrefix.value}-is-opened`]: popupVisible.value,
       },
+      'narrow-scrollbar',
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
@@ -101,8 +102,8 @@ export default defineComponent({
       }, 0);
     };
     const handleMouseLeavePopup = (e: any) => {
-      const { toElement } = e;
-      let target = toElement;
+      const { toElement, relatedTarget } = e;
+      let target = toElement || relatedTarget;
       const isSubmenu = (el: Element) => el === submenuRef.value;
 
       while (target !== document && !isSubmenu(target)) {
@@ -185,7 +186,7 @@ export default defineComponent({
       if (!this.isNested && this.isHead) {
         placement = 'bottom-left';
       }
-      const overlayStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
+      const overlayInnerStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
       const popupWrapper = (
         <div
           class={[
@@ -210,10 +211,10 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={[...this.popupClass]}
+          overlayInnerClassName={[...this.popupClass]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
-          overlayStyle={overlayStyle}
+          overlayInnerStyle={overlayInnerStyle}
           v-slots={slots}
         >
           <div ref="submenuRef" class={this.submenuClass}>
@@ -297,8 +298,8 @@ export default defineComponent({
 
     if (this.mode === 'popup') {
       events = {
-        onmouseenter: this.handleMouseEnter,
-        onmouseleave: this.handleMouseLeave,
+        onMouseenter: this.handleMouseEnter,
+        onMouseleave: this.handleMouseLeave,
       };
     }
     if (Object.keys(this.$slots).length > 0) {

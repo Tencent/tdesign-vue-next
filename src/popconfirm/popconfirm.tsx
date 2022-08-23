@@ -1,6 +1,11 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
@@ -13,8 +18,12 @@ export default defineComponent({
   props,
 
   setup(props) {
-    const { global } = useConfig('popconfirm');
+    const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
+    const { InfoCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
 
     const { visible, modelValue } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(
@@ -53,7 +62,7 @@ export default defineComponent({
     const renderContent = () => {
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
-        globalCancel: global.value.cancel,
+        globalCancel: globalConfig.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
         size: 'small',
       });
@@ -61,8 +70,8 @@ export default defineComponent({
       const confirmBtn = getConfirmBtn({
         theme: props.theme,
         confirmBtn: props.confirmBtn,
-        globalConfirm: global.value.confirm,
-        globalConfirmBtnTheme: global.value.confirmBtnTheme,
+        globalConfirm: globalConfig.value.confirm,
+        globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
         className: `${COMPONENT_NAME.value}__confirm`,
         size: 'small',
       });

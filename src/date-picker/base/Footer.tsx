@@ -15,7 +15,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__footer');
     const presetsClass = usePrefixClass('date-picker__presets');
-    const { t, global } = useConfig('datePicker');
+    const { t, globalConfig } = useConfig('datePicker');
 
     const footerClass = computed(() => [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.presetsPlacement}`]);
 
@@ -43,7 +43,7 @@ export default defineComponent({
             theme="primary"
             onClick={(e: MouseEvent) => props.onConfirmClick?.({ e })}
           >
-            {t(global.value.confirm)}
+            {t(globalConfig.value.confirm)}
           </TButton>
         )}
       </div>

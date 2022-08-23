@@ -1,6 +1,8 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { isServer, addClass, removeClass } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
@@ -19,7 +21,8 @@ export default defineComponent({
   setup(props, context) {
     const destroyOnCloseVisible = ref(false);
     const isVisible = ref(false);
-    const { global } = useConfig('drawer');
+    const { globalConfig } = useConfig('drawer');
+    const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
@@ -50,7 +53,7 @@ export default defineComponent({
     const sizeValue = computed(() => {
       if (draggedSizeValue.value) return draggedSizeValue.value;
 
-      const size = props.size ?? global.value.size;
+      const size = props.size ?? globalConfig.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
         {
@@ -119,13 +122,13 @@ export default defineComponent({
       // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn,
-        globalConfirm: global.value.confirm,
+        globalConfirm: globalConfig.value.confirm,
         className: `${COMPONENT_NAME.value}__confirm`,
       });
       // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
-        globalCancel: global.value.cancel,
+        globalCancel: globalConfig.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
       });
       return (
@@ -183,13 +186,13 @@ export default defineComponent({
     };
     const handleWrapperClick = (e: MouseEvent) => {
       props.onOverlayClick?.({ e });
-      if (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick) {
+      if (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      if ((props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) && e.key === 'Escape') {
+      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape') {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }

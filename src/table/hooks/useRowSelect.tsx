@@ -12,7 +12,7 @@ import {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { filterDataByIds, isRowSelectedDisabled } from '../utils';
+import { isRowSelectedDisabled } from '../utils';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
@@ -30,8 +30,9 @@ export default function useRowSelect(
     props.onSelectChange,
     'selectedRowKeys',
   );
+  const selectedRowDataMap = ref(new Map<string | number, TableRowData>());
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
-  const canSelectedRows = computed(() => props.data.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex)));
+  const canSelectedRows = computed(() => data.value.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex)));
   // 选中的行，和所有可以选择的行，交集，用于计算 isSelectedAll 和 isIndeterminate
   const intersectionKeys = computed(() =>
     intersection(
@@ -62,20 +63,22 @@ export default function useRowSelect(
   }
 
   function getSelectedHeader() {
-    const isIndeterminate =
-      intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
-    const isChecked =
-      intersectionKeys.value.length !== 0 &&
-      canSelectedRows.value.length !== 0 &&
-      intersectionKeys.value.length === canSelectedRows.value.length;
-    return () => (
-      <Checkbox
-        checked={isChecked}
-        indeterminate={isIndeterminate}
-        disabled={!canSelectedRows.value.length}
-        onChange={handleSelectAll}
-      />
-    );
+    return () => {
+      const isIndeterminate =
+        intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
+      const isChecked =
+        intersectionKeys.value.length !== 0 &&
+        canSelectedRows.value.length !== 0 &&
+        intersectionKeys.value.length === canSelectedRows.value.length;
+      return (
+        <Checkbox
+          checked={isChecked}
+          indeterminate={isIndeterminate}
+          disabled={!canSelectedRows.value.length}
+          onChange={handleSelectAll}
+        />
+      );
+    };
   }
 
   function renderSelectCell(p: PrimaryTableCellParams<TableRowData>) {
@@ -113,6 +116,7 @@ export default function useRowSelect(
     let selectedRowKeys = [...tSelectedRowKeys.value];
     const reRowKey = props.rowKey || 'id';
     const id = get(row, reRowKey);
+    selectedRowDataMap.value.set(id, row);
     const selectedRowIndex = selectedRowKeys.indexOf(id);
     const isExisted = selectedRowIndex !== -1;
     if (selectColumn.value.type === 'multiple') {
@@ -124,7 +128,7 @@ export default function useRowSelect(
       return;
     }
     setTSelectedRowKeys(selectedRowKeys, {
-      selectedRowData: filterDataByIds(props.data, selectedRowKeys, reRowKey),
+      selectedRowData: selectedRowKeys.map((t) => selectedRowDataMap.value.get(t)),
       currentRowKey: id,
       currentRowData: row,
       type: isExisted ? 'uncheck' : 'check',
@@ -136,8 +140,11 @@ export default function useRowSelect(
     const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
+    for (let i = 0, len = data.value.length; i < len; i++) {
+      selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
+    }
     setTSelectedRowKeys(allIds, {
-      selectedRowData: checked ? filterDataByIds(props.data, allIds, reRowKey) : [],
+      selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });

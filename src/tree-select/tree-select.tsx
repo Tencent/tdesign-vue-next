@@ -30,7 +30,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
-    const { global } = useConfig('treeSelect');
+    const { globalConfig } = useConfig('treeSelect');
     const formDisabled = useFormDisabled();
 
     // ref
@@ -80,7 +80,7 @@ export default defineComponent({
     });
 
     const inputPlaceholder = computed(
-      () => (innerVisible.value && nodeInfo.value?.label) || props.placeholder || global.value.placeholder,
+      () => (innerVisible.value && nodeInfo.value?.label) || props.placeholder || globalConfig.value.placeholder,
     );
 
     const popupClass = computed(() => {
@@ -349,7 +349,7 @@ export default defineComponent({
         v-slots={{
           empty: () =>
             renderDefaultTNode('empty', {
-              defaultNode: <div class={`${classPrefix.value}-select__empty`}>{global.value.empty}</div>,
+              defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.empty}</div>,
             }),
         }}
         {...(props.treeProps as TdTreeSelectProps['treeProps'])}
@@ -430,7 +430,7 @@ export default defineComponent({
                 class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
               >
                 {renderDefaultTNode('loadingText', {
-                  defaultNode: <div class={`${classPrefix.value}-select__empty`}>{global.value.loadingText}</div>,
+                  defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.loadingText}</div>,
                 })}
               </p>
               {renderTree()}

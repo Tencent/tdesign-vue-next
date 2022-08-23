@@ -1,6 +1,7 @@
 import { computed, SetupContext, toRefs, h } from 'vue';
-import { ChevronRightCircleIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import get from 'lodash/get';
+
 import {
   TdPrimaryTableProps,
   PrimaryTableCol,
@@ -13,11 +14,13 @@ import useClassName from './useClassName';
 import { useTNodeJSX } from '../../hooks/tnode';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);
   const renderTNode = useTNodeJSX();
-  const { t, global } = useConfig('table');
+  const { t, globalConfig } = useConfig('table');
+  const { ChevronRightCircleIcon } = useGlobalIcon({ ChevronRightCircleIcon: TdChevronRightCircleIcon });
   const { tableExpandClasses, positiveRotate90, tableFullRowClasses } = useClassName();
   // controlled and uncontrolled
   const [tExpandedRowKeys, setTExpandedRowKeys] = useDefaultValue(
@@ -43,6 +46,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     index !== -1 ? newKeys.splice(index, 1) : newKeys.push(currentId);
     setTExpandedRowKeys(newKeys, {
       expandedRowData: props.data.filter((t) => newKeys.includes(get(t, props.rowKey || 'id'))),
+      currentRowData: row,
     });
   };
 
@@ -51,7 +55,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     const currentId = get(row, props.rowKey || 'id');
     const expanded = tExpandedRowKeys.value.includes(currentId);
     const icon = renderTNode('expandIcon', {
-      defaultNode: t(global.value.expandIcon) || <ChevronRightCircleIcon />,
+      defaultNode: t(globalConfig.value.expandIcon) || <ChevronRightCircleIcon />,
       params: { row, index: rowIndex },
     });
     if (!icon) return null;

@@ -1,6 +1,10 @@
-import { defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { h, defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
 import debounce from 'lodash/debounce';
-import { ChevronLeftIcon, ChevronRightIcon, AddIcon } from 'tdesign-icons-vue-next';
+import {
+  ChevronLeftIcon as TdChevronLeftIcon,
+  ChevronRightIcon as TdChevronRightIcon,
+  AddIcon as TdAddIcon,
+} from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
 import tabProps from './props';
 import tabBase from '../_common/js/tabs/base';
@@ -13,6 +17,7 @@ import TTabNavBar from './tab-nav-bar';
 // hooks
 import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useDragSort from '../hooks/useDragSort';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
@@ -40,6 +45,11 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
+    const { ChevronLeftIcon, ChevronRightIcon, AddIcon } = useGlobalIcon({
+      ChevronLeftIcon: TdChevronLeftIcon,
+      ChevronRightIcon: TdChevronRightIcon,
+      AddIcon: TdAddIcon,
+    });
     const classPrefix = usePrefixClass();
     const { SIZE } = useCommonClassName();
 
@@ -187,6 +197,8 @@ export default defineComponent({
         let label;
         if (panel?.children?.label) {
           label = panel.children.label();
+        } else if (typeof panel.label === 'function') {
+          label = panel.label(h);
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }

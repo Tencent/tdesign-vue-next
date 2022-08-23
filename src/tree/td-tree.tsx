@@ -11,7 +11,7 @@ export default defineComponent({
   name: 'TTree',
   props,
   setup(props, { expose, slots }) {
-    const { global, t } = useConfig('tree');
+    const { globalConfig, t } = useConfig('tree');
     const CLASS_NAMES = useCLASSNAMES();
     const renderTNodeJSX = useTNodeDefault();
 
@@ -53,7 +53,7 @@ export default defineComponent({
         {treeNodeViews.value.length === 0 ? (
           <div class={CLASS_NAMES.value.treeEmpty}>
             {renderTNodeJSX('empty', {
-              defaultNode: t(global.value.empty),
+              defaultNode: t(globalConfig.value.empty),
             })}
           </div>
         ) : (

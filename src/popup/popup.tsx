@@ -10,7 +10,6 @@ import {
   provide,
   InjectionKey,
   onUnmounted,
-  onMounted,
   nextTick,
   toRefs,
 } from 'vue';
@@ -39,7 +38,7 @@ const injectionKey = Symbol('popup') as InjectionKey<{
   hasTrigger: ComputedRef<TriggerMap>;
 }>;
 
-function getPopperPlacement(placement: TdPopupProps['placement']) {
+function getPopperPlacement(placement: TdPopupProps['placement']): Placement {
   return placement.replace(/-(left|top)$/, '-start').replace(/-(right|bottom)$/, '-end') as Placement;
 }
 
@@ -90,11 +89,6 @@ export default defineComponent({
     const mouseInRange = ref(false);
     /** mark popup as clicked when mousedown, reset after mouseup */
     const contentClicked = ref(false);
-    /**
-     * mark reference as clicked when click,
-     * reset after click event bubbles to document
-     */
-    const triggerClicked = ref(false);
 
     const triggerEl = ref<HTMLElement>(null);
     const overlayEl = ref<HTMLElement>(null);
@@ -105,16 +99,15 @@ export default defineComponent({
 
     const prefixCls = usePrefixClass('popup');
     const { STATUS: commonCls } = useCommonClassName();
-    const overlayCls = computed(() => [
+    const overlayCls: any = computed(() => [
       `${prefixCls.value}__content`,
       {
         [`${prefixCls.value}__content--text`]: typeof props.content === 'string',
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
-      props.overlayClassName,
     ]);
-    const hasTrigger = computed(() =>
+    const hasTrigger: any = computed(() =>
       triggers.reduce(
         (map, trigger) => ({
           ...map,
@@ -124,14 +117,26 @@ export default defineComponent({
       ),
     );
 
-    function updateOverlayStyle() {
+    function getOverlayStyle() {
       const { overlayStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
       if (typeof overlayStyle === 'function') {
-        setStyle(overlayEl.value, overlayStyle(triggerEl.value, overlayEl.value));
-      } else if (typeof overlayStyle === 'object') {
-        setStyle(overlayEl.value, overlayStyle);
+        return overlayStyle(triggerEl.value, overlayEl.value);
+      }
+      if (typeof overlayStyle === 'object') {
+        return overlayStyle;
+      }
+    }
+
+    function updateOverlayInnerStyle() {
+      const { overlayInnerStyle } = props;
+
+      if (!triggerEl.value || !overlayEl.value) return;
+      if (typeof overlayInnerStyle === 'function') {
+        setStyle(overlayEl.value, overlayInnerStyle(triggerEl.value, overlayEl.value));
+      } else if (typeof overlayInnerStyle === 'object') {
+        setStyle(overlayEl.value, overlayInnerStyle);
       }
     }
 
@@ -143,7 +148,7 @@ export default defineComponent({
       }
 
       popper = createPopper(triggerEl.value, popperEl.value, {
-        placement: getPopperPlacement(props.placement),
+        placement: getPopperPlacement(props.placement as TdPopupProps['placement']),
         onFirstUpdate: () => {
           nextTick(updatePopper);
         },
@@ -206,15 +211,16 @@ export default defineComponent({
       );
     }
 
-    function handleDocumentClick() {
-      if (contentClicked.value || triggerClicked.value) {
-        triggerClicked.value = false;
-        // clear the flag if mouseup handler is failed
+    function handleDocumentClick(ev?: MouseEvent) {
+      if (contentClicked.value) {
+        // clear the flag after mousedown
         setTimeout(() => {
           contentClicked.value = false;
         });
         return;
       }
+      // ignore document event when clicking trigger element
+      if (triggerEl.value.contains(ev.target as Node)) return;
       visibleState.value = 0;
       emitVisible(false, { trigger: 'document' });
     }
@@ -240,8 +246,6 @@ export default defineComponent({
       }
     }
 
-    onUnmounted(destroyPopper);
-
     const trigger = attachListeners(triggerEl);
 
     watch(
@@ -257,8 +261,6 @@ export default defineComponent({
           trigger.add('focusout', () => handleClose({ trigger: 'trigger-element-blur' }));
         } else if (hasTrigger.value.click) {
           trigger.add('click', (e) => {
-            // override nested popups with trigger hover due to higher priority
-            visibleState.value = 0;
             handleToggle({ e, trigger: 'trigger-element-click' });
           });
         } else if (hasTrigger.value['context-menu']) {
@@ -269,18 +271,13 @@ export default defineComponent({
             e.button === 2 && handleToggle({ trigger: 'context-menu' });
           });
         }
-        if (!hasTrigger.value['context-menu']) {
-          trigger.add('click', () => {
-            triggerClicked.value = true;
-          });
-        }
       },
     );
 
     watch(
       () => [props.overlayStyle, overlayEl.value],
       () => {
-        updateOverlayStyle();
+        updateOverlayInnerStyle();
         updatePopper();
       },
     );
@@ -315,7 +312,7 @@ export default defineComponent({
         if (visible) {
           preventClosing(true);
           if (!hasDocumentEvent) {
-            on(document, 'click', handleDocumentClick);
+            on(document, 'click', handleDocumentClick, true);
             hasDocumentEvent = true;
           }
           // focus trigger esc 隐藏浮层
@@ -329,12 +326,18 @@ export default defineComponent({
         } else {
           preventClosing(false);
           // destruction is delayed until after animation ends
-          off(document, 'click', handleDocumentClick);
+          off(document, 'click', handleDocumentClick, true);
           hasDocumentEvent = false;
           mouseInRange.value = false;
         }
       },
     );
+
+    onUnmounted(() => {
+      parent?.preventClosing(false);
+      destroyPopper();
+      off(document, 'click', handleDocumentClick, true);
+    });
 
     provide(injectionKey, {
       preventClosing,
@@ -362,36 +365,33 @@ export default defineComponent({
       overlayCls,
       hasTrigger,
       contentClicked,
-      triggerClicked,
       updatePopper,
       destroyPopper,
-      updateOverlayStyle,
+      getOverlayStyle,
+      updateOverlayInnerStyle,
       emitVisible,
       onMouseEnter,
       onMouseLeave,
     };
   },
   render() {
-    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, onScroll } = this;
+    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, onScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
     const overlay =
       innerVisible || !destroyOnClose ? (
         <div
-          class={prefixCls}
+          class={[prefixCls, this.overlayClassName]}
           ref="popperEl"
-          style={[hidePopup && { visibility: 'hidden', pointerEvents: 'none' }, { zIndex: this.zIndex }]}
+          style={[
+            hidePopup && { visibility: 'hidden', pointerEvents: 'none' },
+            { zIndex: this.zIndex },
+            getOverlayStyle(),
+          ]}
           vShow={innerVisible}
           onMousedown={() => {
             this.contentClicked = true;
-          }}
-          onMouseup={() => {
-            // make sure to execute after document click is triggered
-            setTimeout(() => {
-              // clear the flag which was set by mousedown
-              this.contentClicked = false;
-            });
           }}
           {...(hasTrigger.hover && {
             onMouseenter: this.onMouseEnter,
@@ -399,7 +399,7 @@ export default defineComponent({
           })}
         >
           <div
-            class={this.overlayCls}
+            class={[this.overlayCls, this.overlayInnerClassName]}
             ref="overlayEl"
             {...(onScroll && {
               onScroll(e: WheelEvent) {
@@ -420,7 +420,7 @@ export default defineComponent({
         onContentMounted={() => {
           if (innerVisible) {
             this.updatePopper();
-            this.updateOverlayStyle();
+            this.updateOverlayInnerStyle();
           }
         }}
         onResize={() => {

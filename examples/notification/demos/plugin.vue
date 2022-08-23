@@ -7,7 +7,7 @@
       <t-button
         variant="outline"
         @click="$notify.info({ title: '标题名称', icon: false, content: '用户表示普通操作的消息通知', duration: 1000 })"
-        >1000s</t-button
+        >1000ms</t-button
       >
 
       <!-- 自定义 Icon 示例 -->
@@ -16,7 +16,7 @@
         @click="
           $notify.info({ title: '标题名称', icon: iconRender, content: '用户表示操作错误的消息通知', duration: 2000 })
         "
-        >2000s</t-button
+        >2000ms</t-button
       >
 
       <t-button

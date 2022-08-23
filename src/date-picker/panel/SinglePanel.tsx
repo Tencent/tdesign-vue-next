@@ -1,10 +1,9 @@
 import { defineComponent, PropType, computed } from 'vue';
-import dayjs from 'dayjs';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDatePickerProps, DateValue } from '../type';
-import { getDefaultFormat } from '../hooks/useFormat';
+import { TdDatePickerProps } from '../type';
+import { getDefaultFormat, parseToDayjs } from '../hooks/useFormat';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
 
@@ -43,17 +42,13 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
-    const { global } = useConfig('datePicker');
+    const { globalConfig } = useConfig('datePicker');
 
     const { format } = getDefaultFormat({
       mode: props.mode,
       format: props.format,
       enableTimePicker: props.enableTimePicker,
     });
-
-    // 兼容数据格式不标准场景 YYYY-MM-D
-    const formatDate = (newDate: DateValue, format: string) =>
-      dayjs(newDate).isValid() ? dayjs(newDate).toDate() : dayjs(newDate, format).toDate();
 
     const disableDateOptions = computed(() =>
       useDisableDate({
@@ -68,18 +63,19 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? formatDate(props.value, format) : undefined,
-        firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+        start: props.value ? parseToDayjs(props.value, format).toDate() : undefined,
+        firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
 
     const panelContentProps = computed(() => ({
       format,
+      value: props.value,
       mode: props.mode,
       year: props.year,
       month: props.month,
-      firstDayOfWeek: props.firstDayOfWeek || global.value.firstDayOfWeek,
+      firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
       tableData: tableData.value,
       popupVisible: props.popupVisible,
 

@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, Ref } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -21,21 +21,21 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent, getNewMultipleValue } from './helper';
-import { useSelectOptions } from './hooks';
+import { useSelectOptions } from './hooks/useSelectOptions';
 
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props: TdSelectProps, { slots }) {
+  setup(props: TdSelectProps, { slots, expose, ...res }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
-    const { global, t } = useConfig('select');
+    const { globalConfig, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
     const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
-
+    const selectInputRef = ref(null);
     const keys = computed(() => ({
       label: props.keys?.label || 'label',
       value: props.keys?.value || 'value',
@@ -87,7 +87,7 @@ export default defineComponent({
       () =>
         ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsList.value)) ||
           props.placeholder) ??
-        t(global.value.placeholder),
+        t(globalConfig.value.placeholder),
     );
 
     // selectInput 展示值
@@ -97,8 +97,8 @@ export default defineComponent({
         : getSingleContent(innerValue.value, optionsList.value),
     );
 
-    // valueDisplayParmas参数
-    const valueDisplayParmas = computed(() => {
+    // valueDisplayParams参数
+    const valueDisplayParams = computed(() => {
       return props.multiple
         ? (innerValue.value as SelectValue[]).map((value) => ({
             value,
@@ -108,7 +108,7 @@ export default defineComponent({
     });
 
     const isFilterable = computed(() => {
-      return Boolean(props.filterable || global.value.filterable || isFunction(props.filter));
+      return Boolean(props.filterable || globalConfig.value.filterable || isFunction(props.filter));
     });
 
     // 移除tag
@@ -189,6 +189,8 @@ export default defineComponent({
       }
     };
 
+    const popupContentRef = computed(() => selectInputRef.value?.selectInputRef.getOverlay() as HTMLElement);
+
     const SelectProvide = computed(() => ({
       max: props.max,
       multiple: props.multiple,
@@ -200,6 +202,7 @@ export default defineComponent({
       handlePopupVisibleChange: setInnerPopupVisible,
       handleCreate,
       size: props.size,
+      popupContentRef,
     }));
 
     provide(selectInjectKey, SelectProvide);
@@ -264,6 +267,7 @@ export default defineComponent({
       });
     };
     provide('updateScrollTop', updateScrollTop);
+
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
@@ -276,8 +280,11 @@ export default defineComponent({
               multiple: props.multiple,
               clearable: props.clearable,
               loading: props.loading,
+              status: props.status,
+              tips: props.tips,
               minCollapsedNum: props.minCollapsedNum,
             }}
+            ref={selectInputRef}
             class={COMPONENT_NAME.value}
             value={displayText.value}
             disabled={disabled.value}
@@ -300,7 +307,7 @@ export default defineComponent({
             }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
-              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, ['narrow-scrollbar'], overlayClassName],
+              overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
             }}
             label={() => renderTNodeJSX('prefixIcon')}
@@ -314,7 +321,7 @@ export default defineComponent({
             }
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
-                params: { value: valueDisplayParmas.value, onClose: (index: number) => removeTag(index) },
+                params: { value: valueDisplayParams.value, onClose: (index: number) => removeTag(index) },
               })
             }
             onPopupVisibleChange={(val: boolean, context) => {
@@ -355,6 +362,7 @@ export default defineComponent({
                     'panelTopContent',
                     'panelBottomContent',
                     'filter',
+                    'scroll',
                   ])}
                   options={options.value}
                   inputValue={innerInputValue.value}

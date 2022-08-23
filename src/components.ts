@@ -1,6 +1,7 @@
 // 基础
 export * from './button';
 export * from './icon';
+export * from './link';
 
 // 布局
 export * from './grid';
@@ -56,6 +57,7 @@ export * from './tooltip';
 export * from './tree';
 export * from './collapse';
 export * from './watermark';
+export * from './rate';
 
 // 消息提醒
 

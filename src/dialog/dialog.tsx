@@ -9,11 +9,18 @@ import {
   watch,
   getCurrentInstance,
 } from 'vue';
-import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CloseIcon as TdCloseIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
@@ -104,7 +111,13 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogPosition = ref<HTMLElement | null>(null);
-    const { global } = useConfig('dialog');
+    const { globalConfig } = useConfig('dialog');
+    const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CloseIcon: TdCloseIcon,
+      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -135,7 +148,6 @@ export default defineComponent({
       ];
     });
     const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
-
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
@@ -175,6 +187,8 @@ export default defineComponent({
                   mousePosition.y - dialogEle.value.offsetTop
                 }px`;
               }
+              // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
+              (document.activeElement as HTMLElement).blur();
             });
           }
         } else {
@@ -198,21 +212,30 @@ export default defineComponent({
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
         document.addEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.addEventListener('keydown', keyboardEnterEvent);
       } else {
         document.removeEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
+      }
+    };
+    // 回车出发确认事件
+    const keyboardEnterEvent = (e: KeyboardEvent) => {
+      const { code } = e;
+      if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
+        props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
       if (e.code === 'Escape' && stack.top === instance.uid) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (props.closeOnEscKeydown ?? global.value.closeOnEscKeydown) {
+        if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
         }
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      if (props.showOverlay && (props.closeOnOverlayClick ?? global.value.closeOnOverlayClick)) {
+      if (props.showOverlay && (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick)) {
         if (e.target === dialogPosition.value) {
           props.onOverlayClick?.({ e });
           emitCloseEvent({ e, trigger: 'overlay' });
@@ -275,20 +298,21 @@ export default defineComponent({
         <div>
           {getCancelBtn({
             cancelBtn: props.cancelBtn,
-            globalCancel: global.value.cancel,
+            globalCancel: globalConfig.value.cancel,
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
             theme: props.theme,
             confirmBtn: props.confirmBtn,
-            globalConfirm: global.value.confirm,
-            globalConfirmBtnTheme: global.value.confirmBtnTheme,
+            globalConfirm: globalConfig.value.confirm,
+            globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
             className: `${COMPONENT_NAME.value}__confirm`,
           })}
         </div>
       );
       const bodyClassName =
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -310,7 +334,7 @@ export default defineComponent({
                 </span>
               ) : null}
               <div class={bodyClassName}>{body}</div>
-              <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+              {footerContent && <div class={`${COMPONENT_NAME.value}__footer`}>{footerContent}</div>}
             </div>
           </div>
         </div>

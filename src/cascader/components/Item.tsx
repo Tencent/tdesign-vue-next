@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
-import { ChevronRightIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { getFullPathLabel } from '../core/helper';
 import { getCascaderItemClass, getCascaderItemIconClass } from '../core/className';
@@ -9,6 +9,7 @@ import TLoading from '../../loading';
 
 import { CascaderContextType, TreeNodeValue, TreeNode } from '../interface';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useRipple from '../../hooks/useRipple';
 
 const props = {
@@ -35,6 +36,7 @@ export default defineComponent({
 
     const COMPONENT_NAME = usePrefixClass('cascader__item');
     const classPrefix = usePrefixClass();
+    const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
     const { STATUS, SIZE } = useCommonClassName();
 
     const itemClass = computed(() => {

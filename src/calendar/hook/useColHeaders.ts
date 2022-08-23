@@ -7,10 +7,10 @@ import { COMPONENT_NAME } from '../const';
 import * as utils from '../utils';
 
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
-  const { t, global } = useConfig(COMPONENT_NAME);
+  const { t, globalConfig } = useConfig(COMPONENT_NAME);
 
   const weekDipalyText = computed<TdCalendarProps['week']>(() => {
-    return props.week || t(global.value.week).split(',');
+    return props.week || t(globalConfig.value.week).split(',');
   });
   function getWeekDisplay(weekNum: number): string {
     const weekText = weekDipalyText.value;

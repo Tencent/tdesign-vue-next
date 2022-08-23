@@ -2,6 +2,7 @@ import { defineComponent, PropType, computed } from 'vue';
 import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
+import { parseToDayjs } from '../hooks/useFormat';
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -10,6 +11,8 @@ export default defineComponent({
       type: String as PropType<TdDatePickerProps['mode']>,
       default: 'date',
     },
+    value: [String, Number, Array, Date],
+    format: String,
     firstDayOfWeek: Number,
     data: Array,
     time: String,
@@ -19,8 +22,8 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__table');
-    const { global } = useConfig('datePicker');
-    const { weekdays } = global.value;
+    const { globalConfig } = useConfig('datePicker');
+    const { weekdays, weekAbbreviation } = globalConfig.value;
 
     const weekArr = computed(() => {
       const _weekArr = [];
@@ -31,13 +34,49 @@ export default defineComponent({
         wi = (wi + len + 1) % len;
       }
 
+      if (props.mode === 'week') _weekArr.unshift(weekAbbreviation);
+
       return _weekArr;
     });
+
+    const showThead = computed(() => props.mode === 'date' || props.mode === 'week');
+
+    // 高亮周区间
+    const weekRowClass = (value: any, format: string, targetValue: Date) => {
+      if (props.mode !== 'week') return {};
+
+      if (Array.isArray(value)) {
+        if (!value.length) return {};
+        const [startObj, endObj] = value.map((v) => parseToDayjs(v, format));
+        const startYear = startObj.year();
+        const startWeek = startObj.week();
+        const endYear = endObj && endObj.year();
+        const endWeek = endObj && endObj.week();
+
+        const targetObj = parseToDayjs(targetValue, format);
+        const targetYear = targetObj.year();
+        const targetWeek = targetObj.week();
+        const isActive =
+          (targetYear === startYear && targetWeek === startWeek) || (targetYear === endYear && targetWeek === endWeek);
+        const isRange =
+          targetYear >= startYear && targetYear <= endYear && targetWeek > startWeek && targetWeek < endWeek;
+        return {
+          // 同年同周
+          [`${COMPONENT_NAME.value}-${props.mode}-row--active`]: isActive,
+          [`${COMPONENT_NAME.value}-${props.mode}-row--range`]: isRange,
+        };
+      }
+
+      return {
+        [`${COMPONENT_NAME.value}-${props.mode}-row--active`]:
+          parseToDayjs(value, format).week() === parseToDayjs(targetValue, format).week(),
+      };
+    };
 
     return () => (
       <div class={COMPONENT_NAME.value} onMouseleave={(e: MouseEvent) => props.onCellMouseLeave?.({ e })}>
         <table>
-          {props.mode === 'date' && (
+          {showThead.value && (
             <thead>
               <tr>
                 {weekArr.value.map((value: string, i: number) => (
@@ -48,7 +87,13 @@ export default defineComponent({
           )}
           <tbody>
             {props.data.map((row: Array<any>, i: number) => (
-              <tr key={i}>
+              <tr
+                key={i}
+                class={{
+                  [`${COMPONENT_NAME.value}-${props.mode}-row`]: true,
+                  ...weekRowClass(props.value, props.format, row[0].value),
+                }}
+              >
                 {row.map((col: any, j: number) => (
                   <TDatePickerCell
                     {...col}

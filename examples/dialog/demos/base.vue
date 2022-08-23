@@ -1,10 +1,11 @@
 <template>
   <div>
-    <t-button theme="primary" @click="visible = true"> 基础确认对话框 </t-button>
+    <t-button theme="primary" @click="onClick"> 基础确认对话框 </t-button>
     <t-dialog
       v-model:visible="visible"
       header="对话框标题"
       body="对话框内容"
+      :confirm-on-enter="true"
       :on-cancel="onCancel"
       :on-esc-keydown="onEscKeydown"
       :on-close-btn-click="onCloseBtnClick"
@@ -18,6 +19,10 @@
 import { ref } from 'vue';
 
 const visible = ref(false);
+const onClick = (context) => {
+  console.log('点击了确认按钮，弹出弹窗', context);
+  visible.value = true;
+};
 const onConfirmAnother = (context) => {
   console.log('点击了确认按钮', context);
   visible.value = false;

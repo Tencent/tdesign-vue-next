@@ -15,6 +15,7 @@ import { useUpload } from './useUpload';
 
 export const useComponentsStatus = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   const showUploadList = computed(() => {
+    if (props.multiple && props.theme === 'file' && props.draggable) return true;
     return props.multiple && ['file-flow', 'image-flow'].includes(props.theme);
   });
 

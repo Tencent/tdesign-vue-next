@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, inject } from 'vue';
+import { defineComponent, ref, computed, inject, reactive, onMounted, onBeforeUnmount, toRefs, Ref } from 'vue';
 
 import props from './option-props';
 import Checkbox from '../checkbox/index';
@@ -14,10 +14,24 @@ import { SelectValue } from './type';
 export default defineComponent({
   name: 'TOption',
 
-  props: { ...props, createAble: Boolean, multiple: Boolean, index: Number },
-  setup(props) {
+  props: {
+    ...props,
+    createAble: Boolean,
+    multiple: Boolean,
+    index: Number,
+    rowIndex: Number,
+    trs: Map,
+    scrollType: String,
+    isVirtual: Boolean,
+    bufferSize: Number,
+  },
+  emits: ['row-mounted'],
+
+  setup(props, context) {
     const selectProvider = inject(selectInjectKey);
     const formDisabled = useFormDisabled();
+
+    const optionNode = ref(null);
 
     const disabled = computed(
       () =>
@@ -82,10 +96,28 @@ export default defineComponent({
       }
     };
 
+    // 处理虚拟滚动节点挂载
+    onMounted(() => {
+      const { trs, rowIndex, isVirtual } = props;
+      if (isVirtual) {
+        trs.set(rowIndex, liRef.value);
+        context.emit('row-mounted');
+      }
+    });
+
+    // 处理虚拟滚动节点移除
+    onBeforeUnmount(() => {
+      if (props.isVirtual) {
+        const { trs, rowIndex } = props;
+        trs.delete(rowIndex);
+      }
+    });
+
     useRipple(liRef);
 
     return () => {
       const optionChild = renderContent('default', 'content') || labelText.value;
+
       return (
         <li
           ref={liRef}
