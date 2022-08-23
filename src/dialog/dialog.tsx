@@ -9,11 +9,18 @@ import {
   watch,
   getCurrentInstance,
 } from 'vue';
-import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CloseIcon as TdCloseIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
@@ -105,6 +112,12 @@ export default defineComponent({
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogPosition = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
+    const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CloseIcon: TdCloseIcon,
+      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -135,7 +148,6 @@ export default defineComponent({
       ];
     });
     const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
-
     const positionStyle = computed(() => {
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
@@ -175,6 +187,8 @@ export default defineComponent({
                   mousePosition.y - dialogEle.value.offsetTop
                 }px`;
               }
+              // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
+              (document.activeElement as HTMLElement).blur();
             });
           }
         } else {
@@ -198,8 +212,17 @@ export default defineComponent({
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
         document.addEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.addEventListener('keydown', keyboardEnterEvent);
       } else {
         document.removeEventListener('keydown', keyboardEvent);
+        props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
+      }
+    };
+    // 回车出发确认事件
+    const keyboardEnterEvent = (e: KeyboardEvent) => {
+      const { code } = e;
+      if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
+        props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {

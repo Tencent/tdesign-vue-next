@@ -1,11 +1,12 @@
 import { computed, defineComponent, ref, PropType } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
 
 // hooks
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TTabNavItem',
@@ -33,6 +34,7 @@ export default defineComponent({
     useRipple(itemRef);
 
     const COMPONENT_NAME = usePrefixClass('tabs__nav-item');
+    const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const classPrefix = usePrefixClass();
     const { STATUS, SIZE } = useCommonClassName();
 

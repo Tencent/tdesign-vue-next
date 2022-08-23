@@ -71,6 +71,7 @@ export const packageJSONContent = JSON.stringify(
     },
     dependencies: {
       vue: orgPkg.devDependencies.vue,
+      less: orgPkg.devDependencies.less,
       'tdesign-vue-next': orgPkg.version,
       'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
     },

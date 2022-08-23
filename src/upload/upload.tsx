@@ -1,6 +1,7 @@
 import { VNode, defineComponent, reactive, computed, toRefs } from 'vue';
 
-import { UploadIcon } from 'tdesign-icons-vue-next';
+import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
+
 import Dragger from './dragger';
 import ImageCard from './image';
 import FlowList from './flow-list';
@@ -14,6 +15,7 @@ import { TdUploadProps } from './type';
 
 import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
@@ -26,6 +28,7 @@ export default defineComponent({
     const renderTNodeContent = useContent();
     const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { UploadIcon } = useGlobalIcon({ UploadIcon: TdUploadIcon });
     const { files, modelValue } = toRefs(props);
 
     // 合并上传相关状态

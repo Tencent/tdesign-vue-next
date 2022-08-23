@@ -5,6 +5,46 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.2 `2022-08-23` 
+### 🚀 Features
+- `Table`: 
+   - 支持行拖拽排序和列拖拽排序同时存在，([issue#1290](https://github.com/Tencent/tdesign-vue/issues/1290)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 行展开功能，新增事件参数 `currentRowData`，表示当前展开行 @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 可编辑单元格/行功能，新增 `editableCellState` 用于控制单元格是否可编辑，([issue#1387](https://github.com/Tencent/tdesign-vue-next/issues/1387)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 可编辑单元格/行功能，新增 `edit.defaultEditable` 用于设置初始状态是否为编辑态 @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+- `Select`: 
+   - 支持开启虚拟滚动处理大量数据的场景 @uyarn ([#1451](https://github.com/Tencent/tdesign-vue-next/pull/1451))
+   - 调整 `loading` 态显示优先于 `empty` 属性 @skytt  @uyarn ([#1451](https://github.com/Tencent/tdesign-vue-next/pull/1451))
+- `InputNumber`: 支持超过 `16` 位的大数字 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+- `ConfigProvider`: 支持自定义全局 `icon`  @zhangpaopao0609 ([#1420](https://github.com/Tencent/tdesign-vue-next/pull/1420))
+- `Rate`: 新增 `rate` 组件 @Yilun-Sun ([#1415](https://github.com/Tencent/tdesign-vue-next/pull/1415))
+- `Dialog`: 增加弹窗回车事件 `API` @huoyuhao ([#1433](https://github.com/Tencent/tdesign-vue-next/pull/1433))
+
+### 🐞 Bug Fixes
+- `Table`: 
+   - 修复吸顶表头，末尾有 `1px` 未对齐 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+   - 修复窗口变化时，固定列阴影未更新问题 ([issue #1289](https://github.com/Tencent/tdesign-vue/issues/1289)) @chaishi ([#1439](https://github.com/Tencent/tdesign-vue-next/pull/1439))
+   - 修复行选中功能，多选，分页数据异步加载，`onSelectChange` 参数 `selectedRowData` 数据不完整问题，表示当前展开行，([issue#1364](https://github.com/Tencent/tdesign-vue-next/issues/1364)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+   - 修复可编辑行，联动数据校验问题，([issue#1444](https://github.com/Tencent/tdesign-vue-next/issues/1444)) @chaishi ([#1467](https://github.com/Tencent/tdesign-vue-next/pull/1467))
+- `Tree`: 
+   - `tree` 可选时 `onActive` 失效 ([issue #1409](https://github.com/Tencent/tdesign-vue-next/issues/1409)) @zhangpaopao0609 ([#1453](https://github.com/Tencent/tdesign-vue-next/pull/1453))
+   - 修正 `setItem` 无法正确 展开，高亮，选中节点 ([issue #1428](https://github.com/Tencent/tdesign-vue-next/issues/1428)) @PDieE ([#1465](https://github.com/Tencent/tdesign-vue-next/pull/1465))
+- `Cascader`: 
+   - 修复异步获取 `options` 后的懒加载无效 ([issue #1448](https://github.com/Tencent/tdesign-vue-next/issues/1448)) ([issue #1223](https://github.com/Tencent/tdesign-vue/issues/1223)) @pengYYYYY ([#1471](https://github.com/Tencent/tdesign-vue-next/pull/1471))
+   - 修复 `value` 不是 `options` 的健值会报错 ([issue #1293](https://github.com/Tencent/tdesign-react/issues/1293)) @pengYYYYY ([#1471](https://github.com/Tencent/tdesign-vue-next/pull/1471))
+- `InputNumber`: 修复数字精度问题 @chaishi ([#1412](https://github.com/Tencent/tdesign-vue-next/pull/1412))
+- `Transfer`: `Transfer` 与 `Tree` 结合使用时，当 children 为空数组时，应当展示父节点 ([issue #1366](https://github.com/Tencent/tdesign-vue-next/issues/1366)) @zhangpaopao0609 ([#1438](https://github.com/Tencent/tdesign-vue-next/pull/1438))
+- `Drawer`: 修复拖拽改变抽屉高度时可超出屏幕的问题 @sechi747 ([#1450](https://github.com/Tencent/tdesign-vue-next/pull/1450))
+- `Tabs`: 修复 `card` 主题下 `onDragSort` 的 `targetIndex` 参数不正确的问题 @sechi747 ([#1455](https://github.com/Tencent/tdesign-vue-next/pull/1455))
+- `Breadcrumb`: 修复了设置disabled属性后仍触发点击事件的问题 @sechi747 ([#1461](https://github.com/Tencent/tdesign-vue-next/pull/1461))
+- `DaterPicker`: 调整默认展示时间为 00:00:00 @HQ-Lin ([#1458](https://github.com/Tencent/tdesign-vue-next/pull/1458))
+- `Slider`: 修复 `Slider` 输入框无法输入 `0` 问题 @ChrisLee0211 ([#1469](https://github.com/Tencent/tdesign-vue-next/pull/1469))
+
+
+### 🚧 Others
+- `Breadcrumb`: 增加 `breadcrumb` 单元测试 @xxxlj ([#1459](https://github.com/Tencent/tdesign-vue-next/pull/1459))
+
+
 ## 🌈 0.20.1 `2022-08-16` 
 ### 🚀 Features
 - `Popup`: 新增 `overlayInnerClassName` 支持设置浮层内容样式名 @HQ-Lin ([#1431](https://github.com/Tencent/tdesign-vue-next/pull/1431))
@@ -17,35 +57,40 @@ docClass: timeline
 -  `Popup`: `overlayStyle` 调整为控制 `t-popup` 层级，新增 `overlayInnerStyle` 控制 `t-popup__content` 层级与原先 `overlayStyle` 效果一致。@HQ-Lin ([#1383](https://github.com/Tencent/tdesign-vue-next/pull/1383))
 ### 🚀 Features
 - `Icon`: 新增`qq`、`wechat`、`wecom`、`relativity`和`pin-filled`等图标 @uyarn ([#1382](https://github.com/Tencent/tdesign-vue-next/pull/1382))
-- `Table`: 可编辑行功能，校验函数 `validateRowData` 和 `validateTableData` 返回值支持 `Promise` 对象 @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
-- `Table`: 增加 `footerSummary` 到 `props` @chaishi ([#1371](https://github.com/Tencent/tdesign-vue-next/pull/1371))
+- `Table`:
+  - 可编辑行功能，校验函数 `validateRowData` 和 `validateTableData` 返回值支持 `Promise` 对象 @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
+  - 增加 `footerSummary` 到 `props` @chaishi ([#1371](https://github.com/Tencent/tdesign-vue-next/pull/1371))
 - `DatePicker`: 支持季度国际化配置 @HQ-Lin ([#1379](https://github.com/Tencent/tdesign-vue-next/pull/1379))
 - `Link`: 新增 `Link` 组件 @huoyuhao ([#1391](https://github.com/Tencent/tdesign-vue-next/pull/1391))
 ### 🐞 Bug Fixes
-- `Table`: 可编辑单元格，多选和日期选择，点击下拉浮层中的内容会导致退出编辑，[tdesign-vue-next#issue1384](https://github.com/Tencent/tdesign-vue-next/issues/1384) @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
-- `DatePicker`: 修复下拉样式问题  @HQ-Lin ([#1397](https://github.com/Tencent/tdesign-vue-next/pull/1397))
-- `Menu`: 修复在 `nuxt3` 里面鼠标悬浮或者点击子菜单不出现 元素代码里面出现一瞬间就消失了 ([issue #937](https://github.com/Tencent/tdesign-vue-next/issues/937)) @zhangpaopao0609 ([#1400](https://github.com/Tencent/tdesign-vue-next/pull/1400))
-- `Menu`: `t-menu-item` 大于 `8` 个将会溢出 @zhangpaopao0609 ([#1377](https://github.com/Tencent/tdesign-vue-next/pull/1377))
+- `Table`:
+  - 可编辑单元格，多选和日期选择，点击下拉浮层中的内容会导致退出编辑，[tdesign-vue-next#issue1384](https://github.com/Tencent/tdesign-vue-next/issues/1384) @chaishi ([#1392](https://github.com/Tencent/tdesign-vue-next/pull/1392))
+  - 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
+  - 宽度计算函数添加注释 @ZTao-z ([#1413](https://github.com/Tencent/tdesign-vue-next/pull/1413))
+  - 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
+- `Menu`:
+  - 修复在 `nuxt3` 里面鼠标悬浮或者点击子菜单不出现 元素代码里面出现一瞬间就消失了 ([issue #937](https://github.com/Tencent/tdesign-vue-next/issues/937)) @zhangpaopao0609 ([#1400](https://github.com/Tencent/tdesign-vue-next/pull/1400))
+  - t-menu-item` 大于 `8` 个将会溢出 @zhangpaopao0609 ([#1377](https://github.com/Tencent/tdesign-vue-next/pull/1377))
 - `Tabs`: 修复 `Tabs` 选项卡在 `nuxt3 ssr` 应用中报错 `window is not defined` ([issue #1262](https://github.com/Tencent/tdesign-vue-next/issues/1262)) @zhangpaopao0609 ([#1398](https://github.com/Tencent/tdesign-vue-next/pull/1398))
-- `Table`: 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
-- `SelectInput`: 修复属性 `props.readonly = true` 或 `props.allowInput = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `SelectInput`: 修复当 `readonly` 或 `disabled` 属性为  `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `SelectInput`: 修复同时开启 `readonly` 和 `allowInput` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `SelectInput`: 修复在 `Form` 组件中使用禁用态表单不生效的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `Select`: 修复属性 `props.readonly = true` 或 `props.filterable = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `Select`: 修复当 `readonly` 或 `disabled` 属性为 `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `Select`: 修复同时开启 `readonly` 和 `filterable` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `SelectInput`:
+  - 修复属性 `props.readonly = true` 或 `props.allowInput = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  -修复当 `readonly` 或 `disabled` 属性为  `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  - 修复同时开启 `readonly` 和 `allowInput` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  - 修复在 `Form` 组件中使用禁用态表单不生效的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  - 修复外部传入 `style` 无法透传到 `Input` ([issue #1385](https://github.com/Tencent/tdesign-vue-next/issues/1385)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
+- `Select`:
+  - 修复属性 `props.readonly = true` 或 `props.filterable = false` 时，仍会调用 `onBlur` 的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  - 修复当 `readonly` 或 `disabled` 属性为 `true` 、表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+  - 修复同时开启 `readonly` 和 `filterable` 属性时，可以输入的问题 @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
+- `DatePicker`: 修复下拉样式问题  @HQ-Lin ([#1397](https://github.com/Tencent/tdesign-vue-next/pull/1397))
 - `Input`: 修复在表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
 - `Cascader`: 修复在表单禁用时， `clearable` 按钮可以点击的问题 ([issue#1365](https://github.com/Tencent/tdesign-vue-next/issues/1365)) @k1nz ([#1351](https://github.com/Tencent/tdesign-vue-next/pull/1351))
-- `Table`: 宽度计算函数添加注释 @ZTao-z ([#1413](https://github.com/Tencent/tdesign-vue-next/pull/1413))
 - `Popup`: 修复嵌套使用点击 trigger 元素时异常关闭 ([issue #1227](https://github.com/Tencent/tdesign-vue-next/issues/1227)) @ikeq ([#1419](https://github.com/Tencent/tdesign-vue-next/pull/1419))
 - `Transfer`: 穿梭框 `checked` 和 `value` 的值不在 `data` 时会报错 ([issue #1404](https://github.com/Tencent/tdesign-vue-next/issues/1404)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
 - `Upload`: `size-limit ` 使用 `MB` 以上单位时校验错误 ([issue #1386](https://github.com/Tencent/tdesign-vue-next/issues/1386)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
 - `Dialog`: 对话框 `footer` 不显示情况下，`body padding` 与 `dialog padding` 冲突 ([issue #1380](https://github.com/Tencent/tdesign-vue-next/issues/1380)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
 - `Tree`: 组件实例方法 `setItem` 参数错误 ([issue #1410](https://github.com/Tencent/tdesign-vue-next/issues/1410)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
-- `SelectInput`: 外部传入 `style` 无法透传到 `Input` ([issue #1385](https://github.com/Tencent/tdesign-vue-next/issues/1385)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
 - `InputNumber`: 修复无法触发 `onEnter` 方法 ([issue #1396](https://github.com/Tencent/tdesign-vue-next/issues/1396)) ([issue #1352](https://github.com/Tencent/tdesign-vue-next/issues/1352)) @pengYYYYY ([#1416](https://github.com/Tencent/tdesign-vue-next/pull/1416))
-- `Table`: 列宽度和小于表宽的情况下，调整列宽的结果与预期不符 @ZTao-z ([#1406](https://github.com/Tencent/tdesign-vue-next/pull/1406))
 - `Nuxt3`: 修复因 `nuxt3` 将 `global `作为关键词，编译为 `globalThis` 导致的组件运行错误 ([issue #1388](https://github.com/Tencent/tdesign-vue-next/issues/1388)) ([issue #1361](https://github.com/Tencent/tdesign-vue-next/issues/1361))([issue #988](https://github.com/Tencent/tdesign-vue-next/issues/988)) @zhangpaopao0609 ([#1401](https://github.com/Tencent/tdesign-vue-next/pull/1401))
 
 ## 🌈 0.19.1 `2022-08-09` 
@@ -55,18 +100,20 @@ docClass: timeline
 - `Style`: 新增字体相关 `CSS Token`，支持通过CSS Token修改字体相关配置 具体请参考 [font tokens](https://github.com/Tencent/tdesign-common/blob/develop/style/web/theme/_font.less) @uyarn ([#1358](https://github.com/Tencent/tdesign-vue-next/pull/1358))
 - `Textarea`: 增加 `focus` 和 `blur` 实例方法 @timi137137 ([#1349](https://github.com/Tencent/tdesign-vue-next/pull/1349))
 - `Input`: 增加 `focus` 和 `blur` 实例方法 @timi137137 ([#1349](https://github.com/Tencent/tdesign-vue-next/pull/1349))
-- `Table`: 支持使用插槽 `footer-summary` 定义通栏表尾，同时支持同名属性 Props `footer-summary` 渲染通栏表尾 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`: 由于表格支持定义多行表尾，因而本次支持使用 `rowspanAndColspanInFooter` 定义表尾行数据合并单元格，使用方法同 `rowspanAndColspan`，[issue#1047](https://github.com/Tencent/tdesign-vue-next/issues/1047) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`:  支持 `min-width` 透传到元素 `<col>`，[issues#708](https://github.com/Tencent/tdesign-vue/issues/708) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`: 新增 `cellEmptyContent`，当列数据为空时显示指定值，[issues#1320](https://github.com/Tencent/tdesign-vue-next/issues/1320) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`: 可编辑行功能，新增实例方法 `validate`，支持校验表格内的全部数据，[issue#1341](https://github.com/Tencent/tdesign-vue-next/issues/1341) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+- `Table`: 
+  - 支持使用插槽 `footer-summary` 定义通栏表尾，同时支持同名属性 Props `footer-summary` 渲染通栏表尾 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+  - 由于表格支持定义多行表尾，因而本次支持使用 `rowspanAndColspanInFooter` 定义表尾行数据合并单元格，使用方法同 `rowspanAndColspan`，[issue#1047](https://github.com/Tencent/tdesign-vue-next/issues/1047) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))  
+  - 支持 `min-width` 透传到元素 `<col>`，[issues#708](https://github.com/Tencent/tdesign-vue/issues/708) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+  - 新增 `cellEmptyContent`，当列数据为空时显示指定值，[issues#1320](https://github.com/Tencent/tdesign-vue-next/issues/1320) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+  - 可编辑行功能，新增实例方法 `validate`，支持校验表格内的全部数据，[issue#1341](https://github.com/Tencent/tdesign-vue-next/issues/1341) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
 ### 🐞 Bug Fixes
+- `Table`: 
+  - 修复深色模式下垂直和水平方向滚动条交汇处出现白点的样式问题 by @RayJason @uyarn ([#1358](https://github.com/Tencent/tdesign-vue-next/pull/1358))
+  - 行选中会触发重置列宽调整的结果 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+  - 可编辑行功能，提交校验时只校验了第一列，[issue#1339](https://github.com/Tencent/tdesign-vue-next/issues/1339) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
+  - 列配置功能，带边框模式，移除分页组件边框下方多余的边框 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
 - `Menu`:  使用 `relatedTarget` 标准属性兼容浏览器差异，修复在火狐浏览器无法收起的问题 ([issue #1312](https://github.com/Tencent/tdesign-vue-next/issues/1312)), ([issue #1243](https://github.com/Tencent/tdesign-vue-next/issues/1243)) ([issue #1198](https://github.com/Tencent/tdesign-vue-next/issues/1198)) @sinbadmaster ([#1345](https://github.com/Tencent/tdesign-vue-next/pull/1345))
 - `ColorPicker`: 优化更新 `color-picker` 组件样式 @S-mohan ([#1346](https://github.com/Tencent/tdesign-vue-next/pull/1346))
-- `Table`: 修复深色模式下垂直和水平方向滚动条交汇处出现白点的样式问题 by @RayJason @uyarn ([#1358](https://github.com/Tencent/tdesign-vue-next/pull/1358))
-- `Table`: 行选中会触发重置列宽调整的结果 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`: 可编辑行功能，提交校验时只校验了第一列，[issue#1339](https://github.com/Tencent/tdesign-vue-next/issues/1339) @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
-- `Table`: 列配置功能，带边框模式，移除分页组件边框下方多余的边框 @chaishi ([#1357](https://github.com/Tencent/tdesign-vue-next/pull/1357))
 - `Dialog`: 修复 `confirm-btn` 类型问题 ([issue #1347](https://github.com/Tencent/tdesign-vue-next/issues/1347)) @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
 - `Dropdown`: 修复 `popupElem` 为空时的组件内部报错 ([issue #1344](https://github.com/Tencent/tdesign-vue-next/issues/1344)) @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
 - `TagInput`: 修复 `taginput` 空值时缺失 `padding` 的问题 @uyarn  @pengYYYYY ([#1363](https://github.com/Tencent/tdesign-vue-next/pull/1363))
@@ -80,22 +127,21 @@ docClass: timeline
 - `SelectInput`: `SelectInput` 及相关的 `Select/Cascader/TreeSelect` 组件交互调整，再次点击输入框时也可以收起下拉框。 @xiaosansiji ([#1299](https://github.com/Tencent/tdesign-vue-next/pull/1299))
 - `Upload`: 增加 `setPercent ` 实例方法用于满足自定义上传方法时设置上传进度([issue #1266](https://github.com/Tencent/tdesign-vue-next/issues/1266)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
 ### 🐞 Bug Fixes
+- `Table`:
+  - 树形结构，展开全部功能，默认不应该展开懒加载节点 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
+  - 多级表头，表尾列显示异常 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
+  - 吸顶的多级表头，左侧边线缺失问题 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
 - `Dialog`: 删除冗余的样式 @huoyuhao ([#1305](https://github.com/Tencent/tdesign-vue-next/pull/1305))
-- `Table`: 树形结构，展开全部功能，默认不应该展开懒加载节点 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
-- `Table`: 多级表头，表尾列显示异常 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
-- `Table`: 吸顶的多级表头，左侧边线缺失问题 @chaishi ([#1307](https://github.com/Tencent/tdesign-vue-next/pull/1307))
 - `Cascader`: 修复在异步获取 `option` 的情况下，参数校验导致用户行为异常 @pengYYYYY ([#1317](https://github.com/Tencent/tdesign-vue-next/pull/1317))
 - `Popup`: 修复 `content` 为纯英文时无法自动换行  ([issue #1318](https://github.com/Tencent/tdesign-vue-next/issues/1318)) @pengYYYYY ([#1317](https://github.com/Tencent/tdesign-vue-next/pull/1317))
 - `Tree`: 修复 `setData` 组件存在 `children` 后的导致组件崩溃 @ardor-zhang ([#657](https://github.com/Tencent/tdesign-common/pull/657))
-- `Tabs`: 修复 `tabpanel` 组件的 `label` 不能根据函数进行自定义展示 ([issue #1311](https://github.com/Tencent/tdesign-vue-next/issues/1311)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
+- `Tabs`:
+  - 修复 `tabpanel` 组件的 `label` 不能根据函数进行自定义展示 ([issue #1311](https://github.com/Tencent/tdesign-vue-next/issues/1311)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
+  - 修复组合场景下的示例 @LAWTED ([#1334](https://github.com/Tencent/tdesign-vue-next/pull/1334))
 - `Upload`: 修复 ` draggable` 和 `multiple` 组合使用时组件无输出([issue #1326](https://github.com/Tencent/tdesign-vue-next/issues/1326)) @pengYYYYY ([#1331](https://github.com/Tencent/tdesign-vue-next/pull/1331))
 - `ClassPrefix`：替换遗漏的 `classprefix` @uyarn ([#1300](https://github.com/Tencent/tdesign-vue-next/pull/1300))
-- `Tabs`: 修复组合场景下的示例 @LAWTED ([#1334](https://github.com/Tencent/tdesign-vue-next/pull/1334))
-
 ### 🚧 Others
 - `Table`: 修复 `validateRowDate` 拼写错误到 `validateRowData`  ([issue #1321](https://github.com/Tencent/tdesign-vue-next/issues/1321)) @pengYYYYY ([#1317](https://github.com/Tencent/tdesign-vue-next/pull/1317))
-
-
 
 ## 🌈 0.18.1 `2022-07-26` 
 ### 🚀 Features
@@ -105,8 +151,9 @@ docClass: timeline
 - `Upload`: 支持单组件的文案配置 @uyarn ([#1289](https://github.com/Tencent/tdesign-vue-next/pull/1289))
 - 支持通过CSS Token配置组件圆角 @mingrutough1 ([common#648](https://github.com/Tencent/tdesign-common/pull/648))
 ### 🐞 Bug Fixes
-- `DatePicker`: 修复重置日期后面板月份未重置问题 @HQ-Lin ([#1248](https://github.com/Tencent/tdesign-vue-next/pull/1248))
-- `DatePicker`: 修复 `range` 选择器开始时间被禁用问题 @HQ-Lin ([#1270](https://github.com/Tencent/tdesign-vue-next/pull/1270))
+- `DatePicker`: 
+  - 修复重置日期后面板月份未重置问题 @HQ-Lin ([#1248](https://github.com/Tencent/tdesign-vue-next/pull/1248))
+  - 修复 `range` 选择器开始时间被禁用问题 @HQ-Lin ([#1270](https://github.com/Tencent/tdesign-vue-next/pull/1270))
 - `Form`: 修复 `help` 插槽不生效的问题([issue #1267](https://github.com/Tencent/tdesign-vue-next/issues/1267)) @k1nz ([#1272](https://github.com/Tencent/tdesign-vue-next/pull/1272))
 - `Dialog`: 修复 `preventScrollThrough` 为 `false` 情况下，`body` 间去了滚动条宽度 @huoyuhao ([#1261](https://github.com/Tencent/tdesign-vue-next/pull/1261))
 - `Table`: 树形结构，懒加载节点重置时（即调用 `setData`）没有清空子节点信息问题 @chaishi ([#1278](https://github.com/Tencent/tdesign-vue-next/pull/1278))
@@ -117,14 +164,17 @@ docClass: timeline
 - `Select`: 修复`autowidth` 无效 ([issue #1226](https://github.com/Tencent/tdesign-vue-next/issues/1226)) @pengYYYYY ([#1280](https://github.com/Tencent/tdesign-vue-next/pull/1280))
 ## 🌈 0.18.0 `2022-07-18` 
 ### ❗ Breaking Changes
-- `Table`:  可编辑表格行，行校验函数由 `validateRowDate` 更名为 `validateRowData` @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+- `Table`:  
+  - 可编辑表格行，行校验函数由 `validateRowDate` 更名为 `validateRowData` @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
 ### 🚀 Features
-- `Table`: 树形结构，支持同时添加多个根节点 @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
-- `Table`: 可选中行，扩大选择组件的点击范围 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
-- `Table`: 拖拽调整宽度，非边框模式，悬浮到表头时，显示表头边框 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
+- `Table`:
+  - 树形结构，支持同时添加多个根节点 @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+  - 可选中行，扩大选择组件的点击范围 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
+  - 拖拽调整宽度，非边框模式，悬浮到表头时，显示表头边框 @chaishi ([#1232](https://github.com/Tencent/tdesign-vue-next/pull/1232))
 ### 🐞 Bug Fixes
-- `Table`: 修复可编辑单元格，校验失败的信息无法清除问题，([issue #1228](https://github.com/Tencent/tdesign-vue-next/issues/1228)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
-- `Table`: 树形结构，修复树形结构懒加载顺序问题，([issue #1122](https://github.com/Tencent/tdesign-vue-next/issues/1122)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+- `Table`: 
+  - 修复可编辑单元格，校验失败的信息无法清除问题，([issue #1228](https://github.com/Tencent/tdesign-vue-next/issues/1228)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
+  - 树形结构，修复树形结构懒加载顺序问题，([issue #1122](https://github.com/Tencent/tdesign-vue-next/issues/1122)) @chaishi ([#1219](https://github.com/Tencent/tdesign-vue-next/pull/1219))
 - `Swiper`: 动态修改 `swiper item` 会出现 `vue` 警告 @btea ([#1231](https://github.com/Tencent/tdesign-vue-next/pull/1231))
 - `Tree`: 修复节点过滤后被一直锁住的问题 @ardor-zhang ([#1199](https://github.com/Tencent/tdesign-vue-next/pull/1199))
 - `DatePicker`: 调整 `bem` 命名 @HQ-Lin ([#1225](https://github.com/Tencent/tdesign-vue-next/pull/1225))
@@ -134,15 +184,17 @@ docClass: timeline
 - `Icon`: 新增 `mirror` 和 `rotation` 图标 @uyarn ([#1201](https://github.com/Tencent/tdesign-vue-next/pull/1201))
 - `DatePicker`: 支持面板年月动态响应 value 变化 @HQ-Lin ([#1206](https://github.com/Tencent/tdesign-vue-next/pull/1206))
 ### 🐞 Bug Fixes
-- `Input`: 修复 `Input` 组件切换 `type` 后不生效的问题 @qdzhaoxiaodao ([#1183](https://github.com/Tencent/tdesign-vue-next/pull/1183))
-- `Icon`: 修复 `iconfont` 高级用法由于 `t-icon` 的干扰导致渲染异常的情况 @uyarn ([#1201](https://github.com/Tencent/tdesign-vue-next/pull/1201))
-- `Table`: 列宽拖拽，拖动到边界处后无法再次拖动 @chaishi ([#1210](https://github.com/Tencent/tdesign-vue-next/pull/1210))
-- `Table`: 多级表头场景下的多选，无法全选 @chaishi ([#1210](https://github.com/Tencent/tdesign-vue-next/pull/1210))
-- `Table`: 修复可选中行 `table` 组件，`data` 为空数据时，默认全选按钮会选中的问题 @qdzhaoxiaodao ([#1188](https://github.com/Tencent/tdesign-vue-next/pull/1188))
+- `Table`:
+  - 列宽拖拽，拖动到边界处后无法再次拖动 @chaishi ([#1210](https://github.com/Tencent/tdesign-vue-next/pull/1210))
+  - 多级表头场景下的多选，无法全选 @chaishi ([#1210](https://github.com/Tencent/tdesign-vue-next/pull/1210))
+  - 修复可选中行 `table` 组件，`data` 为空数据时，默认全选按钮会选中的问题 @qdzhaoxiaodao ([#1188](https://github.com/Tencent/tdesign-vue-next/pull/1188))
+- `Input`:
+  - 修复 `autowidth` 表现异常 ([issue #1212](https://github.com/Tencent/tdesign-vue-next/issues/1212)) @pengYYYYY ([#1216](https://github.com/Tencent/tdesign-vue-next/pull/1216))
+  - 修复 `Input` 组件切换 `type` 后不生效的问题 @qdzhaoxiaodao ([#1183](https://github.com/Tencent/tdesign-vue-next/pull/1183))
+  - 修复 `Input` 组件切换 `type` 后不生效的问题 @qdzhaoxiaodao ([#1183](https://github.com/Tencent/tdesign-vue-next/pull/1183))
 - `InputNumber`: 修复初始化时对 `null` 及字符串校验异常 @sinbadmaster ([#1214](https://github.com/Tencent/tdesign-vue-next/pull/1214))
 - `Dialog`: 多个 `dialog` 同时存在时使用 `esc` 关闭异常 @sinbadmaster ([#1209](https://github.com/Tencent/tdesign-vue-next/pull/1209))
-- `Input`: 修复 `autowidth` 表现异常 ([issue #1212](https://github.com/Tencent/tdesign-vue-next/issues/1212)) @pengYYYYY ([#1216](https://github.com/Tencent/tdesign-vue-next/pull/1216))
-- `Input`: 修复 `Input` 组件切换 `type` 后不生效的问题 @qdzhaoxiaodao ([#1183](https://github.com/Tencent/tdesign-vue-next/pull/1183))
+- `Icon`: 修复 `iconfont` 高级用法由于 `t-icon` 的干扰导致渲染异常的情况 @uyarn ([#1201](https://github.com/Tencent/tdesign-vue-next/pull/1201))
 ## 🌈 0.17.4 `2022-07-11` 
 ### 🚀 Features
 - `DatePicker`: 新增 `panelPreselection api` @HQ-Lin ([#1164](https://github.com/Tencent/tdesign-vue-next/pull/1164))
@@ -154,6 +206,13 @@ docClass: timeline
 - `TimePicker`: 支持毫秒使用场景 @uyarn ([#1195](https://github.com/Tencent/tdesign-vue-next/pull/1195))
 - `Tree`:  tree 支持拖拽 @ardor-zhang ([#1119](https://github.com/Tencent/tdesign-vue-next/pull/1119))
 ### 🐞 Bug Fixes
+- `Dialog`:
+  - 修复 `dialog` 阻止冒泡导致 `popup` 无法正常关闭 @HQ-Lin ([#1178](https://github.com/Tencent/tdesign-vue-next/pull/1178))
+  - 修复打开对话框，出现滚动条([#1163](https://github.com/Tencent/tdesign-vue-next/issues/1163)) @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
+  - 内部样式未使用prefix导致替换前缀方式的样式丢失 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
+- `Slider`:
+  - 修复 `label` 属性不生效 `bug` @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
+  - 修复 `tooltipProps` 为布尔值时丢失响应性问题 @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
 - `Space`: 通过FOR循环的内容 没有实现间隔效果 ([issue #1084](https://github.com/Tencent/tdesign-vue-next/issues/1084)) @pengYYYYY ([#1156](https://github.com/Tencent/tdesign-vue-next/pull/1156))
 - `DatePicker`: 修复日期格式化问题 @HQ-Lin ([#1164](https://github.com/Tencent/tdesign-vue-next/pull/1164))
 - `TimePicker`: 优化可输入模式的使用体验 避免高频输入场景与滚动事件重复更新 `value` 的异常 @uyarn ([#1169](https://github.com/Tencent/tdesign-vue-next/pull/1169))
@@ -161,12 +220,7 @@ docClass: timeline
 - `Cascader`: 修复筛选无法输入问题 @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
 - `DatePicker`: 优化面板月份展示 @HQ-Lin ([#1180](https://github.com/Tencent/tdesign-vue-next/pull/1180))
 - `Transfer`: 全选应该只选择搜索后的结果 @btea ([#1177](https://github.com/Tencent/tdesign-vue-next/pull/1177))
-- `Dialog`: 修复 `dialog` 阻止冒泡导致 `popup` 无法正常关闭 @HQ-Lin ([#1178](https://github.com/Tencent/tdesign-vue-next/pull/1178))
-- `Dialog`: 修复打开对话框，出现滚动条([#1163](https://github.com/Tencent/tdesign-vue-next/issues/1163)) @pengYYYYY ([#1161](https://github.com/Tencent/tdesign-vue-next/pull/1161))
-- `Slider`: 修复 `label` 属性不生效 `bug` @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
-- `Slider`: 修复 `tooltipProps` 为布尔值时丢失响应性问题 @ChrisLee0211 ([#1184](https://github.com/Tencent/tdesign-vue-next/pull/1184))
 - `Select`: 多选下 `hover` 出现换行的异常 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
-- `Dialog`: 内部样式未使用prefix导致替换前缀方式的样式丢失 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
 - `Input`: `autoWidth` 在部分场景下失效导致组件样式异常 @uyarn ([#1191](https://github.com/Tencent/tdesign-vue-next/pull/1191))
 - `Drawer`: 修复开启 `destroyOnClose` 之后，没了动画效果 ([issue #1176](https://github.com/Tencent/tdesign-vue-next/issues/1176)) @pengYYYYY ([#1185](https://github.com/Tencent/tdesign-vue-next/pull/1185))
 - `TreeSelect`: 修复异步加载回显展示问题 @Godlike-meteor ([#1194](https://github.com/Tencent/tdesign-vue-next/pull/1194))
@@ -174,28 +228,33 @@ docClass: timeline
 
 ## 🌈 0.17.3 `2022-07-04` 
 ### 🚀 Features
+- `Table`:
+  - 可编辑单元格，支持编辑组件联动， [issue#995](https://github.com/Tencent/tdesign-react/issues/995) @chaishi ([#1137](https://github.com/Tencent/tdesign-vue-next/pull/1137))
+  - 形结构支持半选状态 @chaishi ([#1142](https://github.com/Tencent/tdesign-vue-next/pull/1142))
 - `Form`: 添加内置校验方法 `whitespace` @timi137137 ([#1110](https://github.com/Tencent/tdesign-vue-next/pull/1110))
-- `table`: 可编辑单元格，支持编辑组件联动， [issue#995](https://github.com/Tencent/tdesign-react/issues/995) @chaishi ([#1137](https://github.com/Tencent/tdesign-vue-next/pull/1137))
-- `Table`: 树形结构支持半选状态 @chaishi ([#1142](https://github.com/Tencent/tdesign-vue-next/pull/1142))
 - `Jumper`: 新增 `jumper` 组件 @HQ-Lin ([#1104](https://github.com/Tencent/tdesign-vue-next/pull/1104))
 ### 🐞 Bug Fixes
-- `Table`: 表头吸顶显示问题 @chaishi ([#1102](https://github.com/Tencent/tdesign-vue-next/pull/1102))
-- `Table`: `paginationAffixedBottom` 支持配置 Affix 组件全部特性 @chaishi ([#1102](https://github.com/Tencent/tdesign-vue-next/pull/1102))
-- `DatePicker`: 修复 `Jumper` 组件类名错误 @HQ-Lin ([#1085](https://github.com/Tencent/tdesign-vue-next/pull/1085))
+- `Table`:
+  - 表头吸顶显示问题 @chaishi ([#1102](https://github.com/Tencent/tdesign-vue-next/pull/1102))
+  - `paginationAffixedBottom` 支持配置 Affix 组件全部特性 @chaishi ([#1102](https://github.com/Tencent/tdesign-vue-next/pull/1102))
+  - 修复动态数据合并元格问题，[issue#1070](https://github.com/Tencent/tdesign-vue-next/issues/1070) @chaishi ([#1135](https://github.com/Tencent/tdesign-vue-next/pull/1135))
+  - 修复树形结构设置 `indent = 0` 无效问题，[issue#909](https://github.com/Tencent/tdesign-vue-next/issues/909) @chaishi ([#1135](https://github.com/Tencent/tdesign-vue-next/pull/1135))
+- `DatePicker`:
+  - 修复 `Jumper` 组件类名错误 @HQ-Lin ([#1085](https://github.com/Tencent/tdesign-vue-next/pull/1085))
+  - 修复日期选择器在表单禁用后还能点击的问题 @timi137137 ([#1117](https://github.com/Tencent/tdesign-vue-next/pull/1117))
+- `Dialog`:
+  - 修复 `closeOnOverlayClick` `closeOnEscKeydown` 默认值导致的无法设置的问题 ([#1096 ](https://github.com/Tencent/tdesign-vue-next/issues/1100)) @pengYYYYY ([#1101](https://github.com/Tencent/tdesign-vue-next/pull/1101))
+  - 修复滚动失效问题  @HQ-Lin ([#1130](https://github.com/Tencent/tdesign-vue-next/pull/1130))
+- `Select`:
+  - 修复多选下换行提前占满一行的问题 @uyarn ([#1143](https://github.com/Tencent/tdesign-vue-next/pull/1143))
+  - 修复 `input` 高度 `height 100%` 导致换行高度异常的问题 @uyarn ([#1143](https://github.com/Tencent/tdesign-vue-next/pull/1143))
 - `Upload`: 在每次上传前将错误提示数据重置 @sinbadmaster ([#1103](https://github.com/Tencent/tdesign-vue-next/pull/1103))
 - `RadioGroup`: 修复 `RadioGroup` 多次赋予不存在的值时文字不能正常显示 @timi137137 ([#1109](https://github.com/Tencent/tdesign-vue-next/pull/1109))
-- `Dialog`: 修复 `closeOnOverlayClick` `closeOnEscKeydown` 默认值导致的无法设置的问题 ([#1096 ](https://github.com/Tencent/tdesign-vue-next/issues/1100)) @pengYYYYY ([#1101](https://github.com/Tencent/tdesign-vue-next/pull/1101))
 - `Drawer`: 修复 `closeOnOverlayClick` `closeOnEscKeydown` 默认值导致的无法设置的问题 ([#1097 ](https://github.com/Tencent/tdesign-vue-next/issues/1100)) @pengYYYYY ([#1101](https://github.com/Tencent/tdesign-vue-next/pull/1101))
-- `DatePicker`: 修复日期选择器在表单禁用后还能点击的问题 @timi137137 ([#1117](https://github.com/Tencent/tdesign-vue-next/pull/1117))
 - `Tree`: `getRightData` 方法兼容 `value` 的 `alias`  @sufuwang ([#1118](https://github.com/Tencent/tdesign-vue-next/pull/1118))
 - `Form`: 修复不传 `form.onSubmit` 回调函数导致的 `scrollToFirstError` 参数失效的问题 @k1nz ([#1120](https://github.com/Tencent/tdesign-vue-next/pull/1120))
 - `DatePicker`: 修复 `clearble` 响应式问题 @HQ-Lin ([#1124](https://github.com/Tencent/tdesign-vue-next/pull/1124))
-- `Dialog`: 修复滚动失效问题  @HQ-Lin ([#1130](https://github.com/Tencent/tdesign-vue-next/pull/1130))
-- `Table`: 修复动态数据合并元格问题，[issue#1070](https://github.com/Tencent/tdesign-vue-next/issues/1070) @chaishi ([#1135](https://github.com/Tencent/tdesign-vue-next/pull/1135))
-- `Table`: 修复树形结构设置 `indent = 0` 无效问题，[issue#909](https://github.com/Tencent/tdesign-vue-next/issues/909) @chaishi ([#1135](https://github.com/Tencent/tdesign-vue-next/pull/1135))
 - `Slider`: 使用 `InputNumber` 时在使用 `range` 属性情况下传入 `min` 或 `max` 会导致手动输入显示 `NaN` 问题 @ChrisLee0211 ([#1136](https://github.com/Tencent/tdesign-vue-next/pull/1136))
-- `Select`: 修复多选下换行提前占满一行的问题 @uyarn ([#1143](https://github.com/Tencent/tdesign-vue-next/pull/1143))
-- `Select`: 修复 `input` 高度 `height 100%` 导致换行高度异常的问题 @uyarn ([#1143](https://github.com/Tencent/tdesign-vue-next/pull/1143))
 - `Pagination`: 修复如果页面总数变更后当前页数不变的问题 @timi137137 ([#1147](https://github.com/Tencent/tdesign-vue-next/pull/1147))
 - `RangeInput`: 修复 `rangeinput` 样式问题 @HQ-Lin ([#1123](https://github.com/Tencent/tdesign-vue-next/pull/1123))
 
@@ -214,67 +273,79 @@ docClass: timeline
 ### ❗ Breaking Changes
 - `reset`: 默认移除全局 reset 样式引入，可从 `tdesign-vue-next/dist/reset.css` 中单独引入
 ### 🚀 Features
+- `Select`:
+  - 增加列表展开时定位置选中项 @huoyuhao ([#1068](https://github.com/Tencent/tdesign-vue-next/pull/1068))
+  - 修复 `options content`  属性向下透传问题 @pengYYYYY ([#1020](https://github.com/Tencent/tdesign-vue-next/pull/1020))
 - `Form`: 现在 `FormItem.label` 为 `string` 类型时， `Form.errorMessage` 模板中的 `${name}` 会被替换为 `FormItem.label` 属性；当 `label` 属性为 `slot/function` 时，`${name}` 会被替换为 `FormItem.name` 属性 @k1nz ([#1022](https://github.com/Tencent/tdesign-vue-next/pull/1022))
 - `Space`: 新增 `Space` 组件 @HQ-Lin ([#1035](https://github.com/Tencent/tdesign-vue-next/pull/1035))
 - `Watermark`: 新增 `Watermark` 组件 @samhou1988 ([#921](https://github.com/Tencent/tdesign-vue-next/pull/921))
 - `ConfigProvider`: 增加 `input` 组件 `autocomplete` 配置，增加 `dialog` 组件  `closeOnEscKeydown`, `closeOnOverlayClick` 配置,  增加 `select` 组件 `filterable`  配置，增加 `drawer` 组件  `closeOnEscKeydown`, `closeOnOverlayClick` 配置 ([issue #848](https://github.com/Tencent/tdesign-vue-next/issues/848)) @pengYYYYY ([#1074](https://github.com/Tencent/tdesign-vue-next/pull/1074))
 - `Local`: 增加日语和韩语语言包 @pengYYYYY ([#1074](https://github.com/Tencent/tdesign-vue-next/pull/1074))
-- `Select`: 增加列表展开时定位置选中项 @huoyuhao ([#1068](https://github.com/Tencent/tdesign-vue-next/pull/1068))
-- `Table`: fullRow不参与排序 @uyarn ([#1080](https://github.com/Tencent/tdesign-vue-next/pull/1080))
+- `Table`: `fullRow` 不参与排序 @uyarn ([#1080](https://github.com/Tencent/tdesign-vue-next/pull/1080))
 - `Watermark`: 新增 `Watermark` 组件 @samhou1988 ([#921](https://github.com/Tencent/tdesign-vue-next/pull/921))
-- `Tree`:  `tree-chekbox` 支持 `number` 类型 @sufuwang ([#1032](https://github.com/Tencent/tdesign-vue-next/pull/1032))
+- `Tree`:  `tree-checkbox` 支持 `number` 类型 @sufuwang ([#1032](https://github.com/Tencent/tdesign-vue-next/pull/1032))
 ### 🐞 Bug Fixes
-- `Select`: 修复 `options content`  属性向下透传问题 @pengYYYYY ([#1020](https://github.com/Tencent/tdesign-vue-next/pull/1020))
+- `DatePicker`:
+  - 修复响应式问题 @HQ-Lin ([#1050](https://github.com/Tencent/tdesign-vue-next/pull/1050))
+  - 修复 `clearable` 失效问题 @HQ-Lin ([#1055](https://github.com/Tencent/tdesign-vue-next/pull/1055))
+- `Dialog`:
+  - 修复 `update` 方法未正确更新  ([issue #1039](https://github.com/Tencent/tdesign-vue-next/issues/1039)) @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
+  - 修复 `destroy` 方法只是隐藏，没有销毁节点 ([issue #1038](https://github.com/Tencent/tdesign-vue-next/issues/1038)) @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
 - `TreeSelect`: 修改因传入 `treeProps.keys.children` 不生效的问题 @Godlike-meteor ([#1025](https://github.com/Tencent/tdesign-vue-next/pull/1025))
 - `DatePicker`: 处理`disabled`无法生效的问题 @kerwin612 ([#1036](https://github.com/Tencent/tdesign-vue-next/pull/1036))
 - `Slider`: 修复 `Slider` 组件使用 `inputNumberProp` 时，点击滑动条无法把值同步到 `InputNumber` 组件问题 @ChrisLee0211 ([#1034](https://github.com/Tencent/tdesign-vue-next/pull/1034))
-- `Select`: 修复 `group` 模式下的无法筛选 @pengYYYYY ([#1026](https://github.com/Tencent/tdesign-vue-next/pull/1026))
+- `Select`:
+  - 修复 `group` 模式下的无法筛选 @pengYYYYY ([#1026](https://github.com/Tencent/tdesign-vue-next/pull/1026))
+  - 修复设置可输入后移动端没有弹出输入法 ([issue #1066](https://github.com/Tencent/tdesign-vue-next/issues/1066)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
+- `Upload`:
+  - 修复 `onSelectChange` 未实现 @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
+  - 修复 `progress` 进度展示误差问题 ([issue #1062](https://github.com/Tencent/tdesign-vue-next/issues/1062)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
+- `Cascader`:
+  - 修复设置 `placeholder ` 无效, 优化 `filterable` 判断逻辑 ([issue #1063](https://github.com/Tencent/tdesign-vue-next/issues/1063)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
+  - 修复 `loading` 错位问题, 修复 `onBlur`, `onFocus` 事件实现 @pengYYYYY ([#1075](https://github.com/Tencent/tdesign-vue-next/pull/1075))
 - `Radio`: 修复 `value` 为  `0` 时走入空值逻辑分支 @pengYYYYY ([#1026](https://github.com/Tencent/tdesign-vue-next/pull/1026))
-- `DatePicker`: 修复响应式问题 @HQ-Lin ([#1050](https://github.com/Tencent/tdesign-vue-next/pull/1050))
-- `DatePicker`: 修复 clearable 失效问题 @HQ-Lin ([#1055](https://github.com/Tencent/tdesign-vue-next/pull/1055))
 - `TagInput`: 默认超出的换行为 `break-line` @skytt ([#1057](https://github.com/Tencent/tdesign-vue-next/pull/1057))
-- `Dialog`: 修复 `update` 方法未正确更新  ([issue #1039](https://github.com/Tencent/tdesign-vue-next/issues/1039)) @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
-- `Dialog`: 修复 `destroy` 方法只是隐藏，没有销毁节点 ([issue #1038](https://github.com/Tencent/tdesign-vue-next/issues/1038)) @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
-- `Upload`: 修复 `onSelectChange` 未实现 @pengYYYYY ([#1052](https://github.com/Tencent/tdesign-vue-next/pull/1052))
 - `Form`: 修复校验规则为空时，校验信息不清空的问题 @k1nz ([#1071](https://github.com/Tencent/tdesign-vue-next/pull/1071))
 - `Tree`: 修复 `setData` 方法未正确更新 [#1004](https://github.com/Tencent/tdesign-vue-next/issues/1004) @sufuwang ([#1059](https://github.com/Tencent/tdesign-vue-next/pull/1059))
-- `Cascader`: 修复设置 `placeholder ` 无效, 优化 `filterable` 判断逻辑 ([issue #1063](https://github.com/Tencent/tdesign-vue-next/issues/1063)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
-- `Select`: 修复设置可输入后移动端没有弹出输入法 ([issue #1066](https://github.com/Tencent/tdesign-vue-next/issues/1066)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
-- `Upload`: 修复 `progress` 进度展示误差问题 ([issue #1062](https://github.com/Tencent/tdesign-vue-next/issues/1062)) @pengYYYYY ([#1072](https://github.com/Tencent/tdesign-vue-next/pull/1072))
-- `Cascader`: 修复 `loading` 错位问题, 修复 `onBlur`, `onFocus` 事件实现 @pengYYYYY ([#1075](https://github.com/Tencent/tdesign-vue-next/pull/1075))
 - `Table`: 修复仅有`firstFullRow`不渲染的问题 @uyarn ([#1080](https://github.com/Tencent/tdesign-vue-next/pull/1080))
-- `TagInput`: 默认超出的换行为 `break-line` @skytt ([#1057](https://github.com/Tencent/tdesign-vue-next/pull/1057))
 
 ## 🌈 0.16.1 `2022-06-20` 
 ### 🚀 Features
+- `Form`: 
+  - 新增 `validateOnly` 实例方法 @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
+  - 新增 `validate、submit` 实例方法参数 `showErrorMessage` @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
+- `Table`:
+  - 支持拖拽调整宽度，设置 `resizable=true` 即可 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 支持表头吸顶、表尾吸底、滚动条吸底、分页器吸底等 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 树形结构，`appendTo` 支持添加多条数据 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 树形结构，支持数据节点 懒加载 子节点数据 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
 - `Cascader`: 支持 `filter API` 用于自定义搜索方法 ([issue #971](https://github.com/Tencent/tdesign-vue-next/issues/971)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
-- `Form`: 新增 `validateOnly` 实例方法 @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
-- `Form`: 新增 `validate、submit` 实例方法参数 `showErrorMessage` @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
-- `Dialog`: 新增`preventScrollThrough` @uyarn ([#1009](https://github.com/Tencent/tdesign-vue-next/pull/1009))
-- `Table`: 支持拖拽调整宽度，设置 `resizable=true` 即可 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 支持表头吸顶、表尾吸底、滚动条吸底、分页器吸底等 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 树形结构，`appendTo` 支持添加多条数据 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 树形结构，支持数据节点 懒加载 子节点数据 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+- `Dialog`: 新增 `preventScrollThrough` @uyarn ([#1009](https://github.com/Tencent/tdesign-vue-next/pull/1009))
 ### 🐞 Bug Fixes
-- `DatePicker`: 修复 `datepicker format` 导致的高亮问题 @HQ-Lin ([#987](https://github.com/Tencent/tdesign-vue-next/pull/987))
-- `TimePicker`: 修复在 `datepicker` 中混用 不保留修改结果二次打开的异常 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
-- `TimePicker`: 修复部分情况下由于 `allowInput ref` 问题导致保留改动结果的错误 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
-- `DatePicker`: 修复通过过快捷方式设置的时间区间高亮数据异常 ([issue #990](https://github.com/Tencent/tdesign-vue-next/issues/990)) @HQ-Lin ([#995](https://github.com/Tencent/tdesign-vue-next/pull/995))
-- `DatePicker`: 修复栅格的情况下组件宽度 超过父级容器的限制 组件显示不完整 ([issue #991](https://github.com/Tencent/tdesign-vue-next/issues/991)) @HQ-Lin ([#995](https://github.com/Tencent/tdesign-vue-next/pull/995))
+- `Table`: 
+  - 支持动态数据合并单元格 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 吸顶表头和自定义显示列场景，支持列拖拽调整顺序 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 修复 `firstFullRow` 存在时，拖拽排序的顺序不正确问题 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
+  - 修复加载更多的加载组件尺寸异常问题 @uyarn ([#1014](https://github.com/Tencent/tdesign-vue-next/pull/1014))
+- `DatePicker`:
+  - 修复 `datepicker format` 导致的高亮问题 @HQ-Lin ([#987](https://github.com/Tencent/tdesign-vue-next/pull/987))
+  - 修复通过过快捷方式设置的时间区间高亮数据异常 ([issue #990](https://github.com/Tencent/tdesign-vue-next/issues/990)) @HQ-Lin ([#995](https://github.com/Tencent/tdesign-vue-next/pull/995))
+  - 修复栅格的情况下组件宽度 超过父级容器的限制 组件显示不完整 ([issue #991](https://github.com/Tencent/tdesign-vue-next/issues/991)) @HQ-Lin ([#995](https://github.com/Tencent/tdesign-vue-next/pull/995))
+- `TimePicker`:
+  - 修复在 `datepicker` 中混用 不保留修改结果二次打开的异常 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
+  - 修复部分情况下由于 `allowInput ref` 问题导致保留改动结果的错误 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
+  - `range` 组件最外层使用 `range-picker` 命名与单时间选项区分 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
+- `Select`:
+  - 修复使用 `onEnter` 事件报错 ([issue #997](https://github.com/Tencent/tdesign-vue-next/issues/997)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
+  - 修复远程搜索功能失效了 ([issue #992](https://github.com/Tencent/tdesign-vue-next/issues/992)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
+- `Form`:
+  - submit` 和 `reset` 现在不会触发 `submit` 和 `reset` 事件 @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
+  -`submit` 实例方法兼容 safari 浏览器 (https://github.com/Tencent/tdesign-vue-next/pull/964#issuecomment-1158322318) @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
 - `Dialog`: 修复 dialog 蒙层点击事件失效 @HQ-Lin ([#1001](https://github.com/Tencent/tdesign-vue-next/pull/1001))
-- `Select`: 修复使用 `onEnter` 事件报错 ([issue #997](https://github.com/Tencent/tdesign-vue-next/issues/997)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
-- `Select`: 修复远程搜索功能失效了 ([issue #992](https://github.com/Tencent/tdesign-vue-next/issues/992)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
 - `Cascader`: 修复可过滤情况下，结果为空时候的 `popup` 宽度问题 ([issue #992](https://github.com/Tencent/tdesign-vue-next/issues/992)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
 - `Input`: 修复 `type` 为 `password` 时 `clearable` 属性不生效 ([issue #1002](https://github.com/Tencent/tdesign-vue-next/issues/1002)) @pengYYYYY ([#1000](https://github.com/Tencent/tdesign-vue-next/pull/1000))
-- `Form`: `submit` 和 `reset` 现在不会触发 `submit` 和 `reset` 事件 @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
-- `Form`: `submit` 实例方法兼容 safari 浏览器 (https://github.com/Tencent/tdesign-vue-next/pull/964#issuecomment-1158322318) @k1nz ([#998](https://github.com/Tencent/tdesign-vue-next/pull/998))
 - `ConfigProvider`: 修复 `inject` 在 `computed` 中意外出现, 优化配置文件 `merge` 性能 @pengYYYYY ([#1003](https://github.com/Tencent/tdesign-vue-next/pull/1003))
 - `Tabs`: 修复 `panels` 变化时，往右按钮不出现的问题 @LeeJim ([#1008](https://github.com/Tencent/tdesign-vue-next/pull/1008))
-- `Table`: 支持动态数据合并单元格 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 吸顶表头和自定义显示列场景，支持列拖拽调整顺序 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 修复 `firstFullRow` 存在时，拖拽排序的顺序不正确问题 @chaishi ([#1011](https://github.com/Tencent/tdesign-vue-next/pull/1011))
-- `Table`: 修复加载更多的加载组件尺寸异常问题 @uyarn ([#1014](https://github.com/Tencent/tdesign-vue-next/pull/1014))
-- `TimePicker`: `range` 组件最外层使用 `range-picker` 命名与单时间选项区分 @uyarn ([#986](https://github.com/Tencent/tdesign-vue-next/pull/986))
 
 ## 🌈 0.16.0 `2022-06-14` 
 ### ❗ Breaking Changes
@@ -283,9 +354,10 @@ docClass: timeline
 - `TimePicker`: 重构`TimePicker`为 `compositionAPI`，全新的UI样式及交互，`disableTime API` 有所调整, 调整交互为点击确认按钮保留改动, 直接关闭弹窗不保留改动恢复初始值。 @uyarn ([#943](https://github.com/Tencent/tdesign-vue-next/pull/943))
 
 ### 🚀 Features
-- `Table`:  筛选对话框输入筛选内容之后按回车应该和按确定按钮一样，([issue#802](https://github.com/Tencent/tdesign-vue/issues/802)) @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
-- `Table`: 筛选功能支持自定义组件方式，示例：`columns: [{ filter: { component: DatePicker, props: {} } }]` @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
-- `Table`: 拖拽排序事件，新增参数 `data` 和 `newData`，分别表示变更前后的数据 @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
+- `Table`:  
+  - 筛选对话框输入筛选内容之后按回车应该和按确定按钮一样，([issue#802](https://github.com/Tencent/tdesign-vue/issues/802)) @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
+  - 筛选功能支持自定义组件方式，示例：`columns: [{ filter: { component: DatePicker, props: {} } }]` @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
+  - 拖拽排序事件，新增参数 `data` 和 `newData`，分别表示变更前后的数据 @chaishi ([#935](https://github.com/Tencent/tdesign-vue-next/pull/935))
 - `popup`: 支持动态设置 trigger & placement @ikeq ([#932](https://github.com/Tencent/tdesign-vue-next/pull/932))
 - `InputAdornment`: 新增 `input-adornment` 组件 @HQ-Lin ([#949](https://github.com/Tencent/tdesign-vue-next/pull/949))
 - `TreeSelect`: 增加 `autoWidth` `borderless` API @pengYYYYY ([#939](https://github.com/Tencent/tdesign-vue-next/pull/939))
@@ -296,48 +368,51 @@ docClass: timeline
 - `Datepicker`: 增加 `allowInput api`, 新增 `DatePickerPanel` 与 `DateRangePickerPanel` 单独使用支持年份、月份区间选择 @HQ-Lin  ([#943](https://github.com/Tencent/tdesign-vue-next/pull/943))
 
 ### 🐞 Bug Fixes
-- `popup`: 修复初始化 visible 为 true 时的定位抖动 @ikeq ([#932](https://github.com/Tencent/tdesign-vue-next/pull/932))
-- `Slider`: 修复 `inputNumberProps` 无法支持 `readonly`、`tips` 等 `api` 配置问题 @ChrisLee0211 ([#941](https://github.com/Tencent/tdesign-vue-next/pull/941))
-- `DatePicker`: `enable-time-picker` 状态下，`prefixIcon` 不起作用 @chiyu1996 ([#953](https://github.com/Tencent/tdesign-vue-next/pull/953))
-- `Datepicker`: 修复 `datepicker separator` 日期分隔符属性失效问题 @chiyu1996 ([#954](https://github.com/Tencent/tdesign-vue-next/pull/954))
-- `table`: 合并单元格支持动态数据，[issue#973](https://github.com/Tencent/tdesign-vue/issues/973) @chaishi ([#969](https://github.com/Tencent/tdesign-vue-next/pull/969))
-- `Table`: 修复 `Table` 透传 `loading size` 为枚举无效的问题 @uyarn ([#970](https://github.com/Tencent/tdesign-vue-next/pull/970))
+- `DatePicker`:
+  - `enable-time-picker` 状态下，`prefixIcon` 不起作用 @chiyu1996 ([#953](https://github.com/Tencent/tdesign-vue-next/pull/953))
+  - 修复 `datepicker separator` 日期分隔符属性失效问题 @chiyu1996 ([#954](https://github.com/Tencent/tdesign-vue-next/pull/954))
+- `Table`:
+  - 合并单元格支持动态数据，[issue#973](https://github.com/Tencent/tdesign-vue/issues/973) @chaishi ([#969](https://github.com/Tencent/tdesign-vue-next/pull/969))
+  - 修复 `Table` 透传 `loading size` 为枚举无效的问题 @uyarn ([#970](https://github.com/Tencent/tdesign-vue-next/pull/970))
+- `Form`:
+  - 修复调用实例方法 `reset` 添加参数无效 @k1nz ([#964](https://github.com/Tencent/tdesign-vue-next/pull/964))
+  - 修复调用实例方法 `submit` 后 `onSubmit` 回调函数参数 `e` 为 `undefined` 的问题 @k1nz ([#964](https://github.com/Tencent/tdesign-vue-next/pull/964))
+- `Slider`:
+  - 修复 `inputNumberProps` 无法支持 `readonly`、`tips` 等 `api` 配置问题 @ChrisLee0211 ([#941](https://github.com/Tencent/tdesign-vue-next/pull/941))
+  - 修复 `slider` 数字输入框初始化重复渲染问题 @ChrisLee0211 ([#982](https://github.com/Tencent/tdesign-vue-next/pull/982))
+- `Popup`: 修复初始化 `visible` 为 `true` 时的定位抖动 @ikeq ([#932](https://github.com/Tencent/tdesign-vue-next/pull/932))
 - `Select`: 修复透传 `inputProps` 参数无效 ([#issue 872](https://github.com/Tencent/tdesign-vue-next/issues/872)) @pengYYYYY ([#965](https://github.com/Tencent/tdesign-vue-next/pull/965))
-- `switch`:  修复 `slots.label` 参数无效 @webfansplz ([#978](https://github.com/Tencent/tdesign-vue-next/pull/978))
+- `Switch`:  修复 `slots.label` 参数无效 @webfansplz ([#978](https://github.com/Tencent/tdesign-vue-next/pull/978))
 - `TreeSelect`: 优化过滤状态下的输入框交互，修复 `selectInput` 参数透传数据响应问题 @pengYYYYY ([#939](https://github.com/Tencent/tdesign-vue-next/pull/939))
 - `Cascader`: 修复下拉面板宽度问题 @pengYYYYY ([#939](https://github.com/Tencent/tdesign-vue-next/pull/939))
-- `Form`: 修复调用实例方法 `reset` 添加参数无效 @k1nz ([#964](https://github.com/Tencent/tdesign-vue-next/pull/964))
-- `Form`: 修复调用实例方法 `submit` 后 `onSubmit` 回调函数参数 `e` 为 `undefined` 的问题 @k1nz ([#964](https://github.com/Tencent/tdesign-vue-next/pull/964))
 - `CheckBox`: 修复二次封装多选框组件插槽定义选项失效  ([issue #940](https://github.com/Tencent/tdesign-vue-next/issues/940)) @pengYYYYY ([#979](https://github.com/Tencent/tdesign-vue-next/pull/979))
 - `Upload`: 修复图片列表模式存在图片列表的情况下，拖拽图片会触发浏览器默认打开图片行为 @pengYYYYY ([#979](https://github.com/Tencent/tdesign-vue-next/pull/979))
-- `Slider`: 修复 `slider` 数字输入框初始化重复渲染问题 @ChrisLee0211 ([#982](https://github.com/Tencent/tdesign-vue-next/pull/982))
-- `DatePicker`: `enable-time-picker` 状态下，`prefixIcon` 不起作用 @chiyu1996 ([#953](https://github.com/Tencent/tdesign-vue-next/pull/953))
-
-
 ## 🌈 0.15.4 `2022-06-01` 
 ### 🚀 Features
 - `Tree`: 使用compositionAPI重构 `tree` 组件 @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
-- `Cascader`: 增加属性透传  `selectInputProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+- `Cascader`:
+  - 增加属性透传  `selectInputProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
+  - 修复 `options` 异步获取无法选择任意级的选项 ([issue #903](https://github.com/Tencent/tdesign-vue-next/issues/903)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
+  - 修复无法透传属性 `popupProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
 -  `Site` 增加主题配置器 @uyarn ([#766](https://github.com/Tencent/tdesign-vue-next/pull/766))
 ### 🐞 Bug Fixes
+- `Menu`:
+  - 修复暗黑模式下 popup 样式问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
+  - 修复箭头方向错误的问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
 - `Steps`: 修复插槽渲染逻辑问题  ([issue #802](https://github.com/Tencent/tdesign-vue-next/issues/802)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
 - `Dropdown`: 修复通过插槽方式渲染点击事件 `data` 参数不正确  ([issue #814](https://github.com/Tencent/tdesign-vue-next/issues/814)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
 - `Radio`: 修复 `Group` 模式下 `allowUncheck` 显示错误  ([issue #904](https://github.com/Tencent/tdesign-vue-next/issues/904)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
-- `Cascader`: 修复 `options` 异步获取无法选择任意级的选项 ([issue #903](https://github.com/Tencent/tdesign-vue-next/issues/903)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
 - `InputNumber`: 修复 `v-model` 值不为 `number` 类型时的报错，增加类型判断组件表现 ([issue #912](https://github.com/Tencent/tdesign-vue-next/issues/912)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
 - `Form`: 修复 `reset` 方法报错 ([issue #918](https://github.com/Tencent/tdesign-vue-next/issues/918)) @pengYYYYY ([#910](https://github.com/Tencent/tdesign-vue-next/pull/910))
-- `Menu`: 修复暗黑模式下 popup 样式问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
-- `Menu`: 修复箭头方向错误的问题 @LeeJim ([#916](https://github.com/Tencent/tdesign-vue-next/pull/916))
 - `Tree`: 修复存在keys属性时，严重闪烁 ([issue #445](https://github.com/Tencent/tdesign-vue-next/issues/445)) @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
-- `Cascader`: 修复无法透传属性 `popupProps`  @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
 - `Transfer`: 修复当与tree结合的全选判断问题  ([issue #891](https://github.com/Tencent/tdesign-vue-next/issues/891)) @pengYYYYY ([#857](https://github.com/Tencent/tdesign-vue-next/pull/857))
-
 
 ## 🌈 0.15.3 `2022-05-30` 
 ### 🚀 Features
-- `Table`: `appendTo` 支持添加新节点到根节点，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
-- `Table`: 新增 `getTreeNode`，用于获取整个树形结构，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
-- `Table`: 添加 `onDragSort` 事件到 EnhancedTable @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+- `Table`: 
+  - `appendTo` 支持添加新节点到根节点，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+  - 新增 `getTreeNode`，用于获取整个树形结构，[issue#849](https://github.com/Tencent/tdesign-vue-next/issues/849) @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
+  - 添加 `onDragSort` 事件到 EnhancedTable @chaishi ([#896](https://github.com/Tencent/tdesign-vue-next/pull/896))
 - `InputNumber`: 透传 Input 组件全部特性 @jchalex ([#900](https://github.com/Tencent/tdesign-vue-next/pull/900))
 ### 🐞 Bug Fixes
 - `transfer`: 修改 `v-model`，页面没有同步更新 ([issue #883](https://github.com/Tencent/tdesign-vue-next/issues/883) ) @btea ([#890](https://github.com/Tencent/tdesign-vue-next/pull/890))
@@ -350,17 +425,17 @@ docClass: timeline
 
 ## 🌈 0.15.2 `2022-05-27` 
 ### 🐞 Bug Fixes
-- `ColorPicker`: 修复 `color-picker-panel` 使用 `v-model` 值没有正确更新 @pengYYYYY ([#843](https://github.com/Tencent/tdesign-vue-next/pull/843))
-- `Form`: 修复表单重置 `onReset` 不传会报错 ([issue #860](https://github.com/Tencent/tdesign-vue-next/issues/860)), ([issue #856](https://github.com/Tencent/tdesign-vue-next/issues/856)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
-- `Upload`: 修复 `placeholder` 在 `image` 模式下不生效 ([issue #853](https://github.com/Tencent/tdesign-vue-next/issues/853)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
-- `Transfer`: 修复列表数量变化时的页码展示问题 @BigLiao ([#864](https://github.com/Tencent/tdesign-vue-next/pull/864))
-- `Form`: 修复实例方法 `reset` 参数不生效的问题 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))
-- `Form`: `reset` 和 `submit` 现在会调用原生 `form` 中的方法 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))
-- `Affix`: 兼容`<keep-alive/>`场景 @kerwin612 ([#870](https://github.com/Tencent/tdesign-vue-next/pull/870))
-- `Tabs`: 修复选项卡新增和删除在normal风格下无效 ([issue #865](https://github.com/Tencent/tdesign-vue/issues/865)) @pengYYYYY ([#880](https://github.com/Tencent/tdesign-vue-next/pull/880))
-- `ColorPicker`:  点击panel会关闭的问题 ([issue#878](https://github.com/Tencent/tdesign-vue-next/issues/878)) @S-mohan ([#885](https://github.com/Tencent/tdesign-vue-next/pull/885))
+- `Form`:
+  - 修复表单重置 `onReset` 不传会报错 ([issue #860](https://github.com/Tencent/tdesign-vue-next/issues/860)), ([issue #856](https://github.com/Tencent/tdesign-vue-next/issues/856)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
+  - 修复实例方法 `reset` 参数不生效的问题 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))
+  - `reset` 和 `submit` 现在会调用原生 `form` 中的方法 @k1nz ([#868](https://github.com/Tencent/tdesign-vue-next/pull/868))- `ColorPicker`:
+  - 点击panel会关闭的问题 ([issue#878](https://github.com/Tencent/tdesign-vue-next/issues/878)) @S-mohan ([#885](https://github.com/Tencent/tdesign-vue-next/pull/885))
+  - 修复 `color-picker-panel` 使用 `v-model` 值没有正确更新 @pengYYYYY ([#843](https://github.com/Tencent/tdesign-vue-next/pull/843))
 - `Select`: 修复 `option` 显示问题 ([issue #799](https://github.com/Tencent/tdesign-vue-next/issues/799)) @pengYYYYY ([#887](https://github.com/Tencent/tdesign-vue-next/pull/887))
 - `Affix`: 兼容`<keep-alive/>`场景 @kerwin612 ([#870](https://github.com/Tencent/tdesign-vue-next/pull/870))
+- `Upload`: 修复 `placeholder` 在 `image` 模式下不生效 ([issue #853](https://github.com/Tencent/tdesign-vue-next/issues/853)) @pengYYYYY ([#861](https://github.com/Tencent/tdesign-vue-next/pull/861))
+- `Transfer`: 修复列表数量变化时的页码展示问题 @BigLiao ([#864](https://github.com/Tencent/tdesign-vue-next/pull/864))
+- `Tabs`: 修复选项卡新增和删除在normal风格下无效 ([issue #865](https://github.com/Tencent/tdesign-vue/issues/865)) @pengYYYYY ([#880](https://github.com/Tencent/tdesign-vue-next/pull/880))
 
 
 ## 🌈 0.15.1 `2022-05-23` 
@@ -383,42 +458,47 @@ docClass: timeline
 ### ❗ Breaking Changes
 - `Cascader`:  基于`select-input`组件重构，文本过长省略使用原生 `title` 展示全文本，不再使用 `tooltip` @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
 ### 🚀 Features
-- `Form`:  支持 `help` 配置的表单项说明内容与错误提示同时展示，未配置 `help` 时不再默认占位 @HQ-Lin ([#792](https://github.com/Tencent/tdesign-vue-next/pull/792))
-- `Table`: 树形结构，支持默认展开全部，`tree.defaultExpandAll`，[issue#776](https://github.com/Tencent/tdesign-vue-next/issues/776) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
-- `Table`: 树形结构，支持自由控制展开全部，或收起全部 `expandAll()` `foldAll()` @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
-- `Table`: 树形结构，支持拖拽排序，调整同层级顺序 @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
-- `Table`: 树形结构，支持在当后节点之后插入新节点 `insertAfter` @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+- `Table`: 
+  - 树形结构，支持默认展开全部，`tree.defaultExpandAll`，[issue#776](https://github.com/Tencent/tdesign-vue-next/issues/776) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+  - 树形结构，支持自由控制展开全部，或收起全部 `expandAll()` `foldAll()` @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+  - 树形结构，支持拖拽排序，调整同层级顺序 @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+  - 树形结构，支持在当后节点之后插入新节点 `insertAfter` @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+- `Form`: 
+  - 支持 `help` 配置的表单项说明内容与错误提示同时展示，未配置 `help` 时不再默认占位 @HQ-Lin ([#792](https://github.com/Tencent/tdesign-vue-next/pull/792))
+  - 使用 `CompositionAPI` 重构 `Form` 组件 ([issue #58](https://github.com/Tencent/tdesign-vue-next/issues/58)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `Cascader`: 增加 `popupVisible`, `readonly`, `selectInputProps`, `onPopupVisibleChange` 属性，具体描述查看文档 @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
 - `nuxt`: 修复在nuxt3中的适配问题，可参考案例 [tdesign-vue-next-nuxt-starter](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter) @yixiaco ([#726](https://github.com/Tencent/tdesign-vue-next/pull/726))
-- `Form`: 使用 `CompositionAPI` 重构 `Form` 组件 ([issue #58](https://github.com/Tencent/tdesign-vue-next/issues/58)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `Tabs`: 添加拖拽功能 @GitHub-Mr-Chen ([#744](https://github.com/Tencent/tdesign-vue-next/pull/744))
 - `Anchor`: 增加 demo 演示功能 @ontheroad1992 ([#804](https://github.com/Tencent/tdesign-vue-next/pull/804))
 
 ### 🐞 Bug Fixes
-- `Table`: 修复在ssr环境中的兼容 @pengYYYYY ([#723](https://github.com/Tencent/tdesign-vue-next/pull/723))
+- `Form`:
+  - 修复 `number` 规则校验不生效的问题 ([issue #670](https://github.com/Tencent/tdesign-vue-next/issues/670)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
+  - 修复组件实例方法 `setValidateMessage` 缺失的问题 ([issue #739](https://github.com/Tencent/tdesign-vue-next/issues/739)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
+  - 修复 `FormItem` 的 `showErrorMessage` 属性失效的问题 ([issue #751](https://github.com/Tencent/tdesign-vue-next/issues/751)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
+  - 修复触发方式 `blur` 不生效的问题 ([issue #573](https://github.com/Tencent/tdesign-vue-next/issues/573)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
+  - 修复传入的字段值为 `undefined` 的时候不会更新双向绑定值 ([issue #801](https://github.com/Tencent/tdesign-vue-next/issues/801)), ([#784](https://github.com/Tencent/tdesign-vue-next/issues/784)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
+- `Table`:
+  - 修复在ssr环境中的兼容 @pengYYYYY ([#723](https://github.com/Tencent/tdesign-vue-next/pull/723))
+  - 拖拽排序，修复参数为 `undefined` 问题，[issue#790](https://github.com/Tencent/tdesign-vue-next/issues/790) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+  - 使用 header-affixed-top 时，异步下不能动态更新列 [issue#787](https://github.com/Tencent/tdesign-vue-next/issues/787) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
+- `Popup`:
+  - 增加`zIndex` api @ikeq ([#788](https://github.com/Tencent/tdesign-vue-next/pull/788))
+  - 修复设置 `destroyOnClose` 后可能出现的异常抖动 @ikeq ([#788](https://github.com/Tencent/tdesign-vue-next/pull/788))- `Menu`: 修复 expanded 不受控的问题 @LeeJim ([#794](https://github.com/Tencent/tdesign-vue-next/pull/794))
+- `Cascader`:
+  - 修复第二级菜单点击后无法展示第三级菜单 ([issue #725](https://github.com/Tencent/tdesign-vue-next/issues/725)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
+  - 修复组件可以同时打开多个 ([issue #577](https://github.com/Tencent/tdesign-vue-next/issues/577)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
+  - 修复 `filterable` 不支持忽略大小写, 优化过滤状态交互 ([issue #577](https://github.com/Tencent/tdesign-vue-next/issues/577)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
+- `Menu`: 
+  - 修复 width 不生效的问题 @LeeJim ([#807](https://github.com/Tencent/tdesign-vue-next/pull/807))
+  - 修复暗色模式的 Popup @LeeJim ([#816](https://github.com/Tencent/tdesign-vue-next/pull/816))
+  - 修复 Popup 无法正常展示的问题 @LeeJim ([#815](https://github.com/Tencent/tdesign-vue-next/pull/815))
+  -  修复 expand-type 不生效的问题 @LeeJim ([#817](https://github.com/Tencent/tdesign-vue-next/pull/817))
 - `Transfer`: 修复对 pagination 组件的引用报错 @pengYYYYY ([#723](https://github.com/Tencent/tdesign-vue-next/pull/723))
 - `Swiper`: slot执行位置不对，导致vue警告 @btea ([#783](https://github.com/Tencent/tdesign-vue-next/pull/783))
 - `Steps`: 修复 `readonly` 不起作用的问题 @k1nz ([#756](https://github.com/Tencent/tdesign-vue-next/pull/756))
-- `Slider`: 修复slider组件onChange事件init阶段被意外触发问题 @ChrisLee0211 ([#786](https://github.com/Tencent/tdesign-vue-next/pull/786))
-- `Popup`: 增加`zIndex` api @ikeq ([#788](https://github.com/Tencent/tdesign-vue-next/pull/788))
-- `Popup`: 修复设置 `destroyOnClose` 后可能出现的异常抖动 @ikeq ([#788](https://github.com/Tencent/tdesign-vue-next/pull/788))
-- `Table`: 拖拽排序，修复参数为 `undefined` 问题，[issue#790](https://github.com/Tencent/tdesign-vue-next/issues/790) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
-- `Table`: 使用 header-affixed-top 时，异步下不能动态更新列 [issue#787](https://github.com/Tencent/tdesign-vue-next/issues/787) @chaishi ([#779](https://github.com/Tencent/tdesign-vue-next/pull/779))
-- `Menu`: 修复 expanded 不受控的问题 @LeeJim ([#794](https://github.com/Tencent/tdesign-vue-next/pull/794))
-- `Cascader`: 修复第二级菜单点击后无法展示第三级菜单 ([issue #725](https://github.com/Tencent/tdesign-vue-next/issues/725)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
-- `Cascader`: 修复组件可以同时打开多个 ([issue #577](https://github.com/Tencent/tdesign-vue-next/issues/577)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
-- `Cascader`: 修复 `filterable` 不支持忽略大小写, 优化过滤状态交互 ([issue #577](https://github.com/Tencent/tdesign-vue-next/issues/577)) @pengYYYYY ([#585](https://github.com/Tencent/tdesign-vue-next/pull/585))
-- `CheckboxGroup`: 修复响应式丢失的问题 @k1nz ([#793](https://github.com/Tencent/tdesign-vue-next/pull/793))
+- `Slider`: 修复slider组件onChange事件init阶段被意外触发问题 @ChrisLee0211 ([#786](https://github.com/Tencent/tdesign-vue-next/pull/786))- `CheckboxGroup`: 修复响应式丢失的问题 @k1nz ([#793](https://github.com/Tencent/tdesign-vue-next/pull/793))
 - `Transfer`: 异步赋值 checked 不生效 @btea ([#800](https://github.com/Tencent/tdesign-vue-next/pull/800))
-- `Menu`: 修复 width 不生效的问题 @LeeJim ([#807](https://github.com/Tencent/tdesign-vue-next/pull/807))
-- `Menu`: 修复暗色模式的 Popup @LeeJim ([#816](https://github.com/Tencent/tdesign-vue-next/pull/816))
-- `Menu`: 修复 Popup 无法正常展示的问题 @LeeJim ([#815](https://github.com/Tencent/tdesign-vue-next/pull/815))
-- `Menu`: 修复 expand-type 不生效的问题 @LeeJim ([#817](https://github.com/Tencent/tdesign-vue-next/pull/817))
-- `Form`: 修复 `number` 规则校验不生效的问题 ([issue #670](https://github.com/Tencent/tdesign-vue-next/issues/670)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
-- `Form`: 修复组件实例方法 `setValidateMessage` 缺失的问题 ([issue #739](https://github.com/Tencent/tdesign-vue-next/issues/739)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
-- `Form`: 修复 `FormItem` 的 `showErrorMessage` 属性失效的问题 ([issue #751](https://github.com/Tencent/tdesign-vue-next/issues/751)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
-- `Form`: 修复触发方式 `blur` 不生效的问题 ([issue #573](https://github.com/Tencent/tdesign-vue-next/issues/573)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
-- `Form`: 修复传入的字段值为 `undefined` 的时候不会更新双向绑定值 ([issue #801](https://github.com/Tencent/tdesign-vue-next/issues/801)), ([#784](https://github.com/Tencent/tdesign-vue-next/issues/784)) @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `Switch`: 修复 `disabled` 状态下仍然可以点击 @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `TreeSelect`: 修复 `placeholder` 传入无效 @k1nz ([#782](https://github.com/Tencent/tdesign-vue-next/pull/782))
 - `ColorPicker`: 使用common中的常量, 删除无用的代码, 样式BEM, 文档demo样式问题 @S-mohan ([#819](https://github.com/Tencent/tdesign-vue-next/pull/819))
@@ -426,19 +506,26 @@ docClass: timeline
 
 ## 🌈 0.14.2 `2022-05-14` 
 ### 🚀 Features
+- `Table`:
+  - 支持自定义树形结构图标 `treeExpandAndFoldIcon`，同时支持全局配置此图标，[issue#717](https://github.com/Tencent/tdesign-vue-next/issues/717) @chaishi ([#746](https://github.com/Tencent/tdesign-vue-next/pull/746))
+  - 支持隐藏排序文本提示 `hideSortTips`，同时支持全局配置是否隐藏排序文本提示，[issue#736](https://github.com/Tencent/tdesign-vue-next/issues/736) @chaishi ([#746](https://github.com/Tencent/tdesign-vue-next/pull/746))
+- `Notification`:
+  - 使用项目中已有的js动画方案，替换先前的`transitionGroup`方案，完善了组件出现和回收动画效果。其中涉及到**common**子仓库的修改，删除之前transition相关的类名，添加了一个`&-list__showt`类名。 @qunbotop ([#731](https://github.com/Tencent/tdesign-vue-next/pull/731))
+  - 增加`onMouseenter`和`onMouseleave`事件，保证鼠标移入移出组件时，`duration`时间的停止和重新计时。 @qunbotop ([#731](https://github.com/Tencent/tdesign-vue-next/pull/731))
+- `Dropdown`: 使用compositionAPI重构dropdown组件 @qunbotop ([#749](https://github.com/Tencent/tdesign-vue-next/pull/749))
+- `Popconfirm`: `visible` 属性支持 `v-model` 语法糖 @k1nz ([#710](https://github.com/Tencent/tdesign-vue-next/pull/710))
 - `Swiper`: 增加新组件 swiper @btea ([#690](https://github.com/Tencent/tdesign-vue-next/pull/690))
 - `Icon`: 更新图标 新增`file-icon`图标 调整`file-excel`、`file-pdf`、`file-powerpoint`、`file-unknown`、`file-word`和`star-filled`图标的绘制路径 @uyarn ([#732](https://github.com/Tencent/tdesign-vue-next/pull/732))
-- `Popconfirm`: `visible` 属性支持 `v-model` 语法糖 @k1nz ([#710](https://github.com/Tencent/tdesign-vue-next/pull/710))
-- `notification`: 使用项目中已有的js动画方案，替换先前的`transitionGroup`方案，完善了组件出现和回收动画效果。其中涉及到**common**子仓库的修改，删除之前transition相关的类名，添加了一个`&-list__showt`类名。 @qunbotop ([#731](https://github.com/Tencent/tdesign-vue-next/pull/731))
-- `Notification`: 增加`onMouseenter`和`onMouseleave`事件，保证鼠标移入移出组件时，`duration`时间的停止和重新计时。 @qunbotop ([#731](https://github.com/Tencent/tdesign-vue-next/pull/731))
-- `Table`: 支持自定义树形结构图标 `treeExpandAndFoldIcon`，同时支持全局配置此图标，[issue#717](https://github.com/Tencent/tdesign-vue-next/issues/717) @chaishi ([#746](https://github.com/Tencent/tdesign-vue-next/pull/746))
-- `Table`: 支持隐藏排序文本提示 `hideSortTips`，同时支持全局配置是否隐藏排序文本提示，[issue#736](https://github.com/Tencent/tdesign-vue-next/issues/736) @chaishi ([#746](https://github.com/Tencent/tdesign-vue-next/pull/746))
-- `Dropdown`: 使用compositionAPI重构dropdown组件 @qunbotop ([#749](https://github.com/Tencent/tdesign-vue-next/pull/749))
 ### 🐞 Bug Fixes
+- `Form`: 
+  - 修复当modelValue为外部传入的undefined时，双向绑定失效 ([issue #712](https://github.com/Tencent/tdesign-vue-next/issues/712)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
+  - 修复 `attrs` 注入异常 ([issue #671](https://github.com/Tencent/tdesign-vue-next/issues/671)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
+- `Table`: 
+  - `renderExpandedRow`为非必填 @uyarn ([#724](https://github.com/Tencent/tdesign-vue-next/pull/724))
+  - 修复 多级表头 + 列配置 综合示例中，列数量超出一定限制时报错，[issue#713](https://github.com/Tencent/tdesign-vue-next/issues/713) @chaishi ([#770](https://github.com/Tencent/tdesign-vue-next/pull/770))
 - `InputNumber`: 修复input-number重构hook使用错误出现的问题 @youuss ([#719](https://github.com/Tencent/tdesign-vue-next/pull/719))
 - `Tooltip`: support set placement by mouse @Hoofoo-WHU ([#718](https://github.com/Tencent/tdesign-vue-next/pull/718))
 - `ConfigProvider`: 修复`animation`属性`exclude`和`include`在TS中都必填的问题 @uyarn ([#724](https://github.com/Tencent/tdesign-vue-next/pull/724))
-- `Table`: `renderExpandedRow`为非必填 @uyarn ([#724](https://github.com/Tencent/tdesign-vue-next/pull/724))
 - `ColorPicker`: - fix(ColorPicker): 遍历循环的时候无法监听change 事件会报错 ([issue#634](https://github.com/Tencent/tdesign-vue-next/issues/634)) @S-mohan ([#738](https://github.com/Tencent/tdesign-vue-next/pull/738))
 - `TimePicker`: time-range-picker suffix icon丢失问题 @uyarn ([#740](https://github.com/Tencent/tdesign-vue-next/pull/740))
 - `Message`: 修复插件式调用时，用户传入`onCloseBtnClick`事件时，无法触发回调。 @qunbotop ([#731](https://github.com/Tencent/tdesign-vue-next/pull/731))
@@ -448,25 +535,22 @@ docClass: timeline
 - `Popconfirm`: 修复箭头与 `trigger` 属性 @pengYYYYY ([#750](https://github.com/Tencent/tdesign-vue-next/pull/750))
 - `Dialog`: 修复初始化且为显示时的 `lock` 问题 @pengYYYYY ([#750](https://github.com/Tencent/tdesign-vue-next/pull/750))
 - `Breadcrumb`: 修复弹出 tooltip 异常 @pengYYYYY ([#750](https://github.com/Tencent/tdesign-vue-next/pull/750))
-- `Input`: 修复 `autowidth` 模式计算错误 [issue#755](https://github.com/Tencent/tdesign-vue-next/issues/755) @pengYYYYY ([#750](https://github.com/Tencent/tdesign-vue-next/pull/750))
-- `Form`: 修复当modelValue为外部传入的undefined时，双向绑定失效 ([issue #712](https://github.com/Tencent/tdesign-vue-next/issues/712)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
-- `Form`: 修复 `attrs` 注入异常 ([issue #671](https://github.com/Tencent/tdesign-vue-next/issues/671)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
-- `TimePicker`: 修复当modelValue为外部传入的undefined时，clearable失效 ([issue #722](https://github.com/Tencent/tdesign-vue-next/issues/722)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
+- `Input`: 修复 `autowidth` 模式计算错误 [issue#755](https://github.com/Tencent/tdesign-vue-next/issues/755) @pengYYYYY ([#750](https://github.com/Tencent/tdesign-vue-next/pull/750))- `TimePicker`: 修复当modelValue为外部传入的undefined时，clearable失效 ([issue #722](https://github.com/Tencent/tdesign-vue-next/issues/722)) @pengYYYYY ([#764](https://github.com/Tencent/tdesign-vue-next/pull/764))
 - `Steps`: 支持 separator api & 修复响应式问题 @HQ-Lin ([#759](https://github.com/Tencent/tdesign-vue-next/pull/759))
 - `progress`: 环形进度条显示比例不准确 @uyarn ([#767](https://github.com/Tencent/tdesign-vue-next/pull/767))
-- `Table`: 修复 多级表头 + 列配置 综合示例中，列数量超出一定限制时报错，[issue#713](https://github.com/Tencent/tdesign-vue-next/issues/713) @chaishi ([#770](https://github.com/Tencent/tdesign-vue-next/pull/770))
 - `Tooltip`: support set placement by mouse @Hoofoo-WHU ([#718](https://github.com/Tencent/tdesign-vue-next/pull/718))
-
 
 ## 🌈 0.14.1 `2022-05-06` 
 ### 🚀 Features
 - `Table`: 新增 API `ellipsisTitle` 用于单独控制表头的超出省略 [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
 ### 🐞 Bug Fixes
 - `Loading`: 使用 `attach` 的情况下，`loading` 设置为 `false`，无法隐藏半透明蒙层，[issue#693](https://github.com/Tencent/tdesign-vue-next/issues/693) [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
-- `Table`: 加载状态 `loading` 会导致拖拽排序失效的问题，[issue#648](https://github.com/Tencent/tdesign-vue-next/issues/648) [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
-- `Table`: TS 类型 `TableColumns[0]` 在严格模式下的使用问题 [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
-- `Menu`: 使用t-submenu template #icon无效的问题 [@fengxianqi](https://github.com/fengxianqi) ([#643](https://github.com/Tencent/tdesign-vue-next/pull/643))
-- `Menu`: 修复 `expandMutex` 无法动态更新 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
+- `Table`:
+  - 加载状态 `loading` 会导致拖拽排序失效的问题，[issue#648](https://github.com/Tencent/tdesign-vue-next/issues/648) [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+  - TS 类型 `TableColumns[0]` 在严格模式下的使用问题 [@chaishi](https://github.com/chaishi) ([#694](https://github.com/Tencent/tdesign-vue-next/pull/694))
+- `Menu`:
+  - 使用t-submenu template #icon无效的问题 [@fengxianqi](https://github.com/fengxianqi) ([#643](https://github.com/Tencent/tdesign-vue-next/pull/643))
+  - 修复 `expandMutex` 无法动态更新 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
 - `Input`: 修复 `onChange` 触发两次 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
 - `Tabs`: 修复 `add` 方法点击报错 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
 - `Textarea`: 修复 `autofocus` 参数更新无法聚焦 [@pengYYYYY](https://github.com/pengYYYYY) ([#691](https://github.com/Tencent/tdesign-vue-next/pull/691))
@@ -485,13 +569,13 @@ docClass: timeline
 - `Calendar`: 日历组件修正value属性，新增了month和year属性 [@PsTiu](https://github.com/PsTiu) ([#676](https://github.com/Tencent/tdesign-vue-next/pull/676))
 ### 🐞 Bug Fixes
 - `Dialog`: 修复 `alert` 类型错误 [@pengYYYYY](https://github.com/pengYYYYY) ([#645](https://github.com/Tencent/tdesign-vue-next/pull/645))
-- `Form`: 修复 help 节点状态问题 [@HQ-Lin](https://github.com/HQ-Lin) ([#656](https://github.com/Tencent/tdesign-vue-next/pull/656))
+- `Form`: 修复 `help` 节点状态问题 [@HQ-Lin](https://github.com/HQ-Lin) ([#656](https://github.com/Tencent/tdesign-vue-next/pull/656))
 - `Transfer`: 修复选择无效和搜索无效 [@pengYYYYY](https://github.com/pengYYYYY) ([#662](https://github.com/Tencent/tdesign-vue-next/pull/662))
-- `DataPicker`: data-picker 增加 apply 事件 [@Godlike-meteor](https://github.com/Godlike-meteor) ([#647](https://github.com/Tencent/tdesign-vue-next/pull/647))
-- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+- `DataPicker`: `data-picker` 增加 `apply` 事件 [@Godlike-meteor](https://github.com/Godlike-meteor) ([#647](https://github.com/Tencent/tdesign-vue-next/pull/647))
 - `TreeSelect`: 修复右侧箭头状态与清除回掉 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
-- `Input`: 修复 `suffix` 渲染问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
-- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+- `Input`: 
+  - 修复 `suffix` 渲染问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
+  - 修复 `input` 组件 `clearable` 问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
 
 
 

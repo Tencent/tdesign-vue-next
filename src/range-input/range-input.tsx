@@ -1,5 +1,6 @@
 import { defineComponent, h, ref, toRefs, computed } from 'vue';
-import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
 import Input from '../input';
 import props from './props';
 import { RangeInputValue, RangeInputPosition } from './type';
@@ -7,6 +8,7 @@ import { RangeInputValue, RangeInputPosition } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 
@@ -27,6 +29,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('range-input');
+    const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
     const renderTNodeJSX = useTNodeJSX();
 
     const focused = ref(false);

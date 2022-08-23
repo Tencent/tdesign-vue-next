@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { TimeIcon } from 'tdesign-icons-vue-next';
+import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
 import { RangeInputPopup, RangeInputPosition } from '../range-input';
 import TimePickerPanel from './panel/time-picker-panel';
@@ -16,6 +16,7 @@ import { TimeRangeValue } from './interface';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(customParseFormat);
@@ -29,6 +30,7 @@ export default defineComponent({
     const componentName = usePrefixClass('time-range-picker');
     const { globalConfig } = useConfig('timePicker');
     const { classPrefix } = useConfig('classPrefix');
+    const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
     const disabled = useFormDisabled();
     const currentPanelIdx = ref(undefined);

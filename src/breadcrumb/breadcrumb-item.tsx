@@ -1,10 +1,11 @@
 import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
-import { ChevronRightIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
@@ -36,6 +37,7 @@ export default defineComponent({
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
+    const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
     const maxWithStyle = computed(() => {
       const maxItemWidth = localTBreadcrumb?.maxItemWidth;
       const maxWith: string = props.maxWidth || maxItemWidth || '120';
@@ -78,6 +80,10 @@ export default defineComponent({
 
       const listeners = {
         onClick: (e: MouseEvent) => {
+          if (props.disabled) {
+            e.stopPropagation();
+            return;
+          }
           props.onClick?.({ e });
         },
       };

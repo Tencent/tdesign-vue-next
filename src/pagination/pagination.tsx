@@ -1,16 +1,18 @@
 import { defineComponent, computed, ref, watch, toRefs } from 'vue';
 import isNaN from 'lodash/isNaN';
 import {
-  PageFirstIcon,
-  PageLastIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronLeftDoubleIcon,
-  ChevronRightDoubleIcon,
-  EllipsisIcon,
+  PageFirstIcon as TdPageFirstIcon,
+  PageLastIcon as TdPageLastIcon,
+  ChevronLeftIcon as TdChevronLeftIcon,
+  ChevronRightIcon as TdChevronRightIcon,
+  ChevronLeftDoubleIcon as TdChevronLeftDoubleIcon,
+  ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
+  EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
+
 import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
 import TInputAdornment from '../input-adornment';
@@ -47,6 +49,23 @@ export default defineComponent({
 
     const { t, globalConfig } = useConfig('pagination');
     const COMPONENT_NAME = usePrefixClass('pagination');
+    const {
+      PageFirstIcon,
+      PageLastIcon,
+      ChevronLeftIcon,
+      ChevronRightIcon,
+      ChevronLeftDoubleIcon,
+      ChevronRightDoubleIcon,
+      EllipsisIcon,
+    } = useGlobalIcon({
+      PageFirstIcon: TdPageFirstIcon,
+      PageLastIcon: TdPageLastIcon,
+      ChevronLeftIcon: TdChevronLeftIcon,
+      ChevronRightIcon: TdChevronRightIcon,
+      ChevronLeftDoubleIcon: TdChevronLeftDoubleIcon,
+      ChevronRightDoubleIcon: TdChevronRightDoubleIcon,
+      EllipsisIcon: TdEllipsisIcon,
+    });
 
     const { pageCount, ...CLASS_MAP } = usePaginationClasses(props, innerCurrent, innerPageSize, COMPONENT_NAME);
 

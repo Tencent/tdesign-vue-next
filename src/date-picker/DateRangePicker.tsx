@@ -111,7 +111,7 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e, partial }: { e: MouseEvent; partial: DateRangePickerPartial }) {
-      props.onPick?.(date, { e, partial });
+      props.onPick?.(date, { e, partial: activeIndex.value ? 'end' : 'start' });
 
       isHoverCell.value = false;
       isSelected.value = true;

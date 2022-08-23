@@ -1,6 +1,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 
-import { AddIcon, DeleteIcon, BrowseIcon } from 'tdesign-icons-vue-next';
+import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon, BrowseIcon as TdBrowseIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
 import { UploadFile } from './type';
@@ -9,6 +9,7 @@ import { UploadRemoveOptions } from './interface';
 import { UploadConfig } from '../config-provider/type';
 
 import { useFormDisabled } from '../form/hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 // props
@@ -44,6 +45,11 @@ export default defineComponent({
     const disabled = useFormDisabled();
     const { classPrefix: prefix, globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { AddIcon, DeleteIcon, BrowseIcon } = useGlobalIcon({
+      AddIcon: TdAddIcon,
+      DeleteIcon: TdDeleteIcon,
+      BrowseIcon: TdBrowseIcon,
+    });
     const { STATUS } = useCommonClassName();
 
     const showTrigger = computed(() => {

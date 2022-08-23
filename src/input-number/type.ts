@@ -7,7 +7,7 @@
 import { InputProps } from '../input';
 import { TNode } from '../common';
 
-export interface TdInputNumberProps {
+export interface TdInputNumberProps<T = InputNumberValue> {
   /**
    * 文本内容位置，居左/居中/居右
    */
@@ -23,27 +23,35 @@ export interface TdInputNumberProps {
   decimalPlaces?: number;
   /**
    * 禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
-   * 指定输入框展示值的格式
+   * 格式化输入框展示值。第二个事件参数 `context.fixedNumber` 表示处理过小数位数 `decimalPlaces` 的数字
    */
-  format?: (value: number) => number | string;
+  format?: (value: InputNumberValue, context?: { fixedNumber?: InputNumberValue }) => InputNumberValue;
   /**
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;
   /**
-   * 最大值
+   * 左侧文本
+   */
+  label?: string | TNode;
+  /**
+   * 是否作为大数使用。JS 支持的最大数字位数是 16 位，超过 16 位的数字需作为字符串大数处理。此时，数据类型必须保持为字符串，否则会丢失数据
+   * @default false
+   */
+  largeNumber?: boolean;
+  /**
+   * 最大值。如果是大数，请传入字符串
    * @default Infinity
    */
-  max?: number;
+  max?: InputNumberValue;
   /**
-   * 最小值
+   * 最小值。如果是大数，请传入字符串
    * @default -Infinity
    */
-  min?: number;
+  min?: InputNumberValue;
   /**
    * 占位符
    */
@@ -61,12 +69,16 @@ export interface TdInputNumberProps {
   /**
    * 文本框状态
    */
-  status?: 'success' | 'warning' | 'error';
+  status?: 'default' | 'success' | 'warning' | 'error';
   /**
-   * 数值改变步数，可以是小数
+   * 数值改变步数，可以是小数。如果是大数，请保证数据类型为字符串
    * @default 1
    */
-  step?: number;
+  step?: InputNumberValue;
+  /**
+   * 后置内容
+   */
+  suffix?: string | TNode;
   /**
    * 按钮布局
    * @default row
@@ -77,50 +89,56 @@ export interface TdInputNumberProps {
    */
   tips?: string | TNode;
   /**
-   * 值
+   * 数字输入框的值。当值为 '' 时，输入框显示为空
    */
-  value?: number;
+  value?: T;
   /**
-   * 值，非受控属性
+   * 数字输入框的值。当值为 '' 时，输入框显示为空，非受控属性
    */
-  defaultValue?: number;
+  defaultValue?: T;
   /**
-   * 值
+   * 数字输入框的值。当值为 '' 时，输入框显示为空
    */
-  modelValue?: number;
+  modelValue?: T;
   /**
    * 失去焦点时触发
    */
-  onBlur?: (value: number, context: { e: FocusEvent }) => void;
+  onBlur?: (value: InputNumberValue, context: { e: FocusEvent }) => void;
   /**
    * 值变化时触发
    */
-  onChange?: (value: number, context: ChangeContext) => void;
+  onChange?: (value: T, context: ChangeContext) => void;
   /**
    * 回车键按下时触发
    */
-  onEnter?: (value: number, context: { e: KeyboardEvent }) => void;
+  onEnter?: (value: InputNumberValue, context: { e: KeyboardEvent }) => void;
   /**
    * 获取焦点时触发
    */
-  onFocus?: (value: number, context: { e: FocusEvent }) => void;
+  onFocus?: (value: InputNumberValue, context: { e: FocusEvent }) => void;
   /**
    * 键盘按下时触发
    */
-  onKeydown?: (value: number, context: { e: KeyboardEvent }) => void;
+  onKeydown?: (value: InputNumberValue, context: { e: KeyboardEvent }) => void;
   /**
    * 按下字符键时触发（keydown -> keypress -> keyup）
    */
-  onKeypress?: (value: number, context: { e: KeyboardEvent }) => void;
+  onKeypress?: (value: InputNumberValue, context: { e: KeyboardEvent }) => void;
   /**
    * 释放键盘时触发
    */
-  onKeyup?: (value: number, context: { e: KeyboardEvent }) => void;
+  onKeyup?: (value: InputNumberValue, context: { e: KeyboardEvent }) => void;
+  /**
+   * 最大值或最小值校验结束后触发，`exceed-maximum` 表示超出最大值，`below-minimum` 表示小于最小值
+   */
+  onValidate?: (context: { error?: 'exceed-maximum' | 'below-minimum' }) => void;
 }
+
+export type InputNumberValue = number | string;
 
 export interface ChangeContext {
   type: ChangeSource;
-  e: InputEvent | MouseEvent | FocusEvent;
+  e: InputEvent | MouseEvent | FocusEvent | KeyboardEvent;
 }
 
-export type ChangeSource = 'add' | 'reduce' | 'input' | '';
+export type ChangeSource = 'add' | 'reduce' | 'input' | 'blur' | 'enter' | '';

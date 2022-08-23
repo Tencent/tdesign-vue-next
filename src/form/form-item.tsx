@@ -12,7 +12,12 @@ import {
   VNode,
   watch,
 } from 'vue';
-import { CheckCircleFilledIcon, CloseCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -41,8 +46,9 @@ import {
 } from './const';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
-type IconConstructor = typeof ErrorCircleFilledIcon;
+type IconConstructor = typeof TdErrorCircleFilledIcon;
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -54,6 +60,11 @@ export default defineComponent({
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
     const { globalConfig } = useConfig('form');
+    const { CheckCircleFilledIcon, CloseCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const form = inject(FormInjectionKey, undefined);
 
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');

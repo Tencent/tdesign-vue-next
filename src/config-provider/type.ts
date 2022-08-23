@@ -56,6 +56,10 @@ export interface GlobalConfigProvider {
    */
   form?: FormConfig;
   /**
+   * icon 全局配置，用来覆盖内置 tdesign-icons
+   */
+  icon?: IconConfig;
+  /**
    * 输入框组件全局配置
    */
   input?: InputConfig;
@@ -808,4 +812,8 @@ export interface UploadTriggerUploadText {
   reupload?: string;
   continueUpload: string;
   delete?: string;
+}
+
+export interface IconConfig {
+  [name: string]: any;
 }

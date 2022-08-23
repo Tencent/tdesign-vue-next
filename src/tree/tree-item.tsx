@@ -1,6 +1,6 @@
 import { computed, h, defineComponent, ref, PropType, inject, reactive } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
+import { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import TCheckBox from '../checkbox';
 import TLoading from '../loading';
 
@@ -11,6 +11,7 @@ import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
 import { useConfig } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import useDraggable from './hooks/useDraggable';
 
@@ -31,6 +32,7 @@ export default defineComponent({
     const CLASS_NAMES = useCLASSNAMES();
 
     const { globalConfig } = useConfig('tree');
+    const { CaretRightSmallIcon } = useGlobalIcon({ CaretRightSmallIcon: TdCaretRightSmallIcon });
 
     const handleClick = (evt: MouseEvent) => {
       const { node } = props;
@@ -288,7 +290,7 @@ export default defineComponent({
             disabled={node.isDisabled()}
             name={node.value.toString()}
             onChange={() => handleChange()}
-            ignore="expand,active"
+            ignore="expand"
             needRipple={true}
             {...itemCheckProps}
           >

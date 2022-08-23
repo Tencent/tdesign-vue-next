@@ -43,7 +43,7 @@ const columns = [
     // checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
     width: 50,
   },
-  { colKey: 'instance', title: '集群名称', width: 150 },
+  { colKey: 'instance', title: '集群名称', width: 120 },
   {
     colKey: 'status',
     title: '状态',
@@ -54,7 +54,7 @@ const columns = [
   { colKey: 'description', title: '描述' },
   {
     colKey: 'op',
-    width: 200,
+    width: 150,
     title: 'op-column',
     cell: 'op',
   },

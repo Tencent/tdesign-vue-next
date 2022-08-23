@@ -51,7 +51,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
     // if exist min or max prop, onChange callback function will pass undefined value when decrease
     const normalizeChangeFn = (num: number | undefined) => {
-      if (num && !isNaN(num)) {
+      if (num !== undefined && !isNaN(num)) {
         changeFn(num);
       }
     };

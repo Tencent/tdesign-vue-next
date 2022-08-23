@@ -61,11 +61,12 @@ describe('Slider', () => {
       const increaseButtonEle = wrapper.find('.t-input-number__increase');
       const decreaseButtonEle = wrapper.find('.t-input-number__decrease');
       // case 1: increase by click button
-      // test max limit
+      // test max limit 60 + 15 = 75
       await increaseButtonEle.trigger('click');
       expect(Number(inputEle.value) < sliderLimit.max && Number(inputEle.value) > inputNumberLimit.max).toBeTruthy();
+      // 75 + 15 = 90，大于 sliderLimit.max
       await increaseButtonEle.trigger('click');
-      expect(Number(inputEle.value) < sliderLimit.max).toBeTruthy();
+      expect(Number(inputEle.value) < sliderLimit.max).toBeFalsy();
       // test min limit
       await decreaseButtonEle.trigger('click');
       await decreaseButtonEle.trigger('click');

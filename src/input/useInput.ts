@@ -1,4 +1,4 @@
-import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import { ref, computed, watch, nextTick, toRefs, inject, onBeforeMount } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { InputValue } from './type';
 import { ExtendsTdInputProps } from './input';
@@ -20,6 +20,21 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const renderType = ref(props.type);
   const inputRef = ref<HTMLInputElement>(null);
   const inputPreRef = ref(null);
+  // 字数限制统计
+  const limitNumber = ref('');
+
+  const innerStatus = computed(() => {
+    if (limitNumber.value) {
+      const [current, total] = limitNumber.value.split('/');
+      return Number(current) > Number(total) ? 'error' : '';
+    }
+    return '';
+  });
+
+  const tStatus = computed(() => {
+    if (props.status) return props.status;
+    return innerStatus.value;
+  });
 
   const showClear = computed(() => {
     return (
@@ -66,12 +81,20 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const inputValueChangeHandle = (e: InputEvent | CompositionEvent) => {
     const { target } = e;
     let val = (target as HTMLInputElement).value;
-    if (props.maxcharacter && props.maxcharacter >= 0) {
+    if (props.maxcharacter && props.maxcharacter > 0) {
       const stringInfo = getCharacterLength(val, props.maxcharacter);
-      val = typeof stringInfo === 'object' && stringInfo.characters;
+      if (typeof stringInfo === 'object') {
+        if (!props.allowInputOverMax) {
+          val = stringInfo.characters;
+        }
+        limitNumber.value = `${stringInfo.length}/${props.maxcharacter}`;
+      }
     }
-    if (props.type === 'number' && typeof props.maxlength === 'number' && props.maxlength > 0) {
-      val = val.substring(0, props.maxlength);
+    if (props.maxlength && props.maxlength > 0) {
+      if (!props.allowInputOverMax) {
+        val = val.substring(0, props.maxlength);
+      }
+      limitNumber.value = `${val.length}/${props.maxlength}`;
     }
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
@@ -149,7 +172,26 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     { immediate: true },
   );
 
+  watch(innerStatus, () => {
+    props.onValidate?.({ error: innerStatus.value ? 'exceed-maximum' : undefined });
+  });
+
+  const updateLimitNumber = () => {
+    if (props.maxcharacter && props.maxcharacter > 0) {
+      const len = getCharacterLength(String(innerValue.value));
+      limitNumber.value = `${len}/${props.maxcharacter}`;
+    }
+    if (props.maxlength && props.maxlength > 0) {
+      limitNumber.value = `${String(innerValue.value).length}/${props.maxlength}`;
+    }
+  };
+
+  onBeforeMount(() => {
+    updateLimitNumber();
+  });
+
   expose({
+    inputRef,
     focus,
     blur,
   });
@@ -162,6 +204,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     inputRef,
     clearIconRef,
     inputValue,
+    limitNumber,
+    tStatus,
     emitFocus,
     formatAndEmitBlur,
     onHandleCompositionend,

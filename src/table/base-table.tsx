@@ -147,9 +147,13 @@ export default defineComponent({
       },
     );
 
-    watch(spansAndLeafNodes, () => {
-      props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
-    });
+    watch(
+      spansAndLeafNodes,
+      () => {
+        props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
+      },
+      { immediate: true },
+    );
 
     const onFixedChange = () => {
       nextTick(() => {
@@ -300,12 +304,12 @@ export default defineComponent({
       marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
     };
     // 多级表头左边线缺失
-    const affixedMultipleHeaderLeftBorder = this.bordered && this.isMultipleHeader ? 1 : 0;
+    const affixedLeftBorder = this.bordered ? 1 : 0;
     const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
       <div
         ref="affixHeaderRef"
         style={{
-          width: `${this.tableWidth - affixedMultipleHeaderLeftBorder}px`,
+          width: `${this.tableWidth - affixedLeftBorder}px`,
           opacity: Number(this.showAffixHeader),
         }}
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
@@ -365,7 +369,7 @@ export default defineComponent({
       >
         <div
           ref="affixFooterRef"
-          style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixFooter) }}
+          style={{ width: `${this.tableWidth - affixedLeftBorder}px`, opacity: Number(this.showAffixFooter) }}
           class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>

@@ -1,5 +1,4 @@
-import { defineComponent, PropType, computed } from 'vue';
-import dayjs from 'dayjs';
+import { defineComponent, PropType } from 'vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 
@@ -43,7 +42,7 @@ export default defineComponent({
       enableTimePicker: props.enableTimePicker,
     });
 
-    const defaultTimeValue = computed(() => dayjs().format(timeFormat));
+    const defaultTimeValue = '00:00:00';
 
     return () => (
       <div class={`${COMPONENT_NAME.value}-content`}>
@@ -76,13 +75,13 @@ export default defineComponent({
 
         {props.enableTimePicker && (
           <div class={`${COMPONENT_NAME.value}-time`}>
-            <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || defaultTimeValue.value}</div>
+            <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || defaultTimeValue}</div>
             <TTimePickerPanel
               {...{
                 key: props.partial,
                 isShowPanel: props.popupVisible,
                 format: timeFormat,
-                value: props.time,
+                value: props.time || defaultTimeValue,
                 onChange: props.onTimePickerChange,
                 ...props.timePickerProps,
               }}

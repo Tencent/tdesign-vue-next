@@ -14,6 +14,7 @@ export const selectInjectKey: InjectionKey<
     handleCreate: TdSelectProps['onCreate'];
     handlerInputChange: TdSelectProps['onInputChange'];
     handlePopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
+    popupContentRef: ComputedRef<HTMLElement>;
   }>
 > = Symbol('selectProvide');
 

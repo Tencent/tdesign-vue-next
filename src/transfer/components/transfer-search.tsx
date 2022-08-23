@@ -1,8 +1,10 @@
 import { defineComponent, VNode, PropType } from 'vue';
-import { SearchIcon } from 'tdesign-icons-vue-next';
+import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
+
 import { SearchOption } from '../interface';
 import TInput from '../../input';
 import { usePrefixClass } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TTransferSearch',
@@ -23,6 +25,7 @@ export default defineComponent({
   },
   setup(props) {
     const classPrefix = usePrefixClass();
+    const { SearchIcon } = useGlobalIcon({ SearchIcon: TdSearchIcon });
     const handleChange = (value: string, changeCtx: any) => {
       props.onChange?.({
         value,

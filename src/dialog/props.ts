@@ -43,6 +43,8 @@ export default {
     type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
     default: '',
   },
+  /** 是否在按下回车键时，触发确认事件 */
+  confirmOnEnter: Boolean,
   /** 对话框内容，同 body */
   default: {
     type: [String, Function] as PropType<TdDialogProps['default']>,
@@ -70,7 +72,7 @@ export default {
       return ['modal', 'modeless', 'normal'].includes(val);
     },
   },
-  /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示 */
+  /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小 */
   placement: {
     type: String as PropType<TdDialogProps['placement']>,
     default: 'top' as TdDialogProps['placement'],
@@ -122,7 +124,7 @@ export default {
   onCloseBtnClick: Function as PropType<TdDialogProps['onCloseBtnClick']>,
   /** 对话框消失动画效果结束后触发 */
   onClosed: Function as PropType<TdDialogProps['onClosed']>,
-  /** 如果“确认”按钮存在，则点击“确认”按钮时触发 */
+  /** 如果“确认”按钮存在，则点击“确认”按钮时触发，或者键盘按下回车键时触发 */
   onConfirm: Function as PropType<TdDialogProps['onConfirm']>,
   /** 按下 ESC 时触发事件 */
   onEscKeydown: Function as PropType<TdDialogProps['onEscKeydown']>,

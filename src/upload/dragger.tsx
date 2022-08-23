@@ -1,5 +1,8 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
-import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TLoading from '../loading';
 
@@ -10,6 +13,7 @@ import { UploadConfig } from '../config-provider/type';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUploadDragger',
@@ -53,6 +57,10 @@ export default defineComponent({
     const dragActive = ref(false);
     const { globalConfig } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
+    const { CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
     const { SIZE } = useCommonClassName();
 
     // status

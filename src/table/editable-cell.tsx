@@ -2,7 +2,8 @@ import { computed, defineComponent, PropType, ref, SetupContext, toRefs, watch }
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
-import { Edit1Icon } from 'tdesign-icons-vue-next';
+import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
+
 import {
   TableRowData,
   PrimaryTableCol,
@@ -11,6 +12,7 @@ import {
   TdBaseTableProps,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
@@ -25,6 +27,7 @@ export interface EditableCellProps {
   tableBaseClass?: TableClassName['tableBaseClass'];
   /** 行编辑需要使用 editable。单元格编辑则无需使用，设置为 undefined */
   editable?: boolean;
+  readonly?: boolean;
   errors?: AllValidateResult[];
   cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
@@ -46,6 +49,9 @@ export default defineComponent({
       type: Boolean,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+    },
     errors: {
       type: Array as PropType<EditableCellProps['errors']>,
       default: undefined,
@@ -58,9 +64,11 @@ export default defineComponent({
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
     const tableEditableCellRef = ref(null);
-    const isEdit = ref(false);
+    const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
+
+    const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
     const currentRow = computed(() => {
       const newRow = { ...row.value };
@@ -202,6 +210,7 @@ export default defineComponent({
         value: val,
         col: props.col,
         colIndex: props.colIndex,
+        editedRow: { ...props.row, [props.col.colKey]: val },
       };
       props.onChange?.(params);
       props.onRuleChange?.(params);
@@ -255,15 +264,19 @@ export default defineComponent({
       { immediate: true },
     );
 
-    watch(isEdit, (isEdit) => {
-      const isCellEditable = props.editable === undefined;
-      if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
-      if (isEdit) {
-        document.addEventListener('click', documentClickHandler);
-      } else {
-        document.removeEventListener('click', documentClickHandler);
-      }
-    });
+    watch(
+      isEdit,
+      (isEdit) => {
+        const isCellEditable = props.editable === undefined;
+        if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
+        if (isEdit) {
+          document.addEventListener('click', documentClickHandler);
+        } else {
+          document.removeEventListener('click', documentClickHandler);
+        }
+      },
+      { immediate: true },
+    );
 
     watch(
       () => props.editable,
@@ -278,6 +291,7 @@ export default defineComponent({
             rowIndex: props.rowIndex,
             colIndex: props.colIndex,
             value: cellValue.value,
+            editedRow: row.value,
           });
         }
       },
@@ -292,6 +306,9 @@ export default defineComponent({
     );
 
     return () => {
+      if (props.readonly) {
+        return cellNode.value;
+      }
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (
