@@ -26,6 +26,10 @@ export default {
     type: [String, Function] as PropType<TdGuideStepProps['element']>,
     required: true,
   },
+  /** 高亮框的 padding */
+  highlightPadding: {
+    type: Number,
+  },
   /** 当期步骤引导框的类型 */
   mode: {
     type: String as PropType<TdGuideStepProps['mode']>,

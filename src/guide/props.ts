@@ -28,7 +28,7 @@ export default {
   /** 透传 完成 的全部属性 */
   finishButtonProps: {
     type: Object as PropType<TdGuideProps['finishButtonProps']>,
-    default: { content: '完成', theme: 'primary' },
+    default: { content: '完成', theme: 'primary' } as TdGuideProps['skipButtonProps'],
   },
   /** 是否隐藏计数 */
   hideCounter: Boolean,
@@ -36,6 +36,11 @@ export default {
   hidePrev: Boolean,
   /** 是否隐藏跳过按钮 */
   hideSkip: Boolean,
+  /** 高亮框的 padding */
+  highlightPadding: {
+    type: Number,
+    default: 4,
+  },
   /** 起始序号 */
   initialNum: {
     type: Number,
@@ -58,17 +63,17 @@ export default {
   /** 透传 下一步按钮 的全部属性 */
   nextButtonProps: {
     type: Object as PropType<TdGuideProps['nextButtonProps']>,
-    default: { content: '下一步', theme: 'primary' },
+    default: { content: '下一步', theme: 'primary' } as TdGuideProps['skipButtonProps'],
   },
   /** 透传 上一步按钮 的全部属性 */
   prevButtonProps: {
     type: Object as PropType<TdGuideProps['prevButtonProps']>,
-    default: { content: '上一步', theme: 'primary' },
+    default: { content: '上一步', theme: 'primary' } as TdGuideProps['skipButtonProps'],
   },
   /** 透传 跳过按钮 的全部属性 */
   skipButtonProps: {
     type: Object as PropType<TdGuideProps['skipButtonProps']>,
-    default: { content: '跳过', theme: 'default' },
+    default: { content: '跳过', theme: 'default' } as TdGuideProps['skipButtonProps'],
   },
   /** 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。 */
   steps: {

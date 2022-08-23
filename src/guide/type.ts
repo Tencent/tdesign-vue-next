@@ -50,6 +50,11 @@ export interface TdGuideProps {
    */
   initialNum?: number;
   /**
+   * 高亮框的 padding
+   * @default 2
+   */
+  highlightPadding?: number;
+  /**
    * 是否出现遮罩层
    * @default true
    */
@@ -119,6 +124,11 @@ export interface TdGuideStepProps {
    */
   element: AttachNode;
   /**
+   * 高亮框的 padding
+   * @default 2
+   */
+  highlightPadding?: number;
+  /**
    * 是否出现遮罩层
    * @default true
    */
@@ -179,7 +189,7 @@ export type StepDialogPlacement = 'top' | 'center';
 
 export type CrossProps = Pick<
   TdGuideStepProps,
-  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'mask'
+  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'mask' | 'highlightPadding'
 >;
 
 export type ScrollTo = {

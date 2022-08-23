@@ -62,11 +62,10 @@ export default defineComponent({
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
 
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
-    const getCurrentCrossProps = (propsName: keyof CrossProps) =>
+    const getCurrentCrossProps = <Key extends keyof CrossProps>(propsName: Key) =>
       currentStepInfo.value[propsName] ?? props[propsName] ?? defalutCrossProps[propsName];
     // 当前是否为 popup
     const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
-
     // 滑动到元素位置
     const scrollParentToElement = (element: HTMLElement) => {
       const parent = getScrollParent(element);
@@ -83,11 +82,12 @@ export default defineComponent({
         elementPosition.left += _scrollLeft;
         elementPosition.top += _scrollTop;
       }
+      const highlightPadding = getCurrentCrossProps('highlightPadding');
       setStyle(highlighLayer, {
-        width: `${elementPosition.width}px`,
-        height: `${elementPosition.height}px`,
-        top: `${elementPosition.top}px`,
-        left: `${elementPosition.left}px`,
+        width: `${elementPosition.width + highlightPadding}px`,
+        height: `${elementPosition.height + highlightPadding}px`,
+        top: `${elementPosition.top - highlightPadding / 2}px`,
+        left: `${elementPosition.left - highlightPadding / 2}px`,
       });
     };
 
@@ -239,7 +239,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleSkip}
-                {...(getCurrentCrossProps('skipButtonProps') as TdButtonProps)}
+                {...getCurrentCrossProps('skipButtonProps')}
               />
             )}
             {!hidePrev.value && !isFirst && (
@@ -249,7 +249,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
-                {...(getCurrentCrossProps('prevButtonProps') as TdButtonProps)}
+                {...getCurrentCrossProps('prevButtonProps')}
               />
             )}
             {!isLast && (
@@ -259,7 +259,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleNext}
-                {...(getCurrentCrossProps('nextButtonProps') as TdButtonProps)}
+                {...getCurrentCrossProps('nextButtonProps')}
               />
             )}
             {isLast && (
@@ -269,7 +269,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleFinish}
-                {...(props.finishButtonProps as TdButtonProps)}
+                {...props.finishButtonProps}
               />
             )}
           </div>
@@ -363,7 +363,7 @@ export default defineComponent({
           <>
             {renderOverlayLayer()}
             {renderHighlightLayer()}
-            {getCurrentCrossProps('mode') === 'popup' ? renderPopupGuide() : renderDialogGuide()}
+            {isPopup.value ? renderPopupGuide() : renderDialogGuide()}
           </>
         );
       };
