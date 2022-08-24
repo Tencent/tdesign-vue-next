@@ -37,7 +37,7 @@ export default defineComponent({
     placement: String as PropType<EllipsisProps['placement']>,
     /** 挂载元素 */
     attach: Function as PropType<EllipsisProps['attach']>,
-    /** 透传 Popup 组件属性 */
+    /** 透传 Tooltip 组件属性 */
     tooltipProps: Object as PropType<EllipsisProps['tooltipProps']>,
     zIndex: Number,
   },
@@ -52,7 +52,7 @@ export default defineComponent({
       `${classPrefix.value}-text-ellipsis`,
     ]);
 
-    // 当表格数据量大时，不希望默认渲染全量的 Popup，期望在用户 mouseenter 的时候再显示
+    // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示
     const onTriggerMouseenter = () => {
       if (!root.value) return;
       isOverflow.value = isNodeOverflow(root.value);
