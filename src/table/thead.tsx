@@ -133,8 +133,8 @@ export default defineComponent({
                   <TEllipsis
                     placement="bottom"
                     attach={this.theadRef ? () => this.theadRef : undefined}
-                    popupContent={content && (() => content)}
-                    popupProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                    tooltipContent={content && (() => content)}
+                    tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
                   >
                     {innerTh}
                   </TEllipsis>
