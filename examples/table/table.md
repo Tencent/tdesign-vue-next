@@ -280,7 +280,7 @@ component | \- | - | 组件定义，如：`Input` `Select`。对于完全自定�
 defaultEditable | Boolean | false | 单元格默认状态是否为编辑态 | N
 onEdited | Function | - | 编辑完成后，退出编辑模式时触发。TS 类型：`(context: { trigger: string; newRowData: T; rowIndex: number }) => void` | N
 props | Object | - | 透传给组件 `edit.component` 的属性。TS 类型：`TableEditableCellProps<T>` `type TableEditableCellProps<T> = TablePlainObject | ((params: TableEditableCellPropsParams<T>) => TablePlainObject)` `interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> { editedRow: T }` `interface TablePlainObject{ [key: string]: any }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
-rules | Array | - | 校验规则。TS 类型：`FormRule[]`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+rules | Array | - | 校验规则。TS 类型：`TableEditableCellRules<T>` `type TableEditableCellRules<T> = FormRule[] | ((params: TableEditableCellPropsParams<T>) => FormRule[])`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 showEditIcon | Boolean | true | 是否显示编辑图标 | N
 
 ### TableTreeConfig
