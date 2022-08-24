@@ -802,7 +802,6 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    * 校验规则
    */
   rules?: FormRule[];
-
   /**
    * 是否显示编辑图标
    * @default true
