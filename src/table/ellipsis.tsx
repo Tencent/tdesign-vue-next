@@ -4,16 +4,16 @@ import debounce from 'lodash/debounce';
 import { TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';
-import TPopup, { PopupProps } from '../popup';
+import TTooltip, { TooltipProps } from '../tooltip';
 import { useConfig } from '../hooks/useConfig';
 
 export interface EllipsisProps {
   content: string | TNode;
   default: string | TNode;
-  popupContent: string | number | TNode;
-  placement: PopupProps['placement'];
+  tooltipContent: string | number | TNode;
+  placement: TooltipProps['placement'];
   attach: () => HTMLElement;
-  popupProps: PopupProps;
+  tooltipProps: TooltipProps;
   zIndex: number;
 }
 
@@ -30,15 +30,15 @@ export default defineComponent({
       type: [String, Function] as PropType<EllipsisProps['default']>,
     },
     /** 内容，同 content，可以单独自定义浮层内容，无需和触发元素保持一致 */
-    popupContent: {
-      type: [String, Number, Function] as PropType<EllipsisProps['popupContent']>,
+    tooltipContent: {
+      type: [String, Number, Function] as PropType<EllipsisProps['tooltipContent']>,
     },
     /** 浮层位置 */
     placement: String as PropType<EllipsisProps['placement']>,
     /** 挂载元素 */
     attach: Function as PropType<EllipsisProps['attach']>,
     /** 透传 Popup 组件属性 */
-    popupProps: Object as PropType<EllipsisProps['popupProps']>,
+    tooltipProps: Object as PropType<EllipsisProps['tooltipProps']>,
     zIndex: Number,
   },
 
@@ -85,14 +85,14 @@ export default defineComponent({
     let content = null;
     if (this.isOverflow) {
       const rProps = {
-        content: (this.popupContent as string) || (() => cellNode),
+        content: (this.tooltipContent as string) || (() => cellNode),
         destroyOnClose: true,
         zIndex: this.zIndex,
         attach: this.attach,
         placement: this.placement,
-        ...(this.popupProps as EllipsisProps['popupProps']),
+        ...(this.tooltipProps as EllipsisProps['tooltipProps']),
       };
-      content = <TPopup {...rProps}>{ellipsisContent}</TPopup>;
+      content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
     } else {
       content = ellipsisContent;
     }
