@@ -102617,7 +102617,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
     class="t-table t-table--bordered"
     editablecellstate="cellParams => {
       // 第一行不允许编辑
-      return cellParams.rowIndex === 0;
+      return cellParams.rowIndex !== 0;
     }"
     style="position: relative;"
   >
