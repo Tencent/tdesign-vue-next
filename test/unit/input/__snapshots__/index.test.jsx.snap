@@ -40,6 +40,7 @@ exports[`Input > $attrs > input attrs should pass to input element 1`] = `
         />
       </svg>
     </span>
+    <!---->
   </div>
   <!---->
 </div>
@@ -60,6 +61,7 @@ exports[`Input > :props > :disabled 1`] = `
       placeholder="请输入"
       type="text"
     />
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -91,6 +93,7 @@ exports[`Input > :props > :prefix-icon 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -115,6 +118,7 @@ exports[`Input > :props > :readonly 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -134,6 +138,7 @@ exports[`Input > :props > :size 1`] = `
       placeholder="请输入"
       type="text"
     />
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -165,6 +170,7 @@ exports[`Input > :props > :suffix-icon 1`] = `
         class="icon"
       />
     </span>
+    <!---->
   </div>
   <!---->
 </div>
