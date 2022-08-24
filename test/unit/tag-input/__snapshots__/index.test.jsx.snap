@@ -110,6 +110,7 @@ exports[`TagInput > :props > :basic 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -170,6 +171,7 @@ exports[`TagInput > :props > :collapsed 1`] = `
     >
       
     </span>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -289,6 +291,7 @@ exports[`TagInput > :props > :draggable 1`] = `
     >
       
     </span>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -411,6 +414,7 @@ exports[`TagInput > :props > :label 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -526,6 +530,7 @@ exports[`TagInput > :props > :max 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -592,6 +597,7 @@ exports[`TagInput > :props > :status:disabled 1`] = `
     >
       
     </span>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -709,6 +715,7 @@ exports[`TagInput > :props > :status:error 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -776,6 +783,7 @@ exports[`TagInput > :props > :status:readonly 1`] = `
     >
       
     </span>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -893,6 +901,7 @@ exports[`TagInput > :props > :status:success 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -1008,6 +1017,7 @@ exports[`TagInput > :props > :status:warning 1`] = `
     </span>
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -1037,6 +1047,7 @@ exports[`TagInput > <slot> > <collapsedTags> 1`] = `
     >
       请输入
     </span>
+    <!---->
     <!---->
     <!---->
   </div>

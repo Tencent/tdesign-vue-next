@@ -49,6 +49,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -129,6 +130,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -187,6 +189,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -244,6 +247,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -299,6 +303,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -365,6 +370,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
           <!---->
         </div>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -422,6 +428,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -479,6 +486,7 @@ exports[`TreeSelect > :props > :max 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -536,6 +544,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -616,6 +625,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -673,6 +683,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -730,6 +741,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -787,6 +799,7 @@ exports[`TreeSelect > :props > :size 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -844,6 +857,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -901,6 +915,7 @@ exports[`TreeSelect > :props > :value 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -958,6 +973,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1038,6 +1054,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1095,6 +1112,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1161,6 +1179,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
           <!---->
         </div>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1222,6 +1241,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1283,6 +1303,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1363,6 +1384,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1420,6 +1442,7 @@ exports[`TreeSelect > function > :empty 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1486,6 +1509,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
           <!---->
         </div>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1547,6 +1571,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -1606,6 +1631,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>

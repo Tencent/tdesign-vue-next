@@ -5306,6 +5306,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -5367,6 +5368,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/base.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -6192,6 +6194,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -6306,6 +6309,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -6367,6 +6371,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -7168,6 +7173,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -7244,6 +7250,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -7305,6 +7312,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/card-cell.vue 1`
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -8149,6 +8157,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -8210,6 +8219,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -9155,6 +9165,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -9216,6 +9227,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/cell-append.vue 
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -10481,6 +10493,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -10542,6 +10555,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/controller-confi
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -11381,6 +11395,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -11442,6 +11457,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events.vue 1`] =
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -12306,6 +12322,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -12367,6 +12384,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/events-props-api
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -13241,6 +13259,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -13302,6 +13321,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/filter.vue 1`] =
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -13966,6 +13986,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -14042,6 +14063,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -14103,6 +14125,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/first-day-of-wee
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -15057,6 +15080,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -15118,6 +15142,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/head.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -15943,6 +15968,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -16019,6 +16045,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/mode.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -16415,6 +16442,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -16476,6 +16504,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/range.vue 1`] = 
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -17311,6 +17340,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -17372,6 +17402,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/slot-props-api.v
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -18146,6 +18177,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -18192,6 +18224,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -18277,6 +18310,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -18338,6 +18372,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/value.vue 1`] = 
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -19300,6 +19335,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -19361,6 +19397,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -20198,6 +20235,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -20259,6 +20297,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -21082,6 +21121,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -21143,6 +21183,7 @@ exports[`csr snapshot test > csr test ./examples/calendar/demos/week.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -23586,6 +23627,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/base.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -23643,6 +23685,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -23731,6 +23774,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/check-strictly.v
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -23815,6 +23859,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -23891,6 +23936,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -23968,6 +24014,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/collapsed.vue 1`
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24026,6 +24073,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24081,6 +24129,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/disabled.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24138,6 +24187,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24205,6 +24255,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/ellipsis.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24260,6 +24311,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24331,6 +24383,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24379,6 +24432,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/filterable.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24436,6 +24490,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24503,6 +24558,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/keys.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24558,6 +24614,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/load.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24615,6 +24672,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/max.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24689,6 +24747,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/multiple.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24907,6 +24966,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/show-all-levels.
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -24959,6 +25019,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/show-all-levels.
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25017,6 +25078,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25068,6 +25130,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25119,6 +25182,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/size.vue 1`] = `
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25176,6 +25240,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25226,6 +25291,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/trigger.vue 1`] 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25285,6 +25351,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25337,6 +25404,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25389,6 +25457,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-mode.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25450,6 +25519,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -25548,6 +25618,7 @@ exports[`csr snapshot test > csr test ./examples/cascader/demos/value-type.vue 1
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -26505,6 +26576,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                     </span>
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -26580,6 +26652,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                     </span>
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -26653,6 +26726,7 @@ exports[`csr snapshot test > csr test ./examples/collapse/demos/base.vue 1`] = `
                     >
                       
                     </span>
+                    <!---->
                     <!---->
                     <!---->
                   </div>
@@ -28064,6 +28138,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
             </span>
             <!---->
             <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -28119,6 +28194,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
             >
               #0052d9
             </span>
+            <!---->
             <!---->
             <!---->
           </div>
@@ -28179,6 +28255,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/color-mode.v
             >
               linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
             </span>
+            <!---->
             <!---->
             <!---->
           </div>
@@ -28385,6 +28462,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -28426,6 +28504,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -28457,6 +28536,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -28494,6 +28574,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -28525,6 +28606,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/enable-alpha
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -29302,6 +29384,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -29343,6 +29426,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -29377,6 +29461,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -29408,6 +29493,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/panel.vue 1`
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -30195,6 +30281,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -30236,6 +30323,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -30270,6 +30358,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -30301,6 +30390,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                         placeholder="请输入"
                         type="text"
                       />
+                      <!---->
                       <!---->
                       <!---->
                       <!---->
@@ -31204,6 +31294,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -31245,6 +31336,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -31279,6 +31371,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -31310,6 +31403,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/recent-color
                         placeholder="请输入"
                         type="text"
                       />
+                      <!---->
                       <!---->
                       <!---->
                       <!---->
@@ -31920,6 +32014,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-disab
           </span>
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -32104,6 +32199,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -32146,6 +32242,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -32181,6 +32278,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -32213,6 +32311,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/status-reado
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -33000,6 +33099,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -33041,6 +33141,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -33075,6 +33176,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -33106,6 +33208,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                         placeholder="请输入"
                         type="text"
                       />
+                      <!---->
                       <!---->
                       <!---->
                       <!---->
@@ -33431,6 +33534,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -33472,6 +33576,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -33506,6 +33611,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -33537,6 +33643,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/swatch-color
                         placeholder="请输入"
                         type="text"
                       />
+                      <!---->
                       <!---->
                       <!---->
                       <!---->
@@ -33646,6 +33753,7 @@ exports[`csr snapshot test > csr test ./examples/color-picker/demos/trigger.vue 
           >
             #0052d9
           </span>
+          <!---->
           <!---->
           <!---->
         </div>
@@ -34596,6 +34704,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -34657,6 +34766,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/calendar.
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -35471,6 +35581,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -35525,6 +35636,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -35578,6 +35690,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -35632,6 +35745,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -35685,6 +35799,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -35739,6 +35854,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/date-pick
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -36257,6 +36373,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/input.vue
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -36312,6 +36429,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
                 placeholder="There is no required mark on the left of this input in Form"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -36388,6 +36506,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -36464,6 +36583,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
                 placeholder="type keyword to search"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -37052,6 +37172,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -37127,6 +37248,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -37188,6 +37310,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -37259,6 +37382,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             <!---->
           </div>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -37318,6 +37442,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -37376,6 +37501,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -37436,6 +37562,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -37502,6 +37629,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           <!---->
         </div>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -37557,6 +37685,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -37617,6 +37746,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/others.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -38128,6 +38258,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -38230,6 +38361,7 @@ exports[`csr snapshot test > csr test ./examples/config-provider/demos/paginatio
                 placeholder=""
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -39170,6 +39302,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39226,6 +39359,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/base.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39315,6 +39449,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/custom-icon.v
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39371,6 +39506,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -39394,6 +39530,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   type="text"
                   unselectable="on"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -39465,6 +39602,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -39488,6 +39626,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
                   type="text"
                   unselectable="on"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -39567,6 +39706,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -39588,6 +39728,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                   placeholder="请选择日期"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -39657,6 +39798,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -39678,6 +39820,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
                   placeholder="请选择日期"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -39769,6 +39912,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-time.vue
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39825,6 +39969,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-time.vue
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39893,6 +40038,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -39951,6 +40097,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40009,6 +40156,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40067,6 +40215,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40125,6 +40274,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40171,6 +40321,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -40194,6 +40345,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
                   type="text"
                   unselectable="on"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -40460,6 +40612,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/first-day-of-
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40526,6 +40679,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -40570,6 +40724,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -40591,6 +40746,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
                   placeholder="请选择月份"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -40705,6 +40861,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -40758,6 +40915,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -41408,6 +41566,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -41461,6 +41620,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -42169,6 +42329,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -42222,6 +42383,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -42855,6 +43017,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -42908,6 +43071,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -43563,6 +43727,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -43616,6 +43781,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/panel.vue 1`]
                             />
                           </svg>
                         </span>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -44308,6 +44474,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -44352,6 +44519,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -44373,6 +44541,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
                   placeholder="请输入"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -44464,6 +44633,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -44508,6 +44678,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -44529,6 +44700,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
                   placeholder="请输入"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -44620,6 +44792,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -44664,6 +44837,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -44685,6 +44859,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
                   placeholder="请选择年份"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -48889,6 +49064,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -48919,6 +49095,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -48946,6 +49123,7 @@ exports[`csr snapshot test > csr test ./examples/drawer/demos/operation.vue 1`] 
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -50082,6 +50260,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -50154,6 +50333,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/align.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -50259,6 +50439,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -50305,6 +50486,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/base.vue 1`] = `
                 placeholder="请输入内容"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -50652,6 +50834,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -50704,6 +50887,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -50783,6 +50967,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -50831,6 +51016,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -51115,6 +51301,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -51169,6 +51356,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -51217,6 +51405,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/clear-validate.vue 1
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -51367,6 +51556,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -51437,6 +51627,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -51511,6 +51702,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/custom-validator.vue
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -51657,6 +51849,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -51738,6 +51931,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -51820,6 +52014,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -51901,6 +52096,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -51982,6 +52178,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -52304,6 +52501,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/disabled.vue 1`] = `
                   placeholder="数字"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -52679,6 +52877,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -52731,6 +52930,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -52810,6 +53010,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -52858,6 +53059,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -53122,6 +53324,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -53176,6 +53379,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -53224,6 +53428,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/error-message.vue 1`
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -53426,6 +53631,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -53497,6 +53703,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/layout.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -53564,6 +53771,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
                 placeholder="请输入账户名"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -53650,6 +53858,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/login.vue 1`] = `
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -53809,6 +54018,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -53855,6 +54065,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/reset.vue 1`] = `
                 placeholder="请输入内容"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -54143,6 +54354,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -54189,6 +54401,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/size.vue 1`] = `
                 placeholder="请输入内容"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -54722,6 +54935,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                       <!---->
                       <!---->
                       <!---->
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -55095,6 +55309,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-complicated
                         placeholder="请输入内容"
                         type="text"
                       />
+                      <!---->
                       <!---->
                       <!---->
                       <!---->
@@ -55480,6 +55695,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -55530,6 +55746,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -55607,6 +55824,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validate-message.vue
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -55741,6 +55959,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -55793,6 +56012,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -55872,6 +56092,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -55920,6 +56141,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -55997,6 +56219,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                   placeholder="请输入"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -56302,6 +56525,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -56356,6 +56580,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -56404,6 +56629,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator.vue 1`] = 
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -56606,6 +56832,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -56652,6 +56879,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
                 placeholder="校验警告状态"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -56704,6 +56932,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -56750,6 +56979,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
                 placeholder="带绿色边框的成功状态"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -56802,6 +57032,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -56851,6 +57082,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -56897,6 +57129,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
                 placeholder="正在校验中，请稍等"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -56984,6 +57217,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -57043,6 +57277,7 @@ exports[`csr snapshot test > csr test ./examples/form/demos/validator-status.vue
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -58893,6 +59128,7 @@ exports[`csr snapshot test > csr test ./examples/icon/demos/icon-select.vue 1`] 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -59220,6 +59456,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -59242,6 +59479,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
           placeholder="请输入内容"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -59278,6 +59516,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/addon.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -59311,6 +59550,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59330,6 +59570,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59346,6 +59587,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/align.vue 1`] = `
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -59380,6 +59622,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/auto-width.vue 1`] 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59407,6 +59650,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59423,6 +59667,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
         placeholder="请输入内容（有默认值）"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -59454,6 +59699,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/base.vue 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59478,6 +59724,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/clearable.vue 1`] =
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -59508,6 +59755,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/focus.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -59532,6 +59780,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/format.vue 1`] = `
         placeholder="请输入数字"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -59568,6 +59817,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -59584,6 +59834,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -59614,6 +59865,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -59630,6 +59882,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -59660,6 +59913,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -59676,6 +59930,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -59707,6 +59962,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -59732,25 +59988,6 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
           <!---->
           <!---->
           <!---->
-        </div>
-        <!---->
-      </div>
-      <div
-        class="t-input__wrap"
-        style="width: 100px;"
-      >
-        <div
-          class="t-input"
-        >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <!---->
-          <!---->
           <!---->
         </div>
         <!---->
@@ -59769,6 +60006,28 @@ exports[`csr snapshot test > csr test ./examples/input/demos/group.vue 1`] = `
             placeholder="请输入"
             type="text"
           />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="t-input__wrap"
+        style="width: 100px;"
+      >
+        <div
+          class="t-input"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -59817,6 +60076,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/max-length-count.vu
           </div>
         </div>
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -59852,6 +60112,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/max-length-count.vu
           </div>
         </div>
         <!---->
+        <!---->
       </div>
       
     </div>
@@ -59883,6 +60144,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/max-length-count.vu
           0/5
           <!---->
         </div>
+        <!---->
         <!---->
       </div>
       <!---->
@@ -59959,6 +60221,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -60021,6 +60284,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/password.vue 1`] = 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -60048,6 +60312,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -60067,6 +60332,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
       <!---->
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -60083,6 +60349,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/size.vue 1`] = `
         placeholder="请输入内容"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -60128,6 +60395,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
             <!---->
             <!---->
             <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -60153,6 +60421,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
               type="text"
               unselectable="on"
             />
+            <!---->
             <!---->
             <!---->
             <!---->
@@ -60193,6 +60462,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
             <!---->
@@ -60222,6 +60492,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
             <!---->
             <!---->
             <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -60248,6 +60519,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
             <!---->
             <!---->
             <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -60271,6 +60543,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
             <!---->
@@ -60311,6 +60584,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
             <!---->
@@ -60344,6 +60618,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
             <!---->
             <!---->
             <!---->
+            <!---->
           </div>
           <div
             class="t-input__tips t-input__tips--success"
@@ -60374,6 +60649,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
             <!---->
             <!---->
             <!---->
+            <!---->
           </div>
           <div
             class="t-input__tips t-input__tips--warning"
@@ -60401,6 +60677,7 @@ exports[`csr snapshot test > csr test ./examples/input/demos/status.vue 1`] = `
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
             <!---->
@@ -60507,6 +60784,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
                 />
               </svg>
             </span>
+            <!---->
           </div>
           <!---->
         </div>
@@ -60527,6 +60805,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
           placeholder="请输入内容"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -60562,6 +60841,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
         >
           请输入内容
         </span>
+        <!---->
         <!---->
         <!---->
       </div>
@@ -60621,6 +60901,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
                 />
               </svg>
             </span>
+            <!---->
           </div>
           <!---->
         </div>
@@ -60686,6 +60967,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
                 />
               </svg>
             </span>
+            <!---->
           </div>
           <!---->
         </div>
@@ -60740,6 +61022,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -60800,6 +61083,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/select.vu
                 />
               </svg>
             </span>
+            <!---->
           </div>
           <!---->
         </div>
@@ -60840,6 +61124,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -60874,6 +61159,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
         </span>
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -60904,6 +61190,7 @@ exports[`csr snapshot test > csr test ./examples/input-adornment/demos/text.vue 
           placeholder="请输入内容"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -60980,6 +61267,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -61055,6 +61343,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -61127,6 +61416,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -61199,6 +61489,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -61234,6 +61525,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -61266,6 +61558,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/align.vue 1`
                 placeholder="请输入"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -61333,6 +61626,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/auto-width.v
         >
           3
         </span>
+        <!---->
         <!---->
         <!---->
       </div>
@@ -61420,6 +61714,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1
           </span>
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -61493,6 +61788,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -61577,6 +61873,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/center.vue 1
             <!---->
           </div>
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -61651,6 +61948,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/default.vue 
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -61729,6 +62027,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/disabled.vue
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -61800,6 +62099,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/empty.vue 1`
           placeholder="输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -61888,6 +62188,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/format.vue 1
           </span>
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -61965,6 +62266,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/format.vue 1
           >
             3.01 %
           </span>
+          <!---->
           <!---->
           <!---->
         </div>
@@ -62048,6 +62350,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/large-number
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -62116,6 +62419,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/large-number
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -62201,6 +62505,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/left.vue 1`]
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -62281,6 +62586,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/left.vue 1`]
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -62346,6 +62652,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -62398,6 +62705,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1
             <!---->
           </div>
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -62441,6 +62749,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/normal.vue 1
             台
             <!---->
           </div>
+          <!---->
           <!---->
         </div>
         <!---->
@@ -62496,6 +62805,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -62568,6 +62878,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -62633,6 +62944,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/size.vue 1`]
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -62830,6 +63142,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <div
                 class="t-input__tips t-input__tips--normal"
@@ -62934,6 +63247,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                   placeholder="请输入"
                   type="text"
                 />
+                <!---->
                 <!---->
                 <!---->
                 <!---->
@@ -63044,6 +63358,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <div
                 class="t-input__tips t-input__tips--warning"
@@ -63151,6 +63466,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/status.vue 1
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <div
                 class="t-input__tips t-input__tips--error"
@@ -63240,6 +63556,7 @@ exports[`csr snapshot test > csr test ./examples/input-number/demos/step.vue 1`]
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -72680,6 +72997,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -72697,6 +73015,7 @@ exports[`csr snapshot test > csr test ./examples/message/demos/placement.vue 1`]
           placeholder="请输入纵向偏移量"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -74408,6 +74727,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -74425,6 +74745,7 @@ exports[`csr snapshot test > csr test ./examples/notification/demos/placement.vu
           placeholder="请输入纵向偏移量"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -75078,6 +75399,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -75242,6 +75564,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/base.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -75417,6 +75740,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -75532,6 +75856,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/jump.vue 1`] =
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -75610,6 +75935,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/mini.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -75780,6 +76106,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -75964,6 +76291,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/more.vue 1`] =
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -76111,6 +76439,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/page-num.vue 1
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -76276,6 +76605,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -76329,6 +76659,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple.vue 1`]
                 placeholder=""
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -76430,6 +76761,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -76483,6 +76815,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/simple-mini.vu
                 placeholder=""
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -76584,6 +76917,7 @@ exports[`csr snapshot test > csr test ./examples/pagination/demos/total.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -77579,6 +77913,7 @@ exports[`csr snapshot test > csr test ./examples/popup/demos/trigger.vue 1`] = `
         placeholder="获得焦点时触发"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -81660,6 +81995,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -81681,6 +82017,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/base.vue 1`] 
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -81723,6 +82060,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -81744,6 +82082,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/popup.vue 1`]
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -81788,6 +82127,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -81809,6 +82149,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -81844,6 +82185,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -81865,6 +82207,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -81900,6 +82243,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -81921,6 +82265,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/size.vue 1`] 
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -81963,6 +82308,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -81984,6 +82330,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -82019,6 +82366,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -82040,6 +82388,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -82075,6 +82424,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -82096,6 +82446,7 @@ exports[`csr snapshot test > csr test ./examples/range-input/demos/status.vue 1`
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -85031,6 +85382,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -85091,6 +85443,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/base.vue 1`] = `
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -85181,6 +85534,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85263,6 +85617,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85346,6 +85701,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/collapsed.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85410,6 +85766,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -85470,6 +85827,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/creatable.vue 1`] 
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -85535,6 +85893,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85591,6 +85950,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-options.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85720,6 +86080,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85860,6 +86221,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85917,6 +86279,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/custom-selected.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -85975,6 +86338,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86043,6 +86407,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/disabled.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86100,6 +86465,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86154,6 +86520,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/filterable.vue 1`]
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86215,6 +86582,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86268,6 +86636,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/group.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86327,6 +86696,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86398,6 +86768,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/label-in-value.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86459,6 +86830,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/max.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86558,6 +86930,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86736,6 +87109,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86840,6 +87214,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/multiple.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86899,6 +87274,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/noborder.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -86962,6 +87338,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87017,6 +87394,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/panel.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87076,6 +87454,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87130,6 +87509,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/popup-props.vue 1`
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87198,6 +87578,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/prefix.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87255,6 +87636,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87309,6 +87691,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/remote-search.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87375,6 +87758,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/scroll-top.vue 1`]
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -87473,6 +87857,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/scroll-top.vue 1`]
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -87536,6 +87921,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87590,6 +87976,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87644,6 +88031,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/size.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87706,6 +88094,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87761,6 +88150,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87825,6 +88215,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/status.vue 1`] = `
             <!---->
           </div>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -87892,6 +88283,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/virtual-scroll.vue
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -87953,6 +88345,7 @@ exports[`csr snapshot test > csr test ./examples/select/demos/virtual-scroll.vue
               />
             </svg>
           </span>
+          <!---->
         </div>
         <!---->
       </div>
@@ -88014,6 +88407,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autocomplete
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -88074,6 +88468,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth.vu
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -88162,6 +88557,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/autowidth-mu
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -88198,6 +88594,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless.v
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -88271,6 +88668,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/borderless-m
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -88340,6 +88738,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -88428,6 +88827,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -88542,6 +88942,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/collapsed-it
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -88601,6 +89002,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -88722,6 +89124,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -88904,6 +89307,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/custom-tag.v
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -89074,6 +89478,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -89239,6 +89644,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/excess-tags-
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -89299,6 +89705,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -89362,6 +89769,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/label-suffix
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -89573,6 +89981,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/multiple.vue
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -89630,6 +90039,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/single.vue 1
         </svg>
         
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -89676,6 +90086,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -89719,6 +90130,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             type="text"
             unselectable="on"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -89769,6 +90181,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -89815,6 +90228,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -89858,6 +90272,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/status.vue 1
             type="text"
             unselectable="on"
           />
+          <!---->
           <!---->
           <!---->
           <!---->
@@ -89911,6 +90326,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -89945,6 +90361,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           type="text"
           unselectable="on"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -89985,6 +90402,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -90019,6 +90437,7 @@ exports[`csr snapshot test > csr test ./examples/select-input/demos/width.vue 1`
           type="text"
           unselectable="on"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -98361,6 +98780,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/affix.vue 1`] = `
                       />
                     </svg>
                   </span>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -99376,6 +99796,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/base.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -100104,6 +100525,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col.vue 1`] 
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -100805,6 +101227,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/custom-col-button.v
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -102853,6 +103276,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -102965,6 +103389,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -103083,6 +103508,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -103195,6 +103621,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-cell.vue 1
                       placeholder="请输入"
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -103452,6 +103879,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                     </span>
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -103514,6 +103942,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -103592,6 +104021,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -103651,6 +104081,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/editable-row.vue 1`
                           />
                         </svg>
                       </span>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -122004,6 +122435,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -122130,6 +122562,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination.vue 1`] 
                       placeholder=""
                       type="text"
                     />
+                    <!---->
                     <!---->
                     <!---->
                     <!---->
@@ -122356,6 +122789,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                   />
                 </svg>
               </span>
+              <!---->
             </div>
             <!---->
           </div>
@@ -122443,6 +122877,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/pagination-ajax.vue
                     placeholder=""
                     type="text"
                   />
+                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -125639,6 +126074,7 @@ exports[`csr snapshot test > csr test ./examples/table/demos/tree.vue 1`] = `
                     />
                   </svg>
                 </span>
+                <!---->
               </div>
               <!---->
             </div>
@@ -129878,6 +130314,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/auto-width.vue 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -129956,6 +130393,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -130029,6 +130467,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130106,6 +130545,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/base.vue 1`] = 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -130171,6 +130611,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130253,6 +130694,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130359,6 +130801,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/collapsed.vue 1
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130470,6 +130913,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130600,6 +131044,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/custom-tag.vue 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -130700,6 +131145,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/draggable.vue 1
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -130823,6 +131269,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/draggable.vue 1
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -130907,6 +131354,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -130983,6 +131431,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/excess.vue 1`] 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -131016,6 +131465,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/max.vue 1`] = `
       >
         最多只能输入 3 个标签
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -131096,6 +131546,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -131164,6 +131615,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -131236,6 +131688,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/size.vue 1`] = 
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -131306,6 +131759,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
         </span>
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -131368,6 +131822,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
         >
           
         </span>
+        <!---->
         <!---->
         <!---->
       </div>
@@ -131472,6 +131927,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
         </span>
         <!---->
         <!---->
+        <!---->
       </div>
       <div
         class="t-input__tips t-input__tips--success"
@@ -131574,6 +132030,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
         </span>
         <!---->
         <!---->
+        <!---->
       </div>
       <div
         class="t-input__tips t-input__tips--warning"
@@ -131674,6 +132131,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/status.vue 1`] 
         >
           
         </span>
+        <!---->
         <!---->
         <!---->
       </div>
@@ -131780,6 +132238,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -131869,6 +132328,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -131962,6 +132422,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
       </span>
       <!---->
       <!---->
+      <!---->
     </div>
     <!---->
   </div>
@@ -132051,6 +132512,7 @@ exports[`csr snapshot test > csr test ./examples/tag-input/demos/theme.vue 1`] =
       >
         
       </span>
+      <!---->
       <!---->
       <!---->
     </div>
@@ -132298,6 +132760,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132355,6 +132818,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/base.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132425,6 +132889,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132487,6 +132952,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/clearable.vue
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132555,6 +133021,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132617,6 +133084,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/disabled.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132680,6 +133148,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/format.vue 1`
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132750,6 +133219,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132812,6 +133282,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hide-clear-bu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132879,6 +133350,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -132941,6 +133413,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hm.vue 1`] = 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133004,6 +133477,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/hms.vue 1`] =
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133072,6 +133546,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133134,6 +133609,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/keyboard.vue 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133210,6 +133686,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
               <!---->
               <!---->
               <!---->
+              <!---->
             </div>
             <!---->
           </div>
@@ -133231,6 +133708,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
                 placeholder="选择时间"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -133324,6 +133802,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/show-steps.vu
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133387,6 +133866,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/step.vue 1`] 
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133450,6 +133930,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour.v
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133515,6 +133996,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/twelve-hour-m
             />
           </svg>
         </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -133933,6 +134415,7 @@ exports[`csr snapshot test > csr test ./examples/tooltip/demos/trigger.vue 1`] =
         placeholder="获得焦点时触发"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <!---->
@@ -137822,6 +138305,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/pagination.vue 1
                     <!---->
                     <!---->
                     <!---->
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -138036,6 +138520,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
                 placeholder="请输入关键词搜索"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -138616,6 +139101,7 @@ exports[`csr snapshot test > csr test ./examples/transfer/demos/search.vue 1`] =
                 placeholder="请输入关键词搜索"
                 type="text"
               />
+              <!---->
               <!---->
               <!---->
               <!---->
@@ -141562,6 +142048,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -141593,6 +142080,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -141621,6 +142109,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/controlled.vue 1`] =
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -144414,6 +144903,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/filter.vue 1`] = `
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -148118,6 +148608,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/operations.vue 1`] =
           <!---->
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -148785,6 +149276,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -148816,6 +149308,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -148844,6 +149337,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/sync.vue 1`] = `
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -149337,6 +149831,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -149368,6 +149863,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
         <!---->
         <!---->
         <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -149396,6 +149892,7 @@ exports[`csr snapshot test > csr test ./examples/tree/demos/vmodel.vue 1`] = `
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
         <!---->
@@ -149908,6 +150405,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/base.vue 1`] 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -149989,6 +150487,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150062,6 +150561,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/collapsed.vue
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150180,6 +150680,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/filterable.vu
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150238,6 +150739,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/lazy.vue 1`] 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150319,6 +150821,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/multiple.vue 
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150386,6 +150889,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/prefix.vue 1`
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150444,6 +150948,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/props.vue 1`]
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150504,6 +151009,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150558,6 +151064,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuedisplay.
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150616,6 +151123,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
@@ -150689,6 +151197,7 @@ exports[`csr snapshot test > csr test ./examples/tree-select/demos/valuetype.vue
           />
         </svg>
       </span>
+      <!---->
     </div>
     <!---->
   </div>
