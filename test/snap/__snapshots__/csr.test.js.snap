@@ -39346,7 +39346,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -39440,7 +39440,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-presets-
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -39544,7 +39544,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -39634,7 +39634,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/date-range.vu
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -40146,7 +40146,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/disable-date.
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -40547,7 +40547,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/month.vue 1`]
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -44329,7 +44329,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/quarter.vue 1
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -44485,7 +44485,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/week.vue 1`] 
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -44641,7 +44641,7 @@ exports[`csr snapshot test > csr test ./examples/date-picker/demos/year.vue 1`] 
       >
         
         <div
-          class="t-range-input"
+          class="t-range-input t-range-input--suffix"
         >
           <div
             class="t-range-input__inner"
@@ -45767,7 +45767,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/drag.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--draggable"
           >
             <div
               class="t-dialog__header"
@@ -46389,7 +46389,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       class="t-button__text"
     >
       
-       模态对话框 
+       非模态对话框 
       
     </span>
   </button>
@@ -46402,7 +46402,20 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
       class="t-button__text"
     >
       
-       非模态对话框 
+       非模态对话框-不可拖拽 
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-b073ed22=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       模态对话框-不可拖拽 
       
     </span>
   </button>
@@ -46499,13 +46512,11 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
     data-v-b073ed22=""
   >
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed"
+      class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
     >
       
-      <div
-        class="t-dialog__mask"
-      />
+      <!---->
       <div
         class="t-dialog__wrap"
       >
@@ -46513,13 +46524,13 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--draggable"
           >
             <div
               class="t-dialog__header"
             >
               <!---->
-              模态对话框
+              非模态对话框
             </div>
             <span
               class="t-dialog__close"
@@ -46545,7 +46556,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
               <div
                 data-v-b073ed22=""
               >
-                默认点击蒙层或按ESC可关闭
+                我是内容
               </div>
               <div
                 data-v-b073ed22=""
@@ -46613,7 +46624,7 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
               class="t-dialog__header"
             >
               <!---->
-              非模态对话框
+              非模态对话框-不可拖拽
             </div>
             <span
               class="t-dialog__close"
@@ -46640,6 +46651,102 @@ exports[`csr snapshot test > csr test ./examples/dialog/demos/modal.vue 1`] = `
                 data-v-b073ed22=""
               >
                 我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              <div
+                data-v-b073ed22=""
+              >
+                我是内容
+              </div>
+              
+            </div>
+            <div
+              class="t-dialog__footer"
+            >
+              <div>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    取消
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    确认
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </transition-stub>
+  <transition-stub
+    data-v-b073ed22=""
+  >
+    <div
+      class="t-dialog__ctx t-dialog__ctx--fixed"
+      style="display: none;"
+    >
+      
+      <div
+        class="t-dialog__mask"
+      />
+      <div
+        class="t-dialog__wrap"
+      >
+        <div
+          class="t-dialog__position t-dialog--top"
+        >
+          <div
+            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+          >
+            <div
+              class="t-dialog__header"
+            >
+              <!---->
+              模态对话框
+            </div>
+            <span
+              class="t-dialog__close"
+            >
+              <svg
+                class="t-icon t-icon-close"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+            <div
+              class="t-dialog__body"
+            >
+              
+              <div
+                data-v-b073ed22=""
+              >
+                默认点击蒙层或按ESC可关闭
               </div>
               <div
                 data-v-b073ed22=""
@@ -133080,7 +133187,7 @@ exports[`csr snapshot test > csr test ./examples/time-picker/demos/range.vue 1`]
     >
       
       <div
-        class="t-range-input t-time-range-picker__group"
+        class="t-range-input t-range-input--suffix t-time-range-picker__group"
       >
         <div
           class="t-range-input__inner"

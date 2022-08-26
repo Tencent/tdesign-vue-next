@@ -57,6 +57,10 @@ export interface TdTextareaProps {
    */
   value?: TextareaValue;
   /**
+   * 输入框的值
+   */
+  modelValue?: TextareaValue;
+  /**
    * 文本框值，非受控属性
    */
   defaultValue?: TextareaValue;
