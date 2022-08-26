@@ -17,3 +17,12 @@ export const GuidePopupStepContent = defineComponent({
     return () => <div ref={el}>{renderTNodeJSX('content', 'default')}</div>;
   },
 });
+
+export const GuideStepHighlightContent = defineComponent({
+  props: { highlightContent: [String, Function] as PropType<TdGuideStepProps['highlightContent']> },
+  setup() {
+    const renderTNodeJSX = useTNodeJSX();
+
+    return () => renderTNodeJSX('highlightContent', 'default');
+  },
+});

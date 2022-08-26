@@ -10,7 +10,7 @@ import scrollTo from './utils/scrollTo';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
 
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 
@@ -21,7 +21,7 @@ import Dialog from '../dialog';
 import { TdGuideProps, TdGuideStepProps, CrossProps, StepDialogPlacement } from './type';
 import { defalutCrossProps, tooltipZIndex } from './const';
 
-import { GuidePopupStepContent } from './guide-step';
+import { GuidePopupStepContent, GuideStepHighlightContent } from './guide-step';
 
 export default defineComponent({
   name: 'TGuide',
@@ -76,6 +76,7 @@ export default defineComponent({
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
       const elementPosition = getOffset(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+
       if (!isPopup.value) {
         const _scrollLeft = window.scrollX || window.pageXOffset || document.documentElement.scrollLeft;
         const _scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
@@ -196,7 +197,15 @@ export default defineComponent({
         const highlightClass = `${COMPONENT_NAME.value}__highlight`;
         const showOverlay = getCurrentCrossProps('showOverlay');
         const classes = [highlightClass, `${highlightClass}--${showOverlay ? 'mask' : 'nomask'}`];
-        return <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} />;
+        const { highlightContent } = currentStepInfo.value;
+
+        return highlightContent ? (
+          <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass}>
+            <GuideStepHighlightContent class={classes} highlightContent={highlightContent} />
+          </div>
+        ) : (
+          <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} />
+        );
       };
 
       const renderCounter = () => {
@@ -339,7 +348,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__reference`,
           `${COMPONENT_NAME.value}__dialog`,
           {
-            [`${COMPONENT_NAME.value}__dialog--nomask`]: !getCurrentCrossProps('mask'),
+            [`${COMPONENT_NAME.value}__dialog--nomask`]: !getCurrentCrossProps('showOverlay'),
             [currentStepInfo.value.stepOverlayClass]: !!currentStepInfo.value.stepOverlayClass,
           },
         ];

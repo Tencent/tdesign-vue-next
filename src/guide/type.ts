@@ -111,7 +111,7 @@ export interface TdGuideStepProps {
    */
   children?: string | TNode;
   /**
-   * 用户自定义引导弹框的内容，一旦存在，此时除 `placement`、`offset`和`element` 外，其它属性全部失效）
+   * 用户自定义引导弹框的内容，一旦存在，此时除 `placement`、`offset`和`element` 外，其它属性全部失效
    */
   content?: string | TNode;
   /**
@@ -123,6 +123,10 @@ export interface TdGuideStepProps {
    * 高亮的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'#tdesign' 或 () => document.querySelector('#tdesign')
    */
   element: AttachNode;
+  /**
+   * 用户定义高亮框(仅当 mode 为 popup 时生效)
+   */
+  highlightContent?: string | TNode;
   /**
    * 高亮框的 padding
    * @default 2

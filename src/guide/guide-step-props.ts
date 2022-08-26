@@ -26,6 +26,12 @@ export default {
     type: [String, Function] as PropType<TdGuideStepProps['element']>,
     required: true,
   },
+  /**
+   * 用户定义高亮框(仅当 mode 为 popup 时生效)
+   */
+  highlightContent: {
+    type: [String, Function] as PropType<TdGuideStepProps['highlightContent']>,
+  },
   /** 高亮框的 padding */
   highlightPadding: {
     type: Number,

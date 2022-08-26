@@ -23,6 +23,7 @@
 <script setup>
 import { ref } from 'vue';
 import Base from './base.vue';
+import HighlightContent from './highlightContent.vue';
 
 const steps = [
   {
@@ -37,7 +38,7 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案。',
     prevButtonProps: { content: '自定义上一步', theme: 'success' },
-    // content: (h) => h(Base),
+    highlightContent: (h) => h(HighlightContent),
   },
   {
     element: '#guide3',
@@ -51,7 +52,7 @@ const steps = [
   },
 
   { element: '#guide4', title: '新手引导标题', description: '新手引导的说明文案。', mask: false, placement: 'bottom' },
-  { element: '#guide5', title: '新手引导标题', description: '新手引导的说明文案。' },
+  { element: '#guide5', title: '新手引导标题', description: '新手引导的说明文案。', content: (h) => h(Base) },
 ];
 
 const current = ref(-1);
