@@ -29,6 +29,7 @@ exports[`Select > :props > :bordered 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -85,6 +86,7 @@ exports[`Select > :props > :clearable 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -139,6 +141,7 @@ exports[`Select > :props > :creatable 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -198,6 +201,7 @@ exports[`Select > :props > :disabled 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -255,6 +259,7 @@ exports[`Select > :props > :labelInValue 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -309,6 +314,7 @@ exports[`Select > :props > :loading 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -379,6 +385,7 @@ exports[`Select > :props > :multiple 1`] = `
         请选择
       </span>
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -433,6 +440,7 @@ exports[`Select > :props > :placeholder 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -492,6 +500,7 @@ exports[`Select > :props > :remote 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -546,6 +555,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -604,6 +614,7 @@ exports[`Select > :props > :size 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -658,6 +669,7 @@ exports[`Select Option > :props > :disabled 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -716,6 +728,7 @@ exports[`Select Option > :props > :label 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -772,6 +785,7 @@ exports[`Select Option > :props > :value 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -826,6 +840,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span

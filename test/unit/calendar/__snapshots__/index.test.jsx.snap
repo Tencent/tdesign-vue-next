@@ -50,6 +50,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -110,6 +111,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
               >
                 12 月
               </span>
+              <!---->
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -1062,6 +1064,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -1122,6 +1125,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               >
                 12 月
               </span>
+              <!---->
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -1794,6 +1798,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -2189,6 +2194,7 @@ exports[`Calendar > :props > :range 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -2249,6 +2255,7 @@ exports[`Calendar > :props > :range 1`] = `
               >
                 12 月
               </span>
+              <!---->
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3083,6 +3090,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -3143,6 +3151,7 @@ exports[`Calendar > :props > :theme 1`] = `
               >
                 12 月
               </span>
+              <!---->
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
@@ -3951,6 +3960,7 @@ exports[`Calendar > :props > :value 1`] = `
                 2020 年
               </span>
               <!---->
+              <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
               >
@@ -4011,6 +4021,7 @@ exports[`Calendar > :props > :value 1`] = `
               >
                 12 月
               </span>
+              <!---->
               <!---->
               <span
                 class="t-input__suffix t-input__suffix-icon"
