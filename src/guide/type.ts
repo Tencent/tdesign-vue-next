@@ -173,6 +173,11 @@ export interface TdGuideStepProps {
    * @default ''
    */
   title?: string;
+  /**
+   * 提示框的层级
+   * @default 999999
+   */
+  zIndex?: number;
 }
 
 export type StepPopupPlacement =

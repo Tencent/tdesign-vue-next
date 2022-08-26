@@ -79,6 +79,11 @@ export default {
   steps: {
     type: Array as PropType<TdGuideProps['steps']>,
   },
+  /** 提示框的层级 */
+  zIndex: {
+    type: Number,
+    default: 999999,
+  },
   /** 当前步骤发生变化时触发 */
   onChange: Function as PropType<TdGuideProps['onChange']>,
   /** 点击下一步时触发 */

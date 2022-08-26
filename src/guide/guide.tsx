@@ -19,7 +19,7 @@ import Popup from '../popup';
 import Dialog from '../dialog';
 
 import { TdGuideProps, TdGuideStepProps, CrossProps, StepDialogPlacement } from './type';
-import { defalutCrossProps, tooltipZIndex } from './const';
+import { defalutCrossProps } from './const';
 
 import { GuidePopupStepContent, GuideStepHighlightContent } from './guide-step';
 
@@ -38,7 +38,7 @@ export default defineComponent({
     const LOCK_CLASS = usePrefixClass('guide--lock');
     const { SIZE } = useCommonClassName();
 
-    const { current, modelValue, hideCounter, hidePrev, hideSkip, steps } = toRefs(props);
+    const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
 
     const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
 
@@ -190,21 +190,27 @@ export default defineComponent({
 
     return () => {
       const renderOverlayLayer = () => (
-        <div ref={overlayLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__overlay`} />
+        <div
+          ref={overlayLayerRef}
+          v-transfer-dom="body"
+          class={`${COMPONENT_NAME.value}__overlay`}
+          style={{ zIndex: zIndex.value - 2 }}
+        />
       );
 
       const renderHighlightLayer = () => {
+        const style = { zIndex: zIndex.value - 1 };
         const highlightClass = `${COMPONENT_NAME.value}__highlight`;
         const showOverlay = getCurrentCrossProps('showOverlay');
         const classes = [highlightClass, `${highlightClass}--${showOverlay ? 'mask' : 'nomask'}`];
         const { highlightContent } = currentStepInfo.value;
 
         return highlightContent ? (
-          <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass}>
-            <GuideStepHighlightContent class={classes} highlightContent={highlightContent} />
+          <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass} style={style}>
+            <GuideStepHighlightContent class={classes} highlightContent={highlightContent} style={style} />
           </div>
         ) : (
-          <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} />
+          <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} style={style} />
         );
       };
 
@@ -326,7 +332,7 @@ export default defineComponent({
             visible={true}
             v-slots={{ content: renderBody }}
             show-arrow={!content}
-            zIndex={tooltipZIndex}
+            zIndex={zIndex.value}
             overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
             placement={currentStepInfo.value.placement}
           >
@@ -340,6 +346,7 @@ export default defineComponent({
       };
 
       const renderDialogGuide = () => {
+        const style = { zIndex: zIndex.value };
         const wrapperClasses = [
           `${COMPONENT_NAME.value}__wrapper`,
           { [`${COMPONENT_NAME.value}__wrapper--center`]: currentStepInfo.value.placement === 'center' },
@@ -354,7 +361,7 @@ export default defineComponent({
         ];
         return (
           <>
-            <div v-transfer-dom="body" class={wrapperClasses}>
+            <div v-transfer-dom="body" class={wrapperClasses} style={style}>
               <div ref={dialogTooltipRef} class={dialogClasses}>
                 {renderTooltipBody()}
                 <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
