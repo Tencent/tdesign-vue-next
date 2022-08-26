@@ -101,6 +101,7 @@ export default defineComponent({
     return () => {
       const prefixIcon = renderTNodeJSX('prefixIcon');
       let suffixIcon = renderTNodeJSX('suffixIcon');
+      let clearIcon = renderTNodeJSX('clearIcon');
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
       const limitNode =
@@ -130,7 +131,7 @@ export default defineComponent({
       }
 
       if (showClear.value) {
-        suffixIcon = (
+        clearIcon = (
           <CloseCircleFilledIcon
             ref={inputHandle.clearIconRef}
             class={`${COMPONENT_NAME.value}__suffix-clear`}
@@ -201,7 +202,7 @@ export default defineComponent({
               </span>
             )}
             {suffixContent}
-            {suffixIcon ? (
+            {clearIcon ? (
               <span
                 class={[
                   `${COMPONENT_NAME.value}__suffix`,
@@ -209,6 +210,11 @@ export default defineComponent({
                   { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
                 ]}
               >
+                {clearIcon}
+              </span>
+            ) : null}
+            {suffixIcon ? (
+              <span class={[`${COMPONENT_NAME.value}__suffix`, `${COMPONENT_NAME.value}__suffix-icon`]}>
                 {suffixIcon}
               </span>
             ) : null}
