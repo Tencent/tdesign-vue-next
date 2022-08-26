@@ -46,11 +46,6 @@ export default {
     type: Number,
     default: 0,
   },
-  /** 是否出现遮罩层 */
-  mask: {
-    type: Boolean,
-    default: true,
-  },
   /** 引导框的类型 */
   mode: {
     type: String as PropType<TdGuideProps['mode']>,
@@ -69,6 +64,11 @@ export default {
   prevButtonProps: {
     type: Object as PropType<TdGuideProps['prevButtonProps']>,
     default: { content: '上一步', theme: 'primary' } as TdGuideProps['skipButtonProps'],
+  },
+  /** 是否出现遮罩层 */
+  showOverlay: {
+    type: Boolean,
+    default: true,
   },
   /** 透传 跳过按钮 的全部属性 */
   skipButtonProps: {

@@ -1,7 +1,7 @@
 import { CrossProps } from '../type';
 
 export const defalutCrossProps: CrossProps = {
-  mask: true,
+  showOverlay: true,
   mode: 'popup',
 };
 

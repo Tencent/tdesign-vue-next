@@ -194,8 +194,8 @@ export default defineComponent({
 
       const renderHighlightLayer = () => {
         const highlightClass = `${COMPONENT_NAME.value}__highlight`;
-        const isMask = getCurrentCrossProps('mask');
-        const classes = [highlightClass, `${highlightClass}--${isMask ? 'mask' : 'nomask'}`];
+        const showOverlay = getCurrentCrossProps('showOverlay');
+        const classes = [highlightClass, `${highlightClass}--${showOverlay ? 'mask' : 'nomask'}`];
         return <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} />;
       };
 

@@ -56,6 +56,11 @@ export default {
   prevButtonProps: {
     type: Object as PropType<TdGuideStepProps['prevButtonProps']>,
   },
+  /** 是否出现遮罩层 */
+  showOverlay: {
+    type: Boolean,
+    default: true,
+  },
   /** 用于自定义当前步骤引导框的跳过按钮的内容 */
   skipButtonProps: {
     type: Object as PropType<TdGuideStepProps['skipButtonProps']>,

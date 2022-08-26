@@ -55,11 +55,6 @@ export interface TdGuideProps {
    */
   highlightPadding?: number;
   /**
-   * 是否出现遮罩层
-   * @default true
-   */
-  mask?: boolean;
-  /**
    * 引导框的类型
    * @default popup
    */
@@ -74,6 +69,11 @@ export interface TdGuideProps {
    * @default{ content: '上一步', theme: 'primary' }
    */
   prevButtonProps?: ButtonProps;
+  /**
+   * 是否出现遮罩层
+   * @default true
+   */
+  showOverlay?: boolean;
   /**
    * 透传 跳过按钮 的全部属性
    * @default { content: '跳过', theme: 'default' }
@@ -129,11 +129,6 @@ export interface TdGuideStepProps {
    */
   highlightPadding?: number;
   /**
-   * 是否出现遮罩层
-   * @default true
-   */
-  mask?: boolean;
-  /**
    * 当前步骤引导框的类型
    * @default popup
    */
@@ -155,6 +150,11 @@ export interface TdGuideStepProps {
    * 用于自定义当前引导框的上一步按钮的内容
    */
   prevButtonProps?: ButtonProps;
+  /**
+   * 是否出现遮罩层
+   * @default true
+   */
+  showOverlay?: boolean;
   /**
    * 用于自定义当前步骤引导框的跳过按钮的内容
    */
@@ -189,7 +189,7 @@ export type StepDialogPlacement = 'top' | 'center';
 
 export type CrossProps = Pick<
   TdGuideStepProps,
-  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'mask' | 'highlightPadding'
+  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'showOverlay' | 'highlightPadding'
 >;
 
 export type ScrollTo = {
