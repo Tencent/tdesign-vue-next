@@ -3,7 +3,12 @@
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #swiper="{ configProps }"
       ><div :style="{ width: '500px' }">
-        <t-swiper :duration="300" :interval="2000" v-bind="configProps">
+        <t-swiper
+          :duration="300"
+          :interval="2000"
+          v-bind="configProps"
+          :navigation="{ type: configProps.navigationType }"
+        >
           <t-swiper-item>
             <div :style="{ height: '200px', background: 'var(--td-success-color-7)' }" />
           </t-swiper-item>

@@ -9,7 +9,7 @@ import useCollapseAnimation from './useCollapseAnimation';
 export default defineComponent({
   name: 'TCollapsePanel',
   props,
-  setup(props: TdCollapsePanelProps, context) {
+  setup(props: TdCollapsePanelProps) {
     const renderTNodeJSX = useTNodeJSX();
     const componentName = usePrefixClass('collapse-panel');
     const disableClass = usePrefixClass('is-disabled');
@@ -25,7 +25,7 @@ export default defineComponent({
       expandIconPlacement,
       expandOnRowClick,
       expandIcon: expandIconAll,
-    } = inject('collapseProps');
+    } = inject<any>('collapseProps');
     const innerValue = value.value || getUniqId();
     const showExpandIcon = computed(() => (expandIcon.value === undefined ? expandIconAll.value : expandIcon.value));
     if (defaultExpandAll.value) {

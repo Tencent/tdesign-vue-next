@@ -1,6 +1,6 @@
 import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject, StyleValue } from 'vue';
 import props from './props';
-import { TextareaValue } from './type';
+import { TextareaValue, TdTextareaProps } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
@@ -26,7 +26,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
 
-  setup(props, { attrs, expose }) {
+  setup(props: TdTextareaProps, { attrs, expose }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
