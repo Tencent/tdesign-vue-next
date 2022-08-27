@@ -19,6 +19,7 @@ export default function useColumnResize(
     isDragging: false,
     draggingCol: null as HTMLElement,
     draggingStart: 0,
+    effectCol: null as 'next' | 'prev' | null,
   };
 
   const resizeLineStyle = reactive({
@@ -41,25 +42,41 @@ export default function useColumnResize(
     const targetBoundRect = target.getBoundingClientRect();
     if (!resizeLineParams.isDragging) {
       // 当离右边框的距离不超过 8 时，显示拖拽图标
-      if (!resizeLineParams.isDragging) {
-        const distance = 8;
-        if (targetBoundRect.right - e.pageX <= distance) {
+      const distance = 8;
+      if (targetBoundRect.right - e.pageX <= distance) {
+        target.style.cursor = 'col-resize';
+        resizeLineParams.draggingCol = target;
+        resizeLineParams.effectCol = 'next';
+      } else if (e.pageX - targetBoundRect.left <= distance) {
+        const prevEl = target.previousElementSibling;
+        if (prevEl) {
           target.style.cursor = 'col-resize';
-          resizeLineParams.draggingCol = target;
+          resizeLineParams.draggingCol = prevEl as HTMLElement;
+          resizeLineParams.effectCol = 'prev';
         } else {
           target.style.cursor = '';
           resizeLineParams.draggingCol = null;
+          resizeLineParams.effectCol = null;
         }
+      } else {
+        target.style.cursor = '';
+        resizeLineParams.draggingCol = null;
+        resizeLineParams.effectCol = null;
       }
     }
   };
 
   // 调整表格列宽
-  const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>, nearCol: BaseTableCol<TableRowData>) => {
+  const onColumnMousedown = (
+    e: MouseEvent,
+    col: BaseTableCol<TableRowData>,
+    effectNextCol: BaseTableCol<TableRowData>,
+    effectPrevCol: BaseTableCol<TableRowData>,
+  ) => {
     // 非 resize 的点击，不做处理
     if (!resizeLineParams.draggingCol) return;
 
-    const target = (e.target as HTMLElement).closest('th');
+    const target = resizeLineParams.draggingCol;
     const targetBoundRect = target.getBoundingClientRect();
     const tableBoundRect = tableContentRef.value?.getBoundingClientRect();
     const resizeLinePos = targetBoundRect.right - tableBoundRect.left;
@@ -108,13 +125,16 @@ export default function useColumnResize(
         // 结束拖拽，更新列宽
         const width = Math.ceil(parseInt(resizeLineStyle.left, 10) - colLeft) || 0;
         // 为了避免精度问题，导致 width 宽度超出 [minColWidth, maxColWidth] 的范围，需要对比目标宽度和最小/最大宽度
-        // eslint-disable-next-line
-        // col.width = `${Math.max(Math.min(width, maxColWidth), minColWidth)}px`;
-        setThWidthListByColumnDrag(col, width, nearCol);
+        if (resizeLineParams.effectCol === 'next') {
+          setThWidthListByColumnDrag(col, width, effectNextCol);
+        } else if (resizeLineParams.effectCol === 'prev') {
+          setThWidthListByColumnDrag(effectPrevCol, width, col);
+        }
 
         // 恢复设置
         resizeLineParams.isDragging = false;
         resizeLineParams.draggingCol = null;
+        resizeLineParams.effectCol = null;
         target.style.cursor = '';
         resizeLineStyle.display = 'none';
         resizeLineStyle.left = '0';
