@@ -7,16 +7,16 @@
 counter | Slot / Function | - | 用于自定义渲染计数部分。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 current | Number | - | 当前步骤，即整个引导的进度。。支持语法糖 `v-model` 或 `v-model:current` | N
 defaultCurrent | Number | - | 当前步骤，即整个引导的进度。。非受控属性 | N
-finishButtonProps | Object | { content: '完成', theme: 'primary' } | 透传 完成 的全部属性。TS 类型：`ButtonProps` | N
+finishButtonProps | Object | `{ content: '完成', theme: 'primary' }` | 透传 完成 的全部属性。TS 类型：`ButtonProps` | N
 hideCounter | Boolean | false | 是否隐藏计数 | N
 hidePrev | Boolean | false | 是否隐藏上一步按钮 | N
 hideSkip | Boolean | false | 是否隐藏跳过按钮 | N
 initialNum | Number | 0 | 起始序号 | N
 mask | Boolean | true | 是否出现遮罩层 | N
 mode | String | popup | 引导框的类型。可选项：popup/dialog | N
-nextButtonProps | Object | { content: '下一步', theme: 'primary' } | 透传 下一步按钮 的全部属性。TS 类型：`ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/guide/type.ts) | N
-prevButtonProps | Object | { content: '上一步', theme: 'primary' } | 透传 上一步按钮 的全部属性。TS 类型：`ButtonProps` | N
-skipButtonProps | Object | { content: '跳过', theme: 'default' } | 透传 跳过按钮 的全部属性。TS 类型：`ButtonProps` | N
+nextButtonProps | Object | `{ content: '下一步', theme: 'primary' }` | 透传 下一步按钮 的全部属性。TS 类型：`ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/guide/type.ts) | N
+prevButtonProps | Object | `{ content: '上一步', theme: 'primary' }` | 透传 上一步按钮 的全部属性。TS 类型：`ButtonProps` | N
+skipButtonProps | Object | `{ content: '跳过', theme: 'default' }` | 透传 跳过按钮 的全部属性。TS 类型：`ButtonProps` | N
 steps | Array | - | 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。。TS 类型：`Array<TdGuideStepProps>` | N
 onChange | Function |  | TS 类型：`(current: number, total: number, context?: { e?: MouseEvent }) => void`<br/>当前步骤发生变化时触发 | N
 onClickNextStep | Function |  | TS 类型：`( next: number, current: number, total: number, context?: { e?: MouseEvent }) => void`<br/>点击下一步时触发 | N
