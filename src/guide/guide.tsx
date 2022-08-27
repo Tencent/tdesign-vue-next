@@ -9,6 +9,7 @@ import scrollTo from './utils/scrollTo';
 
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
+import isFixed from './utils/isFixed';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
@@ -52,6 +53,8 @@ export default defineComponent({
     const currentHighlightLayerElm = ref<HTMLElement>();
     // 下一个高亮的元素
     const nextHighlightLayerElm = ref<HTMLElement>();
+    // dialog wrapper ref
+    const dialogWrapperRef = ref<HTMLElement>();
     // dialog ref
     const dialogTooltipRef = ref<HTMLElement>();
     // 是否开始展示
@@ -60,6 +63,8 @@ export default defineComponent({
     const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
+    // 当前元素位置状态
+    const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
 
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = <Key extends keyof CrossProps>(propsName: Key) =>
@@ -138,6 +143,7 @@ export default defineComponent({
       destoryDialogTooltipElm();
       highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
       overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
+      dialogWrapperRef.value?.parentNode.removeChild(dialogWrapperRef.value);
     };
 
     const handleSkip = (e: MouseEvent) => {
@@ -203,6 +209,7 @@ export default defineComponent({
         const highlightClass = [
           `${COMPONENT_NAME.value}__highlight`,
           `${COMPONENT_NAME.value}__highlight--${isPopup.value ? 'popup' : 'dialog'}`,
+          `${COMPONENT_NAME.value}--${currentElmIsFixed.value && isPopup.value ? 'fixed' : 'absolute'}`,
         ];
         const showOverlay = getCurrentCrossProps('showOverlay');
         const classes = [...highlightClass, `${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
@@ -231,16 +238,6 @@ export default defineComponent({
             )}
           </div>
         );
-        // const dialogDefaultCounter = (
-        //   <div class={`${COMPONENT_NAME.value}__counter`}>
-        //     {popupSlotCounter ||
-        //       props.steps.map((_, i) => (
-        //         <span
-        //           class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
-        //         ></span>
-        //       ))}
-        //   </div>
-        // );
         return <>{!hideCounter.value && popupDefaultCounter}</>;
       };
 
@@ -331,6 +328,11 @@ export default defineComponent({
           renderBody = renderPopupContent;
         }
 
+        const classes = [
+          `${COMPONENT_NAME.value}__reference`,
+          `${COMPONENT_NAME.value}--${currentElmIsFixed.value ? 'fixed' : 'absolute'}`,
+        ];
+
         return (
           <Popup
             visible={true}
@@ -340,7 +342,7 @@ export default defineComponent({
             overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
             placement={currentStepInfo.value.placement}
           >
-            <div ref={referenceLayerRef} v-transfer-dom="body" class={`${COMPONENT_NAME.value}__reference`} />
+            <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
           </Popup>
         );
       };
@@ -357,6 +359,7 @@ export default defineComponent({
         ];
         const dialogClasses = [
           `${COMPONENT_NAME.value}__reference`,
+          `${COMPONENT_NAME.value}--absolute`,
           `${COMPONENT_NAME.value}__dialog`,
           {
             [`${COMPONENT_NAME.value}__dialog--nomask`]: !getCurrentCrossProps('showOverlay'),
@@ -366,7 +369,7 @@ export default defineComponent({
         const footerClasses = [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--popup`];
         return (
           <>
-            <div v-transfer-dom="body" class={wrapperClasses} style={style}>
+            <div ref={dialogWrapperRef} v-transfer-dom="body" class={wrapperClasses} style={style}>
               <div ref={dialogTooltipRef} class={dialogClasses}>
                 {renderTooltipBody()}
                 <div class={footerClasses}>

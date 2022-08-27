@@ -27,6 +27,7 @@
       <t-guide
         v-model="current"
         :steps="steps"
+        :show-overlay="false"
         @change="handleChange"
         @click-prev-step="handelClickPrevStep"
         @click-next-step="handleClickNextStep"

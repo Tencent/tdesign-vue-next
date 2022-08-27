@@ -27,6 +27,7 @@
       <t-guide
         v-model="current"
         :steps="steps"
+        mode="dialog"
         @change="handleChange"
         @click-prev-step="handelClickPrevStep"
         @click-next-step="handleClickNextStep"

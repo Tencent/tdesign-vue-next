@@ -55,6 +55,7 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案',
     placement: 'bottom',
+    mode: 'dialog',
   },
   {
     element: '.action',
