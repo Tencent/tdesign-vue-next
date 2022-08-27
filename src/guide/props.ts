@@ -39,7 +39,7 @@ export default {
   /** 高亮框的 padding */
   highlightPadding: {
     type: Number,
-    default: 4,
+    default: 8,
   },
   /** 起始序号 */
   initialNum: {

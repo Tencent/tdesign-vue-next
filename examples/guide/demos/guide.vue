@@ -16,7 +16,7 @@
       @finish="handleFinish"
       @skip="handleSkip"
     >
-      <template #counter="{ total }"> {{ current }}/{{ total }} </template>
+      <!-- <template #counter="{ total }"> {{ current }}/{{ total }} </template> -->
     </t-guide>
   </div>
 </template>

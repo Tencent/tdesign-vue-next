@@ -13,13 +13,13 @@ export default function scrollTo(element: HTMLElement) {
   if (!elementInViewport(element)) {
     const winHeight = getWindowSize().height;
     const top = rect.bottom - (rect.bottom - rect.top);
+    window.scrollBy(0, rect.top - (winHeight / 2 - rect.height / 2));
 
-    if (top < 0 || element.clientHeight > winHeight) {
-      window.scrollBy(0, rect.top - (winHeight / 2 - rect.height / 2)); // 30px padding from edge to look nice
-
-      // Scroll down
-    } else {
-      window.scrollBy(0, rect.top - (winHeight / 2 - rect.height / 2)); // 30px padding from edge to look nice
-    }
+    // todo 先暂时保留这里的逻辑
+    // if (top < 0 || element.clientHeight > winHeight) {
+    //   window.scrollBy(0, rect.top - (winHeight / 2 - rect.height / 2));
+    // } else {
+    //   window.scrollBy(0, rect.top - (winHeight / 2 - rect.height / 2));
+    // }
   }
 }

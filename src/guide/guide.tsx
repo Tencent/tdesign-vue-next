@@ -85,10 +85,10 @@ export default defineComponent({
       }
       const highlightPadding = getCurrentCrossProps('highlightPadding');
       setStyle(highlighLayer, {
-        width: `${elementPosition.width + highlightPadding}px`,
-        height: `${elementPosition.height + highlightPadding}px`,
-        top: `${elementPosition.top - highlightPadding / 2}px`,
-        left: `${elementPosition.left - highlightPadding / 2}px`,
+        width: `${elementPosition.width + highlightPadding * 2}px`,
+        height: `${elementPosition.height + highlightPadding * 2}px`,
+        top: `${elementPosition.top - highlightPadding}px`,
+        left: `${elementPosition.left - highlightPadding}px`,
       });
     };
 
@@ -200,9 +200,12 @@ export default defineComponent({
 
       const renderHighlightLayer = () => {
         const style = { zIndex: zIndex.value - 1 };
-        const highlightClass = `${COMPONENT_NAME.value}__highlight`;
+        const highlightClass = [
+          `${COMPONENT_NAME.value}__highlight`,
+          `${COMPONENT_NAME.value}__highlight--${isPopup.value ? 'popup' : 'dialog'}`,
+        ];
         const showOverlay = getCurrentCrossProps('showOverlay');
-        const classes = [highlightClass, `${highlightClass}--${showOverlay ? 'mask' : 'nomask'}`];
+        const classes = [...highlightClass, `${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
         const { highlightContent } = currentStepInfo.value;
 
         return highlightContent ? (
@@ -228,17 +231,17 @@ export default defineComponent({
             )}
           </div>
         );
-        const dialogDefaultCounter = (
-          <div class={`${COMPONENT_NAME.value}__counter`}>
-            {popupSlotCounter ||
-              props.steps.map((_, i) => (
-                <span
-                  class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
-                ></span>
-              ))}
-          </div>
-        );
-        return <>{!hideCounter.value && (isPopup.value ? popupDefaultCounter : dialogDefaultCounter)}</>;
+        // const dialogDefaultCounter = (
+        //   <div class={`${COMPONENT_NAME.value}__counter`}>
+        //     {popupSlotCounter ||
+        //       props.steps.map((_, i) => (
+        //         <span
+        //           class={`${COMPONENT_NAME.value}__counter--${innerCurrent.value === i ? 'active' : 'default'}`}
+        //         ></span>
+        //       ))}
+        //   </div>
+        // );
+        return <>{!hideCounter.value && popupDefaultCounter}</>;
       };
 
       const renderAction = (mode: TdGuideProps['mode']) => {
@@ -303,8 +306,9 @@ export default defineComponent({
       };
 
       const renderPopupContent = () => {
+        const footerClasses = [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--popup`];
         const action = (
-          <div class={`${COMPONENT_NAME.value}__footer--popup`}>
+          <div class={footerClasses}>
             {renderCounter()}
             {renderAction('popup')}
           </div>
@@ -359,12 +363,13 @@ export default defineComponent({
             [currentStepInfo.value.stepOverlayClass]: !!currentStepInfo.value.stepOverlayClass,
           },
         ];
+        const footerClasses = [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--popup`];
         return (
           <>
             <div v-transfer-dom="body" class={wrapperClasses} style={style}>
               <div ref={dialogTooltipRef} class={dialogClasses}>
                 {renderTooltipBody()}
-                <div class={`${COMPONENT_NAME.value}__footer--dialog`}>
+                <div class={footerClasses}>
                   {renderCounter()}
                   {renderAction('dialog')}
                 </div>
