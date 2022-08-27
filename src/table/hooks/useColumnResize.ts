@@ -123,8 +123,14 @@ export default function useColumnResize(
     const onDragEnd = () => {
       if (resizeLineParams.isDragging) {
         // 结束拖拽，更新列宽
-        const width = Math.ceil(parseInt(resizeLineStyle.left, 10) - colLeft) || 0;
+        let width = Math.ceil(parseInt(resizeLineStyle.left, 10) - colLeft) || 0;
         // 为了避免精度问题，导致 width 宽度超出 [minColWidth, maxColWidth] 的范围，需要对比目标宽度和最小/最大宽度
+        if (width <= minColWidth) {
+          width = minColWidth;
+        } else if (width >= maxColWidth) {
+          width = maxColWidth;
+        }
+        // 更新列宽
         if (resizeLineParams.effectCol === 'next') {
           setThWidthListByColumnDrag(col, width, effectNextCol);
         } else if (resizeLineParams.effectCol === 'prev') {
