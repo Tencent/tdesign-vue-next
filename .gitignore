@@ -24,14 +24,8 @@ pnpm-lock.yaml
 
 *.zip
 .history
-script/test/cypress/screenshots
-script/test/cypress/videos
-script/test/cypress/results
-script/test/cypress/support
 results/
 yarn-error.log
-cypress
-cypress.json
 Dockerfile
 robotMsg.json
 .gitlogmap
