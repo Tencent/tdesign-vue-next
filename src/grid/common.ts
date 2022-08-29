@@ -36,7 +36,8 @@ export function getRowClasses(name: string, props: TdRowProps) {
     name,
     {
       [`${name}--${justify}`]: justify,
-      [`${name}--${align}`]: align,
+      // [`${name}--${align}`]: align,
+      [`${name}--align-${align}`]: align,
     },
   ];
 }
