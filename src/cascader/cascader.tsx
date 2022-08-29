@@ -117,6 +117,9 @@ export default defineComponent({
               e: context.e,
             });
           }}
+          onClear={() => {
+            closeIconClickEffect(cascaderContext.value);
+          }}
           v-slots={{
             panel: () => (
               <Panel

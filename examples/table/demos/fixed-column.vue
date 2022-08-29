@@ -108,7 +108,7 @@ const columns = computed(() => {
       title: '详情信息',
       width: 120,
       fixed: 'right',
-      // 允许自定义浮层 Popup 全部属性
+      // 允许自定义浮层 Tooltip 全部属性
       ellipsis: { placement: 'bottom-right' },
     },
   ];

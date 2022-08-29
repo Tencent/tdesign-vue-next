@@ -108,6 +108,8 @@ export default defineComponent({
             [SIZE.value[props.size]]: props.size !== 'medium',
             [STATUS.value.disabled]: disabled.value,
             [STATUS.value.focused]: focused.value,
+            [`${COMPONENT_NAME.value}--prefix`]: prefixIconContent || labelContent,
+            [`${COMPONENT_NAME.value}--suffix`]: suffixContent || suffixIconContent,
           },
         ]}
         onMouseenter={handleMouseEnter}
