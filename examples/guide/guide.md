@@ -5,8 +5,8 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 counter | Slot / Function | - | 用于自定义渲染计数部分。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-current | Number | - | 当前步骤，即整个引导的进度。。支持语法糖 `v-model` 或 `v-model:current` | N
-defaultCurrent | Number | - | 当前步骤，即整个引导的进度。。非受控属性 | N
+current | Number | - | 当前步骤，即整个引导的进度。支持语法糖 `v-model` 或 `v-model:current` | N
+defaultCurrent | Number | - | 当前步骤，即整个引导的进度。非受控属性 | N
 finishButtonProps | Object | `{ content: '完成', theme: 'primary' }` | 透传 完成 的全部属性。TS 类型：`ButtonProps` | N
 hideCounter | Boolean | false | 是否隐藏计数 | N
 hidePrev | Boolean | false | 是否隐藏上一步按钮 | N

@@ -1,21 +1,13 @@
-import getPropValue from './getPropValue';
+import getElmCssPropValue from './getElmCssPropValue';
 
-/**
- * Checks to see if target element (or parents) position is fixed or not
- *
- * @api private
- * @method _isFixed
- * @param {Object} element
- * @returns Boolean
- */
-export default function isFixed(element: any): Boolean {
-  const p = element.parentNode;
+export default function isFixed(element: HTMLElement): Boolean {
+  const p = element.parentNode as HTMLElement;
 
   if (!p || p.nodeName === 'HTML') {
     return false;
   }
 
-  if (getPropValue(element, 'position') === 'fixed') {
+  if (getElmCssPropValue(element, 'position') === 'fixed') {
     return true;
   }
 

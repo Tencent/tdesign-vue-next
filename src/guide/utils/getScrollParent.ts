@@ -1,9 +1,4 @@
-/**
- * Find the nearest scrollable parent
- * @param Element element
- * @return Element
- */
-export default function getScrollParent(element: any) {
+export function getScrollParent(element: HTMLElement) {
   let style = window.getComputedStyle(element);
   const excludeStaticParent = style.position === 'absolute';
   const overflowRegex = /(auto|scroll)/;
@@ -20,4 +15,10 @@ export default function getScrollParent(element: any) {
   }
 
   return document.body;
+}
+
+export function scrollToParentVisibleArea(element: HTMLElement) {
+  const parent = getScrollParent(element);
+  if (parent === document.body) return;
+  parent.scrollTop = element.offsetTop - parent.offsetTop;
 }

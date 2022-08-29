@@ -1,11 +1,4 @@
-/**
- * Sets the style of an DOM element
- *
- * @param {Object} element
- * @param {Object|string} style
- * @return null
- */
-export default function setStyle(element: any, style: any) {
+export default function setStyle(element: HTMLElement, style: Record<string, any> | string) {
   let cssText = '';
 
   if (element.style.cssText) {

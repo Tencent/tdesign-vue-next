@@ -1,46 +1,42 @@
-import { computed, defineComponent, h, nextTick, onMounted, ref, toRefs, watch } from 'vue';
+import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch } from 'vue';
 
 import props from './props';
-import setStyle from './utils/setStyle';
-import getScrollParent from './utils/getScrollParent';
-import getOffset from './utils/getOffset';
-import getTargetElm from './utils/getTargetElm';
-import scrollTo from './utils/scrollTo';
+
+import { TdGuideProps, CrossProps } from './type';
+import { defalutCrossProps } from './const';
+import {
+  setStyle,
+  scrollToParentVisibleArea,
+  getRelativePositon,
+  getTargetElm,
+  scrollTo,
+  isFixed,
+  getWindowScroll,
+  removeElm,
+} from './utils';
 
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import isFixed from './utils/isFixed';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
 
-import Button, { TdButtonProps } from '../button';
+import Button from '../button';
 import Popup from '../popup';
-import Dialog from '../dialog';
-
-import { TdGuideProps, TdGuideStepProps, CrossProps, StepDialogPlacement } from './type';
-import { defalutCrossProps } from './const';
 
 import { GuidePopupStepContent, GuideStepHighlightContent } from './guide-step';
 
 export default defineComponent({
   name: 'TGuide',
-  directives: {
-    TransferDom,
-  },
-  props: { ...props },
+  directives: { TransferDom },
+  props,
   setup(props) {
-    const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
-
-    const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
-    const { SIZE } = useCommonClassName();
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
-
     const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
 
     // 覆盖层，用于覆盖所有元素
@@ -63,45 +59,40 @@ export default defineComponent({
     const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
     const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
+    // 当前是否为 popup
+    const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
     // 当前元素位置状态
     const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
-
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = <Key extends keyof CrossProps>(propsName: Key) =>
       currentStepInfo.value[propsName] ?? props[propsName] ?? defalutCrossProps[propsName];
-    // 当前是否为 popup
-    const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
-    // 滑动到元素位置
-    const scrollParentToElement = (element: HTMLElement) => {
-      const parent = getScrollParent(element);
-      if (parent === document.body) return;
-      parent.scrollTop = element.offsetTop - parent.offsetTop;
-    };
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
-      const elementPosition = getOffset(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+      let { top, left } = getRelativePositon(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+      const { width, height } = nextHighlightLayerElm.value.getBoundingClientRect();
 
       if (!isPopup.value) {
-        const _scrollLeft = window.scrollX || window.pageXOffset || document.documentElement.scrollLeft;
-        const _scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-        elementPosition.left += _scrollLeft;
-        elementPosition.top += _scrollTop;
+        const { scrollTop, scrollLeft } = getWindowScroll();
+        top += scrollTop;
+        left += scrollLeft;
       }
+
       const highlightPadding = getCurrentCrossProps('highlightPadding');
       setStyle(highlighLayer, {
-        width: `${elementPosition.width + highlightPadding * 2}px`,
-        height: `${elementPosition.height + highlightPadding * 2}px`,
-        top: `${elementPosition.top - highlightPadding}px`,
-        left: `${elementPosition.left - highlightPadding}px`,
+        width: `${width + highlightPadding * 2}px`,
+        height: `${height + highlightPadding * 2}px`,
+        top: `${top - highlightPadding}px`,
+        left: `${left - highlightPadding}px`,
       });
     };
 
     const showPopupGuide = () => {
       const currentElement = getTargetElm(currentStepInfo.value.element);
       nextHighlightLayerElm.value = currentElement;
+
       nextTick(() => {
-        scrollParentToElement(nextHighlightLayerElm.value);
+        scrollToParentVisibleArea(nextHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value);
         scrollTo(nextHighlightLayerElm.value);
@@ -110,14 +101,14 @@ export default defineComponent({
     };
 
     const destoryTooltipElm = () => {
-      referenceLayerRef.value?.parentNode.removeChild(referenceLayerRef.value);
+      removeElm(referenceLayerRef.value);
     };
 
     const showDialogGuide = () => {
       nextTick(() => {
         const currentElement = dialogTooltipRef.value;
         nextHighlightLayerElm.value = currentElement;
-        scrollParentToElement(nextHighlightLayerElm.value);
+        scrollToParentVisibleArea(nextHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         scrollTo(nextHighlightLayerElm.value);
         currentHighlightLayerElm.value = currentElement;
@@ -125,7 +116,7 @@ export default defineComponent({
     };
 
     const destoryDialogTooltipElm = () => {
-      dialogTooltipRef.value?.parentNode.removeChild(dialogTooltipRef.value);
+      removeElm(dialogTooltipRef.value);
     };
 
     const showGuide = () => {
@@ -141,15 +132,15 @@ export default defineComponent({
     const destoryGuide = () => {
       destoryTooltipElm();
       destoryDialogTooltipElm();
-      highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
-      overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
-      dialogWrapperRef.value?.parentNode.removeChild(dialogWrapperRef.value);
+      removeElm(highlightLayerRef.value);
+      removeElm(overlayLayerRef.value);
+      removeElm(dialogWrapperRef.value);
+      removeClass(document.body, LOCK_CLASS.value);
     };
 
     const handleSkip = (e: MouseEvent) => {
       actived.value = false;
       setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      destoryGuide();
       props.onSkip?.(-1, stepsTotal.value, { e });
     };
 
@@ -166,32 +157,30 @@ export default defineComponent({
     const handleFinish = (e: MouseEvent) => {
       actived.value = false;
       setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      destoryGuide();
       props.onFinish?.(-1, stepsTotal.value - 1, { e });
     };
 
-    watch(innerCurrent, (val) => {
-      if (val >= 0 && val < steps.value.length) {
+    const initGuide = () => {
+      if (innerCurrent.value >= 0 && innerCurrent.value < steps.value.length) {
         if (!actived.value) {
           actived.value = true;
           addClass(document.body, LOCK_CLASS.value);
         }
         showGuide();
+      }
+    };
+
+    watch(innerCurrent, (val) => {
+      if (val >= 0 && val < steps.value.length) {
+        initGuide();
       } else {
         actived.value = false;
-        removeClass(document.body, LOCK_CLASS.value);
-        console.info('当前引导的步骤', val);
+        destoryGuide();
       }
     });
 
     onMounted(() => {
-      if (innerCurrent.value >= 0 && innerCurrent.value < stepsTotal.value) {
-        actived.value = true;
-        showGuide();
-      } else {
-        actived.value = false;
-        console.info('当前引导的步骤', innerCurrent.value);
-      }
+      initGuide();
     });
 
     return () => {
@@ -245,6 +234,7 @@ export default defineComponent({
         const isLast = innerCurrent.value === stepsTotal.value - 1;
         const isFirst = innerCurrent.value === 0;
         const buttonSize = mode === 'popup' ? 'small' : 'medium';
+
         return (
           <div class={`${COMPONENT_NAME.value}__action`}>
             {!hideSkip.value && !isLast && (
@@ -294,6 +284,7 @@ export default defineComponent({
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{currentStepInfo.value.description}</div>;
+
         return (
           <>
             {title}
@@ -319,7 +310,7 @@ export default defineComponent({
         );
       };
 
-      const renderReferenceLayer = () => {
+      const renderPopupGuide = () => {
         const { content } = currentStepInfo.value;
         let renderBody;
         if (content) {
@@ -345,10 +336,6 @@ export default defineComponent({
             <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
           </Popup>
         );
-      };
-
-      const renderPopupGuide = () => {
-        return <>{renderReferenceLayer()}</>;
       };
 
       const renderDialogGuide = () => {
