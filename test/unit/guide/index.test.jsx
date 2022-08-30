@@ -16,7 +16,9 @@ describe('Guide', () => {
   });
 
   // test events
-  describe('@event', () => {});
+  describe('@event', () => {
+    it('', () => {});
+  });
 
   // test slots
   describe('<slot>', () => {
