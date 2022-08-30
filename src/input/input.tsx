@@ -219,7 +219,7 @@ export default defineComponent({
                 class={[
                   `${COMPONENT_NAME.value}__suffix`,
                   `${COMPONENT_NAME.value}__suffix-icon`,
-                  { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
+                  `${COMPONENT_NAME.value}__clear`,
                 ]}
               >
                 {passwordIcon}
