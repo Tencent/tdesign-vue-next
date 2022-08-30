@@ -5,6 +5,30 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.3 `2022-08-30` 
+### 🚀 Features
+- `DatePicker`: 优化不设置 `valueType` 场景下与 `format` 一致 @HQ-Lin ([#1525](https://github.com/Tencent/tdesign-vue-next/pull/1525))
+- `Table`: 文本超出提示由 `Popup` 更为 `Tooltip`，以便于定制各种提示文本主题色 @PDieE ([#1497](https://github.com/Tencent/tdesign-vue-next/pull/1497))
+- `Swiper`: 增加 `dots` 和 `dots-bar` 样式 ([issue #1162](https://github.com/Tencent/tdesign-vue-next/issues/1162)) @LeoEatle ([#1498](https://github.com/Tencent/tdesign-vue-next/pull/1498))
+- `Grid`：align可选值新增 start/end/center等 @Micro-sun ([#1532](https://github.com/Tencent/tdesign-vue-next/pull/1532))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复了`editableCellState` 表现与预期相反的问题 @sechi747 ([#1489](https://github.com/Tencent/tdesign-vue-next/pull/1489))
+  - 允许在表头分割线一定范围内触发列宽调整逻辑 @ZTao-z ([#1522](https://github.com/Tencent/tdesign-vue-next/pull/1522))
+- `Cascader`:  
+  - 修复单选模式下 `clearIcon`无法删除 @Lmmmmmm-bb ([#1524](https://github.com/Tencent/tdesign-vue-next/pull/1524))
+  - 修复在输入时 `entry` 键会默认全选第一个选项的全部内容 ([issue #1529](https://github.com/Tencent/tdesign-vue-next/issues/1529)) @pengYYYYY ([#1534](https://github.com/Tencent/tdesign-vue-next/pull/1534))
+  - 修复通过 `SelectInputProps ` 透传方法属性导致传入 `SelectInput` 的数据变成的数组 ([issue #1502](https://github.com/Tencent/tdesign-vue-next/issues/1502)) @pengYYYYY ([#1534](https://github.com/Tencent/tdesign-vue-next/pull/1534))
+- `RangeInput`: 修正`RangeInput`右侧图标没有居中对齐的问题([issue #1506](https://github.com/Tencent/tdesign-vue-next/issues/1506)) @PDieE ([#1509](https://github.com/Tencent/tdesign-vue-next/pull/1509))
+- `DatePicker`: 修复了 `TExtraContent` 组件中的 `selectedValue Props` 定义不正确的问题 ([#1508 ](https://github.com/Tencent/tdesign-vue-next/issues/1508)) @sechi747 ([#1511](https://github.com/Tencent/tdesign-vue-next/pull/1511))
+- `Dialog`: 非模态对话框优化拖拽事件鼠标表现 ([#1452](https://github.com/Tencent/tdesign-vue-next/issues/1452)) @huoyuhao ([#1474](https://github.com/Tencent/tdesign-vue-next/pull/1474))
+
+- `Popup`: 修复 `overlayInnerStyle ` 未监听变化，增强 `container` 健壮性 ([issue #1442](https://github.com/Tencent/tdesign-vue-next/issues/1442)) @pengYYYYY ([#1534](https://github.com/Tencent/tdesign-vue-next/pull/1534))
+- `InputNumber`: 修复 `string` 与 `number` 比较错误及其导致的分页组件样式异常的问题 ([common#784](https://github.com/Tencent/tdesign-common/pull/784)) @uyarn ([#1537](https://github.com/Tencent/tdesign-vue-next/pull/1537))
+- `Popconfirm`: Popconfirm 样式优化 @zhangpaopao0609 ([#1519](https://github.com/Tencent/tdesign-vue-next/pull/1519))
+- `Input`: 修正 `clearable` 和 `password` 模式的预览按钮无法同时存在的问题 @PDieE ([#1518](https://github.com/Tencent/tdesign-vue-next/pull/1518))
+
 ## 🌈 0.20.2 `2022-08-23` 
 ### 🚀 Features
 - `Table`: 
