@@ -54,43 +54,8 @@ npm run test:snap
 npm run test:unit
 ```
 
-- test/unit目录中，创建对应的组件目录，用于存放测试文件
-- index.test.js 用于测试组件较细粒度的属性事件方法
-- demo.test.js 用于测试组件 demo 是否正常工作
+详情见 [TDesign 单元测试规范](https://github.com/Tencent/tdesign-vue-next/wiki/TDesign-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E8%A7%84%E8%8C%83)
 
-### 单元测试规范
-
-- 每个组件至少有两个单元测试文件，一个是测试源代码的单元测试文件 index.test.js，另一个则是测试组件示例代码的单元测试文件 demo.test.js
-- 用例书写请使用：[vue-test-utils](https://test-utils.vuejs.org/guide/)
-- 使用 [vitest](https://cn.vitest.dev/) 来编写单元测试
-
-#### 单元测试文件
-
-需要对组件的 props/event/slot/methods 分别覆盖测试。具体组织方式可以参考 button，简单的渲染测试可以直接使用 snapshot
-
-#### 测试调试
-
-可以指定 --testPathPattern 以跑特定的测试文件，例如只想看 button 的测试结果：
-
-```shell
-npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js
-```
-
-如果确认是预期的修改造成的 snapshot 变化，可以加上 -u 参数更新 snapshot:
-
-```shell
-npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js -u
-```
-
-可以浏览器打开根目录下的 test-report.html(git ignored) 查看测试报告
-
-## 4. 服务端渲染测试
-
-服务端渲染测试主要利用node环境下的测试快照，与已有jsdom环境快照进行对比
-
-```shell
-npm run test:node
-```
 
 ## 注意事项
 
