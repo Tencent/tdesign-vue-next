@@ -7,7 +7,7 @@
         row-key="index"
         :data="data"
         :columns="columns"
-        :maxHeight="140"
+        :max-height="140"
         :pagination="{ total: 30 }"
     /></template>
   </base-usage>

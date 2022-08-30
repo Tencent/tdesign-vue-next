@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #steps="{ configProps }"
-      ><t-steps :defaultCurrent="1" v-bind="configProps">
+      ><t-steps :default-current="1" v-bind="configProps">
         <t-step-item title="步骤1" content="提示文字" />
         <t-step-item title="步骤2" content="提示文字" />
         <t-step-item title="步骤3" content="提示文字" /> </t-steps
