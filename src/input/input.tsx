@@ -141,7 +141,7 @@ export default defineComponent({
               onMousedown={inputHandle.onClearIconMousedown}
             />
           );
-        } else if (renderType.value === 'text') {
+        } else {
           suffixIcon = (
             <CloseCircleFilledIcon
               ref={inputHandle.clearIconRef}
