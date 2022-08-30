@@ -207,7 +207,7 @@ export default defineComponent({
         const classes = [...highlightClass, `${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
         const { highlightContent } = currentStepInfo.value;
 
-        return highlightContent ? (
+        return highlightContent && isPopup.value ? (
           <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass} style={style}>
             <highlightContent class={classes} style={style} />
           </div>
