@@ -275,7 +275,7 @@ export default defineComponent({
     );
 
     watch(
-      () => [props.overlayStyle, overlayEl.value],
+      () => [props.overlayStyle, props.overlayInnerStyle, overlayEl.value],
       () => {
         updateOverlayInnerStyle();
         updatePopper();

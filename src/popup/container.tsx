@@ -48,6 +48,8 @@ function observeResize(elm: HTMLElement, cb: (rect: DOMRectReadOnly) => void) {
     }
   });
 
+  if (elm.nodeType !== 1) return;
+
   ro.observe(elm);
   return function () {
     ro.unobserve(elm);
@@ -79,7 +81,7 @@ const Trigger = defineComponent({
     });
   },
   unmounted() {
-    this.cleanOR();
+    this.cleanOR?.();
   },
   render() {
     const children = filterEmpty(this.$slots.default());
