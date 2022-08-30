@@ -115,6 +115,7 @@ export default defineComponent({
 
     const destoryDialogTooltipElm = () => {
       removeElm(dialogTooltipRef.value);
+      removeElm(dialogWrapperRef.value);
     };
 
     const showGuide = () => {
@@ -132,7 +133,6 @@ export default defineComponent({
       destoryDialogTooltipElm();
       removeElm(highlightLayerRef.value);
       removeElm(overlayLayerRef.value);
-      removeElm(dialogWrapperRef.value);
       removeClass(document.body, LOCK_CLASS.value);
     };
 
@@ -176,7 +176,6 @@ export default defineComponent({
         destoryGuide();
       }
     });
-    const aa = ref<HTMLElement>();
 
     onMounted(() => {
       initGuide();
