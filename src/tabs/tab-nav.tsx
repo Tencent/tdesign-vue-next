@@ -117,7 +117,7 @@ export default defineComponent({
         [`${COMPONENT_NAME.value}__nav-container`]: true,
         [`${COMPONENT_NAME.value}__nav--card`]: props.theme === 'card',
         [`${classPrefix.value}-is-${props.placement}`]: true,
-        [`${classPrefix.value}-is-addable`]: props.theme === 'card' && props.addable,
+        [`${classPrefix.value}-is-addable`]: props.addable,
       };
     });
     const navScrollContainerClass = computed(() => {
