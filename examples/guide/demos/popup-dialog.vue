@@ -1,5 +1,5 @@
 <template>
-  <t-row align="center">
+  <t-row justify="center">
     <t-button @click="handleClick">新手引导</t-button>
     <t-drawer v-model:visible="visible" header="演示新手引导" size="60%" :show-overlay="false" destroy-on-close>
       <template #footer>
