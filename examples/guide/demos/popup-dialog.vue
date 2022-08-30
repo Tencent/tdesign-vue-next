@@ -28,7 +28,7 @@
         v-model="current"
         :steps="steps"
         @change="handleChange"
-        @click-prev-step="handelClickPrevStep"
+        @click-prev-step="handleClickPrevStep"
         @click-next-step="handleClickNextStep"
         @finish="handleFinish"
         @skip="handleSkip"
@@ -76,7 +76,7 @@ const handleChange = (current, total, context) => {
   console.log(current, total, context);
 };
 
-const handelClickPrevStep = (prev, current, total, context) => {
+const handleClickPrevStep = (prev, current, total, context) => {
   console.log(prev, current, total, context);
 };
 

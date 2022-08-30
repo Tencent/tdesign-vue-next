@@ -1,6 +1,6 @@
 import { CrossProps } from '../type';
 
-export const defalutCrossProps: CrossProps = {
+export const defaultCrossProps: CrossProps = {
   showOverlay: true,
   mode: 'popup',
 };

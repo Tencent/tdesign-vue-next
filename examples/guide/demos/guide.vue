@@ -11,7 +11,7 @@
       :steps="steps"
       :finish-button-props="{ content: '自定义完成' }"
       @change="handleChange"
-      @click-prev-step="handelClickPrevStep"
+      @click-prev-step="handleClickPrevStep"
       @click-next-step="handleClickNextStep"
       @finish="handleFinish"
       @skip="handleSkip"
@@ -64,7 +64,7 @@ const handelStart = () => {
 const handleChange = (current, total, context) => {
   console.log(current, total, context);
 };
-const handelClickPrevStep = (prev, current, total, context) => {
+const handleClickPrevStep = (prev, current, total, context) => {
   console.log(prev, current, total, context);
 };
 

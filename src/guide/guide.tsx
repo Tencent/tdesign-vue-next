@@ -3,11 +3,11 @@ import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch } fr
 import props from './props';
 
 import { TdGuideProps, CrossProps } from './type';
-import { defalutCrossProps } from './const';
+import { defaultCrossProps } from './const';
 import {
   setStyle,
   scrollToParentVisibleArea,
-  getRelativePositon,
+  getRelativePosition,
   getTargetElm,
   scrollTo,
   isFixed,
@@ -63,11 +63,11 @@ export default defineComponent({
     const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = <Key extends keyof CrossProps>(propsName: Key) =>
-      currentStepInfo.value[propsName] ?? props[propsName] ?? defalutCrossProps[propsName];
+      currentStepInfo.value[propsName] ?? props[propsName] ?? defaultCrossProps[propsName];
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
-      let { top, left } = getRelativePositon(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
+      let { top, left } = getRelativePosition(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
       const { width, height } = nextHighlightLayerElm.value.getBoundingClientRect();
 
       if (!isPopup.value) {
@@ -98,7 +98,7 @@ export default defineComponent({
       });
     };
 
-    const destoryTooltipElm = () => {
+    const destroyTooltipElm = () => {
       removeElm(referenceLayerRef.value);
     };
 
@@ -113,24 +113,24 @@ export default defineComponent({
       });
     };
 
-    const destoryDialogTooltipElm = () => {
+    const destroyDialogTooltipElm = () => {
       removeElm(dialogTooltipRef.value);
       removeElm(dialogWrapperRef.value);
     };
 
     const showGuide = () => {
       if (isPopup.value) {
-        destoryDialogTooltipElm();
+        destroyDialogTooltipElm();
         showPopupGuide();
       } else {
-        destoryTooltipElm();
+        destroyTooltipElm();
         showDialogGuide();
       }
     };
 
-    const destoryGuide = () => {
-      destoryTooltipElm();
-      destoryDialogTooltipElm();
+    const destroyGuide = () => {
+      destroyTooltipElm();
+      destroyDialogTooltipElm();
       removeElm(highlightLayerRef.value);
       removeElm(overlayLayerRef.value);
       removeClass(document.body, LOCK_CLASS.value);
@@ -173,7 +173,7 @@ export default defineComponent({
         initGuide();
       } else {
         actived.value = false;
-        destoryGuide();
+        destroyGuide();
       }
     });
 
