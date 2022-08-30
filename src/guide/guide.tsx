@@ -68,20 +68,25 @@ export default defineComponent({
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
       let { top, left } = getRelativePosition(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
-      const { width, height } = nextHighlightLayerElm.value.getBoundingClientRect();
+      let { width, height } = nextHighlightLayerElm.value.getBoundingClientRect();
+      const highlightPadding = getCurrentCrossProps('highlightPadding');
 
-      if (!isPopup.value) {
+      if (isPopup.value) {
+        width += highlightPadding * 2;
+        height += highlightPadding * 2;
+        top -= highlightPadding;
+        left -= highlightPadding;
+      } else {
         const { scrollTop, scrollLeft } = getWindowScroll();
         top += scrollTop;
         left += scrollLeft;
       }
 
-      const highlightPadding = getCurrentCrossProps('highlightPadding');
       setStyle(highlighLayer, {
-        width: `${width + highlightPadding * 2}px`,
-        height: `${height + highlightPadding * 2}px`,
-        top: `${top - highlightPadding}px`,
-        left: `${left - highlightPadding}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+        top: `${top}px`,
+        left: `${left}px`,
       });
     };
 
