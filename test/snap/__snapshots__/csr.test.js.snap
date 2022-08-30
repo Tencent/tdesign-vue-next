@@ -58879,7 +58879,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/valign.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/guide/demos/base.vue 1`] = `
 <div
-  class="t-row t-row--center t-row--top"
+  class="t-row t-row--center t-row--align-top"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -58955,6 +58955,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/base.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -58983,12 +58984,13 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/base.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
           </div>
           <div
-            class="t-row t-row--start t-row--top action"
+            class="t-row t-row--start t-row--align-top action"
             style="margin-left: 0px; margin-right: 0px;"
           >
             
@@ -59051,7 +59053,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/guide/demos/custom-popup.vue 1`] = `
 <div
-  class="t-row t-row--center t-row--top"
+  class="t-row t-row--center t-row--align-top"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -59127,6 +59129,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/custom-popup.vue 1`
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -59155,12 +59158,13 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/custom-popup.vue 1`
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
           </div>
           <div
-            class="t-row t-row--start t-row--top action"
+            class="t-row t-row--start t-row--align-top action"
             style="margin-left: 0px; margin-right: 0px;"
           >
             
@@ -59223,7 +59227,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/custom-popup.vue 1`
 
 exports[`csr snapshot test > csr test ./examples/guide/demos/dialog.vue 1`] = `
 <div
-  class="t-row t-row--center t-row--top"
+  class="t-row t-row--center t-row--align-top"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -59299,6 +59303,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/dialog.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -59327,12 +59332,13 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/dialog.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
           </div>
           <div
-            class="t-row t-row--start t-row--top action"
+            class="t-row t-row--start t-row--align-top action"
             style="margin-left: 0px; margin-right: 0px;"
           >
             
@@ -59526,7 +59532,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/my-popup.vue 1`] = 
 
 exports[`csr snapshot test > csr test ./examples/guide/demos/no-mask.vue 1`] = `
 <div
-  class="t-row t-row--center t-row--top"
+  class="t-row t-row--center t-row--align-top"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -59602,6 +59608,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/no-mask.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -59630,12 +59637,13 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/no-mask.vue 1`] = `
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
           </div>
           <div
-            class="t-row t-row--start t-row--top action"
+            class="t-row t-row--start t-row--align-top action"
             style="margin-left: 0px; margin-right: 0px;"
           >
             
@@ -59698,7 +59706,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/no-mask.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./examples/guide/demos/popup-dialog.vue 1`] = `
 <div
-  class="t-row t-row--center t-row--top"
+  class="t-row t-row--center t-row--align-top"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -59774,6 +59782,7 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/popup-dialog.vue 1`
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
@@ -59802,12 +59811,13 @@ exports[`csr snapshot test > csr test ./examples/guide/demos/popup-dialog.vue 1`
                 <!---->
                 <!---->
                 <!---->
+                <!---->
               </div>
               <!---->
             </div>
           </div>
           <div
-            class="t-row t-row--start t-row--top action"
+            class="t-row t-row--start t-row--align-top action"
             style="margin-left: 0px; margin-right: 0px;"
           >
             
