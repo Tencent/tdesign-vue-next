@@ -20,7 +20,7 @@ description: TDesign 适配桌面端的组件库，适合在 vue3.x 技术栈项
 npm i tdesign-vue-next
 ```
 
-#### 浏览器引入
+#### 通过 浏览器引入 安装
 
 目前可以通过 [unpkg.com/tdesign-vue-next](https://unpkg.com/tdesign-vue-next) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
 
@@ -37,9 +37,9 @@ npm i tdesign-vue-next
 
 npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
 
-### 基础使用
+### 使用
 
-推荐使用 Webpack 或 Rollup 等支持 tree-shaking 特性的构建工具，无需额外配置即可实现组件按需引入：
+#### 基础使用
 
 ```js
 import { createApp } from 'vue';
@@ -55,21 +55,25 @@ app.use(TDesign);
 
 npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
 
-#### reset 样式
+#### 按需引入使用
 
-`0.17.0` 版本开始我们不再引入 `reset.less`，影响最大的是移除了原先全局盒子模型的设定：
+对产物大小有要求的场景，可以按需引入组件， 借助 Webpack 或 Rollup 等支持 tree-shaking 特性的构建工具达到按需引入的使用效果。
 
-```css
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+```js
+import { createApp } from 'vue';
+import { Button as TButton } from 'tdesign-vue-next';
+import App from './app.vue';
+
+// 引入组件库全局样式资源
+import 'tdesign-vue-next/es/style/index.css';
+
+const app = createApp(App);
+app.use(TButton);
 ```
 
-### 按需引用
+#### 通过插件按需引用
 
-推荐使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
+除此之外，也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
 
 ```bash
 npm install -D unplugin-vue-components unplugin-auto-import
@@ -77,7 +81,7 @@ npm install -D unplugin-vue-components unplugin-auto-import
 
 然后在 Webpack 或 Vite 对应的配置文件添加上述插件。
 
-#### Vite
+##### Vite
 
 ```js
 import AutoImport from 'unplugin-auto-import/vite';
@@ -100,7 +104,7 @@ export default {
 };
 ```
 
-#### Webpack
+##### Webpack
 
 ```js
 const AutoImport = require('unplugin-auto-import/webpack');
@@ -137,3 +141,31 @@ module.exports = {
 
 
 详情参见[桌面端组件库浏览器兼容性说明](https://github.com/Tencent/tdesign/wiki/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AF%B4%E6%98%8E)
+
+### FAQ
+
+Q: 是否内置reset样式统一页面元素的默认样式 ？
+
+A: `0.17.0` 版本开始我们不再引入 `reset.less`，影响最大的是移除了原先全局盒子模型的设定：
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+如果你的项目开发依赖于原先的 `reset` 样式，可以从 `dist` 目录中单独引入它：
+
+```js
+import 'tdesign-vue/dist/reset.css';
+```
