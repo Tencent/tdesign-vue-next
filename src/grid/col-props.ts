@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdColProps } from '../grid/type';
@@ -36,7 +35,7 @@ export default {
     type: Number,
     default: 0,
   },
-  /** 栅格向左移动格数 */
+  /** 栅格向右移动格数 */
   push: {
     type: Number,
     default: 0,

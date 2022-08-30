@@ -101,7 +101,7 @@ export default defineComponent({
     return () => {
       const prefixIcon = renderTNodeJSX('prefixIcon');
       let suffixIcon = renderTNodeJSX('suffixIcon');
-      let clearIcon = renderTNodeJSX('clearIcon');
+      let passwordIcon = renderTNodeJSX('passwordIcon');
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
       const limitNode =
@@ -131,14 +131,26 @@ export default defineComponent({
       }
 
       if (showClear.value) {
-        clearIcon = (
-          <CloseCircleFilledIcon
-            ref={inputHandle.clearIconRef}
-            class={`${COMPONENT_NAME.value}__suffix-clear`}
-            onClick={inputHandle.emitClear}
-            onMousedown={inputHandle.onClearIconMousedown}
-          />
-        );
+        // 如果类型为 password 则使用 passwordIcon 显示 clear
+        if (props.type === 'password') {
+          passwordIcon = (
+            <CloseCircleFilledIcon
+              ref={inputHandle.clearIconRef}
+              class={`${COMPONENT_NAME.value}__suffix-clear`}
+              onClick={inputHandle.emitClear}
+              onMousedown={inputHandle.onClearIconMousedown}
+            />
+          );
+        } else {
+          suffixIcon = (
+            <CloseCircleFilledIcon
+              ref={inputHandle.clearIconRef}
+              class={`${COMPONENT_NAME.value}__suffix-clear`}
+              onClick={inputHandle.emitClear}
+              onMousedown={inputHandle.onClearIconMousedown}
+            />
+          );
+        }
       }
 
       const classes = [
@@ -202,7 +214,18 @@ export default defineComponent({
               </span>
             )}
             {suffixContent}
-            {clearIcon ? (
+            {passwordIcon ? (
+              <span
+                class={[
+                  `${COMPONENT_NAME.value}__suffix`,
+                  `${COMPONENT_NAME.value}__suffix-icon`,
+                  `${COMPONENT_NAME.value}__clear`,
+                ]}
+              >
+                {passwordIcon}
+              </span>
+            ) : null}
+            {suffixIcon ? (
               <span
                 class={[
                   `${COMPONENT_NAME.value}__suffix`,
@@ -210,11 +233,6 @@ export default defineComponent({
                   { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
                 ]}
               >
-                {clearIcon}
-              </span>
-            ) : null}
-            {suffixIcon ? (
-              <span class={[`${COMPONENT_NAME.value}__suffix`, `${COMPONENT_NAME.value}__suffix-icon`]}>
                 {suffixIcon}
               </span>
             ) : null}

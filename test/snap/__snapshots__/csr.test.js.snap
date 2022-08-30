@@ -22163,7 +22163,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer.vue 1`] = `
     >
       
       <div
-        class="t-row t-row--center t-row--middle"
+        class="t-row t-row--center t-row--align-middle"
         style="margin-left: 0px; margin-right: 0px;"
       >
         
@@ -22318,7 +22318,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/footer-actions.vue 1
       >
         
         <div
-          class="t-row t-row--center t-row--middle"
+          class="t-row t-row--center t-row--align-middle"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23109,7 +23109,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-footer-action
     >
       
       <div
-        class="t-row t-row--center t-row--middle"
+        class="t-row t-row--center t-row--align-middle"
         style="margin-left: 0px; margin-right: 0px;"
       >
         
@@ -23365,7 +23365,7 @@ exports[`csr snapshot test > csr test ./examples/card/demos/header-subtitle-foot
     >
       
       <div
-        class="t-row t-row--center t-row--middle"
+        class="t-row t-row--center t-row--align-middle"
         style="margin-left: 0px; margin-right: 0px;"
       >
         
@@ -57386,7 +57386,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
 >
   
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57515,7 +57515,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57584,7 +57584,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57633,7 +57633,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57672,7 +57672,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57701,7 +57701,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/base.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57728,7 +57728,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/flex.vue 1`] = `
   class="tdesign-demo-item--grid"
 >
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57755,7 +57755,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/flex.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57782,7 +57782,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/flex.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57809,7 +57809,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/flex.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -57849,7 +57849,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/gutter.vue 1`] = `
     水平 gutter 为固定值
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: -8px; margin-right: -8px;"
   >
     
@@ -57900,7 +57900,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/gutter.vue 1`] = `
     水平 gutter 为响应式
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: -12px; margin-right: -12px;"
   >
     
@@ -57951,7 +57951,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/gutter.vue 1`] = `
     水平和垂直 gutter 均为固定值
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
   >
     
@@ -58044,7 +58044,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/gutter.vue 1`] = `
     水平 gutter 响应式，垂直 gutter 固定值
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="row-gap: 24px; margin-left: -12px; margin-right: -12px;"
   >
     
@@ -58137,7 +58137,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/gutter.vue 1`] = `
     水平和垂直 gutter 均为响应式
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: -12px; margin-right: -12px; row-gap: 24px;"
   >
     
@@ -58236,7 +58236,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/halign.vue 1`] = `
     align left
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58286,7 +58286,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/halign.vue 1`] = `
     align center
   </span>
   <div
-    class="t-row t-row--center t-row--top"
+    class="t-row t-row--center t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58336,7 +58336,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/halign.vue 1`] = `
     align right
   </span>
   <div
-    class="t-row t-row--end t-row--top"
+    class="t-row t-row--end t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58386,7 +58386,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/halign.vue 1`] = `
     space-between
   </span>
   <div
-    class="t-row t-row--space-between t-row--top"
+    class="t-row t-row--space-between t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58436,7 +58436,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/halign.vue 1`] = `
     space-around
   </span>
   <div
-    class="t-row t-row--space-around t-row--top"
+    class="t-row t-row--space-around t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58490,7 +58490,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/offset.vue 1`] = `
   class="tdesign-demo-block-column"
 >
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58517,7 +58517,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/offset.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58544,7 +58544,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/offset.vue 1`] = `
     
   </div>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58568,7 +58568,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/order.vue 1`] = `
   class="tdesign-demo-block-column"
 >
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58625,7 +58625,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/responsive.vue 1`] =
     宽度响应式
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58655,7 +58655,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/responsive.vue 1`] =
     其他属性响应式（支持span，offset，order，pull，push）
   </span>
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58679,7 +58679,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/sort.vue 1`] = `
   class="tdesign-demo-block-column"
 >
   <div
-    class="t-row t-row--start t-row--top"
+    class="t-row t-row--start t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58716,7 +58716,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/valign.vue 1`] = `
     align top
   </p>
   <div
-    class="t-row t-row--center t-row--top"
+    class="t-row t-row--center t-row--align-top"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58770,7 +58770,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/valign.vue 1`] = `
     align middle
   </p>
   <div
-    class="t-row t-row--space-around t-row--middle"
+    class="t-row t-row--space-around t-row--align-middle"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -58824,7 +58824,7 @@ exports[`csr snapshot test > csr test ./examples/grid/demos/valign.vue 1`] = `
     align bottom
   </p>
   <div
-    class="t-row t-row--space-between t-row--bottom"
+    class="t-row t-row--space-between t-row--align-bottom"
     style="margin-left: 0px; margin-right: 0px;"
   >
     
@@ -90820,7 +90820,7 @@ exports[`csr snapshot test > csr test ./examples/skeleton/demos/advance.vue 1`] 
 
 exports[`csr snapshot test > csr test ./examples/skeleton/demos/animation.vue 1`] = `
 <div
-  class="t-row t-row--start t-row--top t-skeleton-demo"
+  class="t-row t-row--start t-row--align-top t-skeleton-demo"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
@@ -91102,7 +91102,7 @@ exports[`csr snapshot test > csr test ./examples/skeleton/demos/delay.vue 1`] = 
 
 exports[`csr snapshot test > csr test ./examples/skeleton/demos/theme.vue 1`] = `
 <div
-  class="t-row t-row--start t-row--top t-skeleton-demo"
+  class="t-row t-row--start t-row--align-top t-skeleton-demo"
   style="margin-left: 0px; margin-right: 0px;"
 >
   
