@@ -1,6 +1,6 @@
 <template>
   <div class="guide-wrap-demo">
-    <t-button @click="handelStart">新手引导</t-button>
+    <t-button @click="handleStart">新手引导</t-button>
     <div id="guide1" class="guide-item">guide1</div>
     <div id="guide2" class="guide-item">guide2</div>
     <div id="guide3" class="guide-item">guide3</div>
@@ -57,7 +57,7 @@ const steps = [
 
 const current = ref(-1);
 
-const handelStart = () => {
+const handleStart = () => {
   current.value = 0;
 };
 
