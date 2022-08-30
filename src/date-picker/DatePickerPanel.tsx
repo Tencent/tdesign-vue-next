@@ -196,6 +196,7 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      panelClick: props.onPanelClick,
       onCellClick,
       onJumperClick,
       onConfirmClick,
