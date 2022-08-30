@@ -132,7 +132,7 @@ export default defineComponent({
 
       if (showClear.value) {
         // 如果类型为 password 则使用 passwordIcon 显示 clear
-        if (renderType.value === 'password') {
+        if (props.type === 'password') {
           passwordIcon = (
             <CloseCircleFilledIcon
               ref={inputHandle.clearIconRef}
