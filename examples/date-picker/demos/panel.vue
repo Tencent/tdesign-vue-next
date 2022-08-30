@@ -1,24 +1,28 @@
 <template>
   <t-space direction="vertical">
     <div class="date-picker-panel-border">
-      <t-date-picker-panel :on-change="handleChange" />
+      <t-date-picker-panel :on-cell-click="handleCellClick" :on-change="handleChange" />
     </div>
     <div class="date-picker-panel-border">
-      <t-date-picker-panel enable-time-picker :on-change="handleChange" />
+      <t-date-picker-panel enable-time-picker :on-cell-click="handleCellClick" :on-change="handleChange" />
     </div>
 
     <div class="date-picker-panel-border">
-      <t-date-range-picker-panel :on-change="handleChange" />
+      <t-date-range-picker-panel :on-cell-click="handleCellClick" :on-change="handleChange" />
     </div>
     <div class="date-picker-panel-border">
-      <t-date-range-picker-panel enable-time-picker :on-change="handleChange" />
+      <t-date-range-picker-panel enable-time-picker :on-cell-click="handleCellClick" :on-change="handleChange" />
     </div>
   </t-space>
 </template>
 
 <script setup>
 function handleChange(value) {
-  console.log('value', value);
+  console.log('onChange value', value);
+}
+
+function handleCellClick(value) {
+  console.log('onCellClick value', value);
 }
 </script>
 <style>
