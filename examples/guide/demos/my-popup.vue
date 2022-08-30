@@ -3,14 +3,25 @@
     <ArrowUpIcon class="pop-icon" />
     <p class="popup-desc">自定义的图形或说明文案，用来解释或指导该功能使用。</p>
     <div class="popup-action">
-      <t-button class="action-skip" theme="default" size="small"> 跳过 </t-button>
-      <t-button theme="primary" size="small"> 下一步 </t-button>
+      <t-button theme="default" size="small" @click="handleSkip"> 跳过 </t-button>
+      <t-button v-if="current !== 0" theme="primary" size="small" @click="handlePrev"> 上一步 </t-button>
+      <t-button v-if="current + 1 < total" theme="primary" size="small" @click="handleNext"> 下一步 </t-button>
+      <t-button v-if="current + 1 === total" theme="primary" size="small" @click="handleFinish"> 完成 </t-button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ArrowUpIcon } from 'tdesign-icons-vue-next';
+
+defineProps({
+  handlePrev: Function,
+  handleNext: Function,
+  handleSkip: Function,
+  handleFinish: Function,
+  current: Number,
+  total: Number,
+});
 </script>
 
 <style>
@@ -39,7 +50,7 @@ import { ArrowUpIcon } from 'tdesign-icons-vue-next';
   text-align: right;
 }
 
-.action-skip {
-  margin-right: 8px;
+.popup-action button {
+  margin-left: 8px;
 }
 </style>

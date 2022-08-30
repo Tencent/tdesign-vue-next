@@ -10,11 +10,11 @@
           <div class="title-major">Guide 用户引导</div>
           <div class="title-sub">按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。</div>
         </div>
-        <div class="field label-field">
+        <div class="field label-field-1">
           <div class="label">Label</div>
           <t-input placeholder="请输入内容" />
         </div>
-        <div class="field">
+        <div class="field label-field-2">
           <div class="label">Label</div>
           <t-input placeholder="请输入内容" />
         </div>
@@ -50,21 +50,21 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案',
     placement: 'bottom-right',
-    content: (h) => h(MyPopup),
+    content: MyPopup,
   },
   {
-    element: '.label-field',
+    element: '.label-field-1',
     title: '新手引导标题',
     description: '新手引导的说明文案',
     placement: 'bottom',
-    content: (h) => h(MyPopup),
+    content: MyPopup,
   },
   {
-    element: '.action',
+    element: '.label-field-2',
     title: '新手引导标题',
-    description: '新手引导的说明方案',
-    placement: 'right',
-    content: (h) => h(MyPopup),
+    description: '新手引导的说明文案',
+    placement: 'bottom-left',
+    content: MyPopup,
   },
 ];
 

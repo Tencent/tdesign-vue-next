@@ -25,8 +25,6 @@ import { usePrefixClass } from '../hooks/useConfig';
 import Button from '../button';
 import Popup from '../popup';
 
-import { GuidePopupStepContent, GuideStepHighlightContent } from './guide-step';
-
 export default defineComponent({
   name: 'TGuide',
   directives: { TransferDom },
@@ -178,6 +176,7 @@ export default defineComponent({
         destoryGuide();
       }
     });
+    const aa = ref<HTMLElement>();
 
     onMounted(() => {
       initGuide();
@@ -206,7 +205,7 @@ export default defineComponent({
 
         return highlightContent ? (
           <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass} style={style}>
-            <GuideStepHighlightContent class={classes} highlightContent={highlightContent} style={style} />
+            <highlightContent class={classes} style={style} />
           </div>
         ) : (
           <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} style={style} />
@@ -314,7 +313,15 @@ export default defineComponent({
         const { content } = currentStepInfo.value;
         let renderBody;
         if (content) {
-          renderBody = () => <GuidePopupStepContent content={content} />;
+          const contentProps = {
+            handlePrev,
+            handleNext,
+            handleSkip,
+            handleFinish,
+            current: innerCurrent.value,
+            total: stepsTotal.value,
+          };
+          renderBody = () => <content {...contentProps} />;
         } else {
           renderBody = renderPopupContent;
         }
@@ -330,7 +337,8 @@ export default defineComponent({
             v-slots={{ content: renderBody }}
             show-arrow={!content}
             zIndex={zIndex.value}
-            overlayInnerClassName={currentStepInfo.value.stepOverlayClass}
+            overlayClassName={currentStepInfo.value.stepOverlayClass}
+            overlayInnerClassName={{ [`${COMPONENT_NAME.value}__popup--content`]: !!content }}
             placement={currentStepInfo.value.placement}
           >
             <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />

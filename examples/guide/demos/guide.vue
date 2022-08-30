@@ -38,7 +38,7 @@ const steps = [
     title: '新手引导标题',
     description: '新手引导的说明文案。',
     prevButtonProps: { content: '自定义上一步', theme: 'success' },
-    highlightContent: (h) => h(HighlightContent),
+    highlightContent: HighlightContent,
   },
   {
     element: '#guide3',
