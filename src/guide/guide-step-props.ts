@@ -8,38 +8,34 @@ import { TdGuideStepProps } from '../guide/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 当前步骤提示框的内容 */
+  body: {
+    type: [String, Function] as PropType<TdGuideStepProps['body']>,
+  },
   /** 自定义内容，同 content */
   children: {
     type: [String, Function] as PropType<TdGuideStepProps['children']>,
   },
   /** 用户自定义引导弹框的内容，一旦存在，此时除 `placement`、`offset`和`element` 外，其它属性全部失效） */
   content: {
-    type: [String, Function] as PropType<TdGuideStepProps['content']>,
-  },
-  /** 当前步骤的描述内容 */
-  description: {
-    type: String,
-    default: '',
+    type: Function as PropType<TdGuideStepProps['content']>,
   },
   /** 高亮的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'#tdesign' 或 () => document.querySelector('#tdesign') */
   element: {
     type: [String, Function] as PropType<TdGuideStepProps['element']>,
     required: true,
   },
-  /**
-   * 用户定义高亮框(仅当 mode 为 popup 时生效)
-   */
+  /** 用户自定义的高亮框 (仅当 `mode` 为 `popup` 时生效) */
   highlightContent: {
-    type: [String, Function] as PropType<TdGuideStepProps['highlightContent']>,
+    type: Function as PropType<TdGuideStepProps['highlightContent']>,
   },
-  /** 高亮框的 padding */
+  /** 高亮框的内边距 */
   highlightPadding: {
     type: Number,
   },
-  /** 当期步骤引导框的类型 */
+  /** 引导框的类型 */
   mode: {
     type: String as PropType<TdGuideStepProps['mode']>,
-    default: 'popup' as TdGuideStepProps['mode'],
     validator(val: TdGuideStepProps['mode']): boolean {
       if (!val) return true;
       return ['popup', 'dialog'].includes(val);

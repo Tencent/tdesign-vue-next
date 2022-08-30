@@ -2,8 +2,8 @@ import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch } fr
 
 import props from './props';
 
-import { TdGuideProps, CrossProps } from './type';
-import { defaultCrossProps } from './const';
+import { TdGuideProps, GuideCrossProps } from './type';
+
 import {
   setStyle,
   scrollToParentVisibleArea,
@@ -62,8 +62,8 @@ export default defineComponent({
     // 当前元素位置状态
     const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
-    const getCurrentCrossProps = <Key extends keyof CrossProps>(propsName: Key) =>
-      currentStepInfo.value[propsName] ?? props[propsName] ?? defaultCrossProps[propsName];
+    const getCurrentCrossProps = <Key extends keyof GuideCrossProps>(propsName: Key) =>
+      currentStepInfo.value[propsName] ?? props[propsName];
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
@@ -142,25 +142,39 @@ export default defineComponent({
     };
 
     const handleSkip = (e: MouseEvent) => {
+      const total = stepsTotal.value;
       actived.value = false;
-      setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      props.onSkip?.(-1, stepsTotal.value, { e });
+      setInnerCurrent(-1, { e, total });
+      props.onSkip?.({ e, current: -1, total });
     };
 
     const handlePrev = (e: MouseEvent) => {
-      setInnerCurrent(innerCurrent.value - 1, stepsTotal.value - 1, { e });
-      props.onClickPrevStep?.(innerCurrent.value, innerCurrent.value - 1, stepsTotal.value, { e });
+      const total = stepsTotal.value;
+      setInnerCurrent(innerCurrent.value - 1, { e, total });
+      props.onPrevStepClick?.({
+        e,
+        prev: innerCurrent.value - 1,
+        current: innerCurrent.value,
+        total,
+      });
     };
 
     const handleNext = (e: MouseEvent) => {
-      setInnerCurrent(innerCurrent.value + 1, stepsTotal.value - 1, { e });
-      props.onClickNextStep?.(innerCurrent.value, innerCurrent.value + 1, stepsTotal.value, { e });
+      const total = stepsTotal.value;
+      setInnerCurrent(innerCurrent.value + 1, { e, total });
+      props.onNextStepClick?.({
+        e,
+        next: innerCurrent.value + 1,
+        current: innerCurrent.value,
+        total,
+      });
     };
 
     const handleFinish = (e: MouseEvent) => {
+      const total = stepsTotal.value;
       actived.value = false;
-      setInnerCurrent(-1, stepsTotal.value - 1, { e });
-      props.onFinish?.(-1, stepsTotal.value - 1, { e });
+      setInnerCurrent(-1, { e, total });
+      props.onFinish?.({ e, current: -1, total });
     };
 
     const initGuide = () => {
@@ -286,7 +300,16 @@ export default defineComponent({
 
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
-        const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{currentStepInfo.value.description}</div>;
+        const { body: descBody } = currentStepInfo.value;
+        let renderDesc;
+        if (typeof descBody === 'string') {
+          renderDesc = descBody;
+        } else {
+          renderDesc = <descBody />;
+        }
+        const desc = (
+          <div class={`${COMPONENT_NAME.value}__desc`}>{typeof descBody === 'string' ? descBody : <descBody />}</div>
+        );
 
         return (
           <>

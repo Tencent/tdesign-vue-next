@@ -29,8 +29,8 @@
         :steps="steps"
         mode="dialog"
         @change="handleChange"
-        @click-prev-step="handleClickPrevStep"
-        @click-next-step="handleClickNextStep"
+        @prev-step-click="handlePrevStepClick"
+        @next-step-click="handleNextStepClick"
         @finish="handleFinish"
         @skip="handleSkip"
       />
@@ -40,6 +40,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import DialogBody from './dialog-body.vue';
 
 const visible = ref(false);
 const current = ref(-1);
@@ -48,19 +49,19 @@ const steps = [
   {
     element: '.main-title',
     title: '新手引导标题',
-    description: '新手引导的说明文案',
+    body: DialogBody,
     placement: 'bottom-right',
   },
   {
     element: '.label-field',
     title: '新手引导标题',
-    description: '新手引导的说明文案',
+    body: DialogBody,
     placement: 'bottom',
   },
   {
     element: '.action',
     title: '新手引导标题',
-    description: '新手引导的说明方案',
+    body: DialogBody,
     placement: 'right',
   },
 ];
@@ -72,26 +73,26 @@ const handleClick = () => {
   }, 800);
 };
 
-const handleChange = (current, total, context) => {
-  console.log(current, total, context);
+const handleChange = (current, { e, total }) => {
+  console.log(current, e, total);
 };
 
-const handleClickPrevStep = (prev, current, total, context) => {
-  console.log(prev, current, total, context);
+const handlePrevStepClick = ({ e, prev, current, total }) => {
+  console.log(e, prev, current, total);
 };
 
-const handleClickNextStep = (next, current, total, context) => {
-  console.log(next, current, total, context);
+const handleNextStepClick = ({ e, next, current, total }) => {
+  console.log(e, next, current, total);
 };
 
-const handleFinish = (current, total, context) => {
+const handleFinish = ({ e, current, total }) => {
   visible.value = false;
-  console.log(current, total, context);
+  console.log(e, current, total);
 };
 
-const handleSkip = (current, total, context) => {
+const handleSkip = ({ e, current, total }) => {
   visible.value = false;
-  console.log(current, total, context);
+  console.log(e, current, total);
 };
 </script>
 
