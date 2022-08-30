@@ -29,6 +29,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -109,6 +110,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         
       </span>
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -165,6 +167,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -224,6 +227,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -277,6 +281,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
         placeholder="请选择"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -334,6 +339,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -402,6 +408,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -459,6 +466,7 @@ exports[`TreeSelect > :props > :max 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -514,6 +522,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -596,6 +605,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         
       </span>
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -651,6 +661,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -710,6 +721,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -765,6 +777,7 @@ exports[`TreeSelect > :props > :size 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -824,6 +837,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -881,6 +895,7 @@ exports[`TreeSelect > :props > :value 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -936,6 +951,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1018,6 +1034,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         
       </span>
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1075,6 +1092,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1130,6 +1148,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1202,6 +1221,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1261,6 +1281,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1343,6 +1364,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         
       </span>
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1400,6 +1422,7 @@ exports[`TreeSelect > function > :empty 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1455,6 +1478,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span
@@ -1527,6 +1551,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
       />
       <!---->
       <!---->
+      <!---->
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
@@ -1584,6 +1609,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         type="text"
         unselectable="on"
       />
+      <!---->
       <!---->
       <!---->
       <span

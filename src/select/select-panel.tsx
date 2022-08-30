@@ -1,5 +1,7 @@
-import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
+import { computed, defineComponent, inject, PropType, Slots, ref, ComputedRef } from 'vue';
 import isFunction from 'lodash/isFunction';
+import omit from 'lodash/omit';
+import { Styles } from '../common';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
@@ -8,6 +10,7 @@ import TdSelectProps from './props';
 
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import { selectInjectKey } from './helper';
 
 export default defineComponent({
@@ -27,6 +30,7 @@ export default defineComponent({
       type: Array as PropType<SelectOption[]>,
       default: (): SelectOption[] => [],
     },
+    scroll: TdSelectProps.scroll,
   },
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
@@ -36,6 +40,7 @@ export default defineComponent({
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
 
+    const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
     const displayOptions = computed(() => {
@@ -50,6 +55,7 @@ export default defineComponent({
       };
 
       const res: SelectOption[] = [];
+
       props.options.forEach((option) => {
         if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
           res.push({
@@ -64,6 +70,13 @@ export default defineComponent({
 
       return res;
     });
+
+    const { trs, scrollHeight, translateY, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } =
+      usePanelVirtualScroll({
+        scroll: props.scroll,
+        popupContentRef,
+        options: displayOptions,
+      });
 
     const isEmpty = computed(() => !displayOptions.value.length);
 
@@ -82,7 +95,7 @@ export default defineComponent({
     const renderOptionsContent = (options: SelectOption[]) => {
       return (
         <ul class={`${COMPONENT_NAME.value}__list`}>
-          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots }, index) => {
+          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
             if (item.group) {
               return (
                 <OptionGroup label={item.group} divider={item.divider}>
@@ -90,12 +103,30 @@ export default defineComponent({
                 </OptionGroup>
               );
             }
-            return <Option key={index} {...item} multiple={props.multiple} v-slots={item.slots} />;
+            return (
+              <Option
+                {...omit(item, '$index')}
+                {...(isVirtual.value
+                  ? {
+                      rowIndex: item.$index,
+                      trs,
+                      scrollType: props.scroll?.type,
+                      isVirtual: isVirtual.value,
+                      bufferSize: props.scroll?.bufferSize,
+                      key: `${item.$index || ''}_${index}`,
+                    }
+                  : {
+                      key: index,
+                    })}
+                multiple={props.multiple}
+                v-slots={item.slots}
+                onRowMounted={handleRowMounted}
+              />
+            );
           })}
         </ul>
       );
     };
-
     const dropdownInnerSize = computed(() => {
       return {
         small: 's',
@@ -108,7 +139,7 @@ export default defineComponent({
       innerRef,
     });
 
-    return () => (
+    const renderPanel = (options: ComputedRef<SelectOption[]>, extraStyle?: ComputedRef<Styles>) => (
       <div
         ref={innerRef}
         class={[
@@ -116,24 +147,36 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
         onClick={(e) => e.stopPropagation()}
+        style={extraStyle?.value}
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}
         {showCreateOption.value && renderCreateOption()}
-        {!isEmpty.value && !props.loading && renderOptionsContent(displayOptions.value)}
-        {/* 空状态 */}
-        {isEmpty.value &&
-          renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-          })}
         {/* loading状态 */}
-        {!isEmpty.value &&
-          props.loading &&
+        {props.loading &&
           renderDefaultTNode('loadingText', {
             defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
           })}
+        {/* 空状态 */}
+        {!props.loading &&
+          isEmpty.value &&
+          renderDefaultTNode('empty', {
+            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
+          })}
+        {!isEmpty.value && !props.loading && renderOptionsContent(options.value)}
         {renderTNodeJSX('panelBottomContent')}
       </div>
     );
+
+    if (isVirtual.value) {
+      return () => (
+        <div>
+          <div style={cursorStyle.value}></div>
+          {renderPanel(visibleData as ComputedRef<SelectOption[]>, panelStyle)}
+        </div>
+      );
+    }
+
+    return () => renderPanel(displayOptions);
   },
 });

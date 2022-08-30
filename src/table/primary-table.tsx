@@ -177,6 +177,9 @@ export default defineComponent({
               const errorList = errorListMap.value?.[key];
               errorList && (cellProps.errors = errorList);
             }
+            if (props.editableCellState) {
+              cellProps.readonly = !props.editableCellState(p);
+            }
             return <EditableCell {...cellProps} v-slots={context.slots} />;
           };
         }

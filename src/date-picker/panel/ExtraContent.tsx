@@ -1,6 +1,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 import TDateFooter from '../base/Footer';
-import type { TdDatePickerProps, TdDateRangePickerProps, DateValue } from '../type';
+import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 
 export default defineComponent({
   name: 'TExtraContent',
@@ -10,7 +10,7 @@ export default defineComponent({
     presetsPlacement: String as PropType<TdDatePickerProps['presetsPlacement']>,
     onPresetClick: Function,
     onConfirmClick: Function,
-    selectedValue: String as PropType<DateValue>,
+    selectedValue: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
   },
   setup(props) {
     const showPanelFooter = computed(() => props.enableTimePicker || props.presets);

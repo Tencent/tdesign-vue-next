@@ -7,7 +7,7 @@
 import { AffixProps } from '../affix';
 import { LoadingProps } from '../loading';
 import { PaginationProps, PageInfo } from '../pagination';
-import { PopupProps } from '../popup';
+import { TooltipProps } from '../tooltip';
 import { CheckboxGroupValue } from '../checkbox';
 import { SortableEvent, SortableOptions } from 'sortablejs';
 import { CheckboxProps } from '../checkbox';
@@ -271,14 +271,14 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colKey?: string;
   /**
-   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
+   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层方向等特性
    * @default false
    */
-  ellipsis?: boolean | TNode<BaseTableCellParams<T>> | PopupProps;
+  ellipsis?: boolean | TNode<BaseTableCellParams<T>> | TooltipProps;
   /**
-   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
+   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层方向等特性
    */
-  ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | PopupProps;
+  ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | TooltipProps;
   /**
    * 固定列显示位置
    * @default left
@@ -342,13 +342,17 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽。`drag-col` 已废弃，请勿使用
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。
    */
-  dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
+  dragSort?: 'row' | 'row-handler' | 'col' | 'row-handler-col' | 'drag-col';
   /**
    * 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)
    */
   dragSortOptions?: SortableOptions;
+  /**
+   * 单元格是否允许编辑。返回值为 `true` 则表示可编辑；返回值为 `false` 则表示不可编辑，只读状态
+   */
+  editableCellState?: EditableCellType<T>;
   /**
    * 处于编辑状态的行
    */
@@ -782,6 +786,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   component?: ComponentType;
   /**
+   * 单元格默认状态是否为编辑态
+   * @default false
+   */
+  defaultEditable?: boolean;
+  /**
    * 编辑完成后，退出编辑模式时触发
    */
   onEdited?: (context: { trigger: string; newRowData: T; rowIndex: number }) => void;
@@ -894,6 +903,8 @@ export interface TableColumnResizeConfig {
 
 export type DataType = TableRowData;
 
+export type EditableCellType<T> = (params: PrimaryTableCellParams<T>) => boolean;
+
 export interface ExpandArrowRenderParams<T> {
   row: T;
   index: number;
@@ -960,9 +971,10 @@ export interface DragSortContext<T> {
 
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
+  currentRowData: T;
 }
 
-export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any };
+export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T };
 
 export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger };
 

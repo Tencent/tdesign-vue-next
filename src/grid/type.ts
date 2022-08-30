@@ -2,15 +2,14 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 export interface TdRowProps {
   /**
-   * 纵向对齐方式
+   * 纵向对齐方式，CSS 属性 `align-items` 值。其中 `top` 和 `start` 等效；`middle` 和 `center` 等效；`bottom` 和 `end` 等效
    * @default top
    */
-  align?: 'top' | 'middle' | 'bottom';
+  align?: 'start' | 'end' | 'center' | 'stretch' | 'baseline' | 'top' | 'middle' | 'bottom';
   /**
    * 栅格间隔，示例：`{ xs: 8, sm: 16, md: 24}`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔]
    * @default 0
@@ -57,7 +56,7 @@ export interface TdColProps {
    */
   pull?: number;
   /**
-   * 栅格向左移动格数
+   * 栅格向右移动格数
    * @default 0
    */
   push?: number;

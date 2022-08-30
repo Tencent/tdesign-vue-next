@@ -57,8 +57,8 @@ export default function useTableHeader(props: TdBaseTableProps) {
             <TEllipsis
               placement="bottom-right"
               attach={attach ? () => attach : undefined}
-              popupContent={content && (() => content)}
-              popupProps={typeof ellipsisTitle === 'object' ? ellipsisTitle : undefined}
+              tooltipContent={content && (() => content)}
+              tooltipProps={typeof ellipsisTitle === 'object' ? ellipsisTitle : undefined}
             >
               {title}
             </TEllipsis>

@@ -91,5 +91,24 @@
         "value": "card"
       }
     ]
+  },
+  {
+    "name": "navigationType",
+    "type": "enum",
+    "defaultValue": "bars",
+    "options": [
+      {
+        "label": "bars",
+        "value": "bars"
+      },
+      {
+        "label": "dots",
+        "value": "dots"
+      },
+      {
+        "label": "dots-bar",
+        "value": "dots-bar"
+      }
+    ]
   }
 ]

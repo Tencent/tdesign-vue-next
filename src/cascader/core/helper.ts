@@ -45,10 +45,12 @@ export function getMultipleContent(cascaderContext: CascaderContextType) {
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!node) return [];
 
-  return (value as TreeNodeValue[]).map((item: TreeNodeValue) => {
-    const node = treeStore.getNodes(item);
-    return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
-  });
+  return (value as TreeNodeValue[])
+    .map((item: TreeNodeValue) => {
+      const node = treeStore.getNodes(item);
+      return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
+    })
+    .filter((item) => !!item);
 }
 
 /**
@@ -75,7 +77,7 @@ export function getPanels(treeNodes: CascaderContextType['treeNodes']) {
  */
 export function getFullPathLabel(node: TreeNode, separator = '/') {
   return node
-    .getPath()
+    ?.getPath()
     .map((node: TreeNode) => node.label)
     .join(separator);
 }
