@@ -2,19 +2,19 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdRowProps } from '../grid/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 纵向对齐方式 */
+  /** 纵向对齐方式，CSS 属性 `align-items` 值。其中 `top` 和 `start` 等效；`middle` 和 `center` 等效；`bottom` 和 `end` 等效 */
   align: {
     type: String as PropType<TdRowProps['align']>,
     default: 'top' as TdRowProps['align'],
     validator(val: TdRowProps['align']): boolean {
-      return ['top', 'middle', 'bottom'].includes(val);
+      if (!val) return true;
+      return ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'].includes(val);
     },
   },
   /** 栅格间隔，示例：`{ xs: 8, sm: 16, md: 24}`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔] */
@@ -27,6 +27,7 @@ export default {
     type: String as PropType<TdRowProps['justify']>,
     default: 'start' as TdRowProps['justify'],
     validator(val: TdRowProps['justify']): boolean {
+      if (!val) return true;
       return ['start', 'end', 'center', 'space-around', 'space-between'].includes(val);
     },
   },

@@ -164,6 +164,7 @@ export default defineComponent({
         `${COMPONENT_NAME.value}--default`,
         `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
+        isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
       ];
       return dialogClass;
     });
@@ -313,6 +314,9 @@ export default defineComponent({
       const bodyClassName =
         props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       const footerContent = renderTNodeJSX('footer', defaultFooter);
+      const onStopDown = (e: MouseEvent) => {
+        if (isModeLess.value && props.draggable) e.stopPropagation();
+      };
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -324,7 +328,7 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={`${COMPONENT_NAME.value}__header`}>
+              <div class={`${COMPONENT_NAME.value}__header`} onmousedown={onStopDown}>
                 {getIcon()}
                 {renderTNodeJSX('header', defaultHeader)}
               </div>
@@ -333,8 +337,14 @@ export default defineComponent({
                   {renderTNodeJSX('closeBtn', defaultCloseBtn)}
                 </span>
               ) : null}
-              <div class={bodyClassName}>{body}</div>
-              {footerContent && <div class={`${COMPONENT_NAME.value}__footer`}>{footerContent}</div>}
+              <div class={bodyClassName} onmousedown={onStopDown}>
+                {body}
+              </div>
+              {footerContent && (
+                <div class={`${COMPONENT_NAME.value}__footer`} onmousedown={onStopDown}>
+                  {footerContent}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ exports[`Input > $attrs > input attrs should pass to input element 1`] = `
     />
     <!---->
     <!---->
+    <!---->
     <span
       class="t-input__suffix t-input__suffix-icon"
     >
@@ -63,6 +64,7 @@ exports[`Input > :props > :disabled 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -91,6 +93,7 @@ exports[`Input > :props > :prefix-icon 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -112,6 +115,7 @@ exports[`Input > :props > :readonly 1`] = `
       type="text"
       unselectable="on"
     />
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -137,6 +141,7 @@ exports[`Input > :props > :size 1`] = `
     <!---->
     <!---->
     <!---->
+    <!---->
   </div>
   <!---->
 </div>
@@ -156,6 +161,7 @@ exports[`Input > :props > :suffix-icon 1`] = `
       placeholder="请输入"
       type="text"
     />
+    <!---->
     <!---->
     <!---->
     <span

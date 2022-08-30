@@ -26,7 +26,12 @@ export interface TheadProps {
     resizeLineRef: Ref<HTMLDivElement>;
     resizeLineStyle: CSSProperties;
     onColumnMouseover: (e: MouseEvent) => void;
-    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, nearCol: BaseTableCol<TableRowData>) => void;
+    onColumnMousedown: (
+      e: MouseEvent,
+      col: BaseTableCol<TableRowData>,
+      effectNextCol: BaseTableCol<TableRowData>,
+      effectPrevCol: BaseTableCol<TableRowData>,
+    ) => void;
   };
   resizable: Boolean;
 }
@@ -114,6 +119,7 @@ export default defineComponent({
                     e,
                     col,
                     index < row.length - 1 ? row[index + 1] : row[index - 1],
+                    index > 0 ? row[index - 1] : row[index + 1],
                   ),
                 onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e),
               }
@@ -133,8 +139,8 @@ export default defineComponent({
                   <TEllipsis
                     placement="bottom"
                     attach={this.theadRef ? () => this.theadRef : undefined}
-                    popupContent={content && (() => content)}
-                    popupProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                    tooltipContent={content && (() => content)}
+                    tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
                   >
                     {innerTh}
                   </TEllipsis>

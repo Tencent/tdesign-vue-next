@@ -1,4 +1,5 @@
 import { defineComponent, computed } from 'vue';
+import omit from 'lodash/omit';
 import Panel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
@@ -77,7 +78,7 @@ export default defineComponent({
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
             overlayInnerStyle: panels.value.length ? { width: 'auto' } : '',
-            overlayClassName: [
+            overlayInnerClassName: [
               overlayClassName.value,
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
             ],
@@ -88,34 +89,39 @@ export default defineComponent({
             ...(props.tagInputProps as TdCascaderProps['tagInputProps']),
           }}
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
-          {...(props.selectInputProps as TdSelectInputProps)}
-          onInputChange={(value) => {
+          onInputChange={(value, ctx) => {
             if (!isFilterable.value) return;
             setInputVal(`${value}`);
+            (props?.selectInputProps as TdSelectInputProps)?.onInputChange?.(value, ctx);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
-            if (!(val as []).length && ctx.trigger === 'clear') {
-              ctx.e?.stopPropagation();
-              closeIconClickEffect(cascaderContext.value);
-              return;
-            }
+            // 按 enter 键不处理
+            if (ctx.trigger === 'enter') return;
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
+            (props?.selectInputProps as TdSelectInputProps)?.onTagChange?.(val, ctx);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
             if (disabled.value) return;
             setVisible(val, context);
+            (props?.selectInputProps as TdSelectInputProps)?.onPopupVisibleChange?.(val, context);
           }}
           onBlur={(val, context) => {
             props.onBlur?.({
               value: cascaderContext.value.value,
               e: context.e,
             });
+            (props?.selectInputProps as TdSelectInputProps)?.onBlur?.(val, context);
           }}
           onFocus={(val, context) => {
             props.onFocus?.({
               value: cascaderContext.value.value,
               e: context.e,
             });
+            (props?.selectInputProps as TdSelectInputProps)?.onFocus?.(val, context);
+          }}
+          onClear={(...arg) => {
+            closeIconClickEffect(cascaderContext.value);
+            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(...arg);
           }}
           v-slots={{
             panel: () => (
@@ -129,7 +135,14 @@ export default defineComponent({
             ),
             collapsedItems: slots.collapsedItems,
           }}
-          {...(props.selectInputProps as TdSelectInputProps)}
+          {...omit(props.selectInputProps as TdSelectInputProps, [
+            'onTagChange',
+            'onInputChange',
+            'onPopupVisibleChange',
+            'onBlur',
+            'onFocus',
+            'onClear',
+          ])}
         />
       );
     };

@@ -159,35 +159,35 @@ export function getDefaultFormat({
   if (mode === 'year') {
     return {
       format: format || 'YYYY',
-      valueType: valueType || 'YYYY',
+      valueType: valueType || format || 'YYYY',
       timeFormat: TIME_FORMAT,
     };
   }
   if (mode === 'month') {
     return {
       format: format || 'YYYY-MM',
-      valueType: valueType || 'YYYY-MM',
+      valueType: valueType || format || 'YYYY-MM',
       timeFormat: TIME_FORMAT,
     };
   }
   if (mode === 'quarter') {
     return {
       format: format || 'YYYY-[Q]Q',
-      valueType: valueType || 'YYYY-[Q]Q',
+      valueType: valueType || format || 'YYYY-[Q]Q',
       timeFormat: TIME_FORMAT,
     };
   }
   if (mode === 'week') {
     return {
       format: format || 'YYYY-wo',
-      valueType: valueType || 'YYYY-wo',
+      valueType: valueType || format || 'YYYY-wo',
       timeFormat: TIME_FORMAT,
     };
   }
   if (mode === 'date') {
     return {
       format: format || `YYYY-MM-DD${enableTimePicker ? ' HH:mm:ss' : ''}`,
-      valueType: valueType || `YYYY-MM-DD${enableTimePicker ? ' HH:mm:ss' : ''}`,
+      valueType: valueType || format || `YYYY-MM-DD${enableTimePicker ? ' HH:mm:ss' : ''}`,
       timeFormat: extractTimeFormat(format || `YYYY-MM-DD${enableTimePicker ? ' HH:mm:ss' : ''}`) || TIME_FORMAT,
     };
   }

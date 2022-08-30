@@ -11,11 +11,19 @@
 </template>
 
 <script setup>
+// 单元格单击和双击事件共存的时候，双击事件会触发单击事件（两次），这“可能不是”正确的效果，
+// 这种场景下建议对单击事件进行延迟处理（详见下面 cellClick 和 cellDoubleClick 的代码）
+let cellClickTimmer = null;
+
 const cellClick = (options) => {
-  console.log(`鼠标左键单击单元格 ${options.cell.formattedDate}`);
+  clearTimeout(cellClickTimmer); // 用于在双击事件中取消掉额外触发的一次单击事件
+  cellClickTimmer = setTimeout(() => {
+    console.log(`鼠标左键单击单元格 ${options.cell.formattedDate}`);
+  }, 300);
 };
 
 const cellDoubleClick = (options) => {
+  clearTimeout(cellClickTimmer); // 用于在双击事件中取消掉额外触发另外一次单击事件
   console.log(`鼠标双击单元格 ${options.cell.formattedDate}`);
 };
 

@@ -49,7 +49,7 @@ const onRowValidate = (params) => {
 // 设置单元格是否允许编辑，参数有 { row, col, rowIndex, colIndex }
 const editableCellState = (cellParams) => {
   // 第一行不允许编辑
-  return cellParams.rowIndex === 0;
+  return cellParams.rowIndex !== 0;
 };
 
 const columns = computed(() => [

@@ -101,6 +101,7 @@ export default defineComponent({
     return () => {
       const prefixIcon = renderTNodeJSX('prefixIcon');
       let suffixIcon = renderTNodeJSX('suffixIcon');
+      let passwordIcon = renderTNodeJSX('passwordIcon');
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
       const limitNode =
@@ -130,14 +131,26 @@ export default defineComponent({
       }
 
       if (showClear.value) {
-        suffixIcon = (
-          <CloseCircleFilledIcon
-            ref={inputHandle.clearIconRef}
-            class={`${COMPONENT_NAME.value}__suffix-clear`}
-            onClick={inputHandle.emitClear}
-            onMousedown={inputHandle.onClearIconMousedown}
-          />
-        );
+        // 如果类型为 password 则使用 passwordIcon 显示 clear
+        if (props.type === 'password') {
+          passwordIcon = (
+            <CloseCircleFilledIcon
+              ref={inputHandle.clearIconRef}
+              class={`${COMPONENT_NAME.value}__suffix-clear`}
+              onClick={inputHandle.emitClear}
+              onMousedown={inputHandle.onClearIconMousedown}
+            />
+          );
+        } else {
+          suffixIcon = (
+            <CloseCircleFilledIcon
+              ref={inputHandle.clearIconRef}
+              class={`${COMPONENT_NAME.value}__suffix-clear`}
+              onClick={inputHandle.emitClear}
+              onMousedown={inputHandle.onClearIconMousedown}
+            />
+          );
+        }
       }
 
       const classes = [
@@ -201,6 +214,17 @@ export default defineComponent({
               </span>
             )}
             {suffixContent}
+            {passwordIcon ? (
+              <span
+                class={[
+                  `${COMPONENT_NAME.value}__suffix`,
+                  `${COMPONENT_NAME.value}__suffix-icon`,
+                  `${COMPONENT_NAME.value}__clear`,
+                ]}
+              >
+                {passwordIcon}
+              </span>
+            ) : null}
             {suffixIcon ? (
               <span
                 class={[

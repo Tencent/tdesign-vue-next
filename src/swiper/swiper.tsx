@@ -258,6 +258,8 @@ export default defineComponent({
             `${prefix.value}-swiper__navigation`,
             {
               [`${prefix.value}-swiper__navigation-bars`]: navigationConfig.value.type === 'bars',
+              [`${prefix.value}-swiper__navigation-dots`]: navigationConfig.value.type === 'dots',
+              [`${prefix.value}-swiper__navigation-dots-bar`]: navigationConfig.value.type === 'dots-bar',
             },
           ]}
         >

@@ -37,7 +37,7 @@
   font-size: 14px;
 }
 .describe {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 12px;
 }
 </style>
