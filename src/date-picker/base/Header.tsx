@@ -137,7 +137,10 @@ export default defineComponent({
               value={props.month}
               options={monthOptions.value}
               onChange={(val: number) => props.onMonthChange?.(val)}
-              popupProps={{ overlayClassName: `${COMPONENT_NAME.value}-controller-month-popup` }}
+              popupProps={{
+                attach: (triggerElement: HTMLElement) => triggerElement.parentNode,
+                overlayClassName: `${COMPONENT_NAME.value}-controller-month-popup`,
+              }}
             />
           )}
           <TSelect
@@ -147,6 +150,7 @@ export default defineComponent({
             onChange={(val: number) => props.onYearChange?.(val)}
             popupProps={{
               onScroll: handleScroll,
+              attach: (triggerElement: HTMLElement) => triggerElement.parentNode,
               overlayClassName: `${COMPONENT_NAME.value}-controller-year-popup`,
             }}
             panelTopContent={() => (
