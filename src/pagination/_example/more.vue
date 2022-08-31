@@ -6,8 +6,8 @@
       v-model:pageSize="pageSize"
       :total="100"
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
     <span>不展示首尾页码省略</span>
     <t-pagination
@@ -16,8 +16,8 @@
       :total="100"
       page-ellipsis-mode="both-ends"
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
   </div>
 </template>

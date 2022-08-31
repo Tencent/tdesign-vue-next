@@ -6,8 +6,8 @@
       :total="101"
       show-jumper
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
   </div>
 </template>

@@ -5,7 +5,7 @@
       v-model:checked="checked"
       :data="items"
       @change="onChange"
-      @checkedChange="handleCheckedChange"
+      @checked-change="handleCheckedChange"
     >
       <template #tree="slotProps">
         <t-tree v-bind="slotProps" checkable hover expand-all transition />

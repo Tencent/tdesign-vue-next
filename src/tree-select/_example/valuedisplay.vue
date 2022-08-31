@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-demo-block-row">
     <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
-      <template #valueDisplay="{ value }"> {{ value.label }}({{ value.value }}) </template>
+      <template #valueDisplay="{ value: valueDisplay }"> {{ valueDisplay.label }}({{ valueDisplay.value }}) </template>
     </t-tree-select>
     <t-tree-select
       v-model="mulValue"
@@ -12,8 +12,8 @@
       filterable
       placeholder="请选择"
     >
-      <template #valueDisplay="{ value, onClose }">
-        <t-tag v-for="(item, index) in value" :key="index" closable :on-close="() => onClose(index)">
+      <template #valueDisplay="{ value: valueDisplay, onClose }">
+        <t-tag v-for="(item, index) in valueDisplay" :key="index" closable :on-close="() => onClose(index)">
           {{ item.label }}({{ item.value }})
         </t-tag>
       </template>

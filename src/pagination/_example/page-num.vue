@@ -7,8 +7,8 @@
       show-sizer
       :page-size-options="pageSizeOptions"
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
   </div>
 </template>
