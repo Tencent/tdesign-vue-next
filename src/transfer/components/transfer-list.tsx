@@ -60,6 +60,9 @@ const props = {
     default: false,
   },
   onCheckedChange: Function as PropType<(event: Array<TransferValue>) => void>,
+  onPageChange: Function,
+  onScroll: Function,
+  onSearch: Function,
 };
 
 export default defineComponent({
