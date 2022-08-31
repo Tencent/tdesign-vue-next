@@ -23,6 +23,8 @@ export default defineComponent({
     },
     onClick: Function as PropType<(e: TypeEventState) => void>,
     onChange: Function as PropType<(e: TypeEventState) => void>,
+    onDrop: Function as PropType<(node: TreeNode, val: number, e: DragEvent) => void>,
+    onDragStart: Function as PropType<(node: TreeNode, e: DragEvent) => void>,
   },
   setup(props) {
     const treeScope = inject(injectKey);

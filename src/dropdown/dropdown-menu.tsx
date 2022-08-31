@@ -26,6 +26,7 @@ export default defineComponent({
       type: Number || String,
       default: 10,
     },
+    onClick: Function,
   },
   setup(props, { slots }) {
     const path = ref('');

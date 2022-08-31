@@ -1,5 +1,5 @@
 import { defineComponent, PropType, ref, computed } from 'vue';
-import TJumper from '../../jumper/jumper';
+import TJumper, { JumperTrigger } from '../../jumper';
 import TSelect from '../../select/select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
@@ -15,7 +15,7 @@ export default defineComponent({
     month: Number,
     onMonthChange: Function,
     onYearChange: Function,
-    onJumperClick: Function,
+    onJumperClick: Function as PropType<(context: { e: MouseEvent; trigger: JumperTrigger }) => {}>,
   },
   setup(props) {
     const { classPrefix } = useConfig('classPrefix');
