@@ -6,7 +6,7 @@ const prettierJson = require('../../.prettierrc.js');
 
 const renderUsageStr = (compStrMap) => `<!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" ="onPanelChange">
     ${Object.keys(compStrMap.render)
       .map((key) => `<template #${key}="{ configProps }">${compStrMap.render[key].trim()}</template>`)
       .join('\n')}

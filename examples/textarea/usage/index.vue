@@ -1,6 +1,6 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #textarea="{ configProps }"><t-textarea placeholder="请输入内容" v-bind="configProps" /></template>
   </base-usage>
 </template>

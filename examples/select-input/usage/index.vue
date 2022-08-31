@@ -1,6 +1,6 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #selectInput="{ configProps }"
       ><t-select-input panel="暂无数据" value="" placeholder="请输入" tips="这是 tips 文本信息" v-bind="configProps"
     /></template>
