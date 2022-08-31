@@ -1,6 +1,6 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #notification="{ configProps }"
       ><t-notification v-bind="configProps" title="标题名称" content="这是一条消息通知"
     /></template>

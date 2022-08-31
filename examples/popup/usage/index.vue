@@ -1,6 +1,6 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #popup="{ configProps }"
       ><t-popup content="这是一个弹出框" v-bind="configProps">
         <t-button variant="outline">触发元素</t-button>
