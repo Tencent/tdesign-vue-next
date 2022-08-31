@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress';
-import viteConfig from '../../site/vite.config';
+import { resolveConfig, basePlugin } from '../../script/vite.base.config';
 
 export default defineConfig({
   fileServerFolder: 'script/cypress',
@@ -25,10 +25,7 @@ export default defineConfig({
     devServer: {
       framework: 'vue',
       bundler: 'vite',
-      viteConfig: {
-        ...viteConfig(''),
-        server: {},
-      },
+      viteConfig: { resolve: resolveConfig, plugins: basePlugin },
     },
   },
 
