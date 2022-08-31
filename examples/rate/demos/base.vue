@@ -1,3 +1,3 @@
 <template>
-  <t-rate default-value="3" />
+  <t-rate :default-value="3" />
 </template>

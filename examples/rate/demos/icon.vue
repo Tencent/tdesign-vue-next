@@ -1,16 +1,16 @@
 <template>
   <t-space direction="vertical">
-    <t-rate default-value="1">
+    <t-rate :default-value="1">
       <template #icon="iconProps">
         <star-icon v-bind="iconProps" />
       </template>
     </t-rate>
-    <t-rate default-value="2" :icon="icon">
+    <t-rate :default-value="2" :icon="icon">
       <template #icon="iconProps">
         <logo-github-icon v-bind="iconProps" />
       </template>
     </t-rate>
-    <t-rate default-value="2.5" allow-half color="var(--td-error-color-7)">
+    <t-rate :default-value="2.5" allow-half color="var(--td-error-color-7)">
       <template #icon="iconProps">
         <heart-filled-icon v-bind="iconProps" />
       </template>
