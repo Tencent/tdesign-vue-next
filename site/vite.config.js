@@ -1,10 +1,8 @@
-import * as path from 'path';
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
 import { VitePWA } from 'vite-plugin-pwa';
 import tDocPlugin from './plugin-doc';
 import pwaConfig from './pwaConfig';
+import { resolveConfig, basePlugin } from '../script/vite.base.config';
 
 const publicPathMap = {
   preview: '/',
@@ -12,38 +10,10 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
-// 单元测试相关配置
-const testConfig = {
-  include:
-    process.env.NODE_ENV === 'test-snap'
-      ? ['test/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
-      : ['src/**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-  globals: true,
-  environment: 'jsdom',
-  testTimeout: 5000,
-  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, '../script/test/test-setup.js') : '',
-  transformMode: {
-    web: [/\.[jt]sx$/],
-  },
-  coverage: {
-    reporter: ['text', 'json', 'html'],
-  },
-};
-
-const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
-
 export default ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '../'),
-        '@/src': path.resolve(__dirname, '../src/'),
-        '@common': path.resolve(__dirname, '../src/_common'),
-        'tdesign-vue-next/es': path.resolve(__dirname, '../src'),
-        'tdesign-vue-next': path.resolve(__dirname, '../src'),
-      },
-    },
+    resolve: resolveConfig,
     server: {
       host: '0.0.0.0',
       port: 17000,
@@ -56,22 +26,7 @@ export default ({ mode }) => {
     build: {
       outDir: '../_site',
     },
-    plugins: [
-      vue({
-        ssr: false,
-        template: {
-          compilerOptions: {
-            isCustomElement,
-          },
-        },
-      }),
-      vueJsx({
-        isCustomElement,
-      }),
-      tDocPlugin(),
-      VitePWA(pwaConfig),
-    ],
-    test: testConfig,
+    plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
