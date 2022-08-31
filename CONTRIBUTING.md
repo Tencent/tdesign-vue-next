@@ -56,10 +56,9 @@ npm run start
 
 文档 demo 排列与 common 仓库中的 UI demo 展示一致
 
-```text
-::: demo <demo 路径如：demos/base> [demo标题] [--dev 是否只在开发环境插入]
+```markdown
+{{ base }}
 [demo 描述（可不填）]
-:::
 ```
 
 ### demo 调试

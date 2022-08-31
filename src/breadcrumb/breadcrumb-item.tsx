@@ -27,10 +27,6 @@ export default defineComponent({
   name: 'TBreadcrumbItem',
   props: {
     ...props,
-    onClick: {
-      type: Function,
-      default: () => {},
-    },
   },
   setup(props, { slots, attrs }) {
     const breadcrumbText = ref<HTMLElement>();
@@ -90,7 +86,7 @@ export default defineComponent({
             e.stopPropagation();
             return;
           }
-          props.onClick?.({ e });
+          (props as any).onClick?.({ e });
         },
       };
       const textContent = (
