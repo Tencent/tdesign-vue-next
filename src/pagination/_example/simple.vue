@@ -5,8 +5,8 @@
       :total="100"
       theme="simple"
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
   </div>
 </template>
