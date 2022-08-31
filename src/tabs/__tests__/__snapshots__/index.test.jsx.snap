@@ -46,7 +46,7 @@ exports[`Tabs > :props > :addable 1`] = `
       </div>
       
       <div
-        class="t-tabs__nav-container t-is-top"
+        class="t-tabs__nav-container t-is-top t-is-addable"
       >
         <div
           class="t-tabs__nav-scroll"
