@@ -25,7 +25,13 @@ const localTBreadcrumbOrigin: LocalTBreadcrumb = {
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
-  props,
+  props: {
+    ...props,
+    onClick: {
+      type: Function,
+      default: () => {},
+    },
+  },
   setup(props, { slots, attrs }) {
     const breadcrumbText = ref<HTMLElement>();
     const localTBreadcrumb = inject('tBreadcrumb', localTBreadcrumbOrigin);
