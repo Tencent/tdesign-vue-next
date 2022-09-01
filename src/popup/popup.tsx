@@ -334,7 +334,9 @@ export default defineComponent({
     );
 
     onUnmounted(() => {
-      parent?.preventClosing(false);
+      if (innerVisible.value) {
+        parent?.preventClosing(false);
+      }
       destroyPopper();
       off(document, 'click', handleDocumentClick, true);
     });
