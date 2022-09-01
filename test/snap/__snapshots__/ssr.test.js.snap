@@ -539,7 +539,7 @@ exports[`ssr snapshot test > ssr test ./src/list/_example/stripe.vue 1`] = `"<di
 exports[`ssr snapshot test > ssr test ./src/loading/_example/attach.vue 1`] = `"<div class=\\"tdesign-demo-block-column\\" data-v-5d1ead0d><div id=\\"alice\\" class=\\"loading-attach-demo__title\\" data-v-5d1ead0d>Hello, I&#39;m Alice. I&#39;m going to be a front-end developer.</div><!----><div data-v-5d1ead0d><div class=\\"t-switch t-size-m\\" data-v-5d1ead0d><span class=\\"t-switch__handle\\"><!----></span><div class=\\"t-switch__content t-size-m\\">隐藏</div></div></div></div>"`;
 
 exports[`ssr snapshot test > ssr test ./src/loading/_example/base.vue 1`] = `
-"<div class=\\"t-loading-demo\\"><div class=\\"t-loading--center t-size-m t-loading\\" style=\\"\\"><svg class=\\"t-loading__gradient t-icon-loading\\" viewbox=\\"0 0 14 14\\" version=\\"1.1\\" width=\\"1em\\" height=\\"1em\\" xmlns=\\"http://www.w3.org/2000/svg\\" size=\\"medium\\"><foreignObject x=\\"1\\" y=\\"1\\" width=\\"12\\" height=\\"12\\"><div class=\\"t-loading__gradient-conic\\"></div></foreignObject></svg><!----></div><span style=\\"position:relative;\\"> ads</span><!-- 自定义加载图标 --><!-- <t-loading>
+"<div class=\\"t-loading-demo\\"><div class=\\"t-loading--center t-size-m t-loading\\" style=\\"\\"><svg class=\\"t-loading__gradient t-icon-loading\\" viewbox=\\"0 0 14 14\\" version=\\"1.1\\" width=\\"1em\\" height=\\"1em\\" xmlns=\\"http://www.w3.org/2000/svg\\" size=\\"medium\\"><foreignObject x=\\"1\\" y=\\"1\\" width=\\"12\\" height=\\"12\\"><div class=\\"t-loading__gradient-conic\\"></div></foreignObject></svg><!----></div><!-- 自定义加载图标 --><!-- <t-loading>
     <template #indicator>
       <img src=\\"https://tdesign.gtimg.com/icon/loading.png\\" class=\\"t-icon-loading\\" />
     </template>
