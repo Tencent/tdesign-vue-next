@@ -1,4 +1,4 @@
-import { ref, Ref, getCurrentInstance, watch } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
 
 export type ChangeHandler<T> = (value: T, ...args: any) => void;
 
@@ -8,45 +8,39 @@ export default function useVModel<T, P extends (...args: any) => void>(
   defaultValue: T,
   onChange: P,
   propName = 'value',
-  // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
 ): [Ref<T>, ChangeHandler<T>] {
-  const { emit, attrs } = getCurrentInstance();
+  const { emit, vnode } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 
-  // 非受控模式,defaultValue 只消费一次
-  internalValue.value = defaultValue;
+  const vProps = vnode.props;
+  const isVM = Object.prototype.hasOwnProperty.call(vProps, 'modelValue');
+  const isVMP = Object.prototype.hasOwnProperty.call(vProps, propName);
 
-  if (typeof value.value !== 'undefined') {
-    // 受控模式 v-model:propName
-    internalValue.value = value.value;
-  } else if (typeof modelValue.value !== 'undefined') {
-    // 受控模式:modelValue v-model
-    internalValue.value = modelValue.value;
+  if (isVM) {
+    return [
+      modelValue,
+      (newValue, ...args) => {
+        vProps['onUpdate:modelValue'] && emit('update:modelValue', newValue, ...args);
+        onChange?.(newValue, ...args);
+      },
+    ];
   }
 
-  // 监听value与modelValue的变化
-  watch(value, (newVal) => {
-    internalValue.value = newVal;
-  });
-  watch(modelValue, (newVal) => {
-    internalValue.value = newVal;
-  });
+  if (isVMP) {
+    return [
+      value,
+      (newValue, ...args) => {
+        vProps[`onUpdate:${propName}`] && emit(`update:${propName}`, newValue, ...args);
+        onChange?.(newValue, ...args);
+      },
+    ];
+  }
 
+  internalValue.value = defaultValue;
   return [
     internalValue,
     (newValue, ...args) => {
-      if (attrs[`onUpdate:${propName}`]) {
-        // 受控模式 v-model:propName
-        emit?.(`update:${propName}`, newValue, ...args);
-      } else if (attrs['onUpdate:modelValue']) {
-        // 受控模式:modelValue v-model
-        emit?.(`update:modelValue`, newValue, ...args);
-      }
-
-      if (typeof value.value === 'undefined' && typeof modelValue.value === 'undefined') {
-        internalValue.value = newValue;
-      }
-
+      internalValue.value = newValue;
       onChange?.(newValue, ...args);
     },
   ];
