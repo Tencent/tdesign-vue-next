@@ -1,7 +1,7 @@
 <template>
   <div class="t-loading-demo">
     <t-loading></t-loading>
-
+    <span v-loading="true" style="position: relative"> ads</span>
     <!-- 自定义加载图标 -->
     <!-- <t-loading>
     <template #indicator>

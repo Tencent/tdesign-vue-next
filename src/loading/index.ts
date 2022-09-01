@@ -1,3 +1,4 @@
+import { vLoading } from './directive';
 import _Loading from './loading';
 import withInstall from '../utils/withInstall';
 import { TdLoadingProps } from './type';
@@ -9,5 +10,5 @@ export * from './plugin';
 export type LoadingProps = TdLoadingProps;
 
 export { default as LoadingPlugin } from './plugin';
-export const Loading = withInstall(_Loading);
+export const Loading = withInstall(_Loading, _Loading.name, { name: 'loading', com: vLoading });
 export default Loading;
