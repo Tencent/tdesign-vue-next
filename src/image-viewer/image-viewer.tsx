@@ -113,17 +113,16 @@ export default defineComponent({
     });
 
     const onWheel = (e: WheelEvent) => {
-      const { deltaY } = e;
+      const { deltaY, ctrlKey } = e;
+      // mac触摸板双指缩放时ctrlKey=true，deltaY>0为缩小  <0为放大
+      if (ctrlKey) {
+        return deltaY > 0 ? onZoomOut() : onZoomIn();
+      }
       deltaY > 0 ? onZoomIn() : onZoomOut();
     };
 
     const transStyle = computed(() => ({ transform: `translateX(-${indexValue.value * 84}px)` }));
-    const renderClose = () => {
-      return renderTNodeJSX('closeBtn', <CloseIcon size="24px" />);
-    };
-    const renderTrigger = () => {
-      return renderTNodeJSX('trigger');
-    };
+
     const renderHeader = () => {
       return (
         <div class={headerClass.value}>
@@ -174,114 +173,82 @@ export default defineComponent({
         />
       );
     };
-    const renderDialog = () => {
-      return (
-        <TImageViewerModal
-          zIndex={zIndexValue.value}
-          visible={visibleValue.value}
-          index={indexValue.value}
-          images={images.value}
-          scale={scale.value}
-          rotate={rotate.value}
-          mirror={mirror.value}
-          currentImage={currentImage.value}
-          onRotate={onRotate}
-          onZoomIn={onZoomIn}
-          onZoomOut={onZoomOut}
-          onMirror={onMirror}
-          onReset={onRest}
-          onClose={closeBtnAction}
-          draggable={props.draggable}
-          showOverlay={showOverlayValue.value}
-          closeBtn={props.closeBtn}
-        />
-      );
-    };
-    return {
-      COMPONENT_NAME,
-      wrapClass,
-      classPrefix,
-      renderClose,
-      renderTrigger,
-      renderHeader,
-      renderDialog,
-      renderNavigationArrow,
-      mirror,
-      onMirror,
-      onRest,
-      scale,
-      onZoomIn,
-      onZoomOut,
-      rotate,
-      onRotate,
-      prevImage,
-      nextImage,
-      indexValue,
-      currentImage,
-      visibleValue,
-      closeBtnAction,
-      clickOverlayHandler,
-      showOverlayValue,
-      zIndexValue,
-      onWheel,
-    };
-  },
-  render() {
-    if (this.mode === 'modeless') {
+
+    return () => {
+      if (props.mode === 'modeless') {
+        return (
+          <>
+            {renderTNodeJSX('trigger')}
+            <TImageViewerModal
+              zIndex={zIndexValue.value}
+              visible={visibleValue.value}
+              index={indexValue.value}
+              images={images.value}
+              scale={scale.value}
+              rotate={rotate.value}
+              mirror={mirror.value}
+              currentImage={currentImage.value}
+              onRotate={onRotate}
+              onZoomIn={onZoomIn}
+              onZoomOut={onZoomOut}
+              onMirror={onMirror}
+              onReset={onRest}
+              onClose={closeBtnAction}
+              draggable={props.draggable}
+              showOverlay={showOverlayValue.value}
+              closeBtn={props.closeBtn}
+            />
+          </>
+        );
+      }
+
       return (
         <>
-          {this.renderTrigger()}
-          {this.renderDialog()}
+          {renderTNodeJSX('trigger')}
+          <Teleport to="body">
+            {visibleValue.value && (
+              <div class={wrapClass.value} style={{ zIndex: zIndexValue.value }} onWheel={onWheel}>
+                {!!showOverlayValue.value && (
+                  <div class={`${COMPONENT_NAME.value}__modal--mask`} onClick={clickOverlayHandler} />
+                )}
+                <TImageViewerModal />
+                {images.value.length > 1 && (
+                  <>
+                    {renderHeader()}
+                    <div class={`${COMPONENT_NAME.value}__modal--index`}>{`${indexValue.value + 1}/${
+                      images.value.length
+                    }`}</div>
+                    {renderNavigationArrow('prev')}
+                    {renderNavigationArrow('next')}
+                  </>
+                )}
+                <div
+                  class={[`${COMPONENT_NAME.value}__modal--icon`, `${COMPONENT_NAME.value}__modal--close-bt`]}
+                  onClick={closeBtnAction}
+                >
+                  {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
+                </div>
+                <TImageViewerUtils
+                  onZoomIn={onZoomIn}
+                  onZoomOut={onZoomOut}
+                  onMirror={onMirror}
+                  onReset={onRest}
+                  onRotate={onRotate}
+                  scale={scale.value}
+                  currentImage={currentImage.value}
+                />
+                <TImageItem
+                  scale={scale.value}
+                  rotate={rotate.value}
+                  mirror={mirror.value}
+                  src={currentImage.value.mainImage}
+                  placementSrc={currentImage.value.thumbnail}
+                />
+              </div>
+            )}
+          </Teleport>
         </>
       );
-    }
-
-    return (
-      <>
-        {this.renderTrigger()}
-        <Teleport to="body">
-          {this.visibleValue && (
-            <div class={this.wrapClass} style={{ zIndex: this.zIndexValue }} onWheel={this.onWheel}>
-              {!!this.showOverlayValue && (
-                <div class={`${this.COMPONENT_NAME}__modal--mask`} onClick={this.clickOverlayHandler} />
-              )}
-              <TImageViewerModal />
-              {this.images.length > 1 && (
-                <>
-                  {this.renderHeader()}
-                  <div class={`${this.COMPONENT_NAME}__modal--index`}>{`${this.indexValue + 1}/${
-                    this.images.length
-                  }`}</div>
-                  {this.renderNavigationArrow('prev')}
-                  {this.renderNavigationArrow('next')}
-                </>
-              )}
-              <div
-                class={[`${this.COMPONENT_NAME}__modal--icon`, `${this.COMPONENT_NAME}__modal--close-bt`]}
-                onClick={this.closeBtnAction}
-              >
-                {this.renderClose()}
-              </div>
-              <TImageViewerUtils
-                onZoomIn={this.onZoomIn}
-                onZoomOut={this.onZoomOut}
-                onMirror={this.onMirror}
-                onReset={this.onRest}
-                onRotate={this.onRotate}
-                scale={this.scale}
-                currentImage={this.currentImage}
-              />
-              <TImageItem
-                scale={this.scale}
-                rotate={this.rotate}
-                mirror={this.mirror}
-                src={this.currentImage.mainImage}
-                placementSrc={this.currentImage.thumbnail}
-              />
-            </div>
-          )}
-        </Teleport>
-      </>
-    );
+    };
   },
 });

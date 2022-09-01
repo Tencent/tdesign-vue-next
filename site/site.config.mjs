@@ -345,7 +345,7 @@ export default {
           name: 'image-viewer',
           meta: {},
           path: '/vue-next/components/image-viewer',
-          component: () => import('@/examples/image-viewer/image-viewer.md'),
+          component: () => import('tdesign-vue-next/image-viewer/image-viewer.md'),
         },
         {
           title: 'List 列表',
