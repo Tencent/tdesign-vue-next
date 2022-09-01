@@ -344,6 +344,7 @@ export default defineComponent({
       }
       destroyPopper();
       off(document, 'click', handleDocumentClick, true);
+      clearTimeout(timeoutId);
     });
 
     provide(injectionKey, {
