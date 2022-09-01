@@ -341,6 +341,13 @@ export default {
           component: () => import('tdesign-vue-next/comment/comment.md'),
         },
         {
+          title: 'ImageViewer 图片预览',
+          name: 'image-viewer',
+          meta: {},
+          path: '/vue-next/components/image-viewer',
+          component: () => import('@/examples/image-viewer/image-viewer.md'),
+        },
+        {
           title: 'List 列表',
           name: 'list',
           path: '/vue-next/components/list',
