@@ -36,19 +36,16 @@ export default defineComponent({
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     const intersectionLen = computed<number>(() => {
+      if (!isArray(innerValue.value)) return 0;
       const values = optionList.value.map((item) => item.value);
-      if (isArray(innerValue.value)) {
-        const n = intersection(innerValue.value, values);
-        return n.length;
-      }
-      return 0;
+      const n = intersection(innerValue.value, values);
+      return n.length;
     });
 
     const isCheckAll = computed<boolean>(() => {
-      if (isArray(innerValue.value) && innerValue.value.length !== optionList.value.length - 1) {
-        return false;
-      }
-      return intersectionLen.value === optionList.value.length - 1;
+      const excludeCount = optionList.value.filter((item) => item.disabled || item.checkAll).length;
+      if (isArray(innerValue.value) && innerValue.value.length !== optionList.value.length - excludeCount) return false;
+      return intersectionLen.value === optionList.value.length - excludeCount;
     });
 
     const indeterminate = computed<boolean>(
@@ -76,6 +73,7 @@ export default defineComponent({
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
         if (item.checkAll) continue;
+        if (item.disabled) continue;
         val.add(item.value);
         if (maxExceeded.value) break;
       }
