@@ -167,5 +167,5 @@ A: `0.17.0` 版本开始我们不再引入 `reset.less`，影响最大的是移�
 如果你的项目开发依赖于原先的 `reset` 样式，可以从 `dist` 目录中单独引入它：
 
 ```js
-import 'tdesign-vue/dist/reset.css';
+import 'tdesign-vue-next/dist/reset.css';
 ```
