@@ -11,7 +11,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'TMenu',
-  props: { ...props },
+  props: { ...props, onCollapsed: Function },
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
     watchEffect(() => {

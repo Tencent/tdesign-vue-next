@@ -44,7 +44,7 @@ export default defineComponent({
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
 
     const displayOptions = computed(() => {
-      if (!props.inputValue || props.creatable || !(props.filterable || isFunction(props.filter))) return props.options;
+      if (!props.inputValue || !(props.filterable || isFunction(props.filter))) return props.options;
 
       const filterMethods = (option: SelectOption) => {
         if (isFunction(props.filter)) {
@@ -160,6 +160,7 @@ export default defineComponent({
         {/* 空状态 */}
         {!props.loading &&
           isEmpty.value &&
+          !showCreateOption.value &&
           renderDefaultTNode('empty', {
             defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
           })}

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-const demoReq = import.meta.globEager('../../../examples/**/demos/*.vue');
+const demoReq = import.meta.globEager('../../../src/**/_example/*.vue');
 const demoObject = {};
 const demoList = {};
 Object.keys(demoReq).forEach((key) => {
