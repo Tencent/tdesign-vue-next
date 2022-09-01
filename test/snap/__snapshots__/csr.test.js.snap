@@ -68093,6 +68093,37 @@ exports[`csr snapshot test > csr test ./src/loading/_example/base.vue 1`] = `
     </svg>
     <!---->
   </div>
+  <span
+    class="t-loading__parent--relative"
+    style="position: relative;"
+  >
+     ads
+    <div
+      class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
+  </span>
   <!-- 自定义加载图标 -->
   <!-- &lt;t-loading&gt;
     &lt;template #indicator&gt;
@@ -68176,6 +68207,47 @@ exports[`csr snapshot test > csr test ./src/loading/_example/delay.vue 1`] = `
       </span>
     </button>
   </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/loading/_example/directive.vue 1`] = `
+<div
+  class="loading-directive-demo"
+>
+  <div
+    class="loading-container"
+  >
+    Loading...
+  </div>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      支持指令
+      
+    </span>
+  </button>
+  <div
+    class="loading-container"
+  >
+    Loading...
+  </div>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      支持 fullscreen 修饰符
+      
+    </span>
+  </button>
 </div>
 `;
 
