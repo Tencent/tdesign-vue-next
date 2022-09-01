@@ -10,7 +10,7 @@ export default function useDefaultValue<T, P extends (...args: any) => void>(
   const { emit, vnode } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 
-  const vProps = vnode.props;
+  const vProps = vnode.props || {};
   const isVMP = Object.prototype.hasOwnProperty.call(vProps, propsName);
 
   if (isVMP) {
