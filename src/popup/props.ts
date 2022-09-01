@@ -21,6 +21,10 @@ export default {
   default: {
     type: [String, Function] as PropType<TdPopupProps['default']>,
   },
+  /** 延时显示或隐藏覆层，[延迟显示的时间，延迟隐藏的时间]，单位：毫秒。如果只有一个时间，则表示显示和隐藏的延迟时间相同。示例 `'300'` 或者 `[200, 200]`。默认为：[250, 150] */
+  delay: {
+    type: [Number, Array] as PropType<TdPopupProps['delay']>,
+  },
   /** 是否在关闭浮层时销毁浮层 */
   destroyOnClose: Boolean,
   /** 是否禁用组件 */
