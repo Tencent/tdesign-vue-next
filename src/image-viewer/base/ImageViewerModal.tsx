@@ -2,7 +2,7 @@ import { computed, defineComponent, PropType } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import TDialog from '../../dialog';
 import TImageItem from './ImageItem';
-import TImageViewerUtils from './ImageViewerUtils';
+import TImageViewerUtils, { PropFn } from './ImageViewerUtils';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { ImageInfo, TdImageViewerProps } from '../type';
@@ -24,11 +24,11 @@ export default defineComponent({
         return {};
       },
     },
-    onRotate: Function,
-    onZoomIn: Function,
-    onZoomOut: Function,
-    onMirror: Function,
-    onReset: Function,
+    onRotate: Function as PropType<PropFn>,
+    onZoomIn: Function as PropType<PropFn>,
+    onZoomOut: Function as PropType<PropFn>,
+    onMirror: Function as PropType<PropFn>,
+    onReset: Function as PropType<PropFn>,
     onClose: Function as PropType<TdImageViewerProps['onClose']>,
     draggable: {
       type: Boolean,
