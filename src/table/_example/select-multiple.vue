@@ -65,7 +65,7 @@ const data = new Array(5).fill(null).map((item, index) => ({
   description: 'test',
 }));
 
-const selectedRowKeys = ref([3, '2']);
+const selectedRowKeys = ref([]);
 
 const rehandleClickOp = ({ text, row }) => {
   console.log(text, row);
