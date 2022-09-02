@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Popup Props
 
 name | type | default | description | required
@@ -8,6 +9,7 @@ name | type | default | description | required
 attach | String / Function | 'body' | Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 content | String / Slot / Function | - | Typescript：`string | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | Typescript：`string | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+delay | Number / Array | - | delay to show or hide popover。Typescript：`number | Array<number>` | N
 destroyOnClose | Boolean | false | \- | N
 disabled | Boolean | false | \- | N
 hideEmptyPopup | Boolean | false | \- | N

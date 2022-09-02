@@ -26051,10 +26051,11 @@ exports[`csr snapshot test > csr test ./src/checkbox/_example/group.vue 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox"
+      class="t-checkbox t-is-disabled"
     >
       <input
         class="t-checkbox__former"
+        disabled=""
         name=""
         type="checkbox"
         value="选项三"
