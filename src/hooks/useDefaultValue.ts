@@ -1,4 +1,5 @@
-import { ref, Ref, getCurrentInstance, watch } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
+import kebabCase from 'lodash/kebabCase';
 import { ChangeHandler } from './useVModel';
 
 export default function useDefaultValue<T, P extends (...args: any) => void>(
@@ -11,7 +12,9 @@ export default function useDefaultValue<T, P extends (...args: any) => void>(
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
-  const isVMP = Object.prototype.hasOwnProperty.call(vProps, propsName);
+  const isVMP =
+    Object.prototype.hasOwnProperty.call(vProps, propsName) ||
+    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propsName));
 
   if (isVMP) {
     return [
