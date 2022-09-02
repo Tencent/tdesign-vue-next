@@ -60,7 +60,7 @@ export default {
   /** 透传 上一步按钮 的全部属性 */
   prevButtonProps: {
     type: Object as PropType<TdGuideProps['prevButtonProps']>,
-    default: { content: '上一步', theme: 'primary' } as ButtonProps,
+    default: { content: '上一步', theme: 'default' } as ButtonProps,
   },
   /** 是否出现遮罩层 */
   showOverlay: {
