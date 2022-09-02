@@ -1,4 +1,4 @@
-import { ref, Ref, getCurrentInstance, watch } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
 import kebabCase from 'lodash/kebabCase';
 
 export type ChangeHandler<T> = (value: T, ...args: any) => void;
@@ -20,10 +20,8 @@ export default function useVModel<T, P extends (...args: any) => void>(
     Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName));
 
   if (isVM) {
-    watch(modelValue, () => (internalValue.value = modelValue.value), { immediate: true });
-
     return [
-      internalValue,
+      modelValue,
       (newValue, ...args) => {
         vProps['onUpdate:modelValue'] && emit('update:modelValue', newValue, ...args);
         onChange?.(newValue, ...args);
