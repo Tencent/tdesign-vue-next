@@ -86,6 +86,7 @@ export default defineComponent({
       getThWidthList,
       updateThWidthList,
       setRecalculateColWidthFuncRef,
+      addTableResizeObserver,
     } = useFixed(props, context, finalColumns);
 
     // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
@@ -211,9 +212,14 @@ export default defineComponent({
 
     watch(tableElmRef, getTFootHeight);
 
+    watch(tableRef, () => {
+      addTableResizeObserver(tableRef.value);
+    });
+
     onMounted(() => {
       getTFootHeight();
       setTableContentRef(tableContentRef.value);
+      addTableResizeObserver(tableRef.value);
     });
 
     return {
