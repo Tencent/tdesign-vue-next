@@ -193,7 +193,7 @@ export default defineComponent({
               onZoomOut={onZoomOut}
               onMirror={onMirror}
               onReset={onRest}
-              onClose={closeBtnAction}
+              onClose={onClose}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
               closeBtn={props.closeBtn}

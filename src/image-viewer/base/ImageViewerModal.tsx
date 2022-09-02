@@ -29,7 +29,7 @@ export default defineComponent({
     onZoomOut: Function,
     onMirror: Function,
     onReset: Function,
-    onClose: Function,
+    onClose: Function as PropType<TdImageViewerProps['onClose']>,
     draggable: {
       type: Boolean,
       default: true,
@@ -70,7 +70,12 @@ export default defineComponent({
           header={() => (
             <div class={`${classPrefix.value}-image-viewer__mini--header`}>
               {`${props.index + 1}/${props.images.length}`}
-              <span class={`${classPrefix.value}-image-viewer__mini--close`} onClick={props.onClose}>
+              <span
+                class={`${classPrefix.value}-image-viewer__mini--close`}
+                onClick={(e: MouseEvent) => {
+                  props.onClose({ e, trigger: 'close-btn' });
+                }}
+              >
                 {renderJSX('closeBtn', <CloseIcon size="1.5rem" />)}
               </span>
             </div>

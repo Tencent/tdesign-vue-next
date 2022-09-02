@@ -7,7 +7,7 @@ export default defineComponent({
   name: 'TImageModalIcon',
   props: {
     disabled: Boolean,
-    onClick: Function,
+    onClick: Function as PropType<(e: MouseEvent) => void>,
     label: String,
     icon: Function as PropType<TNode>,
   },
