@@ -73,8 +73,12 @@ export default defineComponent({
     }
 
     // 日期点击
-    function onCellClick(date: Date, { e, partial }: { e: MouseEvent; partial: DateRangePickerPartial }) {
-      props.onCellClick?.({ date: value.value.map((v) => dayjs(v).toDate()), e, partial });
+    function onCellClick(date: Date, { e }: { e: MouseEvent }) {
+      props.onCellClick?.({
+        e,
+        partial: activeIndex.value ? 'end' : 'start',
+        date: value.value.map((v) => dayjs(v).toDate()),
+      });
 
       isHoverCell.value = false;
       isSelected.value = true;

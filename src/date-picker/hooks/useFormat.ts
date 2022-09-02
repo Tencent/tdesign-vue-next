@@ -101,6 +101,8 @@ export function formatTime(value: DateValue | DateValue[], timeFormat: string) {
 
 // 统一解析日期格式字符串成 Dayjs 对象
 export function parseToDayjs(value: string | Date | number, format: string, timeOfDay?: string) {
+  if (value === '') return dayjs();
+
   let dateText = value;
   // format week
   if (/[w|W]/g.test(format)) {
