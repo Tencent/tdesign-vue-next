@@ -59470,7 +59470,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/my-popup.vue 1`] = `
       </span>
     </button>
     <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      class="t-button t-size-s t-button--variant-base t-button--theme-default"
       type="button"
     >
       <span
