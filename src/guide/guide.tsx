@@ -35,7 +35,13 @@ export default defineComponent({
     const LOCK_CLASS = usePrefixClass('guide--lock');
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
-    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
+    const [innerCurrent, setInnerCurrent] = useVModel(
+      current,
+      modelValue,
+      props.defaultCurrent,
+      props.onChange,
+      'current',
+    );
 
     // 覆盖层，用于覆盖所有元素
     const overlayLayerRef = ref<HTMLElement>();
