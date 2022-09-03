@@ -45,52 +45,50 @@ export default defineComponent({
       },
     );
 
-    return () => {
-      return (
-        <div class={`${classPrefix.value}-image-viewer__modal--pic`}>
-          <div class={`${classPrefix.value}-image-viewer__modal--box`} style={boxStyle.value}>
-            {error.value && (
-              <div class={`${classPrefix.value}-image-viewer__img-error`}>
-                {/* 脱离文档流 */}
-                <div class={`${classPrefix.value}-image-viewer__img-error--content`}>
-                  <ImageErrorIcon size="4em" />
-                  <div class={`${classPrefix.value}-image-viewer__img-error--text`}>图片加载失败，可尝试重新加载</div>
-                </div>
+    return () => (
+      <div class={`${classPrefix.value}-image-viewer__modal--pic`}>
+        <div class={`${classPrefix.value}-image-viewer__modal--box`} style={boxStyle.value}>
+          {error.value && (
+            <div class={`${classPrefix.value}-image-viewer__img-error`}>
+              {/* 脱离文档流 */}
+              <div class={`${classPrefix.value}-image-viewer__img-error--content`}>
+                <ImageErrorIcon size="4em" />
+                <div class={`${classPrefix.value}-image-viewer__img-error--text`}>图片加载失败，可尝试重新加载</div>
               </div>
-            )}
+            </div>
+          )}
 
-            {!error.value && !!props.placementSrc && (
-              <img
-                class={`${classPrefix.value}-image-viewer__modal--image`}
-                onMousedown={(event: MouseEvent) => {
-                  event.stopPropagation();
-                  mouseDownHandler(event);
-                }}
-                src={props.placementSrc}
-                style={placementImgStyle.value}
-                alt="image"
-                draggable="false"
-              />
-            )}
+          {!error.value && !!props.placementSrc && (
+            <img
+              class={`${classPrefix.value}-image-viewer__modal--image`}
+              onMousedown={(event: MouseEvent) => {
+                event.stopPropagation();
+                mouseDownHandler(event);
+              }}
+              src={props.placementSrc}
+              style={placementImgStyle.value}
+              alt="image"
+              draggable="false"
+            />
+          )}
 
-            {!error.value && (
-              <img
-                class={`${classPrefix.value}-image-viewer__modal--image`}
-                onMousedown={(event: MouseEvent) => {
-                  event.stopPropagation();
-                  mouseDownHandler(event);
-                }}
-                src={props.src}
-                onLoad={() => (loaded.value = true)}
-                onError={() => (error.value = true)}
-                style={imgStyle.value}
-                alt="image"
-                draggable="false"
-              />
-            )}
-          </div>
+          {!error.value && (
+            <img
+              class={`${classPrefix.value}-image-viewer__modal--image`}
+              onMousedown={(event: MouseEvent) => {
+                event.stopPropagation();
+                mouseDownHandler(event);
+              }}
+              src={props.src}
+              onLoad={() => (loaded.value = true)}
+              onError={() => (error.value = true)}
+              style={imgStyle.value}
+              alt="image"
+              draggable="false"
+            />
+          )}
         </div>
-      );
-    };
+      </div>
+    );
   },
 });

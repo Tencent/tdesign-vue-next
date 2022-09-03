@@ -8,17 +8,15 @@ import { downloadFile } from '../utils';
 
 import { ImageInfo } from '../type';
 
-export type PropFn = () => void;
-
 export default defineComponent({
   name: 'TImageViewerUtils',
   props: {
     scale: Number,
-    onRotate: Function as PropType<PropFn>,
-    onZoomIn: Function as PropType<PropFn>,
-    onZoomOut: Function as PropType<PropFn>,
-    onMirror: Function as PropType<PropFn>,
-    onReset: Function as PropType<PropFn>,
+    onRotate: Function as PropType<() => void>,
+    onZoomIn: Function as PropType<() => void>,
+    onZoomOut: Function as PropType<() => void>,
+    onMirror: Function as PropType<() => void>,
+    onReset: Function as PropType<() => void>,
     currentImage: {
       type: Object as PropType<ImageInfo>,
       default() {

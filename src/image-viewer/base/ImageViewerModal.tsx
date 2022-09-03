@@ -2,7 +2,7 @@ import { computed, defineComponent, PropType } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import TDialog from '../../dialog';
 import TImageItem from './ImageItem';
-import TImageViewerUtils, { PropFn } from './ImageViewerUtils';
+import TImageViewerUtils from './ImageViewerUtils';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { ImageInfo, TdImageViewerProps } from '../type';
@@ -24,12 +24,12 @@ export default defineComponent({
         return {};
       },
     },
-    onRotate: Function as PropType<PropFn>,
-    onZoomIn: Function as PropType<PropFn>,
-    onZoomOut: Function as PropType<PropFn>,
-    onMirror: Function as PropType<PropFn>,
-    onReset: Function as PropType<PropFn>,
-    onClose: Function as PropType<TdImageViewerProps['onClose']>,
+    onRotate: Function as PropType<() => void>,
+    onZoomIn: Function as PropType<() => void>,
+    onZoomOut: Function as PropType<() => void>,
+    onMirror: Function as PropType<() => void>,
+    onReset: Function as PropType<() => void>,
+    onClose: props.onClose,
     draggable: {
       type: Boolean,
       default: true,
@@ -50,61 +50,60 @@ export default defineComponent({
       minWidth: props.viewerScale.minWidth,
       minHeight: props.viewerScale.minHeight,
     }));
-    return () => {
-      return (
-        <TDialog
-          destroyOnClose
-          attach="body"
-          onClose={props.onClose}
-          visible={props.visible}
-          placement="center"
-          mode="modeless"
-          width={1000}
-          cancelBtn={null}
-          confirmBtn={null}
-          closeBtn={false}
-          draggable={props.draggable}
-          zIndex={props.zIndex}
-          showOverlay={props.showOverlay}
-          class={`${classPrefix.value}-image-viewer__dialog`}
-          header={() => (
-            <div class={`${classPrefix.value}-image-viewer__mini--header`}>
-              {`${props.index + 1}/${props.images.length}`}
-              <span
-                class={`${classPrefix.value}-image-viewer__mini--close`}
-                onClick={(e: MouseEvent) => {
-                  props.onClose({ e, trigger: 'close-btn' });
-                }}
-              >
-                {renderJSX('closeBtn', <CloseIcon size="1.5rem" />)}
-              </span>
-            </div>
-          )}
-          footer={() => (
-            <div class={`${classPrefix.value}-image-viewer-mini__footer`}>
-              <TImageViewerUtils
-                onZoomIn={props.onZoomIn}
-                onZoomOut={props.onZoomOut}
-                scale={props.scale}
-                currentImage={props.currentImage}
-                onRotate={props.onRotate}
-                onMirror={props.onMirror}
-                onReset={props.onReset}
-              />
-            </div>
-          )}
-        >
-          <div class={`${classPrefix.value}-image-viewer-mini__content`} style={style.value}>
-            <TImageItem
-              rotate={props.rotate}
+
+    return () => (
+      <TDialog
+        destroyOnClose
+        attach="body"
+        onClose={props.onClose}
+        visible={props.visible}
+        placement="center"
+        mode="modeless"
+        width={1000}
+        cancelBtn={null}
+        confirmBtn={null}
+        closeBtn={false}
+        draggable={props.draggable}
+        zIndex={props.zIndex}
+        showOverlay={props.showOverlay}
+        class={`${classPrefix.value}-image-viewer__dialog`}
+        header={() => (
+          <div class={`${classPrefix.value}-image-viewer__mini--header`}>
+            {`${props.index + 1}/${props.images.length}`}
+            <span
+              class={`${classPrefix.value}-image-viewer__mini--close`}
+              onClick={(e: MouseEvent) => {
+                props.onClose({ e, trigger: 'close-btn' });
+              }}
+            >
+              {renderJSX('closeBtn', <CloseIcon size="1.5rem" />)}
+            </span>
+          </div>
+        )}
+        footer={() => (
+          <div class={`${classPrefix.value}-image-viewer-mini__footer`}>
+            <TImageViewerUtils
+              onZoomIn={props.onZoomIn}
+              onZoomOut={props.onZoomOut}
               scale={props.scale}
-              mirror={props.mirror}
-              src={props.currentImage.mainImage}
-              placementSrc={props.currentImage.thumbnail}
+              currentImage={props.currentImage}
+              onRotate={props.onRotate}
+              onMirror={props.onMirror}
+              onReset={props.onReset}
             />
           </div>
-        </TDialog>
-      );
-    };
+        )}
+      >
+        <div class={`${classPrefix.value}-image-viewer-mini__content`} style={style.value}>
+          <TImageItem
+            rotate={props.rotate}
+            scale={props.scale}
+            mirror={props.mirror}
+            src={props.currentImage.mainImage}
+            placementSrc={props.currentImage.thumbnail}
+          />
+        </div>
+      </TDialog>
+    );
   },
 });

@@ -21,13 +21,11 @@ export default defineComponent({
       },
     ]);
 
-    return () => {
-      return (
-        <div class={wrapClass.value} onClick={props.onClick}>
-          {renderTNodeJSX('icon')}
-          {props.label && <span class={`${classPrefix.value}-image-viewer__modal--icon-label`}>{props.label}</span>}
-        </div>
-      );
-    };
+    return () => (
+      <div class={wrapClass.value} onClick={props.onClick}>
+        {renderTNodeJSX('icon')}
+        {props.label && <span class={`${classPrefix.value}-image-viewer__modal--icon-label`}>{props.label}</span>}
+      </div>
+    );
   },
 });

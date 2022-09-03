@@ -124,41 +124,39 @@ export default defineComponent({
 
     const transStyle = computed(() => ({ transform: `translateX(-${indexValue.value * 84}px)` }));
 
-    const renderHeader = () => {
-      return (
-        <div class={headerClass.value}>
-          <TImageViewerIcon
-            icon={() => <ChevronDownIcon size="20px" />}
-            class={`${COMPONENT_NAME.value}__header--pre__bt`}
-            onClick={toggleExpand}
-          />
-          <div class={`${COMPONENT_NAME.value}__header--prev`}>
-            <div class={`${COMPONENT_NAME.value}__bokeh--left`} />
-            <div class={`${COMPONENT_NAME.value}__bokeh--right`} />
-            <div class={`${COMPONENT_NAME.value}__header--trans`} style={transStyle.value}>
-              {images.value.map((image, index) => (
-                <div
-                  key={index}
-                  class={[
-                    `${COMPONENT_NAME.value}__header--box`,
-                    {
-                      [`${classPrefix.value}-is-active`]: index === indexValue.value,
-                    },
-                  ]}
-                >
-                  <img
-                    alt=""
-                    src={image.thumbnail || image.mainImage}
-                    className={`${COMPONENT_NAME.value}__header--img`}
-                    onClick={() => onImgClick(index)}
-                  />
-                </div>
-              ))}
-            </div>
+    const renderHeader = () => (
+      <div class={headerClass.value}>
+        <TImageViewerIcon
+          icon={() => <ChevronDownIcon size="20px" />}
+          class={`${COMPONENT_NAME.value}__header--pre__bt`}
+          onClick={toggleExpand}
+        />
+        <div class={`${COMPONENT_NAME.value}__header--prev`}>
+          <div class={`${COMPONENT_NAME.value}__bokeh--left`} />
+          <div class={`${COMPONENT_NAME.value}__bokeh--right`} />
+          <div class={`${COMPONENT_NAME.value}__header--trans`} style={transStyle.value}>
+            {images.value.map((image, index) => (
+              <div
+                key={index}
+                class={[
+                  `${COMPONENT_NAME.value}__header--box`,
+                  {
+                    [`${classPrefix.value}-is-active`]: index === indexValue.value,
+                  },
+                ]}
+              >
+                <img
+                  alt=""
+                  src={image.thumbnail || image.mainImage}
+                  className={`${COMPONENT_NAME.value}__header--img`}
+                  onClick={() => onImgClick(index)}
+                />
+              </div>
+            ))}
           </div>
         </div>
-      );
-    };
+      </div>
+    );
     const renderNavigationArrow = (type: 'prev' | 'next') => {
       const rotateDeg = type === 'prev' ? 0 : 180;
       const icon = renderTNodeJSX(
