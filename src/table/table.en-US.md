@@ -214,6 +214,7 @@ appendTo | `(key: TableRowValue, newData: T)` | \- | required
 expandAll | \- | \- | required
 foldAll | \- | \- | required
 getData | `(key: TableRowValue)` | `TableRowState<T>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type TableRowValue = string | number`<br/>
+getTreeExpandedRow | `(type: 'unique' | 'data' | 'all')` | \- | required。get expanded row data
 getTreeNode | \- | `T[]` | required
 insertAfter | `(key: TableRowValue, newData: T)` | \- | required
 insertBefore | `(key: TableRowValue, newData: T)` | \- | required

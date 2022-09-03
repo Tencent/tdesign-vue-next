@@ -214,6 +214,7 @@ appendTo | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，
 expandAll | \- | \- | 必需。展开全部行
 foldAll | \- | \- | 必需。折叠全部行
 getData | `(key: TableRowValue)` | `TableRowState<T>` | 必需。树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type TableRowValue = string | number`<br/>
+getTreeExpandedRow | `(type: 'unique' | 'data' | 'all')` | \- | 必需。获取展开的树形节点。`type=unique` 标识获取展开节点的行唯一标识值，`type=data` 表示获取展开节点的数据，`type=all` 表示获取行节点包含展开状态的全部数据
 getTreeNode | \- | `T[]` | 必需。树形结构中，获取完整的树形结构
 insertAfter | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之后添加子节点
 insertBefore | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之前添加子节点
