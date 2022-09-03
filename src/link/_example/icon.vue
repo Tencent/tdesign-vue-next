@@ -17,4 +17,7 @@ import { LinkIcon, JumpIcon } from 'tdesign-icons-vue-next';
 
 const renderPrefixIcon = () => <LinkIcon />;
 const renderSuffixIcon = () => <JumpIcon />;
+const clickLink = () => {
+  console.log('不触发');
+};
 </script>
