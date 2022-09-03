@@ -136,12 +136,12 @@ export default defineComponent({
           ],
           trigger,
         };
-        if (!col.value.edit || !col.value.edit.rules) {
+        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
+        if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
           resolve(true);
           return;
         }
-        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
         validate(editValue.value, rules).then((result) => {
           const list = result?.filter((t) => !t.result);
           params.result[0].errorList = list;
