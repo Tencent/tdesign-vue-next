@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <span>宽度响应式</span>
     <t-row>
       <t-col :xs="2" :sm="4" :md="6" :lg="8" :xl="10">
@@ -22,5 +22,5 @@
         <div>Col</div>
       </t-col>
     </t-row>
-  </div>
+  </t-space>
 </template>

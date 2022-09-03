@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-row>
       <t-col :span="9" :push="3">
         <div>col-9 col-pull-3</div>
@@ -8,5 +8,5 @@
         <div>col-3 col-pull-9</div>
       </t-col>
     </t-row>
-  </div>
+  </t-space>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <p>align top</p>
     <t-row align="top" justify="center">
       <t-col :span="3">
@@ -47,5 +47,5 @@
         <div>col-3</div>
       </t-col>
     </t-row>
-  </div>
+  </t-space>
 </template>
