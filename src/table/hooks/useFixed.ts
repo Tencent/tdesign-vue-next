@@ -493,10 +493,11 @@ export default function useFixed(
   function addTableResizeObserver(tableElement: HTMLDivElement) {
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
     if (getIEVersion() < 11 || !ResizeObserver) return;
-    const ro = new ResizeObserver(() => {
+    off(window, 'resize', onResize);
+    const tmp = new ResizeObserver(() => {
       refreshTable();
     });
-    ro.observe(tableElement);
+    tmp.observe(tableElement);
   }
 
   onMounted(() => {
@@ -511,7 +512,7 @@ export default function useFixed(
     });
     const isWatchResize = isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value || !data.value.length;
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if (isWatchResize && getIEVersion() < 11) {
+    if ((isWatchResize && getIEVersion() < 11) || !ResizeObserver) {
       on(window, 'resize', onResize);
     }
   });
