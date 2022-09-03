@@ -10,6 +10,7 @@ import {
   PrimaryTableRowEditContext,
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
+  PrimaryTableCellParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -119,13 +120,16 @@ export default defineComponent({
 
     const validateEdit = (trigger: 'self' | 'parent') => {
       return new Promise((resolve) => {
+        const cellParams: PrimaryTableCellParams<TableRowData> = {
+          col: props.col,
+          row: props.row,
+          colIndex: props.colIndex,
+          rowIndex: props.rowIndex,
+        };
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
             {
-              col: props.col,
-              row: props.row,
-              colIndex: props.colIndex,
-              rowIndex: props.rowIndex,
+              ...cellParams,
               errorList: [],
               value: editValue.value,
             },
@@ -137,7 +141,8 @@ export default defineComponent({
           resolve(true);
           return;
         }
-        validate(editValue.value, col.value.edit?.rules).then((result) => {
+        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
+        validate(editValue.value, rules).then((result) => {
           const list = result?.filter((t) => !t.result);
           params.result[0].errorList = list;
           props.onValidate?.(params);

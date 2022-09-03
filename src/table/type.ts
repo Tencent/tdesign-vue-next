@@ -801,7 +801,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
   /**
    * 校验规则
    */
-  rules?: FormRule[];
+  rules?: TableEditableCellRules<T>;
   /**
    * 是否显示编辑图标
    * @default true
@@ -1056,3 +1056,5 @@ export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<
 export interface TablePlainObject {
   [key: string]: any;
 }
+
+export type TableEditableCellRules<T> = FormRule[] | ((params: PrimaryTableCellParams<T>) => FormRule[]);

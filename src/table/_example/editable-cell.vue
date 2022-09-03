@@ -16,6 +16,7 @@
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
 import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
+import dayjs from 'dayjs';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -152,6 +153,13 @@ const columns = computed(() => [
         console.log('Edit Date:', context);
         MessagePlugin.success('Success');
       },
+      // 校验规则，此处同 Form 表单
+      rules: () => [
+        {
+          validator: (val) => dayjs(val).isAfter(dayjs()),
+          message: '只能选择今天以后日期',
+        },
+      ],
     },
   },
 ]);
