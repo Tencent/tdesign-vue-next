@@ -212,8 +212,8 @@ export default defineComponent({
 
     watch(tableElmRef, getTFootHeight);
 
-    watch(tableRef, () => {
-      addTableResizeObserver(tableRef.value);
+    watch(tableRef, (tableRef) => {
+      addTableResizeObserver(tableRef);
     });
 
     onMounted(() => {
