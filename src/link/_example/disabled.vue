@@ -1,21 +1,16 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <t-space>
-      <t-link theme="default" disabled @click="clickLink"> 跳转链接 </t-link>
-      <t-link theme="primary" underline disabled @click="clickLink"> 跳转链接 </t-link>
-      <t-link theme="danger" hover="color" disabled @click="clickLink"> 跳转链接 </t-link>
-      <t-link theme="warning" hover="underline" disabled @click="clickLink"> 跳转链接 </t-link>
-      <t-link theme="success" disabled @click="clickLink">
-        <template #suffix-icon>
-          <JumpIcon />
-        </template>
-        跳转链接
-      </t-link>
-    </t-space>
-  </div>
+  <t-space>
+    <t-link theme="default" disabled @click="clickLink"> 跳转链接 </t-link>
+    <t-link theme="primary" underline disabled @click="clickLink"> 跳转链接 </t-link>
+    <t-link theme="danger" hover="color" disabled @click="clickLink"> 跳转链接 </t-link>
+    <t-link theme="warning" hover="underline" disabled :on-click="clickLink"> 跳转链接 </t-link>
+    <t-link theme="success" disabled @click="clickLink">
+      <jump-icon slot="suffixIcon" />
+      跳转链接
+    </t-link>
+  </t-space>
 </template>
-
-<script setup>
+<script setup lang="jsx">
 import { JumpIcon } from 'tdesign-icons-vue-next';
 
 const clickLink = () => {
