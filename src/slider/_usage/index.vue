@@ -1,7 +1,9 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
-    <template #slider="{ configProps }"><t-slider v-bind="configProps" /></template>
+    <template #slider="{ configProps }">
+      <div style="height: 100px; width: 300px"><t-slider v-bind="configProps" /></div>
+    </template>
   </base-usage>
 </template>
 

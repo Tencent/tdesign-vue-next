@@ -307,7 +307,7 @@ module.exports = {
   slider: {
     panelStr: `const panelList = [{label: 'slider', value: 'slider'}];`,
     render: {
-      slider: `<t-slider v-bind="configProps" />`,
+      slider: `<div style="height: 100px; width: 300px"><t-slider v-bind="configProps" /></div>`,
     },
   },
   switch: {
