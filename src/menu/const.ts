@@ -22,9 +22,9 @@ export interface TdMenuInterface {
 }
 
 export interface TdSubMenuInterface {
-  value: MenuValue;
+  value?: MenuValue;
   hasIcon?: boolean;
   addMenuItem?: (item: TdMenuItem) => void;
-  setSubPopup: (popupRef: HTMLElement) => void;
-  closeParentPopup: (e: MouseEvent) => void;
+  setSubPopup?: (popupRef: HTMLElement) => void;
+  closeParentPopup?: (e: MouseEvent) => void;
 }
