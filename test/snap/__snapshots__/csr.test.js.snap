@@ -3909,324 +3909,614 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/to.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/base.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
 >
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
-    type="button"
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
-      
-       填充按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        填充按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      
-       描边按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
-      
-       虚框按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
     >
-      
-       文字按钮 
-      
-    </span>
-  </button>
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/block.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
-  style="justify-content: center;"
+  class="t-space t-space-align-center t-space-vertical"
+  data-v-59dd211d=""
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-column"
-    style="min-width: 320px; max-width: 640px;"
+    class="t-space-item"
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
+      data-v-59dd211d=""
       type="button"
     >
       <span
         class="t-button__text"
       >
         
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         文字按钮 
+        填充按钮
         
       </span>
     </button>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/button/_example/custom-element.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        div
+        
+      </span>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        a
+        
+      </span>
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      href="#"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        a:href
+        
+      </span>
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/ghost.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-primary t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-primary t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-success t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-success t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-success t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-warning t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-warning t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-danger t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-danger t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -4371,29 +4661,27 @@ exports[`csr snapshot test > csr test ./src/button/_example/group.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
 <div
-  class="demo-button-icon"
-  data-v-349f39ce=""
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
 >
+  
+  
   <div
-    class="demo-button-row"
-    data-v-349f39ce=""
+    class="t-space-item"
   >
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        data-v-349f39ce=""
-        type="button"
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-add"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4403,28 +4691,30 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
             fill-opacity="0.9"
           />
         </svg>
+         新建 
         
-        <span
-          class="t-button__text"
-        >
-          
-           新建 
-          
-        </span>
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        data-v-349f39ce=""
-        type="button"
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-cloud-upload"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4439,52 +4729,69 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
             fill-opacity="0.9"
           />
         </svg>
+         上传文件 
         
-        <span
-          class="t-button__text"
-        >
-          
-           上传文件 
-          
-        </span>
-        
-      </button>
-    </div>
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        data-v-349f39ce=""
-        type="button"
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-discount"
-          data-v-349f39ce=""
+          fill="none"
+          height="1em"
+          slot="icon"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-discount"
+          <path
+            d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
+            fill="currentColor"
+            fill-opacity="0.9"
+            fill-rule="evenodd"
           />
         </svg>
         
-        
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        data-v-349f39ce=""
-        type="button"
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-cloud-download"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4500,45 +4807,46 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
           />
         </svg>
         
-        
-        
-      </button>
-    </div>
-    <!-- 使用 function 的形式定义 icon -->
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        data-v-349f39ce=""
-        type="button"
+      
+      <svg
+        class="t-icon t-icon-search"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <span
+        class="t-button__text"
       >
         
-        <svg
-          class="t-icon t-icon-search"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-           Function Icon 
-          
-        </span>
+         搜索 
         
-      </button>
-    </div>
+      </span>
+      
+    </button>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -4631,906 +4939,1292 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/shape.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/size.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-l t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/status.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
-    disabled=""
-    type="button"
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+      disabled=""
+      type="button"
     >
-      
-       填充按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
-    disabled=""
-    type="button"
-  >
-    
-    <div
-      class="t-loading--center t-size-m t-loading--inherit-color t-loading"
-    >
-      <svg
-        class="t-loading__gradient t-icon-loading"
-        height="1em"
-        size="medium"
-        version="1.1"
-        viewBox="0 0 14 14"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        class="t-button__text"
       >
-        <foreignobject
-          height="12"
-          width="12"
-          x="1"
-          y="1"
-        >
-          <div
-            class="t-loading__gradient-conic"
-          />
-        </foreignobject>
-      </svg>
-      <!---->
-    </div>
-    <span
-      class="t-button__text"
+        
+        填充按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+      disabled=""
+      type="button"
     >
       
-       加载中 
+      <div
+        class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+      >
+        <svg
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="medium"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
+        </svg>
+        <!---->
+      </div>
+      <span
+        class="t-button__text"
+      >
+        
+        加载中
+        
+      </span>
       
-    </span>
-    
-  </button>
+    </button>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/theme.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-warning"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-success"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 

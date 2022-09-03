@@ -56,6 +56,7 @@ export default defineComponent({
       };
 
       const buttonAttrs = {
+        class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
         disabled: isDisabled.value,
         href: props.href,
@@ -65,7 +66,6 @@ export default defineComponent({
         renderTag(),
         {
           ref: btnRef,
-          class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
           ...attrs,
           ...buttonAttrs,
           onClick: props.onClick,
