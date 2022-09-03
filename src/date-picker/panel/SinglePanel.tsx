@@ -3,7 +3,7 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDatePickerProps } from '../type';
-import { getDefaultFormat, parseToDayjs } from '../hooks/useFormat';
+import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
 

@@ -3,7 +3,13 @@ import dayjs from 'dayjs';
 import useVModel from '../../hooks/useVModel';
 
 import { TdDateRangePickerProps, DateRangeValue } from '../type';
-import { isValidDate, formatDate, formatTime, getDefaultFormat, parseToDayjs } from './useFormat';
+import {
+  isValidDate,
+  formatDate,
+  formatTime,
+  getDefaultFormat,
+  parseToDayjs,
+} from '../../_common/js/date-picker/format';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
