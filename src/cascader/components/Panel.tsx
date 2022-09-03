@@ -16,6 +16,7 @@ export default defineComponent({
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
     loading: CascaderProps.loading,
+    loadingText: CascaderProps.loadingText,
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
