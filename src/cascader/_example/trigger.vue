@@ -1,8 +1,8 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-cascader v-model="value" :options="options" trigger="click" />
     <t-cascader v-model="value" :options="options" trigger="hover" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

@@ -1,9 +1,9 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-cascader v-model="value1" :options="options" multiple value-mode="onlyLeaf" />
     <t-cascader v-model="value2" :options="options" multiple value-mode="parentFirst" />
     <t-cascader v-model="value3" :options="options" multiple value-mode="all" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

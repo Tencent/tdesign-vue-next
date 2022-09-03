@@ -15,6 +15,7 @@ export default defineComponent({
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
+    loading: CascaderProps.loading,
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
@@ -74,15 +75,31 @@ export default defineComponent({
           );
     };
 
-    return () => (
-      <div class={[`${COMPONENT_NAME.value}__panel`, { [`${COMPONENT_NAME.value}--normal`]: panels.value.length }]}>
-        {panels.value.length
+    return () => {
+      let content;
+      if (props.loading) {
+        content = renderTNodeJSXDefault(
+          'loadingText',
+          <div class={`${COMPONENT_NAME.value}__panel--empty`}>{globalConfig.value.loadingText}</div>,
+        );
+      } else {
+        content = panels.value.length
           ? renderPanels()
           : renderTNodeJSXDefault(
               'empty',
               <div class={`${COMPONENT_NAME.value}__panel--empty`}>{globalConfig.value.empty}</div>,
-            )}
-      </div>
-    );
+            );
+      }
+      return (
+        <div
+          class={[
+            `${COMPONENT_NAME.value}__panel`,
+            { [`${COMPONENT_NAME.value}--normal`]: panels.value.length && !props.loading },
+          ]}
+        >
+          {content}
+        </div>
+      );
+    };
   },
 });
