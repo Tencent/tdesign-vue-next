@@ -87,7 +87,7 @@ const columns = computed(() => [
   {
     title: 'Framework',
     colKey: 'framework',
-    cell: (h, { row }) => FRAMEWORK_OPTIONS.find((t) => t.value === row.framework).label,
+    cell: (h, { row }) => FRAMEWORK_OPTIONS.find((t) => t.value === row.framework)?.label,
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件

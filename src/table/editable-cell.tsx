@@ -279,17 +279,17 @@ export default defineComponent({
     );
 
     watch(
-      () => props.editable,
-      () => {
+      () => [props.editable, props.rowIndex, props.colIndex],
+      ([editable, rowIndex, colIndex]: [boolean, number, number]) => {
         // 退出编辑态时，恢复原始值，等待父组件传入新的 data 值
-        if (props.editable === false) {
+        if (editable === false) {
           editValue.value = cellValue.value;
-        } else if (props.editable === true) {
+        } else if (editable === true) {
           props.onRuleChange?.({
             col: col.value,
             row: row.value,
-            rowIndex: props.rowIndex,
-            colIndex: props.colIndex,
+            rowIndex,
+            colIndex,
             value: cellValue.value,
             editedRow: row.value,
           });
@@ -300,8 +300,8 @@ export default defineComponent({
 
     watch(
       () => props.errors,
-      () => {
-        errorList.value = props.errors;
+      (errors) => {
+        errorList.value = errors;
       },
     );
 
@@ -324,8 +324,8 @@ export default defineComponent({
           </div>
         );
       }
-      const component = col.value.edit?.component;
-      if (!component) {
+      const Component = col.value.edit?.component;
+      if (!Component) {
         log.error('Table', 'edit.component is required.');
         return null;
       }
@@ -337,7 +337,7 @@ export default defineComponent({
             e.stopPropagation();
           }}
         >
-          <component
+          <Component
             ref="tableEditableCellRef"
             status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
             tips={errorMessage}
