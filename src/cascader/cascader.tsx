@@ -119,9 +119,9 @@ export default defineComponent({
             });
             (props?.selectInputProps as TdSelectInputProps)?.onFocus?.(val, context);
           }}
-          onClear={(...arg) => {
+          onClear={(context: { e: MouseEvent }) => {
             closeIconClickEffect(cascaderContext.value);
-            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(...arg);
+            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(context);
           }}
           v-slots={{
             panel: () => (
