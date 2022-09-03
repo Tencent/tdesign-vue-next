@@ -21,6 +21,8 @@ export default {
   },
   /** 是否禁用按钮 */
   disabled: Boolean,
+  /** 跳转地址 */
+  href: String,
   /** 是否为幽灵按钮（镂空按钮） */
   ghost: Boolean,
   /** 按钮内部图标，可完全自定义 */
@@ -43,6 +45,14 @@ export default {
     default: 'medium' as TdButtonProps['size'],
     validator(val: TdButtonProps['size']): boolean {
       return ['small', 'medium', 'large'].includes(val);
+    },
+  },
+  /**渲染按钮的 HTML 标签*/
+  tag: {
+    type: String as PropType<TdButtonProps['tag']>,
+    default: undefined as TdButtonProps['tag'],
+    validator(val: TdButtonProps['tag']): boolean {
+      return ['button', 'a', 'div'].includes(val);
     },
   },
   /** 组件风格，依次为默认色、品牌色、危险色、警告色、成功色 */
