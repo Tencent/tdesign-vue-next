@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, Ref } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -6,6 +6,7 @@ import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 
+import { intersection } from 'lodash';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
@@ -33,7 +34,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
-    const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
     const selectInputRef = ref(null);
     const keys = computed(() => ({
@@ -64,7 +65,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      seOrgValue(newVal, e);
+      setOrgValue(newVal, { selectedOptions: getSelectedOptions(newVal), trigger: e.trigger, e: e.e });
     };
 
     const [innerInputValue, setInputValue] = useDefaultValue(
@@ -117,7 +118,7 @@ export default defineComponent({
       const selectValue = cloneDeep(innerValue.value) as SelectValue[];
       const value = selectValue[index];
       selectValue.splice(index, 1);
-      setInnerValue(selectValue, { e, trigger: 'tag-remove' });
+      setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger: 'tag-remove', e });
       props.onRemove?.({
         value: value as string | number,
         data: optionsMap.value.get(value),
@@ -171,8 +172,9 @@ export default defineComponent({
           }
           if (!props.multiple) {
             setInnerValue(optionsList.value[hoverIndex.value].value, {
-              e,
+              selectedOptions: getSelectedOptions(optionsList.value[hoverIndex.value].value),
               trigger: 'check',
+              e,
             });
             setInnerPopupVisible(false, { e });
           } else {
@@ -180,7 +182,11 @@ export default defineComponent({
             const optionValue = optionsList.value[hoverIndex.value]?.value;
             if (!optionValue) return;
             const newValue = getNewMultipleValue(innerValue.value, optionValue);
-            setInnerValue(newValue.value, { e, trigger: newValue.isCheck ? 'check' : 'uncheck' });
+            setInnerValue(newValue.value, {
+              selectedOptions: getSelectedOptions(newValue.value),
+              trigger: newValue.isCheck ? 'check' : 'uncheck',
+              e,
+            });
           }
           break;
         case 'Escape':
@@ -190,6 +196,45 @@ export default defineComponent({
     };
 
     const popupContentRef = computed(() => selectInputRef.value?.selectInputRef.getOverlay() as HTMLElement);
+
+    /**
+     * 可选选项的列表
+     * 排除已禁用和全选的选项
+     */
+    const optionalList = computed(() =>
+      optionsList.value.filter((item) => {
+        return !item.disabled && !item['check-all'] && !item.checkAll;
+      }),
+    );
+
+    const getSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+      return optionsList.value.filter((option) => {
+        if (option.checkAll) return;
+        if (Array.isArray(selectValue)) return selectValue.includes(option.value);
+        return selectValue === option.value;
+      });
+    };
+
+    const onCheckAllChange = (checked: boolean) => {
+      if (!props.multiple) return;
+      const value = checked ? optionalList.value.map((option) => option.value) : [];
+      setInnerValue(value, { selectedOptions: getSelectedOptions(value), trigger: checked ? 'check' : 'clear' });
+    };
+
+    // 已选的长度
+    const intersectionLen = computed<number>(() => {
+      const values = optionalList.value.map((item) => item.value);
+      const n = intersection(innerValue.value, values);
+      return n.length;
+    });
+
+    // 全选
+    const isCheckAll = computed<boolean>(() => {
+      return intersectionLen.value === optionalList.value.length;
+    });
+
+    // 半选
+    const indeterminate = computed<boolean>(() => !isCheckAll.value && intersectionLen.value !== 0);
 
     const SelectProvide = computed(() => ({
       max: props.max,
@@ -203,6 +248,10 @@ export default defineComponent({
       handleCreate,
       size: props.size,
       popupContentRef,
+      indeterminate: indeterminate.value,
+      isCheckAll: isCheckAll.value,
+      onCheckAllChange,
+      getSelectedOptions,
     }));
 
     provide(selectInjectKey, SelectProvide);
@@ -333,7 +382,11 @@ export default defineComponent({
               handleSearch(`${value}`);
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : '', { e, trigger: 'clear' });
+              setInnerValue(props.multiple ? [] : '', {
+                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
+                trigger: 'clear',
+                e,
+              });
               props.onClear?.({ e });
             }}
             onEnter={(inputValue, { e }) => {

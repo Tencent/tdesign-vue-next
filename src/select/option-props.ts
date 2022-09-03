@@ -8,6 +8,8 @@ import { TdOptionProps } from '../select/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 当前选项是否为全选，全选可以在顶部，也可以在底部。点击当前选项会选中禁用态除外的全部选项，即使是分组选择器也会选中全部选项 */
+  checkAll: Boolean,
   /** 用于定义复杂的选项内容 */
   content: {
     type: [String, Function] as PropType<TdOptionProps['content']>,
