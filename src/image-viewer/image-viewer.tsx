@@ -113,6 +113,7 @@ export default defineComponent({
     });
 
     const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
       const { deltaY, ctrlKey } = e;
       // mac触摸板双指缩放时ctrlKey=true，deltaY>0为缩小  <0为放大
       if (ctrlKey) {
