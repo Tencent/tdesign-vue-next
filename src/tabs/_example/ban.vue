@@ -1,11 +1,11 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <div>
+  <t-space direction="vertical" size="large">
+    <t-space>
       <t-radio-group v-model="theme" variant="default-filled">
-        <t-radio-button value="normal"> 常规型 </t-radio-button>
-        <t-radio-button value="card"> 卡片型 </t-radio-button>
+        <t-radio-button value="normal">常规型</t-radio-button>
+        <t-radio-button value="card">卡片型</t-radio-button>
       </t-radio-group>
-    </div>
+    </t-space>
 
     <t-tabs :value="value" :theme="theme" @change="(newValue) => (value = newValue)">
       <t-tab-panel value="first" :label="`选项卡1`">
@@ -18,7 +18,7 @@
         <p style="padding: 25px">{{ `选项卡3的内容` }}</p>
       </t-tab-panel>
     </t-tabs>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

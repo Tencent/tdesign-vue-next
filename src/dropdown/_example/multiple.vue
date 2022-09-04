@@ -1,14 +1,14 @@
 <template>
-  <div class="tdesign-demo-dropdown">
+  <t-space class="tdesign-demo-dropdown">
     <t-dropdown :options="options" :max-column-width="120" @click="clickHandler">
       <t-button variant="text">
-        <span class="tdesign-demo-dropdown__text">
+        <t-space :size="0" class="tdesign-demo-dropdown__text">
           下拉菜单
           <chevron-down-icon size="16" />
-        </span>
+        </t-space>
       </t-button>
     </t-dropdown>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';

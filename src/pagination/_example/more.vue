@@ -1,25 +1,29 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <span>展示首尾页码省略</span>
-    <t-pagination
-      v-model="current"
-      v-model:pageSize="pageSize"
-      :total="100"
-      @change="onChange"
-      @page-size-change="onPageSizeChange"
-      @current-change="onCurrentChange"
-    />
-    <span>不展示首尾页码省略</span>
-    <t-pagination
-      v-model="current"
-      v-model:pageSize="pageSize"
-      :total="100"
-      page-ellipsis-mode="both-ends"
-      @change="onChange"
-      @page-size-change="onPageSizeChange"
-      @current-change="onCurrentChange"
-    />
-  </div>
+  <t-space direction="vertical">
+    <t-space direction="vertical">
+      <span>展示首尾页码省略</span>
+      <t-pagination
+        v-model="current"
+        v-model:pageSize="pageSize"
+        :total="100"
+        @change="onChange"
+        @page-size-change="onPageSizeChange"
+        @current-change="onCurrentChange"
+      />
+    </t-space>
+    <t-space direction="vertical">
+      <span>不展示首尾页码省略</span>
+      <t-pagination
+        v-model="current"
+        v-model:pageSize="pageSize"
+        :total="100"
+        page-ellipsis-mode="both-ends"
+        @change="onChange"
+        @page-size-change="onPageSizeChange"
+        @current-change="onCurrentChange"
+      />
+    </t-space>
+  </t-space>
 </template>
 
 <script setup>
@@ -43,3 +47,11 @@ const onChange = (pageInfo) => {
   console.log(pageInfo);
 };
 </script>
+<style lang="less">
+.t-space {
+  width: 100%;
+  &-item {
+    width: 100%;
+  }
+}
+</style>
