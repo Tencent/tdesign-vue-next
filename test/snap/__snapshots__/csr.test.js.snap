@@ -3373,194 +3373,213 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/dropdown.vue 1`]
 `;
 
 exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-breadcrumb"
+    class="t-space-item"
   >
-    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb"
     >
-      <a
-        class="t-breadcrumb--text-overflow t-link"
-        href=""
-        target="_self"
+      
+      <div
+        class="t-breadcrumb__item light"
+      >
+        <a
+          class="t-breadcrumb--text-overflow t-link"
+          href=""
+          target="_self"
+        >
+          <span
+            class="t-breadcrumb__inner"
+            style="max-width: 120px;"
+          >
+            
+            首页
+            
+          </span>
+        </a>
+        <span
+          class="t-breadcrumb__separator"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            color="rgba(0,0,0,.3)"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="t-breadcrumb__item light"
+      >
+        <a
+          class="t-breadcrumb--text-overflow t-link"
+          href=""
+          target="_self"
+        >
+          <span
+            class="t-breadcrumb__inner"
+            style="max-width: 120px;"
+          >
+            
+            页面1(覆盖路由)
+            
+          </span>
+        </a>
+        <span
+          class="t-breadcrumb__separator"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            color="rgba(0,0,0,.3)"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="t-breadcrumb__item light"
+      >
+        <a
+          class="t-breadcrumb--text-overflow t-link"
+          href="http://tdesign.tencent.com/"
+          target="_blank"
+        >
+          <span
+            class="t-breadcrumb__inner"
+            style="max-width: 120px;"
+          >
+            
+            页面2
+            
+          </span>
+        </a>
+        <span
+          class="t-breadcrumb__separator"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            color="rgba(0,0,0,.3)"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="t-breadcrumb__item light"
       >
         <span
-          class="t-breadcrumb__inner"
-          style="max-width: 120px;"
+          class="t-breadcrumb--text-overflow t-is-disabled"
         >
-          
-           首页 
-          
+          <span
+            class="t-breadcrumb__inner"
+            style="max-width: 120px;"
+          >
+            
+            页面3(disabled)
+            
+          </span>
         </span>
-      </a>
-      <span
-        class="t-breadcrumb__separator"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          color="rgba(0,0,0,.3)"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <span
+          class="t-breadcrumb__separator"
         >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
-    </div>
-    <div
-      class="t-breadcrumb__item light"
-    >
-      <a
-        class="t-breadcrumb--text-overflow t-link"
-        href=""
-        target="_self"
+          <svg
+            class="t-icon t-icon-chevron-right"
+            color="rgba(0,0,0,.3)"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="t-breadcrumb__item light"
       >
         <span
-          class="t-breadcrumb__inner"
-          style="max-width: 120px;"
+          class="t-breadcrumb--text-overflow"
         >
-          
-           页面1(覆盖路由) 
-          
+          <span
+            class="t-breadcrumb__inner"
+            style="max-width: 120px;"
+          >
+            
+            页面4自定义点击
+            
+          </span>
         </span>
-      </a>
-      <span
-        class="t-breadcrumb__separator"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          color="rgba(0,0,0,.3)"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
-    </div>
-    <div
-      class="t-breadcrumb__item light"
-    >
-      <a
-        class="t-breadcrumb--text-overflow t-link"
-        href="https://www.tencent.com"
-        target="_blank"
-      >
         <span
-          class="t-breadcrumb__inner"
-          style="max-width: 120px;"
+          class="t-breadcrumb__separator"
         >
-          
-           页面2 
-          
+          <svg
+            class="t-icon t-icon-chevron-right"
+            color="rgba(0,0,0,.3)"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
         </span>
-      </a>
-      <span
-        class="t-breadcrumb__separator"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          color="rgba(0,0,0,.3)"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+      </div>
+      
     </div>
-    <div
-      class="t-breadcrumb__item light"
-    >
-      <span
-        class="t-breadcrumb--text-overflow t-is-disabled"
-      >
-        <span
-          class="t-breadcrumb__inner"
-          style="max-width: 120px;"
-        >
-          
-           页面3(disabled) 
-          
-        </span>
-      </span>
-      <span
-        class="t-breadcrumb__separator"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          color="rgba(0,0,0,.3)"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
-    </div>
-    <div
-      class="t-breadcrumb__item light"
-    >
-      <span
-        class="t-breadcrumb--text-overflow"
-      >
-        <span
-          class="t-breadcrumb__inner"
-          style="max-width: 120px;"
-        >
-          
-           页面4自定义点击 
-          
-        </span>
-      </span>
-      <span
-        class="t-breadcrumb__separator"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          color="rgba(0,0,0,.3)"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
-    </div>
-    
   </div>
+  <!---->
+  
+  
   <div
-    style="margin-top: 20px;"
+    class="t-space-item"
   >
-    点击计数器：0
+    <div
+      style="margin-top: 20px;"
+    >
+      点击计数器：0
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -48617,108 +48636,256 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
 `;
 
 exports[`csr snapshot test > csr test ./src/divider/_example/base.vue 1`] = `
-<div>
-  <p>
-     这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-divider t-divider--horizontal"
+    class="t-space-item"
   >
-    <!---->
+    <p>
+       这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
   </div>
-  <p>
-     这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+  <!---->
+  
+  
   <div
-    class="t-divider t-divider--horizontal t-divider--dashed"
+    class="t-space-item"
   >
-    <!---->
+    <div
+      class="t-divider t-divider--horizontal"
+    >
+      <!---->
+    </div>
   </div>
-  <p>
-     这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p>
+       这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-divider t-divider--horizontal t-divider--dashed"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p>
+       这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/divider/_example/text.vue 1`] = `
-<div>
-  <p>
-     这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+    class="t-space-item"
   >
-    <span
-      class="t-divider__inner-text"
-    >
-      
-       TDesign 
-      
-    </span>
+    <p>
+       这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
   </div>
-  <p>
-     这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+  <!---->
+  
+  
   <div
-    class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-center"
+    class="t-space-item"
   >
-    <span
-      class="t-divider__inner-text"
+    <div
+      class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
     >
-      
-       TDesign 
-      
-    </span>
+      <span
+        class="t-divider__inner-text"
+      >
+        
+        TDesign
+        
+      </span>
+    </div>
   </div>
-  <p>
-     这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+  <!---->
+  
+  
   <div
-    class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-right"
+    class="t-space-item"
   >
-    <span
-      class="t-divider__inner-text"
-    >
-      
-       TDesign 
-      
-    </span>
+    <p>
+       这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
   </div>
-  <p>
-     这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
-  </p>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-center"
+    >
+      <span
+        class="t-divider__inner-text"
+      >
+        
+        TDesign
+        
+      </span>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p>
+       这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-right"
+    >
+      <span
+        class="t-divider__inner-text"
+      >
+        
+        TDesign
+        
+      </span>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p>
+       这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
+    </p>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/divider/_example/vertical.vue 1`] = `
-<div>
-  <span>
-    正直
-  </span>
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px; flex-wrap: wrap;"
+>
+  
+  
   <div
-    class="t-divider t-divider--vertical"
+    class="t-space-item"
   >
-    <!---->
+    <span>
+      正直
+    </span>
   </div>
-  <span>
-    进取
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-divider t-divider--vertical"
+    class="t-space-item"
   >
-    <!---->
+    <div
+      class="t-divider t-divider--vertical"
+    >
+      <!---->
+    </div>
   </div>
-  <span>
-    合作
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-divider t-divider--vertical t-divider--dashed"
+    class="t-space-item"
   >
-    <!---->
+    <span>
+      进取
+    </span>
   </div>
-  <span>
-    创新
-  </span>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-divider t-divider--vertical"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      协作
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-divider t-divider--vertical t-divider--dashed"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      创造
+    </span>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -58485,1347 +58652,1842 @@ exports[`csr snapshot test > csr test ./src/grid/_example/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/grid/_example/flex.vue 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-12"
-      style="flex: 2 2 0px; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        2 / 5
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-12"
-      style="flex: 3 3 0px; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        3 / 5
-      </div>
-      
-    </div>
-    
-  </div>
-  <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
-  >
-    
-    <div
-      class="t-col t-col-12"
-      style="flex: 0 0 100px; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        100px
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-12"
-      style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        auto
-      </div>
-      
-    </div>
-    
-  </div>
-  <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
-  >
-    
-    <div
-      class="t-col t-col-12"
-      style="flex: 1 1 200px; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        1 1 200px
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-12"
-      style="flex: 0 1 300px; padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        0 1 300px
-      </div>
-      
-    </div>
-    
-  </div>
-  <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
-  >
-    
-    <div
-      class="t-col t-col-12"
-      style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
       <div
-        style="padding: 0px 16px;"
+        class="t-col t-col-12"
+        style="flex: 2 2 0px; padding-left: 0px; padding-right: 0px;"
       >
-        none
+        
+        <div>
+          2 / 5
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-12"
+        style="flex: 3 3 0px; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          3 / 5
+        </div>
+        
       </div>
       
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-col t-col-12"
-      style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        auto with no-wrap
+      <div
+        class="t-col t-col-12"
+        style="flex: 0 0 100px; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          100px
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-12"
+        style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          auto
+        </div>
+        
       </div>
       
     </div>
-    
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-12"
+        style="flex: 1 1 200px; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          1 1 200px
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-12"
+        style="flex: 0 1 300px; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          0 1 300px
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-12"
+        style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="padding: 0px 16px;"
+        >
+          none
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-12"
+        style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          auto with no-wrap
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/gutter.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <!-- 只指定水平 gutter，垂直默认为0 -->
-  <span>
-    水平 gutter 为固定值
-  </span>
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: -8px; margin-right: -8px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
+    <span>
+      水平 gutter 为固定值
+    </span>
   </div>
-  <!-- 水平 gutter 为响应式 -->
-  <span>
-    水平 gutter 为响应式
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: -12px; margin-right: -12px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: -8px; margin-right: -8px;"
     >
       
-      <div>
-        col-3
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
   </div>
-  <!-- 指定水平和垂直 gutter，注：垂直 gutter 只在同一个row组件下面的col组件之间生效 -->
-  <span>
-    水平和垂直 gutter 均为固定值
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 8px; padding-right: 8px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
-    
+    <span>
+      水平 gutter 为响应式
+    </span>
   </div>
-  <!-- 水平 gutter 响应式，垂直 gutter 固定值-->
-  <span>
-    水平 gutter 响应式，垂直 gutter 固定值
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="row-gap: 24px; margin-left: -12px; margin-right: -12px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: -12px; margin-right: -12px;"
     >
       
-      <div>
-        col-3
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
-    
   </div>
-  <!-- 水平和垂直 gutter 均为响应式 -->
-  <span>
-    水平和垂直 gutter 均为响应式
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: -12px; margin-right: -12px; row-gap: 24px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 12px; padding-right: 12px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
-    
+    <span>
+      水平和垂直 gutter 均为固定值
+    </span>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
+    >
+      
+      
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 8px; padding-right: 8px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      水平 gutter 响应式，垂直 gutter 固定值
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="row-gap: 24px; margin-left: -12px; margin-right: -12px;"
+    >
+      
+      
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      水平和垂直 gutter 均为响应式
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: -12px; margin-right: -12px; row-gap: 24px;"
+    >
+      
+      
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/halign.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <span>
-    align left
-  </span>
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    
+    <span>
+      align left
+    </span>
   </div>
-  <span>
-    align center
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--center t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-2
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    
   </div>
-  <span>
-    align right
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--end t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    
+    <span>
+      align center
+    </span>
   </div>
-  <span>
-    space-between
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--space-between t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--center t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-2
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    
   </div>
-  <span>
-    space-around
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--space-around t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-2
-      </div>
-      
-    </div>
-    
+    <span>
+      align right
+    </span>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--end t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      space-between
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--space-between t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      space-around
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--space-around t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-2
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/offset.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-4"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-4
+      <div
+        class="t-col t-col-4"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-4
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-4 t-col-offset-4"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-4 col-offset-4
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-4 t-col-offset-4"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-4 col-offset-4
-      </div>
-      
-    </div>
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-3 t-col-offset-3"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-3 col-offset-3
+      <div
+        class="t-col t-col-3 t-col-offset-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3 col-offset-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3 t-col-offset-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3 col-offset-3
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3 t-col-offset-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3 col-offset-3
-      </div>
-      
-    </div>
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-6 t-col-offset-3"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-6 col-offset-3
+      <div
+        class="t-col t-col-6 t-col-offset-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-6 col-offset-3
+        </div>
+        
       </div>
       
     </div>
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/order.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-3 t-col-order-4"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        1 col-3-order-4
+      <div
+        class="t-col t-col-3 t-col-order-4"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          1 col-3-order-4
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3 t-col-order-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          2 col-3-order-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3 t-col-order-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          3 col-3-order-2
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3 t-col-order-1"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          4 col-3-order-1
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3 t-col-order-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        2 col-3-order-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3 t-col-order-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        3 col-3-order-2
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3 t-col-order-1"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        4 col-3-order-1
-      </div>
-      
-    </div>
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/responsive.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <span>
-    宽度响应式
-  </span>
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-12 t-col-xs-2 t-col-sm-4 t-col-md-6 t-col-lg-8 t-col-xl-10"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        Col
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-12 t-col-xs-10 t-col-sm-8 t-col-md-6 t-col-lg-4 t-col-xl-2"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        Col
-      </div>
-      
-    </div>
-    
+    <span>
+      宽度响应式
+    </span>
   </div>
-  <span>
-    其他属性响应式（支持span，offset，order，pull，push）
-  </span>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-12 t-col-xs-3 t-col-xs-offset-0 t-col-sm-3 t-col-sm-offset-2 t-col-md-3 t-col-md-offset-4 t-col-lg-3 t-col-lg-offset-6 t-col-xl-3 t-col-xl-offset-8"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        Col
+      <div
+        class="t-col t-col-12 t-col-xs-2 t-col-sm-4 t-col-md-6 t-col-lg-8 t-col-xl-10"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          Col
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-12 t-col-xs-10 t-col-sm-8 t-col-md-6 t-col-lg-4 t-col-xl-2"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          Col
+        </div>
+        
       </div>
       
     </div>
-    
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <span>
+      其他属性响应式（支持span，offset，order，pull，push）
+    </span>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-12 t-col-xs-3 t-col-xs-offset-0 t-col-sm-3 t-col-sm-offset-2 t-col-md-3 t-col-md-offset-4 t-col-lg-3 t-col-lg-offset-6 t-col-xl-3 t-col-xl-offset-8"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          Col
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/sort.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-row t-row--start t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-9 t-col-push-3"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--start t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
-      <div>
-        col-9 col-pull-3
+      <div
+        class="t-col t-col-9 t-col-push-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-9 col-pull-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3 t-col-pull-9"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3 col-pull-9
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3 t-col-pull-9"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3 col-pull-9
-      </div>
-      
-    </div>
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/grid/_example/valign.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <p>
-    align top
-  </p>
+  
+  
   <div
-    class="t-row t-row--center t-row--align-top"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div
-        style="height: 100px;"
-      >
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div
-        style="height: 100px;"
-      >
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
+    <p>
+      align top
+    </p>
   </div>
-  <p>
-    align middle
-  </p>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--space-around t-row--align-middle"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
     <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
+      class="t-row t-row--center t-row--align-top"
+      style="margin-left: 0px; margin-right: 0px;"
     >
       
       <div
-        style="height: 100px;"
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
       >
-        col-3
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
       </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
       <div
-        style="height: 100px;"
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
       >
-        col-3
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
       </div>
       
     </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
   </div>
-  <p>
-    align bottom
-  </p>
+  <!---->
+  
+  
   <div
-    class="t-row t-row--space-between t-row--align-bottom"
-    style="margin-left: 0px; margin-right: 0px;"
+    class="t-space-item"
   >
-    
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div
-        style="height: 100px;"
-      >
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div
-        style="height: 100px;"
-      >
-        col-3
-      </div>
-      
-    </div>
-    <div
-      class="t-col t-col-3"
-      style="padding-left: 0px; padding-right: 0px;"
-    >
-      
-      <div>
-        col-3
-      </div>
-      
-    </div>
-    
+    <p>
+      align middle
+    </p>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--space-around t-row--align-middle"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p>
+      align bottom
+    </p>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-row t-row--space-between t-row--align-bottom"
+      style="margin-left: 0px; margin-right: 0px;"
+    >
+      
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div
+          style="height: 100px;"
+        >
+          col-3
+        </div>
+        
+      </div>
+      <div
+        class="t-col t-col-3"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        
+        <div>
+          col-3
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/icon/_example/base.vue 1`] = `
 <div
-  class="t-demo-iconfont"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-loading"
-      style="color: rgb(153, 153, 153);"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <use
-        href="#t-icon-loading"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-close"
-    >
-      <use
-        href="#t-icon-close"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-loading"
+          style="color: rgb(153, 153, 153);"
+        >
+          <use
+            href="#t-icon-loading"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-close"
+        >
+          <use
+            href="#t-icon-close"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-s"
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-m"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-l"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      style="font-size: 25px;"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      style="font-size: 2em;"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-s"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-m"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-l"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          style="font-size: 25px;"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          style="font-size: 2em;"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      style="color: red;"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      style="color: green;"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      style="color: orange;"
-    >
-      <use
-        href="#t-icon-check-circle-filled"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          style="color: red;"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          style="color: green;"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          style="color: orange;"
+        >
+          <use
+            href="#t-icon-check-circle-filled"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/icon/_example/enhanced.vue 1`] = `
 <div
-  class="t-demo-iconfont"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <div>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep t-size-m"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep t-size-l"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
-      style="font-size: 25px;"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
-      style="font-size: 2em;"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep t-size-m"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep t-size-l"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+          style="font-size: 25px;"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+          style="font-size: 2em;"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
-  <div>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
-      style="color: red;"
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
-      style="color: green;"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-cps-icon-home-sheep"
-      style="color: orange;"
-    >
-      <use
-        href="#cps-icon-home-sheep"
-      />
-    </svg>
-    <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
-    <svg
-      class="t-icon t-icon-t-icon-home"
-    >
-      <use
-        href="#t-icon-home"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+          style="color: red;"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+          style="color: green;"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-cps-icon-home-sheep"
+          style="color: orange;"
+        >
+          <use
+            href="#cps-icon-home-sheep"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-t-icon-home"
+        >
+          <use
+            href="#t-icon-home"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -59899,291 +60561,616 @@ exports[`csr snapshot test > csr test ./src/icon/_example/icon-select.vue 1`] = 
 
 exports[`csr snapshot test > csr test ./src/icon/_example/iconfont.vue 1`] = `
 <div
-  class="t-demo-iconfont"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <i
-      class="t-icon t-icon-loading"
-    />
-    <i
-      class="t-icon t-icon-close"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-    />
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-loading"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-close"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <i
-      class="t-icon t-icon-check-circle-filled t-size-s"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled t-size-m"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled t-size-l"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-      style="font-size: 25px;"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-      style="font-size: 2em;"
-    />
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled t-size-s"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled t-size-m"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled t-size-l"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+          style="font-size: 25px;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+          style="font-size: 2em;"
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <i
-      class="t-icon t-icon-check-circle-filled"
-      style="color: red;"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-      style="color: green;"
-    />
-    <i
-      class="t-icon t-icon-check-circle-filled"
-      style="color: orange;"
-    />
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+          style="color: red;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+          style="color: green;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon t-icon-check-circle-filled"
+          style="color: orange;"
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/icon/_example/iconfont-enhanced.vue 1`] = `
 <div
-  class="t-demo-iconfont"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <div>
-    <i
-      class="cps-icon cps-icon-home-sheep"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep t-size-m"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep t-size-l"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep"
-      style="font-size: 25px;"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep"
-      style="font-size: 2em;"
-    />
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep t-size-m"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep t-size-l"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+          style="font-size: 25px;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+          style="font-size: 2em;"
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
-  <div>
-    <i
-      class="cps-icon cps-icon-home-sheep"
-      style="color: red;"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep"
-      style="color: green;"
-    />
-    <i
-      class="cps-icon cps-icon-home-sheep"
-      style="color: orange;"
-    />
-    <!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 -->
-    <i
-      class="t-icon-home t-icon"
-    />
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+          style="color: red;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+          style="color: green;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="cps-icon cps-icon-home-sheep"
+          style="color: orange;"
+        />
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <i
+          class="t-icon-home t-icon"
+        />
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <br />
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/icon/_example/single.vue 1`] = `
 <div
-  class="t-demo-iconfont"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-loading"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <path
-        d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-close"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-loading"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-close"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-s"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-m"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled t-size-l"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      style="font-size: 25px;"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      style="font-size: 2em;"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-s"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled t-size-l"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          style="font-size: 25px;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          style="font-size: 2em;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
-  <br />
+  <!---->
+  
+  
   <div
-    class="t-demo-row"
+    class="t-space-item"
   >
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      style="color: red;"
-      viewBox="0 0 16 16"
-      width="1em"
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
     >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      style="color: green;"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    <svg
-      class="t-icon t-icon-check-circle-filled"
-      fill="none"
-      height="1em"
-      style="color: orange;"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          style="color: red;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          style="color: green;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <svg
+          class="t-icon t-icon-check-circle-filled"
+          fill="none"
+          height="1em"
+          style="color: orange;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -65513,9 +66500,570 @@ exports[`csr snapshot test > csr test ./src/jumper/_example/tips.vue 1`] = `
 `;
 
 exports[`csr snapshot test > csr test ./src/layout/_example/aside.vue 1`] = `
-<div
-  class="tdesign-demo-item--layout"
+<section
+  class="t-layout"
 >
+  
+  <aside
+    class="t-layout__sider"
+  >
+    
+    <div
+      class="t-default-menu t-menu--light"
+      height="550px"
+      style="height: 100%; width: 232px; margin-right: 50px;"
+    >
+      <div
+        class="t-default-menu__inner"
+      >
+        <div
+          class="t-menu__logo"
+        >
+          
+          <img
+            alt="logo"
+            class="logo"
+            src="https://www.tencent.com/img/index/menu_logo_hover.png"
+            width="136"
+          />
+          
+        </div>
+        <ul
+          class="t-menu t-menu--scroll narrow-scrollbar"
+        >
+          
+          <li
+            class="t-menu__item t-is-active"
+          >
+            
+            <svg
+              class="t-icon t-icon-dashboard"
+            >
+              <use
+                href="#t-icon-dashboard"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               仪表盘 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-server"
+            >
+              <use
+                href="#t-icon-server"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               资源列表 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-root-list"
+            >
+              <use
+                href="#t-icon-root-list"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               根目录 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-control-platform"
+            >
+              <use
+                href="#t-icon-control-platform"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               调度平台 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-precise-monitor"
+            >
+              <use
+                href="#t-icon-precise-monitor"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               调度平台 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-mail"
+            >
+              <use
+                href="#t-icon-mail"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               消息区 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-user-circle"
+            >
+              <use
+                href="#t-icon-user-circle"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               个人中心 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-play-circle"
+            >
+              <use
+                href="#t-icon-play-circle"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               视频区 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item"
+          >
+            
+            <svg
+              class="t-icon t-icon-edit-1"
+            >
+              <use
+                href="#t-icon-edit-1"
+              />
+            </svg>
+            
+            <span
+              class="t-menu__content"
+            >
+              
+               资源编辑 
+              
+            </span>
+          </li>
+          
+        </ul>
+        <!---->
+      </div>
+    </div>
+    
+  </aside>
+  <section
+    class="t-layout"
+  >
+    
+    <main
+      class="t-layout__content"
+    >
+      
+      <div>
+        Content
+      </div>
+      
+    </main>
+    <footer
+      class="t-layout__footer"
+    >
+      
+      Copyright @ 2019-2020 Tencent. All Rights Reserved
+      
+    </footer>
+    
+  </section>
+  
+</section>
+`;
+
+exports[`csr snapshot test > csr test ./src/layout/_example/base.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+      <section
+        class="t-layout"
+      >
+        
+        <header
+          class="t-layout__header"
+        >
+          
+          Header
+          
+        </header>
+        <main
+          class="t-layout__content"
+        >
+          
+          Content
+          
+        </main>
+        <footer
+          class="t-layout__footer"
+        >
+          
+          Footer
+          
+        </footer>
+        
+      </section>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+      <section
+        class="t-layout"
+      >
+        
+        <header
+          class="t-layout__header"
+        >
+          
+          Header
+          
+        </header>
+        <section
+          class="t-layout"
+        >
+          
+          <aside
+            class="t-layout__sider"
+          >
+            
+            Aside
+            
+          </aside>
+          <main
+            class="t-layout__content"
+          >
+            
+            Content
+            
+          </main>
+          
+        </section>
+        <footer
+          class="t-layout__footer"
+        >
+          
+          Footer
+          
+        </footer>
+        
+      </section>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+      <section
+        class="t-layout"
+      >
+        
+        <header
+          class="t-layout__header"
+        >
+          
+          Header
+          
+        </header>
+        <section
+          class="t-layout"
+        >
+          
+          <main
+            class="t-layout__content"
+          >
+            
+            Content
+            
+          </main>
+          <aside
+            class="t-layout__sider"
+          >
+            
+            Aside
+            
+          </aside>
+          
+        </section>
+        <footer
+          class="t-layout__footer"
+        >
+          
+          Footer
+          
+        </footer>
+        
+      </section>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+      <section
+        class="t-layout"
+      >
+        
+        <aside
+          class="t-layout__sider"
+        >
+          
+          Aside
+          
+        </aside>
+        <section
+          class="t-layout"
+        >
+          
+          <header
+            class="t-layout__header"
+          >
+            
+            Header
+            
+          </header>
+          <main
+            class="t-layout__content"
+          >
+            
+            Content
+            
+          </main>
+          <footer
+            class="t-layout__footer"
+          >
+            
+            Footer
+            
+          </footer>
+          
+        </section>
+        
+      </section>
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/layout/_example/combine.vue 1`] = `
+<section
+  class="t-layout"
+>
+  
+  <header
+    class="t-layout__header"
+  >
+    
+    <div
+      class="t-menu t-head-menu t-menu--light"
+      height="120px"
+    >
+      <div
+        class="t-head-menu__inner"
+      >
+        <div
+          class="t-menu__logo"
+        >
+          
+          <img
+            alt="logo"
+            class="logo"
+            src="https://www.tencent.com/img/index/menu_logo_hover.png"
+            width="136"
+          />
+          
+        </div>
+        <ul
+          class="t-menu"
+        >
+          
+          <li
+            class="t-menu__item t-is-active t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               已选内容 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容一 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容二 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-is-disabled t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容三 
+              
+            </span>
+          </li>
+          
+        </ul>
+        <div
+          class="t-menu__operations"
+        >
+          
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-search t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-search"
+              />
+            </svg>
+          </a>
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-notification-filled t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-notification-filled"
+              />
+            </svg>
+          </a>
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-home t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-home"
+              />
+            </svg>
+          </a>
+          
+        </div>
+      </div>
+      <!---->
+    </div>
+    
+  </header>
   <section
     class="t-layout"
   >
@@ -65532,18 +67080,7 @@ exports[`csr snapshot test > csr test ./src/layout/_example/aside.vue 1`] = `
         <div
           class="t-default-menu__inner"
         >
-          <div
-            class="t-menu__logo"
-          >
-            
-            <img
-              alt="logo"
-              class="logo"
-              src="https://www.tencent.com/img/index/menu_logo_hover.png"
-              width="136"
-            />
-            
-          </div>
+          <!---->
           <ul
             class="t-menu t-menu--scroll narrow-scrollbar"
           >
@@ -65759,1376 +67296,862 @@ exports[`csr snapshot test > csr test ./src/layout/_example/aside.vue 1`] = `
     </section>
     
   </section>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/layout/_example/base.vue 1`] = `
-<div
-  class="tdesign-demo-item--base"
->
-  <div>
-    <section
-      class="t-layout"
-    >
-      
-      <header
-        class="t-layout__header"
-      >
-        
-        Header
-        
-      </header>
-      <main
-        class="t-layout__content"
-      >
-        
-        Content
-        
-      </main>
-      <footer
-        class="t-layout__footer"
-      >
-        
-        Footer
-        
-      </footer>
-      
-    </section>
-  </div>
-  <div>
-    <section
-      class="t-layout"
-    >
-      
-      <header
-        class="t-layout__header"
-      >
-        
-        Header
-        
-      </header>
-      <section
-        class="t-layout"
-      >
-        
-        <aside
-          class="t-layout__sider"
-        >
-          
-          Aside
-          
-        </aside>
-        <main
-          class="t-layout__content"
-        >
-          
-          Content
-          
-        </main>
-        
-      </section>
-      <footer
-        class="t-layout__footer"
-      >
-        
-        Footer
-        
-      </footer>
-      
-    </section>
-  </div>
-  <div>
-    <section
-      class="t-layout"
-    >
-      
-      <header
-        class="t-layout__header"
-      >
-        
-        Header
-        
-      </header>
-      <section
-        class="t-layout"
-      >
-        
-        <main
-          class="t-layout__content"
-        >
-          
-          Content
-          
-        </main>
-        <aside
-          class="t-layout__sider"
-        >
-          
-          Aside
-          
-        </aside>
-        
-      </section>
-      <footer
-        class="t-layout__footer"
-      >
-        
-        Footer
-        
-      </footer>
-      
-    </section>
-  </div>
-  <div>
-    <section
-      class="t-layout"
-    >
-      
-      <aside
-        class="t-layout__sider"
-      >
-        
-        Aside
-        
-      </aside>
-      <section
-        class="t-layout"
-      >
-        
-        <header
-          class="t-layout__header"
-        >
-          
-          Header
-          
-        </header>
-        <main
-          class="t-layout__content"
-        >
-          
-          Content
-          
-        </main>
-        <footer
-          class="t-layout__footer"
-        >
-          
-          Footer
-          
-        </footer>
-        
-      </section>
-      
-    </section>
-  </div>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/layout/_example/combine.vue 1`] = `
-<div
-  class="tdesign-demo-item--layout"
->
-  <section
-    class="t-layout"
-  >
-    
-    <header
-      class="t-layout__header"
-    >
-      
-      <div
-        class="t-menu t-head-menu t-menu--light"
-        height="120px"
-      >
-        <div
-          class="t-head-menu__inner"
-        >
-          <div
-            class="t-menu__logo"
-          >
-            
-            <img
-              alt="logo"
-              class="logo"
-              src="https://www.tencent.com/img/index/menu_logo_hover.png"
-              width="136"
-            />
-            
-          </div>
-          <ul
-            class="t-menu"
-          >
-            
-            <li
-              class="t-menu__item t-is-active t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 已选内容 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容一 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容二 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-is-disabled t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容三 
-                
-              </span>
-            </li>
-            
-          </ul>
-          <div
-            class="t-menu__operations"
-          >
-            
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-search t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-search"
-                />
-              </svg>
-            </a>
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-notification-filled t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-notification-filled"
-                />
-              </svg>
-            </a>
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-home t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-home"
-                />
-              </svg>
-            </a>
-            
-          </div>
-        </div>
-        <!---->
-      </div>
-      
-    </header>
-    <section
-      class="t-layout"
-    >
-      
-      <aside
-        class="t-layout__sider"
-      >
-        
-        <div
-          class="t-default-menu t-menu--light"
-          height="550px"
-          style="height: 100%; width: 232px; margin-right: 50px;"
-        >
-          <div
-            class="t-default-menu__inner"
-          >
-            <!---->
-            <ul
-              class="t-menu t-menu--scroll narrow-scrollbar"
-            >
-              
-              <li
-                class="t-menu__item t-is-active"
-              >
-                
-                <svg
-                  class="t-icon t-icon-dashboard"
-                >
-                  <use
-                    href="#t-icon-dashboard"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   仪表盘 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-server"
-                >
-                  <use
-                    href="#t-icon-server"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   资源列表 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-root-list"
-                >
-                  <use
-                    href="#t-icon-root-list"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   根目录 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-control-platform"
-                >
-                  <use
-                    href="#t-icon-control-platform"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   调度平台 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-precise-monitor"
-                >
-                  <use
-                    href="#t-icon-precise-monitor"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   调度平台 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-mail"
-                >
-                  <use
-                    href="#t-icon-mail"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   消息区 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-user-circle"
-                >
-                  <use
-                    href="#t-icon-user-circle"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   个人中心 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-play-circle"
-                >
-                  <use
-                    href="#t-icon-play-circle"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   视频区 
-                  
-                </span>
-              </li>
-              <li
-                class="t-menu__item"
-              >
-                
-                <svg
-                  class="t-icon t-icon-edit-1"
-                >
-                  <use
-                    href="#t-icon-edit-1"
-                  />
-                </svg>
-                
-                <span
-                  class="t-menu__content"
-                >
-                  
-                   资源编辑 
-                  
-                </span>
-              </li>
-              
-            </ul>
-            <!---->
-          </div>
-        </div>
-        
-      </aside>
-      <section
-        class="t-layout"
-      >
-        
-        <main
-          class="t-layout__content"
-        >
-          
-          <div>
-            Content
-          </div>
-          
-        </main>
-        <footer
-          class="t-layout__footer"
-        >
-          
-          Copyright @ 2019-2020 Tencent. All Rights Reserved
-          
-        </footer>
-        
-      </section>
-      
-    </section>
-    
-  </section>
-</div>
+  
+</section>
 `;
 
 exports[`csr snapshot test > csr test ./src/layout/_example/top.vue 1`] = `
-<div
-  class="tdesign-demo-item--layout"
+<section
+  class="t-layout"
 >
-  <section
-    class="t-layout"
+  
+  <header
+    class="t-layout__header"
   >
     
-    <header
-      class="t-layout__header"
+    <div
+      class="t-menu t-head-menu t-menu--light"
+      height="120px"
     >
-      
       <div
-        class="t-menu t-head-menu t-menu--light"
-        height="120px"
+        class="t-head-menu__inner"
       >
         <div
-          class="t-head-menu__inner"
+          class="t-menu__logo"
         >
-          <div
-            class="t-menu__logo"
-          >
-            
-            <img
-              alt="logo"
-              class="logo"
-              src="https://www.tencent.com/img/index/menu_logo_hover.png"
-              width="136"
-            />
-            
-          </div>
-          <ul
-            class="t-menu"
-          >
-            
-            <li
-              class="t-menu__item t-is-active t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 已选内容 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容一 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容二 
-                
-              </span>
-            </li>
-            <li
-              class="t-menu__item t-is-disabled t-menu__item--plain"
-            >
-              <!---->
-              <span
-                class="t-menu__content"
-              >
-                
-                 菜单内容三 
-                
-              </span>
-            </li>
-            
-          </ul>
-          <div
-            class="t-menu__operations"
-          >
-            
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-search t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-search"
-                />
-              </svg>
-            </a>
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-notification-filled t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-notification-filled"
-                />
-              </svg>
-            </a>
-            <a
-              href="javascript:;"
-            >
-              <svg
-                class="t-icon t-icon-home t-menu__operations-icon"
-              >
-                <use
-                  href="#t-icon-home"
-                />
-              </svg>
-            </a>
-            
-          </div>
+          
+          <img
+            alt="logo"
+            class="logo"
+            src="https://www.tencent.com/img/index/menu_logo_hover.png"
+            width="136"
+          />
+          
         </div>
-        <!---->
+        <ul
+          class="t-menu"
+        >
+          
+          <li
+            class="t-menu__item t-is-active t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               已选内容 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容一 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容二 
+              
+            </span>
+          </li>
+          <li
+            class="t-menu__item t-is-disabled t-menu__item--plain"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+               菜单内容三 
+              
+            </span>
+          </li>
+          
+        </ul>
+        <div
+          class="t-menu__operations"
+        >
+          
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-search t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-search"
+              />
+            </svg>
+          </a>
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-notification-filled t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-notification-filled"
+              />
+            </svg>
+          </a>
+          <a
+            href="javascript:;"
+          >
+            <svg
+              class="t-icon t-icon-home t-menu__operations-icon"
+            >
+              <use
+                href="#t-icon-home"
+              />
+            </svg>
+          </a>
+          
+        </div>
       </div>
-      
-    </header>
-    <main
-      class="t-layout__content"
-    >
-      
-      <div>
-        Content
-      </div>
-      
-    </main>
-    <footer
-      class="t-layout__footer"
-    >
-      
-       Copyright @ 2019-2020 Tencent. All Rights Reserved 
-      
-    </footer>
+      <!---->
+    </div>
     
-  </section>
-</div>
+  </header>
+  <main
+    class="t-layout__content"
+  >
+    
+    <div>
+      Content
+    </div>
+    
+  </main>
+  <footer
+    class="t-layout__footer"
+  >
+    
+     Copyright @ 2019-2020 Tencent. All Rights Reserved 
+    
+  </footer>
+  
+</section>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/base.vue 1`] = `
-<div>
-  <a
-    class="t-link t-link--theme-primary t-link--hover-underline"
-    target=""
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
   >
-    <!---->
-    
-     查看链接 
-    
-    <!---->
-  </a>
+    <a
+      class="t-link t-link--theme-primary t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+      跳转链接
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/disabled.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-space-item"
+    <a
+      class="t-link t-link--theme-default t-is-disabled"
+      target=""
     >
-      <a
-        class="t-link t-link--theme-default t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-is-disabled t-is-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
-        >
-          
-          <svg
-            class="t-icon t-icon-jump"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-            <path
-              d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          
-        </span>
-      </a>
-    </div>
-    <!---->
-    
-    
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-primary t-is-disabled t-is-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-danger t-is-disabled"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-warning t-is-disabled"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-success t-is-disabled"
+      target=""
+    >
+      <!---->
+      
+      <svg
+        class="t-icon t-icon-jump"
+        fill="none"
+        height="1em"
+        slot="suffixIcon"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/hover.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-link--theme-default t-link--hover-underline"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-link--hover-underline"
-        target=""
+        <a
+          class="t-link t-link--theme-default t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-link--hover-underline"
-        target=""
+        <a
+          class="t-link t-link--theme-primary t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-link--hover-underline"
-        target=""
+        <a
+          class="t-link t-link--theme-danger t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-link--hover-underline"
-        target=""
+        <a
+          class="t-link t-link--theme-warning t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
+        <a
+          class="t-link t-link--theme-success t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-link--theme-default t-link--hover-color"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-default t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-primary t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-danger t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-warning t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
+        <a
+          class="t-link t-link--theme-success t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-link--theme-default t-is-underline t-link--hover-color"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-is-underline t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-default t-is-underline t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-is-underline t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-primary t-is-underline t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-is-underline t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-danger t-is-underline t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-is-underline t-link--hover-color"
-        target=""
+        <a
+          class="t-link t-link--theme-warning t-is-underline t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
+        <a
+          class="t-link t-link--theme-success t-is-underline t-link--hover-color"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/icon.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-space-item"
+    <a
+      class="t-link t-link--theme-default t-link--hover-underline"
+      target=""
     >
-      <a
-        class="t-link t-link--theme-default t-link--hover-underline"
-        target=""
+      <span
+        class="t-link__prefix-icon"
       >
-        <span
-          class="t-link__prefix-icon"
+        <svg
+          class="t-icon t-icon-link"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <svg
-            class="t-icon t-icon-link"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.23 11.89l2.12-2.12.71.7-2.12 2.13A2.5 2.5 0 013.4 9.06l2.13-2.12.7.7-2.12 2.13a1.5 1.5 0 002.12 2.12zM10.47 9.06l-.7-.7 2.12-2.13a1.5 1.5 0 10-2.12-2.12L7.65 6.23l-.71-.7L9.06 3.4a2.5 2.5 0 013.54 3.54l-2.13 2.12z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-            <path
-              d="M9.06 6.23L6.23 9.06l.71.7 2.83-2.82-.7-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-is-underline t-link--hover-underline"
-        href="https://tdesign.tencent.com/"
-        target="_self"
-      >
-        <span
-          class="t-link__prefix-icon"
-        >
-          
-          <svg
-            class="t-icon t-icon-link"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.23 11.89l2.12-2.12.71.7-2.12 2.13A2.5 2.5 0 013.4 9.06l2.13-2.12.7.7-2.12 2.13a1.5 1.5 0 002.12 2.12zM10.47 9.06l-.7-.7 2.12-2.13a1.5 1.5 0 10-2.12-2.12L7.65 6.23l-.71-.7L9.06 3.4a2.5 2.5 0 013.54 3.54l-2.13 2.12z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-            <path
-              d="M9.06 6.23L6.23 9.06l.71.7 2.83-2.82-.7-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          
-        </span>
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-link--hover-color"
-        href="https://tdesign.tencent.com/"
-        target="_blank"
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
-        >
-          
-          <svg
-            class="t-icon t-icon-jump"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-            <path
-              d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-          
-        </span>
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
-        >
-          <svg
-            class="t-icon t-icon-jump"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-            <path
-              d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-      </a>
-    </div>
-    <!---->
-    
-    
+          <path
+            d="M6.23 11.89l2.12-2.12.71.7-2.12 2.13A2.5 2.5 0 013.4 9.06l2.13-2.12.7.7-2.12 2.13a1.5 1.5 0 002.12 2.12zM10.47 9.06l-.7-.7 2.12-2.13a1.5 1.5 0 10-2.12-2.12L7.65 6.23l-.71-.7L9.06 3.4a2.5 2.5 0 013.54 3.54l-2.13 2.12z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9.06 6.23L6.23 9.06l.71.7 2.83-2.82-.7-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+      
+       跳转链接 
+      
+      <!---->
+    </a>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-primary t-is-underline t-link--hover-underline"
+      href="https://tdesign.tencent.com/"
+      target="_self"
+    >
+      <!---->
+      
+      <svg
+        class="t-icon t-icon-link"
+        fill="none"
+        height="1em"
+        slot="prefix-icon"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.23 11.89l2.12-2.12.71.7-2.12 2.13A2.5 2.5 0 013.4 9.06l2.13-2.12.7.7-2.12 2.13a1.5 1.5 0 002.12 2.12zM10.47 9.06l-.7-.7 2.12-2.13a1.5 1.5 0 10-2.12-2.12L7.65 6.23l-.71-.7L9.06 3.4a2.5 2.5 0 013.54 3.54l-2.13 2.12z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M9.06 6.23L6.23 9.06l.71.7 2.83-2.82-.7-.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-danger t-link--hover-color"
+      href="https://tdesign.tencent.com/"
+      target="_blank"
+    >
+      <!---->
+      
+      <svg
+        class="t-icon t-icon-jump"
+        fill="none"
+        height="1em"
+        slot="suffixIcon"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-warning t-is-disabled"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <span
+        class="t-link__suffix-icon"
+      >
+        <svg
+          class="t-icon t-icon-jump"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M2.3 13.7a1 1 0 00.7.3h10a1 1 0 001-1V8.5h-1V13H3V3h4.5V2H3a1 1 0 00-1 1v10c0 .27.1.52.3.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9 3V2h4.5c.28 0 .5.22.5.5V7h-1V3.7L8.7 8 8 7.3 12.3 3H9z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/size.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-size-s t-link--theme-default t-link--hover-underline"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-s t-link--theme-primary t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-s t-link--theme-danger t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-s t-link--theme-warning t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-        跳转链接
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-s t-link--theme-success t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
+        <a
+          class="t-link t-size-s t-link--theme-default t-link--hover-underline"
+          target=""
         >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-s t-link--theme-primary t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-s t-link--theme-danger t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-s t-link--theme-warning t-is-disabled"
+          target=""
+        >
+          <!---->
+          
+          跳转链接
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-s t-link--theme-success t-link--hover-underline"
+          target=""
+        >
+          <!---->
           
           <svg
             class="t-icon t-icon-jump"
             fill="none"
             height="1em"
+            slot="suffix-icon"
             viewBox="0 0 16 16"
             width="1em"
           >
@@ -67143,107 +68166,110 @@ exports[`csr snapshot test > csr test ./src/link/_example/size.vue 1`] = `
               fill-opacity="0.9"
             />
           </svg>
+           跳转链接 
           
-        </span>
-      </a>
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-size-m t-link--theme-default t-link--hover-underline"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-m t-link--theme-primary t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-m t-link--theme-danger t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-m t-link--theme-warning t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-        跳转链接
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-m t-link--theme-success t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
+        <a
+          class="t-link t-size-m t-link--theme-default t-link--hover-underline"
+          target=""
         >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-m t-link--theme-primary t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-m t-link--theme-danger t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-m t-link--theme-warning t-is-disabled"
+          target=""
+        >
+          <!---->
+          
+          跳转链接
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-m t-link--theme-success t-link--hover-underline"
+          target=""
+        >
+          <!---->
           
           <svg
             class="t-icon t-icon-jump"
             fill="none"
             height="1em"
+            slot="suffix-icon"
             viewBox="0 0 16 16"
             width="1em"
           >
@@ -67258,107 +68284,110 @@ exports[`csr snapshot test > csr test ./src/link/_example/size.vue 1`] = `
               fill-opacity="0.9"
             />
           </svg>
+           跳转链接 
           
-        </span>
-      </a>
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
     <div
-      class="t-space-item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <a
-        class="t-link t-size-l t-link--theme-default t-link--hover-underline"
-        target=""
+      
+      
+      <div
+        class="t-space-item"
       >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-l t-link--theme-primary t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-l t-link--theme-danger t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-l t-link--theme-warning t-is-disabled"
-        target=""
-      >
-        <!---->
-        
-        跳转链接
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-size-l t-link--theme-success t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <span
-          class="t-link__suffix-icon"
+        <a
+          class="t-link t-size-l t-link--theme-default t-link--hover-underline"
+          target=""
         >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-l t-link--theme-primary t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-l t-link--theme-danger t-link--hover-underline"
+          target=""
+        >
+          <!---->
+          
+           跳转链接 
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-l t-link--theme-warning t-is-disabled"
+          target=""
+        >
+          <!---->
+          
+          跳转链接
+          
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <a
+          class="t-link t-size-l t-link--theme-success t-link--hover-underline"
+          target=""
+        >
+          <!---->
           
           <svg
             class="t-icon t-icon-jump"
             fill="none"
             height="1em"
+            slot="suffix-icon"
             viewBox="0 0 16 16"
             width="1em"
           >
@@ -67373,212 +68402,209 @@ exports[`csr snapshot test > csr test ./src/link/_example/size.vue 1`] = `
               fill-opacity="0.9"
             />
           </svg>
+           跳转链接 
           
-        </span>
-      </a>
+          <!---->
+        </a>
+      </div>
+      <!---->
+      
+      
     </div>
-    <!---->
-    
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/theme.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-space-item"
+    <a
+      class="t-link t-link--theme-default t-link--hover-underline"
+      target=""
     >
-      <a
-        class="t-link t-link--theme-default t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-primary t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-danger t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-warning t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-success t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/link/_example/underline.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-space t-space-horizontal"
-    style="gap: 16px;"
+    class="t-space-item"
   >
-    
-    
-    <div
-      class="t-space-item"
+    <a
+      class="t-link t-link--theme-default t-is-underline t-link--hover-underline"
+      target=""
     >
-      <a
-        class="t-link t-link--theme-default t-is-underline t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-primary t-is-underline t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-danger t-is-underline t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-warning t-is-underline t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
-    <div
-      class="t-space-item"
-    >
-      <a
-        class="t-link t-link--theme-success t-is-underline t-link--hover-underline"
-        target=""
-      >
-        <!---->
-        
-         跳转链接 
-        
-        <!---->
-      </a>
-    </div>
-    <!---->
-    
-    
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-primary t-is-underline t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-danger t-is-underline t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-warning t-is-underline t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-link t-link--theme-success t-is-underline t-link--hover-underline"
+      target=""
+    >
+      <!---->
+      
+       跳转链接 
+      
+      <!---->
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 

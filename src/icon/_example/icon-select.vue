@@ -1,19 +1,18 @@
 <template>
   <t-select
     v-model="value"
+    placeholder="请选择"
     :style="{ width: '400px' }"
     :popup-props="{ overlayStyle: { width: '400px' } }"
-    placeholder="请选择图标"
   >
     <t-option v-for="item in options" :key="item.stem" :value="item.stem" class="overlay-options">
       <div>
         <t-icon :name="item.stem" />
       </div>
     </t-option>
-    <template #valueDisplay> <t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }} </template>
+    <template #valueDisplay><t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }}</template>
   </t-select>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 import { manifest } from 'tdesign-icons-vue-next/lib/manifest';
@@ -21,7 +20,6 @@ import { manifest } from 'tdesign-icons-vue-next/lib/manifest';
 const options = ref(manifest);
 const value = ref('add');
 </script>
-
 <style>
 .overlay-options {
   display: inline-block;
