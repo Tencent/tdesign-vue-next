@@ -1,5 +1,5 @@
 <template>
-  <div class="anchor-demo">
+  <t-space class="anchor-demo">
     <t-anchor :bounds="150">
       <template #cursor>
         <div class="test-cursor" />
@@ -12,7 +12,7 @@
       <t-anchor-item :href="`#${path}#anchor-target-6`" title="保密协议" />
       <t-anchor-item :href="`#${path}#anchor-target-7`" title="其他" />
     </t-anchor>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { computed, getCurrentInstance } from 'vue';
