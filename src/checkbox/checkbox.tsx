@@ -12,6 +12,7 @@ export default defineComponent({
   props: {
     ...props,
     needRipple: Boolean,
+    stopLabelTrigger: Boolean,
   },
 
   setup(props) {
@@ -79,6 +80,11 @@ export default defineComponent({
 
     const renderContent = useContent();
 
+    const handleLabelClick = (e: MouseEvent) => {
+      // 在tree等组件中使用  阻止label触发checked 与expand冲突
+      if (props.stopLabelTrigger) e.preventDefault();
+    };
+
     return () => (
       <label class={labelClasses.value} ref="labelRef">
         <input
@@ -93,7 +99,9 @@ export default defineComponent({
           onChange={handleChange}
         ></input>
         <span class={`${COMPONENT_NAME.value}__input`}></span>
-        <span class={`${COMPONENT_NAME.value}__label`}>{renderContent('default', 'label')}</span>
+        <span class={`${COMPONENT_NAME.value}__label`} onClick={handleLabelClick}>
+          {renderContent('default', 'label')}
+        </span>
       </label>
     );
   },
