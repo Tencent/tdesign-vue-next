@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical" size="large">
     <t-notification title="自定义底部详情(函数)" content="这是一条消息通知" :footer="footer" />
     <t-notification title="自定义底部详情(插槽)" content="这是一条消息通知">
       <template #footer>
@@ -9,7 +9,7 @@
         </div>
       </template>
     </t-notification>
-  </div>
+  </t-space>
 </template>
 <script lang="jsx" setup>
 const footer = () => {
@@ -20,8 +20,3 @@ const footer = () => {
   );
 };
 </script>
-<style scoped>
-.t-notification + .t-notification {
-  margin-top: 20px;
-}
-</style>

@@ -15,6 +15,10 @@ export const selectInjectKey: InjectionKey<
     handlerInputChange: TdSelectProps['onInputChange'];
     handlePopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
     popupContentRef: ComputedRef<HTMLElement>;
+    indeterminate: boolean;
+    isCheckAll: boolean;
+    onCheckAllChange: (checked: boolean) => void;
+    getSelectedOptions: (selectValue?: SelectValue[] | SelectValue) => TdOptionProps[];
   }>
 > = Symbol('selectProvide');
 

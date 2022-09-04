@@ -1,6 +1,6 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <div class="tdesign-demo-block-column">
+  <t-space>
+    <t-space direction="vertical">
       <t-tabs v-model="value1">
         <t-tab-panel value="first" label="选项卡1">
           <p style="padding: 25px">选项卡1</p>
@@ -24,8 +24,8 @@
           <p style="padding: 25px">选项卡3</p>
         </t-tab-panel>
       </t-tabs>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <script setup>

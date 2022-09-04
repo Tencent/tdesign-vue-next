@@ -3,7 +3,7 @@
     <t-drawer v-model:visible="visible" header="header" :on-confirm="onClickConfirm" :close-btn="true">
       <p>This is a controlled drawer</p>
     </t-drawer>
-    <t-button variant="outline" @click="handleClick"> 打开抽屉 </t-button>
+    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
   </div>
 </template>
 
@@ -26,8 +26,3 @@ const onClickConfirm = () => {
   }, 1000);
 };
 </script>
-<style scoped>
-.t-button {
-  margin-right: 20px;
-}
-</style>

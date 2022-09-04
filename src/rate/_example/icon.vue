@@ -5,7 +5,7 @@
         <star-icon v-bind="iconProps" />
       </template>
     </t-rate>
-    <t-rate :default-value="2" :icon="icon">
+    <t-rate :default-value="2">
       <template #icon="iconProps">
         <logo-github-icon v-bind="iconProps" />
       </template>

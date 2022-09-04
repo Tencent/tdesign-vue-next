@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <div class="t-message-offset">
+  <t-space direction="vertical" size="large">
+    <t-space>
       <t-input v-model="offsetX" placeholder="请输入横向偏移量" />
       <t-input v-model="offsetY" placeholder="请输入纵向偏移量" />
-    </div>
+    </t-space>
     <div class="tdesign-tooltip-placement">
-      <t-button variant="outline" class="placement-center" @click="$message.success(msgList[0])"> center </t-button>
-      <t-button variant="outline" class="placement-top" @click="$message.info(msgList[1])"> top </t-button>
-      <t-button variant="outline" class="placement-left" @click="$message.warning(msgList[2])"> left </t-button>
-      <t-button variant="outline" class="placement-right" @click="$message.loading(msgList[3])"> right </t-button>
-      <t-button variant="outline" class="placement-bottom" @click="$message.warning(msgList[4])"> bottom </t-button>
-      <t-button variant="outline" class="placement-top-left" @click="$message.error(msgList[5])"> top-left </t-button>
+      <t-button variant="outline" class="placement-center" @click="$message.success(msgList[0])">center</t-button>
+      <t-button variant="outline" class="placement-top" @click="$message.info(msgList[1])">top</t-button>
+      <t-button variant="outline" class="placement-left" @click="$message.warning(msgList[2])">left</t-button>
+      <t-button variant="outline" class="placement-right" @click="$message.loading(msgList[3])">right</t-button>
+      <t-button variant="outline" class="placement-bottom" @click="$message.warning(msgList[4])">bottom</t-button>
+      <t-button variant="outline" class="placement-top-left" @click="$message.error(msgList[5])">top-left</t-button>
       <t-button variant="outline" class="placement-top-right" @click="$message.question(msgList[6])">
         top-right
       </t-button>
@@ -21,7 +21,7 @@
         bottom-right
       </t-button>
     </div>
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -52,13 +52,6 @@ const msgList = computed(() =>
 .t-button {
   margin-right: 16px;
   margin-bottom: 16px;
-}
-
-.t-message-offset > .t-input__wrap {
-  width: 130px;
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 36px;
 }
 
 .t-message-placement {

@@ -1,8 +1,8 @@
 <template>
-  <div class="t-demo-tabs">
-    <div class="t-demo-tabs__desc">
+  <t-space>
+    <t-space>
       <p>可以动态增加选项卡，仅支持卡片型</p>
-    </div>
+    </t-space>
 
     <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
       <t-tab-panel
@@ -17,7 +17,7 @@
         </p>
       </t-tab-panel>
     </t-tabs>
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -63,21 +63,3 @@ const removeTab = ({ value: val }) => {
   }
 };
 </script>
-
-<style lang="less">
-.t-demo-tabs {
-  &__desc {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 14px;
-
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-
-    p {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>
