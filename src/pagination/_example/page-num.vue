@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space>
     <t-pagination
       v-model="current"
       v-model:pageSize="pageSize"
@@ -10,7 +10,7 @@
       @page-size-change="onPageSizeChange"
       @current-change="onCurrentChange"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

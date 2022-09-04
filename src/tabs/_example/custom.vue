@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column-large" style="width: 100%">
+  <t-space>
     <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
       <t-tab-panel
         v-for="data in panelData"
@@ -13,7 +13,7 @@
         </p>
       </t-tab-panel>
     </t-tabs>
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -56,21 +56,3 @@ const removeTab = ({ value: val, index }) => {
   }
 };
 </script>
-
-<style lang="less">
-.t-demo-tabs {
-  &__desc {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 14px;
-
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-
-    p {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
+  <t-space direction="vertical" size="large">
     <t-tabs v-model="value">
       <t-tab-panel :value="1" label="选项卡1" :destroy-on-hide="false">
         <p style="padding: 25px">选项卡1的内容，使用 t-tab-panel 渲染</p>
@@ -14,7 +14,7 @@
 
     <!-- 方式二：使用 list 定义 Tab -->
     <t-tabs v-model="tab" :list="tabList" />
-  </div>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -32,17 +32,3 @@ const panelRender = () => {
   return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-panel 渲染</p>;
 };
 </script>
-
-<style lang="less">
-.t-demo-tabs {
-  &__desc {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 14px;
-
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-  }
-}
-</style>

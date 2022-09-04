@@ -4,7 +4,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
-import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from './hooks/useFormat';
+import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type { DateValue } from './type';
 import props from './props';
