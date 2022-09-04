@@ -1,0 +1,688 @@
+// Vitest Snapshot v1
+
+exports[`Image-viewer > :props > defaultVisible 1`] = `
+<div
+  class="t-image-viewer-preview-image"
+  style="z-index: 2000;"
+>
+  <div
+    class="t-image-viewer__modal--mask"
+  />
+  <transition-stub
+    class="t-image-viewer__dialog"
+  >
+    <!---->
+  </transition-stub>
+  
+  <div
+    class="t-image-viewer__modal-header"
+  >
+    <div
+      class="t-image-viewer__modal--icon t-image-viewer__header--pre__bt"
+    >
+      <svg
+        class="t-icon t-icon-chevron-down"
+        fill="none"
+        height="1em"
+        style="font-size: 20px;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <!---->
+    </div>
+    <div
+      class="t-image-viewer__header--prev"
+    >
+      <div
+        class="t-image-viewer__bokeh--left"
+      />
+      <div
+        class="t-image-viewer__bokeh--right"
+      />
+      <div
+        class="t-image-viewer__header--trans"
+        style="transform: translateX(-84px);"
+      >
+        
+        <div
+          class="t-image-viewer__header--box"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+        </div>
+        <div
+          class="t-image-viewer__header--box t-is-active"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+          />
+        </div>
+        <div
+          class="t-image-viewer__header--box"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-3.png"
+          />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-image-viewer__modal--index"
+  >
+    2/3
+  </div>
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(0deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    <!---->
+  </div>
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(180deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    <!---->
+  </div>
+  
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--close-bt"
+  >
+    <svg
+      class="t-icon t-icon-close"
+      fill="none"
+      height="1em"
+      style="font-size: 24px;"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <div
+    class="t-image-viewer__utils"
+  >
+    <div
+      class="t-image-viewer__utils--content"
+    >
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-mirror t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.5 1h1v14h-1V1zM14.72 12.44a.5.5 0 01-.35.54c-.07.02-.17.02-.38.02h-3.34l-.27-.01a.5.5 0 01-.37-.37l-.01-.27V5c0-.53 0-.8.04-.89a.5.5 0 01.8-.17c.07.07.18.3.4.8l3.34 7.34c.09.19.13.28.14.36zM11 12h2.45L11 6.62V12zM1.63 12.98c.07.02.17.02.38.02h3.34l.27-.01a.5.5 0 00.37-.37l.01-.27V5c0-.53 0-.8-.04-.89a.5.5 0 00-.8-.17c-.07.07-.18.3-.4.8l-3.34 7.34c-.09.19-.13.28-.14.36a.5.5 0 00.35.54zM5 6.62V12H2.55L5 6.62z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-rotation t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M2 2h1v6.08A6 6 0 017.92 13H14v1H3a1 1 0 01-1-1V2zm4.9 11A5 5 0 003 9.1V13h3.9z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <!---->
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-zoom-out t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9 7H4V6h5v1z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <div
+        class="t-image-viewer__modal--icon t-image-viewer__utils--scale"
+        size="medium"
+      >
+        <!---->
+        <span
+          class="t-image-viewer__modal--icon-label"
+        >
+          100%
+        </span>
+      </div>
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-zoom-in t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6 7v2h1V7h2V6H7V4H6v2H4v1h2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <div
+          class="t-image-viewer__modal--icon"
+        >
+          <svg
+            class="t-icon t-icon-image t-size-m"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-download t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-image-viewer__modal--pic"
+  >
+    <div
+      class="t-image-viewer__modal--box"
+      style="transform: translate(0px, 0px) scale(1, 1);"
+    >
+      <!---->
+      <img
+        alt="image"
+        class="t-image-viewer__modal--image"
+        draggable="false"
+        src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+        style="transform: rotate(0deg) scale(1); display: block;"
+      />
+      <img
+        alt="image"
+        class="t-image-viewer__modal--image"
+        draggable="false"
+        src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+        style="transform: rotate(0deg) scale(1); display: none;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image-viewer > :props > images, index, visible 1`] = `
+<div
+  class="t-image-viewer-preview-image"
+  style="z-index: 2000;"
+>
+  <div
+    class="t-image-viewer__modal--mask"
+  />
+  <transition-stub
+    class="t-image-viewer__dialog"
+  >
+    <!---->
+  </transition-stub>
+  
+  <div
+    class="t-image-viewer__modal-header"
+  >
+    <div
+      class="t-image-viewer__modal--icon t-image-viewer__header--pre__bt"
+    >
+      <svg
+        class="t-icon t-icon-chevron-down"
+        fill="none"
+        height="1em"
+        style="font-size: 20px;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <!---->
+    </div>
+    <div
+      class="t-image-viewer__header--prev"
+    >
+      <div
+        class="t-image-viewer__bokeh--left"
+      />
+      <div
+        class="t-image-viewer__bokeh--right"
+      />
+      <div
+        class="t-image-viewer__header--trans"
+        style="transform: translateX(-84px);"
+      >
+        
+        <div
+          class="t-image-viewer__header--box"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+        </div>
+        <div
+          class="t-image-viewer__header--box t-is-active"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+          />
+        </div>
+        <div
+          class="t-image-viewer__header--box"
+        >
+          <img
+            alt=""
+            class="t-image-viewer__header--img"
+            src="https://tdesign.gtimg.com/demo/demo-image-3.png"
+          />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-image-viewer__modal--index"
+  >
+    2/3
+  </div>
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(0deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    <!---->
+  </div>
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(180deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+    <!---->
+  </div>
+  
+  <div
+    class="t-image-viewer__modal--icon t-image-viewer__modal--close-bt"
+  >
+    <svg
+      class="t-icon t-icon-close"
+      fill="none"
+      height="1em"
+      style="font-size: 24px;"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <div
+    class="t-image-viewer__utils"
+  >
+    <div
+      class="t-image-viewer__utils--content"
+    >
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-mirror t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.5 1h1v14h-1V1zM14.72 12.44a.5.5 0 01-.35.54c-.07.02-.17.02-.38.02h-3.34l-.27-.01a.5.5 0 01-.37-.37l-.01-.27V5c0-.53 0-.8.04-.89a.5.5 0 01.8-.17c.07.07.18.3.4.8l3.34 7.34c.09.19.13.28.14.36zM11 12h2.45L11 6.62V12zM1.63 12.98c.07.02.17.02.38.02h3.34l.27-.01a.5.5 0 00.37-.37l.01-.27V5c0-.53 0-.8-.04-.89a.5.5 0 00-.8-.17c-.07.07-.18.3-.4.8l-3.34 7.34c-.09.19-.13.28-.14.36a.5.5 0 00.35.54zM5 6.62V12H2.55L5 6.62z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-rotation t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M2 2h1v6.08A6 6 0 017.92 13H14v1H3a1 1 0 01-1-1V2zm4.9 11A5 5 0 003 9.1V13h3.9z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <!---->
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-zoom-out t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9 7H4V6h5v1z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      <div
+        class="t-image-viewer__modal--icon t-image-viewer__utils--scale"
+        size="medium"
+      >
+        <!---->
+        <span
+          class="t-image-viewer__modal--icon-label"
+        >
+          100%
+        </span>
+      </div>
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-zoom-in t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6 7v2h1V7h2V6H7V4H6v2H4v1h2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <div
+          class="t-image-viewer__modal--icon"
+        >
+          <svg
+            class="t-icon t-icon-image t-size-m"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        class="t-image-viewer__modal--icon"
+      >
+        <svg
+          class="t-icon t-icon-download t-size-m"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-image-viewer__modal--pic"
+  >
+    <div
+      class="t-image-viewer__modal--box"
+      style="transform: translate(0px, 0px) scale(1, 1);"
+    >
+      <!---->
+      <img
+        alt="image"
+        class="t-image-viewer__modal--image"
+        draggable="false"
+        src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+        style="transform: rotate(0deg) scale(1); display: block;"
+      />
+      <img
+        alt="image"
+        class="t-image-viewer__modal--image"
+        draggable="false"
+        src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+        style="transform: rotate(0deg) scale(1); display: none;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image-viewer > :props > trigger 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      test
+      
+    </span>
+  </button>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
