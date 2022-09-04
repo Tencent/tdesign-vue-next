@@ -68449,6 +68449,47 @@ exports[`csr snapshot test > csr test ./src/loading/_example/delay.vue 1`] = `
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/loading/_example/directive.vue 1`] = `
+<div
+  class="loading-directive-demo"
+>
+  <div
+    class="loading-container"
+  >
+    Loading...
+  </div>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      支持指令
+      
+    </span>
+  </button>
+  <div
+    class="loading-container"
+  >
+    Loading...
+  </div>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      支持 fullscreen 修饰符
+      
+    </span>
+  </button>
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/loading/_example/fullscreen.vue 1`] = `
 <div
   class="tdesign-demo-block-column"

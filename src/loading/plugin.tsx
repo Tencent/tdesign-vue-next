@@ -1,6 +1,6 @@
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import LoadingComponent from './loading';
-import { getAttach, removeClass } from '../utils/dom';
+import { getAttach, removeClass, addClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
 
@@ -24,9 +24,11 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const attach = getAttach(props.attach);
 
   const loading = createApp(component).mount(document.createElement('div'));
+  const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
 
   if (attach) {
     attach.appendChild(loading.$el);
+    addClass(attach, parentRelativeClass);
   } else {
     console.error('attach is not exist');
   }
@@ -35,6 +37,7 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
     hide: () => {
       loading.loading = false;
       loading.$el.parentNode.removeChild(loading.$el);
+      removeClass(attach, parentRelativeClass);
     },
   };
   return loadingInstance;
