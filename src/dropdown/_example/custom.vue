@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <t-space>
     <t-dropdown :options="options" trigger="click" :hide-after-item-click="false" :min-column-width="100">
-      <t-button variant="text"> 下拉菜单 </t-button>
+      <t-button variant="text">下拉菜单</t-button>
     </t-dropdown>
-  </div>
+  </t-space>
 </template>
 <script setup lang="ts">
 const options = [
@@ -35,8 +35,3 @@ const options = [
   },
 ];
 </script>
-<style scoped>
-.t-button {
-  margin-right: 20px;
-}
-</style>
