@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
+  <t-space style="width: 100%">
     <t-alert theme="info" close :max-line="2">
       <span>这是折叠的第一条消息</span>
       <span>这是折叠的第二条消息</span>
@@ -8,5 +8,5 @@
       <span>这是折叠的第五条消息</span>
       <span>这是折叠的第六条消息</span>
     </t-alert>
-  </div>
+  </t-space>
 </template>
