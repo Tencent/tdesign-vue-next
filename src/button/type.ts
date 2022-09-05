@@ -32,6 +32,11 @@ export interface TdButtonProps {
    */
   ghost?: boolean;
   /**
+   * 跳转地址。href 存在时，按钮标签默认使用 `<a>` 渲染；如果指定了 `tag` 则使用指定的标签渲染
+   * @default ''
+   */
+  href?: string;
+  /**
    * 按钮内部图标，可完全自定义
    */
   icon?: TNode;
@@ -50,6 +55,10 @@ export interface TdButtonProps {
    * @default medium
    */
   size?: SizeEnum;
+  /**
+   * 渲染按钮的 HTML 标签，默认使用标签 `<button>` 渲染，可以自定义为 `<a>` `<div>` 等。透传全部 HTML 属性，如：`href/target/data-*` 等。⚠️ 禁用按钮 `<button disabled>`无法显示 Popup 浮层信息，可通过修改 `tag=div` 解决这个问题
+   */
+  tag?: 'button' | 'a' | 'div';
   /**
    * 组件风格，依次为默认色、品牌色、危险色、警告色、成功色
    */

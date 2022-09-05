@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
@@ -8,7 +8,6 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TButton',
-  inheritAttrs: false,
   props,
   setup(props, { attrs }) {
     const renderTNodeJSX = useTNodeJSX();
@@ -51,17 +50,27 @@ export default defineComponent({
         buttonContent = [icon, buttonContent];
       }
 
-      return (
-        <button
-          ref={btnRef}
-          class={[...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }]}
-          type={props.type}
-          disabled={isDisabled.value}
-          {...attrs}
-          onClick={props.onClick}
-        >
-          {buttonContent}
-        </button>
+      const renderTag = () => {
+        if (!props.tag && props.href) return 'a';
+        return props.tag || 'button';
+      };
+
+      const buttonAttrs = {
+        class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
+        type: props.type,
+        disabled: isDisabled.value,
+        href: props.href,
+      };
+
+      return h(
+        renderTag(),
+        {
+          ref: btnRef,
+          ...attrs,
+          ...buttonAttrs,
+          onClick: props.onClick,
+        },
+        [buttonContent],
       );
     };
   },
