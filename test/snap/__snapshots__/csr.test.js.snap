@@ -34972,7 +34972,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
@@ -35034,7 +35034,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
