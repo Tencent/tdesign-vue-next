@@ -5,7 +5,6 @@ import props from './props';
 import { TdGuideProps, GuideCrossProps } from './type';
 
 import {
-  setStyle,
   scrollToParentVisibleArea,
   getRelativePosition,
   getTargetElm,
@@ -14,6 +13,8 @@ import {
   getWindowScroll,
   removeElm,
 } from './utils';
+
+import setStyle from '../_common/js/utils/set-style';
 
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
@@ -224,15 +225,19 @@ export default defineComponent({
           `${COMPONENT_NAME.value}--${currentElmIsFixed.value && isPopup.value ? 'fixed' : 'absolute'}`,
         ];
         const showOverlay = getCurrentCrossProps('showOverlay');
-        const classes = [...highlightClass, `${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
+        const maskClass = [`${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
         const { highlightContent } = currentStepInfo.value;
+        const showHightContent = highlightContent && isPopup.value;
 
-        return highlightContent && isPopup.value ? (
-          <div ref={highlightLayerRef} v-transfer-dom="body" class={highlightClass} style={style}>
-            <highlightContent class={classes} style={style} />
+        return (
+          <div
+            ref={highlightLayerRef}
+            v-transfer-dom="body"
+            class={highlightClass.concat(showHightContent ? highlightClass : maskClass)}
+            style={style}
+          >
+            {showHightContent && <highlightContent class={highlightClass.concat(maskClass)} style={style} />}
           </div>
-        ) : (
-          <div ref={highlightLayerRef} v-transfer-dom="body" class={classes} style={style} />
         );
       };
 

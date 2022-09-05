@@ -1,6 +1,4 @@
 <template>
-  <!-- <div class="highligh"></div>
-   -->
   <img
     class="highligh"
     src="https://img1.baidu.com/it/u=196030518,88795458&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=687"

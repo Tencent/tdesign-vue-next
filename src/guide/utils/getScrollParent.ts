@@ -1,3 +1,5 @@
+import elementInViewport from './elementInViewport';
+
 export function getScrollParent(element: HTMLElement) {
   let style = window.getComputedStyle(element);
   const excludeStaticParent = style.position === 'absolute';
@@ -20,5 +22,7 @@ export function getScrollParent(element: HTMLElement) {
 export function scrollToParentVisibleArea(element: HTMLElement) {
   const parent = getScrollParent(element);
   if (parent === document.body) return;
+  // !todo 逻辑待验证
+  if (elementInViewport(element, parent)) return;
   parent.scrollTop = element.offsetTop - parent.offsetTop;
 }

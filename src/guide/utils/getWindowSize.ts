@@ -1,4 +1,4 @@
-export default function getWinSize() {
+export default function getWindowSize() {
   if (window.innerWidth !== undefined) {
     return { width: window.innerWidth, height: window.innerHeight };
   }
