@@ -609,6 +609,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
    */
   getData: (key: TableRowValue) => TableRowState<T>;
   /**
+   * 获取展开的树形节点。`type=unique` 标识获取展开节点的行唯一标识值，`type=data` 表示获取展开节点的数据，`type=all` 表示获取行节点包含展开状态的全部数据
+   */
+  getTreeExpandedRow: (type: 'unique' | 'data' | 'all') => void;
+  /**
    * 树形结构中，获取完整的树形结构
    */
   getTreeNode: () => T[];
@@ -801,7 +805,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
   /**
    * 校验规则
    */
-  rules?: FormRule[];
+  rules?: TableEditableCellRules<T>;
   /**
    * 是否显示编辑图标
    * @default true
@@ -1056,3 +1060,5 @@ export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<
 export interface TablePlainObject {
   [key: string]: any;
 }
+
+export type TableEditableCellRules<T> = FormRule[] | ((params: PrimaryTableCellParams<T>) => FormRule[]);

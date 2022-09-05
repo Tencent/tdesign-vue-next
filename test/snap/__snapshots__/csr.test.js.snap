@@ -34972,7 +34972,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
@@ -35034,7 +35034,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
@@ -126500,7 +126500,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
   <div
     class="t-table"
     data-v-1119a7d2=""
-    selectedrowkeys="3,2"
+    selectedrowkeys=""
     style="position: relative;"
   >
     <!---->
@@ -128360,9 +128360,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
   <br />
   <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
-  <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
-  <!-- tree.defaultExpandAll: true 默认展开全部 -->
-  <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
+  <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
   <div
     beforedragsort="params => {
       console.log('beforeDragSort:', params);
@@ -128372,6 +128370,20 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     indeterminateselectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
+    treeexpandandfoldicon="(h, params) => {
+      const {
+        type,
+        row
+      } = params;
+
+      if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+        return __vite_ssr_import_0__.createVNode(__vite_ssr_import_2__.Loading, {
+          \\"size\\": \\"14px\\"
+        }, null);
+      }
+
+      return type === 'expand' ? __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.AddRectangleIcon, null, null) : __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.MinusRectangleIcon, null, null);
+    }"
   >
     <!---->
     <!---->
@@ -129750,68 +129762,99 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
 <div
   class="t-table-tree-select-demo"
 >
-  <div>
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
     <div
-      class="t-radio-group t-size-m t-radio-group--filled"
+      class="t-space-item"
     >
-      
-      <label
-        class="t-radio-button t-is-checked"
+      <div
+        class="t-radio-group t-size-m t-radio-group--filled"
       >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="true"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
+        
+        <label
+          class="t-radio-button t-is-checked"
         >
-          
-          
-           父子行选中独立 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="false"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          
-          <span>
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="true"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
             
-             父子行选中关联 
+            
+             父子行选中独立 
+            
             
           </span>
-          <!---->
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="false"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            
+            <span>
+              
+               父子行选中关联 
+              
+            </span>
+            <!---->
+            
+            
+            
+          </span>
+        </label>
+        
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
+      </div>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
           
-          
+          获取树形结构展开的节点
           
         </span>
-      </label>
-      
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      </button>
     </div>
+    <!---->
+    
+    
   </div>
   <br />
   <!-- 子节点字段不是 children，而是 childrenList -->

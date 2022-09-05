@@ -1,6 +1,6 @@
 <template>
   <div class="t-table-tree-select-demo">
-    <div>
+    <t-space>
       <t-radio-group v-model="checkStrictly" variant="default-filled">
         <t-radio-button value="true"> 父子行选中独立 </t-radio-button>
         <t-radio-button value="false">
@@ -11,12 +11,15 @@
           </t-popup>
         </t-radio-button>
       </t-radio-group>
-    </div>
+
+      <t-button theme="default" @click="getTreeExpandedRow">获取树形结构展开的节点</t-button>
+    </t-space>
     <br />
     <!-- 子节点字段不是 children，而是 childrenList -->
     <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
     <t-enhanced-table
+      ref="enhancedTableRef"
       row-key="key"
       :expanded-row="expandedRowRender"
       :expanded-row-keys="expandedRowKeys"
@@ -35,7 +38,7 @@
 
 <script setup lang="jsx">
 import { ref, watch } from 'vue';
-import { EnhancedTable as TEnhancedTable } from 'tdesign-vue-next';
+import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 
 const initData = [];
@@ -68,6 +71,9 @@ for (let i = 0; i < 5; i++) {
   });
   initData.push(obj);
 }
+
+const enhancedTableRef = ref();
+
 const columns = [
   {
     colKey: 'row-select',
@@ -119,6 +125,19 @@ const expandedRowRender = (h, { row }) => <div>这是展开项数据，我是 {r
 
 const onExpandChange = (val) => {
   expandedRowKeys.value = val;
+};
+
+const getTreeExpandedRow = () => {
+  const treeExpandedRowKeys = enhancedTableRef.value.getTreeExpandedRow('unique');
+  console.log('行唯一标识值：', treeExpandedRowKeys);
+
+  const treeExpandedRow = enhancedTableRef.value.getTreeExpandedRow('data');
+  console.log('行数据：', treeExpandedRow);
+
+  const treeExpandedRowState = enhancedTableRef.value.getTreeExpandedRow('all');
+  console.log('全部行信息：', treeExpandedRowState);
+
+  MessagePlugin.success('获取成功，请打开控制台查看');
 };
 </script>
 

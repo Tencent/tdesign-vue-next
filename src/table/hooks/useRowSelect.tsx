@@ -12,7 +12,7 @@ import {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { isRowSelectedDisabled } from '../utils';
+import { isRowSelectedDisabled } from '../../_common/js/table/utils';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
@@ -140,9 +140,6 @@ export default function useRowSelect(
     const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
-    for (let i = 0, len = data.value.length; i < len; i++) {
-      selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
-    }
     setTSelectedRowKeys(allIds, {
       selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
       type: checked ? 'check' : 'uncheck',
@@ -161,6 +158,16 @@ export default function useRowSelect(
       title: col.type === 'multiple' ? getSelectedHeader() : '',
     };
   }
+
+  watch(
+    [data, rowKey],
+    ([data, rowKey]) => {
+      for (let i = 0, len = data.length; i < len; i++) {
+        selectedRowDataMap.value.set(get(data[i], rowKey || 'id'), data[i]);
+      }
+    },
+    { immediate: true },
+  );
 
   return {
     selectedRowClassNames,
