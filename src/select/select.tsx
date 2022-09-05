@@ -99,7 +99,7 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      return props.multiple
+      return props.multiple && isArray(innerValue.value)
         ? (innerValue.value as SelectValue[]).map((value) => ({
             value,
             label: optionsMap.value.get(value)?.label,
@@ -210,10 +210,10 @@ export default defineComponent({
     const checkValueInvalid = () => {
       // 参数类型检测与修复
       if (!props.multiple && isArray(orgValue.value)) {
-        orgValue.value = '';
+        seOrgValue('');
       }
       if (props.multiple && !isArray(orgValue.value)) {
-        orgValue.value = [];
+        seOrgValue([]);
       }
     };
     const handleSearch = debounce((value: string) => {
