@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-space>
       <t-link theme="default" hover="underline"> 跳转链接 </t-link>
       <t-link theme="primary" hover="underline"> 跳转链接 </t-link>
@@ -21,5 +21,5 @@
       <t-link theme="warning" hover="color" underline> 跳转链接 </t-link>
       <t-link theme="success" hover="color" underline> 跳转链接 </t-link>
     </t-space>
-  </div>
+  </t-space>
 </template>

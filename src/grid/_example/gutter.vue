@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <!-- 只指定水平 gutter，垂直默认为0 -->
     <span>水平 gutter 为固定值</span>
     <t-row :gutter="16">
@@ -62,5 +62,5 @@
         <div>col-3</div>
       </t-col>
     </t-row>
-  </div>
+  </t-space>
 </template>

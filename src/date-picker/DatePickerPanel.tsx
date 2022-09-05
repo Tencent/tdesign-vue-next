@@ -2,7 +2,7 @@ import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
 
 import useSingleValue from './hooks/useSingleValue';
-import { formatDate, getDefaultFormat } from './hooks/useFormat';
+import { formatDate, getDefaultFormat } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type {
   DateValue,

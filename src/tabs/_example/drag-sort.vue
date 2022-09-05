@@ -1,11 +1,11 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <div>
+  <t-space direction="vertical" size="large">
+    <t-space>
       <t-radio-group v-model="theme" variant="default-filled">
-        <t-radio-button value="normal"> 常规型 </t-radio-button>
-        <t-radio-button value="card"> 卡片型 </t-radio-button>
+        <t-radio-button value="normal">常规型</t-radio-button>
+        <t-radio-button value="card">卡片型</t-radio-button>
       </t-radio-group>
-    </div>
+    </t-space>
 
     <t-tabs drag-sort :value="value" :theme="theme" @drag-sort="onDragend" @change="(newValue) => (value = newValue)">
       <t-tab-panel v-for="data in panelData" :key="data.value" :value="data.value" :label="data.label">
@@ -14,7 +14,7 @@
         </p>
       </t-tab-panel>
     </t-tabs>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref, watch } from 'vue';

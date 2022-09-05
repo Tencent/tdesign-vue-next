@@ -113,22 +113,6 @@ export const getRecord = (record: Record<any, any>) => {
   return result;
 };
 
-export function isRowSelectedDisabled(
-  selectColumn: PrimaryTableCol,
-  row: Record<string, any>,
-  rowIndex: number,
-): boolean {
-  let disabled = isFunction(selectColumn.disabled) ? selectColumn.disabled({ row, rowIndex }) : selectColumn.disabled;
-  if (selectColumn.checkProps) {
-    if (isFunction(selectColumn.checkProps)) {
-      disabled = disabled || selectColumn.checkProps({ row, rowIndex }).disabled;
-    } else if (selectColumn.checkProps === 'object') {
-      disabled = disabled || selectColumn.checkProps.disabled;
-    }
-  }
-  return !!disabled;
-}
-
 // 多级表头，列配置场景，获取 currentRow
 export function getCurrentRowByKey<T extends { colKey?: string; children?: any[] }>(columns: T[], key: string): T {
   if (!columns || !key) return;

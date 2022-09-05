@@ -10,6 +10,7 @@ import {
   PrimaryTableRowEditContext,
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
+  PrimaryTableCellParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -119,25 +120,29 @@ export default defineComponent({
 
     const validateEdit = (trigger: 'self' | 'parent') => {
       return new Promise((resolve) => {
+        const cellParams: PrimaryTableCellParams<TableRowData> = {
+          col: props.col,
+          row: props.row,
+          colIndex: props.colIndex,
+          rowIndex: props.rowIndex,
+        };
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
             {
-              col: props.col,
-              row: props.row,
-              colIndex: props.colIndex,
-              rowIndex: props.rowIndex,
+              ...cellParams,
               errorList: [],
               value: editValue.value,
             },
           ],
           trigger,
         };
-        if (!col.value.edit || !col.value.edit.rules) {
+        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
+        if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
           resolve(true);
           return;
         }
-        validate(editValue.value, col.value.edit?.rules).then((result) => {
+        validate(editValue.value, rules).then((result) => {
           const list = result?.filter((t) => !t.result);
           params.result[0].errorList = list;
           props.onValidate?.(params);
@@ -279,17 +284,17 @@ export default defineComponent({
     );
 
     watch(
-      () => props.editable,
-      () => {
+      () => [props.editable, props.rowIndex, props.colIndex],
+      ([editable, rowIndex, colIndex]: [boolean, number, number]) => {
         // 退出编辑态时，恢复原始值，等待父组件传入新的 data 值
-        if (props.editable === false) {
+        if (editable === false) {
           editValue.value = cellValue.value;
-        } else if (props.editable === true) {
+        } else if (editable === true) {
           props.onRuleChange?.({
             col: col.value,
             row: row.value,
-            rowIndex: props.rowIndex,
-            colIndex: props.colIndex,
+            rowIndex,
+            colIndex,
             value: cellValue.value,
             editedRow: row.value,
           });
@@ -300,8 +305,8 @@ export default defineComponent({
 
     watch(
       () => props.errors,
-      () => {
-        errorList.value = props.errors;
+      (errors) => {
+        errorList.value = errors;
       },
     );
 
@@ -324,8 +329,8 @@ export default defineComponent({
           </div>
         );
       }
-      const component = col.value.edit?.component;
-      if (!component) {
+      const Component = col.value.edit?.component;
+      if (!Component) {
         log.error('Table', 'edit.component is required.');
         return null;
       }
@@ -337,7 +342,7 @@ export default defineComponent({
             e.stopPropagation();
           }}
         >
-          <component
+          <Component
             ref="tableEditableCellRef"
             status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
             tips={errorMessage}

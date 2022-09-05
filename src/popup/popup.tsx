@@ -104,6 +104,7 @@ export default defineComponent({
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
+      props.overlayInnerClassName,
     ]);
     const hasTrigger = computed<TriggerMap>(() =>
       triggers.reduce(
@@ -344,6 +345,7 @@ export default defineComponent({
       }
       destroyPopper();
       off(document, 'click', handleDocumentClick, true);
+      clearTimeout(timeoutId);
     });
 
     provide(injectionKey, {
@@ -406,7 +408,7 @@ export default defineComponent({
           })}
         >
           <div
-            class={[this.overlayCls, this.overlayInnerClassName]}
+            class={this.overlayCls}
             ref="overlayEl"
             {...(onScroll && {
               onScroll(e: WheelEvent) {

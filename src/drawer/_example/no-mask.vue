@@ -10,7 +10,7 @@
       <p>抽屉的内容</p>
     </t-drawer>
 
-    <t-button variant="outline" @click="handleClick"> 打开抽屉 </t-button>
+    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
   </div>
 </template>
 

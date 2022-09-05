@@ -91,7 +91,8 @@ export default defineComponent({
           checked={node.checked}
           indeterminate={node.indeterminate}
           disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
-          name={node.value}
+          // node.value maybe string or number
+          name={String(node.value)}
           title={inputVal ? getFullPathLabel(node) : node.label}
           onChange={() => {
             props.onChange();

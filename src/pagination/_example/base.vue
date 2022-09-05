@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical" size="large">
     <t-pagination
       v-model="current"
       v-model:pageSize="pageSize"
@@ -8,7 +8,6 @@
       @page-size-change="onPageSizeChange"
       @current-change="onCurrentChange"
     />
-    <br /><br />
     <!-- :pageSizeOptions="[]" 表示隐藏分页器选项 -->
     <!-- 非受控用法，代码有效，勿删。 -->
     <t-pagination
@@ -20,7 +19,7 @@
       @page-size-change="onPageSizeChange"
       @change="onChange"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
