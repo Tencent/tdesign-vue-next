@@ -227,16 +227,16 @@ export default defineComponent({
         const showOverlay = getCurrentCrossProps('showOverlay');
         const maskClass = [`${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
         const { highlightContent } = currentStepInfo.value;
-        const showHightContent = highlightContent && isPopup.value;
+        const showHighlightContent = highlightContent && isPopup.value;
 
         return (
           <div
             ref={highlightLayerRef}
             v-transfer-dom="body"
-            class={highlightClass.concat(showHightContent ? highlightClass : maskClass)}
+            class={highlightClass.concat(showHighlightContent ? highlightClass : maskClass)}
             style={style}
           >
-            {showHightContent && <highlightContent class={highlightClass.concat(maskClass)} style={style} />}
+            {showHighlightContent && <highlightContent class={highlightClass.concat(maskClass)} style={style} />}
           </div>
         );
       };
