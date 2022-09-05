@@ -33,7 +33,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
-    const [orgValue, seOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
     const selectInputRef = ref(null);
     const keys = computed(() => ({
@@ -64,7 +64,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      seOrgValue(newVal, e);
+      setOrgValue(newVal, e);
     };
 
     const [innerInputValue, setInputValue] = useDefaultValue(
@@ -210,10 +210,10 @@ export default defineComponent({
     const checkValueInvalid = () => {
       // 参数类型检测与修复
       if (!props.multiple && isArray(orgValue.value)) {
-        seOrgValue('');
+        setOrgValue('');
       }
       if (props.multiple && !isArray(orgValue.value)) {
-        seOrgValue([]);
+        setOrgValue([]);
       }
     };
     const handleSearch = debounce((value: string) => {
