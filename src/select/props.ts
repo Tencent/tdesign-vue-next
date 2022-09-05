@@ -30,7 +30,6 @@ export default {
   /** 当下拉列表为空时显示的内容 */
   empty: {
     type: [String, Function] as PropType<TdSelectProps['empty']>,
-    default: '',
   },
   /** 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据 */
   filter: {
@@ -60,7 +59,6 @@ export default {
   /** 远程加载时显示的文字，支持自定义。如加上超链接 */
   loadingText: {
     type: [String, Function] as PropType<TdSelectProps['loadingText']>,
-    default: '',
   },
   /** 用于控制多选数量，值为 0 则不限制 */
   max: {
@@ -101,6 +99,8 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否显示下拉框，非受控属性 */
+  defaultPopupVisible: Boolean,
   /** 组件前置图标 */
   prefixIcon: {
     type: Function as PropType<TdSelectProps['prefixIcon']>,
@@ -179,7 +179,7 @@ export default {
   },
   /** 输入框失去焦点时触发 */
   onBlur: Function as PropType<TdSelectProps['onBlur']>,
-  /** 选中值变化时触发，`context. trigger` 表示触发变化的来源 */
+  /** 选中值变化时触发，`context.trigger` 表示触发变化的来源，`context.selectedOptions` 表示选中值的完整对象 */
   onChange: Function as PropType<TdSelectProps['onChange']>,
   /** 点击清除按钮时触发 */
   onClear: Function as PropType<TdSelectProps['onClear']>,

@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <t-space>
     <t-pagination
+      v-model="current"
       v-model:pageSize="pageSize"
       :total="100"
       theme="simple"
@@ -8,7 +9,7 @@
       @page-size-change="onPageSizeChange"
       @current-change="onCurrentChange"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

@@ -7,6 +7,7 @@
 
     <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
     <t-select v-model="value2" placeholder="请选择云产品" multiple>
+      <t-option label="全选" :check-all="true" />
       <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
     </t-select>
 
@@ -20,6 +21,7 @@
 import { ref } from 'vue';
 
 const options1 = [
+  { label: '全选', checkAll: true },
   { label: '架构云', value: '1' },
   { label: '大数据', value: '2' },
   { label: '区块链', value: '3' },

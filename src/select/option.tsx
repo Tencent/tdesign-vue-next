@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, inject, reactive, onMounted, onBeforeUnmount, toRefs, Ref } from 'vue';
+import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from 'vue';
 
 import props from './option-props';
 import Checkbox from '../checkbox/index';
@@ -24,6 +24,7 @@ export default defineComponent({
     scrollType: String,
     isVirtual: Boolean,
     bufferSize: Number,
+    checkAll: Boolean,
   },
   emits: ['row-mounted'],
 
@@ -50,9 +51,15 @@ export default defineComponent({
     const isHover = ref(false);
 
     const isSelected = computed(() => {
+      if (selectProvider.value.isCheckAll && !props.disabled) return true;
       return !props.multiple
         ? selectProvider.value.selectValue === props.value
         : (selectProvider.value.selectValue as SelectValue[]).includes(props.value);
+    });
+
+    const isIndeterminate = computed(() => {
+      if (!props.checkAll) return false;
+      return selectProvider.value.indeterminate;
     });
 
     const classes = computed(() => [
@@ -77,20 +84,33 @@ export default defineComponent({
         if (selectProvider.value.multiple) {
           (selectProvider.value.selectValue as SelectValue[]).push(props.value);
           selectProvider.value.handleValueChange(selectProvider.value.selectValue, {
-            e,
+            selectedOptions: selectProvider.value.getSelectedOptions(),
             trigger: 'check',
+            e,
           });
           return;
         }
       }
 
-      selectProvider.value.handleValueChange(props.value, { e, trigger: 'check' });
+      selectProvider.value.handleValueChange(props.value, {
+        selectedOptions: selectProvider.value.getSelectedOptions(props.value),
+        trigger: 'check',
+        e,
+      });
       selectProvider.value.handlePopupVisibleChange(false, { e });
     };
 
     const handleCheckboxClick = (val: boolean, context: { e: MouseEvent | KeyboardEvent }) => {
+      if (props.checkAll) {
+        selectProvider.value.onCheckAllChange(val);
+        return;
+      }
       const newValue = getNewMultipleValue(selectProvider.value.selectValue as SelectValue[], props.value);
-      selectProvider.value.handleValueChange(newValue.value, { e: context.e, trigger: val ? 'check' : 'uncheck' });
+      selectProvider.value.handleValueChange(newValue.value, {
+        selectedOptions: selectProvider.value.getSelectedOptions(newValue.value),
+        trigger: val ? 'check' : 'uncheck',
+        e: context.e,
+      });
       if (!selectProvider.value.reserveKeyword) {
         selectProvider.value.handlerInputChange('');
       }
@@ -132,6 +152,7 @@ export default defineComponent({
               checked={isSelected.value}
               disabled={disabled.value && !isSelected.value}
               onChange={handleCheckboxClick}
+              indeterminate={isIndeterminate.value}
             >
               {optionChild}
             </Checkbox>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <t-space>
     <t-button variant="outline" @click="showInOffset">偏移的信息</t-button>
     <t-button variant="outline" @click="showInOffset2">偏移的信息</t-button>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
@@ -32,8 +32,3 @@ const showInOffset2 = () => {
   });
 };
 </script>
-<style scoped>
-.t-button + .t-button {
-  margin-left: 10px;
-}
-</style>

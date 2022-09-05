@@ -31,11 +31,11 @@
       <p>This is the body of drawer</p>
     </t-drawer>
 
-    <t-button variant="outline" @click="visible = true"> Open(插槽定义) </t-button>
-    &nbsp;&nbsp;
-    <t-button variant="outline" @click="visible2 = true"> Open(属性定义) </t-button>
-    &nbsp;&nbsp;
-    <t-button variant="outline" @click="visible3 = true"> Open(单独设置确认/取消按钮) </t-button>
+    <t-space>
+      <t-button variant="outline" @click="visible = true"> Open(插槽定义) </t-button>
+      <t-button variant="outline" @click="visible2 = true"> Open(属性定义) </t-button>
+      <t-button variant="outline" @click="visible3 = true"> Open(单独设置确认/取消按钮) </t-button>
+    </t-space>
   </div>
 </template>
 

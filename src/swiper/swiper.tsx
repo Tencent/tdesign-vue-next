@@ -112,10 +112,10 @@ export default defineComponent({
       });
       if (props.animation === 'slide' && items.length > 1) {
         const first = cloneVNode(items[0], {
-          key: 'swiper-item-append',
+          key: `swiper-item-append-${0}`,
         });
         const last = cloneVNode(items[items.length - 1], {
-          key: 'swiper-item-prepend',
+          key: `swiper-item-prepend-${items.length - 1}`,
         });
         items.unshift(last);
         items.push(first);

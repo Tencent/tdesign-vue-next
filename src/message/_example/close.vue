@@ -1,5 +1,5 @@
 <template>
-  <div class="t-demo-message">
+  <t-space direction="vertical">
     <t-message v-if="isShowMsg" :close-btn="true" @close-btn-click="isShowMsg = false">
       点击关闭按钮触发事件 close-btn-click
     </t-message>
@@ -8,7 +8,7 @@
       自定义关闭按钮（文字）
     </t-message>
 
-    <t-message v-if="closableMsg1" :close-btn="closeBtn"> 自定义关闭按钮（函数） </t-message>
+    <t-message v-if="closableMsg1" :close-btn="closeBtn">自定义关闭按钮（函数）</t-message>
 
     <t-message v-if="closableMsg2">
       自定义关闭按钮（插槽）
@@ -18,7 +18,7 @@
         </div>
       </template>
     </t-message>
-  </div>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -42,11 +42,3 @@ const closeBtn = () => {
   );
 };
 </script>
-<style lang="less" scoped>
-.t-demo-message {
-  .t-message,
-  .t-button {
-    margin-bottom: 16px;
-  }
-}
-</style>

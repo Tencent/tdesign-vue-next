@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <t-button theme="primary" @click="showDialog"> plugin打开多个dialog </t-button>
-  </div>
+  <t-space>
+    <t-button theme="primary" @click="showDialog">plugin打开多个dialog</t-button>
+  </t-space>
 </template>
 
 <script setup>
-import { DialogPlugin } from 'tdesign-vue-next';
-
 import { ref } from 'vue';
+import { DialogPlugin } from 'tdesign-vue-next';
 
 const count = ref(0);
 const showDialog = () => {
