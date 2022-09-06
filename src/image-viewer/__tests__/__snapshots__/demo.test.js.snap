@@ -1,0 +1,21 @@
+// Vitest Snapshot v1
+
+exports[`Image-viewer > base demo works fine 1`] = `
+<div
+  data-v-28de1c03=""
+>
+  <div
+    class="tdesign-demo-image-viewer__base"
+    data-v-28de1c03=""
+  >
+    <t-image-viewer
+      closeonoverlay=""
+      data-v-28de1c03=""
+      images="https://tdesign.gtimg.com/demo/demo-image-1.png"
+      showoverlay="false"
+      visible="false"
+      zindex="10"
+    />
+  </div>
+</div>
+`;

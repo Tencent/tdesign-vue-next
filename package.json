@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.20.3",
+  "version": "0.20.4",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -11,6 +11,15 @@
     "tdesign",
     "typescript"
   ],
+  "exports": {
+    ".": {
+      "import": "./es/index.mjs",
+      "require": "./lib/index-lib.js"
+    },
+    "./es/*": "./es/*",
+    "./esm/*": "./esm/*",
+    "./lib/*": "./lib/*"
+  },
   "main": "lib/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
@@ -68,6 +77,7 @@
     "lint": "npm run lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./src --max-warnings 0",
     "lint:tsc": "tsc --emitDeclarationOnly",
     "test": "npm run test:unit && npm run test:snap",
+    "test:demo": "node src/_common/test/script/generate-demo-test.js",
     "test:unit": "vitest run --config site/vite.config.js",
     "test:update": "vitest run --config site/vite.config.js -u && npm run test:snap-update",
     "test:unit-dev": "vitest --config site/vite.config.js",
@@ -172,7 +182,7 @@
     "tdesign-icons-view": "^0.1.5",
     "tdesign-publish-cli": "^0.0.12",
     "tdesign-site-components": "^0.11.1",
-    "tdesign-theme-generator": "^0.3.0",
+    "tdesign-theme-generator": "^0.4.0",
     "typescript": "^4.5.4",
     "vite": "^2.9.5",
     "vite-plugin-pwa": "^0.12.0",

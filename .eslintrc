@@ -95,7 +95,7 @@
     },
     {
       "files": [
-        "**/demos/*",
+        "**/_example/*",
         "script/**/*",
         "script/*",
         "*.js",

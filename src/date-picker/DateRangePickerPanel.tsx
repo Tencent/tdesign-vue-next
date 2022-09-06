@@ -13,7 +13,7 @@ import {
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
-import { formatDate, getDefaultFormat } from './hooks/useFormat';
+import { formatDate, getDefaultFormat } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
@@ -73,7 +73,13 @@ export default defineComponent({
     }
 
     // 日期点击
-    function onCellClick(date: Date, { e, partial }: { e: MouseEvent; partial: DateRangePickerPartial }) {
+    function onCellClick(date: Date, { e }: { e: MouseEvent }) {
+      props.onCellClick?.({
+        e,
+        partial: activeIndex.value ? 'end' : 'start',
+        date: value.value.map((v) => dayjs(v).toDate()),
+      });
+
       isHoverCell.value = false;
       isSelected.value = true;
 
@@ -103,8 +109,6 @@ export default defineComponent({
       } else {
         isFirstValueSelected.value = true;
       }
-
-      props.onCellClick?.({ date: value.value.map((v) => dayjs(v).toDate()), e, partial });
     }
 
     // 头部快速切换
@@ -313,6 +317,7 @@ export default defineComponent({
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       panelPreselection: props.panelPreselection,
+      panelClick: props.onPanelClick,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

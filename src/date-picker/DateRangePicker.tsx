@@ -10,7 +10,7 @@ import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './panel/RangePanel';
 import useRange from './hooks/useRange';
 import { initYearMonthTime } from './hooks/useRangeValue';
-import { parseToDayjs, formatTime, formatDate, isValidDate, getDefaultFormat } from './hooks/useFormat';
+import { parseToDayjs, formatTime, formatDate, isValidDate, getDefaultFormat } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
