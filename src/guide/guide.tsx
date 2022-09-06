@@ -11,7 +11,6 @@ import {
   scrollTo,
   isFixed,
   getWindowScroll,
-  removeElm,
 } from './utils';
 
 import setStyle from '../_common/js/utils/set-style';
@@ -111,7 +110,7 @@ export default defineComponent({
     };
 
     const destroyTooltipElm = () => {
-      removeElm(referenceLayerRef.value);
+      referenceLayerRef.value?.parentNode.removeChild(referenceLayerRef.value);
     };
 
     const showDialogGuide = () => {
@@ -126,8 +125,8 @@ export default defineComponent({
     };
 
     const destroyDialogTooltipElm = () => {
-      removeElm(dialogTooltipRef.value);
-      removeElm(dialogWrapperRef.value);
+      dialogTooltipRef.value?.parentNode.removeChild(dialogTooltipRef.value);
+      dialogWrapperRef.value?.parentNode.removeChild(dialogWrapperRef.value);
     };
 
     const showGuide = () => {
@@ -143,8 +142,8 @@ export default defineComponent({
     const destroyGuide = () => {
       destroyTooltipElm();
       destroyDialogTooltipElm();
-      removeElm(highlightLayerRef.value);
-      removeElm(overlayLayerRef.value);
+      highlightLayerRef.value?.parentNode.removeChild(highlightLayerRef.value);
+      overlayLayerRef.value?.parentNode.removeChild(overlayLayerRef.value);
       removeClass(document.body, LOCK_CLASS.value);
     };
 
