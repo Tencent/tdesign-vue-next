@@ -601,7 +601,7 @@ module.exports = {
       drawer: `
         <div>
           <t-button @click="handleClick">Open Drawer</t-button>
-          <t-drawer v-bind="configProps" v-model:visible="visible" header="header" :close-btn="true">
+          <t-drawer v-bind="configProps" v-model:visible="visible" header="header">
             <p>This is a Drawer</p>
           </t-drawer>
         </div>

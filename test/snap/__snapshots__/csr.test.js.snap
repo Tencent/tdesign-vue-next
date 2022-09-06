@@ -3909,324 +3909,614 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/to.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/base.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
 >
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
-    type="button"
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
-      
-       填充按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        填充按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      
-       描边按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
-      
-       虚框按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default"
-    type="button"
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
     >
-      
-       文字按钮 
-      
-    </span>
-  </button>
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/block.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
-  style="justify-content: center;"
+  class="t-space t-space-align-center t-space-vertical"
+  data-v-59dd211d=""
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-column"
-    style="min-width: 320px; max-width: 640px;"
+    class="t-space-item"
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
+      data-v-59dd211d=""
       type="button"
     >
       <span
         class="t-button__text"
       >
         
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         文字按钮 
+        填充按钮
         
       </span>
     </button>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+      data-v-59dd211d=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/button/_example/custom-element.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        div
+        
+      </span>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        a
+        
+      </span>
+    </a>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <a
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      disabled="false"
+      href="#"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        a:href
+        
+      </span>
+    </a>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/ghost.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-primary t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-primary t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-primary t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-success t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-success t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-success t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-success t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-warning t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-warning t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-warning t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-danger t-button--ghost"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-danger t-button--ghost"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         幽灵按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-danger t-button--ghost"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            幽灵按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -4371,29 +4661,27 @@ exports[`csr snapshot test > csr test ./src/button/_example/group.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
 <div
-  class="demo-button-icon"
-  data-v-349f39ce=""
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
 >
+  
+  
   <div
-    class="demo-button-row"
-    data-v-349f39ce=""
+    class="t-space-item"
   >
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        data-v-349f39ce=""
-        type="button"
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-add"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4403,28 +4691,30 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
             fill-opacity="0.9"
           />
         </svg>
+         新建 
         
-        <span
-          class="t-button__text"
-        >
-          
-           新建 
-          
-        </span>
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        data-v-349f39ce=""
-        type="button"
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-cloud-upload"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4439,52 +4729,69 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
             fill-opacity="0.9"
           />
         </svg>
+         上传文件 
         
-        <span
-          class="t-button__text"
-        >
-          
-           上传文件 
-          
-        </span>
-        
-      </button>
-    </div>
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        data-v-349f39ce=""
-        type="button"
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-discount"
-          data-v-349f39ce=""
+          fill="none"
+          height="1em"
+          slot="icon"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-discount"
+          <path
+            d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
+            fill="currentColor"
+            fill-opacity="0.9"
+            fill-rule="evenodd"
           />
         </svg>
         
-        
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        data-v-349f39ce=""
-        type="button"
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        
         
         <svg
           class="t-icon t-icon-cloud-download"
-          data-v-349f39ce=""
           fill="none"
           height="1em"
+          slot="icon"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -4500,45 +4807,46 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
           />
         </svg>
         
-        
-        
-      </button>
-    </div>
-    <!-- 使用 function 的形式定义 icon -->
-    <div
-      class="demo-button-col"
-      data-v-349f39ce=""
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        data-v-349f39ce=""
-        type="button"
+      
+      <svg
+        class="t-icon t-icon-search"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <span
+        class="t-button__text"
       >
         
-        <svg
-          class="t-icon t-icon-search"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-           Function Icon 
-          
-        </span>
+         搜索 
         
-      </button>
-    </div>
+      </span>
+      
+    </button>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -4547,7 +4855,7 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
   class="button-base"
 >
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
     disabled=""
     type="button"
   >
@@ -4587,7 +4895,7 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
     
   </button>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-is-loading"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-loading"
     disabled=""
     type="button"
   >
@@ -4631,906 +4939,1292 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/button/_example/shape.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-round"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-round"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle t-button--icon-only"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        
-        <svg
-          class="t-icon t-icon-calendar"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle"
+          type="button"
         >
-          <path
-            d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-        
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-calendar"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/size.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
     <div
-      class="item"
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <button
-        class="t-button t-size-l t-button--variant-base t-button--theme-primary"
-        type="button"
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-base t-button--theme-primary"
+          type="button"
         >
-          
-           填充按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-outline t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-outline t-button--theme-default"
+          type="button"
         >
-          
-           描边按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
+          type="button"
         >
-          
-           虚框按钮 
-          
-        </span>
-      </button>
-    </div>
-    <div
-      class="item"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-text t-button--theme-default"
-        type="button"
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <span
-          class="t-button__text"
+        <button
+          class="t-button t-size-l t-button--variant-text t-button--theme-default"
+          type="button"
         >
-          
-           文字按钮 
-          
-        </span>
-      </button>
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/status.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
 >
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
-    disabled=""
-    type="button"
+  
+  
+  <div
+    class="t-space-item"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+      disabled=""
+      type="button"
     >
-      
-       填充按钮 
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
-    disabled=""
-    type="button"
-  >
-    
-    <div
-      class="t-loading--center t-size-m t-loading--inherit-color t-loading"
-    >
-      <svg
-        class="t-loading__gradient t-icon-loading"
-        height="1em"
-        size="medium"
-        version="1.1"
-        viewBox="0 0 14 14"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        class="t-button__text"
       >
-        <foreignobject
-          height="12"
-          width="12"
-          x="1"
-          y="1"
-        >
-          <div
-            class="t-loading__gradient-conic"
-          />
-        </foreignobject>
-      </svg>
-      <!---->
-    </div>
-    <span
-      class="t-button__text"
+        
+        填充按钮
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
+      disabled=""
+      type="button"
     >
       
-       加载中 
+      <div
+        class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+      >
+        <svg
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="medium"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
+        </svg>
+        <!---->
+      </div>
+      <span
+        class="t-button__text"
+      >
+        
+        加载中
+        
+      </span>
       
-    </span>
-    
-  </button>
+    </button>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/button/_example/theme.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-warning"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-warning"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-success"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         填充按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            填充按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         描边按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            描边按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         虚框按钮 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            虚框按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-         文字按钮 
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-success"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            文字按钮
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -23878,7 +24572,9 @@ exports[`csr snapshot test > csr test ./src/card/_example/small.vue 1`] = `
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/base.vue 1`] = `
-<div>
+<div
+  data-v-app=""
+>
   
   <div
     class="t-input__wrap t-select-input t-cascader"
@@ -23935,937 +24631,1055 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/check-strictly.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
+  
   <div
-    class="t-input__wrap t-select-input t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          1/1.1/1.1.2/1.1.2.1
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            1/1.1/1.1.2/1.1.2.1
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            2
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
           
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
         </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          2
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/collapsed.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
-  <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          选项一/子选项一
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
-          
-          +
-          2
-          
-          <!---->
-        </span>
-        
-      </div>
-      <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          选项一/子选项一
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
+            <!---->
+            
+            选项一/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            +
+            2
+            
+            <!---->
+          </span>
+          
+        </div>
+        <!---->
         <span
-          style="color: rgb(237, 123, 47);"
+          class="t-input__input-pre"
         >
-          +
-          2
+          
         </span>
         <!---->
-        
-        
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+          <span
+            style="color: rgb(237, 123, 47);"
+          >
+            +
+            2
+          </span>
           <!---->
           
-          选项一/子选项一
           
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
         </span>
-        
-        
-        <span
-          style="color: rgb(0, 168, 112);"
-        >
-          +2
-        </span>
-        <!---->
-        
-        
-        
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+          
+          <span
+            style="color: rgb(0, 168, 112);"
+          >
+            +2
+          </span>
+          <!---->
+          
+          
+          
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/disabled.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
+  
   <div
-    class="t-input__wrap t-select-input t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        disabled=""
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon t-is-disabled"
-          disabled="true"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
-  >
-    <div
-      class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          disabled=""
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
         <span
-          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+          class="t-input__suffix t-input__suffix-icon"
         >
-          <!---->
-          
-          选项一/子选项一
-          
-          <!---->
+          <svg
+            class="t-fake-arrow t-cascader__icon t-is-disabled"
+            disabled="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
         </span>
-        
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon t-is-disabled"
-          disabled="true"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    >
+      <div
+        class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项一
+            
+            <!---->
+          </span>
+          
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon t-is-disabled"
+            disabled="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/ellipsis.vue 1`] = `
 <div
-  class="tdesign-demo-block-row t-cascader-demo"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
-  <div
-    class="t-input__wrap t-select-input t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
+          
+          <!---->
           <!---->
           
-          当选项一数据展示文本过长时/子选项一
-          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
         </span>
-        
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            当选项一数据展示文本过长时/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/filterable.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
-  <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
+          
+          <!---->
           <!---->
           
-          当选项一数据展示文本过长时/子选项一
-          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
         </span>
-        
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
       <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            当选项一数据展示文本过长时/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/keys.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
-  <div
-    class="t-input__wrap t-select-input t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
-  </div>
-  <!---->
-  
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
+          
+          <!---->
           <!---->
           
-          选项一/子选项一
-          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
         </span>
-        
       </div>
       <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
     </div>
     <!---->
+    
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/load.vue 1`] = `
-<div>
+<div
+  data-v-app=""
+>
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty t-cascader"
@@ -24921,7 +25735,9 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/load.vue 1`] = `
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/max.vue 1`] = `
-<div>
+<div
+  data-v-app=""
+>
   
   <div
     class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
@@ -24980,7 +25796,7 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/max.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/multiple.vue 1`] = `
 <div
-  class="t-cascader-demo"
+  data-v-app=""
 >
   
   <div
@@ -25055,774 +25871,890 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/multiple.vue 1`] =
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/panel.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="cascader-demo-panel-container"
+    class="t-space-item"
   >
     <div
-      class="t-cascader__panel t-cascader--normal"
+      class="cascader-demo-panel-container"
     >
-      
-      <ul
-        class="t-cascader__menu narrow-scrollbar"
+      <div
+        class="t-cascader__panel t-cascader--normal"
       >
         
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
+        <ul
+          class="t-cascader__menu narrow-scrollbar"
         >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="选项一"
+          
+          <li
+            class="t-cascader__item t-size-m t-cascader__item--with-icon"
           >
-            选项一
-          </span>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
-        >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="选项二"
-          >
-            选项二
-          </span>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        
-      </ul>
-      
-    </div>
-  </div>
-  <div
-    class="cascader-demo-panel-container"
-  >
-    <div
-      class="t-cascader__panel t-cascader--normal"
-    >
-      
-      <ul
-        class="t-cascader__menu narrow-scrollbar"
-      >
-        
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
-        >
-          <label
-            class="t-checkbox"
-            title="选项一"
-          >
-            <input
-              class="t-checkbox__former"
-              name="1"
-              type="checkbox"
-            />
             <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
+              class="t-cascader__item-label t-cascader__item-label--ellipsis"
+              role="label"
+              title="选项一"
             >
-              
               选项一
-              
             </span>
-          </label>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
-        >
-          <label
-            class="t-checkbox"
-            title="选项二"
-          >
-            <input
-              class="t-checkbox__former"
-              name="2"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
+            <svg
+              class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
             >
-              
-              选项二
-              
-            </span>
-          </label>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+              <path
+                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </li>
+          <li
+            class="t-cascader__item t-size-m t-cascader__item--with-icon"
           >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
+            <span
+              class="t-cascader__item-label t-cascader__item-label--ellipsis"
+              role="label"
+              title="选项二"
+            >
+              选项二
+            </span>
+            <svg
+              class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </li>
+          
+        </ul>
         
-      </ul>
-      
+      </div>
     </div>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="cascader-demo-panel-container"
+    >
+      <div
+        class="t-cascader__panel t-cascader--normal"
+      >
+        
+        <ul
+          class="t-cascader__menu narrow-scrollbar"
+        >
+          
+          <li
+            class="t-cascader__item t-size-m t-cascader__item--with-icon"
+          >
+            <label
+              class="t-checkbox"
+              title="选项一"
+            >
+              <input
+                class="t-checkbox__former"
+                name="1"
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                选项一
+                
+              </span>
+            </label>
+            <svg
+              class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </li>
+          <li
+            class="t-cascader__item t-size-m t-cascader__item--with-icon"
+          >
+            <label
+              class="t-checkbox"
+              title="选项二"
+            >
+              <input
+                class="t-checkbox__former"
+                name="2"
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                选项二
+                
+              </span>
+            </label>
+            <svg
+              class="t-icon t-icon-chevron-right t-cascader__item-icon t-icon"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/show-all-levels.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
+  
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        请选择
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          请选择
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/size.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <!-- 非受控用法 -->
+  
   
   <div
-    class="t-input__wrap t-select-input t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
-  <!-- 受控+语法糖用法 -->
   
   <div
-    class="t-input__wrap t-select-input t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
-  <!-- 受控用法 -->
   
   <div
-    class="t-input__wrap t-select-input t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-size-l t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-size-l t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/trigger.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
+  
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/value-mode.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
   
+  
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        请选择
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          请选择
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        请选择
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          请选择
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
   
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+    class="t-space-item"
   >
+    
     <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-cascader"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        请选择
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          请选择
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     <!---->
+    
   </div>
   <!---->
+  
   
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/cascader/_example/value-type.vue 1`] = `
 <div
-  class="tdesign-demo-block-row"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  [
+  
+  
+  <div
+    class="t-space-item"
+  >
+    [
   "1",
   "1.1"
 ] 
-  
-  <div
-    class="t-input__wrap t-select-input t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请选择"
-        readonly=""
-        type="text"
-        unselectable="on"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
   </div>
   <!---->
   
-   [
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-select-input t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+     [
   [
     "1",
     "1.1"
@@ -25832,94 +26764,105 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/value-type.vue 1`]
     "1.2"
   ]
 ] 
-  
-  <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
-  >
-    <div
-      class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          选项一/子选项一
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          选项一/子选项二
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
-      </div>
-      <!---->
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        <svg
-          class="t-fake-arrow t-cascader__icon"
-          disabled="false"
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-      </span>
-    </div>
-    <!---->
   </div>
   <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-cascader"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项一
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            选项一/子选项二
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <!---->
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-cascader__icon"
+            disabled="false"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
   
 </div>
 `;
@@ -34972,7 +35915,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
@@ -35034,7 +35977,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/calendar.vu
                 </div>
                 <input
                   class="t-input__inner"
-                  placeholder=""
+                  placeholder="please select"
                   readonly=""
                   type="text"
                   unselectable="on"
@@ -45286,7 +46229,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/async.vue 1`] = `
                     </span>
                   </button>
                   <button
-                    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
+                    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading t-dialog__confirm"
                     disabled=""
                     type="button"
                   >
@@ -126500,7 +127443,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
   <div
     class="t-table"
     data-v-1119a7d2=""
-    selectedrowkeys="3,2"
+    selectedrowkeys=""
     style="position: relative;"
   >
     <!---->
@@ -128360,9 +129303,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
   <br />
   <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
-  <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
-  <!-- tree.defaultExpandAll: true 默认展开全部 -->
-  <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
+  <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
   <div
     beforedragsort="params => {
       console.log('beforeDragSort:', params);
@@ -128372,6 +129313,20 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     indeterminateselectedrowkeys=""
     style="position: relative;"
     tree="[object Object]"
+    treeexpandandfoldicon="(h, params) => {
+      const {
+        type,
+        row
+      } = params;
+
+      if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+        return __vite_ssr_import_0__.createVNode(__vite_ssr_import_2__.Loading, {
+          \\"size\\": \\"14px\\"
+        }, null);
+      }
+
+      return type === 'expand' ? __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.AddRectangleIcon, null, null) : __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.MinusRectangleIcon, null, null);
+    }"
   >
     <!---->
     <!---->
@@ -129750,68 +130705,99 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
 <div
   class="t-table-tree-select-demo"
 >
-  <div>
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
     <div
-      class="t-radio-group t-size-m t-radio-group--filled"
+      class="t-space-item"
     >
-      
-      <label
-        class="t-radio-button t-is-checked"
+      <div
+        class="t-radio-group t-size-m t-radio-group--filled"
       >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="true"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
+        
+        <label
+          class="t-radio-button t-is-checked"
         >
-          
-          
-           父子行选中独立 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="false"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          
-          <span>
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="true"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
             
-             父子行选中关联 
+            
+             父子行选中独立 
+            
             
           </span>
-          <!---->
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="false"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            
+            <span>
+              
+               父子行选中关联 
+              
+            </span>
+            <!---->
+            
+            
+            
+          </span>
+        </label>
+        
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
+      </div>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
           
-          
+          获取树形结构展开的节点
           
         </span>
-      </label>
-      
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+      </button>
     </div>
+    <!---->
+    
+    
   </div>
   <br />
   <!-- 子节点字段不是 children，而是 childrenList -->

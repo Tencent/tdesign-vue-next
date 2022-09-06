@@ -1,12 +1,12 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <div class="cascader-demo-panel-container">
       <t-cascader-panel v-model="value" :options="options" />
     </div>
     <div class="cascader-demo-panel-container">
       <t-cascader-panel v-model="value2" :options="options" multiple />
     </div>
-  </div>
+  </t-space>
 </template>
 
 <script setup>

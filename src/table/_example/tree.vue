@@ -18,9 +18,7 @@
     <br />
     <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
     <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
-    <!-- tree.defaultExpandAll: true 默认展开全部 -->
-    <!-- Ref: table.value.dataSource 查看树形结构平铺数据 -->
+    <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
     <t-enhanced-table
       ref="table"
       row-key="key"
@@ -319,7 +317,12 @@ const onRowToggle = () => {
 
 const customTreeExpandAndFoldIcon = ref(false);
 
-const treeExpandAndFoldIconRender = (h, { type }) => (type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />);
+const treeExpandAndFoldIconRender = (h, { type, row }) => {
+  if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+    return <Loading size="14px" />;
+  }
+  return type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />;
+};
 
 // 懒加载图标渲染
 const lazyLoadingTreeIconRender = (h, params) => {
@@ -403,11 +406,11 @@ const beforeDragSort = (params) => {
 };
 
 const treeExpandIcon = computed(() => {
-  // 懒加载图标渲染
-  if (lazyLoadingData.value) return lazyLoadingTreeIconRender;
   // 自定义展开图标
-  if (customTreeExpandAndFoldIcon.value) return treeExpandAndFoldIconRender;
-  return undefined;
+  if (customTreeExpandAndFoldIcon.value) {
+    return treeExpandAndFoldIconRender;
+  }
+  return lazyLoadingTreeIconRender;
 });
 </script>
 
