@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-cascader
       v-model="value"
       :keys="{ label: 'name', value: 'code', children: 'items' }"
@@ -13,7 +13,7 @@
       clearable
       multiple
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
