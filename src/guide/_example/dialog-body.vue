@@ -7,14 +7,14 @@
 
 <script setup></script>
 
-<style>
+<style scoped>
 .dialog-img {
   width: 100%;
 }
 
 p {
   margin-top: 16px;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--td-text-color-secondary);
   font-size: 14px;
   font-weight: 400;
   text-align: left;

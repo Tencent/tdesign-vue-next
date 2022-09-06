@@ -96,14 +96,14 @@ const handleSkip = ({ e, current, total }) => {
 };
 </script>
 
-<style>
+<style scoped>
 .guide-container {
   max-width: 600px;
   padding: 40px;
 }
 
 .title-major {
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--td-text-color-primary);
   font-size: 36px;
   font-weight: 700;
   line-height: 44px;
@@ -111,7 +111,7 @@ const handleSkip = ({ e, current, total }) => {
 
 .title-sub {
   margin-top: 8px;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--td-text-color-secondary);
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
@@ -123,7 +123,7 @@ const handleSkip = ({ e, current, total }) => {
 
 .label {
   margin-bottom: 8px;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--td-text-color-primary);
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;

@@ -7,7 +7,7 @@
   />
 </template>
 
-<style>
+<style scoped>
 .highligh {
   width: 200px;
   border-end-start-radius: 50%;

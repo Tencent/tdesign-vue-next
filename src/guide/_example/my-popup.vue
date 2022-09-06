@@ -24,7 +24,7 @@ defineProps({
 });
 </script>
 
-<style>
+<style scoped>
 .my-popup {
   width: 240px;
 }
