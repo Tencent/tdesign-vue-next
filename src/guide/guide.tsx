@@ -8,7 +8,7 @@ import {
   scrollToParentVisibleArea,
   getRelativePosition,
   getTargetElm,
-  scrollTo,
+  scrollToElm,
   isFixed,
   getWindowScroll,
 } from './utils';
@@ -104,7 +104,7 @@ export default defineComponent({
         scrollToParentVisibleArea(nextHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value);
-        scrollTo(nextHighlightLayerElm.value);
+        scrollToElm(nextHighlightLayerElm.value);
         currentHighlightLayerElm.value = currentElement;
       });
     };
@@ -119,7 +119,7 @@ export default defineComponent({
         nextHighlightLayerElm.value = currentElement;
         scrollToParentVisibleArea(nextHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
-        scrollTo(nextHighlightLayerElm.value);
+        scrollToElm(nextHighlightLayerElm.value);
         currentHighlightLayerElm.value = currentElement;
       });
     };
