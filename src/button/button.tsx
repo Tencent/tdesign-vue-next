@@ -32,7 +32,7 @@ export default defineComponent({
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
-        [STATUS.value.disabled]: isDisabled.value,
+        [STATUS.value.disabled]: props.disabled || disabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,

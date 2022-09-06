@@ -4855,7 +4855,7 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
   class="button-base"
 >
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
     disabled=""
     type="button"
   >
@@ -4895,7 +4895,7 @@ exports[`csr snapshot test > csr test ./src/button/_example/loading.vue 1`] = `
     
   </button>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-is-loading"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-loading"
     disabled=""
     type="button"
   >
@@ -5722,7 +5722,7 @@ exports[`csr snapshot test > csr test ./src/button/_example/status.vue 1`] = `
     class="t-space-item"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
       disabled=""
       type="button"
     >
@@ -45980,7 +45980,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/async.vue 1`] = `
                     </span>
                   </button>
                   <button
-                    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
+                    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading t-dialog__confirm"
                     disabled=""
                     type="button"
                   >
