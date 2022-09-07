@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-cascader v-model="value" :options="options" :on-remove="handleBlur" multiple :min-collapsed-num="1" />
     <t-cascader v-model="value" :options="options" :collapsed-items="collapsedItems" multiple :min-collapsed-num="1" />
     <t-cascader v-model="value" :options="options" multiple clearable :min-collapsed-num="1">
@@ -14,7 +14,7 @@
         </t-popup>
       </template>
     </t-cascader>
-  </div>
+  </t-space>
 </template>
 
 <script lang="jsx" setup>

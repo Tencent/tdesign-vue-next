@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
@@ -8,7 +8,6 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TButton',
-  inheritAttrs: false,
   props,
   setup(props, { attrs }) {
     const renderTNodeJSX = useTNodeJSX();
@@ -33,7 +32,7 @@ export default defineComponent({
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
-        [STATUS.value.disabled]: isDisabled.value,
+        [STATUS.value.disabled]: props.disabled || disabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
@@ -51,17 +50,27 @@ export default defineComponent({
         buttonContent = [icon, buttonContent];
       }
 
-      return (
-        <button
-          ref={btnRef}
-          class={[...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }]}
-          type={props.type}
-          disabled={isDisabled.value}
-          {...attrs}
-          onClick={props.onClick}
-        >
-          {buttonContent}
-        </button>
+      const renderTag = () => {
+        if (!props.tag && props.href) return 'a';
+        return props.tag || 'button';
+      };
+
+      const buttonAttrs = {
+        class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
+        type: props.type,
+        disabled: isDisabled.value,
+        href: props.href,
+      };
+
+      return h(
+        renderTag(),
+        {
+          ref: btnRef,
+          ...attrs,
+          ...buttonAttrs,
+          onClick: props.onClick,
+        },
+        [buttonContent],
       );
     };
   },

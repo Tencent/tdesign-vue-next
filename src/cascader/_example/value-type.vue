@@ -1,10 +1,10 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     {{ value }}
     <t-cascader v-model="value" :options="options" value-type="full" />
     {{ value2 }}
     <t-cascader v-model="value2" multiple :options="options" value-type="full" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

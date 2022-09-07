@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-cascader v-model="value" :options="options" clearable :load="load" />
-  </div>
+  <t-cascader v-model="value" :options="options" clearable :load="load" />
 </template>
 
 <script setup>

@@ -77,7 +77,7 @@ export default defineComponent({
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
-            overlayInnerStyle: panels.value.length ? { width: 'auto' } : '',
+            overlayInnerStyle: panels.value.length && !props.loading ? { width: 'auto' } : '',
             overlayInnerClassName: [
               overlayClassName.value,
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
@@ -119,9 +119,9 @@ export default defineComponent({
             });
             (props?.selectInputProps as TdSelectInputProps)?.onFocus?.(val, context);
           }}
-          onClear={(...arg) => {
+          onClear={(context: { e: MouseEvent }) => {
             closeIconClickEffect(cascaderContext.value);
-            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(...arg);
+            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(context);
           }}
           v-slots={{
             panel: () => (
@@ -129,8 +129,10 @@ export default defineComponent({
                 empty={props.empty}
                 visible={visible}
                 trigger={props.trigger}
+                loading={props.loading}
+                loadingText={props.loadingText}
                 cascaderContext={cascaderContext.value}
-                v-slots={{ empty: slots.empty }}
+                v-slots={{ empty: slots.empty, loadingText: slots.loadingText }}
               />
             ),
             collapsedItems: slots.collapsedItems,

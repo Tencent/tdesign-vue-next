@@ -5,6 +5,53 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.5 `2022-09-07`
+
+### 🐞 Bug Fixes
+ 
+- 修复 `package.json` 中 `exports` 配置变更导致的 `autoimport` 失效
+
+
+## 🌈 0.20.4 `2022-09-06` 
+### 🚀 Features
+
+- `Select`: 
+  - 支持基础功能「全选」([issue #1503](https://github.com/Tencent/tdesign-vue-next/issues/1503)) @RayJason ([#1566](https://github.com/Tencent/tdesign-vue-next/pull/1566))
+  - `change` 事件回掉函数增加选中 `option` 参数 ([issue #1577](https://github.com/Tencent/tdesign-vue-next/issues/1577)) @RayJason ([#1566](https://github.com/Tencent/tdesign-vue-next/pull/1566))
+- `Table`: 
+  - 树形结构，新增 `getTreeExpandedRow`，用于获取展开的树形节点 @chaishi ([#1591](https://github.com/Tencent/tdesign-vue-next/pull/1591))
+  -  可编辑单元格，`edit.rules` 新增数据类型 `function`，用于动态设置校验规则，[#1472](https://github.com/Tencent/tdesign-vue-next/issues/1472) @chaishi ([#1591](https://github.com/Tencent/tdesign-vue-next/pull/1591))
+- `Popup`: 增加 `delay` prop @ikeq ([#1568](https://github.com/Tencent/tdesign-vue-next/pull/1568))
+- `Loading`: 实现自定义指令 `v-loading`，支持 `fullscreen` `inheritColor` 修饰符 ([issue #1486](https://github.com/Tencent/tdesign-vue-next/issues/1486)) @zhangpaopao0609 ([#1579](https://github.com/Tencent/tdesign-vue-next/pull/1579))
+- `ImageViewer`: 增加 `ImageViewer` 组件 ([issue 1402](https://github.com/Tencent/tdesign-vue-next/issues/1402)) @sinbadmaster ([#1516](https://github.com/Tencent/tdesign-vue-next/pull/1516))
+- `GlobalConfig`: 主题配置新增圆角面板 支持圆角配置 @mingrutough1 @uyarn  @uyarn ([#1606](https://github.com/Tencent/tdesign-vue-next/pull/1606))
+- `Button`: 增加 `tag` 和 `herf` 属性 @pengYYYYY ([#1597](https://github.com/Tencent/tdesign-vue-next/pull/1597))
+- `Form`: 添加 `whitespace` 校验默认错误信息 @k1nz ([#1567](https://github.com/Tencent/tdesign-vue-next/pull/1567))
+
+### 🐞 Bug Fixes
+- `Cascader`: 
+  - 修复 `value` 为 `number` 类型时有告警 ([issue #1570](https://github.com/Tencent/tdesign-vue-next/issues/1570)) @Lmmmmmm-bb ([#1593](https://github.com/Tencent/tdesign-vue-next/pull/1593))
+  - 修复 `loadingText` 无效 ([issue #1555](https://github.com/Tencent/tdesign-vue-next/issues/1555)) @pengYYYYY ([#1601](https://github.com/Tencent/tdesign-vue-next/pull/1601))
+  - 修复多选状态下点击 `label` 展开子级表现异常 @pengYYYYY ([#1601](https://github.com/Tencent/tdesign-vue-next/pull/1601))
+- `DatePicker`: 
+  - 修复 `cell-click` 事件失效问题 @HQ-Lin ([#1544](https://github.com/Tencent/tdesign-vue-next/pull/1544))
+  - 修复空字符串页面崩溃问题 @HQ-Lin ([#1590](https://github.com/Tencent/tdesign-vue-next/pull/1590))
+- `Tabs`: 修复 `addable` 添加按钮定位错误 @HelKyle ([#1553](https://github.com/Tencent/tdesign-vue-next/pull/1553))
+- `Select`: 修复 `creatable` 模式下的 `filter` 能力 @skytt ([#1550](https://github.com/Tencent/tdesign-vue-next/pull/1550))
+- `InputNumber`: 修复 `number` 类型校验 `bug` @Lmmmmmm-bb ([#1548](https://github.com/Tencent/tdesign-vue-next/pull/1548))
+- `Checkbox`: 修复全选时可以选中已禁用选项的问题 @RayJason ([#1554](https://github.com/Tencent/tdesign-vue-next/pull/1554))
+- `Tree`: `setData` 支持 `keys` 别名 ([issue #1513](https://github.com/Tencent/tdesign-vue-next/issues/1513)) @zhangpaopao0609 ([#1559](https://github.com/Tencent/tdesign-vue-next/pull/1559))
+- `Popup`: 修复子 `popup` 销毁时父级意外关闭 @ikeq ([#1568](https://github.com/Tencent/tdesign-vue-next/pull/1568))
+- `Swiper`:  修复动态渲染问题 ([issue #1558](https://github.com/Tencent/tdesign-vue-next/issues/1558)) @btea ([#1580](https://github.com/Tencent/tdesign-vue-next/pull/1580))
+- `Table`: 修复表格部分元素无法随 table 变化而变化，如：空数据，[tdesign-react#1319](https://github.com/Tencent/tdesign-react/issues/1319) @chaishi ([#1591](https://github.com/Tencent/tdesign-vue-next/pull/1591))
+- `Button`: 修复 `button` `loading` 状态的样式问题 @uyarn ([#1610](https://github.com/Tencent/tdesign-vue-next/pull/1610))
+- `TimePicker`: 修复部分设备滚动边界的跳动异常 ([issue #1012](https://github.com/Tencent/tdesign-vue-next/issues/1012)) @uyarn ([#1618](https://github.com/Tencent/tdesign-vue-next/pull/1618))
+- `Tabs`: 修复 `addable` 添加按钮定位错误 @HelKyle ([#1553](https://github.com/Tencent/tdesign-vue-next/pull/1553))
+- `LiveDemo`: 修复`slider` 垂直布局预览问题 (issue 1600[](https://github.com/Tencent/tdesign-vue-next/issues/1600)) @wbxl2000 ([#1603](https://github.com/Tencent/tdesign-vue-next/pull/1603))
+### 🚧 Others
+- `Jumper`: 增加单元测试 @Lmmmmmm-bb ([#1569](https://github.com/Tencent/tdesign-vue-next/pull/1569))
+
+
 ## 🌈 0.20.3 `2022-08-30` 
 ### 🚀 Features
 - `DatePicker`: 优化不设置 `valueType` 场景下与 `format` 一致 @HQ-Lin ([#1525](https://github.com/Tencent/tdesign-vue-next/pull/1525))
