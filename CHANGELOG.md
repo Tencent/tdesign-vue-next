@@ -5,6 +5,13 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.20.5 `2022-09-07`
+
+### 🐞 Bug Fixes
+ 
+- 修复 `package.json` 中 `exports` 配置变更导致的 `autoimport` 失效
+
+
 ## 🌈 0.20.4 `2022-09-06` 
 ### 🚀 Features
 
