@@ -6,3 +6,6 @@ Colum = "Colum"
 ba = "ba"
 ded = "ded"
 thead = "thead"
+
+[files]
+extend-exclude = ["CHANGELOG.md"]
