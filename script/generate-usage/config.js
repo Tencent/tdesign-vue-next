@@ -494,54 +494,57 @@ module.exports = {
   },
   tree: {
     panelStr: `const panelList = [{label: 'tree', value: 'tree'}];`,
+    script: `
+      const data = ref([
+        {
+          label: '第一段',
+          children: [
+            {
+              label: '第一段',
+            },
+            {
+              label: '第二段',
+            },
+          ],
+        },
+        {
+          label: '第二段',
+          children: [
+            {
+              label: '第一段',
+            },
+            {
+              label: '第二段',
+            },
+          ],
+        },
+        {
+          label: '第三段',
+          children: [
+            {
+              label: '第一段',
+            },
+            {
+              label: '第二段',
+            },
+          ],
+        },
+        {
+          label: '第四段',
+          children: [
+            {
+              label: '第一段',
+            },
+            {
+              label: '第二段',
+            },
+          ],
+        },
+      ]);
+    `,
     render: {
       tree: `
-        <t-tree :data="[
-          {
-            label: '第一段',
-            children: [
-              {
-                label: '第一段',
-              },
-              {
-                label: '第二段',
-              },
-            ],
-          },
-          {
-            label: '第二段',
-            children: [
-              {
-                label: '第一段',
-              },
-              {
-                label: '第二段',
-              },
-            ],
-          },
-          {
-            label: '第三段',
-            children: [
-              {
-                label: '第一段',
-              },
-              {
-                label: '第二段',
-              },
-            ],
-          },
-          {
-            label: '第四段',
-            children: [
-              {
-                label: '第一段',
-              },
-              {
-                label: '第二段',
-              },
-            ],
-          },
-        ]" v-bind="configProps" />
+        <t-tree :data="data" v-bind="configProps" />
       `,
     },
   },
