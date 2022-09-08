@@ -3,6 +3,8 @@
     :watermark-content="{
       text: '文字水印',
     }"
+    :width="120"
+    :height="60"
     :y="120"
     :x="80"
   >
