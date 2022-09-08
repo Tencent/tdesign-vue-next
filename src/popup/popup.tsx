@@ -23,8 +23,6 @@ import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
 import useVModel from '../hooks/useVModel';
 
-const showTimeout = 250;
-const hideTimeout = 150;
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 
 type TriggerMap = Readonly<Record<typeof triggers[number], boolean>>;
@@ -106,8 +104,9 @@ export default defineComponent({
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
+      props.overlayInnerClassName,
     ]);
-    const hasTrigger: any = computed(() =>
+    const hasTrigger = computed<TriggerMap>(() =>
       triggers.reduce(
         (map, trigger) => ({
           ...map,
@@ -116,6 +115,13 @@ export default defineComponent({
         {} as TriggerMap,
       ),
     );
+    const delay = computed<{ open: number; close: number }>(() => {
+      const delay = [].concat(props.delay ?? [250, 150]);
+      return {
+        open: delay[0],
+        close: delay[1] ?? delay[0],
+      };
+    });
 
     function getOverlayStyle() {
       const { overlayStyle } = props;
@@ -197,7 +203,7 @@ export default defineComponent({
         () => {
           emitVisible(true, context);
         },
-        hasTrigger.value.click ? 0 : showTimeout,
+        hasTrigger.value.click ? 0 : delay.value.open,
       );
     }
 
@@ -207,7 +213,7 @@ export default defineComponent({
         () => {
           emitVisible(false, context);
         },
-        hasTrigger.value.click ? 0 : hideTimeout,
+        hasTrigger.value.click ? 0 : delay.value.close,
       );
     }
 
@@ -334,9 +340,12 @@ export default defineComponent({
     );
 
     onUnmounted(() => {
-      parent?.preventClosing(false);
+      if (innerVisible.value) {
+        parent?.preventClosing(false);
+      }
       destroyPopper();
       off(document, 'click', handleDocumentClick, true);
+      clearTimeout(timeoutId);
     });
 
     provide(injectionKey, {
@@ -399,7 +408,7 @@ export default defineComponent({
           })}
         >
           <div
-            class={[this.overlayCls, this.overlayInnerClassName]}
+            class={this.overlayCls}
             ref="overlayEl"
             {...(onScroll && {
               onScroll(e: WheelEvent) {

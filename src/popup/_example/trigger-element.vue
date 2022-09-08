@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <!-- 总共四种自定义触发元素的方式 -->
-    <div>
+    <t-space size="large">
       <div class="t-popup-demo-base-item">
         <t-popup content="我的触发元素通过默认插槽渲染">
           <t-button variant="outline">默认插槽定义触发元素</t-button>
@@ -14,20 +14,17 @@
           </template>
         </t-popup>
       </div>
-    </div>
-    <br />
-    <div>
+    </t-space>
+
+    <t-space size="large">
       <div class="t-popup-demo-base-item">
-        <t-popup content="我的触发元素通过渲染函数 default 渲染" :default="renderTriggerElement1"></t-popup>
+        <t-popup content="我的触发元素通过渲染函数 default 渲染" :default="renderTriggerElement1" />
       </div>
       <div class="t-popup-demo-base-item">
-        <t-popup
-          content="我的触发元素通过渲染函数 triggerElement 渲染"
-          :trigger-element="renderTriggerElement2"
-        ></t-popup>
+        <t-popup content="我的触发元素通过渲染函数 triggerElement 渲染" :trigger-element="renderTriggerElement2" />
       </div>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -42,8 +39,5 @@ const renderTriggerElement2 = () => {
 .t-popup-demo-base-item {
   display: inline-block;
   width: 200px;
-}
-.t-popup-demo-base-item + .t-popup-demo-base-item {
-  margin-left: 30px;
 }
 </style>

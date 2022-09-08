@@ -1,10 +1,12 @@
 <template>
   <div class="dialog-attach-wrap">
     <!-- attach挂载 -->
-    <t-button theme="primary" @click="visibleBody = true"> 挂载在body </t-button>
-    <t-button theme="primary" @click="visibleIdAttach = true"> 挂载特定元素 </t-button>
-    <t-button theme="primary" @click="visibleFunctionAttach = true">挂载函数返回节点</t-button>
-    <t-button theme="primary" @click="visibleShowInAttachedElement = true">展示在挂载元素区域</t-button>
+    <t-space>
+      <t-button theme="primary" @click="visibleBody = true">挂载在body</t-button>
+      <t-button theme="primary" @click="visibleIdAttach = true">挂载特定元素</t-button>
+      <t-button theme="primary" @click="visibleFunctionAttach = true">挂载函数返回节点</t-button>
+      <t-button theme="primary" @click="visibleShowInAttachedElement = true">展示在挂载元素区域</t-button>
+    </t-space>
 
     <t-dialog v-model:visible="visibleBody" attach="body" header="挂载在body" :on-confirm="() => (visibleBody = false)">
       <template #body>
@@ -71,9 +73,6 @@ const { ctx } = getCurrentInstance();
 const getAttach = () => ctx.$root.$el;
 </script>
 <style scoped>
-.t-button {
-  margin-right: 20px;
-}
 .dialog-attach-wrap {
   position: relative;
   height: 400px;

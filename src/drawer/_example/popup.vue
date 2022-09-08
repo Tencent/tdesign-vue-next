@@ -4,15 +4,16 @@
       <p>抽屉的内容</p>
     </t-drawer>
 
-    <div class="tdesign-radio-button">
-      抽屉弹出模式：
-      <t-radio-group v-model="mode">
-        <t-radio-button value="overlay"> overlay </t-radio-button>
-        <t-radio-button value="push"> push </t-radio-button>
-      </t-radio-group>
-    </div>
-    <br /><br />
-    <t-button variant="outline" @click="visible = true">打开抽屉</t-button>
+    <t-space direction="vertical" size="large">
+      <t-space align="center">
+        抽屉弹出模式：
+        <t-radio-group v-model="mode">
+          <t-radio-button value="overlay"> overlay </t-radio-button>
+          <t-radio-button value="push"> push </t-radio-button>
+        </t-radio-group>
+      </t-space>
+      <t-button variant="outline" @click="visible = true">打开抽屉</t-button>
+    </t-space>
   </div>
 </template>
 

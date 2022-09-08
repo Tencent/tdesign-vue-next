@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <t-button theme="primary" @click="onClick"> 基础确认对话框 </t-button>
+  <t-space>
+    <t-button theme="primary" @click="onClick">基础确认对话框</t-button>
     <t-dialog
       v-model:visible="visible"
       header="对话框标题"
@@ -13,7 +13,7 @@
       :on-close="close"
       :on-confirm="onConfirmAnother"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

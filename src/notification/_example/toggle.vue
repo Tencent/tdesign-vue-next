@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <t-space>
     <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -21,8 +21,3 @@ const toggle = () => {
   }
 };
 </script>
-<style scoped>
-.t-button + .t-button {
-  margin-left: 16px;
-}
-</style>

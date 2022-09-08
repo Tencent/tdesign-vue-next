@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <t-space>
     <t-button variant="outline" @click="openSomeNotification">点击打开多个通知</t-button>
     <t-button id="t-demo-msg-close-all" variant="outline" @click="closeAll">点击关闭所有通知</t-button>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
@@ -16,8 +16,3 @@ const closeAll = () => {
   NotifyPlugin.closeAll();
 };
 </script>
-<style scoped>
-.t-button + .t-button {
-  margin-left: 16px;
-}
-</style>

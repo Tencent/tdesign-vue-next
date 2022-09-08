@@ -46,12 +46,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   creatable?: boolean;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
    * 当下拉列表为空时显示的内容
-   * @default ''
    */
   empty?: string | TNode;
   /**
@@ -60,7 +58,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   filter?: (filterWords: string, option: T) => boolean | Promise<boolean>;
   /**
    * 是否可搜索
-   * @default false
    */
   filterable?: boolean;
   /**
@@ -86,7 +83,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   loading?: boolean;
   /**
    * 远程加载时显示的文字，支持自定义。如加上超链接
-   * @default ''
    */
   loadingText?: string | TNode;
   /**
@@ -129,6 +125,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 是否显示下拉框
    */
   popupVisible?: boolean;
+  /**
+   * 是否显示下拉框，非受控属性
+   */
+  defaultPopupVisible?: boolean;
   /**
    * 组件前置图标
    */
@@ -203,11 +203,11 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   onBlur?: (context: { value: SelectValue; e: FocusEvent | KeyboardEvent }) => void;
   /**
-   * 选中值变化时触发，`context. trigger` 表示触发变化的来源
+   * 选中值变化时触发，`context.trigger` 表示触发变化的来源，`context.selectedOptions` 表示选中值的完整对象
    */
   onChange?: (
     value: SelectValue,
-    context: { trigger: SelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent },
+    context: { selectedOptions: T[]; trigger: SelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent },
   ) => void;
   /**
    * 点击清除按钮时触发
@@ -248,6 +248,11 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
 }
 
 export interface TdOptionProps {
+  /**
+   * 当前选项是否为全选，全选可以在顶部，也可以在底部。点击当前选项会选中禁用态除外的全部选项，即使是分组选择器也会选中全部选项
+   * @default false
+   */
+  checkAll?: boolean;
   /**
    * 用于定义复杂的选项内容
    */

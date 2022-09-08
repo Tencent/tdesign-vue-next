@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--base">
+  <t-space direction="vertical">
     <div>
       <t-layout>
         <t-header>Header</t-header>
@@ -40,5 +40,5 @@
         </t-layout>
       </t-layout>
     </div>
-  </div>
+  </t-space>
 </template>

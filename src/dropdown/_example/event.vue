@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <t-space>
     <t-dropdown :options="options" :min-column-width="88">
-      <t-button variant="text"> 下拉菜单 </t-button>
+      <t-button variant="text">下拉菜单</t-button>
     </t-dropdown>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
@@ -31,8 +31,3 @@ const options = [
   },
 ];
 </script>
-<style scoped>
-.t-button {
-  margin-right: 20px;
-}
-</style>

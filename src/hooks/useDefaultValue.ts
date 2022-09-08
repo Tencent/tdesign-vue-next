@@ -1,40 +1,36 @@
-import { ref, Ref, getCurrentInstance, watch } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
+import kebabCase from 'lodash/kebabCase';
 import { ChangeHandler } from './useVModel';
 
-// 用于实现 v-model:propsName
 export default function useDefaultValue<T, P extends (...args: any) => void>(
   value: Ref<T>,
   defaultValue: T,
   onChange: P,
   propsName: string,
 ): [Ref<T>, ChangeHandler<T>] {
-  const { emit, attrs } = getCurrentInstance();
-  const internalValue = ref();
-  internalValue.value = defaultValue;
+  const { emit, vnode } = getCurrentInstance();
+  const internalValue: Ref<T> = ref();
 
-  if (typeof value.value !== 'undefined') {
-    // 受控模式 v-model:propName
-    internalValue.value = value.value;
+  const vProps = vnode.props || {};
+  const isVMP =
+    Object.prototype.hasOwnProperty.call(vProps, propsName) ||
+    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propsName));
+
+  if (isVMP) {
+    return [
+      value,
+      (newValue, ...args) => {
+        vProps[`onUpdate:${propsName}`] && emit(`update:${propsName}`, newValue, ...args);
+        onChange?.(newValue, ...args);
+      },
+    ];
   }
 
-  // 监听value变化
-  watch(value, (newVal) => {
-    internalValue.value = newVal;
-  });
-
-  // 非受控模式
+  internalValue.value = defaultValue;
   return [
     internalValue,
     (newValue, ...args) => {
-      if (attrs[`onUpdate:${propsName}`]) {
-        // 受控模式 v-model:propName
-        emit?.(`update:${propsName}`, newValue, ...args);
-      }
-
-      if (typeof value.value === 'undefined') {
-        internalValue.value = newValue;
-      }
-
+      internalValue.value = newValue;
       onChange?.(newValue, ...args);
     },
   ];

@@ -12,7 +12,7 @@
       <t-checkbox :check-all="true" label="全选" />
       <t-checkbox value="选项一">选项一</t-checkbox>
       <t-checkbox label="选项二" value="选项二" />
-      <t-checkbox label="选项三" value="选项三" />
+      <t-checkbox label="选项三" value="选项三" :disabled="true" />
     </t-checkbox-group>
 
     <br />
