@@ -63,9 +63,11 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
         innerOptions.push(groupOption);
       }
     }
+
     if (isArray(optionsSlots)) {
       for (const child of optionsSlots) {
         innerOptions.push({
+          label: child.children && (child.children as Slots)?.default()[0].children, // option组件的插槽值
           ...child.props,
           slots: child.children,
           index: dynamicIndex,

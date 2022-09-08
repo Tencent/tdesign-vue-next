@@ -25,7 +25,7 @@ export const selectInjectKey: InjectionKey<
 export const getSingleContent = (value: TdSelectProps['value'], options: SelectOption[]): string => {
   for (const option of options) {
     if ((option as TdOptionProps).value === value) {
-      return option?.label || option.slots?.default?.()[0].children || value;
+      return option?.label;
     }
   }
   return value as string;
