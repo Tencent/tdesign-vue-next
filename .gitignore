@@ -4,6 +4,7 @@ node_modules
 # build files
 es/
 esm/
+cjs/
 lib/
 dist/
 
