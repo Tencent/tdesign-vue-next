@@ -8,7 +8,7 @@
         </template>
       </t-select-input>
     </div>
-    <br />
+    <br /><br />
 
     <div>
       <span>只读状态：</span>
@@ -28,7 +28,7 @@
         </template>
       </t-select-input>
     </div>
-    <br />
+    <br /><br />
 
     <div>
       <span>警告状态：</span>
@@ -38,7 +38,7 @@
         </template>
       </t-select-input>
     </div>
-    <br />
+    <br /><br />
 
     <div>
       <span>错误状态：</span>
@@ -48,7 +48,6 @@
         </template>
       </t-select-input>
     </div>
-    <br />
   </div>
 </template>
 <script setup>
@@ -63,6 +62,6 @@ const selectValue = 'TDesign';
 
 .tdesign-demo-select-input-status .t-select-input__wrap {
   width: 300px;
-  vertical-align: -26px;
+  vertical-align: middle;
 }
 </style>
