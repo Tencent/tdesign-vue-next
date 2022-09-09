@@ -94630,6 +94630,7 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
     </div>
   </div>
   <br />
+  <br />
   <div>
     <span>
       只读状态：
@@ -94725,6 +94726,7 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
     </div>
   </div>
   <br />
+  <br />
   <div>
     <span>
       警告状态：
@@ -94772,6 +94774,7 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
     </div>
   </div>
   <br />
+  <br />
   <div>
     <span>
       错误状态：
@@ -94818,7 +94821,6 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
       </div>
     </div>
   </div>
-  <br />
 </div>
 `;
 
