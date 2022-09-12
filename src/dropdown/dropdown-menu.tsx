@@ -1,6 +1,6 @@
 import { defineComponent, VNode, inject, ref } from 'vue';
 import DropdownItem from './dropdown-item';
-import { DropdownOption } from './type';
+import { DropdownOption, TdDropdownItemProps } from './type';
 import { TNodeReturnValue } from '../common';
 import { pxCompat } from '../utils/helper';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -40,8 +40,12 @@ export default defineComponent({
       path.value = p;
     };
 
-    const handleItemClick = (data: DropdownOption, context: { e: MouseEvent }, idx: number) => {
-      (props.options as DropdownOption[])[idx].onClick?.(data, context);
+    const handleItemClick = (
+      data: DropdownOption,
+      context: { e: MouseEvent },
+      onClick: TdDropdownItemProps['onClick'],
+    ) => {
+      onClick?.(data, context);
       props.onClick?.(data, context);
     };
 
@@ -79,7 +83,9 @@ export default defineComponent({
                 maxColumnWidth={maxColumnWidth}
                 minColumnWidth={minColumnWidth}
                 onHover={handleHoverItem}
-                onClick={(data: DropdownOption, context: { e: MouseEvent }) => handleItemClick(data, context, idx)}
+                onClick={(data: DropdownOption, context: { e: MouseEvent }) =>
+                  handleItemClick(data, context, item.onClick)
+                }
               />
             );
           })}
