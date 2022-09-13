@@ -6,8 +6,6 @@
   </t-card>
 </template>
 <script setup lang="jsx">
-import { MoreIcon } from 'tdesign-icons-vue-next';
-
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const clickHandler = (data) => {

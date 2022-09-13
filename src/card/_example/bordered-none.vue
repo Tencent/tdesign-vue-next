@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block demo-card">
+  <div class="demo-card">
     <t-card :title="title" :bordered="false" hover-shadow :style="{ width: '400px' }">
       {{ infoMessage }}
       <template #actions>
