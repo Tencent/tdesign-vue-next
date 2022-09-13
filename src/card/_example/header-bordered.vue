@@ -1,12 +1,10 @@
 <template>
-  <div class="tdesign-demo-block demo-card">
-    <t-card :title="title" header-bordered :style="{ width: '400px' }">
-      {{ infoMessage }}
-      <template #actions>
-        <a href="javascript:void(0)" @click="clickHandler">操作</a>
-      </template>
-    </t-card>
-  </div>
+  <t-card :title="title" header-bordered :style="{ width: '400px' }">
+    {{ infoMessage }}
+    <template #actions>
+      <a href="javascript:void(0)" @click="clickHandler">操作</a>
+    </template>
+  </t-card>
 </template>
 <script setup lang="jsx">
 import { MessagePlugin } from 'tdesign-vue-next';
