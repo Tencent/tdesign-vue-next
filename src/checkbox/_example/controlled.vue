@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <!-- 单个 Checkbox 受控模式 -->
-    <t-checkbox v-model="checked1" @change="onChange1">语法糖（v-model）</t-checkbox>
-    <t-checkbox :checked="true" @change="onChange2">受控属性</t-checkbox>
-    <t-checkbox :default-checked="false" :on-change="onChange2">非受控属性</t-checkbox>
+  <t-space direction="vertical" size="large">
+    <t-space>
+      <!-- 单个 Checkbox 受控模式 -->
+      <t-checkbox v-model="checked1" @change="onChange1">语法糖（v-model）</t-checkbox>
+      <t-checkbox :checked="true" @change="onChange2">受控属性</t-checkbox>
+      <t-checkbox :default-checked="false" :on-change="onChange2">非受控属性</t-checkbox>
+    </t-space>
 
-    <br /><br /><br />
     <!-- 复选框框组受控模式 -->
     <t-checkbox-group :value="checked2" :options="options" :on-change="onChange2" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -31,9 +32,3 @@ const onChange2 = (value, context) => {
   console.log('change: ', value, context);
 };
 </script>
-
-<style scoped>
-.t-checkbox + .t-checkbox {
-  margin-left: 16px;
-}
-</style>
