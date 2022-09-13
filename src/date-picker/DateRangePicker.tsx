@@ -57,7 +57,6 @@ export default defineComponent({
       // 面板展开重置数据
       if (visible) {
         isSelected.value = false;
-        isFirstValueSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.format,
           targetFormat: formatRef.value.format,
@@ -89,6 +88,13 @@ export default defineComponent({
           year.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).year());
           month.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).month());
         }
+      } else {
+        isHoverCell.value = false;
+        isFirstValueSelected.value = false;
+        inputValue.value = formatDate(value.value, {
+          format: formatRef.value.format,
+          targetFormat: formatRef.value.format,
+        });
       }
     });
 
@@ -142,8 +148,8 @@ export default defineComponent({
       // 确保两端都是有效值
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (notValidIndex === -1 && nextValue.length === 2 && !props.enableTimePicker && isFirstValueSelected.value) {
+      // 当两端都有有效值时更改 value
+      if (notValidIndex === -1 && nextValue.length === 2) {
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
@@ -154,14 +160,16 @@ export default defineComponent({
             trigger: 'pick',
           },
         );
-        isFirstValueSelected.value = false;
-        popupVisible.value = false;
-      } else if (notValidIndex !== -1) {
-        activeIndex.value = notValidIndex;
+      }
+
+      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
+      if (!isFirstValueSelected.value) {
+        let nextIndex = notValidIndex;
+        if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
+        activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
       } else {
-        activeIndex.value = activeIndex.value ? 0 : 1;
-        isFirstValueSelected.value = true;
+        popupVisible.value = false;
       }
     }
 
@@ -247,8 +255,8 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (notValidIndex === -1 && nextValue.length === 2 && isFirstValueSelected.value) {
+      // 当两端都有有效值时更改 value
+      if (notValidIndex === -1 && nextValue.length === 2) {
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
@@ -261,14 +269,16 @@ export default defineComponent({
         );
         year.value = nextValue.map((v) => dayjs(v, formatRef.value.format).year());
         month.value = nextValue.map((v) => dayjs(v, formatRef.value.format).month());
-        popupVisible.value = false;
-        isFirstValueSelected.value = false;
-      } else if (notValidIndex !== -1) {
-        activeIndex.value = notValidIndex;
+      }
+
+      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
+      if (!isFirstValueSelected.value) {
+        let nextIndex = notValidIndex;
+        if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
+        activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
       } else {
-        activeIndex.value = activeIndex.value ? 0 : 1;
-        isFirstValueSelected.value = true;
+        popupVisible.value = false;
       }
     }
 
