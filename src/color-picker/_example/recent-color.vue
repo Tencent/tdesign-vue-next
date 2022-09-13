@@ -1,7 +1,7 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <div>
-      <h6>预设最近使用色</h6>
+  <t-space>
+    <t-space direction="vertical" size="small">
+      <p>预设最近使用色</p>
       <t-color-picker-panel
         v-model="color"
         :recent-colors="[
@@ -15,12 +15,13 @@
           'linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%)',
         ]"
       />
-    </div>
-    <div>
-      <h6>完全不显示最近使用色</h6>
+    </t-space>
+
+    <t-space direction="vertical" size="small">
+      <p>完全不显示最近使用色</p>
       <t-color-picker-panel v-model="color" :recent-colors="null" />
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -28,10 +29,7 @@ import { ref } from 'vue';
 const color = ref('#0052d9');
 </script>
 <style scoped>
-.tdesign-demo-block-row {
-  align-items: flex-start;
-}
-h6 {
-  margin-bottom: 10px;
+p {
+  font-size: 12px;
 }
 </style>
