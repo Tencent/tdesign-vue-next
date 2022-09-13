@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <div style="margin: 12px 0">
+  <t-space direction="vertical">
+    <div>
       <label>禁用单元格右键菜单：</label>
       <t-switch v-model="preventCellContextmenu" />
     </div>
+
     <t-calendar
       :value="value"
       :prevent-cell-contextmenu="preventCellContextmenu"
@@ -25,7 +26,7 @@
         </t-list-item>
       </t-list>
     </div>
-  </div>
+  </t-space>
 </template>
 
 <script setup>
