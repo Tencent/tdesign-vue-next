@@ -62606,6 +62606,1051 @@ exports[`csr snapshot test > csr test ./src/grid/_example/valign.vue 1`] = `
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/guide/_example/base.vue 1`] = `
+<div
+  class="t-row t-row--center t-row--align-top"
+  data-v-60077dce=""
+  style="margin-left: 0px; margin-right: 0px;"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-60077dce=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      新手引导
+      
+    </span>
+  </button>
+  <div
+    class="t-drawer t-drawer--right t-drawer--without-mask"
+    data-v-60077dce=""
+    tabindex="0"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 60%;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        演示新手引导
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <div
+          class="guide-container"
+          data-v-60077dce=""
+        >
+          <div
+            class="main-title"
+            data-v-60077dce=""
+          >
+            <div
+              class="title-major"
+              data-v-60077dce=""
+            >
+              Guide 用户引导
+            </div>
+            <div
+              class="title-sub"
+              data-v-60077dce=""
+            >
+              按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+            </div>
+          </div>
+          <div
+            class="field label-field"
+            data-v-60077dce=""
+          >
+            <div
+              class="label"
+              data-v-60077dce=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-60077dce=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="field"
+            data-v-60077dce=""
+          >
+            <div
+              class="label"
+              data-v-60077dce=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-60077dce=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="t-row t-row--start t-row--align-top action"
+            data-v-60077dce=""
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              data-v-60077dce=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确定
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              data-v-60077dce=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+        
+        <!---->
+        
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-60077dce=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             关闭抽屉 
+            
+          </span>
+        </button>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/custom-popup.vue 1`] = `
+<div
+  class="t-row t-row--center t-row--align-top"
+  data-v-2edbaa18=""
+  style="margin-left: 0px; margin-right: 0px;"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-2edbaa18=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      新手引导
+      
+    </span>
+  </button>
+  <div
+    class="t-drawer t-drawer--right t-drawer--without-mask"
+    data-v-2edbaa18=""
+    tabindex="0"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 60%;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        演示新手引导
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <div
+          class="guide-container"
+          data-v-2edbaa18=""
+        >
+          <div
+            class="main-title"
+            data-v-2edbaa18=""
+          >
+            <div
+              class="title-major"
+              data-v-2edbaa18=""
+            >
+              Guide 用户引导
+            </div>
+            <div
+              class="title-sub"
+              data-v-2edbaa18=""
+            >
+              按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+            </div>
+          </div>
+          <div
+            class="field label-field-1"
+            data-v-2edbaa18=""
+          >
+            <div
+              class="label"
+              data-v-2edbaa18=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-2edbaa18=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="field label-field-2"
+            data-v-2edbaa18=""
+          >
+            <div
+              class="label"
+              data-v-2edbaa18=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-2edbaa18=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="t-row t-row--start t-row--align-top action"
+            data-v-2edbaa18=""
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              data-v-2edbaa18=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确定
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              data-v-2edbaa18=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+        
+        <!---->
+        
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-2edbaa18=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             关闭抽屉 
+            
+          </span>
+        </button>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/dialog.vue 1`] = `
+<div
+  class="t-row t-row--center t-row--align-top"
+  data-v-41d64fe0=""
+  style="margin-left: 0px; margin-right: 0px;"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-41d64fe0=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      新手引导
+      
+    </span>
+  </button>
+  <div
+    class="t-drawer t-drawer--right t-drawer--without-mask"
+    data-v-41d64fe0=""
+    tabindex="0"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 60%;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        演示新手引导
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <div
+          class="guide-container"
+          data-v-41d64fe0=""
+        >
+          <div
+            class="main-title"
+            data-v-41d64fe0=""
+          >
+            <div
+              class="title-major"
+              data-v-41d64fe0=""
+            >
+              Guide 用户引导
+            </div>
+            <div
+              class="title-sub"
+              data-v-41d64fe0=""
+            >
+              按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+            </div>
+          </div>
+          <div
+            class="field label-field"
+            data-v-41d64fe0=""
+          >
+            <div
+              class="label"
+              data-v-41d64fe0=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-41d64fe0=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="field"
+            data-v-41d64fe0=""
+          >
+            <div
+              class="label"
+              data-v-41d64fe0=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-41d64fe0=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="t-row t-row--start t-row--align-top action"
+            data-v-41d64fe0=""
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              data-v-41d64fe0=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确定
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              data-v-41d64fe0=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+        
+        <!---->
+        
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-41d64fe0=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             关闭抽屉 
+            
+          </span>
+        </button>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/dialog-body.vue 1`] = `
+<div
+  class="dialog-body"
+  data-v-354953ef=""
+>
+  <img
+    alt="demo"
+    class="dialog-img"
+    data-v-354953ef=""
+    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+  />
+  <p
+    data-v-354953ef=""
+  >
+    此处显示本页引导的说明文案，可按需要撰写，如内容过多可折行显示。图文也可按需自由设计。
+  </p>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/highlightContent.vue 1`] = `
+<img
+  alt=""
+  class="highligh"
+  data-v-26f0756d=""
+  src="https://img1.baidu.com/it/u=196030518,88795458&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=687"
+  srcset=""
+/>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/my-popup.vue 1`] = `
+<div
+  class="my-popup"
+  data-v-07bb7693=""
+>
+  <svg
+    class="t-icon t-icon-arrow-up pop-icon"
+    data-v-07bb7693=""
+    fill="none"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M7.5 3.91L3.85 7.56l-.7-.7L7.79 2.2a.3.3 0 01.42 0l4.64 4.64-.7.71L8.5 3.91V14h-1V3.91z"
+      fill="currentColor"
+      fill-opacity="0.9"
+    />
+  </svg>
+  <p
+    class="popup-desc"
+    data-v-07bb7693=""
+  >
+    自定义的图形或说明文案，用来解释或指导该功能使用。
+  </p>
+  <div
+    class="popup-action"
+    data-v-07bb7693=""
+  >
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-default"
+      data-v-07bb7693=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+         跳过 
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-default"
+      data-v-07bb7693=""
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+         上一步 
+        
+      </span>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/no-mask.vue 1`] = `
+<div
+  class="t-row t-row--center t-row--align-top"
+  data-v-0b463be0=""
+  style="margin-left: 0px; margin-right: 0px;"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-0b463be0=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      新手引导
+      
+    </span>
+  </button>
+  <div
+    class="t-drawer t-drawer--right t-drawer--without-mask"
+    data-v-0b463be0=""
+    tabindex="0"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 60%;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        演示新手引导
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <div
+          class="guide-container"
+          data-v-0b463be0=""
+        >
+          <div
+            class="main-title"
+            data-v-0b463be0=""
+          >
+            <div
+              class="title-major"
+              data-v-0b463be0=""
+            >
+              Guide 用户引导
+            </div>
+            <div
+              class="title-sub"
+              data-v-0b463be0=""
+            >
+              按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+            </div>
+          </div>
+          <div
+            class="field label-field"
+            data-v-0b463be0=""
+          >
+            <div
+              class="label"
+              data-v-0b463be0=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-0b463be0=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="field"
+            data-v-0b463be0=""
+          >
+            <div
+              class="label"
+              data-v-0b463be0=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-0b463be0=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="t-row t-row--start t-row--align-top action"
+            data-v-0b463be0=""
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              data-v-0b463be0=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确定
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              data-v-0b463be0=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+        
+        <!---->
+        
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-0b463be0=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             关闭抽屉 
+            
+          </span>
+        </button>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/guide/_example/popup-dialog.vue 1`] = `
+<div
+  class="t-row t-row--center t-row--align-top"
+  data-v-fe5de85e=""
+  style="margin-left: 0px; margin-right: 0px;"
+>
+  
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    data-v-fe5de85e=""
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      新手引导
+      
+    </span>
+  </button>
+  <div
+    class="t-drawer t-drawer--right t-drawer--without-mask"
+    data-v-fe5de85e=""
+    tabindex="0"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
+      style="width: 60%;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        演示新手引导
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body narrow-scrollbar"
+      >
+        
+        <div
+          class="guide-container"
+          data-v-fe5de85e=""
+        >
+          <div
+            class="main-title"
+            data-v-fe5de85e=""
+          >
+            <div
+              class="title-major"
+              data-v-fe5de85e=""
+            >
+              Guide 用户引导
+            </div>
+            <div
+              class="title-sub"
+              data-v-fe5de85e=""
+            >
+              按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+            </div>
+          </div>
+          <div
+            class="field label-field"
+            data-v-fe5de85e=""
+          >
+            <div
+              class="label"
+              data-v-fe5de85e=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-fe5de85e=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="field"
+            data-v-fe5de85e=""
+          >
+            <div
+              class="label"
+              data-v-fe5de85e=""
+            >
+              Label
+            </div>
+            <div
+              class="t-input__wrap"
+              data-v-fe5de85e=""
+            >
+              <div
+                class="t-input"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入内容"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="t-row t-row--start t-row--align-top action"
+            data-v-fe5de85e=""
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              data-v-fe5de85e=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确定
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              data-v-fe5de85e=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+        
+        <!---->
+        
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          data-v-fe5de85e=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             关闭抽屉 
+            
+          </span>
+        </button>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/icon/_example/base.vue 1`] = `
 <div
   class="t-space t-space-vertical"
