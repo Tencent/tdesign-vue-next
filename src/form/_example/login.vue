@@ -8,6 +8,7 @@
           </template>
         </t-input>
       </t-form-item>
+
       <t-form-item name="password">
         <t-input v-model="formData.password" type="password" clearable placeholder="请输入密码">
           <template #prefix-icon>
@@ -15,48 +16,33 @@
           </template>
         </t-input>
       </t-form-item>
-      <t-form-item style="padding-top: 8px">
+
+      <t-form-item>
         <t-button theme="primary" type="submit" block>登录</t-button>
       </t-form-item>
     </t-form>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 
-const INITIAL_DATA = {
+const formData = reactive({
   account: '',
   password: '',
+});
+
+const onReset = () => {
+  MessagePlugin.success('重置成功');
 };
 
-export default defineComponent({
-  components: {
-    DesktopIcon,
-    LockOnIcon,
-  },
-  setup() {
-    const formData = ref({ ...INITIAL_DATA });
-
-    const onReset = () => {
-      MessagePlugin.success('重置成功');
-    };
-
-    const onSubmit = ({ validateResult, firstError }) => {
-      if (validateResult === true) {
-        MessagePlugin.success('提交成功');
-      } else {
-        console.log('Validate Errors: ', firstError, validateResult);
-        MessagePlugin.warning(firstError);
-      }
-    };
-
-    return {
-      formData,
-      onReset,
-      onSubmit,
-    };
-  },
-});
+const onSubmit = ({ validateResult, firstError }) => {
+  if (validateResult === true) {
+    MessagePlugin.success('提交成功');
+  } else {
+    console.log('Validate Errors: ', firstError, validateResult);
+    MessagePlugin.warning(firstError);
+  }
+};
 </script>

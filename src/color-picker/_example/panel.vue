@@ -1,12 +1,10 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <t-color-picker-panel
-      v-model="color"
-      @change="handleChange"
-      @palette-bar-change="handlePaletteChange"
-      @recent-colors-change="handleRecentColorsChange"
-    />
-  </div>
+  <t-color-picker-panel
+    v-model="color"
+    @change="handleChange"
+    @palette-bar-change="handlePaletteChange"
+    @recent-colors-change="handleRecentColorsChange"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';
