@@ -6,7 +6,13 @@ import { useFormDisabled } from '../../form/hooks';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
-import { isValidDate, formatDate, formatTime, getDefaultFormat } from '../../_common/js/date-picker/format';
+import {
+  isValidDate,
+  formatDate,
+  formatTime,
+  getDefaultFormat,
+  parseToDayjs,
+} from '../../_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {
@@ -23,7 +29,6 @@ export default function useSingle(props: TdDatePickerProps) {
     getDefaultFormat({
       mode: props.mode,
       format: props.format,
-      valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     }),
   );
@@ -31,9 +36,7 @@ export default function useSingle(props: TdDatePickerProps) {
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
   // 未真正选中前可能不断变更输入框的内容
-  const inputValue = ref(
-    formatDate(value.value, { format: formatRef.value.format, targetFormat: formatRef.value.format }),
-  );
+  const inputValue = ref(formatDate(value.value, { format: formatRef.value.format }));
 
   // input 设置
   const inputProps = computed(() => ({
@@ -51,7 +54,7 @@ export default function useSingle(props: TdDatePickerProps) {
     onClear: (context: { e: InputEvent }) => {
       context?.e?.stopPropagation();
       popupVisible.value = false;
-      onChange?.('', { dayjsValue: dayjs(''), trigger: 'clear' });
+      onChange?.('', { dayjsValue: dayjs(), trigger: 'clear' });
     },
     onBlur: (val: string, context: { e: FocusEvent }) => {
       props.onBlur?.({ value: val, e: context.e });
@@ -77,17 +80,13 @@ export default function useSingle(props: TdDatePickerProps) {
 
       popupVisible.value = false;
       if (isValidDate(val, formatRef.value.format)) {
-        onChange?.(
-          formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) as DateValue,
-          {
-            dayjsValue: dayjs(val),
-            trigger: 'enter',
-          },
-        );
+        onChange?.(formatDate(val, { format: formatRef.value.format }) as DateValue, {
+          dayjsValue: parseToDayjs(val, formatRef.value.format),
+          trigger: 'enter',
+        });
       } else if (isValidDate(value.value, formatRef.value.format)) {
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         });
       } else {
         inputValue.value = '';
@@ -114,7 +113,6 @@ export default function useSingle(props: TdDatePickerProps) {
         isHoverCell.value = false;
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         });
       }
       popupVisible.value = visible;
@@ -126,11 +124,10 @@ export default function useSingle(props: TdDatePickerProps) {
       inputValue.value = '';
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.valueType)) return;
+    if (!isValidDate(value.value, formatRef.value.format)) return;
 
     inputValue.value = formatDate(value.value, {
       format: formatRef.value.format,
-      targetFormat: formatRef.value.format,
     });
   });
 
