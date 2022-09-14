@@ -41674,77 +41674,6 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/base.vue 1`] = 
   <div
     class="t-space-item"
   >
-    <h3>
-      valueType:
-    </h3>
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <div
-      class="t-radio-group t-size-m t-radio-group--filled"
-    >
-      
-      <label
-        class="t-radio-button t-is-checked"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="YYYY-MM-DD"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          YYYY-MM-DD
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="time-stamp"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          time-stamp
-          
-          
-        </span>
-      </label>
-      
-      <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
-    </div>
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
     <div
       class="t-date-picker"
     >
@@ -42001,7 +41930,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42097,7 +42026,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42201,7 +42130,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42293,7 +42222,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42816,7 +42745,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/disable-date.vu
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -43219,7 +43148,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/month.vue 1`] =
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47014,7 +46943,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/quarter.vue 1`]
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47173,7 +47102,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/week.vue 1`] = 
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47332,7 +47261,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/year.vue 1`] = 
             <div
               class="t-range-input__inner-separator"
             >
-              -
+              
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"

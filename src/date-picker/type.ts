@@ -28,7 +28,6 @@ export interface TdDatePickerProps {
   disableDate?: DisableDate;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -106,11 +105,6 @@ export interface TdDatePickerProps {
    */
   modelValue?: DateValue;
   /**
-   * 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳
-   * @default ''
-   */
-  valueType?: string;
-  /**
    * 当输入框失去焦点时触发
    */
   onBlur?: (context: { value: DateValue; e: FocusEvent }) => void;
@@ -145,7 +139,6 @@ export interface TdDateRangePickerProps {
   disableDate?: DisableRangeDate;
   /**
    * 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -198,8 +191,8 @@ export interface TdDateRangePickerProps {
    */
   rangeInputProps?: RangeInputProps;
   /**
-   * 日期分隔符
-   * @default -
+   * 日期分隔符，支持全局配置，默认为 '-'
+   * @default ''
    */
   separator?: string;
   /**
@@ -234,11 +227,6 @@ export interface TdDateRangePickerProps {
    */
   modelValue?: DateRangeValue;
   /**
-   * 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳
-   * @default ''
-   */
-  valueType?: string;
-  /**
    * 当输入框失去焦点时触发
    */
   onBlur?: (context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void;
@@ -265,7 +253,6 @@ export interface TdDatePickerPanelProps
     TdDatePickerProps,
     | 'value'
     | 'defaultValue'
-    | 'valueType'
     | 'disabled'
     | 'disableDate'
     | 'enableTimePicker'
@@ -323,7 +310,6 @@ export interface TdDateRangePickerPanelProps
     TdDateRangePickerProps,
     | 'value'
     | 'defaultValue'
-    | 'valueType'
     | 'disabled'
     | 'disableDate'
     | 'enableTimePicker'

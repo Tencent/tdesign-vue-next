@@ -46,7 +46,6 @@ export default defineComponent({
         mode: props.mode,
         enableTimePicker: props.enableTimePicker,
         format: props.format,
-        valueType: props.valueType,
       }),
     );
 
@@ -59,7 +58,6 @@ export default defineComponent({
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         }) as string[];
         time.value = formatTime(
           value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
@@ -93,7 +91,6 @@ export default defineComponent({
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         });
       }
     });
@@ -104,7 +101,6 @@ export default defineComponent({
       const nextValue = [...(inputValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       }) as string;
       inputValue.value = nextValue;
     }
@@ -125,7 +121,6 @@ export default defineComponent({
       const nextValue = [...(inputValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       }) as string;
       cacheValue.value = nextValue;
       inputValue.value = nextValue;
@@ -153,10 +148,9 @@ export default defineComponent({
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => dayjs(v)),
+            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
             trigger: 'pick',
           },
         );
@@ -241,11 +235,9 @@ export default defineComponent({
       isSelected.value = true;
       inputValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
       cacheValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
     }
 
@@ -260,10 +252,9 @@ export default defineComponent({
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => dayjs(v)),
+            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
             trigger: 'confirm',
           },
         );
@@ -294,10 +285,9 @@ export default defineComponent({
         onChange?.(
           formatDate(presetValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => dayjs(p)),
+            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
             trigger: 'preset',
           },
         );

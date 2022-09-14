@@ -7,5 +7,15 @@
 
 <script setup>
 const onPick = (value, context) => console.log('onPick:', value, context);
-const onChange = (value) => console.log('onChange:', value);
+const onChange = (value, context) => {
+  console.log('onChange:', value, context);
+  console.log(
+    'timestamp:',
+    context.dayjsValue.map((d) => d.valueOf()),
+  );
+  console.log(
+    'YYYYMMDD:',
+    context.dayjsValue.map((d) => d.format('YYYYMMDD')),
+  );
+};
 </script>
