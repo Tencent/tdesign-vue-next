@@ -1,27 +1,17 @@
 <template>
-  <div class="demo-avatar">
-    <div class="demo-avatar-block">
+  <t-space direction="vertical" :size="40">
+    <t-space :size="40">
       <t-avatar size="small"> W </t-avatar>
       <t-avatar size="medium"> W </t-avatar>
       <t-avatar size="large"> W </t-avatar>
       <t-avatar size="100px"> W </t-avatar>
-    </div>
-    <div class="demo-avatar-block">
+    </t-space>
+
+    <t-space :size="40">
       <t-avatar shape="round" size="small"> W </t-avatar>
       <t-avatar shape="round" size="medium"> W </t-avatar>
       <t-avatar shape="round" size="large"> W </t-avatar>
       <t-avatar shape="round" size="100px"> W </t-avatar>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
-
-<style lang="less" scoped>
-.demo-avatar {
-  .demo-avatar-block:first-child {
-    margin-bottom: 40px;
-  }
-  .t-avatar {
-    margin-right: 40px;
-  }
-}
-</style>

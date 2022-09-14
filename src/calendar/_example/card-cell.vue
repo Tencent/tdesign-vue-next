@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <t-space>
     <!-- 外部控制 -->
-    <div style="margin: 12px 0">
+    <div>
       <label>请选择风格：</label>
       <t-select v-model="theme" class="demo-select-base">
         <t-option v-for="item in themeOptions" :key="item.value" :value="item.value" :label="item.label" />
@@ -17,7 +17,7 @@
         </div>
       </template>
     </t-calendar>
-  </div>
+  </t-space>
 </template>
 
 <script setup>

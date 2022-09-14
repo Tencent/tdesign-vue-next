@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
+  <div>
     <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
       <template #footer>
         <t-row :align="'middle'" justify="center">

@@ -37,7 +37,7 @@
   </t-card>
 </template>
 <script setup lang="jsx">
-import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
+import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const title = '标题';
@@ -45,10 +45,6 @@ const title = '标题';
 const subtitle = '副标题';
 
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
-
-const icon = () => <UserIcon />;
-
-const image = 'https://tdesign.gtimg.com/site/avatar-boy.jpg';
 
 const options = [
   {
