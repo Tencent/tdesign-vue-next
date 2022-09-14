@@ -1,13 +1,11 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <div>方式一：业务侧自定义全选功能。选中值: {{ value1.join(',') }}</div>
-    <div>
-      <t-checkbox :checked="checkAll" :indeterminate="indeterminate" :on-change="handleSelectAll">全选</t-checkbox>
-    </div>
+  <t-space direction="vertical">
+    <p>方式一：业务侧自定义全选功能。选中值: {{ value1.join(',') }}</p>
+    <t-checkbox :checked="checkAll" :indeterminate="indeterminate" :on-change="handleSelectAll">全选</t-checkbox>
     <t-checkbox-group v-model="value1" :options="options1" @change="onChange1" />
 
     <br />
-    <div>方式二：组件内置全选功能，使用插槽定义选项。选中值: {{ value2.join(', ') }}</div>
+    <p>方式二：组件内置全选功能，使用插槽定义选项。选中值: {{ value2.join(', ') }}</p>
     <t-checkbox-group v-model="value2" @change="onChange2">
       <t-checkbox :check-all="true" label="全选" />
       <t-checkbox value="选项一">选项一</t-checkbox>
@@ -16,13 +14,13 @@
     </t-checkbox-group>
 
     <br />
-    <div>方式三：组件内置全选功能，使用 `options` 定义选项。选中值: {{ value3.join(', ') }}</div>
+    <p>方式三：组件内置全选功能，使用 `options` 定义选项。选中值: {{ value3.join(', ') }}</p>
     <t-checkbox-group v-model="value3" :options="options2" @change="onChange3" />
 
     <br />
-    <div>方式四：组件内置全选功能，非受控用法</div>
+    <p>方式四：组件内置全选功能，非受控用法</p>
     <t-checkbox-group :default-value="['选项一']" :options="options2" />
-  </div>
+  </t-space>
 </template>
 
 <script setup lang="jsx">

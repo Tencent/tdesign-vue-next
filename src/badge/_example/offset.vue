@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space size="large">
     <t-badge count="2">
       <div class="badge-block" />
     </t-badge>
@@ -19,7 +19,7 @@
     <t-badge count="2" :offset="[10, -10]">
       <div class="badge-block" />
     </t-badge>
-  </div>
+  </t-space>
 </template>
 
 <style>
@@ -30,13 +30,5 @@
   border: 1px solid #dcdcdc;
   box-sizing: border-box;
   border-radius: 3px;
-}
-
-.badge-block + .badge-block {
-  margin-left: 24px;
-}
-
-.badge-block + div {
-  margin-top: 8px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-image-viewer v-model:visible="visible" :images="images">
+    <t-image-viewer :key="img1" v-model:visible="visible" :default-index="0" :images="images">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
           <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -10,7 +10,7 @@
         </div>
       </template>
     </t-image-viewer>
-    <t-image-viewer v-model:visible="visible2" :images="images">
+    <t-image-viewer :key="1" v-model:visible="visible2" :default-index="1" :images="images">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
           <img alt="test" :src="img2" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -20,7 +20,7 @@
         </div>
       </template>
     </t-image-viewer>
-    <t-image-viewer v-model:visible="visible3" :images="images">
+    <t-image-viewer :key="2" v-model:visible="visible3" :default-index="2" :images="images">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
           <img alt="test" :src="img3" class="tdesign-demo-image-viewer__ui-image--img" />
