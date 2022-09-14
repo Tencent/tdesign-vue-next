@@ -1,6 +1,4 @@
-import getElmCssPropValue from './getElmCssPropValue';
-import isFixed from './isFixed';
-import getWindowScroll from './getWindowScroll';
+import { getElmCssPropValue, isFixed, getWindowScroll } from '../../utils/dom';
 
 /**
  * 获取元素相对于另一个元素的位置（或者说相对于 body）

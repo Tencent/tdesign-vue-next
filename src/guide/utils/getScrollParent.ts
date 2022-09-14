@@ -1,4 +1,4 @@
-import elementInViewport from './elementInViewport';
+import { elementInViewport } from '../../utils/dom';
 
 export function getScrollParent(element: HTMLElement) {
   let style = window.getComputedStyle(element);

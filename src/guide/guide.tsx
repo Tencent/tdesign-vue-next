@@ -4,19 +4,12 @@ import props from './props';
 
 import { TdGuideProps, GuideCrossProps } from './type';
 
-import {
-  scrollToParentVisibleArea,
-  getRelativePosition,
-  getTargetElm,
-  scrollToElm,
-  isFixed,
-  getWindowScroll,
-} from './utils';
+import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 
 import setStyle from '../_common/js/utils/set-style';
 
 import TransferDom from '../utils/transfer-dom';
-import { addClass, removeClass } from '../utils/dom';
+import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
 
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
