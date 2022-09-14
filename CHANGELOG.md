@@ -5,6 +5,28 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.21.0 `2022-09-14` 
+### ❗ Breaking Changes
+- 支持 `es module` 导出不带样式产物，调整 lib 包内容，新增 `cjs` 产物支持 `commonjs` 导出不带样式产物 @HQ-Lin ([#1646](https://github.com/Tencent/tdesign-vue-next/pull/1646))
+
+### 🚀 Features
+- `hooks`:  优化受控与非受控 `hooks` @zhangpaopao0609 ([#1582](https://github.com/Tencent/tdesign-vue-next/pull/1582))
+- `Guide`: 新增 `Guide` 引导组件 @zhangpaopao0609 ([#1540](https://github.com/Tencent/tdesign-vue-next/pull/1540))
+
+### 🐞 Bug Fixes
+- `LiveDemo`: 修复 `tree` ` live demo` 问题 @HQ-Lin ([#1628](https://github.com/Tencent/tdesign-vue-next/pull/1628))
+- `Dropdown`: 修复树形结构下的 `onclick` 调用错误 @pengYYYYY ([#1647](https://github.com/Tencent/tdesign-vue-next/pull/1647))
+- `Table`: 修复 `columns type` 为 `multiple` 时，设置 `className` 无效的问题 ([issue #1632](https://github.com/Tencent/tdesign-vue-next/issues/1632)) @ojhaywood ([#1633](https://github.com/Tencent/tdesign-vue-next/pull/1633))
+- `Table`: 优化列宽调整策略 @ZTao-z ([#1649](https://github.com/Tencent/tdesign-vue-next/pull/1649))
+- `TimePicker`: 修复往前点击时间时滚动异常的问题 @uyarn ([#1657](https://github.com/Tencent/tdesign-vue-next/pull/1657))
+- `watermark`: 修复 `removable` 无效 @samhou1988 ([#1635](https://github.com/Tencent/tdesign-vue-next/pull/1635))
+- `Form`: 修复 `labelAlign` 为 top 时, `form-item lable` 为空 `labl`e 还会占据空间的问题 @ojhaywood ([#1623](https://github.com/Tencent/tdesign-vue-next/pull/1623))
+- `ImageViewer`:  多图片示例切换状态修复 @sinbadmaster ([#1630](https://github.com/Tencent/tdesign-vue-next/pull/1630))
+
+### 🚧 Others
+- `Demo`: 使用 `space` 组件简化 `avatar`, `badge`, `calendar`, `card`, `collapse` 示例 @RayJason ([#1655](https://github.com/Tencent/tdesign-vue-next/pull/1655))
+- `Demo`: 使用 `space` 组件简化 `checkbox`, `colorPicker `, `form` 示例 @RayJason ([#1659](https://github.com/Tencent/tdesign-vue-next/pull/1659))
+
 ## 🌈 0.20.5 `2022-09-07`
 
 ### 🐞 Bug Fixes

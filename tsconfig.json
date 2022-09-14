@@ -42,6 +42,7 @@
     "src/_common",
     "dist",
     "lib",
+    "cjs",
     "esm",
     "es",
   ],

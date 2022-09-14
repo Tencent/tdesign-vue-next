@@ -1,7 +1,7 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-card bordered :style="{ width: '400px' }"> {{ infoMessage }} </t-card>
-  </div>
+  <t-card bordered :style="{ width: '400px' }">
+    {{ infoMessage }}
+  </t-card>
 </template>
 
 <script setup lang="jsx">

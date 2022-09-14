@@ -123,13 +123,6 @@ export default function useRange(props: TdDateRangePickerProps) {
         popupVisible.value = true;
         return;
       }
-      if (!visible) {
-        isHoverCell.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
-        });
-      }
 
       popupVisible.value = visible;
     },

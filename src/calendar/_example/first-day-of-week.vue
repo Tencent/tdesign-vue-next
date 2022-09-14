@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div style="margin: 12px 0">
+  <t-space direction="vertical">
+    <div>
       <label>日历的第一列为：</label>
       <t-select v-model="firstDayOfWeek" class="demo-select-base">
         <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
       </t-select>
     </div>
     <t-calendar :first-day-of-week="firstDayOfWeek" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -30,6 +30,5 @@ const firstDayOfWeek = ref(3);
 .demo-select-base {
   width: 200px;
   display: inline-block;
-  margin: 0 10px 0 0;
 }
 </style>

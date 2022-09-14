@@ -287,3 +287,88 @@ export const requestSubmit = (target: HTMLFormElement) => {
   submitter.click();
   target.removeChild(submitter);
 };
+
+/**
+ * 检查元素是否在父元素视图
+ * http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+ * @param elm 元素
+ * @param parent
+ * @returns boolean
+ */
+export function elementInViewport(elm: HTMLElement, parent?: HTMLElement): boolean {
+  const rect = elm.getBoundingClientRect();
+  if (parent) {
+    const parentRect = parent.getBoundingClientRect();
+    return (
+      rect.top >= parentRect.top &&
+      rect.left >= parentRect.left &&
+      rect.bottom <= parentRect.bottom &&
+      rect.right <= parentRect.right
+    );
+  }
+  return rect.top >= 0 && rect.left >= 0 && rect.bottom + 80 <= window.innerHeight && rect.right <= window.innerWidth;
+}
+
+/**
+ * 获取元素某个 css 对应的值
+ * @param element 元素
+ * @param propName css 名
+ * @returns string
+ */
+export function getElmCssPropValue(element: HTMLElement, propName: string): string {
+  let propValue = '';
+
+  if (document.defaultView && document.defaultView.getComputedStyle) {
+    propValue = document.defaultView.getComputedStyle(element, null).getPropertyValue(propName);
+  }
+
+  if (propValue && propValue.toLowerCase) {
+    return propValue.toLowerCase();
+  }
+
+  return propValue;
+}
+
+/**
+ * 判断元素是否处在 position fixed 中
+ * @param element 元素
+ * @returns boolean
+ */
+export function isFixed(element: HTMLElement): boolean {
+  const p = element.parentNode as HTMLElement;
+
+  if (!p || p.nodeName === 'HTML') {
+    return false;
+  }
+
+  if (getElmCssPropValue(element, 'position') === 'fixed') {
+    return true;
+  }
+
+  return isFixed(p);
+}
+
+/**
+ * 获取当前视图滑动的距离
+ * @returns { scrollTop: number, scrollLeft: number }
+ */
+export function getWindowScroll(): { scrollTop: number; scrollLeft: number } {
+  const { body } = document;
+  const docElm = document.documentElement;
+  const scrollTop = window.pageYOffset || docElm.scrollTop || body.scrollTop;
+  const scrollLeft = window.pageXOffset || docElm.scrollLeft || body.scrollLeft;
+
+  return { scrollTop, scrollLeft };
+}
+
+/**
+ * 获取当前视图的大小
+ * @returns { width: number, height: number }
+ */
+export function getWindowSize(): { width: number; height: number } {
+  if (window.innerWidth !== undefined) {
+    return { width: window.innerWidth, height: window.innerHeight };
+  }
+  const doc = document.documentElement;
+  return { width: doc.clientWidth, height: doc.clientHeight };
+}

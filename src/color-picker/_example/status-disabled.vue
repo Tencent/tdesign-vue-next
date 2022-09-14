@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <t-color-picker v-model="color" disabled />
-  </div>
+  <t-color-picker v-model="color" disabled />
 </template>
 <script setup>
 import { ref } from 'vue';

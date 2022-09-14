@@ -56,7 +56,7 @@ export default defineComponent({
   name: 'TFormItem',
 
   props: { ...props },
-  setup(props) {
+  setup(props, { slots }) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
     const { globalConfig } = useConfig('form');
@@ -78,7 +78,8 @@ export default defineComponent({
       return Boolean(parentRequiredMark && isRequired);
     });
 
-    const hasColon = computed(() => !!(form?.colon && renderContent('label')));
+    const hasLabel = computed(() => slots.label || props.label);
+    const hasColon = computed(() => !!(form?.colon && hasLabel.value));
     const FROM_LABEL = usePrefixClass('form__label');
     const labelAlign = computed(() => (isNil(props.labelAlign) ? form?.labelAlign : props.labelAlign));
     const labelWidth = computed(() => (isNil(props.labelWidth) ? form?.labelWidth : props.labelWidth));
@@ -88,7 +89,7 @@ export default defineComponent({
       {
         [`${FROM_LABEL.value}--required`]: needRequiredMark.value,
         [`${FROM_LABEL.value}--colon`]: hasColon.value,
-        [`${FROM_LABEL.value}--top`]: labelAlign.value === 'top' || !labelWidth.value,
+        [`${FROM_LABEL.value}--top`]: hasLabel.value && (labelAlign.value === 'top' || !labelWidth.value),
         [`${FROM_LABEL.value}--left`]: labelAlign.value === 'left' && labelWidth.value,
         [`${FROM_LABEL.value}--right`]: labelAlign.value === 'right' && labelWidth.value,
       },
