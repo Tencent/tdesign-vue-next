@@ -57,7 +57,6 @@ const onPopupVisibleChange = (val, context) => {
 .tdesign-demo__select-input-ul-borderless > li {
   display: block;
   border-radius: 3px;
-  height: 40px;
   line-height: 22px;
   cursor: pointer;
   padding: 9px 8px;
