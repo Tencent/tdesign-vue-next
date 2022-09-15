@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, ref, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
 import props from './props';
 import popupProps from '../popup/props';
@@ -26,7 +26,7 @@ export default defineComponent({
       props.onVisibleChange,
       'visible',
     );
-
+    const vm = getCurrentInstance();
     const innerTooltipVisible = ref(props.visible || props.defaultVisible);
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
@@ -62,7 +62,7 @@ export default defineComponent({
     });
 
     const popupProps = computed(() => ({
-      ...props,
+      ...(vm?.vnode.props || {}),
       placement: props.placement === 'mouse' ? 'bottom-left' : props.placement,
       showArrow: props.placement === 'mouse' ? false : props.showArrow,
       content: () => renderTNodeJSX('content'),
