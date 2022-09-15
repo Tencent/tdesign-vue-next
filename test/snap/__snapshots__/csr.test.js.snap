@@ -102746,7 +102746,7 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
             <div
               class="t-steps-item__title"
             >
-              未进行的步骤
+              进行中的步骤
             </div>
             <div
               class="t-steps-item__description"
@@ -102779,7 +102779,7 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
             <div
               class="t-steps-item__title"
             >
-              进行中的步骤
+              已完成的步骤
             </div>
             <div
               class="t-steps-item__description"
@@ -103077,7 +103077,7 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
             <div
               class="t-steps-item__title"
             >
-              未进行的步骤
+              进行中的步骤
             </div>
             <div
               class="t-steps-item__description"
@@ -103126,7 +103126,7 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
             <div
               class="t-steps-item__title"
             >
-              进行中的步骤
+              已完成的步骤
             </div>
             <div
               class="t-steps-item__description"
