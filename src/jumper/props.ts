@@ -37,7 +37,7 @@ export default {
   },
   /** 提示文案配置，值为 `true` 显示默认文案；值为 `false` 不显示提示文案；值类型为对象则单独配置文案内容 */
   tips: {
-    type: Object as PropType<TdJumperProps['tips']>,
+    type: [Boolean, Object] as PropType<TdJumperProps['tips']>,
   },
   /** 按钮形式 */
   variant: {
