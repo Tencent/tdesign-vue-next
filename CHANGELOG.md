@@ -5,6 +5,10 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.21.1 `2022-09-15`
+### 🐞 Bug Fixes
+- `ToolTip`: 修复ToolTip无法正常展示的问题 @zhangpaopao0609 ([#1675](https://github.com/Tencent/tdesign-vue-next/pull/1675))
+
 ## 🌈 0.21.0 `2022-09-14` 
 ### ❗ Breaking Changes
 - 支持 `es module` 导出不带样式产物，调整 lib 包内容，新增 `cjs` 产物支持 `commonjs` 导出不带样式产物 @HQ-Lin ([#1646](https://github.com/Tencent/tdesign-vue-next/pull/1646))
