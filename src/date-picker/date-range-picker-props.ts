@@ -76,10 +76,10 @@ export default {
   rangeInputProps: {
     type: Object as PropType<TdDateRangePickerProps['rangeInputProps']>,
   },
-  /** 日期分隔符 */
+  /** 日期分隔符，支持全局配置，默认为 '-' */
   separator: {
     type: String,
-    default: '-',
+    default: '',
   },
   /** 输入框状态 */
   status: {
@@ -114,11 +114,6 @@ export default {
   defaultValue: {
     type: Array as PropType<TdDateRangePickerProps['defaultValue']>,
     default: (): TdDateRangePickerProps['defaultValue'] => [],
-  },
-  /** 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳 */
-  valueType: {
-    type: String,
-    default: '',
   },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDateRangePickerProps['onBlur']>,
