@@ -4,7 +4,7 @@
     <template #select="{ configProps }"
       ><t-select v-bind="configProps">
         <t-option key="apple" label="Apple" value="apple" />
-        <t-option key="orange" value="orange">Orange</t-option>
+        <t-option key="orange" label="Orange" value="orange">OrangeContentSlot</t-option>
         <t-option key="banana" label="Banana" value="banana" /> </t-select
     ></template>
   </base-usage>
@@ -20,7 +20,7 @@ const panelList = [{ label: 'select', value: 'select' }];
 
 const usageCodeMap = {
   select:
-    '\n        <t-select v-bind="configProps">\n          <t-option key="apple" label="Apple" value="apple" />\n          <t-option key="orange" value="orange">Orange</t-option>\n          <t-option key="banana" label="Banana" value="banana" />\n        </t-select>\n      ',
+    '\n        <t-select v-bind="configProps">\n          <t-option key="apple" label="Apple" value="apple" />\n          <t-option key="orange" label="Orange" value="orange">OrangeContentSlot</t-option>\n          <t-option key="banana" label="Banana" value="banana" />\n        </t-select>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

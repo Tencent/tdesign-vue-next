@@ -149,7 +149,7 @@ module.exports = {
     panelStr: `const panelList = [{label: 'steps', value: 'steps'}];`,
     render: {
       steps: `
-      <t-steps :defaultCurrent="1" v-bind="configProps">
+      <t-steps :default-current="1" v-bind="configProps">
         <t-step-item title="步骤1" content="提示文字" />
           <t-step-item title="步骤2" content="提示文字" />
           <t-step-item title="步骤3" content="提示文字" />
@@ -191,7 +191,7 @@ module.exports = {
         row-key="index"
         :data="data"
         :columns="columns"
-        :maxHeight="140"
+        :max-height="140"
         :pagination="{ total: 30 }"
       />`,
     },
@@ -250,13 +250,13 @@ module.exports = {
     render: {
       form: `
         <t-form v-bind="configProps">
-          <t-form-item label="姓名" name="name" initialData="TDesign">
+          <t-form-item label="姓名" name="name" initial-data="TDesign">
             <t-input placeholder="请输入内容" />
           </t-form-item>
-          <t-form-item label="手机号码" name="tel" initialData="123456">
+          <t-form-item label="手机号码" name="tel" initial-data="123456">
             <t-input placeholder="请输入内容" />
           </t-form-item>
-          <t-form-item label="课程" name="course" initialData="['1']">
+          <t-form-item label="课程" name="course" initial-data="['1']">
             <t-checkbox-group>
               <t-checkbox value="1">语文</t-checkbox>
               <t-checkbox value="2">数学</t-checkbox>
@@ -292,7 +292,7 @@ module.exports = {
       select: `
         <t-select v-bind="configProps">
           <t-option key="apple" label="Apple" value="apple" />
-          <t-option key="orange" value="orange">Orange</t-option>
+          <t-option key="orange" label="Orange" value="orange">OrangeContentSlot</t-option>
           <t-option key="banana" label="Banana" value="banana" />
         </t-select>
       `,
@@ -446,7 +446,7 @@ module.exports = {
     render: {
       swiper: `
         <div :style="{ width: '500px' }">
-          <t-swiper :duration="300" :interval="2000" v-bind="configProps">
+          <t-swiper :duration="300" :interval="2000" v-bind="configProps" :navigation="{ type: configProps.navigationType }">
             <t-swiper-item>
               <div :style="{ height: '200px', background: 'var(--td-success-color-7)' }" />
             </t-swiper-item>
@@ -552,14 +552,9 @@ module.exports = {
     panelStr: `const panelList = [{label: 'watermark', value: 'watermark'}];`,
     render: {
       watermark: `
-        <t-watermark
-          v-bind="configProps"
-          :watermark-content="{
-            text: '文字水印',
-          }"
-          :y="120"
-          :x="80"
-        ><div style="width:height: 200px" /></t-watermark>
+        <t-watermark v-bind="configProps" content="文字水印" :y="120" :x="80">
+          <div style="width: 100%; height: 100%" />
+        </t-watermark>
       `,
     },
   },
