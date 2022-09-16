@@ -1,0 +1,281 @@
+import { reactive, computed, defineComponent, toRefs, PropType } from 'vue';
+import classNames from 'classnames';
+import {
+  BrowseIcon as TdBrowseIcon,
+  DeleteIcon as TdDeleteIcon,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  TimeFilledIcon as TdTimeFilledIcon,
+} from 'tdesign-icons-vue-next';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
+import ImageViewer from '../../image-viewer';
+import { CommonDisplayFileProps, commonProps } from '../interface';
+import TButton from '../../button';
+import { UploadFile, TdUploadProps } from '../type';
+import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+import { abridgeName, returnFileSize } from '../../_common/js/upload/utils';
+import TLoading from '../../loading';
+
+export interface ImageFlowListProps extends CommonDisplayFileProps {
+  uploadFiles?: (toFiles?: UploadFile[]) => void;
+  cancelUpload?: (context: { e: MouseEvent; file?: UploadFile }) => void;
+  dragEvents: UploadDragEvents;
+  disabled?: boolean;
+  isBatchUpload?: boolean;
+  draggable?: boolean;
+  onPreview?: TdUploadProps['onPreview'];
+}
+
+export default defineComponent({
+  name: 'UploadMultipleFlowList',
+
+  props: {
+    ...commonProps,
+    uploadFiles: Function as PropType<ImageFlowListProps['uploadFiles']>,
+    cancelUpload: Function as PropType<ImageFlowListProps['cancelUpload']>,
+    dragEvents: Object as PropType<ImageFlowListProps['dragEvents']>,
+    disabled: Boolean,
+    isBatchUpload: Boolean,
+    draggable: Boolean,
+    onPreview: Function as PropType<ImageFlowListProps['onPreview']>,
+  },
+
+  setup(props: ImageFlowListProps, { slots }) {
+    // locale 已经在 useUpload 中统一处理优先级
+    const { locale, uploading, disabled, displayFiles, classPrefix } = toRefs(props);
+    const uploadPrefix = `${classPrefix.value}-upload`;
+
+    const { BrowseIcon, DeleteIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, TimeFilledIcon } = useGlobalIcon({
+      BrowseIcon: TdBrowseIcon,
+      DeleteIcon: TdDeleteIcon,
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+      TimeFilledIcon: TdTimeFilledIcon,
+    });
+
+    const visible = reactive({});
+    const drag = useDrag(props.dragEvents);
+    const { dragActive } = drag;
+
+    const uploadText = computed(() => {
+      if (uploading.value) return `${locale.value.progress.uploadingText}`;
+      return locale.value.triggerUploadText.normal;
+    });
+
+    const dragEvents =
+      props.draggable ?? true
+        ? {
+            onDrop: drag.handleDrop,
+            onDragEnter: drag.handleDragenter,
+            onDragOver: drag.handleDragover,
+            onDragLeave: drag.handleDragleave,
+          }
+        : {};
+
+    const getStatusMap = () => {
+      const iconMap = {
+        success: <CheckCircleFilledIcon />,
+        fail: <ErrorCircleFilledIcon />,
+        progress: <TLoading />,
+        waiting: <TimeFilledIcon />,
+      };
+      const { progress } = locale.value;
+      const textMap = {
+        success: progress?.successText,
+        fail: progress?.failText,
+        progress: progress?.uploadingText,
+        waiting: progress?.waitingText,
+      };
+      return {
+        iconMap,
+        textMap,
+      };
+    };
+
+    const renderEmpty = () => (
+      <div class={`${uploadPrefix}__flow-empty`}>
+        {dragActive ? locale.value.dragger.dragDropText : locale.value.dragger.clickAndDragText}
+      </div>
+    );
+
+    const renderImgItem = (file: UploadFile, index: number) => {
+      const { iconMap, textMap } = getStatusMap();
+      return (
+        <li class={`${uploadPrefix}__card-item`} key={file.name + index}>
+          <div
+            class={classNames([
+              `${uploadPrefix}__card-content`,
+              { [`${classPrefix.value}-is-bordered`]: file.status !== 'waiting' },
+            ])}
+          >
+            {['fail', 'progress'].includes(file.status) && (
+              <div class={`${uploadPrefix}__card-status-wrap`}>
+                {iconMap[file.status as 'fail' | 'progress']}
+                <p>{textMap[file.status as 'fail' | 'progress']}</p>
+              </div>
+            )}
+            {(['waiting', 'success'].includes(file.status) || (!file.status && file.url)) && (
+              <img
+                class={`${uploadPrefix}__card-image`}
+                src={file.url || '//tdesign.gtimg.com/tdesign-default-img.png'}
+              />
+            )}
+            <div class={`${uploadPrefix}__card-mask`}>
+              {file.url && (
+                <span class={`${uploadPrefix}__card-mask-item`}>
+                  <ImageViewer
+                    visible={visible[file.url] || false}
+                    images={displayFiles.value.map((t) => t.url)}
+                    defaultIndex={index}
+                    v-slots={{
+                      trigger: () => (
+                        <BrowseIcon
+                          onClick={({ e }: { e: MouseEvent }) => {
+                            props.onPreview?.({ file, index, e });
+                            visible[file.url] = true;
+                          }}
+                        />
+                      ),
+                    }}
+                  ></ImageViewer>
+                  <span class={`${uploadPrefix}__card-mask-item-divider`}></span>
+                </span>
+              )}
+              {!disabled && (
+                <span
+                  class={`${uploadPrefix}__card-mask-item`}
+                  onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
+                >
+                  <DeleteIcon />
+                </span>
+              )}
+            </div>
+          </div>
+          <p class={`${uploadPrefix}__card-name`}>{abridgeName(file.name)}</p>
+        </li>
+      );
+    };
+
+    const renderStatus = (file: UploadFile) => {
+      const { iconMap, textMap } = getStatusMap();
+      return (
+        <div class={`${uploadPrefix}__flow-status`}>
+          {iconMap[file.status]}
+          <span>{textMap[file.status]}</span>
+        </div>
+      );
+    };
+
+    const renderNormalActionCol = (file: UploadFile, index: number) => (
+      <td>
+        <TButton
+          theme="primary"
+          variant="text"
+          content={locale.value?.triggerUploadText?.delete}
+          onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
+        ></TButton>
+      </td>
+    );
+
+    // batchUpload action col
+    const renderBatchActionCol = (index: number) =>
+      // 第一行数据才需要合并单元格
+      index === 0 ? (
+        <td rowSpan={displayFiles.value.length} class={`${uploadPrefix}__flow-table__batch-row`}>
+          <TButton
+            theme="primary"
+            variant="text"
+            content={locale.value?.triggerUploadText?.delete}
+            onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: null })}
+          ></TButton>
+        </td>
+      ) : null;
+
+    const renderFileList = () => (
+      <table class={`${uploadPrefix}__flow-table`}>
+        <thead>
+          <tr>
+            <th>{locale.value.file?.fileNameText}</th>
+            <th>{locale.value.file?.fileSizeText}</th>
+            <th>{locale.value.file?.fileStatusText}</th>
+            {disabled ? null : <th>{locale.value.file?.fileOperationText}</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {!displayFiles.value.length && (
+            <tr>
+              <td colSpan={4}>{renderEmpty()}</td>
+            </tr>
+          )}
+          {displayFiles.value.map((file, index) => {
+            // 合并操作出现条件为：当前为合并上传模式且列表内没有待上传文件
+            const showBatchUploadAction = props.isBatchUpload;
+            const deleteNode =
+              showBatchUploadAction && !displayFiles.value.find((item) => item.status !== 'success')
+                ? renderBatchActionCol(index)
+                : renderNormalActionCol(file, index);
+            return (
+              <tr key={file.name + index}>
+                <td>{abridgeName(file.name, 7, 10)}</td>
+                <td>{returnFileSize(file.size)}</td>
+                <td>{renderStatus(file)}</td>
+                {disabled ? null : deleteNode}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+
+    const cardClassName = `${uploadPrefix}__flow-card-area`;
+    return () => (
+      <div class={`${uploadPrefix}__flow ${uploadPrefix}__flow-${props.theme}`}>
+        <div class={`${uploadPrefix}__flow-op`}>
+          {slots.default?.()}
+          {props.placeholder && (
+            <small class={`${uploadPrefix}__flow-placeholder ${uploadPrefix}__placeholder`}>{props.placeholder}</small>
+          )}
+        </div>
+
+        {props.theme === 'image-flow' && (
+          <div class={cardClassName} {...dragEvents}>
+            {displayFiles.value.length ? (
+              <ul class={`${uploadPrefix}__card clearfix`}>
+                {displayFiles.value.map((file, index) => renderImgItem(file, index))}
+              </ul>
+            ) : (
+              renderEmpty()
+            )}
+          </div>
+        )}
+
+        {props.theme === 'file-flow' &&
+          (displayFiles.value.length ? (
+            renderFileList()
+          ) : (
+            <div class={cardClassName} {...dragEvents}>
+              {renderEmpty()}
+            </div>
+          ))}
+
+        {!props.autoUpload && (
+          <div class={`${uploadPrefix}__flow-bottom`}>
+            <TButton
+              theme="default"
+              onClick={(e) => props.cancelUpload?.({ e })}
+              disabled={disabled.value || !uploading.value}
+              content={locale.value?.cancelUploadText}
+            ></TButton>
+            <TButton
+              disabled={disabled.value || uploading.value || !displayFiles.value.length}
+              theme="primary"
+              loading={uploading.value}
+              onClick={() => props.uploadFiles?.()}
+              content={uploadText.value}
+            ></TButton>
+          </div>
+        )}
+      </div>
+    );
+  },
+});

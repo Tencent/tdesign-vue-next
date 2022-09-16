@@ -1,5 +1,4 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
-import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
@@ -14,6 +13,16 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
   node = instance.slots[kebabCase(name)]?.(params);
   if (node) return node;
   return null;
+}
+
+/**
+ * 是否为空节点，需要过滤掉注释节点。注释节点也会被认为是空节点
+ */
+function isEmptyNode(node: any) {
+  if ([undefined, null, ''].includes(node)) return true;
+  const innerNodes = node instanceof Array ? node : [node];
+  const r = innerNodes.filter((node) => node?.type?.toString() !== 'Symbol(Comment)');
+  return !r.length;
 }
 
 /**
@@ -103,7 +112,7 @@ export const useContent = () => {
     const node1 = renderTNodeJSX(name1, toParams);
     const node2 = renderTNodeJSX(name2, toParams);
 
-    const res = isEmpty(node1) ? node2 : node1;
-    return isEmpty(res) ? defaultNode : res;
+    const res = isEmptyNode(node1) ? node2 : node1;
+    return isEmptyNode(res) ? defaultNode : res;
   };
 };
