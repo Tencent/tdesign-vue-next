@@ -65002,7 +65002,6 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/block.vue 1`] 
 exports[`csr snapshot test > csr test ./src/image-viewer/_example/button.vue 1`] = `
 <div>
   
-  
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
@@ -65015,7 +65014,6 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/button.vue 1`]
       
     </span>
   </button>
-  
   <!--teleport start-->
   <!--teleport end-->
   

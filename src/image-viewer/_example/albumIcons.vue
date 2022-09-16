@@ -1,6 +1,12 @@
 <template>
   <div :style="{ width: '240px', height: '240px' }" class="tdesign-demo-image-viewer__base">
-    <t-image-viewer v-model:visible="visible" :images="images" :index="index" @index-change="onIndexChange">
+    <t-image-viewer
+      v-model:visible="visible"
+      :title="title"
+      :images="images"
+      :index="index"
+      @index-change="onIndexChange"
+    >
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image">
           <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -8,7 +14,7 @@
             <span> <BrowseIcon size="1.4em" /> 预览 </span>
           </div>
           <div class="tdesign-demo-image-viewer__ui-image--footer">
-            <span class="tdesign-demo-image-viewer__ui-image--title">相册封面标题</span>
+            <span class="tdesign-demo-image-viewer__ui-image--title">{{ title }}</span>
             <span class="tdesign-demo-image-viewer__ui-image--icons">
               <BrowseIcon @click="onOpen" />
               <t-popup
@@ -56,6 +62,7 @@ const index = ref(0);
 const onIndexChange = (i) => {
   index.value = i;
 };
+const title = '相册封面标题';
 </script>
 
 <style scoped>
