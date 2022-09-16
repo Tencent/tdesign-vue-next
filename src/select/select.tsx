@@ -259,7 +259,7 @@ export default defineComponent({
     const checkValueInvalid = () => {
       // 参数类型检测与修复
       if (!props.multiple && isArray(orgValue.value)) {
-        setOrgValue('');
+        setOrgValue(undefined);
       }
       if (props.multiple && !isArray(orgValue.value)) {
         setOrgValue([]);
@@ -382,8 +382,8 @@ export default defineComponent({
               handleSearch(`${value}`);
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : '', {
-                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
+              setInnerValue(props.multiple ? [] : undefined, {
+                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
                 trigger: 'clear',
                 e,
               });
