@@ -72,5 +72,8 @@ export default ({ mode }) => {
       VitePWA(pwaConfig),
     ],
     test: testConfig,
+    optimizeDeps: {
+      include: ['prismjs', 'prismjs/components/prism-bash.js'],
+    },
   });
 };
