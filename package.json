@@ -11,7 +11,7 @@
     "tdesign",
     "typescript"
   ],
-  "main": "lib/index-lib.js",
+  "main": "cjs/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
   "unpkg": "dist/tdesign.min.js",
