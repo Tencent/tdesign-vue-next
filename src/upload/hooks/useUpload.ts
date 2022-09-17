@@ -1,4 +1,4 @@
-import { ref, computed, toRefs, watch } from 'vue';
+import { ref, computed, toRefs } from 'vue';
 import merge from 'lodash/merge';
 import { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
 import {
@@ -7,6 +7,7 @@ import {
   upload,
   getTriggerTextField,
   getDisplayFiles,
+  updateProgress,
 } from '../../_common/js/upload/main';
 import { getFileUrlByFileRaw } from '../../_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
@@ -45,7 +46,6 @@ export default function useUpload(props: TdUploadProps) {
   const uploading = ref(false);
 
   // 文件列表显示的内容（自动上传和非自动上传有所不同）
-  // const displayFiles = ref<UploadFile[]>([]);
   const displayFiles = computed(() => {
     return getDisplayFiles({
       multiple: props.multiple,
@@ -55,18 +55,6 @@ export default function useUpload(props: TdUploadProps) {
       isBatchUpload: isBatchUpload.value,
     });
   });
-
-  // watch([multiple, toUploadFiles, uploadValue, autoUpload, isBatchUpload], (
-  //   [multiple, toUploadFiles, uploadValue, autoUpload, isBatchUpload]
-  // ) => {
-  //   displayFiles.value = getDisplayFiles({
-  //     multiple,
-  //     toUploadFiles,
-  //     uploadValue,
-  //     autoUpload,
-  //     isBatchUpload,
-  //   });
-  // });
 
   const onResponseError = (p: OnResponseErrorContext) => {
     if (!p) return;
@@ -81,7 +69,13 @@ export default function useUpload(props: TdUploadProps) {
       });
   };
 
+  // 多文件上传场景，单个文件进度
   const onResponseProgress = (p: InnerProgressContext) => {
+    if (props.autoUpload) {
+      updateProgress(toUploadFiles.value, props.multiple, p.files);
+    } else {
+      updateProgress(uploadValue.value, props.multiple, p.files);
+    }
     props.onProgress?.({
       e: p.event,
       file: p.file,
@@ -91,18 +85,33 @@ export default function useUpload(props: TdUploadProps) {
     });
   };
 
-  // 只有多个上传请求同时触发时才需 onOneFileSuccess
+  // 多文件上传场景，单个文件上传成功后
   const onResponseSuccess = (p: SuccessContext) => {
-    if (!props.multiple || props.uploadAllFilesInOneRequest) return;
-    props.onOneFileSuccess?.({
-      e: p.event,
-      file: p.files[0],
-      response: p.response,
-    });
-    const index = uploadValue.value.findIndex((file) => file.raw === p.files[0].raw);
-    if (index > 0) {
-      uploadValue.value.splice(index, 1, p.files[0]);
-      setUploadValue([...uploadValue.value], { trigger: 'status-change' });
+    p.files[0].percent = 100;
+    // 只有多个上传请求同时触发时才需 onOneFileSuccess
+    if (props.multiple && !props.uploadAllFilesInOneRequest) {
+      props.onOneFileSuccess?.({
+        e: p.event,
+        file: p.files[0],
+        response: p.response,
+      });
+    }
+    if (props.autoUpload) {
+      setUploadValue(uploadValue.value.concat(p.files), {
+        trigger: 'add',
+        e: p.event,
+        file: p.files[0],
+      });
+    } else {
+      const index = uploadValue.value.findIndex((file) => file.raw === p.files[0].raw);
+      if (index >= 0) {
+        uploadValue.value.splice(index, 1, p.files[0]);
+        setUploadValue([...uploadValue.value], {
+          trigger: 'status-change',
+          e: p.event,
+          file: p.files[0],
+        });
+      }
     }
   };
 
@@ -184,9 +193,9 @@ export default function useUpload(props: TdUploadProps) {
         }
         // 如果是自动上传
         if (autoUpload.value) {
-          uploadFiles(toFiles);
+          uploadFiles(tmpWaitingFiles);
         } else {
-          handleNonAutoUpload(toFiles);
+          handleNonAutoUpload(tmpWaitingFiles);
         }
       }
     });
@@ -240,14 +249,6 @@ export default function useUpload(props: TdUploadProps) {
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
-          if (autoUpload.value) {
-            setUploadValue(data.files, {
-              e: data.event,
-              trigger: 'add',
-              index: uploadValue.value.length,
-              file: data.files[0],
-            });
-          }
           props.onSuccess?.({
             fileList: data.files,
             currentFiles: files,

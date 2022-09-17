@@ -45,7 +45,7 @@ const NormalFile = defineComponent({
     const renderProgress = (percent: number) => (
       <div class={`${uploadPrefix}__single-progress`}>
         <TLoading />
-        <span class={`${uploadPrefix}__single-percent`}>{percent}%</span>
+        <span class={`${uploadPrefix}__single-percent`}>{percent || 0}%</span>
       </div>
     );
 
@@ -125,7 +125,12 @@ const NormalFile = defineComponent({
 
           {slots.default?.()}
 
-          {props.tips && <small class={props.tipsClasses}>{props.tips}</small>}
+          {props.tips && (
+            <small class={[props.tipsClasses, { [`${classPrefix.value}-upload__tips-${props.status}`]: props.status }]}>
+              {props.tips}
+            </small>
+          )}
+
           {theme.value === 'file' && props.placeholder && !displayFiles[0] && (
             <small class={props.tipsClasses}>{props.placeholder}</small>
           )}

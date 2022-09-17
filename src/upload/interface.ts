@@ -11,6 +11,7 @@ export interface CommonDisplayFileProps {
   placeholder: TdUploadProps['placeholder'];
   classPrefix: string;
   tips?: TdUploadProps['tips'];
+  status?: TdUploadProps['status'];
   locale?: GlobalConfigProvider['upload'];
   sizeOverLimitMessage?: string;
   autoUpload?: boolean;
@@ -34,6 +35,7 @@ export const commonProps = {
   placeholder: String,
   classPrefix: String,
   tips: String,
+  status: String as PropType<CommonDisplayFileProps['status']>,
   locale: Object as PropType<CommonDisplayFileProps['locale']>,
   sizeOverLimitMessage: String,
   autoUpload: Boolean,

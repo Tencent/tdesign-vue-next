@@ -131,6 +131,14 @@ export default {
   sizeLimit: {
     type: [Number, Object] as PropType<TdUploadProps['sizeLimit']>,
   },
+  /** 文件上传提示文本状态 */
+  status: {
+    type: String as PropType<TdUploadProps['status']>,
+    validator(val: TdUploadProps['status']): boolean {
+      if (!val) return true;
+      return ['default', 'success', 'warning', 'error'].includes(val);
+    },
+  },
   /** 组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传 */
   theme: {
     type: String as PropType<TdUploadProps['theme']>,
@@ -140,7 +148,7 @@ export default {
       return ['custom', 'file', 'file-input', 'file-flow', 'image', 'image-flow'].includes(val);
     },
   },
-  /** 小文本提示 */
+  /** 组件下方文本提示，可以使用 `status` 定义文本 */
   tips: {
     type: String,
     default: '',

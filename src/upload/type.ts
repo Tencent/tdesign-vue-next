@@ -141,12 +141,16 @@ export interface TdUploadProps {
    */
   sizeLimit?: number | SizeLimitObj;
   /**
+   * 文件上传提示文本状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传
    * @default file
    */
   theme?: 'custom' | 'file' | 'file-input' | 'file-flow' | 'image' | 'image-flow';
   /**
-   * 小文本提示
+   * 组件下方文本提示，可以使用 `status` 定义文本
    * @default ''
    */
   tips?: string;

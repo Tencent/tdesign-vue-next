@@ -76,6 +76,7 @@ export default defineComponent({
       placeholder: props.placeholder,
       disabled: props.disabled,
       tips: props.tips,
+      status: props.status,
       sizeOverLimitMessage: sizeOverLimitMessage.value,
       uploading: uploading.value,
       classPrefix: classPrefix.value,

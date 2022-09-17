@@ -12,14 +12,15 @@
     </t-space>
     <t-space>
       <t-checkbox v-model="disabled">禁用状态</t-checkbox>
-      <t-checkbox v-model="uploadInOneRequest">多个文件一个请求上传</t-checkbox>
-      <t-checkbox v-model="isBatchUpload">整体替换上传</t-checkbox>
+      <t-checkbox v-if="multiple" v-model="uploadInOneRequest">多个文件一个请求上传</t-checkbox>
+      <t-checkbox v-if="multiple" v-model="isBatchUpload">整体替换上传</t-checkbox>
       <t-checkbox v-model="autoUpload">自动上传</t-checkbox>
       <t-button v-if="!autoUpload" variant="base" theme="default" style="height: 22px" @click="uploadFiles">
         点击手动上传
       </t-button>
     </t-space>
 
+    <br />
     <t-space>
       <t-upload
         ref="uploadRef1"
@@ -57,6 +58,7 @@
       />
 
       <!-- formatResponse 可控制上传成功或者失败 -->
+      <!-- tips="文件上传失败示例" 和 status="error" 控制固定文本显示 -->
       <t-upload
         ref="uploadRef3"
         v-model="files3"
