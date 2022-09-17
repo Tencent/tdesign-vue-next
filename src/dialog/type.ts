@@ -65,6 +65,11 @@ export interface TdDialogProps {
    */
   footer?: boolean | TNode;
   /**
+   * 对话框是否全屏展示
+   * @default false
+   */
+  fullscreen?: boolean;
+  /**
    * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容
    * @default true
    */

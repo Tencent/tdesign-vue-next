@@ -44,8 +44,9 @@ confirmBtn | String / Object / Slot / Function | '' | 确认按钮。值为 null
 confirmOnEnter | Boolean | - | 是否在按下回车键时，触发确认事件 | N
 default | String / Slot / Function | - | 对话框内容，同 body。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素 | N
-draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框时有效） | N
+draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框`mode='modeless'`时有效） | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+fullscreen | Boolean | false | 对话框是否占满整个容器 | N
 header | String / Boolean / Slot / Function | true | 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容。TS 类型：`string | boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 mode | String | modal | 对话框类型，有三种：模态对话框、非模态对话框和普通对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件。可选项：modal/modeless/normal | N
 placement | String | top | 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小。可选项：top/center | N
