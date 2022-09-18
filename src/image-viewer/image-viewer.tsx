@@ -17,8 +17,8 @@ import { EVENT_CODE } from './const';
 
 export default defineComponent({
   name: 'TImageViewer',
-  props: { ...props },
-  setup(props) {
+  props,
+  setup(props: TdImageViewerProps) {
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
@@ -174,10 +174,15 @@ export default defineComponent({
     };
 
     return () => {
+      const triggerParams = {
+        open: () => {
+          setVisibleValue(true);
+        },
+      };
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger')}
+            {renderTNodeJSX('trigger', { params: triggerParams })}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -203,7 +208,7 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger')}
+          {renderTNodeJSX('trigger', { params: triggerParams })}
           <Teleport to="body">
             {visibleValue.value && (
               <div class={wrapClass.value} style={{ zIndex: zIndexValue.value }} onWheel={onWheel}>

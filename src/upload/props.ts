@@ -8,6 +8,10 @@ import { TdUploadProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 文件名过长时，需要省略中间的文本，保留首尾文本。示例：[10, 7]，表示首尾分别保留的文本长度 */
+  abridgeName: {
+    type: Array as PropType<TdUploadProps['abridgeName']>,
+  },
   /** 接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file) */
   accept: {
     type: String,
@@ -172,7 +176,7 @@ export default {
   withCredentials: Boolean,
   /** 点击「取消上传」时触发 */
   onCancelUpload: Function as PropType<TdUploadProps['onCancelUpload']>,
-  /** 已上传文件列表发生变化时触发 */
+  /** 已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源 */
   onChange: Function as PropType<TdUploadProps['onChange']>,
   /** 进入拖拽区域时触发 */
   onDragenter: Function as PropType<TdUploadProps['onDragenter']>,

@@ -1,5 +1,4 @@
 import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
-import classNames from 'classnames';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { abridgeName, getFileSizeText, getCurrentDate } from '../../_common/js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
@@ -11,7 +10,7 @@ import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 
 export interface DraggerProps extends CommonDisplayFileProps {
   trigger?: TdUploadProps['trigger'];
-  triggerUpload?: () => void;
+  triggerUpload?: (e: MouseEvent) => void;
   uploadFiles?: (toFiles?: UploadFile[]) => void;
   cancelUpload?: (context: { e: MouseEvent; file: UploadFile }) => void;
   dragEvents: UploadDragEvents;
@@ -112,7 +111,7 @@ export default defineComponent({
                 </Button>
               )}
             </div>
-            {['fail', 'success'].includes(file?.status) && !disabled && (
+            {['fail', 'success'].includes(file?.status) && !disabled.value && (
               <div class={`${uploadPrefix}__dragger-btns`}>
                 <Button
                   theme="primary"
@@ -165,13 +164,13 @@ export default defineComponent({
     return () => (
       <div
         ref={draggerFileRef}
-        class={classNames(classes)}
+        class={classes.value}
         onDrop={drag.handleDrop}
         onDragEnter={drag.handleDragenter}
         onDragOver={drag.handleDragover}
         onDragLeave={drag.handleDragleave}
       >
-        {props.trigger?.(h, { displayFiles: displayFiles.value, dragActive: dragActive.value }) || getContent()}
+        {props.trigger?.(h, { files: displayFiles.value, dragActive: dragActive.value }) || getContent()}
       </div>
     );
   },

@@ -17,7 +17,7 @@
       @success="handleSuccess"
       @progress="onProgress"
     >
-      <template #default="params">
+      <template #dragContent="params">
         <ul v-if="files && files.length">
           <li v-for="file in files" :key="file.name">{{ file.name }}</li>
         </ul>

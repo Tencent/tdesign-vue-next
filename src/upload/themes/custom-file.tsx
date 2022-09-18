@@ -11,8 +11,8 @@ export interface CustomFileProps extends CommonDisplayFileProps {
   // 拖拽区域
   dragContent?: TdUploadProps['dragContent'];
   trigger?: TdUploadProps['trigger'];
-  triggerUpload?: () => void;
-  childrenNode?: string | TdUploadProps['dragContent'];
+  triggerUpload?: (e: MouseEvent) => void;
+  childrenNode?: any;
 }
 
 export default defineComponent({
@@ -46,14 +46,14 @@ export default defineComponent({
       : {};
 
     const renderDragContent = () => {
-      const params = { dragActive: dragActive.value, displayFiles: displayFiles.value };
+      const params = { dragActive: dragActive.value, files: displayFiles.value };
       return (
         <div
           class={`${classPrefix.value}-upload__dragger ${classPrefix.value}-upload__dragger-center`}
           onClick={props.triggerUpload}
         >
           <div class={`${classPrefix.value}-upload__trigger`}>
-            {renderContent('dragContent', 'trigger', { params }) || props.childrenNode?.(h, params)}
+            {renderContent('dragContent', 'trigger', { params }) || props.childrenNode?.(params)}
           </div>
         </div>
       );
@@ -65,10 +65,9 @@ export default defineComponent({
           renderDragContent()
         ) : (
           <div class={`${classPrefix.value}-upload__trigger`} onClick={props.triggerUpload}>
-            {props.childrenNode?.(h, { displayFiles: displayFiles.value }) || slots.default?.()}
+            {props.childrenNode?.({ files: displayFiles.value }) || slots.default?.()}
           </div>
         )}
-        {props.tips && <small class={props.tipsClasses}>{props.tips}</small>}
       </>
     );
   },

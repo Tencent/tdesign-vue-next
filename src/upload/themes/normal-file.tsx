@@ -94,12 +94,14 @@ const NormalFile = defineComponent({
         { [`${uploadPrefix}__placeholder`]: !props.displayFiles[0] },
       ];
       const disabledClass = disabled.value ? `${classPrefix.value}-is-disabled` : '';
+      const fileName =
+        props.abridgeName?.length && file?.name
+          ? abridgeName(file.name, props.abridgeName[0], props.abridgeName[1])
+          : file?.name;
       return (
         <div class={`${uploadPrefix}__single-input-preview ${classPrefix.value}-input ${disabledClass}`}>
           <div class={inputTextClass}>
-            <span class={`${uploadPrefix}__single-input-text`}>
-              {file?.name ? abridgeName(file.name, 4, 6) : props.placeholder}
-            </span>
+            <span class={`${uploadPrefix}__single-input-text`}>{file?.name ? fileName : props.placeholder}</span>
             {file?.status === 'progress' && renderProgress(file.percent)}
             {file?.status === 'waiting' && <TimeFilledIcon class={`${uploadPrefix}__status-icon`} />}
             {file?.url && file.status === 'success' && <CheckCircleFilledIcon class={`${uploadPrefix}__status-icon`} />}
@@ -116,7 +118,7 @@ const NormalFile = defineComponent({
     };
 
     return () => {
-      const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme}`];
+      const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme.value}`];
       const fileListDisplay = renderTNodeJSX('fileListDisplay', { params: { files: props.displayFiles } });
       const { displayFiles } = props;
       return (
@@ -124,12 +126,6 @@ const NormalFile = defineComponent({
           {theme.value === 'file-input' && renderFilePreviewAsInput()}
 
           {slots.default?.()}
-
-          {props.tips && (
-            <small class={[props.tipsClasses, { [`${classPrefix.value}-upload__tips-${props.status}`]: props.status }]}>
-              {props.tips}
-            </small>
-          )}
 
           {theme.value === 'file' && props.placeholder && !displayFiles[0] && (
             <small class={props.tipsClasses}>{props.placeholder}</small>
@@ -140,7 +136,7 @@ const NormalFile = defineComponent({
           {props.sizeOverLimitMessage && <small class={props.errorClasses}>{props.sizeOverLimitMessage}</small>}
 
           {/* 单文件上传失败要显示失败的原因 */}
-          {!props.multiple && displayFiles[0]?.status === 'fail' ? (
+          {!props.multiple && displayFiles[0]?.status === 'fail' && theme.value === 'file' ? (
             <small class={props.errorClasses}>
               {displayFiles[0].response?.error || locale.value.progress.failText}
             </small>

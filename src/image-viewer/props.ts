@@ -50,12 +50,15 @@ export default {
   /** 切换预览图片的左图标，可自定义 */
   navigationArrow: {
     type: [Boolean, Function] as PropType<TdImageViewerProps['navigationArrow']>,
-    default: true,
   },
   /** 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示 */
   showOverlay: {
     type: Boolean,
     default: undefined,
+  },
+  /** 预览标题 */
+  title: {
+    type: [String, Function] as PropType<TdImageViewerProps['title']>,
   },
   /** 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义 */
   trigger: {

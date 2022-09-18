@@ -55,22 +55,11 @@ export default defineComponent({
 
     const visible = reactive({});
     const drag = useDrag(props.dragEvents);
-    const { dragActive } = drag;
 
     const uploadText = computed(() => {
       if (uploading.value) return `${locale.value.progress.uploadingText}`;
       return locale.value.triggerUploadText.normal;
     });
-
-    const dragEvents =
-      props.draggable ?? true
-        ? {
-            onDrop: drag.handleDrop,
-            onDragEnter: drag.handleDragenter,
-            onDragOver: drag.handleDragover,
-            onDragLeave: drag.handleDragleave,
-          }
-        : {};
 
     const getStatusMap = () => {
       const iconMap = {
@@ -94,7 +83,7 @@ export default defineComponent({
 
     const renderEmpty = () => (
       <div class={`${uploadPrefix}__flow-empty`}>
-        {dragActive ? locale.value.dragger.dragDropText : locale.value.dragger.clickAndDragText}
+        {drag.dragActive.value ? locale.value.dragger.dragDropText : locale.value.dragger.clickAndDragText}
       </div>
     );
 
@@ -111,7 +100,10 @@ export default defineComponent({
             {['fail', 'progress'].includes(file.status) && (
               <div class={`${uploadPrefix}__card-status-wrap`}>
                 {iconMap[file.status as 'fail' | 'progress']}
-                <p>{textMap[file.status as 'fail' | 'progress']}</p>
+                <p>
+                  {textMap[file.status as 'fail' | 'progress']}
+                  {file.status === 'progress' ? ` ${file.percent}%` : ''}
+                </p>
               </div>
             )}
             {(['waiting', 'success'].includes(file.status) || (!file.status && file.url)) && (
@@ -124,24 +116,21 @@ export default defineComponent({
               {file.url && (
                 <span class={`${uploadPrefix}__card-mask-item`}>
                   <ImageViewer
-                    visible={visible[file.url] || false}
                     images={displayFiles.value.map((t) => t.url)}
                     defaultIndex={index}
-                    v-slots={{
-                      trigger: () => (
-                        <BrowseIcon
-                          onClick={({ e }: { e: MouseEvent }) => {
-                            props.onPreview?.({ file, index, e });
-                            visible[file.url] = true;
-                          }}
-                        />
-                      ),
-                    }}
+                    trigger={(h, { open }) => (
+                      <BrowseIcon
+                        onClick={({ e }: { e: MouseEvent }) => {
+                          open();
+                          props.onPreview?.({ file, index, e });
+                        }}
+                      />
+                    )}
                   ></ImageViewer>
                   <span class={`${uploadPrefix}__card-mask-item-divider`}></span>
                 </span>
               )}
-              {!disabled && (
+              {!disabled.value && (
                 <span
                   class={`${uploadPrefix}__card-mask-item`}
                   onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
@@ -161,7 +150,10 @@ export default defineComponent({
       return (
         <div class={`${uploadPrefix}__flow-status`}>
           {iconMap[file.status]}
-          <span>{textMap[file.status]}</span>
+          <span>
+            {textMap[file.status]}
+            {file.status === 'progress' ? ` ${file.percent}%` : ''}
+          </span>
         </div>
       );
     };
@@ -198,7 +190,7 @@ export default defineComponent({
             <th>{locale.value.file?.fileNameText}</th>
             <th>{locale.value.file?.fileSizeText}</th>
             <th>{locale.value.file?.fileStatusText}</th>
-            {disabled ? null : <th>{locale.value.file?.fileOperationText}</th>}
+            {disabled.value ? null : <th>{locale.value.file?.fileOperationText}</th>}
           </tr>
         </thead>
         <tbody>
@@ -219,7 +211,7 @@ export default defineComponent({
                 <td>{abridgeName(file.name, 7, 10)}</td>
                 <td>{returnFileSize(file.size)}</td>
                 <td>{renderStatus(file)}</td>
-                {disabled ? null : deleteNode}
+                {disabled.value ? null : deleteNode}
               </tr>
             );
           })}
@@ -228,54 +220,75 @@ export default defineComponent({
     );
 
     const cardClassName = `${uploadPrefix}__flow-card-area`;
-    return () => (
-      <div class={`${uploadPrefix}__flow ${uploadPrefix}__flow-${props.theme}`}>
-        <div class={`${uploadPrefix}__flow-op`}>
-          {slots.default?.()}
-          {props.placeholder && (
-            <small class={`${uploadPrefix}__flow-placeholder ${uploadPrefix}__placeholder`}>{props.placeholder}</small>
-          )}
-        </div>
-
-        {props.theme === 'image-flow' && (
-          <div class={cardClassName} {...dragEvents}>
-            {displayFiles.value.length ? (
-              <ul class={`${uploadPrefix}__card clearfix`}>
-                {displayFiles.value.map((file, index) => renderImgItem(file, index))}
-              </ul>
-            ) : (
-              renderEmpty()
+    return () => {
+      const draggable = props.draggable === undefined ? true : props.draggable;
+      const innerDragEvents = draggable
+        ? {
+            onDrop: drag.handleDrop,
+            onDragEnter: drag.handleDragenter,
+            onDragOver: drag.handleDragover,
+            onDragLeave: drag.handleDragleave,
+          }
+        : {};
+      return (
+        <div class={`${uploadPrefix}__flow ${uploadPrefix}__flow-${props.theme}`}>
+          <div class={`${uploadPrefix}__flow-op`}>
+            {slots.default?.()}
+            {props.placeholder && (
+              <small class={`${uploadPrefix}__flow-placeholder ${uploadPrefix}__placeholder`}>
+                {props.placeholder}
+              </small>
             )}
           </div>
-        )}
 
-        {props.theme === 'file-flow' &&
-          (displayFiles.value.length ? (
-            renderFileList()
-          ) : (
-            <div class={cardClassName} {...dragEvents}>
-              {renderEmpty()}
+          {props.theme === 'image-flow' && (
+            <div
+              class={cardClassName}
+              onDrop={drag.handleDrop}
+              onDragEnter={drag.handleDragenter}
+              onDragOver={drag.handleDragover}
+              onDragLeave={drag.handleDragleave}
+            >
+              {displayFiles.value.length ? (
+                <ul class={`${uploadPrefix}__card clearfix`}>
+                  {displayFiles.value.map((file, index) => renderImgItem(file, index))}
+                </ul>
+              ) : (
+                renderEmpty()
+              )}
             </div>
-          ))}
+          )}
 
-        {!props.autoUpload && (
-          <div class={`${uploadPrefix}__flow-bottom`}>
-            <TButton
-              theme="default"
-              onClick={(e) => props.cancelUpload?.({ e })}
-              disabled={disabled.value || !uploading.value}
-              content={locale.value?.cancelUploadText}
-            ></TButton>
-            <TButton
-              disabled={disabled.value || uploading.value || !displayFiles.value.length}
-              theme="primary"
-              loading={uploading.value}
-              onClick={() => props.uploadFiles?.()}
-              content={uploadText.value}
-            ></TButton>
-          </div>
-        )}
-      </div>
-    );
+          {props.theme === 'file-flow' && (
+            <div
+              onDrop={drag.handleDrop}
+              onDragEnter={drag.handleDragenter}
+              onDragOver={drag.handleDragover}
+              onDragLeave={drag.handleDragleave}
+            >
+              {displayFiles.value.length ? renderFileList() : <div class={cardClassName}>{renderEmpty()}</div>}
+            </div>
+          )}
+
+          {!props.autoUpload && (
+            <div class={`${uploadPrefix}__flow-bottom`}>
+              <TButton
+                theme="default"
+                onClick={(e) => props.cancelUpload?.({ e })}
+                disabled={disabled.value || !uploading.value}
+                content={locale.value?.cancelUploadText}
+              ></TButton>
+              <TButton
+                disabled={disabled.value || uploading.value || !displayFiles.value.length}
+                theme="primary"
+                loading={uploading.value}
+                onClick={() => props.uploadFiles?.()}
+                content={uploadText.value}
+              ></TButton>
+            </div>
+          )}
+        </div>
+      );
+    };
   },
 });

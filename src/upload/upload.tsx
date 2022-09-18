@@ -84,6 +84,7 @@ export default defineComponent({
       errorClasses,
       locale: locale.value,
       autoUpload: props.autoUpload,
+      abridgeName: props.abridgeName,
       fileListDisplay: props.fileListDisplay,
       onRemove,
     }));
@@ -154,11 +155,11 @@ export default defineComponent({
         dragContent={props.dragContent}
         dragEvents={dragProps}
         triggerUpload={triggerUpload}
-        childrenNode={props.default}
         trigger={props.trigger}
+        childrenNode={slots.default}
         v-slots={{
+          dragContent: slots.dragContent,
           trigger: slots.trigger,
-          default: slots.default,
         }}
       >
         {triggerElement}
@@ -181,6 +182,12 @@ export default defineComponent({
         {props.theme === 'image' && !props.draggable && getImageCardUploadNode()}
         {['image-flow', 'file-flow'].includes(props.theme) && getFlowListNode()}
         {props.theme === 'custom' && getCustomFile()}
+
+        {props.tips && (
+          <small class={[tipsClasses, { [`${classPrefix.value}-upload__tips-${props.status}`]: props.status }]}>
+            {props.tips}
+          </small>
+        )}
       </div>
     );
   },

@@ -8,6 +8,7 @@ export interface CommonDisplayFileProps {
   toUploadFiles: TdUploadProps['files'];
   displayFiles: TdUploadProps['files'];
   theme: TdUploadProps['theme'];
+  abridgeName: TdUploadProps['abridgeName'];
   placeholder: TdUploadProps['placeholder'];
   classPrefix: string;
   tips?: TdUploadProps['tips'];
@@ -32,6 +33,7 @@ export const commonProps = {
   toUploadFiles: Array as PropType<CommonDisplayFileProps['toUploadFiles']>,
   displayFiles: Array as PropType<CommonDisplayFileProps['displayFiles']>,
   theme: String as PropType<CommonDisplayFileProps['theme']>,
+  abridgeName: Array as PropType<CommonDisplayFileProps['abridgeName']>,
   placeholder: String,
   classPrefix: String,
   tips: String,

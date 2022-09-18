@@ -1,14 +1,11 @@
 :: BASE_DOC ::
 
-### 输入框文件上传
-
-{{ single-input }}
-
 ## API
 ### Upload Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+abridgeName | Array | - | 文件名过长时，需要省略中间的文本，保留首尾文本。示例：[10, 7]，表示首尾分别保留的文本长度。TS 类型：`Array<number>` | N
 accept | String | - | 接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file) | N
 action | String | - | 上传接口。设接口响应数据为字段 `response`，那么 `response.error` 存在时会判断此次上传失败，并显示错误文本信息；`response.url` 会作为文件上传成功后的地址，并使用该地址显示图片 | N
 allowUploadDuplicateFile | Boolean | false | 是否允许重复上传相同文件名的文件 | N
@@ -46,7 +43,7 @@ uploadAllFilesInOneRequest | Boolean | false | 是否在同一个请求中上传
 useMockProgress | Boolean | true | 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。 | N
 withCredentials | Boolean | false | 上传请求时是否携带 cookie | N
 onCancelUpload | Function |  | TS 类型：`() => void`<br/>点击「取消上传」时触发 | N
-onChange | Function |  | TS 类型：`(value: Array<UploadFile>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/> | N
+onChange | Function |  | TS 类型：`(value: Array<UploadFile>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'status-change' | 'progress' | 'fail'`<br/> | N
 onDragenter | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>进入拖拽区域时触发 | N
 onDragleave | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>离开拖拽区域时触发 | N
 onDrop | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>拖拽结束时触发 | N
@@ -66,7 +63,7 @@ onWaitingUploadFilesChange | Function |  | TS 类型：`(context: { files: Array
 名称 | 参数 | 描述
 -- | -- | --
 cancel-upload | \- | 点击「取消上传」时触发
-change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/>
+change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'status-change' | 'progress' | 'fail'`<br/>
 dragenter | `(context: { e: DragEvent })` | 进入拖拽区域时触发
 dragleave | `(context: { e: DragEvent })` | 离开拖拽区域时触发
 drop | `(context: { e: DragEvent })` | 拖拽结束时触发

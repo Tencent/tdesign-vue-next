@@ -36,8 +36,8 @@ export default function useUpload(props: TdUploadProps) {
   const triggerUploadText = computed(() => {
     const field = getTriggerTextField({
       isBatchUpload: isBatchUpload.value,
-      multiple: props.multiple,
-      status: uploadValue?.[0]?.status,
+      multiple: multiple.value,
+      status: uploadValue.value?.[0]?.status,
       autoUpload: autoUpload.value,
     });
     return locale.value.triggerUploadText[field];
@@ -57,16 +57,23 @@ export default function useUpload(props: TdUploadProps) {
   });
 
   const onResponseError = (p: OnResponseErrorContext) => {
-    if (!p) return;
+    if (!p || !p.files || !p.files[0]) return;
     const { response, event, files } = p;
-    files?.[0] &&
-      props.onOneFileFail?.({
-        e: event,
-        file: files?.[0],
-        currentFiles: files,
-        failedFiles: files,
-        response,
+    props.onOneFileFail?.({
+      e: event,
+      file: files?.[0],
+      currentFiles: files,
+      failedFiles: files,
+      response,
+    });
+    // 单选或多文件替换，需要清空上一次上传成功的文件
+    if (!props.multiple || props.isBatchUpload) {
+      setUploadValue([], {
+        trigger: 'fail',
+        e: p.event,
+        file: p.files[0],
       });
+    }
   };
 
   // 多文件上传场景，单个文件进度
@@ -97,7 +104,8 @@ export default function useUpload(props: TdUploadProps) {
       });
     }
     if (props.autoUpload) {
-      setUploadValue(uploadValue.value.concat(p.files), {
+      const files = props.isBatchUpload || !props.multiple ? p.files : uploadValue.value.concat(p.files);
+      setUploadValue(files, {
         trigger: 'add',
         e: p.event,
         file: p.files[0],
@@ -222,6 +230,7 @@ export default function useUpload(props: TdUploadProps) {
     const files = autoUpload.value ? toFiles || toUploadFiles.value : notUploadedFiles;
     if (!files || !files.length) return;
     uploading.value = true;
+    xhrReq.value = [];
     upload({
       action: props.action,
       uploadedFiles: uploadValue.value,
@@ -238,12 +247,8 @@ export default function useUpload(props: TdUploadProps) {
       onResponseSuccess,
       onResponseError,
       setXhrObject: (xhr) => {
-        if (xhr.files[0]?.raw && xhrReqList.find((item) => item.files[0].raw === xhr.files[0].raw)) return;
-        xhrReqList = xhrReqList.concat(xhr);
-        const timer = setTimeout(() => {
-          xhrReq.value = xhrReqList;
-          clearTimeout(timer);
-        }, 10);
+        if (xhr.files[0]?.raw && xhrReqList.find((item) => item.files[0]?.raw === xhr.files[0].raw)) return;
+        xhrReq.value = xhrReq.value.concat(xhr);
       },
     }).then(
       ({ status, data, list, failedFiles }) => {
@@ -283,6 +288,7 @@ export default function useUpload(props: TdUploadProps) {
 
   function onRemove(p: UploadRemoveContext) {
     sizeOverLimitMessage.value = '';
+    p.e.stopPropagation?.();
     const changePrams: UploadChangeContext = {
       e: p.e,
       trigger: 'remove',
@@ -290,36 +296,31 @@ export default function useUpload(props: TdUploadProps) {
       file: p.file,
     };
     // remove all files for batchUpload
-    if (!p.file && p.index === -1) {
+    if (props.isBatchUpload || !props.multiple) {
       toUploadFiles.value = [];
       props.onWaitingUploadFilesChange?.({ files: [], trigger: 'remove' });
       setUploadValue([], changePrams);
       props.onRemove?.(p);
-      return;
-    }
-    // remove one file
-    if (autoUpload.value && p.file.status !== 'success') {
-      toUploadFiles.value.splice(p.index, 1);
-      // toUploadFiles.value = [...toUploadFiles.value];
-      props.onWaitingUploadFilesChange?.({ files: [...toUploadFiles.value], trigger: 'remove' });
-      if (p.file.raw || p.file.name) {
-        const fileIndex = uploadValue.value.findIndex(
-          (file) => (file.raw && file.raw === p.file.raw) || (file.name && file.name === p.file.name),
-        );
-        if (fileIndex !== -1) {
-          uploadValue.value.splice(fileIndex, 1);
-          setUploadValue([...uploadValue.value], changePrams);
-        }
-      }
-    } else {
+    } else if (!props.autoUpload) {
       uploadValue.value.splice(p.index, 1);
       setUploadValue([...uploadValue.value], changePrams);
+    } else {
+      // eslint-disable-next-line
+      if (p.index < uploadValue.value.length) {
+        uploadValue.value.splice(p.index, 1);
+        setUploadValue([...uploadValue.value], changePrams);
+      } else {
+        toUploadFiles.value.splice(p.index - uploadValue.value.length, 1);
+        toUploadFiles.value = [...toUploadFiles.value];
+        props.onWaitingUploadFilesChange?.({ files: [...toUploadFiles.value], trigger: 'remove' });
+      }
     }
     props.onRemove?.(p);
   }
 
-  const triggerUpload = () => {
+  const triggerUpload = (e: MouseEvent) => {
     if (disabled.value) return;
+    e.stopPropagation?.();
     (inputRef.value as HTMLInputElement).click();
   };
 
