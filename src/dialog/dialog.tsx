@@ -340,14 +340,17 @@ export default defineComponent({
               ref={dialogEle}
             >
               <div class={`${COMPONENT_NAME.value}__header`} onmousedown={onStopDown}>
-                {getIcon()}
-                {renderTNodeJSX('header', defaultHeader)}
+                <div class={`${COMPONENT_NAME.value}__header-content`}>
+                  {getIcon()}
+                  {renderTNodeJSX('header', defaultHeader)}
+                </div>
+
+                {props.closeBtn ? (
+                  <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
+                    {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                  </span>
+                ) : null}
               </div>
-              {props.closeBtn ? (
-                <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
-                  {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                </span>
-              ) : null}
               <div class={bodyClassName} onmousedown={onStopDown}>
                 {body}
               </div>
