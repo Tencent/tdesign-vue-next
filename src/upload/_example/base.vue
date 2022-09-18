@@ -195,11 +195,8 @@ const uploadFiles = () => {
   uploadRef3.value.uploadFiles();
 };
 
-const formatResponse = (res) => {
-  if (!res.url) {
-    return { error: '上传失败，请重试' };
-  }
-  return { ...res, url: res.url };
+const formatResponse = () => {
+  return { error: '上传失败，请重试' };
 };
 
 /** 单个文件校验方法，示例代码有效，勿删 */

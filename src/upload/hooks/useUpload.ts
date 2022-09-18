@@ -56,9 +56,18 @@ export default function useUpload(props: TdUploadProps) {
     });
   });
 
+  const updateFilesProgress = (files: UploadFile[]) => {
+    if (props.autoUpload) {
+      updateProgress(toUploadFiles.value, props.multiple, files);
+    } else {
+      updateProgress(uploadValue.value, props.multiple, files);
+    }
+  };
+
   const onResponseError = (p: OnResponseErrorContext) => {
     if (!p || !p.files || !p.files[0]) return;
     const { response, event, files } = p;
+    updateFilesProgress(p.files);
     props.onOneFileFail?.({
       e: event,
       file: files?.[0],
@@ -78,11 +87,7 @@ export default function useUpload(props: TdUploadProps) {
 
   // 多文件上传场景，单个文件进度
   const onResponseProgress = (p: InnerProgressContext) => {
-    if (props.autoUpload) {
-      updateProgress(toUploadFiles.value, props.multiple, p.files);
-    } else {
-      updateProgress(uploadValue.value, props.multiple, p.files);
-    }
+    updateFilesProgress(p.files);
     props.onProgress?.({
       e: p.event,
       file: p.file,
@@ -97,29 +102,12 @@ export default function useUpload(props: TdUploadProps) {
     p.files[0].percent = 100;
     // 只有多个上传请求同时触发时才需 onOneFileSuccess
     if (props.multiple && !props.uploadAllFilesInOneRequest) {
+      updateFilesProgress(p.files);
       props.onOneFileSuccess?.({
         e: p.event,
         file: p.files[0],
         response: p.response,
       });
-    }
-    if (props.autoUpload) {
-      const files = props.isBatchUpload || !props.multiple ? p.files : uploadValue.value.concat(p.files);
-      setUploadValue(files, {
-        trigger: 'add',
-        e: p.event,
-        file: p.files[0],
-      });
-    } else {
-      const index = uploadValue.value.findIndex((file) => file.raw === p.files[0].raw);
-      if (index >= 0) {
-        uploadValue.value.splice(index, 1, p.files[0]);
-        setUploadValue([...uploadValue.value], {
-          trigger: 'status-change',
-          e: p.event,
-          file: p.files[0],
-        });
-      }
     }
   };
 
@@ -131,7 +119,11 @@ export default function useUpload(props: TdUploadProps) {
   }
 
   const handleNonAutoUpload = (toFiles: UploadFile[]) => {
-    const tmpFiles = props.multiple && !isBatchUpload.value ? uploadValue.value.concat(toFiles) : toFiles;
+    // isBatchUpload 场景下，只要没有上传过，就不需要整体替换。只有上传过的文件才需要整体替换
+    const tmpFiles =
+      props.multiple && !(isBatchUpload.value && uploadValue.value[0]?.status === 'success')
+        ? uploadValue.value.concat(toFiles)
+        : toFiles;
     // 图片需要本地预览
     if (['image', 'image-flow'].includes(props.theme)) {
       const list = tmpFiles.map(
@@ -160,7 +152,7 @@ export default function useUpload(props: TdUploadProps) {
   };
 
   const onFileChange = (files: FileList) => {
-    if (props.disabled) return;
+    if (disabled.value) return;
     // @ts-ignore
     props.onSelectChange?.([...files], { currentSelectedFiles: toUploadFiles });
     validateFile({
@@ -220,7 +212,6 @@ export default function useUpload(props: TdUploadProps) {
     onFileChange?.(e.dataTransfer.files);
   }
 
-  let xhrReqList: { files: UploadFile[]; xhrReq: XMLHttpRequest }[] = [];
   /**
    * 上传文件
    * 对外暴露方法，修改时需谨慎
@@ -237,6 +228,7 @@ export default function useUpload(props: TdUploadProps) {
       toUploadFiles: files,
       multiple: props.multiple,
       isBatchUpload: isBatchUpload.value,
+      autoUpload: props.autoUpload,
       uploadAllFilesInOneRequest: props.uploadAllFilesInOneRequest,
       useMockProgress: props.useMockProgress,
       data: props.data,
@@ -247,13 +239,18 @@ export default function useUpload(props: TdUploadProps) {
       onResponseSuccess,
       onResponseError,
       setXhrObject: (xhr) => {
-        if (xhr.files[0]?.raw && xhrReqList.find((item) => item.files[0]?.raw === xhr.files[0].raw)) return;
+        if (xhr.files[0]?.raw && xhrReq.value.find((item) => item.files[0]?.raw === xhr.files[0].raw)) return;
         xhrReq.value = xhrReq.value.concat(xhr);
       },
     }).then(
+      // 多文件场景时，全量文件完成后
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
+          setUploadValue([...data.files], {
+            trigger: props.autoUpload ? 'add' : 'status-change',
+            file: data.files[0],
+          });
           props.onSuccess?.({
             fileList: data.files,
             currentFiles: files,
@@ -261,7 +258,6 @@ export default function useUpload(props: TdUploadProps) {
             // 只有全部请求完成后，才会存在该字段
             results: list?.map((t) => t.data),
           });
-          xhrReqList = [];
           xhrReq.value = [];
         } else if (failedFiles?.[0]) {
           props.onFail?.({

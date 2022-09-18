@@ -15,6 +15,7 @@ import { UploadFile, TdUploadProps } from '../type';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import { abridgeName, returnFileSize } from '../../_common/js/upload/utils';
 import TLoading from '../../loading';
+import Link from '../../link';
 
 export interface ImageFlowListProps extends CommonDisplayFileProps {
   uploadFiles?: (toFiles?: UploadFile[]) => void;
@@ -59,6 +60,18 @@ export default defineComponent({
     const uploadText = computed(() => {
       if (uploading.value) return `${locale.value.progress.uploadingText}`;
       return locale.value.triggerUploadText.normal;
+    });
+
+    const innerDragEvents = computed(() => {
+      const draggable = props.draggable === undefined ? true : props.draggable;
+      return draggable
+        ? {
+            onDrop: drag.handleDrop,
+            onDragenter: drag.handleDragenter,
+            onDragover: drag.handleDragover,
+            onDragleave: drag.handleDragleave,
+          }
+        : {};
     });
 
     const getStatusMap = () => {
@@ -184,7 +197,7 @@ export default defineComponent({
       ) : null;
 
     const renderFileList = () => (
-      <table class={`${uploadPrefix}__flow-table`}>
+      <table class={`${uploadPrefix}__flow-table`} {...innerDragEvents.value}>
         <thead>
           <tr>
             <th>{locale.value.file?.fileNameText}</th>
@@ -206,9 +219,20 @@ export default defineComponent({
               showBatchUploadAction && !displayFiles.value.find((item) => item.status !== 'success')
                 ? renderBatchActionCol(index)
                 : renderNormalActionCol(file, index);
+            const fileName = props.abridgeName?.length
+              ? abridgeName(file.name, props.abridgeName[0], props.abridgeName[1])
+              : file.name;
             return (
               <tr key={file.name + index}>
-                <td>{abridgeName(file.name, 7, 10)}</td>
+                <td>
+                  {file.url ? (
+                    <Link href={file.url} target="_blank" hover="color">
+                      {fileName}
+                    </Link>
+                  ) : (
+                    fileName
+                  )}
+                </td>
                 <td>{returnFileSize(file.size)}</td>
                 <td>{renderStatus(file)}</td>
                 {disabled.value ? null : deleteNode}
@@ -219,17 +243,8 @@ export default defineComponent({
       </table>
     );
 
-    const cardClassName = `${uploadPrefix}__flow-card-area`;
     return () => {
-      const draggable = props.draggable === undefined ? true : props.draggable;
-      const innerDragEvents = draggable
-        ? {
-            onDrop: drag.handleDrop,
-            onDragEnter: drag.handleDragenter,
-            onDragOver: drag.handleDragover,
-            onDragLeave: drag.handleDragleave,
-          }
-        : {};
+      const cardClassName = `${uploadPrefix}__flow-card-area`;
       return (
         <div class={`${uploadPrefix}__flow ${uploadPrefix}__flow-${props.theme}`}>
           <div class={`${uploadPrefix}__flow-op`}>
@@ -242,13 +257,7 @@ export default defineComponent({
           </div>
 
           {props.theme === 'image-flow' && (
-            <div
-              class={cardClassName}
-              onDrop={drag.handleDrop}
-              onDragEnter={drag.handleDragenter}
-              onDragOver={drag.handleDragover}
-              onDragLeave={drag.handleDragleave}
-            >
+            <div class={cardClassName} {...innerDragEvents.value}>
               {displayFiles.value.length ? (
                 <ul class={`${uploadPrefix}__card clearfix`}>
                   {displayFiles.value.map((file, index) => renderImgItem(file, index))}
@@ -259,16 +268,14 @@ export default defineComponent({
             </div>
           )}
 
-          {props.theme === 'file-flow' && (
-            <div
-              onDrop={drag.handleDrop}
-              onDragEnter={drag.handleDragenter}
-              onDragOver={drag.handleDragover}
-              onDragLeave={drag.handleDragleave}
-            >
-              {displayFiles.value.length ? renderFileList() : <div class={cardClassName}>{renderEmpty()}</div>}
-            </div>
-          )}
+          {props.theme === 'file-flow' &&
+            (displayFiles.value.length ? (
+              renderFileList()
+            ) : (
+              <div class={cardClassName} {...innerDragEvents.value}>
+                {renderEmpty()}
+              </div>
+            ))}
 
           {!props.autoUpload && (
             <div class={`${uploadPrefix}__flow-bottom`}>

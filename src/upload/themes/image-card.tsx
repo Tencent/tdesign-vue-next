@@ -16,7 +16,7 @@ export interface ImageCardUploadProps extends CommonDisplayFileProps {
   max: TdUploadProps['max'];
   disabled?: TdUploadProps['disabled'];
   showUploadProgress: TdUploadProps['showUploadProgress'];
-  triggerUpload?: () => void;
+  triggerUpload?: (e: MouseEvent) => void;
   uploadFiles?: (toFiles?: UploadFile[]) => void;
   cancelUpload?: (context: { e: MouseEvent; file: UploadFile }) => void;
   onPreview?: TdUploadProps['onPreview'];
@@ -62,19 +62,17 @@ export default defineComponent({
           <div class={`${classPrefix.value}-upload__card-mask`}>
             <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
               <ImageViewer
-                visible={visible[file.url] || false}
-                onClose={() => (visible[file.url] = false)}
                 images={displayFiles.value.map((t: UploadFile) => t.url)}
                 defaultIndex={index}
-                v-slots={{
-                  trigger: () => (
+                trigger={(h, { open }) => {
+                  return (
                     <BrowseIcon
                       onClick={({ e }: { e: MouseEvent }) => {
                         props.onPreview?.({ file, index, e });
-                        visible[file.url] = true;
+                        open();
                       }}
                     />
-                  ),
+                  );
                 }}
               ></ImageViewer>
             </span>

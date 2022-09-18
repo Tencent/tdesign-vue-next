@@ -52,13 +52,13 @@ export default defineComponent({
       const getDefaultTrigger = () => {
         if (props.theme === 'file-input') {
           return (
-            <Button disabled={props.disabled} variant="outline" {...props.triggerButtonProps}>
+            <Button disabled={disabled.value} variant="outline" {...props.triggerButtonProps}>
               {triggerUploadText.value}
             </Button>
           );
         }
         return (
-          <Button disabled={props.disabled} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
+          <Button disabled={disabled.value} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
             {triggerUploadText.value}
           </Button>
         );
@@ -66,15 +66,13 @@ export default defineComponent({
       return renderContent('default', 'trigger') || getDefaultTrigger();
     };
 
-    const triggerElement = renderTrigger();
-
     const commonDisplayFileProps = computed<CommonDisplayFileProps>(() => ({
       files: uploadValue.value,
       toUploadFiles: toUploadFiles.value,
       displayFiles: displayFiles.value,
       theme: props.theme,
       placeholder: props.placeholder,
-      disabled: props.disabled,
+      disabled: disabled.value,
       tips: props.tips,
       status: props.status,
       sizeOverLimitMessage: sizeOverLimitMessage.value,
@@ -103,7 +101,7 @@ export default defineComponent({
         v-slots={{ fileListDisplay: slots.fileListDisplay }}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
-          {triggerElement}
+          {renderTrigger()}
         </div>
       </NormalFile>
     );
@@ -143,7 +141,7 @@ export default defineComponent({
         onPreview={props.onPreview}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
-          {triggerElement}
+          {renderTrigger()}
         </div>
       </MultipleFlowList>
     );
@@ -162,7 +160,7 @@ export default defineComponent({
           trigger: slots.trigger,
         }}
       >
-        {triggerElement}
+        {renderTrigger()}
       </CustomFile>
     );
 

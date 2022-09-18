@@ -23,7 +23,7 @@ export default function useDrag(props: UploadDragEvents) {
     event.preventDefault();
     target.value = event.target;
     props.onDragenter?.({ e: event });
-    dragActive.value = false;
+    dragActive.value = true;
   };
 
   const handleDragleave = (event: DragEvent) => {

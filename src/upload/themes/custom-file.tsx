@@ -36,20 +36,15 @@ export default defineComponent({
 
     const renderContent = useContent();
 
-    const dragEvents = props.draggable
-      ? {
-          onDrop: drag.handleDrop,
-          onDragEnter: drag.handleDragenter,
-          onDragOver: drag.handleDragover,
-          onDragLeave: drag.handleDragleave,
-        }
-      : {};
-
     const renderDragContent = () => {
       const params = { dragActive: dragActive.value, files: displayFiles.value };
       return (
         <div
           class={`${classPrefix.value}-upload__dragger ${classPrefix.value}-upload__dragger-center`}
+          onDrop={drag.handleDrop}
+          onDragenter={drag.handleDragenter}
+          onDragover={drag.handleDragover}
+          onDragleave={drag.handleDragleave}
           onClick={props.triggerUpload}
         >
           <div class={`${classPrefix.value}-upload__trigger`}>

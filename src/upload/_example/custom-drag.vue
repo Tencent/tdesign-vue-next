@@ -18,15 +18,14 @@
       @progress="onProgress"
     >
       <template #dragContent="params">
-        <ul v-if="files && files.length">
-          <li v-for="file in files" :key="file.name">{{ file.name }}</li>
+        <ul v-if="files && files.length" style="padding: 0">
+          <li v-for="file in files" :key="file.name" style="list-style-type: none">{{ file.name }}</li>
         </ul>
         <template v-else>
           <p v-if="params && params.dragActive">释放鼠标</p>
           <t-button v-else-if="progress < 1">自定义拖拽区域</t-button>
         </template>
         <t-button v-if="files && files.length" size="small" style="margin-top: 36px">更换文件</t-button>
-        <br /><br />
         <!-- <span>数据状态：{{params}}</span> -->
       </template>
     </t-upload>
