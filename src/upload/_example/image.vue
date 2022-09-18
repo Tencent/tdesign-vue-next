@@ -2,7 +2,7 @@
   <t-space direction="vertical">
     <t-space>
       <t-checkbox v-model="disabled"> 禁用状态 </t-checkbox>
-      <t-checkbox v-model="uploadInOneRequest"> 多个文件一个请求上传 </t-checkbox>
+      <t-checkbox v-model="uploadAllFilesInOneRequest"> 多个文件一个请求上传 </t-checkbox>
       <t-checkbox v-model="autoUpload"> 自动上传 </t-checkbox>
       <t-button
         v-if="!autoUpload"
@@ -84,7 +84,7 @@ const file2 = ref([{ name: 'demo-image-1.png', url: 'https://tdesign.gtimg.com/d
 const files = ref([]);
 const fileFail = ref([]);
 const disabled = ref(false);
-const uploadInOneRequest = ref(false);
+const uploadAllFilesInOneRequest = ref(false);
 const autoUpload = ref(true);
 
 const uploadRef1 = ref();
