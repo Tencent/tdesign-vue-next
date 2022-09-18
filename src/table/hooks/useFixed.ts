@@ -466,6 +466,13 @@ export default function useFixed(
 
   watch([maxHeight, data, columns, bordered], updateFixedHeader, { immediate: true });
 
+  watch(finalColumns, () => {
+    resetThWidthList();
+    if (columnResizable.value) {
+      recalculateColWidth.value(finalColumns.value, thWidthList.value, tableLayout.value, tableElmWidth.value);
+    }
+  });
+
   // 影响表头宽度的元素
   watch(
     [
@@ -482,14 +489,6 @@ export default function useFixed(
     updateThWidthListHandler,
     { immediate: true },
   );
-
-  watch(finalColumns, () => {
-    updateTableWidth();
-    resetThWidthList();
-    if (columnResizable.value) {
-      recalculateColWidth.value(finalColumns.value, thWidthList.value, tableLayout.value, tableElmWidth.value);
-    }
-  });
 
   const refreshTable = debounce(() => {
     updateTableWidth();
