@@ -145,15 +145,25 @@ export default defineComponent({
 
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
-        onChange?.(
-          formatDate(nextValue, {
-            format: formatRef.value.format,
-          }) as DateValue[],
-          {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
-            trigger: 'pick',
-          },
-        );
+        // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
+        if (
+          !isFirstValueSelected.value &&
+          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+        ) {
+          nextValue[activeIndex.value ? 0 : 1] = '';
+          cacheValue.value = nextValue;
+          inputValue.value = nextValue;
+        } else {
+          onChange?.(
+            formatDate(nextValue, {
+              format: formatRef.value.format,
+            }) as DateValue[],
+            {
+              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              trigger: 'pick',
+            },
+          );
+        }
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
@@ -249,17 +259,25 @@ export default defineComponent({
 
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
-        onChange?.(
-          formatDate(nextValue, {
-            format: formatRef.value.format,
-          }) as DateValue[],
-          {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
-            trigger: 'confirm',
-          },
-        );
-        year.value = nextValue.map((v) => dayjs(v, formatRef.value.format).year());
-        month.value = nextValue.map((v) => dayjs(v, formatRef.value.format).month());
+        // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
+        if (
+          !isFirstValueSelected.value &&
+          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+        ) {
+          nextValue[activeIndex.value ? 0 : 1] = '';
+          cacheValue.value = nextValue;
+          inputValue.value = nextValue;
+        } else {
+          onChange?.(
+            formatDate(nextValue, {
+              format: formatRef.value.format,
+            }) as DateValue[],
+            {
+              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              trigger: 'confirm',
+            },
+          );
+        }
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
