@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="tdesign-demo-image-viewer__base">
-      <t-image-viewer :visible="visible" :images="[img]" @close="close">
-        <template #trigger>
+      <t-image-viewer :images="[img]">
+        <template #trigger="{ open }">
           <div class="tdesign-demo-image-viewer__ui-image">
             <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
-            <div class="tdesign-demo-image-viewer__ui-image--hover" @click="onOpen">
+            <div class="tdesign-demo-image-viewer__ui-image--hover" @click="open">
               <span><BrowseIcon size="1.4em" /> 预览</span>
             </div>
           </div>
@@ -16,16 +16,8 @@
 </template>
 <script setup>
 import { BrowseIcon } from 'tdesign-icons-vue-next';
-import { ref } from 'vue';
 
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-const visible = ref(false);
-const onOpen = () => {
-  visible.value = true;
-};
-const close = () => {
-  visible.value = false;
-};
 </script>
 <style scoped>
 .tdesign-demo-image-viewer__ui-image {

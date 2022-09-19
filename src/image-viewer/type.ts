@@ -44,12 +44,17 @@ export interface TdImageViewerProps {
   mode?: 'modal' | 'modeless';
   /**
    * 切换预览图片的左图标，可自定义
+   * @default true
    */
   navigationArrow?: boolean | TNode;
   /**
    * 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示
    */
   showOverlay?: boolean;
+  /**
+   * 预览标题
+   */
+  title?: string | TNode;
   /**
    * 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义
    */

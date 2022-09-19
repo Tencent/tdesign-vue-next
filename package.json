@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -11,7 +11,7 @@
     "tdesign",
     "typescript"
   ],
-  "main": "lib/index-lib.js",
+  "main": "cjs/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
   "unpkg": "dist/tdesign.min.js",
