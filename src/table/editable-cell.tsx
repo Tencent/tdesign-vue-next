@@ -133,7 +133,7 @@ export default defineComponent({
           ],
           trigger,
         };
-        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
+        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams.value) : col.value.edit.rules;
         if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
           resolve(true);
