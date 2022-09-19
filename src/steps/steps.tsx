@@ -70,7 +70,7 @@ export default defineComponent({
     const getOptionListBySlots = (nodes: VNode[]) => {
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
-        const option = node?.props;
+        const option = node?.props || {};
         const children = node?.children;
         if (!option && !children) return;
         if (children && isObject(children)) {
