@@ -222,7 +222,7 @@ export default defineComponent({
         placement = 'bottom-left';
       }
       const overlayInnerStyle =
-        this.isNested && this.isHead ? { marginLeft: '16px' } : { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
+        this.isNested && this.isHead ? { marginLeft: '26px' } : { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
 
       const popupWrapper = (
         <div
