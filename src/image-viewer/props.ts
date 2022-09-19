@@ -57,6 +57,10 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 预览标题 */
+  title: {
+    type: [String, Function] as PropType<TdImageViewerProps['title']>,
+  },
   /** 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义 */
   trigger: {
     type: [String, Function] as PropType<TdImageViewerProps['trigger']>,

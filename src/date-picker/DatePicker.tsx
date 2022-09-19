@@ -43,7 +43,6 @@ export default defineComponent({
       getDefaultFormat({
         mode: props.mode,
         format: props.format,
-        valueType: props.valueType,
         enableTimePicker: props.enableTimePicker,
       }),
     );
@@ -51,13 +50,12 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value || new Date(), formatRef.value.format).year();
-        month.value = parseToDayjs(value.value || new Date(), formatRef.value.format).month();
-        time.value = formatTime(value.value || new Date(), formatRef.value.timeFormat);
+        year.value = parseToDayjs(value.value, formatRef.value.format).year();
+        month.value = parseToDayjs(value.value, formatRef.value.format).month();
+        time.value = formatTime(value.value, formatRef.value.timeFormat);
         if (value.value) {
           cacheValue.value = formatDate(value.value, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.format,
           });
         }
       }
@@ -68,7 +66,6 @@ export default defineComponent({
       isHoverCell.value = true;
       inputValue.value = formatDate(date, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
     }
 
@@ -77,7 +74,6 @@ export default defineComponent({
       isHoverCell.value = false;
       inputValue.value = formatDate(cacheValue.value, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
     }
 
@@ -92,16 +88,14 @@ export default defineComponent({
       if (props.enableTimePicker) {
         cacheValue.value = formatDate(date, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         });
       } else {
         onChange?.(
           formatDate(date, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue,
           {
-            dayjsValue: dayjs(date),
+            dayjsValue: parseToDayjs(date, formatRef.value.format),
             trigger: 'pick',
           },
         );
@@ -150,7 +144,6 @@ export default defineComponent({
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
       inputValue.value = formatDate(nextDate, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
 
       props.onPick?.(nextDate);
@@ -160,23 +153,20 @@ export default defineComponent({
     function onConfirmClick() {
       const nextValue = formatDate(inputValue.value, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
       if (nextValue) {
         onChange?.(
           formatDate(inputValue.value, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue,
           {
-            dayjsValue: dayjs(inputValue.value as string),
+            dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
             trigger: 'confirm',
           },
         );
       } else {
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.format,
         });
       }
       popupVisible.value = false;
@@ -188,10 +178,9 @@ export default defineComponent({
       onChange?.(
         formatDate(presetVal, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
-          dayjsValue: dayjs(presetVal),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
           trigger: 'preset',
         },
       );

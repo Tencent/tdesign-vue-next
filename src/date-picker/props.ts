@@ -106,11 +106,6 @@ export default {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,
     default: '',
   },
-  /** 用于格式化日期，默认为：'YYYY-MM-DD'，可选值：'date/time-stamp/YYY-MM-DD' 等，[更多可选值见 Dayjs 详细文档](https://day.js.org/docs/en/display/format)。<br /> 其中 `valueType=date` 表示 `value` 数据类型为 `Date`；`valueType='time-stamp'` 表示 `value` 数据类型为时间戳 */
-  valueType: {
-    type: String,
-    default: '',
-  },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDatePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */

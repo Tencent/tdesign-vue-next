@@ -181,13 +181,27 @@ const esmConfig = {
 };
 
 /** @type {import('rollup').RollupOptions} */
-const cjsConfig = {
+const libConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins({ ignoreLess: false })),
+  plugins: [multiInput()].concat(getPlugins()),
   output: {
     banner,
     dir: 'lib/',
+    format: 'esm',
+    sourcemap: true,
+    chunkFileNames: '_chunks/dep-[hash].js',
+  },
+};
+
+/** @type {import('rollup').RollupOptions} */
+const cjsConfig = {
+  input: inputList,
+  external: externalDeps.concat(externalPeerDeps),
+  plugins: [multiInput()].concat(getPlugins()),
+  output: {
+    banner,
+    dir: 'cjs/',
     format: 'cjs',
     sourcemap: true,
     exports: 'named',
@@ -248,4 +262,4 @@ const resetCss = {
   plugins: [postcss({ extract: true })],
 };
 
-export default [cssConfig, esConfig, esmConfig, cjsConfig, umdConfig, umdMinConfig, resetCss];
+export default [cssConfig, esConfig, esmConfig, libConfig, cjsConfig, umdConfig, umdMinConfig, resetCss];

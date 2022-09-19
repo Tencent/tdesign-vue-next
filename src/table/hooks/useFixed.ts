@@ -416,6 +416,10 @@ export default function useFixed(
     }, 0);
   };
 
+  const resetThWidthList = () => {
+    thWidthList.value = {};
+  };
+
   const emitScrollEvent = (e: WheelEvent) => {
     props.onScrollX?.({ e });
     props.onScrollY?.({ e });
@@ -461,6 +465,13 @@ export default function useFixed(
   );
 
   watch([maxHeight, data, columns, bordered], updateFixedHeader, { immediate: true });
+
+  watch(finalColumns, () => {
+    resetThWidthList();
+    if (columnResizable.value) {
+      recalculateColWidth.value(finalColumns.value, thWidthList.value, tableLayout.value, tableElmWidth.value);
+    }
+  });
 
   // 影响表头宽度的元素
   watch(

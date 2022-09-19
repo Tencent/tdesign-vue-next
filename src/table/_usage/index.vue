@@ -37,7 +37,7 @@ const panelList = [{ label: 'baseTable', value: 'baseTable', config: baseConfigJ
 
 const usageCodeMap = {
   baseTable:
-    '<t-base-table\n        v-bind="configProps"\n        row-key="index"\n        :data="data"\n        :columns="columns"\n        :maxHeight="140"\n        :pagination="{ total: 30 }"\n      />',
+    '<t-base-table\n        v-bind="configProps"\n        row-key="index"\n        :data="data"\n        :columns="columns"\n        :max-height="140"\n        :pagination="{ total: 30 }"\n      />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

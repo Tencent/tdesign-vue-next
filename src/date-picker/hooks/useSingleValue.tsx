@@ -13,7 +13,6 @@ export default function useSingleValue(props: TdDatePickerProps) {
     getDefaultFormat({
       mode: props.mode,
       format: props.format,
-      valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     }),
   );
@@ -21,16 +20,12 @@ export default function useSingleValue(props: TdDatePickerProps) {
   if (props.enableTimePicker) {
     if (!extractTimeFormat(formatRef.value.format))
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
-    if (!extractTimeFormat(formatRef.value.valueType) && formatRef.value.valueType !== 'time-stamp')
-      console.error(`valueType: ${formatRef.value.valueType} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
   }
 
   const time = ref(formatTime(value.value, formatRef.value.timeFormat));
   const month = ref<number>(dayjs(value.value).month() || new Date().getMonth());
   const year = ref<number>(dayjs(value.value).year() || new Date().getFullYear());
-  const cacheValue = ref(
-    formatDate(value.value, { format: formatRef.value.format, targetFormat: formatRef.value.format }),
-  ); // 缓存选中值，panel 点击时更改
+  const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 缓存选中值，panel 点击时更改
 
   // 输入框响应 value 变化
   watchEffect(() => {
@@ -38,11 +33,10 @@ export default function useSingleValue(props: TdDatePickerProps) {
       cacheValue.value = '';
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.valueType)) return;
+    if (!isValidDate(value.value, formatRef.value.format)) return;
 
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,
-      targetFormat: formatRef.value.format,
     });
     time.value = formatTime(value.value, formatRef.value.timeFormat);
   });

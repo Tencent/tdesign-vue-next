@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <t-calendar :is-show-weekend-default="false" />
-  </div>
+  <t-calendar :is-show-weekend-default="false" />
 </template>

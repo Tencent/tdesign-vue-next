@@ -5,6 +5,62 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.22.0 `2022-09-19` 
+### ❗ Breaking Changes
+- `DatePicker`: 移除 `valueType api` @HQ-Lin ([#1668](https://github.com/Tencent/tdesign-vue-next/pull/1668))
+
+### 🚀 Features
+- `LiveDemo`: 添加 watermark LiveDemo @k1nz ([#1684](https://github.com/Tencent/tdesign-vue-next/pull/1684))
+- `Table`: 可编辑单元格，添加 `row/rowIndex/col/colIndex` 到 `onEdited` @chaishi ([#1695](https://github.com/Tencent/tdesign-vue-next/pull/1695))
+- `ImageViewer`: 支持 `title` 与 `trigger` 中的 `open api` @sinbadmaster ([#1686](https://github.com/Tencent/tdesign-vue-next/pull/1686))
+- `DatePicker`: 默认时间调整成 `00:00:00` @HQ-Lin ([#1660](https://github.com/Tencent/tdesign-vue-next/pull/1660))
+- `DatePicker`: 优化二次修改日期不规范时清空另一侧数据 @HQ-Lin ([#1688](https://github.com/Tencent/tdesign-vue-next/pull/1688))
+
+### 🐞 Bug Fixes
+- `Input`: 修复默认状态提示文字颜色错误问题 @xiaosansiji ([#1663](https://github.com/Tencent/tdesign-vue-next/pull/1663))
+- `Jumper`: 修复 `tips props` 类型缺失 @HelKyle ([#1669](https://github.com/Tencent/tdesign-vue-next/pull/1669))
+- `Demos`: 修复 `select-input` 示例展示 ([issue #1640](https://github.com/Tencent/tdesign-vue-next/issues/1640)) ([issue #1641](https://github.com/Tencent/tdesign-vue-next/issues/1641)) @pengYYYYY ([#1670](https://github.com/Tencent/tdesign-vue-next/pull/1670))
+- `Tooltip`:  修复无法正常展示([issue #1674](https://github.com/Tencent/tdesign-vue-next/issues/1674)) @zhangpaopao0609 ([#1675](https://github.com/Tencent/tdesign-vue-next/pull/1675))
+- `LiveDemo`: 修复 select LiveDemo 问题 ([issue #1679](https://github.com/Tencent/tdesign-vue-next/issues/1679)) @k1nz ([#1684](https://github.com/Tencent/tdesign-vue-next/pull/1684))
+- `table`: 延迟更新表头时使用当前表宽重新计算各列宽度 @ZTao-z ([#1691](https://github.com/Tencent/tdesign-vue-next/pull/1691))
+- `Select`: 修复 `clear` 清除操作，当前会设置 `value` 为空字符串 ([issue #1678](https://github.com/Tencent/tdesign-vue-next/issues/1678)) @pengYYYYY ([#1681](https://github.com/Tencent/tdesign-vue-next/pull/1681))
+- `Steps`: 修复 `Steps` 使用插槽报错不渲染的问题(issue[#802](https://github.com/Tencent/tdesign-vue-next/issues/802#issuecomment-1216272011)) @k1nz ([#1697](https://github.com/Tencent/tdesign-vue-next/pull/1697))
+- `Steps`: 修复 `Steps` 生产环境 `extra` 插槽显示异常问题 @k1nz ([#1697](https://github.com/Tencent/tdesign-vue-next/pull/1697))
+- `ImageViewer`: 修复键盘事件监听时机 @sinbadmaster ([#1686](https://github.com/Tencent/tdesign-vue-next/pull/1686))
+- `Menu`: 修复 `menuItem` 过多时超出显示滚动条 ([issue #1249](https://github.com/Tencent/tdesign-vue-next/issues/1249)) @sinbadmaster ([#1381](https://github.com/Tencent/tdesign-vue-next/pull/1381))
+- `Menu`: 平铺式侧边导航，收起菜单，三级目录不展示 ([issue #1692](https://github.com/Tencent/tdesign-vue-next/issues/1692))([issue #1571](https://github.com/Tencent/tdesign-vue-next/issues/1571)) @sinbadmaster ([#1381](https://github.com/Tencent/tdesign-vue-next/pull/1381))
+- `Pagination`: `hover` 增加过渡效果 `https://github.com/Tencent/tdesign/issues/231` @zhangpaopao0609 ([#1689](https://github.com/Tencent/tdesign-vue-next/pull/1689))
+
+### 🚧 Others
+- `Build`: 修复默认导入引用文件缺失问题 @HQ-Lin ([#1685](https://github.com/Tencent/tdesign-vue-next/pull/1685))
+- `Pagination`: 补充单元测试 @HelKyle ([#1690](https://github.com/Tencent/tdesign-vue-next/pull/1690))
+
+## 🌈 0.21.1 `2022-09-15`
+### 🐞 Bug Fixes
+- `ToolTip`: 修复ToolTip无法正常展示的问题 @zhangpaopao0609 ([#1675](https://github.com/Tencent/tdesign-vue-next/pull/1675))
+
+## 🌈 0.21.0 `2022-09-14` 
+### ❗ Breaking Changes
+- 支持 `es module` 导出不带样式产物，调整 lib 包内容，新增 `cjs` 产物支持 `commonjs` 导出不带样式产物 @HQ-Lin ([#1646](https://github.com/Tencent/tdesign-vue-next/pull/1646))
+
+### 🚀 Features
+- `hooks`:  优化受控与非受控 `hooks` @zhangpaopao0609 ([#1582](https://github.com/Tencent/tdesign-vue-next/pull/1582))
+- `Guide`: 新增 `Guide` 引导组件 @zhangpaopao0609 ([#1540](https://github.com/Tencent/tdesign-vue-next/pull/1540))
+
+### 🐞 Bug Fixes
+- `LiveDemo`: 修复 `tree` ` live demo` 问题 @HQ-Lin ([#1628](https://github.com/Tencent/tdesign-vue-next/pull/1628))
+- `Dropdown`: 修复树形结构下的 `onclick` 调用错误 @pengYYYYY ([#1647](https://github.com/Tencent/tdesign-vue-next/pull/1647))
+- `Table`: 修复 `columns type` 为 `multiple` 时，设置 `className` 无效的问题 ([issue #1632](https://github.com/Tencent/tdesign-vue-next/issues/1632)) @ojhaywood ([#1633](https://github.com/Tencent/tdesign-vue-next/pull/1633))
+- `Table`: 优化列宽调整策略 @ZTao-z ([#1649](https://github.com/Tencent/tdesign-vue-next/pull/1649))
+- `TimePicker`: 修复往前点击时间时滚动异常的问题 @uyarn ([#1657](https://github.com/Tencent/tdesign-vue-next/pull/1657))
+- `watermark`: 修复 `removable` 无效 @samhou1988 ([#1635](https://github.com/Tencent/tdesign-vue-next/pull/1635))
+- `Form`: 修复 `labelAlign` 为 top 时, `form-item lable` 为空 `labl`e 还会占据空间的问题 @ojhaywood ([#1623](https://github.com/Tencent/tdesign-vue-next/pull/1623))
+- `ImageViewer`:  多图片示例切换状态修复 @sinbadmaster ([#1630](https://github.com/Tencent/tdesign-vue-next/pull/1630))
+
+### 🚧 Others
+- `Demo`: 使用 `space` 组件简化 `avatar`, `badge`, `calendar`, `card`, `collapse` 示例 @RayJason ([#1655](https://github.com/Tencent/tdesign-vue-next/pull/1655))
+- `Demo`: 使用 `space` 组件简化 `checkbox`, `colorPicker `, `form` 示例 @RayJason ([#1659](https://github.com/Tencent/tdesign-vue-next/pull/1659))
+
 ## 🌈 0.20.5 `2022-09-07`
 
 ### 🐞 Bug Fixes

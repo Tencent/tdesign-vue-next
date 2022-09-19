@@ -8,11 +8,6 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   <div
     class="t-image-viewer__modal--mask"
   />
-  <transition-stub
-    class="t-image-viewer__dialog"
-  >
-    <!---->
-  </transition-stub>
   
   <div
     class="t-image-viewer__modal-header"
@@ -84,6 +79,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   <div
     class="t-image-viewer__modal--index"
   >
+    <!---->
     2/3
   </div>
   <div
@@ -340,11 +336,6 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   <div
     class="t-image-viewer__modal--mask"
   />
-  <transition-stub
-    class="t-image-viewer__dialog"
-  >
-    <!---->
-  </transition-stub>
   
   <div
     class="t-image-viewer__modal-header"
@@ -416,6 +407,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   <div
     class="t-image-viewer__modal--index"
   >
+    <!---->
     2/3
   </div>
   <div

@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <div class="controls">
-      <t-radio-group v-model="formData.layout" variant="default-filled">
-        <t-radio-button value="vertical">纵向布局</t-radio-button>
-        <t-radio-button value="inline">行内布局</t-radio-button>
-      </t-radio-group>
-    </div>
+  <t-space direction="vertical" size="large">
+    <t-radio-group v-model="formData.layout" variant="default-filled">
+      <t-radio-button value="vertical">纵向布局</t-radio-button>
+      <t-radio-button value="inline">行内布局</t-radio-button>
+    </t-radio-group>
+
     <t-form
       ref="form"
       :data="formData"
@@ -18,22 +17,22 @@
       <t-form-item label="名字" name="name">
         <t-input v-model="formData.name"></t-input>
       </t-form-item>
+
       <t-form-item label="密码" name="password">
         <t-input v-model="formData.password" type="password"></t-input>
       </t-form-item>
     </t-form>
-  </div>
+  </t-space>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-const INITIAL_DATA = {
+const formData = reactive({
   layout: 'inline',
   name: '',
   password: '',
-};
-const formData = ref({ ...INITIAL_DATA });
+});
 
 const onReset = () => {
   MessagePlugin.success('重置成功');
@@ -48,8 +47,3 @@ const onSubmit = ({ validateResult, firstError }) => {
   }
 };
 </script>
-<style lang="less" scoped>
-.controls {
-  margin-bottom: 32px;
-}
-</style>

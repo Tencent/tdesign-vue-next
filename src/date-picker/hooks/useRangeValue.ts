@@ -61,7 +61,6 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
     getDefaultFormat({
       mode: props.mode,
       format: props.format,
-      valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     }),
   );
@@ -69,14 +68,12 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
   if (props.enableTimePicker) {
     if (!extractTimeFormat(formatRef.value.format))
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
-    if (!extractTimeFormat(formatRef.value.valueType) && formatRef.value.valueType !== 'time-stamp')
-      console.error(`valueType: ${formatRef.value.valueType} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
   }
 
   // warning invalid value
   if (!Array.isArray(value.value)) {
     console.error(`typeof value: ${value.value} must be Array!`);
-  } else if (!isValidDate(value.value, formatRef.value.valueType)) {
+  } else if (!isValidDate(value.value, formatRef.value.format)) {
     console.error(
       `value: ${value.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
     );
@@ -100,9 +97,7 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
     }).month,
   );
   const year = ref(initYearMonthTime({ value: value.value, mode: props.mode, format: formatRef.value.format }).year);
-  const cacheValue = ref(
-    formatDate(value.value, { format: formatRef.value.format, targetFormat: formatRef.value.format }),
-  ); // 选择阶段预选状态
+  const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 选择阶段预选状态
 
   // 输入框响应 value 变化
   watchEffect(() => {
@@ -110,11 +105,10 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
       cacheValue.value = [];
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.valueType)) return;
+    if (!isValidDate(value.value, formatRef.value.format)) return;
 
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,
-      targetFormat: formatRef.value.format,
     });
     time.value = formatTime(value.value, formatRef.value.timeFormat) as string[];
   });

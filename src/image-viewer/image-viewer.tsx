@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, Teleport, onMounted, onBeforeUnmount } from 'vue';
+import { computed, defineComponent, ref, toRefs, Teleport, onMounted, onBeforeUnmount, watch } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './props';
@@ -24,10 +24,15 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const isExpand = ref(false);
     const showOverlayValue = computed(() => getOverlay(props));
+
+    const { index, visible, modelValue } = toRefs(props);
+    const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
+    const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
+
     const wrapClass = computed(() => [
       `${COMPONENT_NAME.value}-preview-image`,
       {
-        [`${classPrefix.value}-is-hide`]: !props.visible,
+        [`${classPrefix.value}-is-hide`]: !visibleValue.value,
       },
     ]);
     const headerClass = computed(() => [
@@ -51,8 +56,6 @@ export default defineComponent({
     };
 
     const images = computed(() => formatImages(props.images));
-    const { index, visible, modelValue } = toRefs(props);
-    const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
 
     const prevImage = () => {
@@ -69,7 +72,9 @@ export default defineComponent({
       setIndexValue(i);
     };
 
-    const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
+    const openHandler = () => {
+      setVisibleValue(true);
+    };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
       setVisibleValue(false, ctx);
       props.onClose?.(ctx);
@@ -104,13 +109,17 @@ export default defineComponent({
           break;
       }
     };
-    onMounted(() => {
-      window.addEventListener('keydown', keydownHandler);
-    });
 
-    onBeforeUnmount(() => {
-      window.removeEventListener('keydown', keydownHandler);
-    });
+    watch(
+      () => visibleValue.value,
+      (val) => {
+        if (val) {
+          window.addEventListener('keydown', keydownHandler);
+          return;
+        }
+        window.removeEventListener('keydown', keydownHandler);
+      },
+    );
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
@@ -177,7 +186,7 @@ export default defineComponent({
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger')}
+            {renderTNodeJSX('trigger', { params: { open: openHandler } })}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -203,20 +212,20 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger')}
+          {renderTNodeJSX('trigger', { params: { open: openHandler } })}
           <Teleport to="body">
             {visibleValue.value && (
               <div class={wrapClass.value} style={{ zIndex: zIndexValue.value }} onWheel={onWheel}>
                 {!!showOverlayValue.value && (
                   <div class={`${COMPONENT_NAME.value}__modal--mask`} onClick={clickOverlayHandler} />
                 )}
-                <TImageViewerModal />
                 {images.value.length > 1 && (
                   <>
                     {renderHeader()}
-                    <div class={`${COMPONENT_NAME.value}__modal--index`}>{`${indexValue.value + 1}/${
-                      images.value.length
-                    }`}</div>
+                    <div class={`${COMPONENT_NAME.value}__modal--index`}>
+                      {props.title && renderTNodeJSX('title')}
+                      {`${indexValue.value + 1}/${images.value.length}`}
+                    </div>
                     {renderNavigationArrow('prev')}
                     {renderNavigationArrow('next')}
                   </>

@@ -27,7 +27,7 @@
       <t-select-input
         :value="selectValue"
         :popup-props="{
-          overlayStyle: { width: 'auto' },
+          overlayInnerStyle: { width: 'auto' },
         }"
         placeholder="Please Select"
         class="t-demo-normal"
@@ -44,7 +44,7 @@
       <t-select-input
         :value="selectValue"
         :popup-props="{
-          overlayStyle: { width: '360px' },
+          overlayInnerStyle: { width: '360px' },
         }"
         placeholder="Please Select"
         class="t-demo-normal"

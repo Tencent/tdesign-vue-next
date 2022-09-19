@@ -13,7 +13,7 @@ import {
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
-import { formatDate, getDefaultFormat } from '../_common/js/date-picker/format';
+import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 
 export default defineComponent({
@@ -23,7 +23,6 @@ export default defineComponent({
     value: dateRangePickerProps.value,
     defaultValue: dateRangePickerProps.defaultValue,
     modelValue: dateRangePickerProps.modelValue,
-    valueType: dateRangePickerProps.valueType,
     disabled: dateRangePickerProps.disabled,
     disableDate: dateRangePickerProps.disableDate,
     enableTimePicker: dateRangePickerProps.enableTimePicker,
@@ -45,7 +44,6 @@ export default defineComponent({
         mode: props.mode,
         enableTimePicker: props.enableTimePicker,
         format: props.format,
-        valueType: props.valueType,
       }),
     );
 
@@ -61,7 +59,6 @@ export default defineComponent({
       const nextValue = [...(hoverValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       }) as string;
       hoverValue.value = nextValue;
     }
@@ -86,7 +83,6 @@ export default defineComponent({
       const nextValue = [...(cacheValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       }) as string;
       cacheValue.value = nextValue;
 
@@ -94,14 +90,13 @@ export default defineComponent({
       if (props.enableTimePicker) return;
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (nextValue.length === 2 && !props.enableTimePicker && isFirstValueSelected.value) {
+      if (nextValue.length === 2 && isFirstValueSelected.value) {
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => dayjs(v)),
+            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
             trigger: 'pick',
           },
         );
@@ -200,12 +195,11 @@ export default defineComponent({
       isSelected.value = true;
       cacheValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
-        targetFormat: formatRef.value.format,
       });
 
       props.onTimeChange?.({
         time: val,
-        date: value.value.map((v) => dayjs(v).toDate()),
+        date: value.value.map((v) => parseToDayjs(v, formatRef.value.format).toDate()),
         partial: activeIndex.value ? 'end' : 'start',
         trigger: 'time-hour',
       });
@@ -220,10 +214,9 @@ export default defineComponent({
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => dayjs(v)),
+            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
             trigger: 'confirm',
           },
         );
@@ -249,10 +242,9 @@ export default defineComponent({
         onChange?.(
           formatDate(presetValue, {
             format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => dayjs(p)),
+            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
             trigger: 'preset',
           },
         );
