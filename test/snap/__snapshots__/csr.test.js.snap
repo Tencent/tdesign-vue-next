@@ -63978,7 +63978,7 @@ exports[`csr snapshot test > csr test ./src/icon/_example/icon-select.vue 1`] = 
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty t-select"
+    class="t-input__wrap t-select-input t-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
