@@ -70,7 +70,7 @@ export default defineComponent({
     const getOptionListBySlots = (nodes: VNode[]) => {
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
-        const option = node?.props;
+        const option = node?.props || {};
         const children = node?.children;
         if (!option && !children) return;
         if (children && isObject(children)) {
@@ -96,30 +96,13 @@ export default defineComponent({
     };
 
     const renderContent = () => {
-      let content = null;
       const options = getOptions();
-      const nodes: VNode[] = getChildComponentByName('StepItem') as VNode[];
 
-      content = options.map((item, index) => {
+      return options.map((item, index) => {
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
 
-        const stepItem = (
-          <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />
-        );
-
-        if (nodes && nodes[index]) {
-          const vnode = nodes[index];
-          vnode.props = {
-            ...item,
-            index: stepIndex,
-            status: handleStatus(item, index),
-          };
-          return vnode;
-        }
-        return stepItem;
+        return <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
       });
-
-      return content;
     };
 
     /** class calculate */
