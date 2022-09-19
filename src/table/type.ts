@@ -797,7 +797,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
   /**
    * 编辑完成后，退出编辑模式时触发
    */
-  onEdited?: (context: PrimaryTableOnEditedContext) => void;
+  onEdited?: (context: PrimaryTableOnEditedContext<T>) => void;
   /**
    * 透传给组件 `edit.component` 的属性
    */
@@ -1049,7 +1049,7 @@ export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: stri
 
 export type FilterType = 'input' | 'single' | 'multiple';
 
-export type PrimaryTableOnEditedContext = PrimaryTableCellParams<T> & { trigger: string; newRowData: T };
+export type PrimaryTableOnEditedContext<T> = PrimaryTableCellParams<T> & { trigger: string; newRowData: T };
 
 export type TableEditableCellProps<T> =
   | TablePlainObject
