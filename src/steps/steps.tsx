@@ -35,12 +35,6 @@ export default defineComponent({
     provide('StepsProps', props);
 
     const indexMap = ref({});
-    watchEffect(() => {
-      if (!props.options) return;
-      props.options?.forEach((item, index) => {
-        if (item.value !== undefined) indexMap.value[item.value] = index;
-      });
-    });
 
     const handleStatus = (itemProps: TdStepItemProps, index: number) => {
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
@@ -94,6 +88,12 @@ export default defineComponent({
       }
       return options;
     };
+
+    watchEffect(() => {
+      getOptions()?.forEach((item, index) => {
+        if (item.value !== undefined) indexMap.value[item.value] = index;
+      });
+    });
 
     const renderContent = () => {
       const options = getOptions();
