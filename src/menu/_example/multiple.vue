@@ -10,8 +10,25 @@
         </template>
         <t-submenu value="1-0" title="子菜单1-1">
           <t-menu-item value="1-1-1"> 子菜单1-1-1 </t-menu-item>
-          <t-menu-item value="1-1-2"> 子菜单1-1-2 </t-menu-item>
           <t-menu-item value="1-1-3"> 子菜单1-1-3 </t-menu-item>
+          <t-menu-item value="1-1-2"> 子菜单1-1-2 </t-menu-item>
+          <t-menu-item value="1-1-4"> 子菜单1-1-4 </t-menu-item>
+          <t-menu-item value="1-1-5"> 子菜单1-1-5 </t-menu-item>
+          <t-menu-item value="1-1-6"> 子菜单1-1-6 </t-menu-item>
+          <t-menu-item value="1-1-7"> 子菜单1-1-7 </t-menu-item>
+          <t-menu-item value="1-1-8"> 子菜单1-1-8 </t-menu-item>
+          <t-menu-item value="1-1-9"> 子菜单1-1-9 </t-menu-item>
+          <t-submenu value="1-1-10" title="子菜单1-10">
+            <t-menu-item value="1-1-10-1"> 子菜单1-1-10-1 </t-menu-item>
+            <t-menu-item value="1-1-10-3"> 子菜单1-1-10-3 </t-menu-item>
+            <t-menu-item value="1-1-10-2"> 子菜单1-1-10-2 </t-menu-item>
+            <t-menu-item value="1-1-10-4"> 子菜单1-1-10-4 </t-menu-item>
+            <t-menu-item value="1-1-10-5"> 子菜单1-1-10-5 </t-menu-item>
+            <t-menu-item value="1-1-10-6"> 子菜单1-1-10-6 </t-menu-item>
+            <t-menu-item value="1-1-10-7"> 子菜单1-1-10-7 </t-menu-item>
+            <t-menu-item value="1-1-10-8"> 子菜单1-1-10-8 </t-menu-item>
+            <t-menu-item value="1-1-10-9"> 子菜单1-1-10-9 </t-menu-item>
+          </t-submenu>
         </t-submenu>
         <t-menu-item value="1-2"> 子菜单1-2 </t-menu-item>
         <t-menu-item value="1-3"> 子菜单1-3 </t-menu-item>
@@ -50,6 +67,28 @@
         <template #title>
           <span>菜单1</span>
         </template>
+        <t-submenu value="1-0" title="子菜单1-1">
+          <t-menu-item value="1-1-1"> 子菜单1-1-1 </t-menu-item>
+          <t-menu-item value="1-1-3"> 子菜单1-1-3 </t-menu-item>
+          <t-menu-item value="1-1-2"> 子菜单1-1-2 </t-menu-item>
+          <t-menu-item value="1-1-4"> 子菜单1-1-4 </t-menu-item>
+          <t-menu-item value="1-1-5"> 子菜单1-1-5 </t-menu-item>
+          <t-menu-item value="1-1-6"> 子菜单1-1-6 </t-menu-item>
+          <t-menu-item value="1-1-7"> 子菜单1-1-7 </t-menu-item>
+          <t-menu-item value="1-1-8"> 子菜单1-1-8 </t-menu-item>
+          <t-menu-item value="1-1-9"> 子菜单1-1-9 </t-menu-item>
+          <t-submenu value="1-1-10" title="子菜单1-10">
+            <t-menu-item value="1-1-10-1"> 子菜单1-1-10-1 </t-menu-item>
+            <t-menu-item value="1-1-10-3"> 子菜单1-1-10-3 </t-menu-item>
+            <t-menu-item value="1-1-10-2"> 子菜单1-1-10-2 </t-menu-item>
+            <t-menu-item value="1-1-10-4"> 子菜单1-1-10-4 </t-menu-item>
+            <t-menu-item value="1-1-10-5"> 子菜单1-1-10-5 </t-menu-item>
+            <t-menu-item value="1-1-10-6"> 子菜单1-1-10-6 </t-menu-item>
+            <t-menu-item value="1-1-10-7"> 子菜单1-1-10-7 </t-menu-item>
+            <t-menu-item value="1-1-10-8"> 子菜单1-1-10-8 </t-menu-item>
+            <t-menu-item value="1-1-10-9"> 子菜单1-1-10-9 </t-menu-item>
+          </t-submenu>
+        </t-submenu>
         <t-menu-item value="1-1"> 子菜单1-1 </t-menu-item>
         <t-menu-item value="1-2"> 子菜单1-2 </t-menu-item>
         <t-menu-item value="1-3"> 子菜单1-3 </t-menu-item>
