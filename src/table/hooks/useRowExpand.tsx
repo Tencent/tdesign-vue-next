@@ -86,7 +86,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     p: TableExpandedRowParams<TableRowData> & { tableWidth: number; isWidthOverflow: boolean },
   ) => {
     const rowId = get(p.row, props.rowKey || 'id');
-    if (!tExpandedRowKeys.value.includes(rowId)) return null;
+    if (tExpandedRowKeys?.value || !tExpandedRowKeys.value.includes(rowId)) return null;
     const isFixedLeft = p.isWidthOverflow && props.columns.find((item) => item.fixed === 'left');
     return (
       <tr key={`expand_${rowId}`} class={[tableExpandClasses.row, { [tableFullRowClasses.base]: isFixedLeft }]}>
