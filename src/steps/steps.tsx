@@ -40,10 +40,7 @@ export default defineComponent({
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined) {
-        if (props.sequence === 'positive' && index < innerCurrent.value) return 'finish';
-        if (props.sequence === 'reverse' && index > innerCurrent.value) return 'finish';
-      }
+      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
       // value 存在，找匹配位置
       if (itemProps.value !== undefined) {
         const matchIndex = indexMap.value[innerCurrent.value];
@@ -100,6 +97,7 @@ export default defineComponent({
 
       return options.map((item, index) => {
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
+        index = item.value !== undefined ? index : stepIndex;
 
         return <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
       });
