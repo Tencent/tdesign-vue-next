@@ -1,5 +1,5 @@
-import base from '@/example/button/base.vue';
-import block from '@/example/button/block.vue';
+import base from '../_example/base.vue';
+import block from '../_example/block.vue';
 
 describe('<button />', () => {
   it('renders base', () => {
