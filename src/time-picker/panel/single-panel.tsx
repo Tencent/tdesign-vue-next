@@ -174,7 +174,7 @@ export default defineComponent({
     const handleScroll = (col: EPickerCols, idx: number) => {
       let val: number | string;
       let formattedVal: string;
-      const scrollTop = colsRef[idx]?.scrollTop;
+      const scrollTop = (colsRef[idx]?.scrollTop || 0) + panelOffset.top;
       const { offsetHeight, margin } = getItemHeight();
       const timeItemTotalHeight = offsetHeight + margin;
       let colStep = Math.abs(Math.round(scrollTop / timeItemTotalHeight + 0.5));
