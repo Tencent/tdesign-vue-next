@@ -2,10 +2,11 @@ import { defineConfig } from 'cypress';
 import { resolveConfig, basePlugin } from '../../script/vite.base.config';
 
 export default defineConfig({
-  fileServerFolder: 'script/cypress',
-  fixturesFolder: 'script/cypress/fixtures',
-  screenshotsFolder: 'script/cypress/screenshots',
-  videosFolder: 'script/cypress/videos',
+  projectId: '7uyn3a',
+  fileServerFolder: 'test/cypress',
+  fixturesFolder: 'test/cypress/fixtures',
+  screenshotsFolder: 'test/cypress/screenshots',
+  videosFolder: 'test/cypress/videos',
   video: true,
   videoCompression: 15,
   viewportWidth: 1024,
@@ -17,8 +18,8 @@ export default defineConfig({
   },
   component: {
     // specPattern: '**/*.cy.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-    supportFile: 'script/cypress/support/component.js',
-    indexHtmlFile: 'script/cypress/support/component-index.html',
+    supportFile: 'test/cypress/support/component.js',
+    indexHtmlFile: 'test/cypress/support/component-index.html',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

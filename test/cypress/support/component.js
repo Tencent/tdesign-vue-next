@@ -20,8 +20,8 @@ import './commands';
 // require('./commands')
 
 import { mount } from 'cypress/vue';
-// import TDesign from '@/src/index';
-// import 'tdesign-vue-next/style/index.js';
+import TDesign from '@/src/index';
+import 'tdesign-vue-next/style/index.js';
 import '@common/style/web/docs.less';
 
 // Augment the Cypress namespace to include type definitions for
@@ -32,7 +32,7 @@ import '@common/style/web/docs.less';
 Cypress.Commands.add('mount', (component, options = {}) => {
   options.global = options.global || {};
   options.global.plugins = options.global.plugins || [];
-  // options.global.plugins.push(TDesign);
+  options.global.plugins.push(TDesign);
 
   return mount(component, options);
 });
