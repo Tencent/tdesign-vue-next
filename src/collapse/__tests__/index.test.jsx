@@ -205,20 +205,23 @@ describe('Collapse', () => {
 
 describe('CollapsePanel', () => {
   describe(':props', () => {
-    test(':default、header、headerRightContent', async () => {
+    test(':default、content、header、headerRightContent', async () => {
       const wrapper = mount({
         setup() {
           return () => (
             <Collapse defaultExpandAll>
-              <CollapsePanel ref="1" value="1" header="标题" headerRightContent="右侧" default="内容" />
+              <CollapsePanel ref="1" value="1" header="标题" headerRightContent="右侧" default="内容1" />
+              <CollapsePanel ref="2" value="2" header="标题" content="内容2" />
             </Collapse>
           );
         },
       });
 
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__content').text()).toBe('内容');
-      expect(panel.find('.t-collapse-panel__header').text()).toBe('标题右侧');
+      const panel1 = wrapper.findComponent({ ref: '1' });
+      const panel2 = wrapper.findComponent({ ref: '2' });
+      expect(panel1.find('.t-collapse-panel__content').text()).toBe('内容1');
+      expect(panel1.find('.t-collapse-panel__header').text()).toBe('标题右侧');
+      expect(panel2.find('.t-collapse-panel__content').text()).toBe('内容2');
     });
 
     test(':destroyOnCollapse', async () => {
@@ -334,6 +337,25 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
       expect(panel.find('.t-collapse-panel__header > h4').html()).toBe('<h4>标题</h4>');
       expect(panel.find('.t-collapse-panel__header > span').html()).toBe('<span>操作</span>');
+    });
+
+    test('content', () => {
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <Collapse>
+              <CollapsePanel ref="1" value="1" header="标题">
+                {{
+                  content: () => <div>内容</div>,
+                }}
+              </CollapsePanel>
+            </Collapse>
+          );
+        },
+      });
+
+      const panel = wrapper.findComponent({ ref: '1' });
+      expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
     });
   });
 });
