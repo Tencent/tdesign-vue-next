@@ -46,7 +46,15 @@ export default defineComponent({
       if (tagGlobalConfig.value.closeIcon) {
         return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
       }
-      return <CloseIcon onClick={({ e }: { e: MouseEvent }) => props.onClose?.({ e })} class={iconClassName} />;
+      return (
+        <CloseIcon
+          onClick={({ e }: { e: MouseEvent }) => {
+            e.stopPropagation();
+            props.onClose?.({ e });
+          }}
+          class={iconClassName}
+        />
+      );
     };
 
     return () => {
