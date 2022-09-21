@@ -78,7 +78,7 @@ export default defineComponent({
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
             overlayInnerStyle: panels.value.length && !props.loading ? { width: 'auto' } : '',
-            overlayInnerClassName: [
+            overlayClassName: [
               overlayClassName.value,
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
             ],
