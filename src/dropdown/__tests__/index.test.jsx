@@ -61,6 +61,42 @@ describe('Dropdown', () => {
     expect(dropdownWrapper.props().minColumnWidth).toEqual(100);
   });
 
+  it('direction', async () => {
+    const dropdownWrapper = mount(Dropdown, {
+      propsData: {
+        direction: 'left',
+        options: props.options,
+      },
+    });
+    await nextTick();
+    expect(dropdownWrapper.props().direction).toEqual('left');
+  });
+
+  it('placement', async () => {
+    const dropdownWrapper = mount(Dropdown, {
+      propsData: {
+        placement: 'left',
+        options: props.options,
+      },
+    });
+    await dropdownWrapper.setProps({
+      placement: 'left-bottom',
+    });
+    await nextTick();
+    expect(dropdownWrapper.props().placement).toEqual('left-bottom');
+  });
+
+  it('hideAfterItemClick', async () => {
+    const dropdownWrapper = mount(Dropdown, {
+      propsData: {
+        hideAfterItemClick: false,
+        options: props.options,
+      },
+    });
+    await nextTick();
+    expect(dropdownWrapper.props().hideAfterItemClick).toEqual(false);
+  });
+
   it('slots', () => {
     const handleClick = vi.fn();
     const wrapper = shallowMount({
