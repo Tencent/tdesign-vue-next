@@ -27,6 +27,7 @@ const testConfig = {
   },
   coverage: {
     reporter: ['text', 'json', 'html'],
+    reportsDirectory: 'test/unit/coverage',
   },
 };
 
