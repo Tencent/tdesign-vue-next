@@ -188,10 +188,14 @@ export default defineComponent({
       }
     };
     const onMouseEnterNavigationItem = (i: number) => {
-      swiperTo(i, { source: 'hover' });
+      if (props.trigger === 'hover') {
+        swiperTo(i, { source: 'hover' });
+      }
     };
     const onClickNavigationItem = (i: number) => {
-      swiperTo(i, { source: 'click' });
+      if (props.trigger === 'click') {
+        swiperTo(i, { source: 'click' });
+      }
     };
     const goNext = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
@@ -319,7 +323,7 @@ export default defineComponent({
     });
 
     return () => (
-      <div class={[`${prefix.value}-swiper`]} onMouseenter={onMouseEnter} onMouseLeave={onMouseLeave} ref={swiperWrap}>
+      <div class={[`${prefix.value}-swiper`]} onMouseenter={onMouseEnter} onMouseleave={onMouseLeave} ref={swiperWrap}>
         <div class={swiperWrapClass.value}>
           <div
             class={[
