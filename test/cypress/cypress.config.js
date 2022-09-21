@@ -20,9 +20,6 @@ export default defineConfig({
     // specPattern: '**/*.cy.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
     supportFile: 'test/cypress/support/component.js',
     indexHtmlFile: 'test/cypress/support/component-index.html',
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
     devServer: {
       framework: 'vue',
       bundler: 'vite',
