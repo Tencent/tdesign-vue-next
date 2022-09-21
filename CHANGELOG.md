@@ -5,6 +5,18 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.22.1 `2022-09-21` 
+### 🐞 Bug Fixes
+- `Collapse`: 修复 `content api` 不支持 ([issue #1703](https://github.com/Tencent/tdesign-vue-next/issues/1703)) @isanxia ([#1707](https://github.com/Tencent/tdesign-vue-next/pull/1707))
+- `TimePicker`: 修复部分场景滚动异常无法选中 `23:59:59` 的问题 ([issue #1693]( https://github.com/Tencent/tdesign-vue-next/issues/1693)) @uyarn ([#1711](https://github.com/Tencent/tdesign-vue-next/pull/1711))
+- `Steps`: 修复 `StepItem` 使用插槽渲染 `value` 属性无效的问题 @k1nz ([#1712](https://github.com/Tencent/tdesign-vue-next/pull/1712))
+- `Steps`: 修复使用反转顺序 `sequence=reverse` 显示错误的问题 @k1nz ([#1712](https://github.com/Tencent/tdesign-vue-next/pull/1712))
+- `Tag`: 修复 `tag` 中 `close` 事件冒泡([issue #1710](https://github.com/Tencent/tdesign-vue-next/issues/1710)) @itzj86 ([#1713](https://github.com/Tencent/tdesign-vue-next/pull/1713))
+- `InputNumber`: 处理 `0` 比较的异常 ([issue #1709](https://github.com/Tencent/tdesign-vue-next/issues/1709)) @uyarn([#common850](https://github.com/Tencent/tdesign-common/pull/850)) 
+### 🚧 Others
+- `Collapse`: 增加单元测试用例 @isanxia ([#1707](https://github.com/Tencent/tdesign-vue-next/pull/1707))
+
+
 ## 🌈 0.22.0 `2022-09-19` 
 ### ❗ Breaking Changes
 - `DatePicker`: 移除 `valueType api` @HQ-Lin ([#1668](https://github.com/Tencent/tdesign-vue-next/pull/1668))
