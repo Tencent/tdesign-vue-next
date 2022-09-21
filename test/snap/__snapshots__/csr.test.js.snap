@@ -103703,7 +103703,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 1;"
+            style="opacity: 1; z-index: 1;"
           >
             
             
@@ -103717,7 +103717,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103731,7 +103731,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103745,7 +103745,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103759,7 +103759,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103773,7 +103773,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
