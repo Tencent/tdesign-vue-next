@@ -1,38 +1,35 @@
 <template>
-  <div>
-    <t-form ref="form" :data="formData" :rules="rules" @reset="onReset" @submit="onSubmit" @validate="onValidate">
-      <t-form-item label="用户名" name="account">
-        <t-input v-model="formData.account"></t-input>
-      </t-form-item>
-      <t-form-item
-        label="密码"
-        name="password"
-        help="同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化"
-      >
-        <t-input v-model="formData.password" type="password"></t-input>
-      </t-form-item>
-      <t-form-item label="确认密码" name="rePassword" help="自定义异步校验方法">
-        <t-input v-model="formData.rePassword" type="password"></t-input>
-      </t-form-item>
-      <t-form-item style="padding-top: 8px">
-        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
+  <t-form ref="form" :data="formData" :rules="rules" @reset="onReset" @submit="onSubmit" @validate="onValidate">
+    <t-form-item label="用户名" name="account">
+      <t-input v-model="formData.account"></t-input>
+    </t-form-item>
+
+    <t-form-item label="密码" name="password" help="同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化">
+      <t-input v-model="formData.password" type="password"></t-input>
+    </t-form-item>
+
+    <t-form-item label="确认密码" name="rePassword" help="自定义异步校验方法">
+      <t-input v-model="formData.rePassword" type="password"></t-input>
+    </t-form-item>
+
+    <t-form-item>
+      <t-space size="small">
+        <t-button theme="primary" type="submit">提交</t-button>
         <t-button theme="default" variant="base" type="reset">重置</t-button>
-      </t-form-item>
-    </t-form>
-  </div>
+      </t-space>
+    </t-form-item>
+  </t-form>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-const INITIAL_DATA = {
+const form = ref(null);
+const formData = reactive({
   account: '',
   password: '',
   rePassword: '',
-};
-
-const formData = ref({ ...INITIAL_DATA });
-const form = ref(null);
+});
 
 const onReset = () => {
   MessagePlugin.success('重置成功');

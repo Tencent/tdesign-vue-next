@@ -220,7 +220,6 @@ export default defineComponent({
           formattedVal = dayjsValue.value.format(format.value);
         }
       }
-
       if (formattedVal !== value.value) props.onChange?.(formattedVal);
       if (distance !== scrollTop) {
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
@@ -262,10 +261,6 @@ export default defineComponent({
           el = Number(el) + 12;
         }
         scrollToTime(col, el, idx, 'smooth');
-
-        setTimeout(() => {
-          props.onChange(dayjsValue.value[col]?.(el).format(format.value));
-        }, 100);
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {

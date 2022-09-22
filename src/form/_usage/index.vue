@@ -31,7 +31,7 @@ const configList = ref(configJson);
 const panelList = [{ label: 'form', value: 'form' }];
 
 const usageCodeMap = {
-  form: '\n        <t-form v-bind="configProps">\n          <t-form-item label="姓名" name="name" initialData="TDesign">\n            <t-input placeholder="请输入内容" />\n          </t-form-item>\n          <t-form-item label="手机号码" name="tel" initialData="123456">\n            <t-input placeholder="请输入内容" />\n          </t-form-item>\n          <t-form-item label="课程" name="course" initialData="[\'1\']">\n            <t-checkbox-group>\n              <t-checkbox value="1">语文</t-checkbox>\n              <t-checkbox value="2">数学</t-checkbox>\n              <t-checkbox value="3">英语</t-checkbox>\n              <t-checkbox value="4">体育</t-checkbox>\n            </t-checkbox-group>\n          </t-form-item>\n        </t-form>\n      ',
+  form: '\n        <t-form v-bind="configProps">\n          <t-form-item label="姓名" name="name" initial-data="TDesign">\n            <t-input placeholder="请输入内容" />\n          </t-form-item>\n          <t-form-item label="手机号码" name="tel" initial-data="123456">\n            <t-input placeholder="请输入内容" />\n          </t-form-item>\n          <t-form-item label="课程" name="course" initial-data="[\'1\']">\n            <t-checkbox-group>\n              <t-checkbox value="1">语文</t-checkbox>\n              <t-checkbox value="2">数学</t-checkbox>\n              <t-checkbox value="3">英语</t-checkbox>\n              <t-checkbox value="4">体育</t-checkbox>\n            </t-checkbox-group>\n          </t-form-item>\n        </t-form>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <t-calendar
-      @cell-click="cellClick"
-      @cell-double-click="cellDoubleClick"
-      @cell-right-click="cellRightClick"
-      @month-change="monthChange"
-      @controller-change="controllerChange"
-    />
-  </div>
+  <t-calendar
+    @cell-click="cellClick"
+    @cell-double-click="cellDoubleClick"
+    @cell-right-click="cellRightClick"
+    @month-change="monthChange"
+    @controller-change="controllerChange"
+  />
 </template>
 
 <script setup>

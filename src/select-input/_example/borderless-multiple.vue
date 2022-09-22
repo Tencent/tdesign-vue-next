@@ -96,7 +96,6 @@ const onTagChange = (currentTags, context) => {
 .tdesign-demo__panel-options-borderless-multiple .t-checkbox {
   display: flex;
   border-radius: 3px;
-  height: 40px;
   line-height: 22px;
   cursor: pointer;
   padding: 9px 8px;

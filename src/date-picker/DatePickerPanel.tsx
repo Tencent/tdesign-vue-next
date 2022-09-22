@@ -2,7 +2,7 @@ import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
 
 import useSingleValue from './hooks/useSingleValue';
-import { formatDate, getDefaultFormat } from '../_common/js/date-picker/format';
+import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type {
   DateValue,
@@ -23,7 +23,6 @@ export default defineComponent({
     value: datePickerProps.value,
     defaultValue: datePickerProps.defaultValue,
     modelValue: datePickerProps.modelValue,
-    valueType: datePickerProps.valueType,
     disabled: datePickerProps.disabled,
     disableDate: datePickerProps.disableDate,
     enableTimePicker: datePickerProps.enableTimePicker,
@@ -43,7 +42,6 @@ export default defineComponent({
       getDefaultFormat({
         mode: props.mode,
         format: props.format,
-        valueType: props.valueType,
         enableTimePicker: props.enableTimePicker,
       }),
     );
@@ -58,15 +56,12 @@ export default defineComponent({
         month.value = date.getMonth();
       }
       if (props.enableTimePicker) {
-        cacheValue.value = formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.format });
+        cacheValue.value = formatDate(date, { format: formatRef.value.format });
       } else {
-        onChange?.(
-          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) as DateValue,
-          {
-            dayjsValue: dayjs(date),
-            trigger: 'pick',
-          },
-        );
+        onChange?.(formatDate(date, { format: formatRef.value.format }) as DateValue, {
+          dayjsValue: parseToDayjs(date, formatRef.value.format),
+          trigger: 'pick',
+        });
       }
     }
 
@@ -126,7 +121,7 @@ export default defineComponent({
         ? dayjs()
         : dayjs(cacheValue.value as string, formatRef.value.format);
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
-      cacheValue.value = formatDate(nextDate, { format: formatRef.value.format, targetFormat: formatRef.value.format });
+      cacheValue.value = formatDate(nextDate, { format: formatRef.value.format });
 
       props.onTimeChange?.({
         time: val,
@@ -140,10 +135,9 @@ export default defineComponent({
       onChange?.(
         formatDate(cacheValue.value, {
           format: formatRef.value.format,
-          targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
-          dayjsValue: dayjs(cacheValue.value as string),
+          dayjsValue: parseToDayjs(cacheValue.value as string, formatRef.value.format),
           trigger: 'confirm',
         },
       );
@@ -153,13 +147,10 @@ export default defineComponent({
     // 预设
     function onPresetClick(presetValue: DateValue | (() => DateValue), { e, preset }: any) {
       const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
-      onChange?.(
-        formatDate(presetVal, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) as DateValue,
-        {
-          dayjsValue: dayjs(presetVal),
-          trigger: 'preset',
-        },
-      );
+      onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
+        dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
+        trigger: 'preset',
+      });
       props.onPresetClick?.({ e, preset });
     }
 

@@ -416,6 +416,10 @@ export default function useFixed(
     }, 0);
   };
 
+  const resetThWidthList = () => {
+    thWidthList.value = {};
+  };
+
   const emitScrollEvent = (e: WheelEvent) => {
     props.onScrollX?.({ e });
     props.onScrollY?.({ e });
@@ -478,6 +482,14 @@ export default function useFixed(
     updateThWidthListHandler,
     { immediate: true },
   );
+
+  watch(finalColumns, () => {
+    updateTableWidth();
+    resetThWidthList();
+    if (columnResizable.value) {
+      recalculateColWidth.value(finalColumns.value, thWidthList.value, tableLayout.value, tableElmWidth.value);
+    }
+  });
 
   const refreshTable = debounce(() => {
     updateTableWidth();

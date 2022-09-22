@@ -34,10 +34,9 @@
   </t-card>
 </template>
 <script setup lang="jsx">
-import { computed } from 'vue';
 import { ThumbUpIcon, ChatIcon, ShareIcon, UserIcon } from 'tdesign-icons-vue-next';
 
-const icon = computed(() => () => <UserIcon />);
+const icon = () => <UserIcon />;
 const actions = '默认标签';
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

@@ -440,6 +440,12 @@ export default {
           component: () => import('tdesign-vue-next/drawer/drawer.md'),
         },
         {
+          title: 'Guide 引导',
+          name: 'guide',
+          path: '/vue-next/components/guide',
+          component: () => import('tdesign-vue-next/guide/guide.md'),
+        },
+        {
           title: 'Message 全局提示',
           name: 'message',
           path: '/vue-next/components/message',

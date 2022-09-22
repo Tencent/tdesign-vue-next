@@ -1,21 +1,20 @@
 <template>
-  <div>
+  <t-space direction="vertical" size="large">
     <!-- 可以使用全局 ConfigProvider errorMessage 配置规则校验结果描述，而无需给每一个表单都配置校验信息 -->
-    <div>
-      <t-radio-group v-model="errorConfig" variant="default-filled">
-        <t-radio-button value="default">
-          <t-popup content="Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息">
-            使用表单默认校验信息
-          </t-popup>
-        </t-radio-button>
-        <t-radio-button value="config">
-          <t-popup content="统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息">
-            表单统一配置校验信息
-          </t-popup>
-        </t-radio-button>
-      </t-radio-group>
-    </div>
-    <br /><br />
+    <t-radio-group v-model="errorConfig" variant="default-filled">
+      <t-radio-button value="default">
+        <t-popup content="Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息">
+          使用表单默认校验信息
+        </t-popup>
+      </t-radio-button>
+
+      <t-radio-button value="config">
+        <t-popup content="统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息">
+          表单统一配置校验信息
+        </t-popup>
+      </t-radio-button>
+    </t-radio-group>
+
     <!-- error-message 非必需 -->
     <t-form
       ref="form"
@@ -30,24 +29,30 @@
       <t-form-item :label="renderLabel" help="这是用户名字段帮助说明" name="account">
         <t-input v-model="formData.account"></t-input>
       </t-form-item>
+
       <t-form-item label="个人简介" help="一句话介绍自己" name="description">
         <t-input v-model="formData.description"></t-input>
       </t-form-item>
+
       <t-form-item label="密码" name="password">
         <t-input v-model="formData.password" type="password"></t-input>
       </t-form-item>
+
       <t-form-item label="邮箱" name="email">
         <t-input v-model="formData.email"></t-input>
       </t-form-item>
+
       <t-form-item label="性别" name="gender">
         <t-radio-group v-model="formData.gender">
           <t-radio value="male">男</t-radio>
           <t-radio value="femal">女</t-radio>
         </t-radio-group>
       </t-form-item>
+
       <t-form-item label="课程" name="course">
         <t-checkbox-group v-model="formData.course" :options="courseOptions"></t-checkbox-group>
       </t-form-item>
+
       <t-form-item label="学院" name="college">
         <t-select v-model="formData.college" class="demo-select-base" clearable>
           <t-option v-for="(item, index) in options" :key="index" :value="item.value" :label="item.label">
@@ -55,6 +60,7 @@
           </t-option>
         </t-select>
       </t-form-item>
+
       <t-form-item
         label="入学时间"
         name="date"
@@ -62,22 +68,26 @@
       >
         <t-input v-model="formData.date"></t-input>
       </t-form-item>
+
       <t-form-item label="个人网站" name="content.url">
         <t-input v-model="formData.content.url"></t-input>
       </t-form-item>
-      <t-form-item style="padding-top: 8px">
-        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
-        <t-button theme="default" variant="base" @click="handleClear">清空校验结果</t-button>
+
+      <t-form-item>
+        <t-space size="small">
+          <t-button theme="primary" type="submit">提交</t-button>
+          <t-button theme="default" variant="base" type="reset">重置</t-button>
+          <t-button theme="default" variant="base" @click="handleClear">清空校验结果</t-button>
+        </t-space>
       </t-form-item>
     </t-form>
-  </div>
+  </t-space>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-const INITIAL_DATA = {
+const formData = reactive({
   account: '',
   password: '',
   description: '',
@@ -89,10 +99,10 @@ const INITIAL_DATA = {
     url: '',
   },
   course: [],
-};
+});
 const form = ref(null);
-const formData = ref({ ...INITIAL_DATA });
 const errorConfig = ref('default');
+
 const courseOptions = [
   { label: '语文', value: '1' },
   { label: '数学', value: '2' },

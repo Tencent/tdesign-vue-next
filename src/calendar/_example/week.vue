@@ -1,24 +1,24 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <div class="tdesign-demo-block-column">
+  <t-space direction="vertical" size="large">
+    <t-space direction="vertical">
       <h3>使用插槽</h3>
       <t-calendar>
         <template #week="data">
           {{ data.day === 7 ? '星期天' : `星期${data.day}` }}
         </template>
       </t-calendar>
-    </div>
+    </t-space>
 
-    <div class="tdesign-demo-block-column">
+    <t-space direction="vertical">
       <h3>使用week属性 - Array</h3>
       <t-calendar :week="week" />
-    </div>
+    </t-space>
 
-    <div class="tdesign-demo-block-column">
+    <t-space direction="vertical">
       <h3>使用week属性 - TNode</h3>
       <t-calendar :week="renderWeek" />
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <script lang="jsx" setup>
