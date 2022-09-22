@@ -103,7 +103,7 @@ export default defineComponent({
     const renderImgItem = (file: UploadFile, index: number) => {
       const { iconMap, textMap } = getStatusMap();
       return (
-        <li class={`${uploadPrefix}__card-item`} key={file.name + index}>
+        <li class={`${uploadPrefix}__card-item`} key={file.name + index + file.percent + file.status}>
           <div
             class={classNames([
               `${uploadPrefix}__card-content`,

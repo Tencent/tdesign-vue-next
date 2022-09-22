@@ -58,7 +58,7 @@ const NormalFile = defineComponent({
       return files.map((file, index) => (
         <div
           class={`${uploadPrefix}__single-display-text ${uploadPrefix}__display-text--margin`}
-          key={file.name + index}
+          key={file.name + index + file.percent + file.status}
         >
           {file.url ? (
             <Link href={file.url} target="_blank" hover="color" size="small" class={`${uploadPrefix}__single-name`}>
@@ -79,7 +79,10 @@ const NormalFile = defineComponent({
           )}
           {file.status === 'progress' && renderProgress(file.percent)}
           {!disabled.value && file.status !== 'progress' && (
-            <CloseIcon class={`${uploadPrefix}__icon-delete`} onClick={(e) => props.onRemove({ e, file, index })} />
+            <CloseIcon
+              class={`${uploadPrefix}__icon-delete`}
+              onClick={(e: MouseEvent) => props.onRemove({ e, file, index })}
+            />
           )}
         </div>
       ));

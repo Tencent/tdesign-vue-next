@@ -7,7 +7,6 @@ import {
   upload,
   getTriggerTextField,
   getDisplayFiles,
-  updateProgress,
 } from '../../_common/js/upload/main';
 import { getFileUrlByFileRaw } from '../../_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
@@ -56,18 +55,18 @@ export default function useUpload(props: TdUploadProps) {
     });
   });
 
-  const updateFilesProgress = (files: UploadFile[]) => {
+  const updateFilesProgress = () => {
     if (props.autoUpload) {
-      updateProgress(toUploadFiles.value, props.multiple, files);
+      toUploadFiles.value = [...toUploadFiles.value];
     } else {
-      updateProgress(uploadValue.value, props.multiple, files);
+      uploadValue.value = [...uploadValue.value];
     }
   };
 
   const onResponseError = (p: OnResponseErrorContext) => {
     if (!p || !p.files || !p.files[0]) return;
     const { response, event, files } = p;
-    updateFilesProgress(p.files);
+    updateFilesProgress();
     props.onOneFileFail?.({
       e: event,
       file: files?.[0],
@@ -87,7 +86,7 @@ export default function useUpload(props: TdUploadProps) {
 
   // 多文件上传场景，单个文件进度
   const onResponseProgress = (p: InnerProgressContext) => {
-    updateFilesProgress(p.files);
+    updateFilesProgress();
     props.onProgress?.({
       e: p.event,
       file: p.file,
@@ -99,10 +98,9 @@ export default function useUpload(props: TdUploadProps) {
 
   // 多文件上传场景，单个文件上传成功后
   const onResponseSuccess = (p: SuccessContext) => {
-    p.files[0].percent = 100;
     // 只有多个上传请求同时触发时才需 onOneFileSuccess
     if (props.multiple && !props.uploadAllFilesInOneRequest) {
-      updateFilesProgress(p.files);
+      updateFilesProgress();
       props.onOneFileSuccess?.({
         e: p.event,
         file: p.files[0],
