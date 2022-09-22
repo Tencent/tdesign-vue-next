@@ -10,7 +10,7 @@
         theme="default"
         size="small"
         style="height: 22px"
-        @Click="uploadFiles"
+        @click="uploadFiles"
       >
         点击上传
       </t-button>
