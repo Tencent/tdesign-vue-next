@@ -13,7 +13,7 @@ images | Array | [] | Typescript：`Array<string | ImageInfo>` `interface ImageI
 index | Number | - | `v-model:index` is supported | N
 defaultIndex | Number | - | uncontrolled property | N
 mode | String | modal | options：modal/modeless | N
-navigationArrow | Boolean / Slot / Function | - | Typescript：`boolean | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+navigationArrow | Boolean / Slot / Function | true | Typescript：`boolean | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 showOverlay | Boolean | undefined | \- | N
 title | String / Slot / Function | - | preview title。Typescript：`string | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 trigger | String / Slot / Function | - | trigger element。Typescript：`string | TNode<{ open: () => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

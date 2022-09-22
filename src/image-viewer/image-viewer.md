@@ -13,7 +13,7 @@ images | Array | [] | 图片数组。`mainImage` 表示主图，必传；`thumbn
 index | Number | - | 当前预览图片所在的下标。支持语法糖 `v-model:index` | N
 defaultIndex | Number | - | 当前预览图片所在的下标。非受控属性 | N
 mode | String | modal | 模态预览（modal）和非模态预览（modeless)。可选项：modal/modeless | N
-navigationArrow | Boolean / Slot / Function | - | 切换预览图片的左图标，可自定义。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+navigationArrow | Boolean / Slot / Function | true | 切换预览图片的左图标，可自定义。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 showOverlay | Boolean | undefined | 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示 | N
 title | String / Slot / Function | - | 预览标题。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 trigger | String / Slot / Function | - | 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义。TS 类型：`string | TNode<{ open: () => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

@@ -50,6 +50,7 @@ export default {
   /** 切换预览图片的左图标，可自定义 */
   navigationArrow: {
     type: [Boolean, Function] as PropType<TdImageViewerProps['navigationArrow']>,
+    default: true,
   },
   /** 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示 */
   showOverlay: {

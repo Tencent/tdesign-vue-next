@@ -85,13 +85,39 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   <div
     class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
   >
-    <!---->
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(0deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
     <!---->
   </div>
   <div
     class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
   >
-    <!---->
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(180deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
     <!---->
   </div>
   
@@ -387,13 +413,39 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   <div
     class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
   >
-    <!---->
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(0deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
     <!---->
   </div>
   <div
     class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
   >
-    <!---->
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      style="font-size: 24px; transform: rotate(180deg);"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
     <!---->
   </div>
   
