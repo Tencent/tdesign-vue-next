@@ -84,11 +84,15 @@ export default defineComponent({
     );
 
     const popupClass = computed(() => {
-      return [
-        `${classPrefix.value}-select__dropdown-inner`,
-        `${classPrefix.value}-select__dropdown`,
-        'narrow-scrollbar',
-      ];
+      return [`${classPrefix.value}-select__dropdown`, 'narrow-scrollbar'];
+    });
+
+    const dropdownInnerSize = computed(() => {
+      return {
+        small: 's',
+        medium: 'm',
+        large: 'l',
+      }[props.size];
     });
 
     const isObjectValue = computed(() => props.valueType === 'object');
@@ -424,7 +428,12 @@ export default defineComponent({
         }
         v-slots={{
           panel: () => (
-            <div>
+            <div
+              class={[
+                `${classPrefix.value}-select__dropdown-inner`,
+                `${classPrefix.value}-select__dropdown-inner--size-${dropdownInnerSize.value}`,
+              ]}
+            >
               <p
                 v-show={props.loading && !tDisabled.value}
                 class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
