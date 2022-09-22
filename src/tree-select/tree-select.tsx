@@ -429,7 +429,10 @@ export default defineComponent({
         v-slots={{
           panel: () => (
             <div
-              class={`${classPrefix.value}-select__dropdown-inner ${classPrefix.value}-select__dropdown-inner--size-${dropdownInnerSize.value}`}
+              class={[
+                `${classPrefix.value}-select__dropdown-inner`,
+                `${classPrefix.value}-select__dropdown-inner--size-${dropdownInnerSize.value}`,
+              ]}
             >
               <p
                 v-show={props.loading && !tDisabled.value}
