@@ -2,7 +2,7 @@ import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue, TdCollapsePanelProps } from './type';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useCollapseAnimation from './useCollapseAnimation';
 
@@ -11,6 +11,7 @@ export default defineComponent({
   props,
   setup(props: TdCollapsePanelProps) {
     const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const componentName = usePrefixClass('collapse-panel');
     const disableClass = usePrefixClass('is-disabled');
     const clickableClass = usePrefixClass('is-clickable');
@@ -82,14 +83,14 @@ export default defineComponent({
     const renderBodyByNormal = () => {
       return (
         <div v-show={isActive.value} class={`${componentName.value}__body`}>
-          <div class={`${componentName.value}__content`}>{renderTNodeJSX('default')}</div>
+          <div class={`${componentName.value}__content`}>{renderContent('default', 'content')}</div>
         </div>
       );
     };
     const renderBodyDestroyOnCollapse = () => {
       return isActive.value ? (
         <div class={`${componentName.value}__body`}>
-          <div class={`${componentName.value}__content`}>{renderTNodeJSX('default')}</div>
+          <div class={`${componentName.value}__content`}>{renderContent('default', 'content')}</div>
         </div>
       ) : null;
     };

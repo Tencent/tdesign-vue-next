@@ -1,6 +1,6 @@
 <template>
   <div :style="{ width: '240px', height: '240px' }" class="tdesign-demo-image-viewer__base">
-    <t-image-viewer v-model:visible="visible" :images="images">
+    <t-image-viewer v-model:visible="visible" :images="images" :title="title">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image">
           <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -8,7 +8,7 @@
             <span><BrowseIcon size="1.4em" /> 预览</span>
           </div>
           <div class="tdesign-demo-image-viewer__ui-image--footer">
-            <span class="tdesign-demo-image-viewer__ui-image--title">相册封面标题</span>
+            <span class="tdesign-demo-image-viewer__ui-image--title">{{ title }}</span>
           </div>
         </div>
       </template>
@@ -26,6 +26,7 @@ const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
 
 const images = [img1, img2, img3];
 const visible = ref(false);
+const title = '相册封面标题';
 const onOpen = () => {
   visible.value = true;
 };

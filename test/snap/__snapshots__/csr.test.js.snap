@@ -40419,7 +40419,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     
     <div
       class="t-steps-item t-steps-item--finish"
-      data-v-96b659ea=""
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
@@ -40468,7 +40467,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     </div>
     <div
       class="t-steps-item t-steps-item--finish"
-      data-v-96b659ea=""
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
@@ -40517,7 +40515,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     </div>
     <div
       class="t-steps-item t-steps-item--error"
-      data-v-96b659ea=""
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
@@ -40566,7 +40563,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     </div>
     <div
       class="t-steps-item t-steps-item--default"
-      data-v-96b659ea=""
     >
       <div
         class="t-steps-item__inner t-steps-item--clickable"
@@ -64909,7 +64905,6 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/block.vue 1`] 
 exports[`csr snapshot test > csr test ./src/image-viewer/_example/button.vue 1`] = `
 <div>
   
-  
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
@@ -64922,7 +64917,6 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/button.vue 1`]
       
     </span>
   </button>
-  
   <!--teleport start-->
   <!--teleport end-->
   
@@ -100883,7 +100877,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/extra.vue 1`] = `
   
   <div
     class="t-steps-item t-steps-item--process"
-    data-v-3d26d66d=""
   >
     <div
       class="t-steps-item__inner "
@@ -100934,7 +100927,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/extra.vue 1`] = `
   </div>
   <div
     class="t-steps-item t-steps-item--default"
-    data-v-3d26d66d=""
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
@@ -100971,7 +100963,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/extra.vue 1`] = `
   </div>
   <div
     class="t-steps-item t-steps-item--default"
-    data-v-3d26d66d=""
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
@@ -101008,7 +100999,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/extra.vue 1`] = `
   </div>
   <div
     class="t-steps-item t-steps-item--default"
-    data-v-3d26d66d=""
   >
     <div
       class="t-steps-item__inner t-steps-item--clickable"
@@ -102461,7 +102451,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       
       <div
         class="t-steps-item t-steps-item--finish"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102494,7 +102483,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       </div>
       <div
         class="t-steps-item t-steps-item--process"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102527,7 +102515,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       </div>
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102560,7 +102547,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       </div>
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102600,7 +102586,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102632,14 +102617,13 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--process"
-        data-v-7f4a1ba9=""
+        class="t-steps-item t-steps-item--default"
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--process"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
@@ -102665,14 +102649,13 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
-        data-v-7f4a1ba9=""
+        class="t-steps-item t-steps-item--process"
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <!---->
           </div>
@@ -102699,7 +102682,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-no-sequence.
       </div>
       <div
         class="t-steps-item t-steps-item--finish"
-        data-v-7f4a1ba9=""
       >
         <div
           class="t-steps-item__inner "
@@ -102752,7 +102734,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       
       <div
         class="t-steps-item t-steps-item--finish"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -102801,7 +102782,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       </div>
       <div
         class="t-steps-item t-steps-item--process"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -102838,7 +102818,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       </div>
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -102875,7 +102854,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       </div>
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -102923,7 +102901,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       
       <div
         class="t-steps-item t-steps-item--default"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -102959,14 +102936,13 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--process"
-        data-v-48740715=""
+        class="t-steps-item t-steps-item--default"
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--process"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <span
               class="t-steps-item__icon--number"
@@ -102996,31 +102972,18 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
-        data-v-48740715=""
+        class="t-steps-item t-steps-item--process"
       >
         <div
           class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item__icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <span
               class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
+              2
             </span>
           </div>
           <div
@@ -103046,7 +103009,6 @@ exports[`csr snapshot test > csr test ./src/steps/_example/vertical-sequence.vue
       </div>
       <div
         class="t-steps-item t-steps-item--finish"
-        data-v-48740715=""
       >
         <div
           class="t-steps-item__inner "
@@ -103644,7 +103606,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 1;"
+            style="opacity: 1; z-index: 1;"
           >
             
             
@@ -103658,7 +103620,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103672,7 +103634,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103686,7 +103648,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103700,7 +103662,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             
@@ -103714,7 +103676,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/fade.vue 1`] = `
           </div>
           <div
             class="t-swiper__container__item t-swiper__fade"
-            style="opacity: 0;"
+            style="opacity: 0; z-index: 0;"
           >
             
             

@@ -80,6 +80,7 @@ export default defineComponent({
         return {
           opacity: active.value ? 1 : 0,
           transition: props.isSwitching ? `opacity ${props.duration / 1000}s` : '',
+          zIndex: active.value ? 1 : 0,
         };
       }
       if (props.type === 'card') {

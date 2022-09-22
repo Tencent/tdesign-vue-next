@@ -10,7 +10,6 @@ import {
   PrimaryTableRowEditContext,
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
-  PrimaryTableCellParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -71,6 +70,13 @@ export default defineComponent({
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
+    const cellParams = computed(() => ({
+      rowIndex: props.rowIndex,
+      colIndex: props.colIndex,
+      col: props.col,
+      row: props.row,
+    }));
+
     const currentRow = computed(() => {
       const newRow = { ...row.value };
       set(newRow, col.value.colKey, editValue.value);
@@ -96,10 +102,7 @@ export default defineComponent({
       if (!edit) return {};
       const editProps = isFunction(edit.props)
         ? edit.props({
-            col: col.value,
-            row: row.value,
-            rowIndex: props.rowIndex,
-            colIndex: props.colIndex,
+            ...cellParams.value,
             editedRow: currentRow.value,
           })
         : { ...edit.props };
@@ -120,23 +123,17 @@ export default defineComponent({
 
     const validateEdit = (trigger: 'self' | 'parent') => {
       return new Promise((resolve) => {
-        const cellParams: PrimaryTableCellParams<TableRowData> = {
-          col: props.col,
-          row: props.row,
-          colIndex: props.colIndex,
-          rowIndex: props.rowIndex,
-        };
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
             {
-              ...cellParams,
+              ...cellParams.value,
               errorList: [],
               value: editValue.value,
             },
           ],
           trigger,
         };
-        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams) : col.value.edit.rules;
+        const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams.value) : col.value.edit.rules;
         if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
           resolve(true);
@@ -195,9 +192,9 @@ export default defineComponent({
           updateAndSaveAbort(
             outsideAbortEvent,
             {
+              ...cellParams.value,
               trigger: itemEvent,
               newRowData: currentRow.value,
-              rowIndex: props.rowIndex,
             },
             ...args,
           );
@@ -210,11 +207,8 @@ export default defineComponent({
     const onEditChange = (val: any, ...args: any) => {
       editValue.value = val;
       const params = {
-        row: props.row,
-        rowIndex: props.rowIndex,
+        ...cellParams.value,
         value: val,
-        col: props.col,
-        colIndex: props.colIndex,
         editedRow: { ...props.row, [props.col.colKey]: val },
       };
       props.onChange?.(params);
@@ -225,9 +219,9 @@ export default defineComponent({
         updateAndSaveAbort(
           outsideAbortEvent,
           {
+            ...cellParams.value,
             trigger: 'onChange',
             newRowData: currentRow.value,
-            rowIndex: props.rowIndex,
           },
           ...args,
         );
@@ -249,9 +243,9 @@ export default defineComponent({
       }
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, {
+        ...cellParams.value,
         trigger: 'document',
         newRowData: currentRow.value,
-        rowIndex: props.rowIndex,
       });
     };
 
@@ -291,10 +285,7 @@ export default defineComponent({
           editValue.value = cellValue.value;
         } else if (editable === true) {
           props.onRuleChange?.({
-            col: col.value,
-            row: row.value,
-            rowIndex,
-            colIndex,
+            ...cellParams.value,
             value: cellValue.value,
             editedRow: row.value,
           });

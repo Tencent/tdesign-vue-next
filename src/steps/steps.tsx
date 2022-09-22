@@ -35,21 +35,12 @@ export default defineComponent({
     provide('StepsProps', props);
 
     const indexMap = ref({});
-    watchEffect(() => {
-      if (!props.options) return;
-      props.options?.forEach((item, index) => {
-        if (item.value !== undefined) indexMap.value[item.value] = index;
-      });
-    });
 
     const handleStatus = (itemProps: TdStepItemProps, index: number) => {
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined) {
-        if (props.sequence === 'positive' && index < innerCurrent.value) return 'finish';
-        if (props.sequence === 'reverse' && index > innerCurrent.value) return 'finish';
-      }
+      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
       // value 存在，找匹配位置
       if (itemProps.value !== undefined) {
         const matchIndex = indexMap.value[innerCurrent.value];
@@ -70,7 +61,7 @@ export default defineComponent({
     const getOptionListBySlots = (nodes: VNode[]) => {
       const arr: Array<TdStepItemProps> = [];
       nodes?.forEach((node) => {
-        const option = node?.props;
+        const option = node?.props || {};
         const children = node?.children;
         if (!option && !children) return;
         if (children && isObject(children)) {
@@ -95,31 +86,21 @@ export default defineComponent({
       return options;
     };
 
-    const renderContent = () => {
-      let content = null;
-      const options = getOptions();
-      const nodes: VNode[] = getChildComponentByName('StepItem') as VNode[];
-
-      content = options.map((item, index) => {
-        const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
-
-        const stepItem = (
-          <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />
-        );
-
-        if (nodes && nodes[index]) {
-          const vnode = nodes[index];
-          vnode.props = {
-            ...item,
-            index: stepIndex,
-            status: handleStatus(item, index),
-          };
-          return vnode;
-        }
-        return stepItem;
+    watchEffect(() => {
+      getOptions()?.forEach((item, index) => {
+        if (item.value !== undefined) indexMap.value[item.value] = index;
       });
+    });
 
-      return content;
+    const renderContent = () => {
+      const options = getOptions();
+
+      return options.map((item, index) => {
+        const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
+        index = item.value !== undefined ? index : stepIndex;
+
+        return <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
+      });
     };
 
     /** class calculate */

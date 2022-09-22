@@ -18,8 +18,8 @@ disabled | Boolean | false | 是否禁用 | N
 dragContent | String / Slot / Function | - | 用于自定义拖拽区域。TS 类型：`TNode<TriggerContext>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 draggable | Boolean | undefined | 是否启用拖拽上传，不同的组件风格默认值不同 | N
 fileListDisplay | Slot / Function | - | 用于完全自定义文件列表内容。TS 类型：`TNode<{ files: UploadFile[] }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-files | Array | [] | 已上传文件列表。支持语法糖 `v-model` 或 `v-model:files`。TS 类型：`Array<UploadFile>` | N
-defaultFiles | Array | [] | 已上传文件列表。非受控属性。TS 类型：`Array<UploadFile>` | N
+files | Array | [] | 已上传文件列表。支持语法糖 `v-model` 或 `v-model:files`。TS 类型：`Array<T>` | N
+defaultFiles | Array | [] | 已上传文件列表。非受控属性。TS 类型：`Array<T>` | N
 format | Function | - | 文件上传前转换文件的数据结构，可新增或修改文件对象的属性。TS 类型：`(file: File) => UploadFile` | N
 formatRequest | Function | - | 用于新增或修改文件上传请求参数。TS 类型：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
 formatResponse | Function | - | 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。<br/> 此函数的返回值 `error` 或 `response.error` 会作为错误文本提醒，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 或 `response.url` 会作为上传成功后的链接。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
@@ -43,7 +43,7 @@ uploadAllFilesInOneRequest | Boolean | false | 是否在同一个请求中上传
 useMockProgress | Boolean | true | 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。 | N
 withCredentials | Boolean | false | 上传请求时是否携带 cookie | N
 onCancelUpload | Function |  | TS 类型：`() => void`<br/>点击「取消上传」时触发 | N
-onChange | Function |  | TS 类型：`(value: Array<UploadFile>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'status-change' | 'progress' | 'fail'`<br/> | N
+onChange | Function |  | TS 类型：`(value: Array<T>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'progress-success' | 'progress' | 'progress-fail'`<br/> | N
 onDragenter | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>进入拖拽区域时触发 | N
 onDragleave | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>离开拖拽区域时触发 | N
 onDrop | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>拖拽结束时触发 | N
@@ -63,7 +63,7 @@ onWaitingUploadFilesChange | Function |  | TS 类型：`(context: { files: Array
 名称 | 参数 | 描述
 -- | -- | --
 cancel-upload | \- | 点击「取消上传」时触发
-change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'status-change' | 'progress' | 'fail'`<br/>
+change | `(value: Array<T>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'progress-success' | 'progress' | 'progress-fail'`<br/>
 dragenter | `(context: { e: DragEvent })` | 进入拖拽区域时触发
 dragleave | `(context: { e: DragEvent })` | 离开拖拽区域时触发
 drop | `(context: { e: DragEvent })` | 拖拽结束时触发

@@ -3,9 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { compileUsage } from '../../src/_common/docs/compile';
-// import camelCase from 'camelcase';
+import camelCase from 'camelcase';
 
-// import testCoverage from '../test-coverage';
+import testCoverage from '../test-coverage';
 
 const DEAULT_TABS = [
   { tab: 'demo', name: '示例' },
@@ -17,10 +17,10 @@ export default function mdToVue(options) {
   const mdSegment = customRender(options);
   const { demoDefsStr, demoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
 
-  // let coverage = '';
-  // if (mdSegment.isComponent) {
-  //   coverage = testCoverage[camelCase(mdSegment.componentName)] || '0%';
-  // }
+  let coverage = {};
+  if (mdSegment.isComponent) {
+    coverage = testCoverage[camelCase(mdSegment.componentName)] || {};
+  }
 
   const sfc = `
     <template>
@@ -34,6 +34,23 @@ export default function mdToVue(options) {
             spline="${mdSegment.spline}"
             ${mdSegment.isComponent ? `component-name="${mdSegment.componentName}"` : ''}
           >
+          ${
+            mdSegment.isComponent
+              ? `
+            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: lines" message="${
+              coverage.lines || '0%'
+            }" />
+            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: functions" message="${
+              coverage.functions || '0%'
+            }" />
+            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: statements" message="${
+              coverage.statements || '0%'
+            }" />
+            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: branches" message="${
+              coverage.branches || '0%'
+            }" />`
+              : ''
+          }
           </td-doc-header>`
             : ''
         }
@@ -111,7 +128,7 @@ export default function mdToVue(options) {
           document.title = \`${mdSegment.title} | TDesign\`;
 
           Prismjs.highlightAll();
-    
+
           this.$emit('loaded', () => {
             tdDocContent.pageStatus = 'show';
           });
