@@ -93,7 +93,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
-import { CloseIcon } from 'tdesign-icons-vue-next';
+// import { CloseIcon } from 'tdesign-icons-vue-next';
 
 const uploadRef1 = ref();
 const uploadRef2 = ref();

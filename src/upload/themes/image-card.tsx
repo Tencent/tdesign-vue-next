@@ -46,8 +46,6 @@ export default defineComponent({
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
     });
 
-    const visible = reactive({});
-
     const showTrigger = computed(() => {
       if (multiple.value) {
         return !max.value || displayFiles.value.length < max.value;

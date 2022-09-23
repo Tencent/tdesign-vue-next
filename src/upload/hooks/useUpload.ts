@@ -58,8 +58,6 @@ export default function useUpload(props: TdUploadProps) {
   const updateFilesProgress = () => {
     if (props.autoUpload) {
       toUploadFiles.value = [...toUploadFiles.value];
-    } else {
-      uploadValue.value = [...uploadValue.value];
     }
   };
 

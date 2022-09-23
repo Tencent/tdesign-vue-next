@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, h } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   TimeFilledIcon as TdTimeFilledIcon,
