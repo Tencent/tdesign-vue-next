@@ -3,7 +3,6 @@ import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import { CommonDisplayFileProps, commonProps } from '../interface';
 import { useContent } from '../../hooks/tnode';
 import { TdUploadProps } from '../type';
-import { TNode } from '../../common';
 
 export interface CustomFileProps extends CommonDisplayFileProps {
   dragEvents: UploadDragEvents;

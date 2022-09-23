@@ -77,7 +77,7 @@ export default function useUpload(props: TdUploadProps) {
     // 单选或多文件替换，需要清空上一次上传成功的文件
     if (!props.multiple || props.isBatchUpload) {
       setUploadValue([], {
-        trigger: 'fail',
+        trigger: 'progress-fail',
         e: p.event,
         file: p.files[0],
       });
@@ -245,10 +245,12 @@ export default function useUpload(props: TdUploadProps) {
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
-          setUploadValue([...data.files], {
-            trigger: props.autoUpload ? 'add' : 'status-change',
-            file: data.files[0],
-          });
+          if (props.autoUpload) {
+            setUploadValue([...data.files], {
+              trigger: 'add',
+              file: data.files[0],
+            });
+          }
           props.onSuccess?.({
             fileList: data.files,
             currentFiles: files,
