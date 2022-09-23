@@ -134,12 +134,16 @@ export default defineComponent({
     const isModeLess = computed(() => props.mode === 'modeless');
     // 是否普通对话框，没有脱离文档流的对话框
     const isNormal = computed(() => props.mode === 'normal');
+    // 是否全屏对话框
+    const isFullScreen = computed(() => props.mode === 'full-screen');
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
     const positionClass = computed(() => {
       if (isNormal.value) return [];
+      if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_full-screen`];
+
       return [
         `${COMPONENT_NAME.value}__position`,
         !!props.top && `${COMPONENT_NAME.value}--top`,
@@ -148,6 +152,8 @@ export default defineComponent({
     });
     const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
+      if (isFullScreen.value) return {}; // 全屏模式，top属性不生效
+
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
       let topStyle = {};
@@ -161,21 +167,22 @@ export default defineComponent({
       const dialogClass = [
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}--default`,
-        `${COMPONENT_NAME.value}--${props.placement}`,
+        !isFullScreen.value && `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
+        isFullScreen.value && `${COMPONENT_NAME.value}__full-screen`,
       ];
       return dialogClass;
     });
     const dialogStyle = computed(() => {
-      return { width: GetCSSValue(props.width) };
+      return !isFullScreen.value ? { width: GetCSSValue(props.width) } : {}; // width全屏模式不生效
     });
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
-          if (isModal.value && !props.showInAttachedElement) {
+          if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (scrollWidth.value > 0 && props.preventScrollThrough) {
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
@@ -370,6 +377,7 @@ export default defineComponent({
       scrollWidth,
       isModal,
       isModeLess,
+      isFullScreen,
       maskClass,
       dialogClass,
       dialogStyle,
@@ -382,7 +390,7 @@ export default defineComponent({
   },
   render() {
     const { COMPONENT_NAME } = this;
-    const maskView = this.isModal && <div key="mask" class={this.maskClass}></div>;
+    const maskView = (this.isModal || this.isFullScreen) && <div key="mask" class={this.maskClass}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
@@ -392,7 +400,7 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.isModal || this.isFullScreen,
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
         [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },
