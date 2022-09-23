@@ -1,10 +1,15 @@
 <template>
-  <t-space>
+  <t-space direction="vertical">
     <t-date-picker clearable :prefix-icon="renderPrefixIcon">
       <template #suffixIcon>
         <lock-on-icon />
       </template>
     </t-date-picker>
+    <t-date-range-picker clearable :prefix-icon="renderPrefixIcon">
+      <template #suffixIcon>
+        <lock-on-icon />
+      </template>
+    </t-date-range-picker>
   </t-space>
 </template>
 
