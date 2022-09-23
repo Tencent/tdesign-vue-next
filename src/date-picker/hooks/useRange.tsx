@@ -2,6 +2,7 @@ import { ref, computed, watchEffect } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
+import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 
@@ -15,6 +16,7 @@ export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
   const { globalConfig } = useConfig('datePicker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
+  const renderTNodeJSX = useTNodeJSX();
 
   const isMountedRef = ref(false);
   const inputRef = ref();
@@ -39,12 +41,14 @@ export default function useRange(props: TdDateRangePickerProps) {
     ...props.rangeInputProps,
     ref: inputRef,
     clearable: props.clearable,
-    prefixIcon: props.prefixIcon,
+    prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,
     separator: props.separator,
     placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
     activeIndex: popupVisible.value ? activeIndex.value : undefined,
-    suffixIcon: props.suffixIcon || (() => <CalendarIcon />),
+    suffixIcon: () => {
+      return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
+    },
     class: {
       [`${COMPONENT_NAME.value}__input--placeholder`]: isHoverCell.value,
     },
