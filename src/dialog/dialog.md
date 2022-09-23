@@ -1,34 +1,5 @@
 :: BASE_DOC ::
 
-### 插件函数式调用
-插件调用方式一：`this.$dialog(options)`
-
-插件调用方式二：`this.$dialog.confirm(options)`
-
-插件调用方式三：`this.$dialog.alert(options)`
-
-<br />
-
-函数调用方式一：`DialogPlugin(options)`
-
-函数调用方式二：`DialogPlugin.confirm(options)`
-
-函数调用方式三：`DialogPlugin.alert(options)`
-
-<br />
-
-组件实例：`DialogInstance = this.$dialog(options)` 或者 组件实例：`DialogInstance = DialogPlugin(options)`
-
-组件实例方法-销毁弹框：`DialogInstance.destroy()`
-
-组件实例方法-隐藏弹框：`DialogInstance.hide()`
-
-组件实例方法-显示弹窗：`DialogInstance.show()`
-
-组件实例方法-更新弹框：`DialogInstance.update()`
-
-{{ plugin }}
-
 ## API
 ### Dialog Props
 
@@ -44,14 +15,13 @@ confirmBtn | String / Object / Slot / Function | '' | 确认按钮。值为 null
 confirmOnEnter | Boolean | - | 是否在按下回车键时，触发确认事件 | N
 default | String / Slot / Function | - | 对话框内容，同 body。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素 | N
-draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框`mode='modeless'`时有效） | N
+draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框时有效） | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-fullscreen | Boolean | false | 对话框是否占满整个容器 | N
 header | String / Boolean / Slot / Function | true | 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容。TS 类型：`string | boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-mode | String | modal | 对话框类型，有三种：模态对话框、非模态对话框和普通对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件。可选项：modal/modeless/normal | N
+mode | String | modal | 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件。可选项：modal/modeless/normal/full-screen | N
 placement | String | top | 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小。可选项：top/center | N
 preventScrollThrough | Boolean | true | 防止滚动穿透 | N
-showInAttachedElement | Boolean | false | 【开发中】仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative | N
+showInAttachedElement | Boolean | false | 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative | N
 showOverlay | Boolean | true | 是否显示遮罩层 | N
 theme | String | default | 对话框风格。可选项：default/info/warning/danger/success | N
 top | String / Number | - | 用于弹框具体窗口顶部的距离，优先级大于 placement | N

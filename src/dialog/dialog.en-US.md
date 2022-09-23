@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Dialog Props
 
 name | type | default | description | required
@@ -18,9 +17,8 @@ default | String / Slot / Function | - | Typescript：`string | TNode`。[see mo
 destroyOnClose | Boolean | false | \- | N
 draggable | Boolean | false | \- | N
 footer | Boolean / Slot / Function | true | Typescript：`boolean | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-fullscreen | Boolean | false | \- | N
 header | String / Boolean / Slot / Function | true | Typescript：`string | boolean | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-mode | String | modal | options：modal/modeless/normal | N
+mode | String | modal | options：modal/modeless/normal/full-screen | N
 placement | String | top | options：top/center | N
 preventScrollThrough | Boolean | true | \- | N
 showInAttachedElement | Boolean | false | \- | N

@@ -36,12 +36,6 @@
     "options": []
   },
   {
-    "name": "fullscreen",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "header",
     "type": "Boolean",
     "defaultValue": true,
@@ -63,6 +57,10 @@
       {
         "label": "normal",
         "value": "normal"
+      },
+      {
+        "label": "full-screen",
+        "value": "full-screen"
       }
     ]
   },

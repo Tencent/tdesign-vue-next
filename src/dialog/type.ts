@@ -65,20 +65,15 @@ export interface TdDialogProps {
    */
   footer?: boolean | TNode;
   /**
-   * 对话框是否全屏展示
-   * @default false
-   */
-  fullscreen?: boolean;
-  /**
    * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容
    * @default true
    */
   header?: string | boolean | TNode;
   /**
-   * 对话框类型，有三种：模态对话框、非模态对话框和普通对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件
+   * 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件
    * @default modal
    */
-  mode?: 'modal' | 'modeless' | 'normal';
+  mode?: 'modal' | 'modeless' | 'normal' | 'full-screen';
   /**
    * 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小
    * @default top
@@ -90,7 +85,7 @@ export interface TdDialogProps {
    */
   preventScrollThrough?: boolean;
   /**
-   * 【开发中】仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative
+   * 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative
    * @default false
    */
   showInAttachedElement?: boolean;
@@ -138,7 +133,7 @@ export interface TdDialogProps {
    */
   onClosed?: () => void;
   /**
-   * 如果“确认”按钮存在，则点击“确认”按钮时触发
+   * 如果“确认”按钮存在，则点击“确认”按钮时触发，或者键盘按下回车键时触发
    */
   onConfirm?: (context: { e: MouseEvent | KeyboardEvent }) => void;
   /**

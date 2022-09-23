@@ -139,7 +139,7 @@ export default defineComponent({
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
     const positionClass = computed(() => {
-      if (isNormal.value || props.fullscreen) return [];
+      if (isNormal.value) return [];
       return [
         `${COMPONENT_NAME.value}__position`,
         !!props.top && `${COMPONENT_NAME.value}--top`,
@@ -163,13 +163,12 @@ export default defineComponent({
         `${COMPONENT_NAME.value}--default`,
         `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
-        isModeLess.value && props.draggable && !props.fullscreen && `${COMPONENT_NAME.value}--draggable`,
-        props.fullscreen && `${COMPONENT_NAME.value}--fullscreen`,
+        isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
       ];
       return dialogClass;
     });
     const dialogStyle = computed(() => {
-      return !props.fullscreen ? { width: GetCSSValue(props.width) } : {};
+      return { width: GetCSSValue(props.width) };
     });
 
     watch(
@@ -188,12 +187,6 @@ export default defineComponent({
                   mousePosition.y - dialogEle.value.offsetTop
                 }px`;
               }
-              // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
-              (document.activeElement as HTMLElement).blur();
-            });
-          } else if (props.fullscreen) {
-            props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
-            nextTick(() => {
               // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
               (document.activeElement as HTMLElement).blur();
             });
@@ -399,9 +392,9 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal' || this.fullscreen,
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
-        [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess && !this.fullscreen,
+        [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },
     ];
     return (
