@@ -2,7 +2,7 @@
   <div class="switch-demo">
     <div class="tdesign-demo-block">
       <t-switch v-model="checked" size="large" />
-      <t-switch :default-value="true" size="medium" />
+      <t-switch disabled :default-value="true" size="medium" />
       <t-switch size="small" />
     </div>
   </div>
