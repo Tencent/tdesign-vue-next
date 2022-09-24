@@ -142,7 +142,7 @@ export default defineComponent({
     ]);
     const positionClass = computed(() => {
       if (isNormal.value) return [];
-      if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_full-screen`];
+      if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_fullscreen`];
 
       return [
         `${COMPONENT_NAME.value}__position`,
@@ -164,14 +164,19 @@ export default defineComponent({
       return topStyle;
     });
     const dialogClass = computed(() => {
-      const dialogClass = [
+      let dialogClass = [
         `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}--default`,
-        !isFullScreen.value && `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
-        isFullScreen.value && `${COMPONENT_NAME.value}__full-screen`,
       ];
+
+      isFullScreen.value
+        ? (dialogClass = [...dialogClass, `${COMPONENT_NAME.value}__fullscreen`])
+        : (dialogClass = [
+            ...dialogClass,
+            `${COMPONENT_NAME.value}--default`,
+            `${COMPONENT_NAME.value}--${props.placement}`,
+          ]);
       return dialogClass;
     });
     const dialogStyle = computed(() => {
@@ -316,12 +321,28 @@ export default defineComponent({
           })}
         </div>
       );
+      const headerClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__header`, 'header-fullscreen']
+        : `${COMPONENT_NAME.value}__header`;
+
+      const closeClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__close`, 'close-fullscreen']
+        : `${COMPONENT_NAME.value}__close`;
+
       const bodyClassName =
-        props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
+        props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
+      isFullScreen.value && bodyClassName.push('body-fullscreen');
+
+      const footerClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__footer`, 'footer-fullscreen']
+        : `${COMPONENT_NAME.value}__footer`;
+
       const footerContent = renderTNodeJSX('footer', defaultFooter);
+
       const onStopDown = (e: MouseEvent) => {
         if (isModeLess.value && props.draggable) e.stopPropagation();
       };
+
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -339,14 +360,14 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={`${COMPONENT_NAME.value}__header`} onmousedown={onStopDown}>
+              <div class={headerClassName} onmousedown={onStopDown}>
                 <div class={`${COMPONENT_NAME.value}__header-content`}>
                   {getIcon()}
                   {renderTNodeJSX('header', defaultHeader)}
                 </div>
 
                 {props.closeBtn ? (
-                  <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
+                  <span class={closeClassName} onClick={closeBtnAction}>
                     {renderTNodeJSX('closeBtn', defaultCloseBtn)}
                   </span>
                 ) : null}
@@ -355,7 +376,7 @@ export default defineComponent({
                 {body}
               </div>
               {footerContent && (
-                <div class={`${COMPONENT_NAME.value}__footer`} onmousedown={onStopDown}>
+                <div class={footerClassName} onmousedown={onStopDown}>
                   {footerContent}
                 </div>
               )}
