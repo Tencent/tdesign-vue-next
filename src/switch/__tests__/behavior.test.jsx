@@ -4,8 +4,8 @@ import Switch from '@/src/switch/index.ts';
 
 describe('switch', () => {
   describe('behavior test', () => {
-    describe('behavior for props.disabeld', () => {
-      it('disabeld={true} can forbbid onChange event', async () => {
+    describe('behavior for props.disabled', () => {
+      it('disabled={true} can forbbid onChange event', async () => {
         const defaultValue = false;
         const wrapper = mount({
           render() {
