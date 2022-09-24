@@ -1,12 +1,16 @@
 import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
-import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { abridgeName, getFileSizeText, getCurrentDate } from '../../_common/js/upload/utils';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
 import { CommonDisplayFileProps, commonProps } from '../interface';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
 
 export interface DraggerProps extends CommonDisplayFileProps {
   trigger?: TdUploadProps['trigger'];
@@ -45,6 +49,11 @@ export default defineComponent({
       { [`${uploadPrefix}__dragger-error`]: displayFiles.value[0]?.status === 'fail' },
     ]);
 
+    const { CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
+      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
+      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
+    });
+
     const renderImage = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
@@ -67,12 +76,15 @@ export default defineComponent({
     const renderMainPreview = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
+      const fileName = props.abridgeName
+        ? abridgeName(file.name, props.abridgeName[0], props.abridgeName[1])
+        : file.name;
       return (
         <div class={`${uploadPrefix}__dragger-progress`}>
           {props.theme === 'image' && renderImage()}
           <div class={`${uploadPrefix}__dragger-progress-info`}>
             <div class={`${uploadPrefix}__dragger-text`}>
-              <span class={`${uploadPrefix}__single-name`}>{abridgeName(file.name)}</span>
+              <span class={`${uploadPrefix}__single-name`}>{fileName}</span>
               {file.status === 'progress' && renderUploading()}
               {file.status === 'success' && <CheckCircleFilledIcon />}
               {file.status === 'fail' && <ErrorCircleFilledIcon />}
@@ -81,7 +93,7 @@ export default defineComponent({
               {locale.value.file.fileSizeText}：{getFileSizeText(file.size)}
             </small>
             <small class={`${sizeClassNames.small}`}>
-              {locale.value.file.fileOperationDateText}：{file.uploadTime || getCurrentDate()}
+              {locale.value.file.fileOperationDateText}：{file.uploadTime || '-'}
             </small>
             <div class={`${uploadPrefix}__dragger-btns`}>
               {['progress', 'waiting'].includes(file.status) && !disabled && (

@@ -280,7 +280,7 @@ export default function useUpload(props: TdUploadProps) {
     );
   }
 
-  function onRemove(p: UploadRemoveContext) {
+  function onInnerRemove(p: UploadRemoveContext) {
     sizeOverLimitMessage.value = '';
     p.e.stopPropagation?.();
     const changePrams: UploadChangeContext = {
@@ -294,7 +294,6 @@ export default function useUpload(props: TdUploadProps) {
       toUploadFiles.value = [];
       props.onWaitingUploadFilesChange?.({ files: [], trigger: 'remove' });
       setUploadValue([], changePrams);
-      props.onRemove?.(p);
     } else if (!props.autoUpload) {
       uploadValue.value.splice(p.index, 1);
       setUploadValue([...uploadValue.value], changePrams);
@@ -312,9 +311,9 @@ export default function useUpload(props: TdUploadProps) {
     props.onRemove?.(p);
   }
 
-  const triggerUpload = (e: MouseEvent) => {
+  const triggerUpload = (e?: MouseEvent) => {
     if (disabled.value) return;
-    e.stopPropagation?.();
+    e?.stopPropagation?.();
     (inputRef.value as HTMLInputElement).click();
   };
 
@@ -339,7 +338,7 @@ export default function useUpload(props: TdUploadProps) {
     }
 
     if (context?.file) {
-      onRemove?.({ file: context.file, e: context.e, index: 0 });
+      onInnerRemove?.({ file: context.file, e: context.e, index: 0 });
     }
   };
 
@@ -362,7 +361,7 @@ export default function useUpload(props: TdUploadProps) {
     onFileChange,
     onNormalFileChange,
     onDragFileChange,
-    onRemove,
+    onInnerRemove,
     triggerUpload,
     cancelUpload,
   };

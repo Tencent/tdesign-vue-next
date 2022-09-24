@@ -1,5 +1,10 @@
 <template>
-  <div class="t-upload__img-flow-demo">
+  <t-space direction="vertical">
+    <div>
+      是否自动上传：
+      <t-switch v-model="autoUpload" />
+    </div>
+    <br />
     <t-upload
       v-model="files"
       action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
@@ -7,14 +12,20 @@
       theme="image-flow"
       accept="image/*"
       multiple
-      :auto-upload="false"
+      :auto-upload="autoUpload"
       :max="8"
     ></t-upload>
-  </div>
+  </t-space>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 
-const files = ref([]);
+const autoUpload = ref(false);
+const files = ref([
+  // {
+  //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  //   name: 'loading.svg',
+  // },
+]);
 </script>
-<style></style>

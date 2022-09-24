@@ -32,7 +32,7 @@ export default defineComponent({
       errorClasses,
       inputRef,
       disabled,
-      onRemove,
+      onInnerRemove,
       uploadFiles,
       onNormalFileChange,
       onDragFileChange,
@@ -84,7 +84,7 @@ export default defineComponent({
       autoUpload: props.autoUpload,
       abridgeName: props.abridgeName,
       fileListDisplay: props.fileListDisplay,
-      onRemove,
+      onRemove: onInnerRemove,
     }));
 
     const dragProps: UploadDragEvents = {
