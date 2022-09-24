@@ -23,7 +23,7 @@
         </t-swiper-item>
       </t-swiper>
     </div>
-    <div class="tdesign-demo-block--swiper-new" :style="{ width: '500px', marginTop: '20px' }">
+    <div class="tdesign-demo-block--swiper" :style="{ width: '500px', marginTop: '20px' }">
       <h3>small</h3>
       <t-swiper :navigation="{ size: 'small' }">
         <t-swiper-item>

@@ -104475,7 +104475,7 @@ exports[`csr snapshot test > csr test ./src/swiper/_example/size.vue 1`] = `
     </div>
   </div>
   <div
-    class="tdesign-demo-block--swiper-new"
+    class="tdesign-demo-block--swiper"
     style="width: 500px; margin-top: 20px;"
   >
     <h3>
