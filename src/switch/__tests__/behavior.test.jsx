@@ -5,7 +5,7 @@ import Switch from '@/src/switch/index.ts';
 describe('switch', () => {
   describe('behavior test', () => {
     describe('behavior for props.disabeld', () => {
-      it('disabeld={true} can forbbid changeValue event', async () => {
+      it('disabeld={true} can forbbid onChange event', async () => {
         const defaultValue = false;
         const wrapper = mount({
           render() {
@@ -44,6 +44,21 @@ describe('switch', () => {
         });
         await wrapper.trigger('click');
         expect(customValue.includes(onChangeEventCallbackValue)).toBe(true);
+      });
+    });
+    describe('behavior for props.loading', () => {
+      it('loading={true} can forbbid onChange event', async () => {
+        let isChangeEventTrigger = false;
+        const onChangeFn = (val) => {
+          isChangeEventTrigger = true;
+        };
+        const wrapper = mount({
+          render() {
+            return <Switch loading={true} onChange={onChangeFn} />;
+          },
+        });
+        await wrapper.trigger('click');
+        expect(isChangeEventTrigger === false).toBe(true);
       });
     });
   });
