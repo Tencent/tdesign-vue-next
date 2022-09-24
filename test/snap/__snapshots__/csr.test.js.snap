@@ -38444,7 +38444,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
             class=""
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -38530,7 +38530,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
             class=""
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
+              class="t-dialog t-dialog__modal-info t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -38628,7 +38628,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
             class=""
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
+              class="t-dialog t-dialog__modal-warning t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -38726,7 +38726,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
             class=""
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
+              class="t-dialog t-dialog__modal-danger t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -38824,7 +38824,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
             class=""
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
+              class="t-dialog t-dialog__modal-success t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -47613,7 +47613,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/async.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -47839,7 +47839,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -47962,7 +47962,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
           class="t-dialog__position t-dialog--center"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--center"
           >
             <div
               class="t-dialog__header"
@@ -48059,7 +48059,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
         class="t-dialog__position t-dialog--top"
       >
         <div
-          class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+          class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
         >
           <div
             class="t-dialog__header"
@@ -48204,7 +48204,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/base.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -48385,7 +48385,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
                 class="t-dialog__position t-dialog--top"
               >
                 <div
-                  class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                  class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
                 >
                   <div
                     class="t-dialog__header"
@@ -48480,7 +48480,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
                 class="t-dialog__position t-dialog--top"
               >
                 <div
-                  class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                  class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
                 >
                   <div
                     class="t-dialog__header"
@@ -48575,7 +48575,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
                 class="t-dialog__position t-dialog--top"
               >
                 <div
-                  class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+                  class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
                 >
                   <div
                     class="t-dialog__header"
@@ -48744,7 +48744,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -48840,7 +48840,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--draggable"
+            class="t-dialog t-dialog__modal-default t-dialog--draggable t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -48933,7 +48933,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49031,7 +49031,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
           class=""
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
+            class="t-dialog t-dialog__modal-info t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49129,7 +49129,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
           class=""
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
+            class="t-dialog t-dialog__modal-warning t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49227,7 +49227,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
           class=""
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
+            class="t-dialog t-dialog__modal-danger t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49325,7 +49325,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
           class=""
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
+            class="t-dialog t-dialog__modal-success t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49594,7 +49594,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
           class=""
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49687,7 +49687,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--draggable"
+            class="t-dialog t-dialog__modal-default t-dialog--draggable t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49783,7 +49783,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -49881,7 +49881,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -50201,7 +50201,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
           class="t-dialog__position t-dialog--top"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -50289,7 +50289,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
           class="t-dialog__position t-dialog--center"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--center"
           >
             <div
               class="t-dialog__header"
@@ -50378,7 +50378,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
           style="padding-top: 50px;"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
           >
             <div
               class="t-dialog__header"
@@ -50466,7 +50466,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
           class="t-dialog__position t-dialog--center"
         >
           <div
-            class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default"
+            class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--center"
           >
             <div
               class="t-dialog__header"
@@ -50724,7 +50724,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
+              class="t-dialog t-dialog__modal-info t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -50850,7 +50850,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
+              class="t-dialog t-dialog__modal-success t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -50976,7 +50976,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
+              class="t-dialog t-dialog__modal-warning t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -51093,7 +51093,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
+              class="t-dialog t-dialog__modal-danger t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
@@ -51210,7 +51210,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
             class="t-dialog__position t-dialog--top"
           >
             <div
-              class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default"
+              class="t-dialog t-dialog__modal-default t-dialog--default t-dialog--top"
             >
               <div
                 class="t-dialog__header"
