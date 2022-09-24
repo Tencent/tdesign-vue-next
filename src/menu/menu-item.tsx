@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, onMounted, ref } from 'vue';
+import { defineComponent, computed, inject, onMounted, ref, toRefs } from 'vue';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
@@ -11,6 +11,7 @@ export default defineComponent({
   props: { ...props },
   emits: ['click'],
   setup(props, ctx) {
+    const { href, target = '_self' } = toRefs(props);
     const classPrefix = usePrefixClass();
     const menu = inject<TdMenuInterface>('TdMenu');
     const itemRef = ref<HTMLElement>();
@@ -38,16 +39,17 @@ export default defineComponent({
       active,
       classes,
       itemRef,
+      href,
+      target,
     };
   },
   methods: {
-    handleClick() {
+    handleClick(e: MouseEvent) {
+      e.stopPropagation();
       if (this.disabled) return;
       this.menu.select(this.value);
       emitEvent(this, 'click');
-      if (this.href) {
-        window.open(this.href, this.target);
-      } else if (this.to) {
+      if (this.to) {
         const router = this.router || this.$router;
         const methods: string = this.replace ? 'replace' : 'push';
         router[methods](this.to).catch((err: Error) => {
@@ -68,7 +70,13 @@ export default defineComponent({
     return (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
-        <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
+        {this.href ? (
+          <a href={this.href} target={this.target} className={`${this.classPrefix}-menu__item-link`}>
+            <span className={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+          </a>
+        ) : (
+          <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
+        )}
       </li>
     );
   },
