@@ -54,7 +54,7 @@ export default function useColumnResize(
 
   // 表格列宽拖拽事件
   // 只在表头显示拖拽图标
-  const onColumnMouseover = (e: MouseEvent) => {
+  const onColumnMouseover = (e: MouseEvent, col: BaseTableCol<TableRowData>) => {
     if (!resizeLineRef.value) return;
 
     const target = (e.target as HTMLElement).closest('th');
@@ -63,25 +63,30 @@ export default function useColumnResize(
       // 当离右边框的距离不超过 8 时，显示拖拽图标
       const distance = 8;
       if (targetBoundRect.right - e.pageX <= distance) {
-        target.style.cursor = 'col-resize';
-        resizeLineParams.draggingCol = target;
-        resizeLineParams.effectCol = 'next';
+        const colResizable = col.resizable ?? true;
+        if (colResizable) {
+          target.style.cursor = 'col-resize';
+          resizeLineParams.draggingCol = target;
+          resizeLineParams.effectCol = 'next';
+          return;
+        }
       } else if (e.pageX - targetBoundRect.left <= distance) {
         const prevEl = target.previousElementSibling;
         if (prevEl) {
-          target.style.cursor = 'col-resize';
-          resizeLineParams.draggingCol = prevEl as HTMLElement;
-          resizeLineParams.effectCol = 'prev';
-        } else {
-          target.style.cursor = '';
-          resizeLineParams.draggingCol = null;
-          resizeLineParams.effectCol = null;
+          const effectPrevCol = effectColMap.value[col.colKey].prev;
+          const colResizable = effectPrevCol.resizable ?? true;
+          if (colResizable) {
+            target.style.cursor = 'col-resize';
+            resizeLineParams.draggingCol = prevEl as HTMLElement;
+            resizeLineParams.effectCol = 'prev';
+            return;
+          }
         }
-      } else {
-        target.style.cursor = '';
-        resizeLineParams.draggingCol = null;
-        resizeLineParams.effectCol = null;
       }
+      // 重置记录值
+      target.style.cursor = '';
+      resizeLineParams.draggingCol = null;
+      resizeLineParams.effectCol = null;
     }
   };
 
