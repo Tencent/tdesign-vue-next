@@ -68,10 +68,10 @@ export default defineComponent({
         showOverlay={props.showOverlay}
         class={`${classPrefix.value}-image-viewer__dialog`}
         header={() => (
-          <div class={`${classPrefix.value}-image-viewer__mini--header`}>
+          <div class={`${classPrefix.value}-image-viewer__mini-header`}>
             {`${props.index + 1}/${props.images.length}`}
             <span
-              class={`${classPrefix.value}-image-viewer__mini--close`}
+              class={`${classPrefix.value}-image-viewer__mini-close`}
               onClick={(e: MouseEvent) => {
                 props.onClose({ e, trigger: 'close-btn' });
               }}
