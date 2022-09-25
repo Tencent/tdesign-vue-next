@@ -164,19 +164,17 @@ export default defineComponent({
       return topStyle;
     });
     const dialogClass = computed(() => {
-      let dialogClass = [
+      const dialogClass = [
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
       ];
 
-      isFullScreen.value
-        ? (dialogClass = [...dialogClass, `${COMPONENT_NAME.value}__fullscreen`])
-        : (dialogClass = [
-            ...dialogClass,
-            `${COMPONENT_NAME.value}--default`,
-            `${COMPONENT_NAME.value}--${props.placement}`,
-          ]);
+      if (isFullScreen.value) {
+        dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
+      } else {
+        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
+      }
       return dialogClass;
     });
     const dialogStyle = computed(() => {
@@ -322,11 +320,11 @@ export default defineComponent({
         </div>
       );
       const headerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__header`, 'header-fullscreen']
+        ? `${COMPONENT_NAME.value}__header--fullscreen`
         : `${COMPONENT_NAME.value}__header`;
 
       const closeClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__close`, 'close-fullscreen']
+        ? `${COMPONENT_NAME.value}__close--fullscreen`
         : `${COMPONENT_NAME.value}__close`;
 
       const bodyClassName =
@@ -334,7 +332,7 @@ export default defineComponent({
       isFullScreen.value && bodyClassName.push('body-fullscreen');
 
       const footerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__footer`, 'footer-fullscreen']
+        ? `${COMPONENT_NAME.value}__footer--fullscreen`
         : `${COMPONENT_NAME.value}__footer`;
 
       const footerContent = renderTNodeJSX('footer', defaultFooter);
