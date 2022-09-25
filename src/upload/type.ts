@@ -67,20 +67,15 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   fileListDisplay?: TNode<{ files: UploadFile[] }>;
   /**
-   * 已上传文件列表
+   * 已上传文件列表，同 `value`
    * @default []
    */
   files?: Array<T>;
   /**
-   * 已上传文件列表，非受控属性
+   * 已上传文件列表，同 `value`，非受控属性
    * @default []
    */
   defaultFiles?: Array<T>;
-  /**
-   * 已上传文件列表
-   * @default []
-   */
-  modelValue?: Array<T>;
   /**
    * 文件上传前转换文件的数据结构，可新增或修改文件对象的属性
    */
@@ -177,6 +172,21 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   useMockProgress?: boolean;
   /**
+   * 已上传文件列表，同 `files`
+   * @default []
+   */
+  value?: Array<T>;
+  /**
+   * 已上传文件列表，同 `files`，非受控属性
+   * @default []
+   */
+  defaultValue?: Array<T>;
+  /**
+   * 已上传文件列表，同 `files`
+   * @default []
+   */
+  modelValue?: Array<T>;
+  /**
    * 上传请求时是否携带 cookie
    * @default false
    */
@@ -230,7 +240,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   onSelectChange?: (files: File[], context: UploadSelectChangeContext) => void;
   /**
-   * 上传成功后触发。<br/>`context.currentFiles` 表示当次请求上传的文件，`context.fileList` 表示上传成功后的文件，`context.response` 表示上传请求的返回数据。<br/>`context.results` 表示单次选择全部文件上传成功后的响应结果，可以在这个字段存在时提醒用户上传成功或失败。<br />⚠️ `context.file` 请勿使用
+   * 上传成功后触发。<br/>`context.currentFiles` 表示当次请求上传的文件，`context.fileList` 表示上传成功后的文件，`context.response` 表示上传请求的返回数据。<br/>`context.results` 表示单次选择全部文件上传成功后的响应结果，可以在这个字段存在时提醒用户上传成功或失败。<br />
    */
   onSuccess?: (context: SuccessContext) => void;
   /**

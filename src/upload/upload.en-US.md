@@ -18,7 +18,7 @@ disabled | Boolean | false | \- | N
 dragContent | String / Slot / Function | - | drag content。Typescript：`TNode<TriggerContext>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 draggable | Boolean | undefined | \- | N
 fileListDisplay | Slot / Function | - | Typescript：`TNode<{ files: UploadFile[] }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-files | Array | [] | `v-model` and `v-model:files` is supported。Typescript：`Array<T>` | N
+files | Array | [] | `v-model:files` is supported。Typescript：`Array<T>` | N
 defaultFiles | Array | [] | uncontrolled property。Typescript：`Array<T>` | N
 format | Function | - | Typescript：`(file: File) => UploadFile` | N
 formatRequest | Function | - | Typescript：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
@@ -41,6 +41,8 @@ trigger | Slot / Function | - | Typescript：`TNode<TriggerContext>` `interface 
 triggerButtonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 uploadAllFilesInOneRequest | Boolean | false | \- | N
 useMockProgress | Boolean | true | \- | N
+value | Array | [] | `v-model` and `v-model:value` is supported。Typescript：`Array<T>` | N
+defaultValue | Array | [] | uncontrolled property。Typescript：`Array<T>` | N
 withCredentials | Boolean | false | \- | N
 onCancelUpload | Function |  | Typescript：`() => void`<br/> | N
 onChange | Function |  | Typescript：`(value: Array<T>, context: UploadChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile }`<br/><br/>`type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'progress-success' | 'progress' | 'progress-fail'`<br/> | N
