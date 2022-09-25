@@ -104,7 +104,7 @@ export default defineComponent({
           value={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputProps={props.inputProps}
-          popupProps={{ overlayInnerStyle: { width: 'auto' }, ...(props.popupProps as object) }}
+          popupProps={{ overlayInnerStyle: { width: 'auto', padding: 0 }, ...(props.popupProps as object) }}
           panel={() => (
             <TimePickerPanel
               steps={props.steps}
