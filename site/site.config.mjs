@@ -341,6 +341,14 @@ export default {
           component: () => import('tdesign-vue-next/comment/comment.md'),
         },
         {
+          title: 'Image 图片',
+          titleEn: 'Image',
+          name: 'image',
+          path: '/vue-next/components/image',
+          component: () => import('tdesign-vue-next/image/image.md'),
+          componentEn: () => import('tdesign-vue-next/image/image.en-US.md'),
+        },
+        {
           title: 'ImageViewer 图片预览',
           name: 'image-viewer',
           meta: {},
