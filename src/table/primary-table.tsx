@@ -148,7 +148,9 @@ export default defineComponent({
         const { sort } = props;
         if (item.sorter && props.showSortColumnBgColor) {
           const sorts = sort instanceof Array ? sort : [sort];
-          const sortedColumn = sorts.find((sort) => sort.sortBy === item.colKey);
+          const sortedColumn = sorts.find(
+            (sort) => sort && sort.sortBy === item.colKey && sort.descending !== undefined,
+          );
           if (sortedColumn) {
             item.className =
               item.className instanceof Array
