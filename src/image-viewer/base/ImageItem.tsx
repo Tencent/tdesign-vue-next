@@ -46,21 +46,21 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-image-viewer__modal--pic`}>
-        <div class={`${classPrefix.value}-image-viewer__modal--box`} style={boxStyle.value}>
+      <div class={`${classPrefix.value}-image-viewer__modal-pic`}>
+        <div class={`${classPrefix.value}-image-viewer__modal-box`} style={boxStyle.value}>
           {error.value && (
             <div class={`${classPrefix.value}-image-viewer__img-error`}>
               {/* 脱离文档流 */}
-              <div class={`${classPrefix.value}-image-viewer__img-error--content`}>
+              <div class={`${classPrefix.value}-image-viewer__img-error-content`}>
                 <ImageErrorIcon size="4em" />
-                <div class={`${classPrefix.value}-image-viewer__img-error--text`}>图片加载失败，可尝试重新加载</div>
+                <div class={`${classPrefix.value}-image-viewer__img-error-text`}>图片加载失败，可尝试重新加载</div>
               </div>
             </div>
           )}
 
           {!error.value && !!props.placementSrc && (
             <img
-              class={`${classPrefix.value}-image-viewer__modal--image`}
+              class={`${classPrefix.value}-image-viewer__modal-image`}
               onMousedown={(event: MouseEvent) => {
                 event.stopPropagation();
                 mouseDownHandler(event);
@@ -74,7 +74,7 @@ export default defineComponent({
 
           {!error.value && (
             <img
-              class={`${classPrefix.value}-image-viewer__modal--image`}
+              class={`${classPrefix.value}-image-viewer__modal-image`}
               onMousedown={(event: MouseEvent) => {
                 event.stopPropagation();
                 mouseDownHandler(event);

@@ -26,7 +26,7 @@ export interface TheadProps {
   columnResizeParams: {
     resizeLineRef: Ref<HTMLDivElement>;
     resizeLineStyle: CSSProperties;
-    onColumnMouseover: (e: MouseEvent) => void;
+    onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
     onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
   };
   resizable: Boolean;
@@ -111,7 +111,7 @@ export default defineComponent({
           const resizeColumnListener = this.resizable
             ? {
                 onMousedown: (e: MouseEvent) => this.columnResizeParams?.onColumnMousedown?.(e, col),
-                onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e),
+                onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e, col),
               }
             : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;

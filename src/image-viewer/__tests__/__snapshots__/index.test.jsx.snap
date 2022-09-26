@@ -6,14 +6,14 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   style="z-index: 2000;"
 >
   <div
-    class="t-image-viewer__modal--mask"
+    class="t-image-viewer__modal-mask"
   />
   
   <div
     class="t-image-viewer__modal-header"
   >
     <div
-      class="t-image-viewer__modal--icon t-image-viewer__header--pre__bt"
+      class="t-image-viewer__modal-icon t-image-viewer__header-pre-bt"
     >
       <svg
         class="t-icon t-icon-chevron-down"
@@ -32,43 +32,43 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       <!---->
     </div>
     <div
-      class="t-image-viewer__header--prev"
+      class="t-image-viewer__header-prev"
     >
       <div
-        class="t-image-viewer__bokeh--left"
+        class="t-image-viewer__bokeh-left"
       />
       <div
-        class="t-image-viewer__bokeh--right"
+        class="t-image-viewer__bokeh-right"
       />
       <div
-        class="t-image-viewer__header--trans"
+        class="t-image-viewer__header-trans"
         style="transform: translateX(-84px);"
       >
         
         <div
-          class="t-image-viewer__header--box"
+          class="t-image-viewer__header-box"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-1.png"
           />
         </div>
         <div
-          class="t-image-viewer__header--box t-is-active"
+          class="t-image-viewer__header-box t-is-active"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-2.png"
           />
         </div>
         <div
-          class="t-image-viewer__header--box"
+          class="t-image-viewer__header-box"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-3.png"
           />
         </div>
@@ -77,13 +77,13 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
     </div>
   </div>
   <div
-    class="t-image-viewer__modal--index"
+    class="t-image-viewer__modal-index"
   >
     <!---->
     2/3
   </div>
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-prev-bt"
   >
     <svg
       class="t-icon t-icon-chevron-left"
@@ -102,7 +102,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
     <!---->
   </div>
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-next-bt"
   >
     <svg
       class="t-icon t-icon-chevron-left"
@@ -122,7 +122,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   </div>
   
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--close-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-close-bt"
   >
     <svg
       class="t-icon t-icon-close"
@@ -143,11 +143,11 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
     class="t-image-viewer__utils"
   >
     <div
-      class="t-image-viewer__utils--content"
+      class="t-image-viewer__utils-content"
     >
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-mirror t-size-m"
@@ -168,7 +168,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-rotation t-size-m"
@@ -188,7 +188,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       <!---->
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-zoom-out t-size-m"
@@ -211,18 +211,18 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         <!---->
       </div>
       <div
-        class="t-image-viewer__modal--icon t-image-viewer__utils--scale"
+        class="t-image-viewer__modal-icon t-image-viewer__utils-scale"
         size="medium"
       >
         <!---->
         <span
-          class="t-image-viewer__modal--icon-label"
+          class="t-image-viewer__modal-icon-label"
         >
           100%
         </span>
       </div>
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-zoom-in t-size-m"
@@ -246,10 +246,10 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       </div>
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <div
-          class="t-image-viewer__modal--icon"
+          class="t-image-viewer__modal-icon"
         >
           <svg
             class="t-icon t-icon-image t-size-m"
@@ -277,7 +277,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       <!---->
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-download t-size-m"
@@ -302,23 +302,23 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
     </div>
   </div>
   <div
-    class="t-image-viewer__modal--pic"
+    class="t-image-viewer__modal-pic"
   >
     <div
-      class="t-image-viewer__modal--box"
+      class="t-image-viewer__modal-box"
       style="transform: translate(0px, 0px) scale(1, 1);"
     >
       <!---->
       <img
         alt="image"
-        class="t-image-viewer__modal--image"
+        class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: block;"
       />
       <img
         alt="image"
-        class="t-image-viewer__modal--image"
+        class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: none;"
@@ -334,14 +334,14 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   style="z-index: 2000;"
 >
   <div
-    class="t-image-viewer__modal--mask"
+    class="t-image-viewer__modal-mask"
   />
   
   <div
     class="t-image-viewer__modal-header"
   >
     <div
-      class="t-image-viewer__modal--icon t-image-viewer__header--pre__bt"
+      class="t-image-viewer__modal-icon t-image-viewer__header-pre-bt"
     >
       <svg
         class="t-icon t-icon-chevron-down"
@@ -360,43 +360,43 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       <!---->
     </div>
     <div
-      class="t-image-viewer__header--prev"
+      class="t-image-viewer__header-prev"
     >
       <div
-        class="t-image-viewer__bokeh--left"
+        class="t-image-viewer__bokeh-left"
       />
       <div
-        class="t-image-viewer__bokeh--right"
+        class="t-image-viewer__bokeh-right"
       />
       <div
-        class="t-image-viewer__header--trans"
+        class="t-image-viewer__header-trans"
         style="transform: translateX(-84px);"
       >
         
         <div
-          class="t-image-viewer__header--box"
+          class="t-image-viewer__header-box"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-1.png"
           />
         </div>
         <div
-          class="t-image-viewer__header--box t-is-active"
+          class="t-image-viewer__header-box t-is-active"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-2.png"
           />
         </div>
         <div
-          class="t-image-viewer__header--box"
+          class="t-image-viewer__header-box"
         >
           <img
             alt=""
-            class="t-image-viewer__header--img"
+            class="t-image-viewer__header-img"
             src="https://tdesign.gtimg.com/demo/demo-image-3.png"
           />
         </div>
@@ -405,13 +405,13 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
     </div>
   </div>
   <div
-    class="t-image-viewer__modal--index"
+    class="t-image-viewer__modal-index"
   >
     <!---->
     2/3
   </div>
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--prev-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-prev-bt"
   >
     <svg
       class="t-icon t-icon-chevron-left"
@@ -430,7 +430,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
     <!---->
   </div>
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--next-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-next-bt"
   >
     <svg
       class="t-icon t-icon-chevron-left"
@@ -450,7 +450,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   </div>
   
   <div
-    class="t-image-viewer__modal--icon t-image-viewer__modal--close-bt"
+    class="t-image-viewer__modal-icon t-image-viewer__modal-close-bt"
   >
     <svg
       class="t-icon t-icon-close"
@@ -471,11 +471,11 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
     class="t-image-viewer__utils"
   >
     <div
-      class="t-image-viewer__utils--content"
+      class="t-image-viewer__utils-content"
     >
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-mirror t-size-m"
@@ -496,7 +496,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-rotation t-size-m"
@@ -516,7 +516,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       <!---->
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-zoom-out t-size-m"
@@ -539,18 +539,18 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         <!---->
       </div>
       <div
-        class="t-image-viewer__modal--icon t-image-viewer__utils--scale"
+        class="t-image-viewer__modal-icon t-image-viewer__utils-scale"
         size="medium"
       >
         <!---->
         <span
-          class="t-image-viewer__modal--icon-label"
+          class="t-image-viewer__modal-icon-label"
         >
           100%
         </span>
       </div>
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-zoom-in t-size-m"
@@ -574,10 +574,10 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       </div>
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <div
-          class="t-image-viewer__modal--icon"
+          class="t-image-viewer__modal-icon"
         >
           <svg
             class="t-icon t-icon-image t-size-m"
@@ -605,7 +605,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       <!---->
       
       <div
-        class="t-image-viewer__modal--icon"
+        class="t-image-viewer__modal-icon"
       >
         <svg
           class="t-icon t-icon-download t-size-m"
@@ -630,23 +630,23 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
     </div>
   </div>
   <div
-    class="t-image-viewer__modal--pic"
+    class="t-image-viewer__modal-pic"
   >
     <div
-      class="t-image-viewer__modal--box"
+      class="t-image-viewer__modal-box"
       style="transform: translate(0px, 0px) scale(1, 1);"
     >
       <!---->
       <img
         alt="image"
-        class="t-image-viewer__modal--image"
+        class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: block;"
       />
       <img
         alt="image"
-        class="t-image-viewer__modal--image"
+        class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: none;"

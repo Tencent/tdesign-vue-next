@@ -137,18 +137,18 @@ export default defineComponent({
       <div class={headerClass.value}>
         <TImageViewerIcon
           icon={() => <ChevronDownIcon size="20px" />}
-          class={`${COMPONENT_NAME.value}__header--pre__bt`}
+          class={`${COMPONENT_NAME.value}__header-pre-bt`}
           onClick={toggleExpand}
         />
-        <div class={`${COMPONENT_NAME.value}__header--prev`}>
-          <div class={`${COMPONENT_NAME.value}__bokeh--left`} />
-          <div class={`${COMPONENT_NAME.value}__bokeh--right`} />
-          <div class={`${COMPONENT_NAME.value}__header--trans`} style={transStyle.value}>
+        <div class={`${COMPONENT_NAME.value}__header-prev`}>
+          <div class={`${COMPONENT_NAME.value}__bokeh-left`} />
+          <div class={`${COMPONENT_NAME.value}__bokeh-right`} />
+          <div class={`${COMPONENT_NAME.value}__header-trans`} style={transStyle.value}>
             {images.value.map((image, index) => (
               <div
                 key={index}
                 class={[
-                  `${COMPONENT_NAME.value}__header--box`,
+                  `${COMPONENT_NAME.value}__header-box`,
                   {
                     [`${classPrefix.value}-is-active`]: index === indexValue.value,
                   },
@@ -157,7 +157,7 @@ export default defineComponent({
                 <img
                   alt=""
                   src={image.thumbnail || image.mainImage}
-                  className={`${COMPONENT_NAME.value}__header--img`}
+                  className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}
                 />
               </div>
@@ -175,7 +175,7 @@ export default defineComponent({
 
       return (
         <TImageViewerIcon
-          class={`${COMPONENT_NAME.value}__modal--${type}-bt`}
+          class={`${COMPONENT_NAME.value}__modal-${type}-bt`}
           onClick={type === 'prev' ? prevImage : nextImage}
           icon={() => icon}
         />
@@ -217,12 +217,12 @@ export default defineComponent({
             {visibleValue.value && (
               <div class={wrapClass.value} style={{ zIndex: zIndexValue.value }} onWheel={onWheel}>
                 {!!showOverlayValue.value && (
-                  <div class={`${COMPONENT_NAME.value}__modal--mask`} onClick={clickOverlayHandler} />
+                  <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
                 )}
                 {images.value.length > 1 && (
                   <>
                     {renderHeader()}
-                    <div class={`${COMPONENT_NAME.value}__modal--index`}>
+                    <div class={`${COMPONENT_NAME.value}__modal-index`}>
                       {props.title && renderTNodeJSX('title')}
                       {`${indexValue.value + 1}/${images.value.length}`}
                     </div>
@@ -231,7 +231,7 @@ export default defineComponent({
                   </>
                 )}
                 <div
-                  class={[`${COMPONENT_NAME.value}__modal--icon`, `${COMPONENT_NAME.value}__modal--close-bt`]}
+                  class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
                   onClick={closeBtnAction}
                 >
                   {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
