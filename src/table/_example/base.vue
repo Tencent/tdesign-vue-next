@@ -1,129 +1,117 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <!-- 按钮操作区域 -->
-    <div>
-      <t-radio-group v-model="size" variant="default-filled">
-        <t-radio-button value="small">小尺寸</t-radio-button>
-        <t-radio-button value="medium">中尺寸</t-radio-button>
-        <t-radio-button value="large">大尺寸</t-radio-button>
-      </t-radio-group>
-      <br /><br />
-      <t-checkbox v-model="stripe"> 显示斑马纹 </t-checkbox>
-      <t-checkbox v-model="bordered"> 显示表格边框 </t-checkbox>
-      <t-checkbox v-model="hover"> 显示悬浮效果 </t-checkbox>
-      <t-checkbox v-model="tableLayout"> 宽度自适应 </t-checkbox>
-    </div>
-
-    <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
+  <div>
+    <!-- 支持非受控属性 default-selected-row-keys -->
+    <!-- 支持语法糖 selected-row-keys.sync -->
     <t-table
-      row-key="index"
-      :data="data"
+      row-key="tid"
       :columns="columns"
-      :stripe="stripe"
-      :bordered="bordered"
-      :hover="hover"
-      :table-layout="tableLayout ? 'auto' : 'fixed'"
-      :size="size"
-      :pagination="pagination"
-      cell-empty-content="-"
-      @row-click="handleRowClick"
-    />
+      :data="data"
+      :selected-row-keys="selectedRowKeys"
+      @select-change="rehandleSelectChange"
+    >
+      <template #status="{ row }">
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status unhealth">异常</p>
+      </template>
+      <template #op-column>
+        <p>操作</p>
+      </template>
+      <template #op="slotProps">
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+      </template>
+    </t-table>
   </div>
 </template>
 
-<script setup lang="jsx">
+<script setup>
 import { ref } from 'vue';
-
-const data = [];
-const total = 28;
-for (let i = 0; i < total; i++) {
-  data.push({
-    index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['0', '[]'][i % 5],
-    detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
-    },
-    needed: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
-  });
-}
 
 const columns = [
   {
-    width: '100',
-    colKey: 'index',
-    title: '序号',
-    // 对齐方式
-    align: 'center',
-    // 设置列类名
-    className: 'custom-column-class-name',
-    // 设置列属性
-    attrs: {
-      'data-id': 'first-column',
-    },
-  },
-  {
-    colKey: 'platform',
-    title: '平台',
-  },
-  {
-    colKey: 'type',
-    title: '类型',
-  },
-  {
-    colKey: 'default',
-    title: '默认值',
-  },
-  {
-    colKey: 'needed',
-    title: '是否必传',
-  },
-  {
-    colKey: 'detail.position',
-    title: '详情信息',
-    /**
-     * 1.内容超出时，是否显示省略号。值为 true，则浮层默认显示单元格内容；
-     * 2.值类型为 Function 则自定义浮层显示内容；
-     * 3.值类型为 Object，则自动透传属性到 Tooltip 组件。
-     */
-    ellipsis: true,
+    colKey: 'row-select',
+    type: 'multiple',
+    // 禁用行选中方式一：使用 disabled 禁用行（示例代码有效，勿删）。disabled 参数：{row: RowData; rowIndex: number })
+    // 这种方式禁用行选中，当前行会添加行类名 t-table__row--disabled，禁用行文字变灰
+    // disabled: ({ rowIndex }) => rowIndex === 1 || rowIndex === 3,
 
-    // 透传省略内容浮层 Tooltip 组件全部特性，示例代码有效，勿删！！！
-    // ellipsis: { placement: 'bottom', destroyOnClose: false },
-
-    // 完全自定义 ellipsis 浮层的样式和内容，示例代码有效，勿删！！！
-    // ellipsis: (h, { row, col, rowIndex, colIndex }) => {
-    //   if (rowIndex % 2) {
-    //     return (
-    //       <div>
-    //         is even row {rowIndex + 1}, with data {row.detail.position}
-    //       </div>
-    //     );
-    //   }
-    //   return (
-    //     <div>
-    //       is odd row {rowIndex + 1}, with data {row.detail.position}
-    //     </div>
-    //   );
-    // },
+    // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
+    // 这种方式禁用行选中，行文本不会变灰
+    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
+    width: 50,
+  },
+  { colKey: 'instance', title: '集群名称', width: 120 },
+  {
+    colKey: 'status',
+    title: '状态',
+    width: 100,
+    cell: 'status',
+  },
+  { colKey: 'owner', title: '管理员' },
+  { colKey: 'description', title: '描述' },
+  {
+    colKey: 'op',
+    width: 150,
+    title: 'op-column',
+    cell: 'op',
   },
 ];
 
-const stripe = ref(true);
-const bordered = ref(true);
-const hover = ref(false);
-const tableLayout = ref(false);
-const size = ref('medium');
+const data = ref([]);
 
-const handleRowClick = (e) => {
-  console.log(e);
+data.value = new Array(5).fill(null).map((item, index) => ({
+  tid: index + 100,
+  instance: `JQTest${index + 1}`,
+  status: index % 2,
+  owner: 'jenny;peter',
+  description: 'test',
+}));
+
+const selectedRowKeys = ref([]);
+
+const rehandleClickOp = ({ text, row }) => {
+  console.log(text, row);
+  data.value = new Array(5).fill(null).map((item, index) => ({
+    tid: index + 100,
+    instance: `JQTest${index + 1}`,
+    status: -1,
+    owner: 'jenny;peter',
+    description: 'test',
+  }));
 };
 
-const pagination = {
-  defaultCurrent: 2,
-  defaultPageSize: 5,
-  total,
+const rehandleSelectChange = (value, { selectedRowData }) => {
+  selectedRowKeys.value = value;
+  console.log(value, selectedRowData);
 };
 </script>
+
+<style lang="less" scoped>
+.link {
+  cursor: pointer;
+  margin-right: 15px;
+}
+.status {
+  position: relative;
+  color: #00a870;
+  margin-left: 10px;
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    content: '';
+    background-color: #00a870;
+    width: 6px;
+    height: 6px;
+    margin-left: -10px;
+    border-radius: 50%;
+  }
+}
+.status.unhealth {
+  color: #e34d59;
+  &::before {
+    background-color: #e34d59;
+  }
+}
+</style>
