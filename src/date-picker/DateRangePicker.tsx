@@ -82,6 +82,7 @@ export default defineComponent({
             nextMonth[0] === 11 ? (nextMonth[0] -= 1) : (nextMonth[1] += 1);
           }
           month.value = nextMonth;
+          year.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).year());
         } else {
           year.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).year());
           month.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).month());
