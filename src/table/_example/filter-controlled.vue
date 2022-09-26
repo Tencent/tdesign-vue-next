@@ -129,7 +129,7 @@ const columns = computed(() => [
   },
 ]);
 
-const filterValue = ref({ createTime: [] });
+const filterValue = ref({ lastName: [], createTime: [] });
 const data = ref([...initData]);
 const bordered = ref(true);
 
@@ -160,6 +160,7 @@ const onFilterChange = (filters) => {
   filterValue.value = {
     ...filters,
     createTime: filters.createTime || [],
+    lastName: filters.lastName || [],
   };
   console.log(filters);
   request(filters);

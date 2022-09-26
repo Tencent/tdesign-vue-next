@@ -115428,6 +115428,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/filter-controlled.vue
       style="padding-left: 36px;"
     >
       已选筛选条件：{
+  "lastName": [],
   "createTime": []
 }
     </span>
@@ -128734,7 +128735,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] = `
 <div>
   <div
-    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
+    class="t-table t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -129021,99 +129022,137 @@ exports[`csr snapshot test > csr test ./src/table/_example/multi-header.vue 1`] 
     style="width: 100%;"
   >
     <!-- 按钮操作区域 -->
-    <div>
-      <label
-        class="t-checkbox t-is-checked"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
       >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
+        <label
+          class="t-checkbox t-is-checked"
         >
-          
-          显示表格边框
-          
-        </span>
-      </label>
-      <label
-        class="t-checkbox t-is-checked"
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            显示表格边框
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
+        <label
+          class="t-checkbox t-is-checked"
         >
-          
-          显示固定表头
-          
-        </span>
-      </label>
-      <!-- 为保证组件收益最大化，当数据量小于 \`100\` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
-      <!-- &lt;t-checkbox v-model="virtualScroll"&gt;虚拟滚动&lt;/t-checkbox&gt; -->
-      <label
-        class="t-checkbox"
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            显示固定表头
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
+        <label
+          class="t-checkbox"
         >
-          
-          固定左侧列
-          
-        </span>
-      </label>
-      <label
-        class="t-checkbox"
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            固定左侧列
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
+        <label
+          class="t-checkbox"
         >
-          
-          固定右侧列
-          
-        </span>
-      </label>
-      <label
-        class="t-checkbox"
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            固定右侧列
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
+        <label
+          class="t-checkbox"
         >
-          
-          表头吸顶
-          
-        </span>
-      </label>
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            表头吸顶
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
     </div>
     <!-- tableContentWidth 必须大于表格的外层宽度，否则请设置 width: 100% -->
     <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
