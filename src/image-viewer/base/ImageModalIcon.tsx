@@ -15,7 +15,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const wrapClass = computed(() => [
-      `${classPrefix.value}-image-viewer__modal--icon`,
+      `${classPrefix.value}-image-viewer__modal-icon`,
       {
         [`${classPrefix.value}-is-disabled`]: props.disabled,
       },
@@ -24,7 +24,7 @@ export default defineComponent({
     return () => (
       <div class={wrapClass.value} onClick={props.onClick}>
         {renderTNodeJSX('icon')}
-        {props.label && <span class={`${classPrefix.value}-image-viewer__modal--icon-label`}>{props.label}</span>}
+        {props.label && <span class={`${classPrefix.value}-image-viewer__modal-icon-label`}>{props.label}</span>}
       </div>
     );
   },

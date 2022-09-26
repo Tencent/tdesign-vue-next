@@ -18,10 +18,11 @@
             <span class="tdesign-demo-image-viewer__ui-image--icons">
               <BrowseIcon @click="onOpen" />
               <t-popup
-                trigger="click"
+                trigger="hover"
                 placement="right-bottom"
                 :overlay-style="{ width: '140px', padding: '6px' }"
                 destroy-on-close
+                :z-index="1000"
               >
                 <template #content>
                   <ul class="tdesign-demo-select__list">
