@@ -154,7 +154,7 @@ export default function useRowSelect(
       width: col.width || 64,
       className: [tableSelectedClasses.checkCell, col.className],
       cell: (_: typeof h, p: PrimaryTableCellParams<TableRowData>) => renderSelectCell(p),
-      title: col.type === 'multiple' ? getSelectedHeader() : '',
+      title: col.type === 'multiple' ? getSelectedHeader() : col.title,
     };
   }
 

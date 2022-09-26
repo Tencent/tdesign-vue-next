@@ -37,6 +37,7 @@ rowKey | String | 'id' | required。unique key for each row data | Y
 rowspanAndColspan | Function | - | rowspan and colspan。Typescript：`TableRowspanAndColspanFunc<T>` `type TableRowspanAndColspanFunc<T> = (params: BaseTableCellParams<T>) => RowspanColspan` `interface RowspanColspan { colspan?: number; rowspan?: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowspanAndColspanInFooter | Function | - | rowspan and colspan for footer。Typescript：`TableRowspanAndColspanFunc<T>` | N
 scroll | Object | - | lazy load and virtual scroll。Typescript：`TableScroll` | N
+showHeader | Boolean | true | show table header | N
 size | String | medium | options：small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 stripe | Boolean | false | show stripe style | N
 tableContentWidth | String | - | \- | N
@@ -81,7 +82,7 @@ align | String | left | align type。options：left/right/center | N
 attrs | Object | - | html attributes | N
 cell | String / Function | - | use cell to render table cell。Typescript：`string | TNode<BaseTableCellParams<T>>` `interface BaseTableCellParams<T> { row: T; rowIndex: number; col: BaseTableCol<T>; colIndex: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 children | Array | - | grouping table head。Typescript：`Array<BaseTableCol<T>>` | N
-className | String / Object / Array / Function | - | cell classnames。Typescript：`ClassName | ((context: CellData<T>) => ClassName)` `interface CellData<T> extends BaseTableCellParams<T> { type: 'th' | 'td' }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+className | String / Object / Array / Function | - | cell classnames。Typescript：`TableColumnClassName<T> | TableColumnClassName<T>[]` `type TableColumnClassName<T> = ClassName | ((context: CellData<T>) => ClassName)` `interface CellData<T> extends BaseTableCellParams<T> { type: 'th' | 'td' }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 colKey | String | - | unique key for column | N
 ellipsis | Boolean / Object / Slot / Function | false | ellipsis cell content。Typescript：`boolean | TNode<BaseTableCellParams<T>> | TooltipProps`，[Tooltip API Documents](./tooltip?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 ellipsisTitle | Boolean / Object / Slot / Function | undefined | ellipsis title content。Typescript：`boolean | TNode<BaseTableColParams<T>> | TooltipProps` `interface BaseTableColParams<T> { col: BaseTableCol<T>; colIndex: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
@@ -89,6 +90,7 @@ fixed | String | left | fixed current column to left or right。options：left/r
 foot | String / Function | - | tfoot content。Typescript：`string | TNode<{ col: BaseTableCol; colIndex: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 minWidth | String / Number | - | add CSS property `min-width` to HTML Element `<col>`，Browsers with [TablesNG](https://docs.google.com/document/d/16PFD1GtMI9Zgwu0jtPaKZJ75Q2wyZ9EZnVbBacOfiNA/preview)  support `minWidth` | N
 render | Function | - | render function can be used to render cell or head。Typescript：`TNode<BaseTableRenderParams<T>>` `interface BaseTableRenderParams<T> extends BaseTableCellParams<T> { type: RenderType }` `type RenderType = 'cell' | 'title'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+resizable | Boolean | true | resize current column width | N
 resize | Object | - | Typescript：`TableColumnResizeConfig` `interface TableColumnResizeConfig { minWidth: number; maxWidth: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 title | String / Function | - | th content。Typescript：`string | TNode<{ col: BaseTableCol; colIndex: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 width | String / Number | - | column width | N
@@ -122,6 +124,7 @@ indeterminateSelectedRowKeys | Array | - | indeterminate selected row keys, row 
 multipleSort | Boolean | false | support multiple column fields sort | N
 selectedRowKeys | Array | [] | selected row keys, row key is from data[rowKey]。`v-model:selectedRowKeys` is supported。Typescript：`Array<string | number>` | N
 defaultSelectedRowKeys | Array | [] | selected row keys, row key is from data[rowKey]。uncontrolled property。Typescript：`Array<string | number>` | N
+showSortColumnBgColor | Boolean | false | column shows sort bg color | N
 sort | Object / Array | - | sort configs。`v-model:sort` is supported。Typescript：`TableSort` `type TableSort = SortInfo | Array<SortInfo>` `interface SortInfo { sortBy: string; descending: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 defaultSort | Object / Array | - | sort configs。uncontrolled property。Typescript：`TableSort` `type TableSort = SortInfo | Array<SortInfo>` `interface SortInfo { sortBy: string; descending: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 sortIcon | Slot / Function | - | sort icon。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

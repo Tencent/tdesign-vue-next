@@ -152,6 +152,9 @@ export default defineComponent({
 
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
     const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
+    const filterValue = this.tFilterValue?.[column.colKey];
+    const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
+    const isValueTrue = filterValue && typeof filterValue !== 'object';
     return (
       <Popup
         attach={this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined}
@@ -162,7 +165,12 @@ export default defineComponent({
         showArrow
         overlayClassName={this.tableFilterClasses.popup}
         onVisibleChange={(val: boolean) => this.onFilterPopupVisibleChange(val)}
-        class={[this.tableFilterClasses.icon, { [this.isFocusClass]: !isEmpty(this.tFilterValue?.[column.colKey]) }]}
+        class={[
+          this.tableFilterClasses.icon,
+          {
+            [this.isFocusClass]: isObjectTrue || isValueTrue,
+          },
+        ]}
         content={() => (
           <div class={this.tableFilterClasses.popupContent}>
             {getFilterContent(column)}
