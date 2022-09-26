@@ -320,19 +320,19 @@ export default defineComponent({
         </div>
       );
       const headerClassName = isFullScreen.value
-        ? `${COMPONENT_NAME.value}__header--fullscreen`
+        ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
         : `${COMPONENT_NAME.value}__header`;
 
       const closeClassName = isFullScreen.value
-        ? `${COMPONENT_NAME.value}__close--fullscreen`
+        ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
         : `${COMPONENT_NAME.value}__close`;
 
       const bodyClassName =
         props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-      isFullScreen.value && bodyClassName.push('body-fullscreen');
+      isFullScreen.value && bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
 
       const footerClassName = isFullScreen.value
-        ? `${COMPONENT_NAME.value}__footer--fullscreen`
+        ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
         : `${COMPONENT_NAME.value}__footer`;
 
       const footerContent = renderTNodeJSX('footer', defaultFooter);
