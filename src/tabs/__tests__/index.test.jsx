@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils';
-import Tabs from '@/src/tabs/index.ts';
+import { nextTick } from 'vue';
+import { vi } from 'vitest';
+import { Tabs, TabPanel } from '@/src/tabs/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Tabs', () => {
@@ -68,6 +70,66 @@ describe('Tabs', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  // test events
+  describe('@event', () => {
+    it('@add', async () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return <Tabs theme={'card'} addable={true} onAdd={fn} />;
+        },
+      });
+      const tabs = wrapper.findComponent(Tabs);
+      tabs.find('.t-tabs__add-btn').trigger('click');
+      await nextTick();
+      expect(tabs.props('onAdd')).toBeTruthy();
+    });
+
+    it('@change', async () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs onChange={fn} value={2}>
+              <TabPanel value={1} label={'1'}>
+                1
+              </TabPanel>
+              <TabPanel value={2} label={'2'}>
+                2
+              </TabPanel>
+            </Tabs>
+          );
+        },
+      });
+      await nextTick();
+      const tabs = wrapper.findComponent(Tabs);
+      tabs.vm.$el.getElementsByClassName('t-tabs__nav-item')[0].click();
+      expect(tabs.props('onChange')).toBeTruthy();
+    });
+
+    it('@remove', async () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs theme={'card'} onRemove={fn} value={2}>
+              <TabPanel value={1} label={'1'} removable={true}>
+                1
+              </TabPanel>
+              <TabPanel value={2} label={'2'} removable={true}>
+                2
+              </TabPanel>
+            </Tabs>
+          );
+        },
+      });
+      await nextTick();
+      const tabs = wrapper.findComponent(Tabs);
+      tabs.vm.$el.getElementsByClassName('remove-btn')[0].dispatchEvent(new Event('click'));
+      expect(tabs.props('onRemove')).toBeTruthy();
     });
   });
 });
