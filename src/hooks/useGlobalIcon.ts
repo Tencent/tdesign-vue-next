@@ -13,3 +13,5 @@ export function useGlobalIcon(tdIcon: Object) {
 
   return resultIcon;
 }
+
+export default useGlobalIcon;
