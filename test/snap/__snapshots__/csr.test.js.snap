@@ -64684,6 +64684,2430 @@ exports[`csr snapshot test > csr test ./src/icon/_example/single.vue 1`] = `
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/image/_example/extra-always.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 32px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <strong
+          style="font-size: 20px;"
+        >
+          有遮罩
+        </strong>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 284px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <div
+            class="t-image__overlay-content"
+          >
+            <div
+              style="background: rgba(0, 0, 0, 0.4); height: 100%; display: flex; align-items: center; justify-content: center; font-size: 14px; line-height: 22px;"
+            >
+              <span
+                class="t-tag t-tag--warning t-tag--dark t-size-m t-tag--mark"
+                style="border-radius: 3px; background: transparent; color: rgb(255, 255, 255);"
+              >
+                <!---->
+                
+                <svg
+                  class="t-icon t-icon-print"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M4 2v2H3a1 1 0 00-1 1v5a1 1 0 001 1h1v3h8v-3h1a1 1 0 001-1V5a1 1 0 00-1-1h-1V2H4zm7 2H5V3h6v1zM3 5h10v5h-1V8H4v2H3V5zm2 8V9h6v4H5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                 高清
+                
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <strong
+          style="font-size: 20px;"
+        >
+          无遮罩
+        </strong>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 284px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <div
+            class="t-image__overlay-content"
+          >
+            <span
+              class="t-tag t-tag--warning t-tag--dark t-size-m t-tag--mark"
+              style="position: absolute; right: 8px; bottom: 8px; border-radius: 3px; background: rgb(236, 242, 254); color: rgb(0, 82, 217);"
+            >
+              <!---->
+              
+              <svg
+                class="t-icon t-icon-print"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M4 2v2H3a1 1 0 00-1 1v5a1 1 0 001 1h1v3h8v-3h1a1 1 0 001-1V5a1 1 0 00-1-1h-1V2H4zm7 2H5V3h6v1zM3 5h10v5h-1V8H4v2H3V5zm2 8V9h6v4H5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+               高清
+              
+              <!---->
+            </span>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/extra-hover.vue 1`] = `
+<div
+  class="t-image__wrapper t-image__wrapper--shape-square t-image__wrapper--need-hover"
+  disabled="false"
+  style="width: 284px; height: 160px;"
+>
+  <!---->
+  <!---->
+  <!---->
+  <img
+    alt=""
+    class="t-image t-image--fit-fill t-image--position-center"
+    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+  />
+  <div
+    class="t-image__loading"
+  >
+    <div
+      align="center"
+      direction="vertical"
+      size="8"
+    >
+      图片加载中
+    </div>
+  </div>
+  <!---->
+  <div
+    class="t-image__overlay-content t-image__overlay-content--hidden"
+  >
+    <div
+      style="background: rgba(0, 0, 0, 0.4); color: rgb(255, 255, 255); height: 100%; display: flex; align-items: center; justify-content: center;"
+    >
+      预览
+    </div>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/fill-mode.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px; flex-wrap: wrap;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 120px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          fill
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 120px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-contain t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          contain
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 120px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-cover t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          cover
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 120px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-none t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          none
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-start t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 120px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-scale-down t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          scale-down
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/fill-position.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px; width: 100%;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 120px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-cover t-image--position-center"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              cover center
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 120px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-cover t-image--position-left"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              cover left
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 120px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-cover t-image--position-right"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              cover right
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 280px; height: 120px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-cover t-image--position-top"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              cover top
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 280px; height: 120px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-cover t-image--position-bottom"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              cover bottom
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 200px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-contain t-image--position-top"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              contain top
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 200px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-contain t-image--position-bottom"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              contain bottom
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-start t-space-vertical"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square"
+              disabled="false"
+              style="width: 120px; height: 200px;"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-contain t-image--position-center"
+                src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  align="center"
+                  direction="vertical"
+                  size="8"
+                >
+                  图片加载中
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <span>
+              contain center
+            </span>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-horizontal"
+          style="gap: 16px; flex-wrap: wrap;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-align-start t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 280px; height: 120px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-contain t-image--position-left"
+                    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <div
+                      align="center"
+                      direction="vertical"
+                      size="8"
+                    >
+                      图片加载中
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  contain left
+                </span>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-align-start t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 280px; height: 120px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-contain t-image--position-right"
+                    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <div
+                      align="center"
+                      direction="vertical"
+                      size="8"
+                    >
+                      图片加载中
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  contain right
+                </span>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/gallery-cover.vue 1`] = `
+<div
+  class="t-image__wrapper t-image__wrapper--shape-square t-image__wrapper--gallery"
+  disabled="false"
+  style="width: 284px; height: 160px;"
+>
+  <!---->
+  <div
+    class="t-image__gallery-shadow"
+  />
+  <!---->
+  <img
+    alt=""
+    class="t-image t-image--fit-fill t-image--position-center"
+    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+  />
+  <div
+    class="t-image__loading"
+  >
+    <div
+      align="center"
+      direction="vertical"
+      size="8"
+    >
+      图片加载中
+    </div>
+  </div>
+  <!---->
+  <div
+    class="t-image__overlay-content"
+  >
+    <span
+      class="t-tag t-tag--warning t-tag--dark t-size-m t-tag--mark"
+      style="margin: 8px; border-radius: 3px; background: rgb(236, 242, 254); color: rgb(0, 82, 217);"
+    >
+      <!---->
+      
+      标签一
+      
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/lazy-list.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px; flex-wrap: wrap; height: 240px; overflow-y: scroll;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 230px; height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-image"
+          />
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      <svg
+        class="t-icon t-icon-refresh"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M8 2.71c2.9 0 5.25 2.36 5.25 5.29h.96a6.2 6.2 0 00-11.5-3.28V2.64h-.96v3.1c0 .29.22.5.5.5h3.09v-.96H3.49A5.25 5.25 0 018 2.71zM1.79 8h.96a5.25 5.25 0 009.76 2.71h-1.85v-.96h3.09c.28 0 .5.22.5.5v3.1h-.96v-2.07A6.2 6.2 0 011.8 8z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+         重演 lazy load 
+        
+      </span>
+      
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/lazy-single.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-image__wrapper t-image__wrapper--shape-square"
+      disabled="false"
+      style="width: 284px; height: 160px;"
+    >
+      <div
+        class="t-image__placeholder"
+      >
+        <img
+          height="0"
+          src="https://tdesign.gtimg.com/demo/demo-image-5.png"
+          width="0"
+        />
+      </div>
+      <!---->
+      <div
+        class="t-image"
+      />
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      <svg
+        class="t-icon t-icon-refresh"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M8 2.71c2.9 0 5.25 2.36 5.25 5.29h.96a6.2 6.2 0 00-11.5-3.28V2.64h-.96v3.1c0 .29.22.5.5.5h3.09v-.96H3.49A5.25 5.25 0 018 2.71zM1.79 8h.96a5.25 5.25 0 009.76 2.71h-1.85v-.96h3.09c.28 0 .5.22.5.5v3.1h-.96v-2.07A6.2 6.2 0 011.8 8z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+         重演 lazy load 
+        
+      </span>
+      
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/placeholder.vue 1`] = `
+<div>
+  <div
+    class="t-space t-space-vertical"
+    style="gap: 24px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <div>
+        <h3
+          style="margin-bottom: 15px;"
+        >
+          加载中的图片
+        </h3>
+        <div
+          class="t-space t-space-horizontal"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  默认占位
+                </span>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 284px; height: 160px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-fill t-image--position-center"
+                    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <div
+                      align="center"
+                      direction="vertical"
+                      size="8"
+                    >
+                      图片加载中
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+                  type="button"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-refresh"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 2.71c2.9 0 5.25 2.36 5.25 5.29h.96a6.2 6.2 0 00-11.5-3.28V2.64h-.96v3.1c0 .29.22.5.5.5h3.09v-.96H3.49A5.25 5.25 0 018 2.71zM1.79 8h.96a5.25 5.25 0 009.76 2.71h-1.85v-.96h3.09c.28 0 .5.22.5.5v3.1h-.96v-2.07A6.2 6.2 0 011.8 8z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                     重演 loading 
+                    
+                  </span>
+                  
+                </button>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  自定义占位
+                </span>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 284px; height: 160px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-fill t-image--position-center"
+                    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <svg
+                      class="t-icon t-icon-qrcode"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 4H4v2h2V4z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                      <path
+                        d="M2.5 2a.5.5 0 00-.5.5v5c0 .28.22.5.5.5h5a.5.5 0 00.5-.5v-5a.5.5 0 00-.5-.5h-5zM3 3h4v4H3V3zM10.5 2a.5.5 0 00-.5.5v3c0 .28.22.5.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3zm.5 3V3h2v2h-2zM10 10.5c0-.28.22-.5.5-.5h3c.28 0 .5.22.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3zm1 2.5h2v-2h-2v2zM2.5 10a.5.5 0 00-.5.5v3c0 .28.22.5.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3zm.5 1h2v2H3v-2zM14 7.5h-4v1h4v-1zM8.5 11v3h-1v-3h1zM8.5 10V9h-1v1h1z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
+      <div>
+        <h3
+          style="margin-bottom: 15px;"
+        >
+          加载失败的图片
+        </h3>
+        <div
+          class="t-space t-space-horizontal"
+          style="gap: 16px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  默认错误
+                </span>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 284px; height: 160px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-fill t-image--position-center"
+                    src=""
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <div
+                      align="center"
+                      direction="vertical"
+                      size="8"
+                    >
+                      图片加载中
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <button
+                  class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+                  type="button"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-refresh"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 2.71c2.9 0 5.25 2.36 5.25 5.29h.96a6.2 6.2 0 00-11.5-3.28V2.64h-.96v3.1c0 .29.22.5.5.5h3.09v-.96H3.49A5.25 5.25 0 018 2.71zM1.79 8h.96a5.25 5.25 0 009.76 2.71h-1.85v-.96h3.09c.28 0 .5.22.5.5v3.1h-.96v-2.07A6.2 6.2 0 011.8 8z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                     重演 error 
+                    
+                  </span>
+                  
+                </button>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-space t-space-vertical"
+              style="gap: 16px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  自定义错误
+                </span>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <div
+                  class="t-image__wrapper t-image__wrapper--shape-square"
+                  disabled="false"
+                  style="width: 284px; height: 160px;"
+                >
+                  <!---->
+                  <!---->
+                  <!---->
+                  <img
+                    alt=""
+                    class="t-image t-image--fit-fill t-image--position-center"
+                    src=""
+                  />
+                  <div
+                    class="t-image__loading"
+                  >
+                    <div
+                      align="center"
+                      direction="vertical"
+                      size="8"
+                    >
+                      图片加载中
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+    </div>
+    <!---->
+    
+    
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/image/_example/shape.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 160px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-cover t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          square
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-round"
+          disabled="false"
+          style="width: 160px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-cover t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          round
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-circle"
+          disabled="false"
+          style="width: 160px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-cover t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <span>
+          circle
+        </span>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/image-viewer/_example/album.vue 1`] = `
 <div
   class="tdesign-demo-image-viewer__base"
