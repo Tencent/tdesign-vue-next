@@ -93,7 +93,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   });
 
   watch(
-    [columns],
+    () => [columns, props.tree?.treeNodeColumnIndex],
     () => {
       treeNodeCol.value = getTreeNodeColumnCol();
     },
@@ -172,7 +172,8 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         );
       }
       return (
-        <div style={colStyle} class={classes}>
+        <div style={colStyle} class={[classes, tableTreeClasses.leafNode]}>
+          <span class={tableTreeClasses.icon}></span>
           {cellInfo}
         </div>
       );

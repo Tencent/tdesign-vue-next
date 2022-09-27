@@ -138,6 +138,11 @@ export default {
   scroll: {
     type: Object as PropType<TdBaseTableProps['scroll']>,
   },
+  /** 是否显示表头 */
+  showHeader: {
+    type: Boolean,
+    default: true,
+  },
   /** 表格尺寸 */
   size: {
     type: String as PropType<TdBaseTableProps['size']>,

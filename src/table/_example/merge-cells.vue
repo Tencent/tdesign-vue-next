@@ -5,7 +5,6 @@
       :data="data"
       :columns="columns"
       row-key="i"
-      :size="size"
       :rowspan-and-colspan="rowspanAndColspan"
       resizable
       table-layout="fixed"
@@ -84,6 +83,4 @@ const rowspanAndColspan = ({ col, rowIndex, colIndex }) => {
     };
   }
 };
-
-const size = 'small';
 </script>

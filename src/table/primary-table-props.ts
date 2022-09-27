@@ -116,6 +116,8 @@ export default {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
     default: (): TdPrimaryTableProps['defaultSelectedRowKeys'] => [],
   },
+  /** 当前排序列是否显示背景色 */
+  showSortColumnBgColor: Boolean,
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
   sort: {
     type: [Object, Array] as PropType<TdPrimaryTableProps['sort']>,

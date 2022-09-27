@@ -163,6 +163,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   scroll?: TableScroll;
   /**
+   * 是否显示表头
+   * @default true
+   */
+  showHeader?: boolean;
+  /**
    * 表格尺寸
    * @default medium
    */
@@ -264,9 +269,9 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
   /**
    * 列类名，值类型是 Function 使用返回值作为列类名；值类型不为 Function 时，值用于整列类名（含表头）。泛型 T 指表格数据类型
    */
-  className?: ClassName | ((context: CellData<T>) => ClassName);
+  className?: TableColumnClassName<T> | TableColumnClassName<T>[];
   /**
-   * 渲染列所需字段
+   * 渲染列所需字段，值为 `serial-number` 表示当前列为「序号」列
    * @default ''
    */
   colKey?: string;
@@ -297,14 +302,14 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   render?: TNode<BaseTableRenderParams<T>>;
   /**
-   * 限制拖拽调整的最小宽度和最大宽度。`resize.minWidth` 默认为 `80`，`resize.maxWidth` 默认为 `600`
-   */
-  resize?: TableColumnResizeConfig;
-  /**
-   * 是否允许拖拽调整该列大小，仅当 `table.resizable = true` 时生效
+   * 是否允许调整当前列列宽
    * @default true
    */
   resizable?: boolean;
+  /**
+   * 限制拖拽调整的最小宽度和最大宽度。`resize.minWidth` 默认为 `80`，`resize.maxWidth` 默认为 `600`
+   */
+  resize?: TableColumnResizeConfig;
   /**
    * 自定义表头渲染。值类型为 Function 表示以函数形式渲染表头。值类型为 string 表示使用插槽渲染，插槽名称为 title 的值。优先级高于 render
    */
@@ -425,6 +430,11 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultSelectedRowKeys?: Array<string | number>;
   /**
+   * 当前排序列是否显示背景色
+   * @default false
+   */
+  showSortColumnBgColor?: boolean;
+  /**
    * 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序
    */
   sort?: TableSort;
@@ -531,7 +541,7 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    */
   children?: Array<PrimaryTableCol<T>>;
   /**
-   * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列
+   * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列。值为 `serial-number` 表示当前列列「序号」列
    * @default ''
    */
   colKey?: string;
@@ -889,6 +899,8 @@ export interface BaseTableCellParams<T> {
   col: BaseTableCol<T>;
   colIndex: number;
 }
+
+export type TableColumnClassName<T> = ClassName | ((context: CellData<T>) => ClassName);
 
 export interface CellData<T> extends BaseTableCellParams<T> {
   type: 'th' | 'td';

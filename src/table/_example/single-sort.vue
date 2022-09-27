@@ -22,6 +22,7 @@
       :data="data"
       :sort="sort"
       :hide-sort-tips="hideSortTips"
+      :show-sort-column-bg-color="true"
       bordered
       @sort-change="sortChange"
       @change="onChange"
@@ -46,6 +47,11 @@ const columns = [
     width: 100,
     sortType: 'all',
     sorter: true,
+    // 自定义列，或单元格类名
+    // className: (params) => {
+    //   console.log(params);
+    //   return 'status-class-bg';
+    // },
   },
   {
     colKey: 'survivalTime',
