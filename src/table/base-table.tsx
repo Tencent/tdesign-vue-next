@@ -65,6 +65,12 @@ export default defineComponent({
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
+    // 吸附相关ref 用来做视图resize后重新定位
+    const paginationAffixRef = ref();
+    const horizontalScrollAffixRef = ref();
+    const headerTopAffixRef = ref();
+    const footerBottomAffixRef = ref();
+
     // 固定表头和固定列逻辑
     const {
       scrollbarWidth,
@@ -87,7 +93,12 @@ export default defineComponent({
       updateThWidthList,
       setRecalculateColWidthFuncRef,
       addTableResizeObserver,
-    } = useFixed(props, context, finalColumns);
+    } = useFixed(props, context, finalColumns, {
+      paginationAffixRef,
+      horizontalScrollAffixRef,
+      headerTopAffixRef,
+      footerBottomAffixRef,
+    });
 
     // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
     const {
@@ -288,6 +299,10 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
       refreshTable,
       onInnerVirtualScroll,
+      paginationAffixRef,
+      horizontalScrollAffixRef,
+      headerTopAffixRef,
+      footerBottomAffixRef,
     };
   },
 
@@ -321,7 +336,12 @@ export default defineComponent({
       return (
         !!(this.isVirtual || this.headerAffixedTop) &&
         (this.headerAffixedTop ? (
-          <Affix offsetTop={0} {...getAffixProps(this.headerAffixedTop)} onFixedChange={this.onFixedChange}>
+          <Affix
+            offsetTop={0}
+            {...getAffixProps(this.headerAffixedTop)}
+            onFixedChange={this.onFixedChange}
+            ref="headerTopAffixRef"
+          >
             {affixHeaderWithWrap}
           </Affix>
         ) : (
@@ -335,6 +355,8 @@ export default defineComponent({
         offsetBottom={0}
         {...getAffixProps(this.horizontalScrollAffixedBottom)}
         style={{ marginTop: `-${this.scrollbarWidth * 2}px` }}
+        horizontalScrollAffixedBottom
+        ref="horizontalScrollAffixRef"
       >
         <div
           ref="horizontalScrollbarRef"
@@ -420,6 +442,7 @@ export default defineComponent({
         offsetBottom={marginScrollbarWidth || 0}
         {...getAffixProps(this.footerAffixedBottom)}
         style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
+        ref="footerBottomAffixRef"
       >
         <div
           ref="affixFooterRef"
@@ -573,7 +596,7 @@ export default defineComponent({
 
         {/* 吸底的分页器 */}
         {this.paginationAffixedBottom ? (
-          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)}>
+          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)} ref="paginationAffixRef">
             {pagination}
           </Affix>
         ) : (
