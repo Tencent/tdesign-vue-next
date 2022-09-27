@@ -20,7 +20,7 @@ export default function useDefaultValue<T, P extends (...args: any) => void>(
     return [
       value,
       (newValue, ...args) => {
-        vProps[`onUpdate:${propsName}`] && emit(`update:${propsName}`, newValue, ...args);
+        emit(`update:${propsName}`, newValue);
         onChange?.(newValue, ...args);
       },
     ];

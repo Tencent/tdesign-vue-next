@@ -15,9 +15,12 @@ temp*
 coverage
 test-report.html
 .idea/
+
+# lock
 package-lock.json
 yarn.lock
-package-lock.json
+pnpm-lock.yaml
+
 *.zip
 .history
 script/test/cypress/screenshots
@@ -30,5 +33,4 @@ cypress
 cypress.json
 Dockerfile
 robotMsg.json
-package-lock.json
 .gitlogmap

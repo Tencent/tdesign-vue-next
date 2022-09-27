@@ -1,18 +1,19 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
+  <t-space direction="vertical">
     <!-- 按钮操作区域 -->
-    <div>
-      <t-radio-group v-model="size" variant="default-filled">
-        <t-radio-button value="small">小尺寸</t-radio-button>
-        <t-radio-button value="medium">中尺寸</t-radio-button>
-        <t-radio-button value="large">大尺寸</t-radio-button>
-      </t-radio-group>
-      <br /><br />
+    <t-radio-group v-model="size" variant="default-filled">
+      <t-radio-button value="small">小尺寸</t-radio-button>
+      <t-radio-button value="medium">中尺寸</t-radio-button>
+      <t-radio-button value="large">大尺寸</t-radio-button>
+    </t-radio-group>
+
+    <t-space>
       <t-checkbox v-model="stripe"> 显示斑马纹 </t-checkbox>
       <t-checkbox v-model="bordered"> 显示表格边框 </t-checkbox>
       <t-checkbox v-model="hover"> 显示悬浮效果 </t-checkbox>
       <t-checkbox v-model="tableLayout"> 宽度自适应 </t-checkbox>
-    </div>
+      <t-checkbox v-model="showHeader"> 显示表头 </t-checkbox>
+    </t-space>
 
     <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
     <t-table
@@ -25,10 +26,11 @@
       :table-layout="tableLayout ? 'auto' : 'fixed'"
       :size="size"
       :pagination="pagination"
+      :show-header="showHeader"
       cell-empty-content="-"
       @row-click="handleRowClick"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -52,9 +54,10 @@ for (let i = 0; i < total; i++) {
 
 const columns = [
   {
-    width: '100',
-    colKey: 'index',
+    // 序号列，设置 colKey = serial-number 即可
+    colKey: 'serial-number',
     title: '序号',
+    width: '100',
     // 对齐方式
     align: 'center',
     // 设置列类名
@@ -62,6 +65,7 @@ const columns = [
     // 设置列属性
     attrs: {
       'data-id': 'first-column',
+      style: {},
     },
   },
   {
@@ -89,6 +93,7 @@ const columns = [
      * 3.值类型为 Object，则自动透传属性到 Tooltip 组件。
      */
     ellipsis: true,
+    ellipsisTitle: false,
 
     // 透传省略内容浮层 Tooltip 组件全部特性，示例代码有效，勿删！！！
     // ellipsis: { placement: 'bottom', destroyOnClose: false },
@@ -116,6 +121,7 @@ const bordered = ref(true);
 const hover = ref(false);
 const tableLayout = ref(false);
 const size = ref('medium');
+const showHeader = ref(true);
 
 const handleRowClick = (e) => {
   console.log(e);

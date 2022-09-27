@@ -23,7 +23,7 @@ export default function useVModel<T, P extends (...args: any) => void>(
     return [
       modelValue,
       (newValue, ...args) => {
-        vProps['onUpdate:modelValue'] && emit('update:modelValue', newValue, ...args);
+        emit('update:modelValue', newValue);
         onChange?.(newValue, ...args);
       },
     ];
@@ -33,7 +33,7 @@ export default function useVModel<T, P extends (...args: any) => void>(
     return [
       value,
       (newValue, ...args) => {
-        vProps[`onUpdate:${propName}`] && emit(`update:${propName}`, newValue, ...args);
+        emit(`update:${propName}`, newValue);
         onChange?.(newValue, ...args);
       },
     ];

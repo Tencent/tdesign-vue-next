@@ -65,6 +65,12 @@ export default defineComponent({
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
+    // 吸附相关ref 用来做视图resize后重新定位
+    const paginationAffixRef = ref();
+    const horizontalScrollAffixRef = ref();
+    const headerTopAffixRef = ref();
+    const footerBottomAffixRef = ref();
+
     // 固定表头和固定列逻辑
     const {
       scrollbarWidth,
@@ -87,7 +93,12 @@ export default defineComponent({
       updateThWidthList,
       setRecalculateColWidthFuncRef,
       addTableResizeObserver,
-    } = useFixed(props, context, finalColumns);
+    } = useFixed(props, context, finalColumns, {
+      paginationAffixRef,
+      horizontalScrollAffixRef,
+      headerTopAffixRef,
+      footerBottomAffixRef,
+    });
 
     // 1. 表头吸顶；2. 表尾吸底；3. 底部滚动条吸底；4. 分页器吸底
     const {
@@ -288,6 +299,10 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
       refreshTable,
       onInnerVirtualScroll,
+      paginationAffixRef,
+      horizontalScrollAffixRef,
+      headerTopAffixRef,
+      footerBottomAffixRef,
     };
   },
 
@@ -301,6 +316,61 @@ export default defineComponent({
       log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
     }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
+
+    const renderColGroup = () => (
+      <colgroup>
+        {columns.map((col) => {
+          const style: Styles = {
+            width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+          };
+          if (col.minWidth) {
+            style.minWidth = formatCSSUnit(col.minWidth);
+          }
+          return <col key={col.colKey} style={style}></col>;
+        })}
+      </colgroup>
+    );
+
+    const renderAffixedHeader = () => {
+      if (this.showHeader === false) return null;
+      return (
+        !!(this.isVirtual || this.headerAffixedTop) &&
+        (this.headerAffixedTop ? (
+          <Affix
+            offsetTop={0}
+            {...getAffixProps(this.headerAffixedTop)}
+            onFixedChange={this.onFixedChange}
+            ref="headerTopAffixRef"
+          >
+            {affixHeaderWithWrap}
+          </Affix>
+        ) : (
+          this.isFixedHeader && affixHeaderWithWrap
+        ))
+      );
+    };
+
+    const renderAffixedHorizontalScrollbar = () => (
+      <Affix
+        offsetBottom={0}
+        {...getAffixProps(this.horizontalScrollAffixedBottom)}
+        style={{ marginTop: `-${this.scrollbarWidth * 2}px` }}
+        horizontalScrollAffixedBottom
+        ref="horizontalScrollAffixRef"
+      >
+        <div
+          ref="horizontalScrollbarRef"
+          class={['scrollbar', this.tableBaseClass.obviousScrollbar]}
+          style={{
+            width: `${this.tableWidth}px`,
+            overflow: 'auto',
+            opacity: Number(this.showAffixFooter),
+          }}
+        >
+          <div style={{ width: `${this.tableElmWidth}px`, height: '5px' }}></div>
+        </div>
+      </Affix>
+    );
 
     /**
      * Affixed Header
@@ -332,17 +402,7 @@ export default defineComponent({
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
-          <colgroup>
-            {columns.map((col) => {
-              const style: Styles = {
-                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
-              };
-              if (col.minWidth) {
-                style.minWidth = formatCSSUnit(col.minWidth);
-              }
-              return <col key={col.colKey} style={style}></col>;
-            })}
-          </colgroup>
+          {renderColGroup()}
           <THead
             v-slots={this.$slots}
             isFixedHeader={this.isFixedHeader}
@@ -382,6 +442,7 @@ export default defineComponent({
         offsetBottom={marginScrollbarWidth || 0}
         {...getAffixProps(this.footerAffixedBottom)}
         style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
+        ref="footerBottomAffixRef"
       >
         <div
           ref="affixFooterRef"
@@ -390,17 +451,7 @@ export default defineComponent({
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
-            <colgroup>
-              {columns.map((col) => {
-                const style: Styles = {
-                  width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
-                };
-                if (col.minWidth) {
-                  style.minWidth = formatCSSUnit(col.minWidth);
-                }
-                return <col key={col.colKey} style={style}></col>;
-              })}
-            </colgroup>
+            {renderColGroup()}
             <TFoot
               rowKey={this.rowKey}
               v-slots={this.$slots}
@@ -458,29 +509,21 @@ export default defineComponent({
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
-          <colgroup>
-            {columns.map((col) => {
-              const style: Styles = {
-                width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
-              };
-              if (col.minWidth) {
-                style.minWidth = formatCSSUnit(col.minWidth);
-              }
-              return <col key={col.colKey} style={style}></col>;
-            })}
-          </colgroup>
-          <THead
-            v-slots={this.$slots}
-            isFixedHeader={this.isFixedHeader}
-            rowAndColFixedPosition={this.rowAndColFixedPosition}
-            isMultipleHeader={this.isMultipleHeader}
-            bordered={this.bordered}
-            spansAndLeafNodes={this.spansAndLeafNodes}
-            thList={this.thList}
-            thWidthList={this.thWidthList}
-            resizable={this.resizable}
-            columnResizeParams={this.columnResizeParams}
-          />
+          {renderColGroup()}
+          {this.showHeader && (
+            <THead
+              v-slots={this.$slots}
+              isFixedHeader={this.isFixedHeader}
+              rowAndColFixedPosition={this.rowAndColFixedPosition}
+              isMultipleHeader={this.isMultipleHeader}
+              bordered={this.bordered}
+              spansAndLeafNodes={this.spansAndLeafNodes}
+              thList={this.thList}
+              thWidthList={this.thWidthList}
+              resizable={this.resizable}
+              columnResizeParams={this.columnResizeParams}
+            />
+          )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
@@ -527,14 +570,7 @@ export default defineComponent({
       <div ref="tableRef" class={this.dynamicBaseTableClasses} style="position: relative">
         {!!topContent && <div class={this.tableBaseClass.topContent}>{topContent}</div>}
 
-        {!!(this.isVirtual || this.headerAffixedTop) &&
-          (this.headerAffixedTop ? (
-            <Affix offsetTop={0} {...getAffixProps(this.headerAffixedTop)} onFixedChange={this.onFixedChange}>
-              {affixHeaderWithWrap}
-            </Affix>
-          ) : (
-            this.isFixedHeader && affixHeaderWithWrap
-          ))}
+        {renderAffixedHeader()}
 
         {tableContent}
 
@@ -556,29 +592,11 @@ export default defineComponent({
         {bottom}
 
         {/* 吸底的滚动条 */}
-        {this.horizontalScrollAffixedBottom && (
-          <Affix
-            offsetBottom={0}
-            {...getAffixProps(this.horizontalScrollAffixedBottom)}
-            style={{ marginTop: `-${this.scrollbarWidth * 2}px` }}
-          >
-            <div
-              ref="horizontalScrollbarRef"
-              class={['scrollbar', this.tableBaseClass.obviousScrollbar]}
-              style={{
-                width: `${this.tableWidth}px`,
-                overflow: 'auto',
-                opacity: Number(this.showAffixFooter),
-              }}
-            >
-              <div style={{ width: `${this.tableElmWidth}px`, height: '5px' }}></div>
-            </div>
-          </Affix>
-        )}
+        {this.horizontalScrollAffixedBottom && renderAffixedHorizontalScrollbar()}
 
         {/* 吸底的分页器 */}
         {this.paginationAffixedBottom ? (
-          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)}>
+          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)} ref="paginationAffixRef">
             {pagination}
           </Affix>
         ) : (

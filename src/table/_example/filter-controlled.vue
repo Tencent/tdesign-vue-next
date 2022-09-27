@@ -129,7 +129,7 @@ const columns = computed(() => [
   },
 ]);
 
-const filterValue = ref({});
+const filterValue = ref({ lastName: [], createTime: [] });
 const data = ref([...initData]);
 const bordered = ref(true);
 
@@ -147,7 +147,7 @@ const request = (filters) => {
       if (result && filters.email) {
         result = item.email.indexOf(filters.email) !== -1;
       }
-      if (result && filters.createTime) {
+      if (result && filters.createTime && filters.createTime.length) {
         result = item.createTime === filters.createTime;
       }
       return result;
@@ -157,7 +157,11 @@ const request = (filters) => {
 };
 
 const onFilterChange = (filters) => {
-  filterValue.value = filters;
+  filterValue.value = {
+    ...filters,
+    createTime: filters.createTime || [],
+    lastName: filters.lastName || [],
+  };
   console.log(filters);
   request(filters);
 };

@@ -2,6 +2,7 @@ import { ref, computed, watchEffect } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
+import { useTNodeJSX } from '../../hooks/tnode';
 import { useFormDisabled } from '../../form/hooks';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
@@ -20,6 +21,7 @@ export default function useSingle(props: TdDatePickerProps) {
   const { globalConfig } = useConfig('datePicker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
   const disabled = useFormDisabled();
+  const renderTNodeJSX = useTNodeJSX();
 
   const inputRef = ref();
 
@@ -42,10 +44,12 @@ export default function useSingle(props: TdDatePickerProps) {
   const inputProps = computed(() => ({
     ...props.inputProps,
     ref: inputRef,
-    prefixIcon: props.prefixIcon,
+    prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,
     placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
-    suffixIcon: props.suffixIcon || (() => <CalendarIcon />),
+    suffixIcon: () => {
+      return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
+    },
     class: [
       {
         [`${COMPONENT_NAME.value}__input--placeholder`]: isHoverCell.value,
@@ -76,6 +80,12 @@ export default function useSingle(props: TdDatePickerProps) {
       !Number.isNaN(newTime) && (time.value = newTime);
     },
     onEnter: (val: string) => {
+      if (!val) {
+        onChange('', { dayjsValue: dayjs(), trigger: 'enter' });
+        popupVisible.value = false;
+        return;
+      }
+
       if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
 
       popupVisible.value = false;
@@ -108,12 +118,6 @@ export default function useSingle(props: TdDatePickerProps) {
       if (context.trigger === 'trigger-element-click') {
         popupVisible.value = true;
         return;
-      }
-      if (!visible) {
-        isHoverCell.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
-        });
       }
       popupVisible.value = visible;
     },

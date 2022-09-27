@@ -29,6 +29,8 @@ import { ref } from 'vue';
 
 const columns = [
   {
+    // title: '单选',
+    // align: 'center',
     colKey: 'row-select',
     type: 'single',
     // 允许单选(Radio)取消行选中

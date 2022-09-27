@@ -25,7 +25,7 @@
       drag-sort="row-handler"
       :data="data"
       :columns="columns"
-      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 }"
+      :tree="treeConfig"
       :tree-expand-and-fold-icon="treeExpandIcon"
       :pagination="pagination"
       :before-drag-sort="beforeDragSort"
@@ -127,6 +127,8 @@ function getData(currentPage = 1) {
 const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
+
+const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
 
 const resetData = () => {
   // 需要更新数据地址空间

@@ -48,16 +48,20 @@ export default defineComponent({
     );
 
     watch(popupVisible, (visible) => {
+      cacheValue.value = formatDate(value.value, {
+        format: formatRef.value.format,
+      });
+      inputValue.value = formatDate(value.value, {
+        format: formatRef.value.format,
+      });
+
       // 面板展开重置数据
       if (visible) {
         year.value = parseToDayjs(value.value, formatRef.value.format).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.timeFormat);
-        if (value.value) {
-          cacheValue.value = formatDate(value.value, {
-            format: formatRef.value.format,
-          });
-        }
+      } else {
+        isHoverCell.value = false;
       }
     });
 

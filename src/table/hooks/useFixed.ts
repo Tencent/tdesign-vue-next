@@ -10,6 +10,7 @@ import {
   ComputedRef,
   onUnmounted,
   onBeforeUnmount,
+  Ref,
 } from 'vue';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
@@ -86,6 +87,7 @@ export default function useFixed(
   props: TdBaseTableProps,
   context: SetupContext,
   finalColumns: ComputedRef<BaseTableCol<TableRowData>[]>,
+  affixRef: Record<string, Ref>,
 ) {
   const {
     columns,
@@ -379,6 +381,13 @@ export default function useFixed(
     tableElmWidth.value = elmRect?.width;
   };
 
+  const updateAffixPosition = () => {
+    // 在表格高度变化的时候 需要手动调整affix的位置 因为affix本身无法监听到这些变化触发重新计算
+    affixRef.paginationAffixRef.value?.handleScroll?.();
+    affixRef.horizontalScrollAffixRef.value?.handleScroll?.();
+    affixRef.headerTopAffixRef?.value?.handleScroll?.();
+  };
+
   const updateThWidthList = (trList: HTMLCollection | { [colKey: string]: number }) => {
     if (trList instanceof HTMLCollection) {
       if (columnResizable.value) return;
@@ -494,6 +503,8 @@ export default function useFixed(
     updateTableWidth();
     updateFixedHeader();
     updateThWidthListHandler();
+    updateAffixPosition();
+
     if (isFixedColumn.value || isFixedHeader.value) {
       updateFixedStatus();
       updateColumnFixedShadow(tableContentRef.value, { skipScrollLimit: true });

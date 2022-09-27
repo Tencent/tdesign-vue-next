@@ -58,7 +58,7 @@ export interface TdImageViewerProps {
   /**
    * 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义
    */
-  trigger?: string | TNode;
+  trigger?: string | TNode<{ open: () => void }>;
   /**
    * 限制预览器缩放的最小宽度和最小高度，仅 `mode=modeless` 时有效
    */

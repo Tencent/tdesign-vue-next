@@ -14,8 +14,8 @@
         <t-button theme="primary">自定义上传</t-button>
       </t-upload>
       <div v-if="files && files.length" class="list-custom">
-        <ul>
-          <li v-for="(item, index) in files" :key="index">{{ item.name }}</li>
+        <ul style="padding: 0">
+          <li v-for="(item, index) in files" :key="index" style="list-style-type: none">{{ item.name }}</li>
         </ul>
       </div>
     </div>

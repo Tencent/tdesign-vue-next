@@ -5,6 +5,67 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.22.2 `2022-09-27` 
+### ❗ Breaking Changes
+- `Upload`: 
+  -  `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 移除文档中不存在的 `API customDraggerRender`，请使用 `dragContent` 或 `children` 自定义拖拽区域@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+
+### 🚀 Features
+- `Upload`: 
+  -  为适应 `requestMethod` 参数由文件对象，更为数组 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - `UploadFile` 对象新增 `uploadTime` 属性，用于表示上传时间 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - `theme=file` 支持多文件上传 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 文件上传前处理函数 `beforeUpload` 存在时，依然支持 `sizeLimit` 检测 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增 `beforeAllFilesUpload`，所有文件上传之前执行，支持一次性判定所有文件是否继续上传。已经存在的 `beforeUpload` 用于判定单个文件的是否继续上传 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增事件 `onValidate`，文件校验不通过时触发，可能情况有：自定义全文件校验不通过、文件数量校验不通过、文件数量校验不通过、文件名重复（允许重复文件名场景下不会触发）@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增事件 `onOneFileSuccess` ，多文件上传场景下，在单个文件上传成功后触发 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增事件 `onOneFileFail ，多文件上传场景下，在单个文件上传失败后触发 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增 `formatRequest` 用于新增或修改上传请求参数（现有的 `format` 用于格式化文件对象）@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增 `triggerButtonProps` 用于指定文件选择触发按钮风格 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+- `Table`: 
+  - 新增 column.resizable 支持自定义任意列是否可拖拽调整宽度 @ZTao-z ([#1732](https://github.com/Tencent/tdesign-vue-next/pull/1732))
+  - 新增 `showHeader`，支持隐藏表头 @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 新增 `column.colKey = serial-number`，支持序号列功能，([#1517](https://github.com/Tencent/tdesign-vue-next/issues/1517)( @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 新增 `showSortColumnBgColor`，用于控制是否显示排序列背景色 @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 支持属性 `tree.treeNodeColumnIndex` 动态修改， ([#1487](https://github.com/Tencent/tdesign-vue-next/issues/1487)) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+- `Menu`: 如果存在链接参数，默认使用标签 `<a>` ([issue #1671](https://github.com/Tencent/tdesign-vue-next/issues/1671)) @Lmmmmmm-bb ([#1728](https://github.com/Tencent/tdesign-vue-next/pull/1728)) 
+- `Image`: 增加 `image` 组件 @pengYYYYY ([#1735](https://github.com/Tencent/tdesign-vue-next/pull/1735))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  -  树形结构，叶子节点缩进距离修正 @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 超出省略功能，`ellipsisTitle`优先级应当高于 `ellipsis`， [tdesign-vue#1404](https://github.com/Tencent/tdesign-vue/issues/1404) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 修复不提供 `expandedRowKeys` 的绑定会报错 @MyZhouGit ([#1705](https://github.com/Tencent/tdesign-vue-next/pull/1705))
+  - 行选中功能，修复 `column.type=single` 时，`column.title` 无效问题，[issue#1372](https://github.com/Tencent/tdesign-vue/issues/1372) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 过滤功能，`list.value` 值为 `number` 无法高亮过滤图标问题 @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 行选中功能，数据变化时，选中的数据依旧是变化前的数据，[#1722](https://github.com/Tencent/tdesign-vue-next/issues/1722) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+  - 不提供`expandedRowKeys`的绑定会报错 ，缺少判空，[#1704](https://github.com/Tencent/tdesign-vue-next/issues/1704) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
+- `Swiper`:
+  -  修复鼠标悬停移出后没有重新轮播问题  @yusongH ([#1717](https://github.com/Tencent/tdesign-vue-next/pull/1717))
+  - 修复 `trriger` 属性不生效问题  @yusongH ([#1717](https://github.com/Tencent/tdesign-vue-next/pull/1717))
+  - 修复鼠标悬停移出后没有重新轮播问题 @yusongH ([#1717](https://github.com/Tencent/tdesign-vue-next/pull/1717))
+  -  修复 `swiper` 组件的 `demo` 显示不正确 @yusongH ([#1725](https://github.com/Tencent/tdesign-vue-next/pull/1725))
+- `ImageViewer`: 
+  - 按 `class` 命名规范修复组件 `class` 命名 @sinbadmaster ([#1731](https://github.com/Tencent/tdesign-vue-next/pull/1731))
+ - 修复 `demo` 中弹出窗样式异常 @sinbadmaster ([#1731](https://github.com/Tencent/tdesign-vue-next/pull/1731))
+- `DatePicker`: 
+  - 修复 `prefixIcon` `suffixIcon` 失效问题 ([issue #1673](https://github.com/Tencent/tdesign-vue-next/issues/1673)) @HQ-Lin ([#1724](https://github.com/Tencent/tdesign-vue-next/pull/1724))
+  - 优化 datepicker 输入事件交互 @HQ-Lin ([#1736](https://github.com/Tencent/tdesign-vue-next/pull/1736))
+- `Dialog`: 修复在弹窗内按下鼠标,在蒙层中松开会关闭弹窗的问题 @sechi747 ([#1739](https://github.com/Tencent/tdesign-vue-next/pull/1739))
+- `TreeSelect`:  修复 `popuoContent` 无 `padding` @fenbitou ([#1714](https://github.com/Tencent/tdesign-vue-next/pull/1714))
+- `Hooks`:  修复使用 `v-model.trim` 会将内容清空的问题 @zhangpaopao0609 ([#1721](https://github.com/Tencent/tdesign-vue-next/pull/1721))
+- `TimePicker`: 调整 `time-pick` 样式 @wanghanzhen ([#1730](https://github.com/Tencent/tdesign-vue-next/pull/1730))
+- `Upload`: 修复一个请求上传多个文件，参数携带全部文件，当前只会携带一个 `file` 参数@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+### 🚧 Others
+-  `Dropdown`: 补充 `dropdown` 单元测试@Isabella327 ([#1708](https://github.com/Tencent/tdesign-vue-next/pull/1708))
+- `Switch`: 补充 `switch` 单元测试 @ChrisLee0211 ([#1729](https://github.com/Tencent/tdesign-vue-next/pull/1729))
+- `Tabs`: 补充 `Tabs` 单元测试 @YunYouJun ([#1734](https://github.com/Tencent/tdesign-vue-next/pull/1734))
+- `Tag`: 补充 `tag` 单元测试 @LadyChatterleyLover ([#1743](https://github.com/Tencent/tdesign-vue-next/pull/1743))
+- `Skeleton`: 补充 `skeleton` 单元测试  @LadyChatterleyLover ([#1744](https://github.com/Tencent/tdesign-vue-next/pull/1744))
+- `Card`:  补充 `card` 组件单元测试 @LadyChatterleyLover ([#1745](https://github.com/Tencent/tdesign-vue-next/pull/1745))
+
+
 ## 🌈 0.22.1 `2022-09-21` 
 ### 🐞 Bug Fixes
 - `Collapse`: 修复 `content api` 不支持 ([issue #1703](https://github.com/Tencent/tdesign-vue-next/issues/1703)) @isanxia ([#1707](https://github.com/Tencent/tdesign-vue-next/pull/1707))

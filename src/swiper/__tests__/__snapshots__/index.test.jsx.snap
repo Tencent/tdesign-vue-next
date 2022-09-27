@@ -16,7 +16,7 @@ exports[`Swiper > :props > :animation fade 1`] = `
         
         <div
           class="t-swiper__container__item t-swiper__fade"
-          style="opacity: 1;"
+          style="opacity: 1; z-index: 1;"
         >
           
           

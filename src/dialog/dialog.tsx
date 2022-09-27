@@ -22,7 +22,7 @@ import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useAction } from './hooks';
+import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
@@ -110,7 +110,6 @@ export default defineComponent({
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
-    const dialogPosition = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
     const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
       CloseIcon: TdCloseIcon,
@@ -237,12 +236,11 @@ export default defineComponent({
     };
     const overlayAction = (e: MouseEvent) => {
       if (props.showOverlay && (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick)) {
-        if (e.target === dialogPosition.value) {
-          props.onOverlayClick?.({ e });
-          emitCloseEvent({ e, trigger: 'overlay' });
-        }
+        props.onOverlayClick?.({ e });
+        emitCloseEvent({ e, trigger: 'overlay' });
       }
     };
+    const { onClick, onMousedown, onMouseup } = useSameTarget(overlayAction);
     const closeBtnAction = (e: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
       emitCloseEvent({
@@ -320,7 +318,13 @@ export default defineComponent({
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
-          <div class={positionClass.value} style={positionStyle.value} onClick={overlayAction} ref={dialogPosition}>
+          <div
+            class={positionClass.value}
+            style={positionStyle.value}
+            onClick={onClick}
+            onMousedown={onMousedown}
+            onMouseup={onMouseup}
+          >
             <div
               key="dialog"
               class={dialogClass.value}
