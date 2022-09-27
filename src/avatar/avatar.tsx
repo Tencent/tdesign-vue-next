@@ -85,7 +85,7 @@ export default defineComponent({
       const { shape, image, alt } = props;
       const avatarClass = [
         `${COMPONENT_NAME.value}`,
-        SIZE[sizeValue.value],
+        SIZE.value[sizeValue.value],
         {
           [`${COMPONENT_NAME.value}--circle`]: shape === 'circle',
           [`${COMPONENT_NAME.value}--round`]: shape === 'round',
