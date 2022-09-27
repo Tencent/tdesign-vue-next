@@ -10,6 +10,7 @@ exports[`HeadMenu > props > :active 1`] = `
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       
@@ -31,6 +32,7 @@ exports[`HeadMenu > props > :height 1`] = `
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       
@@ -51,6 +53,7 @@ exports[`HeadMenu > props > :theme 1`] = `
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       
@@ -71,6 +74,7 @@ exports[`HeadMenu > slot > <default> 1`] = `
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       <div />
@@ -98,6 +102,7 @@ exports[`HeadMenu > slot > <logo> 1`] = `
     </div>
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       
@@ -118,6 +123,7 @@ exports[`HeadMenu > slot > <operations> 1`] = `
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       

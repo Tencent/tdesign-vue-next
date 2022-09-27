@@ -135,7 +135,6 @@ export default defineComponent({
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
-
       if (logoRef.value) {
         const logoMarginLeft = getComputedCssValue(logoRef.value, 'marginLeft');
         const logoMarginRight = getComputedCssValue(logoRef.value, 'marginRight');
@@ -201,7 +200,7 @@ export default defineComponent({
                 {logo}
               </div>
             )}
-            <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
+            <ul class={`${classPrefix.value}-menu`} style={{ flex: 1 }} ref={menuRef}>
               {content}
             </ul>
             {operations && (
