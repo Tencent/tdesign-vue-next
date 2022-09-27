@@ -27,9 +27,10 @@ export default defineComponent({
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
     const menu = inject<TdMenuInterface>('TdMenu');
-    const { theme, activeValues, expandValues, mode, isHead, open } = menu;
+    const { theme, activeValues, expandValues, isHead, open } = menu;
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
     const { setSubPopup, closeParentPopup } = submenu;
+    const mode = computed(() => ctx.attrs.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
