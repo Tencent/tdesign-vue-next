@@ -43,6 +43,7 @@ export default defineComponent({
       getDefaultFormat({
         mode: props.mode,
         format: props.format,
+        valueType: props.valueType,
         enableTimePicker: props.enableTimePicker,
       }),
     );
@@ -97,6 +98,7 @@ export default defineComponent({
         onChange?.(
           formatDate(date, {
             format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
           }) as DateValue,
           {
             dayjsValue: parseToDayjs(date, formatRef.value.format),
@@ -162,6 +164,7 @@ export default defineComponent({
         onChange?.(
           formatDate(inputValue.value, {
             format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
           }) as DateValue,
           {
             dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
@@ -182,6 +185,7 @@ export default defineComponent({
       onChange?.(
         formatDate(presetVal, {
           format: formatRef.value.format,
+          targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
           dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
