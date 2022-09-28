@@ -2569,7 +2569,19 @@ exports[`csr snapshot test > csr test ./src/avatar/_example/group-max.vue 1`] = 
         </svg>
         <span>
           
-          
+          <svg
+            class="t-icon t-icon-ellipsis"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
           
         </span>
         
@@ -2613,7 +2625,7 @@ exports[`csr snapshot test > csr test ./src/avatar/_example/group-max.vue 1`] = 
       >
         <span>
           
-          
+          more
           
         </span>
       </div>
