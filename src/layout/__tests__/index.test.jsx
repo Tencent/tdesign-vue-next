@@ -4,7 +4,7 @@ import { Layout, Header, Content, Footer, Aside } from '@/src/layout/index';
 
 describe('Layout', () => {
   describe(':props', () => {
-    it('header&contet&footer', () => {
+    it('header&content&footer', () => {
       const wrapper = mount(() => (
         <Layout>
           <Header>Header</Header>
@@ -20,7 +20,7 @@ describe('Layout', () => {
       expect(wrapper.find('.t-layout__footer').exists()).toBeTruthy();
       expect(wrapper.find('.t-layout__footer').text()).toBe('Footer');
     });
-    it('header&aside&contet&footer', () => {
+    it('header&aside&content&footer', () => {
       const wrapper = mount(() => (
         <Layout>
           <Header>Header</Header>
