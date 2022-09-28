@@ -5,6 +5,23 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.23.1 `2022-09-28` 
+### 🐞 Bug Fixes
+- `Upload`: 
+  - 请求支持带上自定义 `headers` @chaishi ([#1767](https://github.com/Tencent/tdesign-vue-next/pull/1767)). 恢复 
+  -  `withCredentials` ([issue #1765](https://github.com/Tencent/tdesign-vue-next/issues/1765)) @chaishi ([#1768](https://github.com/Tencent/tdesign-vue-next/pull/1768))
+- `DatePicker`: 
+  - 支持 `valueType api` @HQ-Lin ([#1769](https://github.com/Tencent/tdesign-vue-next/pull/1769))
+  - 修复传入 lambda 函数被频繁触发问题 @HQ-Lin ([#1749](https://github.com/Tencent/tdesign-vue-next/pull/1749))
+- `InputNumber`: 输入中文或特殊符号时，清空数字为 `undefined` @chaishi ([#1767](https://github.com/Tencent/tdesign-vue-next/pull/1767))
+- `Menu`: 修复横向菜单栏子类过多，样式错乱问题 @sinbadmaster ([#1742](https://github.com/Tencent/tdesign-vue-next/pull/1742))
+
+### 🚧 Others
+- `Badge`: 补充 `Badge` 组件单元测试 @LadyChatterleyLover ([#1746](https://github.com/Tencent/tdesign-vue-next/pull/1746))
+- `Grid`: 补充 `grid` 单元测试 @LadyChatterleyLover ([#1755](https://github.com/Tencent/tdesign-vue-next/pull/1755))
+- `Layout`: 补充 `layout` 单元测试 @LadyChatterleyLover ([#1760](https://github.com/Tencent/tdesign-vue-next/pull/1760))
+- `Avatar`: 补充 `avatar` 单元测试 @LadyChatterleyLover ([#1753](https://github.com/Tencent/tdesign-vue-next/pull/1753))
+
 ## 🌈 0.23.0 `2022-09-27` 
 ### ❗ Breaking Changes
 - `Upload`: `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
