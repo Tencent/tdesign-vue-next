@@ -27,6 +27,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     getDefaultFormat({
       mode: props.mode,
       format: props.format,
+      valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     }),
   );
@@ -92,6 +93,7 @@ export default function useRange(props: TdDateRangePickerProps) {
         onChange?.(
           formatDate(newVal, {
             format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
           }) as DateValue[],
           {
             dayjsValue: newVal.map((v) => parseToDayjs(v, formatRef.value.format)),
