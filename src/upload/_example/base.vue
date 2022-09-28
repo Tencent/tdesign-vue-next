@@ -26,6 +26,7 @@
         ref="uploadRef1"
         v-model="files1"
         action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
+        :headers="{ a: 'N1', b: 'N2' }"
         :placeholder="multiple ? '文件数量不超过 5 个' : '要求文件大小在 1M 以内'"
         :multiple="multiple"
         :auto-upload="autoUpload"
