@@ -68105,7 +68105,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/base.vue 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default"
+      class="t-input t-is-default t-align-center"
     >
       <!---->
       <!---->
@@ -68121,55 +68121,8 @@ exports[`csr snapshot test > csr test ./src/input/_example/base.vue 1`] = `
     </div>
     <!---->
   </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-default"
-    >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入内容（有默认值）"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-input__wrap"
-  >
-    <div
-      class="t-input t-is-default t-input--prefix t-input--suffix"
-    >
-      <!---->
-      <div
-        class="t-input__prefix"
-      >
-        价格：
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <div
-        class="t-input__suffix"
-      >
-        元
-        <!---->
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <!---->
-  </div>
+  <!-- &lt;t-input v-model="input" placeholder="请输入内容（有默认值）" @enter="onEnter" @change="onChange" /&gt;
+    &lt;t-input label="价格：" suffix="元" /&gt; -->
 </div>
 `;
 
