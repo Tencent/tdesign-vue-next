@@ -44,6 +44,8 @@ export default defineComponent({
       if (props.collapseAvatar) {
         if (!isIcon()) {
           content = renderContent('collapseAvatar', 'content');
+        } else {
+          content = isIcon();
         }
       } else {
         content = `+${children.length - props.max}`;
