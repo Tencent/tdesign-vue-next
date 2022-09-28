@@ -2569,7 +2569,19 @@ exports[`csr snapshot test > csr test ./src/avatar/_example/group-max.vue 1`] = 
         </svg>
         <span>
           
-          
+          <svg
+            class="t-icon t-icon-ellipsis"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
           
         </span>
         
@@ -2613,7 +2625,7 @@ exports[`csr snapshot test > csr test ./src/avatar/_example/group-max.vue 1`] = 
       >
         <span>
           
-          
+          more
           
         </span>
       </div>
@@ -72902,6 +72914,7 @@ exports[`csr snapshot test > csr test ./src/layout/_example/combine.vue 1`] = `
         </div>
         <ul
           class="t-menu"
+          style="flex: 1;"
         >
           
           <li
@@ -73264,6 +73277,7 @@ exports[`csr snapshot test > csr test ./src/layout/_example/top.vue 1`] = `
         </div>
         <ul
           class="t-menu"
+          style="flex: 1;"
         >
           
           <li
@@ -77470,6 +77484,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/custom-header.vue 1`] 
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       <li
@@ -77624,6 +77639,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/custom-side.vue 1`] = 
 exports[`csr snapshot test > csr test ./src/menu/_example/double.vue 1`] = `
 <div
   class="box"
+  style="width: 800px;"
 >
   <div
     class="t-menu t-head-menu t-menu--light"
@@ -77644,6 +77660,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/double.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li
@@ -77763,6 +77780,316 @@ exports[`csr snapshot test > csr test ./src/menu/_example/double.vue 1`] = `
               >
                 
                 子菜单2-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单3
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单4
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单5
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单6
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单7
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-3
                 
               </span>
             </li>
@@ -77845,6 +78172,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/double.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li
@@ -77964,6 +78292,316 @@ exports[`csr snapshot test > csr test ./src/menu/_example/double.vue 1`] = `
               >
                 
                 子菜单2-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单3
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单3-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单4
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单4-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单5
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单5-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单6
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单6-3
+                
+              </span>
+            </li>
+            
+          </ul>
+          
+        </li>
+        <li
+          class="t-submenu"
+        >
+          
+          <div
+            class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
+          >
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单7
+              </span>
+              
+            </span>
+          </div>
+          <ul
+            style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
+          >
+            
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-1
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-2
+                
+              </span>
+            </li>
+            <li
+              class="t-menu__item t-menu__item--plain"
+            >
+              <!---->
+              <span
+                class="t-menu__content"
+              >
+                
+                子菜单7-3
                 
               </span>
             </li>
@@ -78182,6 +78820,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/head-menu-dark.vue 1`]
     </div>
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       <li
@@ -78299,6 +78938,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/head-menu-empty.vue 1`
     <!---->
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       <li
@@ -78378,6 +79018,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/head-menu-mode-tile.vu
     </div>
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       <li
@@ -78506,6 +79147,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/head-menu-tile.vue 1`]
     </div>
     <ul
       class="t-menu"
+      style="flex: 1;"
     >
       
       
@@ -79626,6 +80268,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/multiple.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li
@@ -79777,6 +80420,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/multiple.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li
@@ -80272,6 +80916,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/single.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li
@@ -80386,6 +81031,7 @@ exports[`csr snapshot test > csr test ./src/menu/_example/single.vue 1`] = `
       </div>
       <ul
         class="t-menu"
+        style="flex: 1;"
       >
         
         <li

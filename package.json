@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -180,7 +180,7 @@
     "vite-plugin-tdoc": "^2.0.2",
     "vitest": "^0.14.1",
     "vitest-fetch-mock": "^0.1.0",
-    "vue": "^3.2.37",
+    "vue": "^3.2.40",
     "vue-router": "^4.0.12",
     "workbox-precaching": "^6.4.1"
   },

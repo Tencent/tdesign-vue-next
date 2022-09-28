@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box" :style="{ width: '800px' }">
     <t-head-menu default-value="1-1" :default-expanded="expanded">
       <template #logo>
         <img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo" />
@@ -19,6 +19,46 @@
         <t-menu-item value="2-1">子菜单2-1</t-menu-item>
         <t-menu-item value="2-2">子菜单2-2</t-menu-item>
         <t-menu-item value="2-3">子菜单2-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="3">
+        <template #title>
+          <span>菜单3</span>
+        </template>
+        <t-menu-item value="3-1">子菜单3-1</t-menu-item>
+        <t-menu-item value="3-2">子菜单3-2</t-menu-item>
+        <t-menu-item value="3-3">子菜单3-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="4">
+        <template #title>
+          <span>菜单4</span>
+        </template>
+        <t-menu-item value="4-1">子菜单4-1</t-menu-item>
+        <t-menu-item value="4-2">子菜单4-2</t-menu-item>
+        <t-menu-item value="4-3">子菜单4-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="5">
+        <template #title>
+          <span>菜单5</span>
+        </template>
+        <t-menu-item value="5-1">子菜单5-1</t-menu-item>
+        <t-menu-item value="5-2">子菜单5-2</t-menu-item>
+        <t-menu-item value="5-3">子菜单5-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="6">
+        <template #title>
+          <span>菜单6</span>
+        </template>
+        <t-menu-item value="6-1">子菜单6-1</t-menu-item>
+        <t-menu-item value="6-2">子菜单6-2</t-menu-item>
+        <t-menu-item value="6-3">子菜单6-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="7">
+        <template #title>
+          <span>菜单7</span>
+        </template>
+        <t-menu-item value="7-1">子菜单7-1</t-menu-item>
+        <t-menu-item value="7-2">子菜单7-2</t-menu-item>
+        <t-menu-item value="7-3">子菜单7-3</t-menu-item>
       </t-submenu>
       <template #operations>
         <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
@@ -46,6 +86,46 @@
         <t-menu-item value="2-1">子菜单2-1</t-menu-item>
         <t-menu-item value="2-2">子菜单2-2</t-menu-item>
         <t-menu-item value="2-3">子菜单2-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="3">
+        <template #title>
+          <span>菜单3</span>
+        </template>
+        <t-menu-item value="3-1">子菜单3-1</t-menu-item>
+        <t-menu-item value="3-2">子菜单3-2</t-menu-item>
+        <t-menu-item value="3-3">子菜单3-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="4">
+        <template #title>
+          <span>菜单4</span>
+        </template>
+        <t-menu-item value="4-1">子菜单4-1</t-menu-item>
+        <t-menu-item value="4-2">子菜单4-2</t-menu-item>
+        <t-menu-item value="4-3">子菜单4-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="5">
+        <template #title>
+          <span>菜单5</span>
+        </template>
+        <t-menu-item value="5-1">子菜单5-1</t-menu-item>
+        <t-menu-item value="5-2">子菜单5-2</t-menu-item>
+        <t-menu-item value="5-3">子菜单5-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="6">
+        <template #title>
+          <span>菜单6</span>
+        </template>
+        <t-menu-item value="6-1">子菜单6-1</t-menu-item>
+        <t-menu-item value="6-2">子菜单6-2</t-menu-item>
+        <t-menu-item value="6-3">子菜单6-3</t-menu-item>
+      </t-submenu>
+      <t-submenu value="7">
+        <template #title>
+          <span>菜单7</span>
+        </template>
+        <t-menu-item value="7-1">子菜单7-1</t-menu-item>
+        <t-menu-item value="7-2">子菜单7-2</t-menu-item>
+        <t-menu-item value="7-3">子菜单7-3</t-menu-item>
       </t-submenu>
       <template #operations>
         <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>

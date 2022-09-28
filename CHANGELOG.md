@@ -5,22 +5,36 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.23.1 `2022-09-28` 
+### 🐞 Bug Fixes
+- `Upload`: 
+  - 请求支持带上自定义 `headers` @chaishi ([#1767](https://github.com/Tencent/tdesign-vue-next/pull/1767)). 恢复 
+  -  `withCredentials` ([issue #1765](https://github.com/Tencent/tdesign-vue-next/issues/1765)) @chaishi ([#1768](https://github.com/Tencent/tdesign-vue-next/pull/1768))
+- `DatePicker`: 
+  - 支持 `valueType api` @HQ-Lin ([#1769](https://github.com/Tencent/tdesign-vue-next/pull/1769))
+  - 修复传入 lambda 函数被频繁触发问题 @HQ-Lin ([#1749](https://github.com/Tencent/tdesign-vue-next/pull/1749))
+- `InputNumber`: 输入中文或特殊符号时，清空数字为 `undefined` @chaishi ([#1767](https://github.com/Tencent/tdesign-vue-next/pull/1767))
+- `Menu`: 修复横向菜单栏子类过多，样式错乱问题 @sinbadmaster ([#1742](https://github.com/Tencent/tdesign-vue-next/pull/1742))
+
+### 🚧 Others
+- `Badge`: 补充 `Badge` 组件单元测试 @LadyChatterleyLover ([#1746](https://github.com/Tencent/tdesign-vue-next/pull/1746))
+- `Grid`: 补充 `grid` 单元测试 @LadyChatterleyLover ([#1755](https://github.com/Tencent/tdesign-vue-next/pull/1755))
+- `Layout`: 补充 `layout` 单元测试 @LadyChatterleyLover ([#1760](https://github.com/Tencent/tdesign-vue-next/pull/1760))
+- `Avatar`: 补充 `avatar` 单元测试 @LadyChatterleyLover ([#1753](https://github.com/Tencent/tdesign-vue-next/pull/1753))
+
 ## 🌈 0.23.0 `2022-09-27` 
 ### ❗ Breaking Changes
-- `Upload`: 
-  -  `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
-  - 移除文档中不存在的 `API customDraggerRender`，请使用 `dragContent` 或 `children` 自定义拖拽区域@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+- `Upload`: `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
 
 ### 🚀 Features
 - `Upload`: 
-  -  为适应 `requestMethod` 参数由文件对象，更为数组 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - `UploadFile` 对象新增 `uploadTime` 属性，用于表示上传时间 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - `theme=file` 支持多文件上传 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 文件上传前处理函数 `beforeUpload` 存在时，依然支持 `sizeLimit` 检测 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 新增 `beforeAllFilesUpload`，所有文件上传之前执行，支持一次性判定所有文件是否继续上传。已经存在的 `beforeUpload` 用于判定单个文件的是否继续上传 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 新增事件 `onValidate`，文件校验不通过时触发，可能情况有：自定义全文件校验不通过、文件数量校验不通过、文件数量校验不通过、文件名重复（允许重复文件名场景下不会触发）@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 新增事件 `onOneFileSuccess` ，多文件上传场景下，在单个文件上传成功后触发 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
-  - 新增事件 `onOneFileFail ，多文件上传场景下，在单个文件上传失败后触发 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - 新增事件 `onOneFileFail` ，多文件上传场景下，在单个文件上传失败后触发 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 新增 `formatRequest` 用于新增或修改上传请求参数（现有的 `format` 用于格式化文件对象）@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
   - 新增 `triggerButtonProps` 用于指定文件选择触发按钮风格 @chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
 - `Table`: 
@@ -40,7 +54,6 @@ docClass: timeline
   - 行选中功能，修复 `column.type=single` 时，`column.title` 无效问题，[issue#1372](https://github.com/Tencent/tdesign-vue/issues/1372) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
   - 过滤功能，`list.value` 值为 `number` 无法高亮过滤图标问题 @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
   - 行选中功能，数据变化时，选中的数据依旧是变化前的数据，[#1722](https://github.com/Tencent/tdesign-vue-next/issues/1722) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
-  - 不提供`expandedRowKeys`的绑定会报错 ，缺少判空，[#1704](https://github.com/Tencent/tdesign-vue-next/issues/1704) @chaishi ([#1740](https://github.com/Tencent/tdesign-vue-next/pull/1740))
 - `Swiper`:
   -  修复鼠标悬停移出后没有重新轮播问题  @yusongH ([#1717](https://github.com/Tencent/tdesign-vue-next/pull/1717))
   - 修复 `trriger` 属性不生效问题  @yusongH ([#1717](https://github.com/Tencent/tdesign-vue-next/pull/1717))

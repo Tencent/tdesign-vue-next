@@ -220,6 +220,8 @@ export default function useUpload(props: TdUploadProps) {
     xhrReq.value = [];
     upload({
       action: props.action,
+      headers: props.headers,
+      withCredentials: props.withCredentials,
       uploadedFiles: uploadValue.value,
       toUploadFiles: files,
       multiple: props.multiple,
