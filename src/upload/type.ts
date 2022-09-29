@@ -387,7 +387,7 @@ export interface SuccessContext {
   file?: UploadFile;
   fileList?: UploadFile[];
   currentFiles?: UploadFile[];
-  response: any;
+  response?: any;
   results?: SuccessContext[];
 }
 
