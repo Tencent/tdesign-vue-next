@@ -178,21 +178,21 @@ describe('Input', () => {
   });
 
   describe(':event', () => {
-    it(':blur', async () => {
+    it(':onBlur', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onBlur={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('blur');
       expect(fn).toBeCalled();
     });
-    it(':focus', async () => {
+    it(':onFocus', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onFocus={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('focus');
       expect(fn).toBeCalled();
     });
-    it(':enter', async () => {
+    it(':onEnter', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onEnter={fn} />);
       const input = wrapper.find('.t-input input');
@@ -200,35 +200,35 @@ describe('Input', () => {
       await nextTick();
       expect(fn).toBeCalled();
     });
-    it(':keydown', async () => {
+    it(':onKeydown', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onKeydown={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('keydown');
       expect(fn).toBeCalled();
     });
-    it(':paste', async () => {
+    it(':onPaste', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onPaste={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('paste');
       expect(fn).toBeCalled();
     });
-    it(':keypress', async () => {
+    it(':onKeypress', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onKeypress={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('keypress');
       expect(fn).toBeCalled();
     });
-    it(':keyup', async () => {
+    it(':onKeyup', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onKeyup={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('keyup');
       expect(fn).toBeCalled();
     });
-    it(':mouseenter', async () => {
+    it(':onMouseenter', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onMouseenter={fn} />);
       const input = wrapper.find('.t-input');
@@ -236,7 +236,7 @@ describe('Input', () => {
       await nextTick();
       expect(fn).toBeCalled();
     });
-    it(':mouseleave', async () => {
+    it(':onMouseleave', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onMouseleave={fn} />);
       const input = wrapper.find('.t-input');
@@ -244,7 +244,7 @@ describe('Input', () => {
       await nextTick();
       expect(fn).toBeCalled();
     });
-    it(':wheel', async () => {
+    it(':onWheel', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onWheel={fn} />);
       const input = wrapper.find('.t-input');
@@ -252,21 +252,21 @@ describe('Input', () => {
       await nextTick();
       expect(fn).toBeCalled();
     });
-    it(':compositionstart', async () => {
+    it(':onCompositionstart', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onCompositionstart={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('compositionstart');
       expect(fn).toBeCalled();
     });
-    it(':compositionend', async () => {
+    it(':onCompositionend', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onCompositionend={fn} />);
       const input = wrapper.find('.t-input input');
       await input.trigger('compositionend');
       expect(fn).toBeCalled();
     });
-    it(':validate', async () => {
+    it(':onValidate', async () => {
       const fn = vi.fn();
       const value = '123';
       mount(() => <Input v-model={value} maxlength={2} onValidate={fn} />);
@@ -284,7 +284,7 @@ describe('Input', () => {
       expect(fn).toBeCalled();
       expect(value.value).toBe('');
     });
-    it(':change', async () => {
+    it(':onChange', async () => {
       const data = ref('');
       const value = ref('');
       const handleChange = (val) => {
