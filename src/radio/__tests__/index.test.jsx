@@ -134,7 +134,6 @@ describe('RadioGroup', () => {
       expect(inputList[0].classes()).toContain('t-is-checked');
       expect(inputList[1].classes()).not.toContain('t-is-checked');
     });
-
     it(':options', () => {
       const options = [
         {
