@@ -1,261 +1,90 @@
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { Progress } from '@/src/progress/index.ts';
 import { PRO_THEME, CIRCLE_SIZE } from '@/src/progress/constants.ts';
 
 const STATUS_TEXT = ['success', 'error', 'warning', 'active'];
 
 describe('Progress', () => {
-  it('pure progress contains one class', () => {
-    const wrapper = mount(Progress);
-    const classes = wrapper.classes();
-    expect(classes).toContain('t-progress');
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   describe(':props', () => {
-    describe(':theme', () => {
-      Object.values(PRO_THEME).forEach((theme) => {
-        it(`:theme:${theme}`, () => {
-          const wrapper = mount({
-            render() {
-              return <Progress theme={theme}></Progress>;
-            },
-          });
-          expect(wrapper.findComponent(Progress).vm.theme).toBe(theme);
-          expect(wrapper.element).toMatchSnapshot();
-        });
-      });
-      it(':theme line and plump progress have t-progress__inner class', () => {
-        const lineWrapper = mount({
-          render() {
-            return <Progress theme={'line'}></Progress>;
-          },
-        });
-        const lineClass = lineWrapper.element.querySelector('.t-progress__inner');
+    it('', () => {
+      const wrapper = mount(() => <Progress percentage={30} />);
+      const progress = wrapper.find('.t-progress');
+      expect(progress.exists()).toBeTruthy();
+    });
 
-        expect(lineClass !== undefined && lineClass !== null).toBe(true);
-        expect(lineWrapper.element).toMatchSnapshot();
+    it(':percentage', () => {
+      const wrapper = mount(() => <Progress percentage={30} />);
+      const inner = wrapper.find('.t-progress__inner');
+      const info = wrapper.find('.t-progress__info');
+      expect(inner.exists()).toBeTruthy();
+      expect(getComputedStyle(inner.element, null).width).toBe('30%');
+      expect(info.exists()).toBeTruthy();
+      expect(info.text()).toBe('30%');
+    });
 
-        // < 10% plump
-        const plumpWrapper = mount({
-          render() {
-            return <Progress theme={'plump'}></Progress>;
-          },
-        });
-        const plumpClass = plumpWrapper.element.querySelector('.t-progress__inner');
+    it(':color', () => {
+      const wrapper = mount(() => <Progress color="red" percentage={30} />);
+      const inner = wrapper.find('.t-progress__inner');
+      expect(inner.exists()).toBeTruthy();
+      expect(getComputedStyle(inner.element, null).width).toBe('30%');
+      expect(getComputedStyle(inner.element, null).background).toBe('red');
+    });
 
-        expect(plumpClass !== undefined && plumpClass !== null).toBe(true);
-        expect(plumpWrapper.element).toMatchSnapshot();
-        expect(plumpWrapper.element.querySelector('.t-progress__info').innerHTML).toBe('0%');
+    it(':label', () => {
+      const wrapper = mount(() => <Progress percentage={30} label="label" />);
+      const info = wrapper.find('.t-progress__info');
+      expect(info.exists()).toBeTruthy();
+      expect(info.text()).toBe('label');
+    });
 
-        // = 10% plump
-        const plump10Wrapper = mount({
-          render() {
-            return <Progress theme={'plump'} percentage={10}></Progress>;
-          },
-        });
-        const plump10Class = plump10Wrapper.element.querySelector('.t-progress__inner');
+    it(':trackColor', () => {
+      const wrapper = mount(() => <Progress percentage={30} trackColor="red" />);
+      const bar = wrapper.find('.t-progress__bar');
+      expect(getComputedStyle(bar.element, null).background).toBe('red');
+    });
 
-        expect(plump10Class !== undefined && plump10Class !== null).toBe(true);
-        expect(plump10Wrapper.element).toMatchSnapshot();
-        expect(plump10Wrapper.element.querySelector('.t-progress__info').innerHTML).toBe('10%');
-
-        // > 10% plump
-        const plump11Wrapper = mount({
-          render() {
-            return <Progress theme={'plump'} percentage={11}></Progress>;
-          },
-        });
-        const plump11Class = plump11Wrapper.element.querySelector('.t-progress__inner');
-
-        expect(plump11Class !== undefined && plump11Class !== null).toBe(true);
-        expect(plump11Wrapper.element).toMatchSnapshot();
-        expect(plump11Class.querySelector('.t-progress__info').innerHTML).toBe('11%');
-      });
-      it(':theme circle progress has t-progress__circle-outer and t-progress__circle-inner class', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress theme={'circle'} percentage={10}></Progress>;
-          },
-        });
-        const outerClass = wrapper.element.querySelector('.t-progress__circle-outer');
-        const innerClass = wrapper.element.querySelector('.t-progress__circle-inner');
-        expect(outerClass !== undefined && outerClass !== null).toBe(true);
-        expect(innerClass !== undefined && innerClass !== null).toBe(true);
-        expect(wrapper.element).toMatchSnapshot();
+    it(':status', () => {
+      const statusList = ['success', 'error', 'warning', 'active'];
+      statusList.forEach((status) => {
+        const wrapper = mount(() => <Progress percentage={30} status={status} />);
+        const thin = wrapper.find('.t-progress--thin');
+        expect(thin.classes()).toContain(`t-progress--status--${status}`);
       });
     });
 
-    describe(':percentage', () => {
-      it(':percentage is between 0 to 100, equal to 50', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress percentage={50}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.percentage).toBe(50);
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':percentage is less than 0, equal to -10', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress percentage={-10}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.percentage).toBe(-10);
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':percentage is great equal than 100, equal to 200', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress percentage={200}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.percentage).toBe(200);
-        expect(wrapper.element).toMatchSnapshot();
-      });
+    it(':theme', () => {
+      const wrapper1 = mount(() => <Progress percentage={30} theme="line" />);
+      const thin = wrapper1.find('.t-progress--thin');
+      expect(thin.exists()).toBeTruthy();
+      const wrapper2 = mount(() => <Progress percentage={30} theme="plump" />);
+      const bar = wrapper2.find('.t-progress__bar');
+      expect(bar.exists()).toBeTruthy();
+      expect(bar.classes()).toContain('t-progress--plump');
+      const wrapper3 = mount(() => <Progress percentage={30} theme="circle" />);
+      const circle = wrapper3.find('.t-progress--circle');
+      const svg = wrapper3.find('.t-progress--circle svg');
+      expect(circle.exists()).toBeTruthy();
+      expect(svg.exists()).toBeTruthy();
     });
 
-    describe(':label', () => {
-      it(':label is String, equal to "custom label test"', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress label={'custom label test'}></Progress>;
-          },
-        });
-
-        expect(wrapper.findComponent(Progress).vm.label).toBe('custom label test');
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':label is boolean, equal to true', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress label={true}></Progress>;
-          },
-        });
-
-        expect(wrapper.findComponent(Progress).vm.label).toBe(true);
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':label is boolean, equal to false', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress label={false}></Progress>;
-          },
-        });
-
-        expect(wrapper.findComponent(Progress).vm.label).toBe(false);
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':label is TNode, equal to () => "tnode"', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress label={() => 'tnode'}></Progress>;
-          },
-        });
-
-        const el = wrapper.element.querySelector('.t-progress__info');
-        expect(el.textContent).toBe('tnode');
-        expect(wrapper.element).toMatchSnapshot();
-      });
-    });
-
-    describe(':status', () => {
-      STATUS_TEXT.forEach((status) => {
-        it(`:status is ${status}`, () => {
-          const wrapper = mount({
-            render() {
-              return <Progress status={status}></Progress>;
-            },
-          });
-          expect(wrapper.findComponent(Progress).vm.status).toBe(status);
-          expect(wrapper.element).toMatchSnapshot();
-        });
-      });
-    });
-
-    describe(':color', () => {
-      it(':color is String, equal to "#aaa"', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress color={'#aaa'}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.color).toBe('#aaa');
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':color is Object, equal to { "0%": "#f00", "100%": "#0ff" }', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress color={{ '0%': '#f00', '100%': '#0ff' }}></Progress>;
-          },
-        });
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':color is Array, equal to ["#f00", "#0ff", "#f0f"]', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress color={['#f00', '#0ff', '#f0f']}></Progress>;
-          },
-        });
-        expect(wrapper.element).toMatchSnapshot();
-      });
-    });
-
-    describe(':trackColor', () => {
-      it(':trackColor is "#aaa"', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress trackColor={'#aaa'}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.trackColor).toBe('#aaa');
-        expect(wrapper.element).toMatchSnapshot();
-      });
-    });
-
-    describe(':strokeWidth', () => {
-      it(':strokeWidth is String, equal to "50px"', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress strokeWidth={'50px'}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.strokeWidth).toBe('50px');
-        expect(wrapper.element).toMatchSnapshot();
-      });
-      it(':strokeWidth is Number, equal to 50', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress strokeWidth={50}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.strokeWidth).toBe(50);
-        expect(wrapper.element).toMatchSnapshot();
-      });
-    });
-
-    describe(':size', () => {
-      Object.values(CIRCLE_SIZE).forEach((size) => {
-        it(`:size is String, equal to "${size}"`, () => {
-          const wrapper = mount({
-            render() {
-              return <Progress size={size}></Progress>;
-            },
-          });
-          expect(wrapper.findComponent(Progress).vm.size).toBe(size);
-          expect(wrapper.element).toMatchSnapshot();
-        });
-      });
-      it(':size is Number, equal to 50', () => {
-        const wrapper = mount({
-          render() {
-            return <Progress size={50}></Progress>;
-          },
-        });
-        expect(wrapper.findComponent(Progress).vm.size).toBe(50);
-        expect(wrapper.element).toMatchSnapshot();
-      });
+    it(':size', () => {
+      const wrapper1 = mount(() => <Progress percentage={30} theme="circle" size="small" />);
+      const circle1 = wrapper1.find('.t-progress--circle');
+      expect(getComputedStyle(circle1.element, null).width).toBe('72px');
+      expect(getComputedStyle(circle1.element, null).height).toBe('72px');
+      const wrapper2 = mount(() => <Progress percentage={30} theme="circle" />);
+      const circle2 = wrapper2.find('.t-progress--circle');
+      expect(getComputedStyle(circle2.element, null).width).toBe('112px');
+      expect(getComputedStyle(circle2.element, null).height).toBe('112px');
+      const wrapper3 = mount(() => <Progress percentage={30} theme="circle" size="large" />);
+      const circle3 = wrapper3.find('.t-progress--circle');
+      expect(getComputedStyle(circle3.element, null).width).toBe('160px');
+      expect(getComputedStyle(circle3.element, null).height).toBe('160px');
+      const wrapper4 = mount(() => <Progress percentage={30} theme="circle" size="50" />);
+      const circle4 = wrapper4.find('.t-progress--circle');
+      expect(getComputedStyle(circle4.element, null).width).toBe('50px');
+      expect(getComputedStyle(circle4.element, null).height).toBe('50px');
     });
   });
 });
