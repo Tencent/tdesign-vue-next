@@ -80,22 +80,22 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
   const inputValueChangeHandle = (e: InputEvent | CompositionEvent) => {
     const { target } = e;
-    const val = (target as HTMLInputElement).value;
-    // if (props.maxcharacter && props.maxcharacter > 0) {
-    //   const stringInfo = getCharacterLength(val, props.maxcharacter);
-    //   if (typeof stringInfo === 'object') {
-    //     if (!props.allowInputOverMax) {
-    //       val = stringInfo.characters;
-    //     }
-    //     limitNumber.value = `${stringInfo.length}/${props.maxcharacter}`;
-    //   }
-    // }
-    // if (props.maxlength && props.maxlength > 0) {
-    //   if (!props.allowInputOverMax) {
-    //     val = val.substring(0, props.maxlength);
-    //   }
-    //   limitNumber.value = `${val.length}/${props.maxlength}`;
-    // }
+    let val = (target as HTMLInputElement).value;
+    if (props.maxcharacter && props.maxcharacter > 0) {
+      const stringInfo = getCharacterLength(val, props.maxcharacter);
+      if (typeof stringInfo === 'object') {
+        if (!props.allowInputOverMax) {
+          val = stringInfo.characters;
+        }
+        limitNumber.value = `${stringInfo.length}/${props.maxcharacter}`;
+      }
+    }
+    if (props.maxlength && props.maxlength > 0) {
+      if (!props.allowInputOverMax) {
+        val = val.substring(0, props.maxlength);
+      }
+      limitNumber.value = `${val.length}/${props.maxlength}`;
+    }
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
     nextTick(() => setInputElValue(innerValue.value));
@@ -182,8 +182,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
       limitNumber.value = `${len}/${props.maxcharacter}`;
     }
     if (props.maxlength && props.maxlength > 0) {
-      const val = !innerValue.value ? '' : innerValue.value;
-      limitNumber.value = `${String(val).length}/${props.maxlength}`;
+      limitNumber.value = `${String(innerValue.value).length}/${props.maxlength}`;
     }
   };
 
