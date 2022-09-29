@@ -257,6 +257,8 @@ export default function useUpload(props: TdUploadProps) {
             file: files[0],
             // 只有全部请求完成后，才会存在该字段
             results: list?.map((t) => t.data),
+            // 单文件单请求有一个 response，多文件多请求有多个 response
+            response: data.response || list.map((t) => t.data.response),
           });
           xhrReq.value = [];
         } else if (failedFiles?.[0]) {
