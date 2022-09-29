@@ -134,12 +134,16 @@ export default defineComponent({
     const isModeLess = computed(() => props.mode === 'modeless');
     // 是否普通对话框，没有脱离文档流的对话框
     const isNormal = computed(() => props.mode === 'normal');
+    // 是否全屏对话框
+    const isFullScreen = computed(() => props.mode === 'full-screen');
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
     const positionClass = computed(() => {
       if (isNormal.value) return [];
+      if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_fullscreen`];
+
       return [
         `${COMPONENT_NAME.value}__position`,
         !!props.top && `${COMPONENT_NAME.value}--top`,
@@ -148,6 +152,8 @@ export default defineComponent({
     });
     const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
+      if (isFullScreen.value) return {}; // 全屏模式，top属性不生效
+
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
       let topStyle = {};
@@ -160,27 +166,31 @@ export default defineComponent({
     const dialogClass = computed(() => {
       const dialogClass = [
         `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}--default`,
-        `${COMPONENT_NAME.value}--${props.placement}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
       ];
+
+      if (isFullScreen.value) {
+        dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
+      } else {
+        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
+      }
       return dialogClass;
     });
     const dialogStyle = computed(() => {
-      return { width: GetCSSValue(props.width) };
+      return !isFullScreen.value ? { width: GetCSSValue(props.width) } : {}; // width全屏模式不生效
     });
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
-          if (isModal.value && !props.showInAttachedElement) {
+          if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (scrollWidth.value > 0 && props.preventScrollThrough) {
               const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
               document.body.style.cssText = bodyCssText;
             }
-            !isModeLess.value && props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
+            props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
             nextTick(() => {
               if (mousePosition && dialogEle.value) {
                 dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -309,12 +319,28 @@ export default defineComponent({
           })}
         </div>
       );
+      const headerClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
+        : `${COMPONENT_NAME.value}__header`;
+
+      const closeClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
+        : `${COMPONENT_NAME.value}__close`;
+
       const bodyClassName =
-        props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
+        props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
+      isFullScreen.value && bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+
+      const footerClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
+        : `${COMPONENT_NAME.value}__footer`;
+
       const footerContent = renderTNodeJSX('footer', defaultFooter);
+
       const onStopDown = (e: MouseEvent) => {
         if (isModeLess.value && props.draggable) e.stopPropagation();
       };
+
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -332,20 +358,23 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={`${COMPONENT_NAME.value}__header`} onmousedown={onStopDown}>
-                {getIcon()}
-                {renderTNodeJSX('header', defaultHeader)}
+              <div class={headerClassName} onmousedown={onStopDown}>
+                <div class={`${COMPONENT_NAME.value}__header-content`}>
+                  {getIcon()}
+                  {renderTNodeJSX('header', defaultHeader)}
+                </div>
+
+                {props.closeBtn ? (
+                  <span class={closeClassName} onClick={closeBtnAction}>
+                    {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                  </span>
+                ) : null}
               </div>
-              {props.closeBtn ? (
-                <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
-                  {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                </span>
-              ) : null}
               <div class={bodyClassName} onmousedown={onStopDown}>
                 {body}
               </div>
               {footerContent && (
-                <div class={`${COMPONENT_NAME.value}__footer`} onmousedown={onStopDown}>
+                <div class={footerClassName} onmousedown={onStopDown}>
                   {footerContent}
                 </div>
               )}
@@ -367,6 +396,7 @@ export default defineComponent({
       scrollWidth,
       isModal,
       isModeLess,
+      isFullScreen,
       maskClass,
       dialogClass,
       dialogStyle,
@@ -379,7 +409,7 @@ export default defineComponent({
   },
   render() {
     const { COMPONENT_NAME } = this;
-    const maskView = this.isModal && <div key="mask" class={this.maskClass}></div>;
+    const maskView = (this.isModal || this.isFullScreen) && <div key="mask" class={this.maskClass}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
@@ -389,7 +419,7 @@ export default defineComponent({
     const ctxClass = [
       `${COMPONENT_NAME}__ctx`,
       {
-        [`${COMPONENT_NAME}__ctx--fixed`]: this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--fixed`]: this.isModal || this.isFullScreen,
         [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
         [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
       },
