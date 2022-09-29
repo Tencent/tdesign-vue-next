@@ -6,7 +6,8 @@ import {
 import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
-import { CommonDisplayFileProps, commonProps } from '../interface';
+import { CommonDisplayFileProps } from '../interface';
+import { commonProps } from '../constants';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';

@@ -12,7 +12,8 @@ import { useTNodeJSX } from '../../hooks/tnode';
 import { UploadFile } from '../type';
 import { abridgeName } from '../../_common/js/upload/utils';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { CommonDisplayFileProps, commonProps } from '../interface';
+import { CommonDisplayFileProps } from '../interface';
+import { commonProps } from '../constants';
 
 export interface NormalFileProps extends CommonDisplayFileProps {
   multiple: boolean;
