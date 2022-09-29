@@ -185,6 +185,7 @@ describe('Input', () => {
       await input.trigger('blur');
       expect(fn).toBeCalled();
     });
+
     it(':onFocus', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onFocus={fn} />);
@@ -192,6 +193,7 @@ describe('Input', () => {
       await input.trigger('focus');
       expect(fn).toBeCalled();
     });
+
     it(':onEnter', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Input onEnter={fn} />);
