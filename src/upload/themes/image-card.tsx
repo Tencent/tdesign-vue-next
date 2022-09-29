@@ -8,7 +8,8 @@ import {
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer from '../../image-viewer';
-import { CommonDisplayFileProps, commonProps } from '../interface';
+import { CommonDisplayFileProps } from '../interface';
+import { commonProps } from '../constants';
 import { TdUploadProps, UploadFile } from '../type';
 
 export interface ImageCardUploadProps extends CommonDisplayFileProps {
