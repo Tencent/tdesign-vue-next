@@ -157,7 +157,8 @@ const handleSelectChange = (files) => {
   console.log('onSelectChange', files);
 };
 
-const handleSuccess = () => {
+const handleSuccess = (params) => {
+  console.log(params);
   MessagePlugin.success('上传成功');
 };
 
