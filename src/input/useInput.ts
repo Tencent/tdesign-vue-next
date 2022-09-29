@@ -182,7 +182,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
       limitNumber.value = `${len}/${props.maxcharacter}`;
     }
     if (props.maxlength && props.maxlength > 0) {
-      limitNumber.value = `${String(innerValue.value).length}/${props.maxlength}`;
+      const val = !innerValue.value ? '' : innerValue.value;
+      limitNumber.value = `${String(val).length}/${props.maxlength}`;
     }
   };
 
