@@ -68,6 +68,7 @@ export default defineComponent({
             triggerScroll={triggerScroll.value}
             onChange={props.onChange}
             resetTriggerScroll={resetTriggerScroll}
+            isShowPanel={props.isShowPanel}
           />
         </div>
         {isFooterDisplay.value ? (
