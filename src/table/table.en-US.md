@@ -79,7 +79,7 @@ scroll-y | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll vert
 name | type | default | description | required
 -- | -- | -- | -- | --
 align | String | left | align type。options：left/right/center | N
-attrs | Object | - | html attributes | N
+attrs | Object / Function | - | html attributes。Typescript：`BaseTableColumnAttributes<T>` `type BaseTableColumnAttributes<T> = { [key: string]: any } | ((context: CellData<T>) => { [key: string]: any })`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 cell | String / Function | - | use cell to render table cell。Typescript：`string | TNode<BaseTableCellParams<T>>` `interface BaseTableCellParams<T> { row: T; rowIndex: number; col: BaseTableCol<T>; colIndex: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 children | Array | - | grouping table head。Typescript：`Array<BaseTableCol<T>>` | N
 className | String / Object / Array / Function | - | cell classnames。Typescript：`TableColumnClassName<T> | TableColumnClassName<T>[]` `type TableColumnClassName<T> = ClassName | ((context: CellData<T>) => ClassName)` `interface CellData<T> extends BaseTableCellParams<T> { type: 'th' | 'td' }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N

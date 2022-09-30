@@ -270,7 +270,8 @@ export default defineComponent({
         const p = { ...params, e };
         this.onCellClick?.(p);
       };
-      const attrs = { ...col.attrs, ...cellSpans };
+      const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...params, type: 'td' }) : col.attrs;
+      const attrs = { ...normalAttrs, ...cellSpans };
       return (
         <td key={`${col.colKey}_${colIndex}`} class={classes} style={tdStyles.style} {...attrs} onClick={onClick}>
           {col.ellipsis ? this.renderEllipsisCell(params, { cellNode }) : cellNode}

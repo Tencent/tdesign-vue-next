@@ -257,7 +257,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
   /**
    * 透传 HTML 属性到列元素
    */
-  attrs?: object;
+  attrs?: BaseTableColumnAttributes<T>;
   /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
    */
@@ -892,6 +892,8 @@ export interface TableRowData {
   [key: string]: any;
   children?: TableRowData[];
 }
+
+export type BaseTableColumnAttributes<T> = { [key: string]: any } | ((context: CellData<T>) => { [key: string]: any });
 
 export interface BaseTableCellParams<T> {
   row: T;

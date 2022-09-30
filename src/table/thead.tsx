@@ -116,12 +116,14 @@ export default defineComponent({
             : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
+          const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs;
           return (
             <th
               key={col.colKey}
               data-colkey={col.colKey}
               class={thClasses}
               style={styles}
+              {...normalAttrs}
               {...rowspanAndColspan}
               {...resizeColumnListener}
             >
