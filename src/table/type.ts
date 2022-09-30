@@ -280,12 +280,16 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colspan?: number;
   /**
-   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层方向等特性
+   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则超出省略浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义超出省略浮中层显示的内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性
    * @default false
    */
-  ellipsis?: boolean | TNode<BaseTableCellParams<T>> | TooltipProps;
+  ellipsis?:
+    | boolean
+    | TNode<BaseTableCellParams<T>>
+    | TooltipProps
+    | { props: TooltipProps; content: TNode<BaseTableCellParams<T>> };
   /**
-   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层方向等特性
+   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则超出省略的浮层默认显示表头全部内容；<br/>值类型为 `Function` 用于自定义超出省略浮层显示的表头内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性
    */
   ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | TooltipProps;
   /**
