@@ -19,7 +19,7 @@ const data = new Array(6).fill(null).map((_, i) => ({
   default: ['[]', '""', '{}', 'false', '-1', '0'][i % 5],
   needed: ['Y', 'N'][i % 1],
   description: ['数据源', '描述', '复杂类型', '标识符', '位置'][i % 4],
-  comment: '表头向左合并',
+  comment: '表头合并',
 }));
 
 const columns = [
@@ -46,7 +46,8 @@ const columns = [
   {
     className: 'row',
     colKey: 'description',
-    title: '说明',
+    // 多行表头合并请参考「多级表头示例」
+    title: '合并单行表头的最后两列',
     // 仅适用于单行表头合并列
     colspan: 2,
     // 设置列样式，注释的示例代码有效

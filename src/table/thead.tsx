@@ -61,8 +61,26 @@ export default defineComponent({
       },
     ]);
 
+    // 单行表格合并
+    const colspanSkipMap = computed(() => {
+      const map: { [key: string]: boolean } = {};
+      const list = props.thList[0];
+      for (let i = 0, len = list.length; i < len; i++) {
+        const item = list[i];
+        if (item.colspan > 1) {
+          for (let j = i + 1; j < i + item.colspan; j++) {
+            if (list[j]) {
+              map[list[j].colKey] = true;
+            }
+          }
+        }
+      }
+      return map;
+    });
+
     return {
       ...classnames,
+      colspanSkipMap,
       theadClasses,
       classPrefix,
       theadRef,
@@ -80,6 +98,8 @@ export default defineComponent({
       const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
       return this.thList.map((row, rowIndex) => {
         const thRow = row.map((col: BaseTableColumns[0], index: number) => {
+          // 因合并单行表头，跳过
+          if (this.colspanSkipMap[col.colKey]) return null;
           const rowspanAndColspan = thRowspanAndColspan.get(col);
           if (index === 0 && rowspanAndColspan.rowspan > 1) {
             for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
@@ -116,14 +136,17 @@ export default defineComponent({
             : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
-          const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs;
+          const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
+          if (col.colspan > 1) {
+            attrs.colspan = col.colspan;
+          }
           return (
             <th
               key={col.colKey}
               data-colkey={col.colKey}
               class={thClasses}
               style={styles}
-              {...normalAttrs}
+              {...attrs}
               {...rowspanAndColspan}
               {...resizeColumnListener}
             >

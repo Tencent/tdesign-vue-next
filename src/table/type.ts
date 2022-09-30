@@ -276,6 +276,10 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colKey?: string;
   /**
+   * 单行表头合并列。多行表头请参考「多级表头」文档示例
+   */
+  colspan?: number;
+  /**
    * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层方向等特性
    * @default false
    */
@@ -541,7 +545,7 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    */
   children?: Array<PrimaryTableCol<T>>;
   /**
-   * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列。值为 `serial-number` 表示当前列列「序号」列
+   * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列。值为 `serial-number` 表示当前列为「序号」列
    * @default ''
    */
   colKey?: string;
