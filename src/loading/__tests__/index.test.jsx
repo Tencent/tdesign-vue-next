@@ -1,4 +1,6 @@
 import { mount } from '@vue/test-utils';
+import { ref } from 'vue';
+import { expect } from 'vitest';
 import Loading from '@/src/loading/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
@@ -6,89 +8,68 @@ describe('Loading', () => {
   // test props api
   describe(':props', () => {
     it(':default', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
+      const wrapper = mount(() => <Loading default="加载中"></Loading>);
+      const text = wrapper.find('.t-loading__parent');
+      expect(text.exists()).toBe(true);
+      expect(text.text()).toBe('加载中');
     });
+
+    it(':content', () => {
+      const wrapper = mount(() => <Loading content="加载中"></Loading>);
+      const text = wrapper.find('.t-loading__parent');
+      expect(text.exists()).toBe(true);
+      expect(text.text()).toBe('加载中');
+    });
+
     it(':delay', () => {
-      const delay = 1000;
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} delay={delay}></Loading>;
-        },
-      });
+      const wrapper = mount(() => <Loading delay={3000}></Loading>);
+      const loading = wrapper.find('.t-loading');
       setTimeout(() => {
-        expect(wrapper.exists()).toBe(true);
-      }, delay);
+        expect(loading.exists()).toBeTruthy();
+      }, 3000);
     });
-    it(':fullscreen', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} fullscreen={true}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
+
+    it(':indicator', () => {
+      const wrapper = mount(() => <Loading indicator={false}></Loading>);
+      const svg = wrapper.find('.t-loading svg');
+      expect(svg.exists()).toBeFalsy();
     });
-    it(':indicatorFunc', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} indicator={() => '加载中...'}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
+
+    it(':inheritColor', () => {
+      const wrapper = mount(() => <Loading inheritColor></Loading>);
+      expect(wrapper.find('.t-loading--inherit-color')).toBeTruthy();
     });
-    it(':preventScrollThrough', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} preventScrollThrough={true} fullscreen={true}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
-    });
-    it(':size', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} size={'large'}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
-    });
+
     it(':text', () => {
-      const wrapper = mount({
-        render() {
-          return <Loading loading={true} text={'正在加载...'}></Loading>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
+      const wrapper = mount(() => <Loading text="内容"></Loading>);
+      const text = wrapper.find('.t-loading .t-loading__text');
+      expect(text.exists()).toBeTruthy();
+      expect(text.text()).toBe('内容');
     });
-    it(':wrap', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Loading loading={true}>
-              <div>this is loading component</div>
-            </Loading>
-          );
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
+
+    it(':zIndex', () => {
+      const wrapper = mount(() => <Loading zIndex={2022}></Loading>);
+      const loading = wrapper.find('.t-loading');
+      expect(getComputedStyle(loading.element, null).zIndex).toBe('2022');
     });
-  });
-  // test slots
-  describe('<slot>', () => {
-    it('<indicator>', () => {
-      const wrapper = mount(Loading, {
-        render() {
-          return <Loading loading={true}></Loading>;
-        },
-        scopedSlots: {
-          indicator: '<i>加载中</i>',
-        },
+
+    it(':size', () => {
+      const sizeList = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        const wrapper = mount(() => <Loading size={size}></Loading>);
+        const loading = wrapper.find('.t-loading');
+        expect(loading.classes()).toContain(`t-size-${size.slice(0, 1)}`);
       });
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mount(() => <Loading size="50px"></Loading>);
+      const loading = wrapper.find('.t-loading');
+      expect(getComputedStyle(loading.element, null).fontSize).toBe('50px');
+    });
+
+    it(':attach', () => {
+      const wrapper = mount(() => <Loading attach="body"></Loading>);
+      const loading = wrapper.find('.t-loading');
+      const body = document.querySelector('body');
+      expect(loading.element.parentNode).toEqual(body);
     });
   });
 });
