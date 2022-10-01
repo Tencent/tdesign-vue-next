@@ -127,7 +127,7 @@ export default defineComponent({
       let targetIndex = index % swiperItemLength.value;
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
-      if (props.animation === 'slide' && swiperItemLength.value > 1) {
+      if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {
         targetIndex = index;
         isBeginToEnd = false;
         isEndToBegin = false;
