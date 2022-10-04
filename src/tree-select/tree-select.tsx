@@ -165,9 +165,8 @@ export default defineComponent({
       node: TreeNodeModel<TreeOptionData>,
       trigger: TreeSelectValueChangeTrigger,
     ) => {
-      setTreeSelectValue(valueParam, { node });
+      setTreeSelectValue(valueParam, { node, trigger });
       changeNodeInfo();
-      props.onChange?.(valueParam, { node, trigger });
     };
 
     const clear = (content: { e: MouseEvent }) => {
