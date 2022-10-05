@@ -28478,12 +28478,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28531,12 +28526,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
             >
@@ -28583,12 +28573,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28863,12 +28848,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28913,12 +28893,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub
-                        appear="false"
-                        css="true"
-                        name="t-slide-down"
-                        persisted="false"
-                      >
+                      <transition-stub>
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -28965,12 +28940,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub
-                        appear="false"
-                        css="true"
-                        name="t-slide-down"
-                        persisted="false"
-                      >
+                      <transition-stub>
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -29017,12 +28987,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub
-                        appear="false"
-                        css="true"
-                        name="t-slide-down"
-                        persisted="false"
-                      >
+                      <transition-stub>
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -29069,12 +29034,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub
-                        appear="false"
-                        css="true"
-                        name="t-slide-down"
-                        persisted="false"
-                      >
+                      <transition-stub>
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -29164,12 +29124,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29219,12 +29174,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29274,12 +29224,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29327,12 +29272,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29521,12 +29461,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29576,12 +29511,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29631,12 +29561,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29684,12 +29609,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29770,12 +29690,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29825,12 +29740,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29880,12 +29790,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29933,12 +29838,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
+          <transition-stub>
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -30116,12 +30016,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="t-slide-down"
-        persisted="false"
-      >
+      <transition-stub>
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30221,12 +30116,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="t-slide-down"
-        persisted="false"
-      >
+      <transition-stub>
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30326,12 +30216,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="t-slide-down"
-        persisted="false"
-      >
+      <transition-stub>
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30431,12 +30316,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="t-slide-down"
-        persisted="false"
-      >
+      <transition-stub>
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -38425,13 +38305,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
   <div
     style="width: 480px;"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx"
       >
@@ -38511,13 +38385,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx"
       >
@@ -38609,13 +38477,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx"
       >
@@ -38707,13 +38569,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx"
       >
@@ -38805,13 +38661,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx"
       >
@@ -40501,15 +40351,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     class="t-tree t-tree--transition"
     data-v-96b659ea=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -47591,13 +47433,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/async.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -47809,20 +47645,10 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
     
   </div>
   <transition-stub
-    appear="false"
-    css="true"
     data-v-d38b880a=""
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
   />
   <transition-stub
-    appear="false"
-    css="true"
     data-v-d38b880a=""
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
   >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
@@ -47932,20 +47758,10 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
     </div>
   </transition-stub>
   <transition-stub
-    appear="false"
-    css="true"
     data-v-d38b880a=""
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
   />
   <transition-stub
-    appear="false"
-    css="true"
     data-v-d38b880a=""
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
   >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--absolute"
@@ -48182,13 +47998,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/base.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -48363,13 +48173,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub
-          appear="false"
-          css="true"
-          duration="300"
-          name="t-dialog-zoom__vue"
-          persisted="false"
-        >
+        <transition-stub>
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48458,13 +48262,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub
-          appear="false"
-          css="true"
-          duration="300"
-          name="t-dialog-zoom__vue"
-          persisted="false"
-        >
+        <transition-stub>
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48553,13 +48351,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub
-          appear="false"
-          css="true"
-          duration="300"
-          name="t-dialog-zoom__vue"
-          persisted="false"
-        >
+        <transition-stub>
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48722,13 +48514,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
     
     
   </div>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -48820,13 +48606,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -48913,13 +48693,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -49011,13 +48785,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
 <div>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49109,13 +48877,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49207,13 +48969,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49305,13 +49061,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49574,13 +49324,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
     
     
   </div>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49667,13 +49411,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -49763,13 +49501,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -49859,13 +49591,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50179,13 +49905,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
     
     
   </div>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50267,13 +49987,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50355,13 +50069,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50444,13 +50152,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub
-    appear="false"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
-  >
+  <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50702,13 +50404,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50828,13 +50524,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50954,13 +50644,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -51071,13 +50755,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -51188,13 +50866,7 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub
-      appear="false"
-      css="true"
-      duration="300"
-      name="t-dialog-zoom__vue"
-      persisted="false"
-    >
+    <transition-stub>
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -58561,26 +58233,14 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-complicated-d
         <div
           class="t-tabs__operations t-tabs__operations--left"
         >
-          <transition-stub
-            appear="true"
-            css="true"
-            mode="out-in"
-            name="fade"
-            persisted="false"
-          >
+          <transition-stub>
             <!---->
           </transition-stub>
         </div>
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub
-            appear="true"
-            css="true"
-            mode="out-in"
-            name="fade"
-            persisted="false"
-          >
+          <transition-stub>
             <!---->
           </transition-stub>
           <div
@@ -68224,12 +67884,7 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/modeless.vue 1
   </div>
   
   <transition-stub
-    appear="false"
     class="t-image-viewer__dialog"
-    css="true"
-    duration="300"
-    name="t-dialog-zoom__vue"
-    persisted="false"
   >
     <!---->
   </transition-stub>
@@ -88708,1125 +88363,1753 @@ exports[`csr snapshot test > csr test ./src/popup/_example/visible.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/progress/_example/circle.vue 1`] = `
 <div
+  class="t-space t-space-vertical"
   data-v-0a03ddaa=""
+  style="gap: 16px;"
 >
+  
+  
   <div
-    data-v-0a03ddaa=""
-  >
-    默认
-  </div>
-  <!-- 重要：strokeWidth 大小不能超过 size 的一半，否则无法渲染出环形 -->
-  <div
-    class="t-progress-demo-box"
-    data-v-0a03ddaa=""
+    class="t-space-item"
   >
     <div
-      class="t-progress-demo-inner"
       data-v-0a03ddaa=""
     >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        默认样式
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--default"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            30%
-          </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="99.90264638415542  233.10617489636263"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-    >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        不显示数字
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            <!---->
-          </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="333.0088212805181  0"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-    >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        自定义内容
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            75day
-          </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="166.50441064025904  166.50441064025904"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
+      默认
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="t-progress-demo-box"
-    data-v-0a03ddaa=""
+    class="t-space-item"
   >
     <div
-      class="t-progress-demo-inner"
+      class="t-space t-space-horizontal t-progress-demo-box"
       data-v-0a03ddaa=""
+      style="gap: 24px;"
     >
+      
+      
       <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
+        class="t-space-item"
       >
-        进度完成
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
         <div
-          class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 20px;"
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
         >
+          
+          
           <div
-            class="t-progress__info"
+            class="t-space-item"
           >
-            <svg
-              class="t-icon t-icon-check t-progress__icon"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
             >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
+              默认样式
+            </div>
           </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="333.0088212805181  0"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-    >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        进度状态发生重大错误
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--error"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
+          <!---->
+          
+          
           <div
-            class="t-progress__info"
+            class="t-space-item"
           >
-            <svg
-              class="t-icon t-icon-close t-progress__icon"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
             >
-              <path
-                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--default"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  30%
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="99.90264638415542  233.10617489636263"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="249.75661596038856  83.25220532012952"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
+          <!---->
+          
+          
         </div>
       </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-    >
+      <!---->
+      
+      
       <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
+        class="t-space-item"
       >
-        进度被中断
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
         <div
-          class="t-progress--circle t-progress--status--warning"
-          style="width: 112px; height: 112px; font-size: 20px;"
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
         >
+          
+          
           <div
-            class="t-progress__info"
+            class="t-space-item"
           >
-            <svg
-              class="t-icon t-icon-error t-progress__icon"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
             >
-              <path
-                d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
+              不显示数字
+            </div>
           </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
           >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="166.50441064025904  166.50441064025904"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--success"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  <!---->
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="333.0088212805181  0"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
         </div>
       </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              自定义内容
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--success"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  75day
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="166.50441064025904  166.50441064025904"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    data-v-0a03ddaa=""
+    class="t-space-item"
   >
-    默认不同尺寸
+    <div
+      class="t-space t-space-horizontal t-progress-demo-box"
+      data-v-0a03ddaa=""
+      style="gap: 24px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              进度完成
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--success"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  <svg
+                    class="t-icon t-icon-check t-progress__icon"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="333.0088212805181  0"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              进度状态发生重大错误
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--error"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  <svg
+                    class="t-icon t-icon-close t-progress__icon"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="249.75661596038856  83.25220532012952"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              进度被中断
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--warning"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  <svg
+                    class="t-icon t-icon-error t-progress__icon"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="166.50441064025904  166.50441064025904"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="t-progress-demo-box"
-    data-v-0a03ddaa=""
+    class="t-space-item"
   >
     <div
-      class="t-progress-demo-inner"
       data-v-0a03ddaa=""
     >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        小尺寸
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--default"
-          style="width: 72px; height: 72px; font-size: 14px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            30%
-          </div>
-          <svg
-            height="72"
-            viewBox="0 0 72 72"
-            width="72"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="36"
-              cy="36"
-              fill="none"
-              r="34"
-              stroke=""
-              stroke-width="4"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="36"
-              cy="36"
-              fill="none"
-              r="34"
-              stroke-dasharray="64.08849013323179  149.53981031087415"
-              stroke-linecap="round"
-              stroke-width="4"
-              transform="matrix(0,-1,1,0,0,72)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-    >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        默认尺寸
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--default"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            30%
-          </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="99.90264638415542  233.10617489636263"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-      data-v-0a03ddaa=""
-      style="margin-left: 60px;"
-    >
-      <div
-        class="t-progress-demo-margin"
-        data-v-0a03ddaa=""
-      >
-        大尺寸
-      </div>
-      <div
-        class="t-progress"
-        data-v-0a03ddaa=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--default"
-          style="width: 160px; height: 160px; font-size: 36px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            75%
-          </div>
-          <svg
-            height="160"
-            viewBox="0 0 160 160"
-            width="160"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="80"
-              cy="80"
-              fill="none"
-              r="77"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="80"
-              cy="80"
-              fill="none"
-              r="77"
-              stroke-dasharray="362.8539514896211  120.95131716320704"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,160)"
-            />
-          </svg>
-        </div>
-      </div>
+      默认不同尺寸
     </div>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal t-progress-demo-box"
+      data-v-0a03ddaa=""
+      style="gap: 24px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              小尺寸
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--default"
+                style="width: 72px; height: 72px; font-size: 14px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  30%
+                </div>
+                <svg
+                  height="72"
+                  viewBox="0 0 72 72"
+                  width="72"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="36"
+                    cy="36"
+                    fill="none"
+                    r="34"
+                    stroke=""
+                    stroke-width="4"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="36"
+                    cy="36"
+                    fill="none"
+                    r="34"
+                    stroke-dasharray="64.08849013323179  149.53981031087415"
+                    stroke-linecap="round"
+                    stroke-width="4"
+                    transform="matrix(0,-1,1,0,0,72)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              默认尺寸
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--default"
+                style="width: 112px; height: 112px; font-size: 20px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  30%
+                </div>
+                <svg
+                  height="112"
+                  viewBox="0 0 112 112"
+                  width="112"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="56"
+                    cy="56"
+                    fill="none"
+                    r="53"
+                    stroke-dasharray="99.90264638415542  233.10617489636263"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,112)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical t-progress-demo-inner"
+          data-v-0a03ddaa=""
+          style="gap: 8px; margin-left: 60px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress-demo-margin"
+              data-v-0a03ddaa=""
+            >
+              大尺寸
+            </div>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <div
+              class="t-progress"
+              data-v-0a03ddaa=""
+            >
+              <!---->
+              <!---->
+              <div
+                class="t-progress--circle t-progress--status--default"
+                style="width: 160px; height: 160px; font-size: 36px;"
+              >
+                <div
+                  class="t-progress__info"
+                >
+                  75%
+                </div>
+                <svg
+                  height="160"
+                  viewBox="0 0 160 160"
+                  width="160"
+                >
+                  <circle
+                    class="t-progress__circle-outer"
+                    cx="80"
+                    cy="80"
+                    fill="none"
+                    r="77"
+                    stroke=""
+                    stroke-width="6"
+                  />
+                  <circle
+                    class="t-progress__circle-inner"
+                    cx="80"
+                    cy="80"
+                    fill="none"
+                    r="77"
+                    stroke-dasharray="362.8539514896211  120.95131716320704"
+                    stroke-linecap="round"
+                    stroke-width="6"
+                    transform="matrix(0,-1,1,0,0,160)"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/progress/_example/custom.vue 1`] = `
 <div
+  class="t-space t-space-vertical"
   data-v-4224b168=""
+  style="gap: 0;"
 >
+  
+  
   <div
-    data-v-4224b168=""
+    class="t-space-item"
   >
     <div
+      class="t-space t-space-vertical t-progress-domo-width"
       data-v-4224b168=""
+      style="gap: 8px;"
     >
-      不显示标签
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <!---->
-      <!---->
+      
+      
       <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 112px; height: 112px; font-size: 20px;"
+        class="t-space-item"
       >
         <div
-          class="t-progress__info"
+          data-v-4224b168=""
+        >
+          不显示标签
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
         >
           <!---->
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="279.72740987563515  53.2814114048829"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--default"
-      >
-        <div
-          class="t-progress__bar"
-        >
-          <div
-            class="t-progress__inner"
-            style="width: 84%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
           <!---->
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-4224b168=""
-  >
-    <div
-      data-v-4224b168=""
-    >
-      自定义高度
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--default"
-      >
-        <div
-          class="t-progress__bar"
-          style="height: 30px; border-radius: 30px;"
-        >
           <div
-            class="t-progress__inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <div
-      data-v-4224b168=""
-    >
-      自定义尺寸
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 200px; height: 200px; font-size: 45px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-        <svg
-          height="200"
-          viewBox="0 0 200 200"
-          width="200"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="100"
-            cy="100"
-            fill="none"
-            r="90"
-            stroke=""
-            stroke-width="20"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="100"
-            cy="100"
-            fill="none"
-            r="90"
-            stroke-dasharray="169.64600329384882  395.8406743523139"
-            stroke-linecap="round"
-            stroke-width="20"
-            transform="matrix(0,-1,1,0,0,200)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-4224b168=""
-  >
-    <div
-      data-v-4224b168=""
-    >
-      自定义颜色
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <!---->
-      <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
-      >
-        <div
-          class="t-progress__inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress__info"
+            class="t-progress--circle t-progress--status--default"
+            style="width: 112px; height: 112px; font-size: 20px;"
           >
-            30%
+            <div
+              class="t-progress__info"
+            >
+              <!---->
+            </div>
+            <svg
+              height="112"
+              viewBox="0 0 112 112"
+              width="112"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke=""
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke-dasharray="279.72740987563515  53.2814114048829"
+                stroke-linecap="round"
+                stroke-width="6"
+                transform="matrix(0,-1,1,0,0,112)"
+              />
+            </svg>
           </div>
         </div>
-        <!---->
       </div>
       <!---->
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <!---->
-      <!---->
+      
+      
       <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 112px; height: 112px; font-size: 20px;"
+        class="t-space-item"
       >
         <div
-          class="t-progress__info"
-        >
-          44%
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke="#aaa"
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="146.52388136342796  186.48493991709014"
-            stroke-linecap="round"
-            stroke-width="6"
-            style="stroke: #52CC8D;"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-4224b168=""
-  >
-    <div
-      data-v-4224b168=""
-    >
-      自定义内容
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--default"
-      >
-        <div
-          class="t-progress__bar"
+          class="t-progress"
+          data-v-4224b168=""
         >
           <div
-            class="t-progress__inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          &lt;div&gt;45days&lt;/div&gt;
+            class="t-progress--thin t-progress--status--default"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 84%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <!---->
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress"
-      data-v-4224b168=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 112px; height: 112px; font-size: 20px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          &lt;div&gt;45days&lt;/div&gt;
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="146.52388136342796  186.48493991709014"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
+      
+      
     </div>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-margin t-progress-domo-width"
+      data-v-4224b168=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-4224b168=""
+        >
+          自定义高度
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--default"
+          >
+            <div
+              class="t-progress__bar"
+              style="height: 30px; border-radius: 30px;"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 30%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              30%
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-4224b168=""
+        >
+          自定义尺寸
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--default"
+            style="width: 200px; height: 200px; font-size: 45px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              30%
+            </div>
+            <svg
+              height="200"
+              viewBox="0 0 200 200"
+              width="200"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="100"
+                cy="100"
+                fill="none"
+                r="90"
+                stroke=""
+                stroke-width="20"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="100"
+                cy="100"
+                fill="none"
+                r="90"
+                stroke-dasharray="169.64600329384882  395.8406743523139"
+                stroke-linecap="round"
+                stroke-width="20"
+                transform="matrix(0,-1,1,0,0,200)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-margin t-progress-domo-width"
+      data-v-4224b168=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-4224b168=""
+        >
+          自定义颜色
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <!---->
+          <div
+            class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 30%;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                30%
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--default"
+            style="width: 112px; height: 112px; font-size: 20px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              44%
+            </div>
+            <svg
+              height="112"
+              viewBox="0 0 112 112"
+              width="112"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke="#aaa"
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke-dasharray="146.52388136342796  186.48493991709014"
+                stroke-linecap="round"
+                stroke-width="6"
+                style="stroke: #52CC8D;"
+                transform="matrix(0,-1,1,0,0,112)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-margin t-progress-domo-width"
+      data-v-4224b168=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-4224b168=""
+        >
+          自定义内容
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--default"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 30%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              &lt;div&gt;45days&lt;/div&gt;
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-4224b168=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--default"
+            style="width: 112px; height: 112px; font-size: 20px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              &lt;div&gt;45days&lt;/div&gt;
+            </div>
+            <svg
+              height="112"
+              viewBox="0 0 112 112"
+              width="112"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke=""
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke-dasharray="146.52388136342796  186.48493991709014"
+                stroke-linecap="round"
+                stroke-width="6"
+                transform="matrix(0,-1,1,0,0,112)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/progress/_example/line.vue 1`] = `
 <div
+  class="t-space t-space-vertical"
   data-v-c74931e2=""
+  style="gap: 0;"
 >
-  <h3
-    data-v-c74931e2=""
-  >
-    默认在线形外展示进度和状态
-  </h3>
+  
+  
   <div
-    data-v-c74931e2=""
+    class="t-space-item"
+  >
+    <h3
+      data-v-c74931e2=""
+    >
+      默认在线形外展示进度和状态
+    </h3>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
     <div
-      class="t-progress-domo-margin"
+      class="t-space t-space-vertical t-progress-domo-width"
       data-v-c74931e2=""
+      style="gap: 8px;"
     >
-      默认样式
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--default"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
         >
-          <div
-            class="t-progress__inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          30%
+          默认样式
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-      data-v-c74931e2=""
-    >
-      100%
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--success"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress"
+          data-v-c74931e2=""
         >
           <div
-            class="t-progress__inner"
-            style="width: 100%;"
-          />
+            class="t-progress--thin t-progress--status--default"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 30%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              30%
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-progress__info"
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
         >
           100%
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-      data-v-c74931e2=""
-    >
-      进度完成
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--success"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress"
+          data-v-c74931e2=""
         >
           <div
-            class="t-progress__inner"
-            style="width: 60%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-check-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            class="t-progress--thin t-progress--status--success"
           >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 100%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              100%
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-      data-v-c74931e2=""
-    >
-      进度状态发生重大错误
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--error"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
+        >
+          进度完成
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
         >
           <div
-            class="t-progress__inner"
-            style="width: 60%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            class="t-progress--thin t-progress--status--success"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 60%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-check-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-      data-v-c74931e2=""
-    >
-      进度被中断
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--warning"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
+        >
+          进度状态发生重大错误
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
         >
           <div
-            class="t-progress__inner"
-            style="width: 60%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            class="t-progress--thin t-progress--status--error"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 60%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
       </div>
       <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-      data-v-c74931e2=""
-    >
-      渐变色
-    </div>
-    <div
-      class="t-progress"
-      data-v-c74931e2=""
-    >
+      
+      
       <div
-        class="t-progress--thin t-progress--status--active"
+        class="t-space-item"
       >
         <div
-          class="t-progress__bar"
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
         >
-          <div
-            class="t-progress__inner"
-            style="width: 60%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          60%
+          进度被中断
         </div>
       </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--warning"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 60%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-error-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
       <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
+        >
+          渐变色
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--active"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 60%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              60%
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
-  <h3
-    data-v-c74931e2=""
-  >
-    可以在线形内展示进度信息
-  </h3>
+  <!---->
+  
+  
   <div
-    data-v-c74931e2=""
+    class="t-space-item"
+  >
+    <h3
+      data-v-c74931e2=""
+    >
+      可以在线形内展示进度信息
+    </h3>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-width"
+      data-v-c74931e2=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
+        >
+          默认样式
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
+        >
+          <!---->
+          <div
+            class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 30%;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                30%
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-margin"
+          data-v-c74931e2=""
+        >
+          进度0-10%时数字数字位置出现在目前进度的右边区域
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-c74931e2=""
+        >
+          <!---->
+          <div
+            class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 5%;"
+            >
+              <!---->
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              5%
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/progress/_example/plump.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  data-v-098b085e=""
+  style="gap: 0;"
+>
+  
+  
+  <div
+    class="t-space-item"
   >
     <div
       class="t-progress-domo-margin"
-      data-v-c74931e2=""
+      data-v-098b085e=""
     >
       默认样式
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-progress"
-      data-v-c74931e2=""
+      data-v-098b085e=""
     >
       <!---->
       <div
@@ -89846,15 +90129,29 @@ exports[`csr snapshot test > csr test ./src/progress/_example/line.vue 1`] = `
       </div>
       <!---->
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-progress-domo-margin"
-      data-v-c74931e2=""
+      data-v-098b085e=""
     >
       进度0-10%时数字数字位置出现在目前进度的右边区域
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-progress"
-      data-v-c74931e2=""
+      data-v-098b085e=""
     >
       <!---->
       <div
@@ -89875,282 +90172,908 @@ exports[`csr snapshot test > csr test ./src/progress/_example/line.vue 1`] = `
       <!---->
     </div>
   </div>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/progress/_example/plump.vue 1`] = `
-<div
-  data-v-app=""
->
+  <!---->
+  
   
   <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
+    class="t-space-item"
   >
-    默认样式
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
     <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--default"
+      class="t-progress-domo-margin"
+      data-v-098b085e=""
     >
-      <div
-        class="t-progress__inner"
-        style="width: 30%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
+      100%
     </div>
-    <!---->
   </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    进度0-10%时数字数字位置出现在目前进度的右边区域
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--under-ten t-progress--status--default"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 5%;"
-      >
-        <!---->
-      </div>
-      <div
-        class="t-progress__info"
-      >
-        5%
-      </div>
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    100%
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 100%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          100%
-        </div>
-      </div>
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    进度完成
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 30%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    进度状态发生重大错误
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 30%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    进度被中断
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 30%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
-    </div>
-    <!---->
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-098b085e=""
-  >
-    渐变色
-  </div>
-  <div
-    class="t-progress"
-    data-v-098b085e=""
-  >
-    <!---->
-    <div
-      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--active"
-    >
-      <div
-        class="t-progress__inner"
-        style="width: 30%;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-      </div>
-      <!---->
-    </div>
-    <!---->
-  </div>
+  <!---->
   
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/progress/_example/size.vue 1`] = `
-<div
-  data-v-f0046ec8=""
->
+  
   <div
-    data-v-f0046ec8=""
-  >
-    默认
-  </div>
-  <div
-    class="t-progress-domo-flex t-progress-domo-margin"
-    data-v-f0046ec8=""
+    class="t-space-item"
   >
     <div
-      class="t-progress-domo-inner"
-      data-v-f0046ec8=""
+      class="t-progress"
+      data-v-098b085e=""
     >
+      <!---->
       <div
-        class="t-progress"
-        data-v-f0046ec8=""
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
       >
-        <!---->
-        <!---->
         <div
-          class="t-progress--circle t-progress--status--default"
-          style="width: 112px; height: 112px; font-size: 20px;"
+          class="t-progress__inner"
+          style="width: 100%;"
+        >
+          <div
+            class="t-progress__info"
+          >
+            100%
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress-domo-margin"
+      data-v-098b085e=""
+    >
+      进度完成
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress"
+      data-v-098b085e=""
+    >
+      <!---->
+      <div
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
+      >
+        <div
+          class="t-progress__inner"
+          style="width: 30%;"
         >
           <div
             class="t-progress__info"
           >
             30%
           </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="99.90264638415542  233.10617489636263"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
         </div>
+        <!---->
       </div>
+      <!---->
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-progress-domo-inner"
+      class="t-progress-domo-margin"
+      data-v-098b085e=""
+    >
+      进度状态发生重大错误
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress"
+      data-v-098b085e=""
+    >
+      <!---->
+      <div
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
+      >
+        <div
+          class="t-progress__inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress__info"
+          >
+            30%
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress-domo-margin"
+      data-v-098b085e=""
+    >
+      进度被中断
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress"
+      data-v-098b085e=""
+    >
+      <!---->
+      <div
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
+      >
+        <div
+          class="t-progress__inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress__info"
+          >
+            30%
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress-domo-margin"
+      data-v-098b085e=""
+    >
+      渐变色
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-progress"
+      data-v-098b085e=""
+    >
+      <!---->
+      <div
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--active"
+      >
+        <div
+          class="t-progress__inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress__info"
+          >
+            30%
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/progress/_example/size.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  data-v-f0046ec8=""
+  style="gap: 0;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
       data-v-f0046ec8=""
     >
+      默认
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-width t-progress-domo-margin"
+      data-v-f0046ec8=""
+      style="gap: 8px;"
+    >
+      
+      
       <div
-        class="t-progress"
-        data-v-f0046ec8=""
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-inner"
+          data-v-f0046ec8=""
+        >
+          <div
+            class="t-progress"
+            data-v-f0046ec8=""
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-progress--circle t-progress--status--default"
+              style="width: 112px; height: 112px; font-size: 20px;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                30%
+              </div>
+              <svg
+                height="112"
+                viewBox="0 0 112 112"
+                width="112"
+              >
+                <circle
+                  class="t-progress__circle-outer"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke=""
+                  stroke-width="6"
+                />
+                <circle
+                  class="t-progress__circle-inner"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke-dasharray="99.90264638415542  233.10617489636263"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                  transform="matrix(0,-1,1,0,0,112)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-inner"
+          data-v-f0046ec8=""
+        >
+          <div
+            class="t-progress"
+            data-v-f0046ec8=""
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-progress--circle t-progress--status--error"
+              style="width: 112px; height: 112px; font-size: 20px;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                <svg
+                  class="t-icon t-icon-close t-progress__icon"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <svg
+                height="112"
+                viewBox="0 0 112 112"
+                width="112"
+              >
+                <circle
+                  class="t-progress__circle-outer"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke=""
+                  stroke-width="6"
+                />
+                <circle
+                  class="t-progress__circle-inner"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke-dasharray="249.75661596038856  83.25220532012952"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                  transform="matrix(0,-1,1,0,0,112)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-inner"
+          data-v-f0046ec8=""
+        >
+          <div
+            class="t-progress"
+            data-v-f0046ec8=""
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-progress--circle t-progress--status--warning"
+              style="width: 112px; height: 112px; font-size: 20px;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                <svg
+                  class="t-icon t-icon-error t-progress__icon"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <svg
+                height="112"
+                viewBox="0 0 112 112"
+                width="112"
+              >
+                <circle
+                  class="t-progress__circle-outer"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke=""
+                  stroke-width="6"
+                />
+                <circle
+                  class="t-progress__circle-inner"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke-dasharray="166.50441064025904  166.50441064025904"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                  transform="matrix(0,-1,1,0,0,112)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress-domo-inner"
+          data-v-f0046ec8=""
+        >
+          <div
+            class="t-progress"
+            data-v-f0046ec8=""
+          >
+            <!---->
+            <!---->
+            <div
+              class="t-progress--circle t-progress--status--success"
+              style="width: 112px; height: 112px; font-size: 20px;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                <svg
+                  class="t-icon t-icon-check t-progress__icon"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <svg
+                height="112"
+                viewBox="0 0 112 112"
+                width="112"
+              >
+                <circle
+                  class="t-progress__circle-outer"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke=""
+                  stroke-width="6"
+                />
+                <circle
+                  class="t-progress__circle-inner"
+                  cx="56"
+                  cy="56"
+                  fill="none"
+                  r="53"
+                  stroke-dasharray="333.0088212805181  0"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                  transform="matrix(0,-1,1,0,0,112)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      data-v-f0046ec8=""
+    >
+      默认不同尺寸
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-width t-progress-domo-margin"
+      data-v-f0046ec8=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-f0046ec8=""
+        >
+          小尺寸
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-f0046ec8=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--default"
+            style="width: 72px; height: 72px; font-size: 14px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              30%
+            </div>
+            <svg
+              height="72"
+              viewBox="0 0 72 72"
+              width="72"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="36"
+                cy="36"
+                fill="none"
+                r="34"
+                stroke=""
+                stroke-width="4"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="36"
+                cy="36"
+                fill="none"
+                r="34"
+                stroke-dasharray="64.08849013323179  149.53981031087415"
+                stroke-linecap="round"
+                stroke-width="4"
+                transform="matrix(0,-1,1,0,0,72)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-f0046ec8=""
+        >
+          大尺寸
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress"
+          data-v-f0046ec8=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--default"
+            style="width: 160px; height: 160px; font-size: 36px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              75%
+            </div>
+            <svg
+              height="160"
+              viewBox="0 0 160 160"
+              width="160"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="80"
+                cy="80"
+                fill="none"
+                r="77"
+                stroke=""
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="80"
+                cy="80"
+                fill="none"
+                r="77"
+                stroke-dasharray="362.8539514896211  120.95131716320704"
+                stroke-linecap="round"
+                stroke-width="6"
+                transform="matrix(0,-1,1,0,0,160)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/progress/_example/status.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  data-v-4bfcc34d=""
+  style="gap: 0;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical t-progress-domo-width"
+      data-v-4bfcc34d=""
+      style="gap: 8px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          data-v-4bfcc34d=""
+        >
+          进度完成：
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--success"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 80%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-check-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <!---->
+          <div
+            class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 80%;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                80%
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--warning"
+            style="width: 112px; height: 112px; font-size: 20px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-error t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+            <svg
+              height="112"
+              viewBox="0 0 112 112"
+              width="112"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke=""
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke-dasharray="266.4070570244145  66.6017642561036"
+                stroke-linecap="round"
+                stroke-width="6"
+                transform="matrix(0,-1,1,0,0,112)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      data-v-4bfcc34d=""
+    >
+      <div
+        data-v-4bfcc34d=""
+      >
+        进度状态出现重大错误（如下载的文件有损）：
+      </div>
+      <div
+        class="t-progress t-progress-domo-margin"
+        data-v-4bfcc34d=""
+      >
+        <div
+          class="t-progress--thin t-progress--status--error"
+        >
+          <div
+            class="t-progress__bar"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 80%;"
+            />
+          </div>
+          <div
+            class="t-progress__info"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-progress__icon"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="t-progress t-progress-domo-margin"
+        data-v-4bfcc34d=""
+      >
+        <!---->
+        <div
+          class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
+        >
+          <div
+            class="t-progress__inner"
+            style="width: 80%;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              80%
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="t-progress t-progress-domo-margin"
+        data-v-4bfcc34d=""
       >
         <!---->
         <!---->
@@ -90195,7 +91118,7 @@ exports[`csr snapshot test > csr test ./src/progress/_example/size.vue 1`] = `
               cy="56"
               fill="none"
               r="53"
-              stroke-dasharray="249.75661596038856  83.25220532012952"
+              stroke-dasharray="266.4070570244145  66.6017642561036"
               stroke-linecap="round"
               stroke-width="6"
               transform="matrix(0,-1,1,0,0,112)"
@@ -90204,642 +91127,214 @@ exports[`csr snapshot test > csr test ./src/progress/_example/size.vue 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-progress-domo-inner"
-      data-v-f0046ec8=""
+      class="t-space t-space-vertical t-progress-domo-width"
+      data-v-4bfcc34d=""
+      style="gap: 8px;"
     >
+      
+      
       <div
-        class="t-progress"
-        data-v-f0046ec8=""
+        class="t-space-item"
       >
-        <!---->
-        <!---->
         <div
-          class="t-progress--circle t-progress--status--warning"
-          style="width: 112px; height: 112px; font-size: 20px;"
+          data-v-4bfcc34d=""
+        >
+          进度被中断（如失去网络连接）
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
         >
           <div
-            class="t-progress__info"
+            class="t-progress--thin t-progress--status--warning"
           >
-            <svg
-              class="t-icon t-icon-error t-progress__icon"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-progress__bar"
             >
-              <path
-                d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
-                fill="currentColor"
-                fill-opacity="0.9"
+              <div
+                class="t-progress__inner"
+                style="width: 80%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-error-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <!---->
+          <div
+            class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
+          >
+            <div
+              class="t-progress__inner"
+              style="width: 80%;"
+            >
+              <div
+                class="t-progress__info"
+              >
+                80%
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <div
+            class="t-progress--thin t-progress--status--warning"
+          >
+            <div
+              class="t-progress__bar"
+            >
+              <div
+                class="t-progress__inner"
+                style="width: 80%;"
+              />
+            </div>
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-error-circle-filled t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-progress t-progress-domo-margin"
+          data-v-4bfcc34d=""
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-progress--circle t-progress--status--warning"
+            style="width: 112px; height: 112px; font-size: 20px;"
+          >
+            <div
+              class="t-progress__info"
+            >
+              <svg
+                class="t-icon t-icon-error t-progress__icon"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+            <svg
+              height="112"
+              viewBox="0 0 112 112"
+              width="112"
+            >
+              <circle
+                class="t-progress__circle-outer"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke=""
+                stroke-width="6"
+              />
+              <circle
+                class="t-progress__circle-inner"
+                cx="56"
+                cy="56"
+                fill="none"
+                r="53"
+                stroke-dasharray="266.4070570244145  66.6017642561036"
+                stroke-linecap="round"
+                stroke-width="6"
+                transform="matrix(0,-1,1,0,0,112)"
               />
             </svg>
           </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="166.50441064025904  166.50441064025904"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
         </div>
       </div>
-    </div>
-    <div
-      class="t-progress-domo-inner"
-      data-v-f0046ec8=""
-    >
-      <div
-        class="t-progress"
-        data-v-f0046ec8=""
-      >
-        <!---->
-        <!---->
-        <div
-          class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 20px;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            <svg
-              class="t-icon t-icon-check t-progress__icon"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </div>
-          <svg
-            height="112"
-            viewBox="0 0 112 112"
-            width="112"
-          >
-            <circle
-              class="t-progress__circle-outer"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke=""
-              stroke-width="6"
-            />
-            <circle
-              class="t-progress__circle-inner"
-              cx="56"
-              cy="56"
-              fill="none"
-              r="53"
-              stroke-dasharray="333.0088212805181  0"
-              stroke-linecap="round"
-              stroke-width="6"
-              transform="matrix(0,-1,1,0,0,112)"
-            />
-          </svg>
-        </div>
-      </div>
+      <!---->
+      
+      
     </div>
   </div>
-  <div
-    data-v-f0046ec8=""
-  >
-    默认不同尺寸
-  </div>
-  <div
-    class="t-progress-domo-margin"
-    data-v-f0046ec8=""
-  >
-    <div
-      data-v-f0046ec8=""
-    >
-      小尺寸
-    </div>
-    <div
-      class="t-progress"
-      data-v-f0046ec8=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 72px; height: 72px; font-size: 14px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          30%
-        </div>
-        <svg
-          height="72"
-          viewBox="0 0 72 72"
-          width="72"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="36"
-            cy="36"
-            fill="none"
-            r="34"
-            stroke=""
-            stroke-width="4"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="36"
-            cy="36"
-            fill="none"
-            r="34"
-            stroke-dasharray="64.08849013323179  149.53981031087415"
-            stroke-linecap="round"
-            stroke-width="4"
-            transform="matrix(0,-1,1,0,0,72)"
-          />
-        </svg>
-      </div>
-    </div>
-    <div
-      data-v-f0046ec8=""
-    >
-      大尺寸
-    </div>
-    <div
-      class="t-progress"
-      data-v-f0046ec8=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--default"
-        style="width: 160px; height: 160px; font-size: 36px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          75%
-        </div>
-        <svg
-          height="160"
-          viewBox="0 0 160 160"
-          width="160"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="80"
-            cy="80"
-            fill="none"
-            r="77"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="80"
-            cy="80"
-            fill="none"
-            r="77"
-            stroke-dasharray="362.8539514896211  120.95131716320704"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,160)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/progress/_example/status.vue 1`] = `
-<div
-  data-v-4bfcc34d=""
->
-  <div
-    data-v-4bfcc34d=""
-  >
-    <div
-      data-v-4bfcc34d=""
-    >
-      进度完成：
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--success"
-      >
-        <div
-          class="t-progress__bar"
-        >
-          <div
-            class="t-progress__inner"
-            style="width: 80%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-check-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
-      >
-        <div
-          class="t-progress__inner"
-          style="width: 80%;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            80%
-          </div>
-        </div>
-        <!---->
-      </div>
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--warning"
-        style="width: 112px; height: 112px; font-size: 20px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-error t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="266.4070570244145  66.6017642561036"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    data-v-4bfcc34d=""
-  >
-    <div
-      data-v-4bfcc34d=""
-    >
-      进度状态出现重大错误（如下载的文件有损）：
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--error"
-      >
-        <div
-          class="t-progress__bar"
-        >
-          <div
-            class="t-progress__inner"
-            style="width: 80%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
-      >
-        <div
-          class="t-progress__inner"
-          style="width: 80%;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            80%
-          </div>
-        </div>
-        <!---->
-      </div>
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--error"
-        style="width: 112px; height: 112px; font-size: 20px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-close t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="266.4070570244145  66.6017642561036"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    data-v-4bfcc34d=""
-  >
-    <div
-      data-v-4bfcc34d=""
-    >
-      进度被中断（如失去网络连接）
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--warning"
-      >
-        <div
-          class="t-progress__bar"
-        >
-          <div
-            class="t-progress__inner"
-            style="width: 80%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <div
-        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
-      >
-        <div
-          class="t-progress__inner"
-          style="width: 80%;"
-        >
-          <div
-            class="t-progress__info"
-          >
-            80%
-          </div>
-        </div>
-        <!---->
-      </div>
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <div
-        class="t-progress--thin t-progress--status--warning"
-      >
-        <div
-          class="t-progress__bar"
-        >
-          <div
-            class="t-progress__inner"
-            style="width: 80%;"
-          />
-        </div>
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-error-circle-filled t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-progress t-progress-domo-margin"
-      data-v-4bfcc34d=""
-    >
-      <!---->
-      <!---->
-      <div
-        class="t-progress--circle t-progress--status--warning"
-        style="width: 112px; height: 112px; font-size: 20px;"
-      >
-        <div
-          class="t-progress__info"
-        >
-          <svg
-            class="t-icon t-icon-error t-progress__icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </div>
-        <svg
-          height="112"
-          viewBox="0 0 112 112"
-          width="112"
-        >
-          <circle
-            class="t-progress__circle-outer"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke=""
-            stroke-width="6"
-          />
-          <circle
-            class="t-progress__circle-inner"
-            cx="56"
-            cy="56"
-            fill="none"
-            r="53"
-            stroke-dasharray="266.4070570244145  66.6017642561036"
-            stroke-linecap="round"
-            stroke-width="6"
-            transform="matrix(0,-1,1,0,0,112)"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -137926,26 +138421,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/ban.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -138068,26 +138551,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/base.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -138211,26 +138682,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/base.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -138422,26 +138881,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/combination.vue 1`] = 
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -138837,26 +139284,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/custom.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <div
@@ -139068,26 +139503,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/drag-sort.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -139285,26 +139708,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/icon.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -139479,26 +139890,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/operation.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <div
@@ -139742,26 +140141,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/position.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub
-              appear="true"
-              css="true"
-              mode="out-in"
-              name="fade"
-              persisted="false"
-            >
+            <transition-stub>
               <!---->
             </transition-stub>
             <!---->
@@ -139893,26 +140280,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/size.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140025,26 +140400,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/size.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140181,26 +140544,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/theme.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140313,26 +140664,14 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/theme.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub
-                  appear="true"
-                  css="true"
-                  mode="out-in"
-                  name="fade"
-                  persisted="false"
-                >
+                <transition-stub>
                   <!---->
                 </transition-stub>
                 <!---->
@@ -151002,15 +151341,7 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/tree.vue 1`] = `
           <div
             class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
           >
-            <transition-group-stub
-              appear="false"
-              css="true"
-              enteractiveclass="t-tree__item--enter-active"
-              leaveactiveclass="t-tree__item--leave-active"
-              name="t-tree-toggle"
-              persisted="false"
-              tag="div"
-            >
+            <transition-group-stub>
               
               <div
                 class="t-tree__item t-tree__item--open"
@@ -151714,15 +152045,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/activable.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-6c5aa77d=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -151919,15 +152242,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/base.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-74e1071d=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -152479,15 +152794,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/checkable.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -153362,15 +153669,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-b67f734c=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -153931,15 +154230,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/disabled.vue 1`] = `
     class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-58e19970=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -154433,15 +154724,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/disabled.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-58e19970=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -154877,15 +155160,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/draggable.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open t-tree__item--draggable"
@@ -155415,15 +155690,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-all.vue 1`] = `
     class="t-tree t-tree--transition"
     data-v-5902ba8c=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -155748,15 +156015,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-level.vue 1`] =
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-37554246=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -156079,15 +156338,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-mutex.vue 1`] =
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-e4ed8150=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -156212,15 +156463,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/filter.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-58473978=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -156318,15 +156561,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/icon.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-a0fdae76=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -156404,15 +156639,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/icon.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-a0fdae76=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -156504,15 +156731,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/label.vue 1`] = `
     class="t-tree t-tree--transition"
     data-v-71eb3fd8=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -156718,15 +156937,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/label.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-71eb3fd8=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -157157,15 +157368,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/lazy.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-de8eeb80=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -157379,15 +157582,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub
-        appear="false"
-        css="true"
-        enteractiveclass="t-tree__item--enter-active"
-        leaveactiveclass="t-tree__item--leave-active"
-        name="t-tree-toggle"
-        persisted="false"
-        tag="div"
-      >
+      <transition-group-stub>
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -157893,15 +158088,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub
-        appear="false"
-        css="true"
-        enteractiveclass="t-tree__item--enter-active"
-        leaveactiveclass="t-tree__item--leave-active"
-        name="t-tree-toggle"
-        persisted="false"
-        tag="div"
-      >
+      <transition-group-stub>
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -158637,15 +158824,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub
-        appear="false"
-        css="true"
-        enteractiveclass="t-tree__item--enter-active"
-        leaveactiveclass="t-tree__item--leave-active"
-        name="t-tree-toggle"
-        persisted="false"
-        tag="div"
-      >
+      <transition-group-stub>
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -159605,15 +159784,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/load.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-497eb2b2=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item"
@@ -159734,15 +159905,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-43574890=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160003,15 +160166,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-43574890=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160422,15 +160577,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/state.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160750,15 +160897,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-47c625e7=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -161313,15 +161452,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-527076bf=""
   >
-    <transition-group-stub
-      appear="false"
-      css="true"
-      enteractiveclass="t-tree__item--enter-active"
-      leaveactiveclass="t-tree__item--leave-active"
-      name="t-tree-toggle"
-      persisted="false"
-      tag="div"
-    >
+    <transition-group-stub>
       
       <div
         class="t-tree__item t-tree__item--open"
