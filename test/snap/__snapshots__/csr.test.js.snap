@@ -44876,7 +44876,6 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   disabled="false"
                   isfocus="false"
                   isfooterdisplay="false"
-                  isshowpanel="false"
                 >
                   <div
                     class="t-time-picker__panel-body-active-mask"
@@ -47037,7 +47036,6 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     disabled="false"
                     isfocus="false"
                     isfooterdisplay="false"
-                    isshowpanel="false"
                   >
                     <div
                       class="t-time-picker__panel-body-active-mask"
@@ -145682,7 +145680,6 @@ exports[`csr snapshot test > csr test ./src/time-picker/_example/panel.vue 1`] =
         disabled="false"
         isfocus="false"
         isfooterdisplay="false"
-        isshowpanel="false"
       >
         <div
           class="t-time-picker__panel-body-active-mask"

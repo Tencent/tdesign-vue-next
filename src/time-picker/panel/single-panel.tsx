@@ -34,6 +34,7 @@ export default defineComponent({
     triggerScroll: Boolean,
     onChange: Function,
     resetTriggerScroll: Function,
+    isShowPanel: Boolean,
   },
 
   setup(props) {
@@ -174,6 +175,8 @@ export default defineComponent({
     const handleScroll = (col: EPickerCols, idx: number) => {
       let val: number | string;
       let formattedVal: string;
+      if (!props.isShowPanel) return;
+
       const scrollTop = (colsRef[idx]?.scrollTop || 0) + panelOffset.top;
       const { offsetHeight, margin } = getItemHeight();
       const timeItemTotalHeight = offsetHeight + margin;
@@ -323,10 +326,6 @@ export default defineComponent({
             ref={(el) => (colsRef[idx] = el)}
             class={`${panelClassName.value}-body-scroll`}
             onScroll={debounce(() => handleScroll(col, idx), 50)}
-            style={{
-              '--timePickerPanelOffsetTop': panelOffset.top,
-              '--timePickerPanelOffsetBottom': panelOffset.bottom,
-            }}
           >
             {getColList(col).map((el) => (
               <li
