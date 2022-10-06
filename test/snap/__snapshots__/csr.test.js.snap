@@ -28478,7 +28478,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28526,7 +28531,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
             >
@@ -28573,7 +28583,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28848,7 +28863,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -28893,7 +28913,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub>
+                      <transition-stub
+                        appear="false"
+                        css="true"
+                        name="t-slide-down"
+                        persisted="false"
+                      >
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -28940,7 +28965,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub>
+                      <transition-stub
+                        appear="false"
+                        css="true"
+                        name="t-slide-down"
+                        persisted="false"
+                      >
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -28987,7 +29017,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub>
+                      <transition-stub
+                        appear="false"
+                        css="true"
+                        name="t-slide-down"
+                        persisted="false"
+                      >
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -29034,7 +29069,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <transition-stub>
+                      <transition-stub
+                        appear="false"
+                        css="true"
+                        name="t-slide-down"
+                        persisted="false"
+                      >
                         <div
                           class="t-collapse-panel__body"
                         >
@@ -29124,7 +29164,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29174,7 +29219,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29224,7 +29274,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29272,7 +29327,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29461,7 +29521,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29511,7 +29576,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29561,7 +29631,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29609,7 +29684,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29690,7 +29770,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29740,7 +29825,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29790,7 +29880,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -29838,7 +29933,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
             <!---->
             <!---->
           </div>
-          <transition-stub>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
             <div
               class="t-collapse-panel__body"
               style="display: none;"
@@ -30016,7 +30116,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="t-slide-down"
+        persisted="false"
+      >
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30116,7 +30221,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="t-slide-down"
+        persisted="false"
+      >
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30216,7 +30326,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="t-slide-down"
+        persisted="false"
+      >
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -30316,7 +30431,12 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
         
         <!---->
       </div>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="t-slide-down"
+        persisted="false"
+      >
         <div
           class="t-collapse-panel__body"
           style="display: none;"
@@ -38305,7 +38425,13 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
   <div
     style="width: 480px;"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx"
       >
@@ -38385,7 +38511,13 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx"
       >
@@ -38477,7 +38609,13 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx"
       >
@@ -38569,7 +38707,13 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx"
       >
@@ -38661,7 +38805,13 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/dialog.vue 
       </div>
     </transition-stub>
     <br />
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx"
       >
@@ -40351,7 +40501,15 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
     class="t-tree t-tree--transition"
     data-v-96b659ea=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -47433,7 +47591,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/async.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -47645,10 +47809,20 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
     
   </div>
   <transition-stub
+    appear="false"
+    css="true"
     data-v-d38b880a=""
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
   />
   <transition-stub
+    appear="false"
+    css="true"
     data-v-d38b880a=""
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
   >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
@@ -47758,10 +47932,20 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/attach.vue 1`] = `
     </div>
   </transition-stub>
   <transition-stub
+    appear="false"
+    css="true"
     data-v-d38b880a=""
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
   />
   <transition-stub
+    appear="false"
+    css="true"
     data-v-d38b880a=""
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
   >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--absolute"
@@ -47998,7 +48182,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/base.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -48173,7 +48363,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub>
+        <transition-stub
+          appear="false"
+          css="true"
+          duration="300"
+          name="t-dialog-zoom__vue"
+          persisted="false"
+        >
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48262,7 +48458,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub>
+        <transition-stub
+          appear="false"
+          css="true"
+          duration="300"
+          name="t-dialog-zoom__vue"
+          persisted="false"
+        >
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48351,7 +48553,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/custom.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <transition-stub>
+        <transition-stub
+          appear="false"
+          css="true"
+          duration="300"
+          name="t-dialog-zoom__vue"
+          persisted="false"
+        >
           <div
             class="t-dialog__ctx t-dialog__ctx--fixed"
             style="display: none;"
@@ -48514,7 +48722,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
     
     
   </div>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -48606,7 +48820,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -48693,7 +48913,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -48785,7 +49011,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/drag.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
 <div>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -48877,7 +49109,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -48969,7 +49207,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49061,7 +49305,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/icon.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49324,7 +49574,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
     
     
   </div>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx"
       style="display: none;"
@@ -49411,7 +49667,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -49501,7 +49763,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--modeless"
       style="display: none;"
@@ -49591,7 +49859,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/modal.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -49905,7 +50179,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
     
     
   </div>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -49987,7 +50267,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50069,7 +50355,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50152,7 +50444,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/position.vue 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
+  >
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
@@ -50404,7 +50702,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50524,7 +50828,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50644,7 +50954,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50755,7 +51071,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -50866,7 +51188,13 @@ exports[`csr snapshot test > csr test ./src/dialog/_example/warning.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      duration="300"
+      name="t-dialog-zoom__vue"
+      persisted="false"
+    >
       <div
         class="t-dialog__ctx t-dialog__ctx--fixed"
         style="display: none;"
@@ -58233,14 +58561,26 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-complicated-d
         <div
           class="t-tabs__operations t-tabs__operations--left"
         >
-          <transition-stub>
+          <transition-stub
+            appear="true"
+            css="true"
+            mode="out-in"
+            name="fade"
+            persisted="false"
+          >
             <!---->
           </transition-stub>
         </div>
         <div
           class="t-tabs__operations t-tabs__operations--right"
         >
-          <transition-stub>
+          <transition-stub
+            appear="true"
+            css="true"
+            mode="out-in"
+            name="fade"
+            persisted="false"
+          >
             <!---->
           </transition-stub>
           <div
@@ -67884,7 +68224,12 @@ exports[`csr snapshot test > csr test ./src/image-viewer/_example/modeless.vue 1
   </div>
   
   <transition-stub
+    appear="false"
     class="t-image-viewer__dialog"
+    css="true"
+    duration="300"
+    name="t-dialog-zoom__vue"
+    persisted="false"
   >
     <!---->
   </transition-stub>
@@ -138421,14 +138766,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/ban.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -138551,14 +138908,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/base.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -138682,14 +139051,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/base.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -138881,14 +139262,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/combination.vue 1`] = 
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -139284,14 +139677,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/custom.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <div
@@ -139503,14 +139908,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/drag-sort.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -139708,14 +140125,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/icon.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -139890,14 +140319,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/operation.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <div
@@ -140141,14 +140582,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/position.vue 1`] = `
           <div
             class="t-tabs__operations t-tabs__operations--left"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
           </div>
           <div
             class="t-tabs__operations t-tabs__operations--right"
           >
-            <transition-stub>
+            <transition-stub
+              appear="true"
+              css="true"
+              mode="out-in"
+              name="fade"
+              persisted="false"
+            >
               <!---->
             </transition-stub>
             <!---->
@@ -140280,14 +140733,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/size.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140400,14 +140865,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/size.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140544,14 +141021,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/theme.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
                 <!---->
@@ -140664,14 +141153,26 @@ exports[`csr snapshot test > csr test ./src/tabs/_example/theme.vue 1`] = `
               <div
                 class="t-tabs__operations t-tabs__operations--left"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
               </div>
               <div
                 class="t-tabs__operations t-tabs__operations--right"
               >
-                <transition-stub>
+                <transition-stub
+                  appear="true"
+                  css="true"
+                  mode="out-in"
+                  name="fade"
+                  persisted="false"
+                >
                   <!---->
                 </transition-stub>
                 <!---->
@@ -151341,7 +151842,15 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/tree.vue 1`] = `
           <div
             class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
           >
-            <transition-group-stub>
+            <transition-group-stub
+              appear="false"
+              css="true"
+              enteractiveclass="t-tree__item--enter-active"
+              leaveactiveclass="t-tree__item--leave-active"
+              name="t-tree-toggle"
+              persisted="false"
+              tag="div"
+            >
               
               <div
                 class="t-tree__item t-tree__item--open"
@@ -152045,7 +152554,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/activable.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-6c5aa77d=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -152242,7 +152759,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/base.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-74e1071d=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -152794,7 +153319,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/checkable.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -153669,7 +154202,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-b67f734c=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -154230,7 +154771,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/disabled.vue 1`] = `
     class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-58e19970=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open t-is-disabled"
@@ -154724,7 +155273,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/disabled.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-58e19970=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -155160,7 +155717,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/draggable.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--transition"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open t-tree__item--draggable"
@@ -155690,7 +156255,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-all.vue 1`] = `
     class="t-tree t-tree--transition"
     data-v-5902ba8c=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -156015,7 +156588,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-level.vue 1`] =
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-37554246=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -156338,7 +156919,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/expand-mutex.vue 1`] =
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-e4ed8150=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -156463,7 +157052,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/filter.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     data-v-58473978=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -156561,7 +157158,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/icon.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-a0fdae76=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -156639,7 +157244,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/icon.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-a0fdae76=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -156731,7 +157344,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/label.vue 1`] = `
     class="t-tree t-tree--transition"
     data-v-71eb3fd8=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -156937,7 +157558,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/label.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-71eb3fd8=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -157368,7 +157997,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/lazy.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-de8eeb80=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -157582,7 +158219,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub>
+      <transition-group-stub
+        appear="false"
+        css="true"
+        enteractiveclass="t-tree__item--enter-active"
+        leaveactiveclass="t-tree__item--leave-active"
+        name="t-tree-toggle"
+        persisted="false"
+        tag="div"
+      >
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -158088,7 +158733,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub>
+      <transition-group-stub
+        appear="false"
+        css="true"
+        enteractiveclass="t-tree__item--enter-active"
+        leaveactiveclass="t-tree__item--leave-active"
+        name="t-tree-toggle"
+        persisted="false"
+        tag="div"
+      >
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -158824,7 +159477,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/line.vue 1`] = `
     <div
       class="t-tree t-tree--transition"
     >
-      <transition-group-stub>
+      <transition-group-stub
+        appear="false"
+        css="true"
+        enteractiveclass="t-tree__item--enter-active"
+        leaveactiveclass="t-tree__item--leave-active"
+        name="t-tree-toggle"
+        persisted="false"
+        tag="div"
+      >
         
         <div
           class="t-tree__item t-tree__item--open"
@@ -159784,7 +160445,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/load.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-497eb2b2=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item"
@@ -159905,7 +160574,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--transition"
     data-v-43574890=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160166,7 +160843,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     data-v-43574890=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160577,7 +161262,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/state.vue 1`] = `
   <div
     class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -160897,7 +161590,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-47c625e7=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
@@ -161452,7 +162153,15 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
     class="t-tree t-tree--checkable t-tree--transition"
     data-v-527076bf=""
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      enteractiveclass="t-tree__item--enter-active"
+      leaveactiveclass="t-tree__item--leave-active"
+      name="t-tree-toggle"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         class="t-tree__item t-tree__item--open"
