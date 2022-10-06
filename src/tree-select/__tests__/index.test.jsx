@@ -1,5 +1,5 @@
+import { expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
 import TreeSelect from '@/src/tree-select/index.ts';
 
 const options = [
@@ -273,6 +273,19 @@ describe('TreeSelect', () => {
       const inputElement = wrapper.find('input');
       inputElement.setValue('shenzhen');
       expect(fn).toBeCalled();
+    });
+    it('onChange', () => {
+      const fn = vi.fn();
+      const value = ['shenzhen'];
+      const wrapper = mount({
+        render() {
+          return <TreeSelect data={options} value={value} multiple={true} onChange={fn} />;
+        },
+      });
+      expect(fn).not.toBeCalled();
+      const closeIconWrapper = wrapper.find('.t-icon-close');
+      closeIconWrapper.trigger('click');
+      expect(fn).toBeCalledTimes(1);
     });
   });
 
