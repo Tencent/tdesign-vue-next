@@ -70,8 +70,8 @@ const columns = ref([
   },
 ]);
 
-const getRowClassName = ({ row, col, rowIndex, colIndex }) => {
-  console.log(row, col, rowIndex, colIndex);
+const getRowClassName = ({ row, rowIndex }) => {
+  console.log(row, rowIndex);
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };
