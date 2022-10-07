@@ -5,7 +5,6 @@ import { TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';
 import TTooltip, { TooltipProps } from '../tooltip';
-import { useConfig } from '../hooks/useConfig';
 
 export interface EllipsisProps {
   content: string | TNode;
@@ -40,16 +39,25 @@ export default defineComponent({
     /** 透传 Tooltip 组件属性 */
     tooltipProps: Object as PropType<EllipsisProps['tooltipProps']>,
     zIndex: Number,
+    overlayClassName: String,
+    classPrefix: {
+      type: String,
+      // default: 't-',
+    },
   },
 
-  setup() {
-    const { classPrefix } = useConfig();
+  setup(props) {
     const root = ref();
     const isOverflow = ref(false);
 
     const ellipsisClasses = computed(() => [
-      `${classPrefix.value}-table__ellipsis`,
-      `${classPrefix.value}-text-ellipsis`,
+      `${props.classPrefix}-table__ellipsis`,
+      `${props.classPrefix}-text-ellipsis`,
+    ]);
+
+    const innerEllipsisClassName = computed<TooltipProps['overlayClassName']>(() => [
+      `${props.classPrefix}-table__ellipsis-content`,
+      props.overlayClassName,
     ]);
 
     // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示
@@ -71,6 +79,7 @@ export default defineComponent({
       root,
       isOverflow,
       ellipsisClasses,
+      innerEllipsisClassName,
       onMouseAround,
     };
   },
@@ -83,14 +92,18 @@ export default defineComponent({
       </div>
     );
     let content = null;
+    const tooltipProps = this.tooltipProps as EllipsisProps['tooltipProps'];
     if (this.isOverflow) {
       const rProps = {
         content: (this.tooltipContent as string) || (() => cellNode),
-        destroyOnClose: true,
+        // destroyOnClose: true,
         zIndex: this.zIndex,
         attach: this.attach,
         placement: this.placement,
-        ...(this.tooltipProps as EllipsisProps['tooltipProps']),
+        overlayClassName: tooltipProps?.overlayClassName
+          ? this.innerEllipsisClassName.concat(tooltipProps.overlayClassName)
+          : this.innerEllipsisClassName,
+        ...tooltipProps,
       };
       content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
     } else {

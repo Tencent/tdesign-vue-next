@@ -65,6 +65,8 @@ export interface TrProps extends TrCommonProps {
   rowKey: string;
   row: TableRowData;
   rowIndex: number;
+  ellipsisOverlayClassName: string;
+  classPrefix: string;
   dataLength: number;
   rowAndColFixedPosition?: RowAndColFixedPosition;
   skipSpansMap?: Map<string, SkipSpansValue>;
@@ -124,6 +126,8 @@ export default defineComponent({
     row: Object as PropType<TableRowData>,
     rowIndex: Number,
     dataLength: Number,
+    ellipsisOverlayClassName: String,
+    classPrefix: String,
     rowAndColFixedPosition: Map as PropType<RowAndColFixedPosition>,
     // 合并单元格，是否跳过渲染
     skipSpansMap: Map as PropType<TrProps['skipSpansMap']>,
@@ -234,14 +238,23 @@ export default defineComponent({
     renderEllipsisCell(cellParams: BaseTableCellParams<TableRowData>, params: RenderEllipsisCellParams) {
       const { cellNode } = params;
       const { col } = cellParams;
-      const content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
+      let content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
+      if (typeof col.ellipsis === 'object' && isFunction(col.ellipsis.content)) {
+        content = col.ellipsis.content(h, cellParams);
+      }
+      let tooltipProps = {};
+      if (typeof col.ellipsis === 'object') {
+        tooltipProps = 'props' in col.ellipsis ? col.ellipsis.props : col.ellipsis || undefined;
+      }
       const tableElement = this.tableElm as HTMLDivElement;
       return (
         <TEllipsis
           placement={'top'}
           attach={tableElement ? () => tableElement : undefined}
           tooltipContent={content && (() => content)}
-          tooltipProps={typeof col.ellipsis === 'object' ? col.ellipsis : undefined}
+          tooltipProps={tooltipProps}
+          overlayClassName={this.ellipsisOverlayClassName}
+          classPrefix={this.classPrefix}
         >
           {cellNode}
         </TEllipsis>

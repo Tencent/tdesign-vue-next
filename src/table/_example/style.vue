@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="t-demo__style">
+    <!-- row-class-name 设置行类名 -->
     <t-table row-key="id" :data="data" :columns="columns" :row-class-name="getRowClassName">
       <template #footerSummary>
         <div class="t-table__row-filter-inner">汇总：近期数据波动较大</div>
@@ -54,7 +55,9 @@ const columns = ref([
     align: 'right',
     // 设置单元格类名
     className: ({ type, row }) => {
-      if (type === 'td' && row.ringRatio === '200%') return 'custom-cell-class-name';
+      if (type === 'td' && row.ringRatio === '200%') {
+        return 'custom-cell-class-name';
+      }
       return '';
     },
   },
@@ -63,7 +66,7 @@ const columns = ref([
     title: '同比',
     align: 'right',
     // 设置列类名
-    className: 'first-column-class-name',
+    className: 'last-column-class-name',
   },
 ]);
 
@@ -75,18 +78,19 @@ const getRowClassName = ({ row, col, rowIndex, colIndex }) => {
 </script>
 
 <style>
-.custom-third-class-name {
-  color: blue;
+.t-demo__style .t-table .custom-third-class-name > td {
+  color: green;
+  font-weight: bold;
 }
 
-.first-column-class-name {
+.t-demo__style .t-table td.last-column-class-name {
   color: orange;
+  font-weight: bold;
 }
 
 .t-table td.custom-cell-class-name {
   color: orange;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  background-color: var(--td-gray-color-1);
 }
 </style>

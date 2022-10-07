@@ -25,6 +25,7 @@ import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
+import useStyle from './hooks/useStyle';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -52,8 +53,6 @@ const OMIT_PROPS = [
   'onSortChange',
 ];
 
-const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
-
 export default defineComponent({
   name: 'TPrimaryTable',
 
@@ -66,7 +65,9 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref(null);
-    const { tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } = useClassName();
+    const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
+      useClassName();
+    const { sizeClassNames } = useStyle(props);
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
@@ -167,7 +168,17 @@ export default defineComponent({
             const filterIcon = item.filter ? renderFilterIcon(p) : null;
             // @ts-ignore 注意：此处 Vue2 和 Vue3 有所不同
             const attach = primaryTableRef.value?.tableContentRef;
-            return renderTitleWidthIcon([titleContent, sortIcon, filterIcon], p.col, p.colIndex, ellipsisTitle, attach);
+            return renderTitleWidthIcon(
+              [titleContent, sortIcon, filterIcon],
+              p.col,
+              p.colIndex,
+              ellipsisTitle,
+              attach,
+              {
+                classPrefix,
+                ellipsisOverlayClassName: props.size !== 'medium' ? sizeClassNames[props.size] : '',
+              },
+            );
           };
           item.ellipsisTitle = false;
         }

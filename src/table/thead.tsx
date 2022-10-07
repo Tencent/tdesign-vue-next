@@ -2,7 +2,6 @@ import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProp
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../hooks/useConfig';
 import { BaseTableCol, TableRowData } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
@@ -10,6 +9,8 @@ import { formatClassNames } from './utils';
 import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
 
 export interface TheadProps {
+  classPrefix: string;
+  ellipsisOverlayClassName: string;
   // 是否固定表头
   isFixedHeader: boolean;
   // 固定列 left/right 具体值
@@ -36,6 +37,8 @@ export default defineComponent({
   name: 'THead',
 
   props: {
+    classPrefix: String,
+    ellipsisOverlayClassName: String,
     isFixedHeader: Boolean,
     rowAndColFixedPosition: Map as PropType<TheadProps['rowAndColFixedPosition']>,
     thWidthList: Object as PropType<TheadProps['thWidthList']>,
@@ -51,7 +54,6 @@ export default defineComponent({
     const theadRef = ref<HTMLHeadElement>();
     const classnames = useClassName();
     const { tableHeaderClasses, tableBaseClass } = classnames;
-    const { classPrefix } = useConfig();
     const theadClasses = computed(() => [
       tableHeaderClasses.header,
       {
@@ -82,7 +84,6 @@ export default defineComponent({
       ...classnames,
       colspanSkipMap,
       theadClasses,
-      classPrefix,
       theadRef,
       slots,
     };
@@ -157,6 +158,8 @@ export default defineComponent({
                     attach={this.theadRef ? () => this.theadRef : undefined}
                     tooltipContent={content && (() => content)}
                     tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                    overlayClassName={this.ellipsisOverlayClassName}
+                    classPrefix={this.classPrefix}
                   >
                     {innerTh}
                   </TEllipsis>

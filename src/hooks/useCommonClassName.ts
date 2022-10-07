@@ -40,3 +40,5 @@ export default function useCommonClassName() {
     },
   };
 }
+
+export type CommonClassNameType = ReturnType<typeof useCommonClassName>;

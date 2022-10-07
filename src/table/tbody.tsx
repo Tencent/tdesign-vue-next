@@ -1,4 +1,4 @@
-import { defineComponent, computed, PropType, SetupContext, toRefs } from 'vue';
+import { defineComponent, computed, PropType, toRefs } from 'vue';
 import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
@@ -14,6 +14,7 @@ import { TdBaseTableProps } from './type';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
+  classPrefix: string;
   // 固定列 left/right 具体值
   rowAndColFixedPosition: RowAndColFixedPosition;
   showColumnShadow: { left: boolean; right: boolean };
@@ -63,8 +64,10 @@ export default defineComponent({
   name: 'TBody',
 
   props: {
+    classPrefix: String,
     data: Array as PropType<TableBodyProps['data']>,
     columns: Array as PropType<TableBodyProps['columns']>,
+    ellipsisOverlayClassName: String,
     rowAndColFixedPosition: Map as PropType<TableBodyProps['rowAndColFixedPosition']>,
     showColumnShadow: Object as PropType<TableBodyProps['showColumnShadow']>,
     // eslint-disable-next-line
@@ -150,6 +153,8 @@ export default defineComponent({
     const trNodeList: TNodeReturnValue[] = [];
 
     const properties = [
+      'classPrefix',
+      'ellipsisOverlayClassName',
       'rowAndColFixedPosition',
       'scroll',
       'tableElm',
