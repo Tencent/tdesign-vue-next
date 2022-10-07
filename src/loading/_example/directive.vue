@@ -1,11 +1,11 @@
 <template>
-  <div class="loading-directive-demo">
+  <t-space direction="vertical">
     <div v-loading="loading1" class="loading-container">Loading...</div>
     <t-button size="small" :disabled="loading1" @click="handleLoading">支持指令</t-button>
 
     <div v-loading.fullscreen="loading2" class="loading-container">Loading...</div>
     <t-button size="small" :disabled="loading2" @click="handleLoadingFullscreen">支持 fullscreen 修饰符</t-button>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -38,9 +38,5 @@ const handleLoadingFullscreen = () => {
   align-items: center;
   justify-content: center;
   border: 1px var(--component-border, #eee) solid;
-}
-
-.loading-directive-demo .t-button {
-  margin: 20px auto;
 }
 </style>
