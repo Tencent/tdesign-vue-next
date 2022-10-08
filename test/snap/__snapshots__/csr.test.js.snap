@@ -36367,7 +36367,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/base.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
 <div
   class="t-list t-size-m t-list--split"
-  data-v-72dcb149=""
 >
   
   
@@ -36379,7 +36378,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
     
     <li
       class="t-list-item"
-      data-v-72dcb149=""
     >
       <div
         class="t-list-item-main"
@@ -36387,7 +36385,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
         
         <div
           class="t-comment"
-          data-v-72dcb149=""
         >
           <div
             class="t-comment__inner"
@@ -36429,44 +36426,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
               >
                 
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-thumb-up"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-thumb-up"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-thumb-up"
+                      >
+                        <use
+                          href="#t-icon-thumb-up"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      6
-                    </span>
-                  </span>
+                      <span>
+                        6
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-chat"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-chat"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-chat"
+                      >
+                        <use
+                          href="#t-icon-chat"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      回复
-                    </span>
-                  </span>
+                      <span>
+                        回复
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 
               </ul>
@@ -36480,7 +36503,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
     </li>
     <li
       class="t-list-item"
-      data-v-72dcb149=""
     >
       <div
         class="t-list-item-main"
@@ -36488,7 +36510,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
         
         <div
           class="t-comment"
-          data-v-72dcb149=""
         >
           <div
             class="t-comment__inner"
@@ -36530,44 +36551,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
               >
                 
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-thumb-up"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-thumb-up"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-thumb-up"
+                      >
+                        <use
+                          href="#t-icon-thumb-up"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      6
-                    </span>
-                  </span>
+                      <span>
+                        6
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-chat"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-chat"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-chat"
+                      >
+                        <use
+                          href="#t-icon-chat"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      回复
-                    </span>
-                  </span>
+                      <span>
+                        回复
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 
               </ul>
@@ -36581,7 +36628,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
     </li>
     <li
       class="t-list-item"
-      data-v-72dcb149=""
     >
       <div
         class="t-list-item-main"
@@ -36589,7 +36635,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
         
         <div
           class="t-comment"
-          data-v-72dcb149=""
         >
           <div
             class="t-comment__inner"
@@ -36631,44 +36676,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
               >
                 
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-thumb-up"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-thumb-up"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-thumb-up"
+                      >
+                        <use
+                          href="#t-icon-thumb-up"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      6
-                    </span>
-                  </span>
+                      <span>
+                        6
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 <li>
-                  <span
-                    data-v-72dcb149=""
+                  <div
+                    class="t-space t-space-horizontal"
+                    style="gap: 6px;"
                   >
-                    <svg
-                      class="t-icon t-icon-chat"
-                      data-v-72dcb149=""
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      <use
-                        href="#t-icon-chat"
-                      />
-                    </svg>
-                    <span
-                      class="action-text"
-                      data-v-72dcb149=""
+                      <svg
+                        class="t-icon t-icon-chat"
+                      >
+                        <use
+                          href="#t-icon-chat"
+                        />
+                      </svg>
+                    </div>
+                    <!---->
+                    
+                    
+                    <div
+                      class="t-space-item"
                     >
-                      回复
-                    </span>
-                  </span>
+                      <span>
+                        回复
+                      </span>
+                    </div>
+                    <!---->
+                    
+                    
+                  </div>
                 </li>
                 
               </ul>
@@ -36697,7 +36768,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/comment/_example/operation.vue 1`] = `
 <div
   class="t-comment"
-  data-v-70d43968=""
 >
   <div
     class="t-comment__inner"
@@ -36739,44 +36809,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/operation.vue 1`] =
       >
         
         <li>
-          <span
-            data-v-70d43968=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-thumb-up"
-              data-v-70d43968=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-thumb-up"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-70d43968=""
+              <svg
+                class="t-icon t-icon-thumb-up"
+              >
+                <use
+                  href="#t-icon-thumb-up"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              6
-            </span>
-          </span>
+              <span>
+                6
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         <li>
-          <span
-            data-v-70d43968=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-chat"
-              data-v-70d43968=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-chat"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-70d43968=""
+              <svg
+                class="t-icon t-icon-chat"
+              >
+                <use
+                  href="#t-icon-chat"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              回复
-            </span>
-          </span>
+              <span>
+                回复
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         
       </ul>
@@ -36789,7 +36885,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/operation.vue 1`] =
 exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
 <div
   class="t-comment"
-  data-v-4829af3e=""
 >
   <div
     class="t-comment__inner"
@@ -36831,7 +36926,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
         
         <div
           class="t-comment"
-          data-v-4829af3e=""
         >
           <div
             class="t-comment__inner"
@@ -36868,44 +36962,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
       >
         
         <li>
-          <span
-            data-v-4829af3e=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-thumb-up"
-              data-v-4829af3e=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-thumb-up"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-4829af3e=""
+              <svg
+                class="t-icon t-icon-thumb-up"
+              >
+                <use
+                  href="#t-icon-thumb-up"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              6
-            </span>
-          </span>
+              <span>
+                6
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         <li>
-          <span
-            data-v-4829af3e=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-chat"
-              data-v-4829af3e=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-chat"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-4829af3e=""
+              <svg
+                class="t-icon t-icon-chat"
+              >
+                <use
+                  href="#t-icon-chat"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              回复
-            </span>
-          </span>
+              <span>
+                回复
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         
       </ul>
@@ -36918,7 +37038,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
 <div
   class="t-comment"
-  data-v-1a7615cf=""
 >
   <div
     class="t-comment__inner"
@@ -36946,7 +37065,7 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
         <span
           class="t-comment__time"
         >
-          今天16:38
+          今天 16:38
         </span>
       </div>
       <div
@@ -36960,44 +37079,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
       >
         
         <li>
-          <span
-            data-v-1a7615cf=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-thumb-up"
-              data-v-1a7615cf=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-thumb-up"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-1a7615cf=""
+              <svg
+                class="t-icon t-icon-thumb-up"
+              >
+                <use
+                  href="#t-icon-thumb-up"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              6
-            </span>
-          </span>
+              <span>
+                6
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         <li>
-          <span
-            data-v-1a7615cf=""
+          <div
+            class="t-space t-space-horizontal"
+            style="gap: 6px;"
           >
-            <svg
-              class="t-icon t-icon-chat"
-              data-v-1a7615cf=""
+            
+            
+            <div
+              class="t-space-item"
             >
-              <use
-                href="#t-icon-chat"
-              />
-            </svg>
-            <span
-              class="action-text"
-              data-v-1a7615cf=""
+              <svg
+                class="t-icon t-icon-chat"
+              >
+                <use
+                  href="#t-icon-chat"
+                />
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
             >
-              回复
-            </span>
-          </span>
+              <span>
+                回复
+              </span>
+            </div>
+            <!---->
+            
+            
+          </div>
         </li>
         
       </ul>
@@ -37009,7 +37154,6 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
     
     <div
       class="t-comment"
-      data-v-1a7615cf=""
     >
       <div
         class="t-comment__inner"
@@ -37033,30 +37177,53 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
               class="t-comment__name"
             >
               
-              <span
-                data-v-1a7615cf=""
+              <div
+                class="t-space t-space-horizontal"
+                style="gap: 4px;"
               >
-                评论作者名B
-              </span>
-              <svg
-                class="t-icon t-icon-caret-right-small t-size-s author-icon"
-                data-v-1a7615cf=""
-              >
-                <use
-                  href="#t-icon-caret-right-small"
-                />
-              </svg>
-              <span
-                data-v-1a7615cf=""
-              >
-                评论作者名A
-              </span>
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <span>
+                    评论作者名B
+                  </span>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-caret-right-small t-size-s"
+                  >
+                    <use
+                      href="#t-icon-caret-right-small"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <span>
+                    评论作者名A
+                  </span>
+                </div>
+                <!---->
+                
+                
+              </div>
               
             </span>
             <span
               class="t-comment__time"
             >
-              今天16:38
+              今天 16:38
             </span>
           </div>
           <div
@@ -37070,44 +37237,70 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
           >
             
             <li>
-              <span
-                data-v-1a7615cf=""
+              <div
+                class="t-space t-space-horizontal"
+                style="gap: 6px;"
               >
-                <svg
-                  class="t-icon t-icon-thumb-up"
-                  data-v-1a7615cf=""
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <use
-                    href="#t-icon-thumb-up"
-                  />
-                </svg>
-                <span
-                  class="action-text"
-                  data-v-1a7615cf=""
+                  <svg
+                    class="t-icon t-icon-thumb-up"
+                  >
+                    <use
+                      href="#t-icon-thumb-up"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  6
-                </span>
-              </span>
+                  <span>
+                    6
+                  </span>
+                </div>
+                <!---->
+                
+                
+              </div>
             </li>
             <li>
-              <span
-                data-v-1a7615cf=""
+              <div
+                class="t-space t-space-horizontal"
+                style="gap: 6px;"
               >
-                <svg
-                  class="t-icon t-icon-chat"
-                  data-v-1a7615cf=""
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <use
-                    href="#t-icon-chat"
-                  />
-                </svg>
-                <span
-                  class="action-text"
-                  data-v-1a7615cf=""
+                  <svg
+                    class="t-icon t-icon-chat"
+                  >
+                    <use
+                      href="#t-icon-chat"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  回复
-                </span>
-              </span>
+                  <span>
+                    回复
+                  </span>
+                </div>
+                <!---->
+                
+                
+              </div>
             </li>
             
           </ul>
@@ -75551,1010 +75744,492 @@ exports[`csr snapshot test > csr test ./src/list/_example/header-footer.vue 1`] 
 
 exports[`csr snapshot test > csr test ./src/list/_example/image-text.vue 1`] = `
 <div
-  data-v-8b68a4aa=""
+  class="t-space t-space-vertical"
+  style="gap: 24px;"
 >
+  
+  
   <div
-    class="t-list t-size-m t-list--split"
-    data-v-8b68a4aa=""
+    class="t-space-item"
   >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-        data-v-8b68a4aa=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-8b68a4aa=""
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-        data-v-8b68a4aa=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-8b68a4aa=""
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-        data-v-8b68a4aa=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-8b68a4aa=""
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
     <div
-      class="t-list__load"
-    >
-      <!---->
-    </div>
-    
-  </div>
-  <div
-    data-v-8b68a4aa=""
-    style="margin-bottom: 16px;"
-  />
-  <div
-    class="t-list t-size-m t-list--split"
-    data-v-8b68a4aa=""
-  >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
+      class="t-list t-size-m t-list--split"
     >
       
-      <li
-        class="t-list-item"
-        data-v-8b68a4aa=""
+      
+      <!---->
+      <ul
+        class="t-list__inner"
       >
-        <div
-          class="t-list-item-main"
+        
+        <li
+          class="t-list-item"
         >
-          
           <div
-            class="t-list-item__meta"
-            data-v-8b68a4aa=""
+            class="t-list-item-main"
           >
             
             <div
-              class="t-list-item__meta-avatar"
+              class="t-list-item__meta"
             >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
+              
+              <div
+                class="t-list-item__meta-avatar"
               >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
               >
-                
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
                 <p
-                  data-v-8b68a4aa=""
+                  class="t-list-item__meta-description"
                 >
                   列表内容的描述性文字
                 </p>
-                
-              </p>
+              </div>
+              
             </div>
             
+            <!---->
           </div>
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load"
-    >
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容的描述性文字
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容的描述性文字
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        
+      </ul>
       <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
     </div>
-    
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-list t-size-m t-list--split"
+    >
+      
+      
+      <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  
+                  <p>
+                    列表内容的描述性文字
+                  </p>
+                  
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/list/_example/loading.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <div>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+      <div
+        class="t-radio-group t-size-m t-radio-group--filled"
+      >
+        
+        <label
+          class="t-radio-button t-is-checked"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="load-more"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+             加载更多 
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="loading"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+             加载中 
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="loading-custom"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+             自定义加载更多 
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value=""
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+             加载完成 
+            
+            
+          </span>
+        </label>
+        
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
-      class="t-radio-group t-size-m t-radio-group--filled"
+      class="t-list t-size-m t-list--split"
     >
       
-      <label
-        class="t-radio-button t-is-checked"
+      
+      <!---->
+      <ul
+        class="t-list__inner"
       >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="load-more"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
+        
+        
+        <li
+          class="t-list-item"
         >
-          
-          
-           加载更多 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="loading"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容的描述性文字
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
         >
-          
-          
-           加载中 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="loading-custom"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容的描述性文字
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
         >
-          
-          
-           自定义加载更多 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value=""
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-           加载完成 
-          
-          
-        </span>
-      </label>
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表标题
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容的描述性文字
+                </p>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </li>
+        
+        
+      </ul>
+      <!---->
       
       <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+        class="t-list__load t-list__load--load-more"
+      >
+        <span>
+          点击加载更多
+        </span>
+      </div>
+      
     </div>
   </div>
-  <div
-    class="t-list t-size-m t-list--split"
-  >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表标题
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容的描述性文字
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load t-list__load--load-more"
-    >
-      <span>
-        点击加载更多
-      </span>
-    </div>
-    
-  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/list/_example/multiline.vue 1`] = `
 <div
-  data-v-f512cbde=""
->
-  <div
-    class="t-list t-size-m t-list--split"
-    data-v-f512cbde=""
-  >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-        data-v-f512cbde=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-f512cbde=""
-          >
-            
-            <!---->
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-        data-v-f512cbde=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-f512cbde=""
-          >
-            
-            <!---->
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-        data-v-f512cbde=""
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-            data-v-f512cbde=""
-          >
-            
-            <!---->
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load"
-    >
-      <!---->
-    </div>
-    
-  </div>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/list/_example/operation.vue 1`] = `
-<div>
-  <div
-    class="t-list t-size-m t-list--split"
-  >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <li
-            class="t-list-item__action"
-          >
-            
-            <span>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作1
-                  
-                </span>
-              </button>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作2
-                  
-                </span>
-              </button>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作3
-                  
-                </span>
-              </button>
-            </span>
-            
-          </li>
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <li
-            class="t-list-item__action"
-          >
-            
-            <span>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作1
-                  
-                </span>
-              </button>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作2
-                  
-                </span>
-              </button>
-              <button
-                class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                type="button"
-              >
-                <span
-                  class="t-button__text"
-                >
-                  
-                  操作3
-                  
-                </span>
-              </button>
-            </span>
-            
-          </li>
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load"
-    >
-      <!---->
-    </div>
-    
-  </div>
-  <div
-    style="margin-bottom: 16px;"
-  />
-  <div
-    class="t-list t-size-m t-list--split"
-  >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <li
-            class="t-list-item__action"
-          >
-            
-            <button
-              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                <svg
-                  class="t-icon t-icon-edit"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                <svg
-                  class="t-icon t-icon-download"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                  <path
-                    d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                
-              </span>
-            </button>
-            
-          </li>
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          <div
-            class="t-list-item__meta"
-          >
-            
-            <div
-              class="t-list-item__meta-avatar"
-            >
-              <img
-                src="https://tdesign.gtimg.com/site/avatar.jpg"
-              />
-            </div>
-            <div
-              class="t-list-item__meta-content"
-            >
-              <h3
-                class="t-list-item__meta-title"
-              >
-                列表主内容
-              </h3>
-              <p
-                class="t-list-item__meta-description"
-              >
-                列表内容列表内容
-              </p>
-            </div>
-            
-          </div>
-          
-          <li
-            class="t-list-item__action"
-          >
-            
-            <button
-              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                <svg
-                  class="t-icon t-icon-edit"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                <svg
-                  class="t-icon t-icon-download"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                  <path
-                    d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                
-              </span>
-            </button>
-            
-          </li>
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load"
-    >
-      <!---->
-    </div>
-    
-  </div>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
-<div
-  class="t-list t-size-m"
-  style="max-height: 200px;"
+  class="t-list t-size-m t-list--split"
 >
   
   
@@ -76570,7 +76245,27 @@ exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
         class="t-list-item-main"
       >
         
-        列表内容的描述性文字
+        <div
+          class="t-list-item__meta"
+        >
+          
+          <!---->
+          <div
+            class="t-list-item__meta-content"
+          >
+            <h3
+              class="t-list-item__meta-title"
+            >
+              列表主内容
+            </h3>
+            <p
+              class="t-list-item__meta-description"
+            >
+              列表内容列表内容
+            </p>
+          </div>
+          
+        </div>
         
         <!---->
       </div>
@@ -76582,7 +76277,27 @@ exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
         class="t-list-item-main"
       >
         
-        列表内容的描述性文字
+        <div
+          class="t-list-item__meta"
+        >
+          
+          <!---->
+          <div
+            class="t-list-item__meta-content"
+          >
+            <h3
+              class="t-list-item__meta-title"
+            >
+              列表主内容
+            </h3>
+            <p
+              class="t-list-item__meta-description"
+            >
+              列表内容列表内容
+            </p>
+          </div>
+          
+        </div>
         
         <!---->
       </div>
@@ -76594,163 +76309,27 @@ exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
         class="t-list-item-main"
       >
         
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
-        
-        <!---->
-      </div>
-    </li>
-    <li
-      class="t-list-item"
-    >
-      <div
-        class="t-list-item-main"
-      >
-        
-        列表内容的描述性文字
+        <div
+          class="t-list-item__meta"
+        >
+          
+          <!---->
+          <div
+            class="t-list-item__meta-content"
+          >
+            <h3
+              class="t-list-item__meta-title"
+            >
+              列表主内容
+            </h3>
+            <p
+              class="t-list-item__meta-description"
+            >
+              列表内容列表内容
+            </p>
+          </div>
+          
+        </div>
         
         <!---->
       </div>
@@ -76768,277 +76347,941 @@ exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/list/_example/operation.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-list t-size-m t-list--split"
+    >
+      
+      
+      <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表主内容
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容列表内容
+                </p>
+              </div>
+              
+            </div>
+            
+            <li
+              class="t-list-item__action"
+            >
+              
+              <span>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作1
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作2
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作3
+                    
+                  </span>
+                </button>
+              </span>
+              
+            </li>
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表主内容
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容列表内容
+                </p>
+              </div>
+              
+            </div>
+            
+            <li
+              class="t-list-item__action"
+            >
+              
+              <span>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作1
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作2
+                    
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    操作3
+                    
+                  </span>
+                </button>
+              </span>
+              
+            </li>
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-list t-size-m t-list--split"
+    >
+      
+      
+      <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表主内容
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容列表内容
+                </p>
+              </div>
+              
+            </div>
+            
+            <li
+              class="t-list-item__action"
+            >
+              
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-edit"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-download"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                    <path
+                      d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              
+            </li>
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            <div
+              class="t-list-item__meta"
+            >
+              
+              <div
+                class="t-list-item__meta-avatar"
+              >
+                <img
+                  src="https://tdesign.gtimg.com/site/avatar.jpg"
+                />
+              </div>
+              <div
+                class="t-list-item__meta-content"
+              >
+                <h3
+                  class="t-list-item__meta-title"
+                >
+                  列表主内容
+                </h3>
+                <p
+                  class="t-list-item__meta-description"
+                >
+                  列表内容列表内容
+                </p>
+              </div>
+              
+            </div>
+            
+            <li
+              class="t-list-item__action"
+            >
+              
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-edit"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-download"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                    <path
+                      d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              
+            </li>
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/list/_example/scroll.vue 1`] = `
+<div
+  class="t-list t-size-m"
+  style="max-height: 200px;"
+>
+  
+  
+  <!---->
+  <ul
+    class="t-list__inner"
+  >
+    
+    
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    
+    
+  </ul>
+  <!---->
+  
+  <div
+    class="t-list__load"
+  >
+    <!---->
+  </div>
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/list/_example/size.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-list t-size-s t-list--split"
+    class="t-space-item"
   >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
     <div
-      class="t-list__load"
+      class="t-list t-size-s t-list--split"
     >
+      
+      
       <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
     </div>
-    
   </div>
+  <!---->
+  
+  
   <div
-    style="margin-bottom: 16px;"
-  />
-  <div
-    class="t-list t-size-m t-list--split"
+    class="t-space-item"
   >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
     <div
-      class="t-list__load"
+      class="t-list t-size-m t-list--split"
     >
+      
+      
       <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
     </div>
-    
   </div>
+  <!---->
+  
+  
   <div
-    style="margin-bottom: 16px;"
-  />
-  <div
-    class="t-list t-size-l t-list--split"
+    class="t-space-item"
   >
-    
-    
-    <!---->
-    <ul
-      class="t-list__inner"
-    >
-      
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
     <div
-      class="t-list__load"
+      class="t-list t-size-l t-list--split"
     >
+      
+      
       <!---->
+      <ul
+        class="t-list__inner"
+      >
+        
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        <li
+          class="t-list-item"
+        >
+          <div
+            class="t-list-item-main"
+          >
+            
+            列表内容的描述性文字
+            
+            <!---->
+          </div>
+        </li>
+        
+      </ul>
+      <!---->
+      
+      <div
+        class="t-list__load"
+      >
+        <!---->
+      </div>
+      
     </div>
-    
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/list/_example/stripe.vue 1`] = `
-<div>
-  <div
-    class="t-list t-size-m t-list--stripe"
+<div
+  class="t-list t-size-m t-list--stripe"
+>
+  
+  
+  <!---->
+  <ul
+    class="t-list__inner"
   >
     
     
-    <!---->
-    <ul
-      class="t-list__inner"
+    <li
+      class="t-list-item"
     >
-      
-      <li
-        class="t-list-item"
+      <div
+        class="t-list-item-main"
       >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      <li
-        class="t-list-item"
-      >
-        <div
-          class="t-list-item-main"
-        >
-          
-          列表内容的描述性文字
-          
-          <!---->
-        </div>
-      </li>
-      
-    </ul>
-    <!---->
-    
-    <div
-      class="t-list__load"
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
     >
-      <!---->
-    </div>
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        列表内容的描述性文字
+        
+        <!---->
+      </div>
+    </li>
     
+    
+  </ul>
+  <!---->
+  
+  <div
+    class="t-list__load"
+  >
+    <!---->
   </div>
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/attach.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
   data-v-5d1ead0d=""
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="loading-attach-demo__title"
-    data-v-5d1ead0d=""
-    id="alice"
+    class="t-space-item"
   >
-    Hello, I'm Alice. I'm going to be a front-end developer.
+    <div
+      class="loading-attach-demo__title"
+      data-v-5d1ead0d=""
+      id="alice"
+    >
+      Hello, I'm Alice. I'm going to be a front-end developer.
+    </div>
   </div>
   <!---->
+  
+  
   <div
-    data-v-5d1ead0d=""
+    class="t-space-item"
+  >
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
     <div
       class="t-switch t-size-m"
@@ -77057,6 +77300,9 @@ exports[`csr snapshot test > csr test ./src/loading/_example/attach.vue 1`] = `
       </div>
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
@@ -77100,38 +77346,48 @@ exports[`csr snapshot test > csr test ./src/loading/_example/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/loading/_example/delay.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
-  <div>
-    <div
-      class="t-loading--center t-size-s t-loading"
-    >
-      <svg
-        class="t-loading__gradient t-icon-loading"
-        height="1em"
-        size="small"
-        version="1.1"
-        viewBox="0 0 14 14"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <foreignobject
-          height="12"
-          width="12"
-          x="1"
-          y="1"
-        >
-          <div
-            class="t-loading__gradient-conic"
-          />
-        </foreignobject>
-      </svg>
-      <!---->
-    </div>
-    <!--v-if-->
-  </div>
+  
+  
   <div
-    class="wrap"
+    class="t-space-item"
+  >
+    <div>
+      <div
+        class="t-loading--center t-size-s t-loading"
+      >
+        <svg
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="small"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
+        </svg>
+        <!---->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
   >
     <div
       class="t-loading__parent"
@@ -77144,158 +77400,225 @@ exports[`csr snapshot test > csr test ./src/loading/_example/delay.vue 1`] = `
       <!---->
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        快速重新加载数据（无loading）
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            快速重新加载数据（无loading）
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        慢速重新加载数据
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            慢速重新加载数据
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/directive.vue 1`] = `
 <div
-  class="loading-directive-demo"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="loading-container"
+    class="t-space-item"
   >
-    Loading...
-  </div>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
+    <div
+      class="loading-container"
     >
-      
-      支持指令
-      
-    </span>
-  </button>
+      Loading...
+    </div>
+  </div>
+  <!---->
+  
+  
   <div
-    class="loading-container"
+    class="t-space-item"
   >
-    Loading...
-  </div>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      支持 fullscreen 修饰符
-      
-    </span>
-  </button>
+      <span
+        class="t-button__text"
+      >
+        
+        支持指令
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="loading-container"
+    >
+      Loading...
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        支持 fullscreen 修饰符
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/fullscreen.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <!---->
+  </div>
   <!---->
-  <!-- &lt;t-loading :loading="loading" text="加载中..." attach="body" fullscreen /&gt; -->
-  <div>
-     全局加载开关（开启加载1秒后自动归位）： 
-    <div
-      class="t-switch t-size-m"
-      disabled="false"
-    >
-      <span
-        class="t-switch__handle"
-      >
-        <!---->
-      </span>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div>
+       全局加载开关（开启加载1秒后自动归位）： 
       <div
-        class="t-switch__content t-size-m"
+        class="t-switch t-size-m"
+        disabled="false"
       >
-        <!---->
+        <span
+          class="t-switch__handle"
+        >
+          <!---->
+        </span>
+        <div
+          class="t-switch__content t-size-m"
+        >
+          <!---->
+        </div>
       </div>
     </div>
   </div>
-  <!-- 绑定到任意元素 -->
-  <!-- &lt;div id="alice" class="loading-attach-demo__title"&gt;Hello, I'm Alice.&lt;/div&gt; -->
-  <!-- &lt;t-loading :loading="loading" text="加载中..." attach="#alice" fullscreen /&gt; -->
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/icon-text.vue 1`] = `
-<div>
-  <div
-    class="t-loading--center t-size-s t-loading"
+<div
+  class="t-loading--center t-size-s t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="small"
+    version="1.1"
+    viewBox="0 0 14 14"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <svg
-      class="t-loading__gradient t-icon-loading"
-      height="1em"
-      size="small"
-      version="1.1"
-      viewBox="0 0 14 14"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <foreignobject
+      height="12"
+      width="12"
+      x="1"
+      y="1"
     >
-      <foreignobject
-        height="12"
-        width="12"
-        x="1"
-        y="1"
-      >
-        <div
-          class="t-loading__gradient-conic"
-        />
-      </foreignobject>
-    </svg>
-    <div
-      class="t-loading__text"
-    >
-      加载中...
-    </div>
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <div
+    class="t-loading__text"
+  >
+    加载中...
   </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/indicatorSlot.vue 1`] = `
-<div>
-  <div
-    class="t-loading--center t-size-m t-loading"
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  
+  <svg
+    class="t-icon t-icon-loading"
   >
-    
-    <svg
-      class="t-icon t-icon-loading"
-    >
-      <use
-        href="#t-icon-loading"
-      />
-    </svg>
-    
-    <!---->
-  </div>
+    <use
+      href="#t-icon-loading"
+    />
+  </svg>
+  
+  <!---->
 </div>
 `;
 
@@ -77333,132 +77656,237 @@ exports[`csr snapshot test > csr test ./src/loading/_example/preventScrollThroug
 
 exports[`csr snapshot test > csr test ./src/loading/_example/service.vue 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="t-space t-space-vertical"
   data-v-0331361d=""
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="loading-service-demo"
-    data-v-0331361d=""
-    id="loading-service-demo"
+    class="t-space-item"
   >
-    Loading 挂载容器
+    <div
+      class="loading-service-demo"
+      data-v-0331361d=""
+      id="loading-service-demo"
+    >
+      Loading 挂载容器
+    </div>
   </div>
-  <p
-    data-v-0331361d=""
-  >
-    this.$loading(true)
-  </p>
-  <p
-    data-v-0331361d=""
-  >
-    this.$loading({ attach: '#loading-service-demo', showOverlay: true })
-  </p>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
-    data-v-0331361d=""
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+    <p
       data-v-0331361d=""
-      type="button"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         插件方式加载（局部） 
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-0331361d=""
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        插件方式加载（全屏）
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-0331361d=""
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        插件方式加载（全屏-滚动穿透）
-        
-      </span>
-    </button>
+      LoadingPlugin(true)
+    </p>
   </div>
-  <p
-    data-v-0331361d=""
-  >
-    LoadingPlugin(true)
-  </p>
-  <p
-    data-v-0331361d=""
-  >
-    LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })
-  </p>
+  <!---->
+  
+  
   <div
-    class="tdesign-demo-block-row"
-    data-v-0331361d=""
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+    <p
       data-v-0331361d=""
-      type="button"
     >
-      <span
-        class="t-button__text"
-      >
-        
-        函数方式加载（局部）
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-0331361d=""
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        函数方式加载（全屏）
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-0331361d=""
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        函数方式加载（全屏-滚动穿透）
-        
-      </span>
-    </button>
+      LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })
+    </p>
   </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      data-v-0331361d=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             函数方式加载（局部） 
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            函数方式加载（全屏）
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            函数方式加载（全屏-滚动穿透）
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p
+      data-v-0331361d=""
+    >
+      this.$loading(true)
+    </p>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <p
+      data-v-0331361d=""
+    >
+      this.$loading({ attach: '#loading-service-demo', showOverlay: true })
+    </p>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-horizontal"
+      data-v-0331361d=""
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+             插件方式加载（局部） 
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            插件方式加载（全屏）
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          data-v-0331361d=""
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            插件方式加载（全屏-滚动穿透）
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
 <div
-  class="tdesign-demo-block-column-large"
+  class="t-space t-space-vertical"
+  style="gap: 24px;"
 >
-  <div>
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-loading--center t-size-s t-loading"
     >
@@ -77489,7 +77917,12 @@ exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-loading--center t-loading"
       style="font-size: 26px;"
@@ -77517,11 +77950,16 @@ exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
       <div
         class="t-loading__text"
       >
-        加载中(size=26px)...
+        加载中(26px)...
       </div>
     </div>
   </div>
-  <div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-loading--center t-size-m t-loading"
     >
@@ -77552,7 +77990,12 @@ exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-loading--center t-size-m t-loading"
       style="font-size: 46px;"
@@ -77580,11 +78023,16 @@ exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
       <div
         class="t-loading__text"
       >
-        加载中(样式定义)...
+        加载中(自定义样式)...
       </div>
     </div>
   </div>
-  <div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-loading--center t-size-l t-loading"
     >
@@ -77615,147 +78063,190 @@ exports[`csr snapshot test > csr test ./src/loading/_example/size.vue 1`] = `
       </div>
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/text.vue 1`] = `
 <div
-  class="t-loading-demo"
+  class="t-space t-space-horizontal"
+  style="gap: 24px;"
 >
-  <!-- 使用 props 实现自定义 -->
+  
+  
   <div
-    class="t-loading--center t-size-m t-loading"
+    class="t-space-item"
   >
-    <!---->
     <div
-      class="t-loading__text"
+      class="t-loading--center t-size-m t-loading"
     >
-      静态文字加载中...
+      <!---->
+      <div
+        class="t-loading__text"
+      >
+        静态文字加载中...
+      </div>
     </div>
   </div>
-  <!-- 使用 props 实现自定义 -->
+  <!---->
+  
+  
   <div
-    class="t-loading--center t-size-m t-loading"
+    class="t-space-item"
   >
-    <!---->
     <div
-      class="t-loading__text"
+      class="t-loading--center t-size-m t-loading"
     >
-      <span>
-        变量文字加载中...
-      </span>
+      <!---->
+      <div
+        class="t-loading__text"
+      >
+        <span>
+          变量文字加载中...
+        </span>
+      </div>
     </div>
   </div>
+  <!---->
+  
+  
   <div
-    class="t-loading--center t-size-m t-loading"
+    class="t-space-item"
   >
-    <!---->
     <div
-      class="t-loading__text"
+      class="t-loading--center t-size-m t-loading"
     >
-      
-      插槽文字加载中...
-      
+      <!---->
+      <div
+        class="t-loading__text"
+      >
+        
+        插槽文字加载中...
+        
+      </div>
     </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/loading/_example/wrap.vue 1`] = `
 <div
-  class="loading-wrap-demo"
-  data-v-4fca1edc=""
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
 >
+  
+  
   <div
-    class="t-loading__parent"
-    data-v-4fca1edc=""
+    class="t-space-item"
   >
-    
     <div
-      data-v-4fca1edc=""
+      class="t-loading__parent"
+      style="width: 170px;"
     >
-      this is loading component
-    </div>
-    <div
-      data-v-4fca1edc=""
-    >
-      this is loading component
-    </div>
-    <div
-      data-v-4fca1edc=""
-    >
-      this is loading component
-    </div>
-    <div
-      data-v-4fca1edc=""
-    >
-      this is loading component
-    </div>
-    <div
-      data-v-4fca1edc=""
-    >
-      this is loading component
-    </div>
-    
-    <div
-      class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay"
-    >
-      <svg
-        class="t-loading__gradient t-icon-loading"
-        height="1em"
-        size="small"
-        version="1.1"
-        viewBox="0 0 14 14"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
+      
+      <div>
+        this is loading component
+      </div>
+      <div>
+        this is loading component
+      </div>
+      <div>
+        this is loading component
+      </div>
+      <div>
+        this is loading component
+      </div>
+      <div>
+        this is loading component
+      </div>
+      
+      <div
+        class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay"
       >
-        <foreignobject
-          height="12"
-          width="12"
-          x="1"
-          y="1"
+        <svg
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="small"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div
-            class="t-loading__gradient-conic"
-          />
-        </foreignobject>
-      </svg>
-      <!---->
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
+        </svg>
+        <!---->
+      </div>
     </div>
   </div>
-  <br
-    data-v-4fca1edc=""
-  />
+  <!---->
+  
+  
   <div
-    data-v-4fca1edc=""
+    class="t-space-item"
   >
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-4fca1edc=""
-      type="button"
+    <div
+      class="t-space t-space-horizontal"
+      style="gap: 16px;"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        加载中
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      data-v-4fca1edc=""
-      type="button"
-    >
-      <span
-        class="t-button__text"
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            加载中
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
       >
-        
-        加载完成
-        
-      </span>
-    </button>
+        <button
+          class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            加载完成
+            
+          </span>
+        </button>
+      </div>
+      <!---->
+      
+      
+    </div>
   </div>
+  <!---->
+  
+  
 </div>
 `;
 

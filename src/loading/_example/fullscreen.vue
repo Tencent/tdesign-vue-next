@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-loading :loading="loading" text="加载中..." fullscreen />
     <!-- <t-loading :loading="loading" text="加载中..." attach="body" fullscreen /> -->
 
@@ -11,7 +11,7 @@
     <!-- 绑定到任意元素 -->
     <!-- <div id="alice" class="loading-attach-demo__title">Hello, I'm Alice.</div> -->
     <!-- <t-loading :loading="loading" text="加载中..." attach="#alice" fullscreen /> -->
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref, watch } from 'vue';

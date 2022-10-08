@@ -1,21 +1,19 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <div>
       <t-loading v-if="loading" :delay="delay" size="small"></t-loading>
       <div v-if="data">loading 作为独立元素：{{ data }}</div>
     </div>
 
-    <div class="wrap">
-      <t-loading :loading="loading" :delay="delay" size="small">
-        <div class="wrap">{{ data ? `loading 作为包裹元素：${data}` : '' }}</div>
-      </t-loading>
-    </div>
+    <t-loading :loading="loading" :delay="delay" size="small">
+      <div class="wrap">{{ data ? `loading 作为包裹元素：${data}` : '' }}</div>
+    </t-loading>
 
-    <div class="tdesign-demo-block-row">
+    <t-space>
       <t-button size="small" @click="loadingData">快速重新加载数据（无loading）</t-button>
       <t-button size="small" @click="() => loadingData(1000)">慢速重新加载数据</t-button>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
