@@ -75,12 +75,12 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @deprecated
    */
-  footerAffixProps?: AffixProps;
+  footerAffixProps?: Partial<AffixProps>;
   /**
    * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
-  footerAffixedBottom?: boolean | AffixProps;
+  footerAffixedBottom?: boolean | Partial<AffixProps>;
   /**
    * 表尾总结行
    */
@@ -89,12 +89,12 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
    * @deprecated
    */
-  headerAffixProps?: AffixProps;
+  headerAffixProps?: Partial<AffixProps>;
   /**
    * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @default false
    */
-  headerAffixedTop?: boolean | AffixProps;
+  headerAffixedTop?: boolean | Partial<AffixProps>;
   /**
    * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    */
@@ -102,7 +102,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
    * 滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性
    */
-  horizontalScrollAffixedBottom?: boolean | AffixProps;
+  horizontalScrollAffixedBottom?: boolean | Partial<AffixProps>;
   /**
    * 是否显示鼠标悬浮状态
    * @default false
@@ -131,7 +131,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
    * 分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性
    */
-  paginationAffixedBottom?: boolean | AffixProps;
+  paginationAffixedBottom?: boolean | Partial<AffixProps>;
   /**
    * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`
    * @default false
@@ -280,7 +280,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colspan?: number;
   /**
-   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则超出省略浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义超出省略浮中层显示的内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性
+   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则超出省略浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义超出省略浮中层显示的内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性。<br/> 同时透传 Tooltip 属性和自定义浮层内容，请使用 `{ props: { theme: 'light' }, content: () => 'something' }`
    * @default false
    */
   ellipsis?:
@@ -289,9 +289,13 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
     | TooltipProps
     | { props: TooltipProps; content: TNode<BaseTableCellParams<T>> };
   /**
-   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则超出省略的浮层默认显示表头全部内容；<br/>值类型为 `Function` 用于自定义超出省略浮层显示的表头内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性
+   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则超出省略的浮层默认显示表头全部内容；<br/>值类型为 `Function` 用于自定义超出省略浮层显示的表头内容；<br/>值类型为 `Object`，则自动透传属性到 Tooltip 组件，则自动透传属性到 Tooltip 组件，可用于调整浮层背景色和方向等特性。<br/> 同时透传 Tooltip 属性和自定义浮层内容，请使用 `{ props: { theme: 'light' }, content: () => 'something' }`
    */
-  ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | TooltipProps;
+  ellipsisTitle?:
+    | boolean
+    | TNode<BaseTableColParams<T>>
+    | TooltipProps
+    | { props: TooltipProps; content: TNode<BaseTableColParams<T>> };
   /**
    * 固定列显示位置
    * @default left

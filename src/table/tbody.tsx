@@ -15,6 +15,7 @@ import { TdBaseTableProps } from './type';
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
   classPrefix: string;
+  ellipsisOverlayClassName: string;
   // 固定列 left/right 具体值
   rowAndColFixedPosition: RowAndColFixedPosition;
   showColumnShadow: { left: boolean; right: boolean };

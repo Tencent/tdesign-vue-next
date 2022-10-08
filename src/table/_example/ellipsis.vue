@@ -119,5 +119,3 @@ const columns = ref([
   },
 ]);
 </script>
-
-<style lang="less"></style>

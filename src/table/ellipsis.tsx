@@ -42,7 +42,7 @@ export default defineComponent({
     overlayClassName: String,
     classPrefix: {
       type: String,
-      // default: 't-',
+      default: 't-',
     },
   },
 
@@ -96,7 +96,7 @@ export default defineComponent({
     if (this.isOverflow) {
       const rProps = {
         content: (this.tooltipContent as string) || (() => cellNode),
-        // destroyOnClose: true,
+        destroyOnClose: true,
         zIndex: this.zIndex,
         attach: this.attach,
         placement: this.placement,
