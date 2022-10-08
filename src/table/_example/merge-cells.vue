@@ -19,43 +19,47 @@ const data = new Array(6).fill(null).map((_, i) => ({
   default: ['[]', '""', '{}', 'false', '-1', '0'][i % 5],
   needed: ['Y', 'N'][i % 1],
   description: ['数据源', '描述', '复杂类型', '标识符', '位置'][i % 4],
+  comment: '表头合并',
 }));
 
 const columns = [
   {
-    align: 'left',
-    width: '100',
     className: 'test',
     colKey: 'platform',
     title: '平台',
   },
   {
-    align: 'left',
-    width: '100',
     className: 'row',
     colKey: 'type',
     title: '类型',
   },
   {
-    align: 'left',
-    width: '100',
     className: 'test4',
     colKey: 'default',
     title: '默认值',
   },
   {
-    align: 'left',
-    width: '100',
     className: 'test3',
     colKey: 'needed',
     title: '是否必传',
   },
   {
-    align: 'left',
-    width: '100',
     className: 'row',
     colKey: 'description',
-    title: '说明',
+    // 多行表头合并请参考「多级表头示例」
+    title: '合并单行表头的最后两列',
+    // 仅适用于单行表头合并列
+    colspan: 2,
+    // 设置列样式，注释的示例代码有效
+    // attrs: ({ type, col, row, colIndex, rowIndex }) => ({
+    //   style: {
+    //     color: 'blue',
+    //   },
+    // }),
+  },
+  {
+    colKey: 'comment',
+    title: '合并列',
   },
 ];
 

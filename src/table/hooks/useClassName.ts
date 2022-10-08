@@ -3,6 +3,7 @@ import { usePrefixClass } from '../../hooks/useConfig';
 export default function useClassName() {
   const classPrefix = usePrefixClass();
   const classNames = {
+    classPrefix: classPrefix.value,
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
       columnResizableTable: `${classPrefix.value}-table--column-resizable`,

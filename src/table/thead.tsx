@@ -2,7 +2,6 @@ import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProp
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../hooks/useConfig';
 import { BaseTableCol, TableRowData } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
@@ -10,6 +9,8 @@ import { formatClassNames } from './utils';
 import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
 
 export interface TheadProps {
+  classPrefix: string;
+  ellipsisOverlayClassName: string;
   // 是否固定表头
   isFixedHeader: boolean;
   // 固定列 left/right 具体值
@@ -36,6 +37,8 @@ export default defineComponent({
   name: 'THead',
 
   props: {
+    classPrefix: String,
+    ellipsisOverlayClassName: String,
     isFixedHeader: Boolean,
     rowAndColFixedPosition: Map as PropType<TheadProps['rowAndColFixedPosition']>,
     thWidthList: Object as PropType<TheadProps['thWidthList']>,
@@ -51,7 +54,6 @@ export default defineComponent({
     const theadRef = ref<HTMLHeadElement>();
     const classnames = useClassName();
     const { tableHeaderClasses, tableBaseClass } = classnames;
-    const { classPrefix } = useConfig();
     const theadClasses = computed(() => [
       tableHeaderClasses.header,
       {
@@ -61,10 +63,27 @@ export default defineComponent({
       },
     ]);
 
+    // 单行表格合并
+    const colspanSkipMap = computed(() => {
+      const map: { [key: string]: boolean } = {};
+      const list = props.thList[0];
+      for (let i = 0, len = list.length; i < len; i++) {
+        const item = list[i];
+        if (item.colspan > 1) {
+          for (let j = i + 1; j < i + item.colspan; j++) {
+            if (list[j]) {
+              map[list[j].colKey] = true;
+            }
+          }
+        }
+      }
+      return map;
+    });
+
     return {
       ...classnames,
+      colspanSkipMap,
       theadClasses,
-      classPrefix,
       theadRef,
       slots,
     };
@@ -80,6 +99,8 @@ export default defineComponent({
       const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
       return this.thList.map((row, rowIndex) => {
         const thRow = row.map((col: BaseTableColumns[0], index: number) => {
+          // 因合并单行表头，跳过
+          if (this.colspanSkipMap[col.colKey]) return null;
           const rowspanAndColspan = thRowspanAndColspan.get(col);
           if (index === 0 && rowspanAndColspan.rowspan > 1) {
             for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
@@ -116,12 +137,17 @@ export default defineComponent({
             : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
+          const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
+          if (col.colspan > 1) {
+            attrs.colspan = col.colspan;
+          }
           return (
             <th
               key={col.colKey}
               data-colkey={col.colKey}
               class={thClasses}
               style={styles}
+              {...attrs}
               {...rowspanAndColspan}
               {...resizeColumnListener}
             >
@@ -132,6 +158,8 @@ export default defineComponent({
                     attach={this.theadRef ? () => this.theadRef : undefined}
                     tooltipContent={content && (() => content)}
                     tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                    overlayClassName={this.ellipsisOverlayClassName}
+                    classPrefix={this.classPrefix}
                   >
                     {innerTh}
                   </TEllipsis>

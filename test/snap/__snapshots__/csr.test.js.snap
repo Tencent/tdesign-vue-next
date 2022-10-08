@@ -111450,6 +111450,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/base.vue 1`] = `
               <th
                 class="custom-column-class-name t-table__th-serial-number t-align-center"
                 data-colkey="serial-number"
+                data-id="first-column"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -116426,6 +116427,525 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-row.vue 1`] 
                 </button>
                 <!---->
                 <!---->
+              </div>
+            </td>
+            
+          </tr>
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="t-table__pagination-wrap"
+      style="opacity: 1;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
+<div>
+  <div
+    class="t-table"
+    showsortcolumnbgcolor="false"
+    style="position: relative;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-table__content"
+    >
+      <!---->
+      <table
+        class="t-table--layout-fixed"
+      >
+        <colgroup>
+          
+          <col />
+          <col
+            style="width: 120px;"
+          />
+          <col />
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
+        >
+          
+          <tr>
+            
+            <th
+              class="t-table__th-desc"
+              data-colkey="desc"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  Description
+                  
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-something"
+              data-colkey="something"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一个很长很长的标题
+                  
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-link"
+              data-colkey="link"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  Link
+                  
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-ellipsisProps"
+              data-colkey="ellipsisProps"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  Ellipsis Props
+                  
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-ellipsisContent"
+              data-colkey="ellipsisContent"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  Ellipsis Content
+                  
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-propsAndContent1"
+              data-colkey="propsAndContent1"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  Props & Content
+                  
+                </div>
+              </div>
+            </th>
+            
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                单元格文本超出省略设置
+                
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              仅标题省略
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                <a
+                  href="/vue-next/components/table"
+                  target="_blank"
+                >
+                  Long link text. Popup content is pure text
+                </a>
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting ellipsis tooltip to be light
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Custom Ellipsis Content
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting props and content at the same time
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                这是普通文本的超出省略
+                
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              仅标题省略
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                <a
+                  href="/vue-next/components/table"
+                  target="_blank"
+                >
+                  Long link text. Popup content is pure text
+                </a>
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting ellipsis tooltip to be light
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Custom Ellipsis Content
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting props and content at the same time
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                单元格文本超出省略设置
+                
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              仅标题省略
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                <a
+                  href="/vue-next/components/table"
+                  target="_blank"
+                >
+                  Long link text. Popup content is pure text
+                </a>
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting ellipsis tooltip to be light
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Custom Ellipsis Content
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting props and content at the same time
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                这是普通文本的超出省略
+                
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              仅标题省略
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                <a
+                  href="/vue-next/components/table"
+                  target="_blank"
+                >
+                  Long link text. Popup content is pure text
+                </a>
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting ellipsis tooltip to be light
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Custom Ellipsis Content
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting props and content at the same time
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                单元格文本超出省略设置
+                
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              仅标题省略
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                <a
+                  href="/vue-next/components/table"
+                  target="_blank"
+                >
+                  Long link text. Popup content is pure text
+                </a>
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting ellipsis tooltip to be light
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Custom Ellipsis Content
+                
+              </div>
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                Setting props and content at the same time
+                
               </div>
             </td>
             
@@ -131202,21 +131722,12 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
       >
         <colgroup>
           
-          <col
-            style="width: 100px;"
-          />
-          <col
-            style="width: 100px;"
-          />
-          <col
-            style="width: 100px;"
-          />
-          <col
-            style="width: 100px;"
-          />
-          <col
-            style="width: 100px;"
-          />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
           
         </colgroup>
         <thead
@@ -131267,14 +131778,16 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
             </th>
             <th
               class="row t-table__th-description"
+              colspan="2"
               data-colkey="description"
             >
               <div
                 class="t-table__th-cell-inner"
               >
-                说明
+                合并单行表头的最后两列
               </div>
             </th>
+            <!---->
             
           </tr>
           
@@ -131311,6 +131824,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               Y
             </td>
             <!---->
+            <td
+              class=""
+            >
+              表头合并
+            </td>
             
           </tr>
           <tr
@@ -131336,6 +131854,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
             >
               描述
             </td>
+            <td
+              class=""
+            >
+              表头合并
+            </td>
             
           </tr>
           <tr
@@ -131359,6 +131882,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               class="row"
             >
               复杂类型
+            </td>
+            <td
+              class=""
+            >
+              表头合并
             </td>
             
           </tr>
@@ -131386,6 +131914,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               class="row"
             >
               标识符
+            </td>
+            <td
+              class=""
+            >
+              表头合并
             </td>
             
           </tr>
@@ -131417,6 +131950,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
             >
               数据源
             </td>
+            <td
+              class=""
+            >
+              表头合并
+            </td>
             
           </tr>
           <tr
@@ -131435,6 +131973,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               class="row"
             >
               描述
+            </td>
+            <td
+              class=""
+            >
+              表头合并
             </td>
             
           </tr>
@@ -136748,6 +137291,306 @@ exports[`csr snapshot test > csr test ./src/table/_example/single-sort.vue 1`] =
           
         </tbody>
         <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="t-table__pagination-wrap"
+      style="opacity: 1;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-table__resize-line"
+      style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
+<div
+  class="t-demo__style"
+>
+  <!-- row-class-name 设置行类名 -->
+  <div
+    class="t-table"
+    showsortcolumnbgcolor="false"
+    style="position: relative;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-table__content"
+    >
+      <!---->
+      <table
+        class="t-table--layout-fixed"
+      >
+        <colgroup>
+          
+          <col
+            style="width: 80px;"
+          />
+          <col />
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
+        >
+          
+          <tr>
+            
+            <th
+              class="t-table__th-serial-number t-align-center"
+              data-colkey="serial-number"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                序号
+              </div>
+            </th>
+            <th
+              class="t-table__th-framework"
+              data-colkey="framework"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                框架
+              </div>
+            </th>
+            <th
+              class="t-table__th-data t-align-right"
+              data-colkey="data"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                数据
+              </div>
+            </th>
+            <th
+              class="t-table__th-ringRatio t-align-right"
+              data-colkey="ringRatio"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                环比
+              </div>
+            </th>
+            <th
+              class="last-column-class-name t-table__th-yearRatio t-align-right"
+              data-colkey="yearRatio"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                同比
+              </div>
+            </th>
+            
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-align-center"
+            >
+              1
+            </td>
+            <td
+              class=""
+            >
+              tdesign-vue
+            </td>
+            <td
+              class="t-align-right"
+            >
+              100,000
+            </td>
+            <td
+              class="t-align-right"
+            >
+              8%
+            </td>
+            <td
+              class="last-column-class-name t-align-right"
+            >
+              10%
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-align-center"
+            >
+              2
+            </td>
+            <td
+              class=""
+            >
+              tdesign-react
+            </td>
+            <td
+              class="t-align-right"
+              style="color: green; font-weight: 600; font-size: 16px;"
+            >
+              21,514
+            </td>
+            <td
+              class="t-align-right"
+            >
+              30%
+            </td>
+            <td
+              class="last-column-class-name t-align-right"
+            >
+              20%
+            </td>
+            
+          </tr>
+          <tr
+            class="custom-third-class-name"
+          >
+            
+            <td
+              class="t-align-center"
+            >
+              3
+            </td>
+            <td
+              class=""
+            >
+              tdesign-vue-next
+            </td>
+            <td
+              class="t-align-right"
+            >
+              7,884
+            </td>
+            <td
+              class="t-align-right"
+            >
+              75%
+            </td>
+            <td
+              class="last-column-class-name t-align-right"
+            >
+              80%
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-align-center"
+            >
+              4
+            </td>
+            <td
+              class=""
+            >
+              tdesign-vue
+            </td>
+            <td
+              class="t-align-right"
+            >
+              1,290
+            </td>
+            <td
+              class="custom-cell-class-name t-align-right"
+            >
+              200%
+            </td>
+            <td
+              class="last-column-class-name t-align-right"
+            >
+              100%
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-align-center"
+            >
+              5
+            </td>
+            <td
+              class=""
+            >
+              tdesign-react
+            </td>
+            <td
+              class="t-align-right"
+            >
+              100,000
+            </td>
+            <td
+              class="t-align-right"
+            >
+              8%
+            </td>
+            <td
+              class="last-column-class-name t-align-right"
+            >
+              10%
+            </td>
+            
+          </tr>
+          <!---->
+          
+        </tbody>
+        <tfoot
+          class="t-table__footer"
+        >
+          <tr
+            class="t-table__row--full"
+          >
+            <td
+              colspan="5"
+            >
+              <div
+                class="t-table__row-full-element"
+              >
+                
+                <div
+                  class="t-table__row-filter-inner"
+                >
+                  汇总：近期数据波动较大
+                </div>
+                
+              </div>
+            </td>
+          </tr>
+          
+          
+        </tfoot>
       </table>
     </div>
     <!---->
