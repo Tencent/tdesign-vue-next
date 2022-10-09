@@ -104,11 +104,11 @@ export default {
   /** 选中值 */
   value: {
     type: Array as PropType<TdDateRangePickerProps['value']>,
-    default: undefined,
+    default: (): TdDateRangePickerProps['value'] => [],
   },
   modelValue: {
     type: Array as PropType<TdDateRangePickerProps['value']>,
-    default: undefined,
+    default: (): TdDateRangePickerProps['modelValue'] => [],
   },
   /** 选中值，非受控属性 */
   defaultValue: {
