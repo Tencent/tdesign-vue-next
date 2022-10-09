@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-dropdown :options="options" :min-column-width="112">
+    <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
       <t-button variant="text">
         <t-space :size="0">
           下拉菜单
@@ -12,7 +12,11 @@
 </template>
 <script setup>
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 
+const clickHandler = (data) => {
+  MessagePlugin.success(`选中【${data.content}】`);
+};
 const options = [
   { content: '选项一', value: 1 },
   { content: '选项二', value: 2 },

@@ -1,11 +1,12 @@
 import { defineComponent, provide, reactive, ref, toRefs } from 'vue';
-import Popup from '../popup/index';
+import omit from 'lodash/omit';
+import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import { injectKey } from './const';
+import useDropdownOptions from './hooks/useDropdownOptions';
 
 export default defineComponent({
   name: 'TDropdown',
@@ -14,55 +15,48 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
     const popupElem = ref(null);
+    const isPopupVisible = ref(false);
 
+    const options = useDropdownOptions(props);
+    const trigger = renderTNodeJSX('default');
     const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
-      if (props.hideAfterItemClick && popupElem.value) {
-        popupElem.value.handleClose();
+      if (props.hideAfterItemClick) {
+        isPopupVisible.value = false;
+        props.popupProps?.onVisibleChange?.(false, context);
       }
-      props.onClick?.(data, context);
+      props?.onClick?.(data, context);
     };
 
-    const { maxHeight, maxColumnWidth, minColumnWidth } = toRefs(props);
-    provide(
-      injectKey,
-      reactive({
-        handleMenuClick,
-        maxHeight,
-        maxColumnWidth,
-        minColumnWidth,
-      }),
-    );
+    const handleVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      isPopupVisible.value = visible;
+      props.popupProps?.onVisibleChange?.(visible, context);
+    };
 
     return () => {
-      const trigger = renderTNodeJSX('default');
-
-      const contentSlot = renderTNodeJSX('dropdown');
-
-      const popupProps = {
+      const popupParams = {
         ...attrs,
         disabled: props.disabled,
         placement: props.placement,
         trigger: props.trigger,
-        overlayClassName: [COMPONENT_NAME.value, (props.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+        ...omit(props.popupProps, 'onVisibleChange'),
+        overlayInnerClassName: [
+          COMPONENT_NAME.value,
+          (props.popupProps as TdDropdownProps['popupProps'])?.overlayInnerClassName,
+        ],
       };
 
       return (
         <Popup
-          {...props.popupProps}
-          {...popupProps}
+          {...popupParams}
           destroyOnClose
           ref={popupElem}
+          visible={isPopupVisible.value}
+          onVisibleChange={handleVisibleChange}
           expandAnimation
           v-slots={{
-            content: () =>
-              contentSlot || (
-                <DropdownMenu
-                  options={props.options}
-                  maxHeight={props.maxHeight}
-                  maxColumnWidth={props.maxColumnWidth}
-                  minColumnWidth={props.minColumnWidth}
-                />
-              ),
+            content: () => (
+              <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
+            ),
           }}
         >
           {trigger}
