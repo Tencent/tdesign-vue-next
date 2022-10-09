@@ -28,7 +28,7 @@ export default defineComponent({
 
     useRipple(props.isSubmenu ? null : itemRef);
     const prefixIcon = renderTNodeJSX('prefixIcon');
-    const COMPONENT_NAME = usePrefixClass('dropdown__item');
+    const dropdownItemClass = usePrefixClass('dropdown__item');
     const handleItemClick = (e: MouseEvent) => {
       props.onClick?.(props.value, {
         e,
@@ -37,17 +37,17 @@ export default defineComponent({
 
     return () => {
       const classes = [
-        COMPONENT_NAME.value,
-        `${COMPONENT_NAME.value}--theme-${props.theme}`,
+        dropdownItemClass.value,
+        `${dropdownItemClass.value}--theme-${props.theme}`,
         {
-          [`${COMPONENT_NAME.value}--active`]: props.active,
-          [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
+          [`${dropdownItemClass.value}--active`]: props.active,
+          [`${dropdownItemClass.value}--disabled`]: props.disabled,
         },
       ];
 
       return (
         <li
-          className={classes}
+          class={classes}
           onClick={handleItemClick}
           style={{
             maxWidth: pxCompat(props.maxColumnWidth),
@@ -55,7 +55,7 @@ export default defineComponent({
           }}
           ref={itemRef}
         >
-          {props.prefixIcon ? <div className={`${COMPONENT_NAME.value}-icon`}>{prefixIcon}</div> : null}
+          {props.prefixIcon ? <div class={`${dropdownItemClass.value}-icon`}>{prefixIcon}</div> : null}
           {renderTNodeJSX('default')}
         </li>
       );

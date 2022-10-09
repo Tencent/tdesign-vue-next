@@ -33,7 +33,7 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
 export default function useDropdownOptions(props: TdDropdownProps): ComputedRef<DropdownOption[]> {
   const getChildComponentSlots = useChildComponentSlots();
 
-  const menuSlot = (getChildComponentSlots('DropdownMenu')?.[0] as any).children.default?.();
+  const menuSlot = (getChildComponentSlots('DropdownMenu')?.[0] as any)?.children?.default?.();
 
   const dropdownOptions = computed(() => {
     if (props.options && props.options.length > 0) return props.options;

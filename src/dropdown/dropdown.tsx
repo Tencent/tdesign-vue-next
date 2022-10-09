@@ -50,6 +50,7 @@ export default defineComponent({
           {...popupParams}
           destroyOnClose
           ref={popupElem}
+          visible={isPopupVisible.value}
           onVisibleChange={handleVisibleChange}
           expandAnimation
           v-slots={{

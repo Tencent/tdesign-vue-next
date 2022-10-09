@@ -1,7 +1,9 @@
 <template>
-  <t-dropdown :options="options" :min-column-width="88">
-    <t-button theme="default" variant="outline"> 下拉菜单 </t-button>
-  </t-dropdown>
+  <t-space>
+    <t-dropdown :options="options" :min-column-width="88">
+      <t-button theme="default" variant="outline"> 下拉菜单 </t-button>
+    </t-dropdown>
+  </t-space>
 </template>
 <script setup>
 const options = [
