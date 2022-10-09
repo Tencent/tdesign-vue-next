@@ -53,7 +53,6 @@ export default function useTree(props: TdTreeProps) {
     if (!node) {
       return;
     }
-
     let shouldExpand = expandOnClickNode;
     let shouldActive = !props.disabled && !node.disabled;
     ['trigger', 'ignore'].forEach((markName) => {
@@ -63,7 +62,7 @@ export default function useTree(props: TdTreeProps) {
         if (markName === 'trigger') {
           shouldExpand = true;
         } else if (markName === 'ignore') {
-          shouldExpand = false;
+          // shouldExpand = false;
         }
       }
       if (markValue.indexOf('active') >= 0) {
@@ -121,7 +120,15 @@ export default function useTree(props: TdTreeProps) {
         if (!nodeView) {
           // 初次仅渲染可显示的节点
           // 不存在节点视图，则创建该节点视图并插入到当前位置
-          nodeView = <TreeItem key={node.value} node={node} onChange={handleChange} onClick={handleClick} />;
+          nodeView = (
+            <TreeItem
+              key={node.value}
+              node={node}
+              onChange={handleChange}
+              onClick={handleClick}
+              expandOnClickNode={props.expandOnClickNode}
+            />
+          );
           cacheMap.set(node.value, nodeView);
         }
         return nodeView;
