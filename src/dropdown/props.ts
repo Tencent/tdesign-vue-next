@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdDropdownProps } from './type';
@@ -14,6 +13,7 @@ export default {
     type: String as PropType<TdDropdownProps['direction']>,
     default: 'right' as TdDropdownProps['direction'],
     validator(val: TdDropdownProps['direction']): boolean {
+      if (!val) return true;
       return ['left', 'right'].includes(val);
     },
   },
@@ -34,7 +34,7 @@ export default {
     type: Number,
     default: 300,
   },
-  /** 选项最小宽度。值为字符串时，值就是最大宽度；值为数字时，单位：px */
+  /** 选项最小宽度。值为字符串时，值就是最小宽度；值为数字时，单位：px */
   minColumnWidth: {
     type: [String, Number] as PropType<TdDropdownProps['minColumnWidth']>,
     default: 10,
@@ -49,6 +49,7 @@ export default {
     type: String as PropType<TdDropdownProps['placement']>,
     default: 'bottom-left' as TdDropdownProps['placement'],
     validator(val: TdDropdownProps['placement']): boolean {
+      if (!val) return true;
       return [
         'top',
         'left',
@@ -74,6 +75,7 @@ export default {
     type: String as PropType<TdDropdownProps['trigger']>,
     default: 'hover' as TdDropdownProps['trigger'],
     validator(val: TdDropdownProps['trigger']): boolean {
+      if (!val) return true;
       return ['hover', 'click', 'focus', 'context-menu'].includes(val);
     },
   },
