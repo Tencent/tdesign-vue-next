@@ -28,7 +28,7 @@ export default defineComponent({
 
     // 处理options渲染的场景
     const renderOptions = (data: Array<DropdownOption>) => {
-      const arr = [];
+      const arr: Array<unknown> = [];
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };

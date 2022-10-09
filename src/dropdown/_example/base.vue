@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
+    <t-dropdown :options="options" @click="clickHandler">
       <t-space>
         <t-button variant="text">
           <t-space :size="0">
