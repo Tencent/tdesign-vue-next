@@ -50,12 +50,12 @@ export default function useTree(props: TdTreeProps) {
     const { expandOnClickNode } = props;
     const { mouseEvent, event, node } = state;
 
-    if (!node || props.disabled || node.disabled) {
+    if (!node) {
       return;
     }
 
     let shouldExpand = expandOnClickNode;
-    let shouldActive = true;
+    let shouldActive = !props.disabled && !node.disabled;
     ['trigger', 'ignore'].forEach((markName) => {
       const mark = getMark(markName, event.target as HTMLElement, event.currentTarget as HTMLElement);
       const markValue = mark?.value || '';
