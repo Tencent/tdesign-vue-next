@@ -2,7 +2,7 @@
   <t-space direction="vertical">
     <t-space direction="vertical">
       <h4>支持直接使用 t-dropdown-menu</h4>
-      <t-dropdown :min-column-width="88">
+      <t-dropdown :min-column-width="88" @click="clickHandler">
         <t-button variant="text">下拉菜单</t-button>
         <t-dropdown-menu>
           <t-dropdown-item :value="1">
@@ -29,7 +29,7 @@
                   <t-dropdown-item :value="211">操作2-1-2</t-dropdown-item>
                 </t-dropdown-menu>
               </t-dropdown-item>
-              <t-dropdown-item :value="22" @click="clickHandler"> 操作2-2 </t-dropdown-item>
+              <t-dropdown-item :value="22"> 操作2-2 </t-dropdown-item>
             </t-dropdown-menu>
           </t-dropdown-item>
 
@@ -39,7 +39,7 @@
     </t-space>
     <t-space direction="vertical">
       <h4>兼容历史版本 通过 dropdown 具名插槽的使用</h4>
-      <t-dropdown :min-column-width="88" @click="handleClick">
+      <t-dropdown :min-column-width="88" @click="clickHandler">
         <t-button variant="text">下拉菜单</t-button>
         <template #dropdown>
           <t-dropdown-menu>
@@ -69,12 +69,8 @@
 <script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 
-const handleClick = (data, { e }) => {
-  console.log(data);
-  e.preventDefault();
-};
-
 const clickHandler = (data) => {
+  console.log(data, 'data');
   MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>

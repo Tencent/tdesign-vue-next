@@ -21,7 +21,7 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
       const childrenContent = groupChildren.filter((v: VNode) => typeof v.children !== 'string');
       return {
         ...item.props,
-        content: groupChildren[contentIdx],
+        content: groupChildren[contentIdx].children,
         children: childrenContent.length > 0 ? getOptionsFromChildren(childrenContent) : null,
       };
     });
