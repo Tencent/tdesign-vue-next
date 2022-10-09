@@ -3,6 +3,7 @@ import isObject from 'lodash/isObject';
 import props from './props';
 import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
+import TStepItem from './step-item';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
@@ -10,8 +11,10 @@ import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',
+  components: {
+    TStepItem,
+  },
   props: { ...props },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('steps');
 
