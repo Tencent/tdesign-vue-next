@@ -2,7 +2,7 @@
   <t-space direction="vertical">
     <t-space direction="vertical">
       <h4>支持直接使用 t-dropdown-menu</h4>
-      <t-dropdown :min-column-width="88" @click="handleClick">
+      <t-dropdown :min-column-width="88">
         <t-button variant="text">下拉菜单</t-button>
         <t-dropdown-menu>
           <t-dropdown-item :value="1">
@@ -67,8 +67,14 @@
   </t-space>
 </template>
 <script setup>
+import { MessagePlugin } from 'tdesign-vue-next';
+
 const handleClick = (data, { e }) => {
   console.log(data);
   e.preventDefault();
+};
+
+const clickHandler = (data) => {
+  MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>

@@ -59,8 +59,9 @@ const options = [
     ],
   },
 ];
+
 const clickHandler = (data) => {
-  MessagePlugin.success(`选中【${data.value}】`);
+  MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>
 <style lang="less" scoped>
