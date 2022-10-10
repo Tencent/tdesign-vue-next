@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.23.1",
+  "version": "0.24.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -149,7 +149,7 @@
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "ignore": "^5.1.9",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.1",
     "less": "^4.1.2",
     "lint-staged": "^13.0.1",
     "mockdate": "^3.0.5",
