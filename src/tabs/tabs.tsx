@@ -102,7 +102,6 @@ export default defineComponent({
       if (panels && panels.length) {
         return <div class={[`${classPrefix.value}-tabs__content`]}>{panels}</div>;
       }
-      console.warn('Tdesign error: list or slots is empty');
     };
 
     return () => {

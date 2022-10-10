@@ -2,56 +2,45 @@
   <t-comment
     avatar="https://tdesign.gtimg.com/site/avatar.jpg"
     author="评论作者名"
-    datetime="今天16:38"
+    datetime="今天 16:38"
     content="这里是评论者写的评论内容。"
   >
     <template #actions>
-      <span key="thumbUp">
+      <t-space key="thumbUp" :size="6">
         <t-icon name="thumb-up" />
-        <span class="action-text">6</span>
-      </span>
-      <span key="chat">
+        <span>6</span>
+      </t-space>
+      <t-space key="chat" :size="6">
         <t-icon name="chat" />
-        <span class="action-text">回复</span>
-      </span>
+        <span>回复</span>
+      </t-space>
     </template>
 
     <template #reply>
       <t-comment
         avatar="https://tdesign.gtimg.com/site/avatar.jpg"
-        datetime="今天16:38"
+        datetime="今天 16:38"
         content="这里是评论者写的评论内容。"
       >
         <template #author>
-          <span>评论作者名B</span>
-          <t-icon name="caret-right-small" size="small" class="author-icon" />
-          <span>评论作者名A</span>
+          <t-space :size="4">
+            <span>评论作者名B</span>
+            <t-icon name="caret-right-small" size="small" />
+            <span>评论作者名A</span>
+          </t-space>
         </template>
 
         <template #actions>
-          <span key="thumbUp">
+          <t-space key="thumbUp" :size="6">
             <t-icon name="thumb-up" />
-            <span class="action-text">6</span>
-          </span>
-          <span key="chat">
+            <span>6</span>
+          </t-space>
+          <t-space key="chat" :size="6">
             <t-icon name="chat" />
-            <span class="action-text">回复</span>
-          </span>
+            <span>回复</span>
+          </t-space>
         </template>
       </t-comment>
     </template>
   </t-comment>
 </template>
-
-<style lang="less" scoped>
-.action-text {
-  display: inline-block;
-  margin-left: 6px;
-  line-height: 15px;
-}
-
-.author-icon {
-  display: inline-block;
-  margin: 0 4px;
-}
-</style>

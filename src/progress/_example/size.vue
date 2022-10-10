@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <t-space direction="vertical" size="0">
     <div>默认</div>
-    <div class="t-progress-domo-flex t-progress-domo-margin">
+    <t-space direction="vertical" size="small" class="t-progress-domo-width t-progress-domo-margin">
       <div class="t-progress-domo-inner">
         <t-progress theme="circle" :percentage="30" />
       </div>
@@ -14,24 +14,24 @@
       <div class="t-progress-domo-inner">
         <t-progress theme="circle" :percentage="100" :status="'success'" />
       </div>
-    </div>
+    </t-space>
     <div>默认不同尺寸</div>
-    <div class="t-progress-domo-margin">
+    <t-space direction="vertical" size="small" class="t-progress-domo-width t-progress-domo-margin">
       <div>小尺寸</div>
       <t-progress theme="circle" :percentage="30" :size="'small'" />
 
       <div>大尺寸</div>
       <t-progress theme="circle" :percentage="75" :size="'large'" />
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <style scoped>
+.t-progress-domo-width {
+  width: 100%;
+}
 .t-progress-domo-margin {
   margin: 20px 0 10px;
-}
-.t-progress-domo-flex {
-  display: flex;
 }
 .t-progress-domo-inner {
   margin: 20px;

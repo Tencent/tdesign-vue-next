@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容" />
@@ -22,8 +22,6 @@
         </template>
       </t-list-item>
     </t-list>
-
-    <div style="margin-bottom: 16px" />
 
     <t-list :split="true">
       <t-list-item>
@@ -49,7 +47,7 @@
         </template>
       </t-list-item>
     </t-list>
-  </div>
+  </t-space>
 </template>
 
 <script setup>

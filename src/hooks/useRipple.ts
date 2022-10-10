@@ -133,7 +133,7 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
   };
 
   onMounted(() => {
-    const dom = el.value;
+    const dom = el?.value;
     if (!dom) return;
 
     rippleContainer.value = document.createElement('div');
@@ -142,6 +142,6 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
   });
 
   onUnmounted(() => {
-    el.value?.removeEventListener('pointerdown', handleAddRipple, false);
+    el?.value?.removeEventListener('pointerdown', handleAddRipple, false);
   });
 }

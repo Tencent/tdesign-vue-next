@@ -1,115 +1,254 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
-import Dialog from '@/src/dialog/index.ts';
+import { describe, expect, it, vi } from 'vitest';
+import { ref, nextTick } from 'vue';
+import { CloseIcon } from 'tdesign-icons-vue-next';
+import Dialog from '../index';
 
-// every component needs four parts: props/events/slots/functions.
 describe('Dialog', () => {
-  // test props api
   describe(':props', () => {
-    it('modeless', () => {
-      const wrapper = mount(Dialog, {
-        propsData: { mode: 'modeless' },
-      });
-      expect(wrapper.find('.t-dialog__mask').exists()).toBe(false);
+    it('', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value}>this is content</Dialog>);
+      const body = wrapper.find('.t-dialog .t-dialog__body');
+      await nextTick();
+      expect(body.exists()).toBeTruthy();
+      expect(body.text()).toBe('this is content');
     });
 
-    it('placement', () => {
-      const dialog = mount(Dialog).find('.t-dialog__position');
-      const centerDialog = mount(Dialog, {
-        propsData: {
-          placement: 'center',
-          width: '500px',
-        },
-      });
-      const dialogWidth = centerDialog.find('.t-dialog');
-      const dialogPosition = centerDialog.find('.t-dialog__position');
-      expect(dialog.classes()).toContain('t-dialog--top');
-      const centerDialogClass = dialogPosition.classes();
-      expect(centerDialogClass).not.toContain('t-dialog--top');
-      expect(centerDialogClass).toContain('t-dialog--center');
-
-      const centerDialogStyles = dialogWidth.attributes('style');
-      expect(centerDialogStyles).toMatch(/width: 500px/);
+    it('default', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value}>this is content</Dialog>);
+      const body = wrapper.find('.t-dialog .t-dialog__body');
+      await nextTick();
+      expect(body.exists()).toBeTruthy();
+      expect(body.text()).toBe('this is content');
     });
 
-    it('top', () => {
-      const wrapper = mount(Dialog, {
-        propsData: {
-          top: '200px',
-          width: '200px',
-        },
-      });
-      const dialogWidth = wrapper.find('.t-dialog');
-      const dialog = wrapper.find('.t-dialog__position');
-      const classes = dialog.classes();
-      const styles = dialog.attributes('style');
-      const widthStyles = dialogWidth.attributes('style');
-      expect(classes).not.toContain('t-dialog--center');
-      expect(styles).toMatch(/padding-top: 200px/);
-      expect(widthStyles).toMatch(/width: 200px/);
-      // expect(wrapper).toMatchSnapshot();
+    it('default', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const body = wrapper.find('.t-dialog .t-dialog__body');
+      await nextTick();
+      expect(body.exists()).toBeTruthy();
+      expect(body.text()).toBe('this is content');
     });
 
-    it('header,body,footer and closebtn', () => {
-      const title = 'i am dialog title';
-      const body = 'i am dialog body';
-      const footer = 'i am dialog footer';
-      const closeBtn = false;
-      const wrapper = mount({
-        render() {
-          return (
-            <Dialog header={title} footer={() => footer} closeBtn={closeBtn}>
-              <div slot="body">{body}</div>
-            </Dialog>
-          );
-        },
-      });
-      const dialogTitle = wrapper.find('.t-dialog__header');
-      const dialogBody = wrapper.find('.t-dialog__body');
-      const dialogFooter = wrapper.find('.t-dialog__footer');
-      expect(dialogTitle.text()).toBe(title);
-      expect(dialogBody.text()).toBe(body);
-      expect(dialogFooter.text()).toBe(footer);
-      expect(wrapper.find('.t-icon-close').exists()).toBe(false);
+    it(':cancelBtn', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const btn = wrapper.find('.t-dialog__footer .t-dialog__cancel');
+      await nextTick();
+      expect(btn.exists()).toBeTruthy();
+      expect(btn.text()).toBe('取消');
     });
 
-    it('showOverlay and zIndex', () => {
-      const zIndex = 1;
-      const wrapper = mount(Dialog, {
-        propsData: {
-          showOverlay: false,
-          zIndex,
-        },
-      });
-      const mask = wrapper.find('.t-dialog__mask');
-      expect(mask.classes()).toContain('t-is-hidden');
-      expect(wrapper.find('.t-dialog__ctx').attributes('style')).toMatch(/z-index: 1/);
+    it(':confirmBtn', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const btn = wrapper.find('.t-dialog__footer .t-dialog__confirm');
+      await nextTick();
+      expect(btn.exists()).toBeTruthy();
+      expect(btn.text()).toBe('确认');
     });
 
-    it('destroyOnClose', async () => {
-      const wrapper = mount(Dialog, { propsData: { visible: true } });
-      // 正常挂载下，弹窗关闭时不销毁Dialog子元素
-      await wrapper.setProps({ visible: false });
-      expect(wrapper.exists()).toBe(true);
+    it(':closeBtn', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const close = wrapper.find('.t-dialog__close');
+      await nextTick();
+      expect(close.exists()).toBeTruthy();
+      expect(close.findComponent(CloseIcon).exists()).toBeTruthy();
+    });
 
-      // 弹窗关闭时销毁Dialog子元素
-      await wrapper.setProps({ destroyOnClose: true, visible: true });
-      expect(wrapper.exists()).toBe(true);
-      await wrapper.setProps({ visible: false });
-      expect(wrapper.exists()).toBe(true);
+    it(':footer', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const footer = wrapper.find('.t-dialog__footer');
+      await nextTick();
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.findAll('button').length).toBe(2);
+    });
+
+    it(':header', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} header="this is header" body="this is content"></Dialog>
+      ));
+      const header = wrapper.find('.t-dialog__header');
+      await nextTick();
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('this is header');
+    });
+
+    it(':placement', async () => {
+      const placementList = ['top', 'center'];
+      const visible = ref(true);
+      placementList.forEach(async (placement) => {
+        const wrapper = mount(() => (
+          <Dialog v-model:visible={visible.value} placement={placement} body="this is content"></Dialog>
+        ));
+        const dialog = wrapper.find('.t-dialog');
+        await nextTick();
+        expect(dialog.exists()).toBeTruthy();
+        expect(dialog.classes()).toContain(`t-dialog--${placement}`);
+      });
+    });
+
+    it(':mode:modeless', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} mode="modeless" body="this is content"></Dialog>
+      ));
+      const ctx = wrapper.find('.t-dialog__ctx');
+      await nextTick();
+      expect(ctx.exists()).toBeTruthy();
+      expect(ctx.classes()).toContain('t-dialog__ctx--modeless');
+    });
+
+    it(':mode:normal', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} mode="normal" body="this is content"></Dialog>
+      ));
+      const ctx = wrapper.find('.t-dialog__ctx');
+      await nextTick();
+      expect(ctx.find('.t-dialog__position').exists()).toBeFalsy();
+    });
+
+    it(':mode:full-screen', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} mode="full-screen" body="this is content"></Dialog>
+      ));
+      const ctx = wrapper.find('.t-dialog__ctx');
+      await nextTick();
+      expect(ctx.find('.t-dialog__position_fullscreen').exists()).toBeTruthy();
+    });
+
+    it(':showOverlay', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} body="this is content"></Dialog>);
+      const ctx = wrapper.find('.t-dialog__ctx');
+      await nextTick();
+      expect(ctx.find('.t-dialog__mask').exists()).toBeTruthy();
+    });
+
+    it(':theme', async () => {
+      const themeList = ['default', 'success', 'info', 'warning', 'danger'];
+      const visible = ref(true);
+      themeList.forEach(async (theme) => {
+        const wrapper = mount(() => (
+          <Dialog v-model:visible={visible.value} theme={theme} body="this is content"></Dialog>
+        ));
+        const dialog = wrapper.find('.t-dialog');
+        await nextTick();
+        expect(dialog.classes()).toContain(`t-dialog__modal-${theme}`);
+      });
+    });
+
+    it(':top', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} top="200" body="this is content"></Dialog>);
+      const top = wrapper.find('.t-dialog--top');
+      await nextTick();
+      expect(getComputedStyle(top.element, null).paddingTop).toBe('200px');
+    });
+
+    it(':width', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => <Dialog v-model:visible={visible.value} width="80%" body="this is content"></Dialog>);
+      const dialog = wrapper.find('.t-dialog');
+      await nextTick();
+      expect(getComputedStyle(dialog.element, null).width).toBe('80%');
+    });
+
+    it(':zIndex', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} zIndex={2022} body="this is content"></Dialog>
+      ));
+      const ctx = wrapper.find('.t-dialog__ctx');
+      await nextTick();
+      expect(getComputedStyle(ctx.element, null).zIndex).toBe('2022');
+    });
+
+    it(':draggable', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} draggable mode="modeless" body="this is content"></Dialog>
+      ));
+      const dialog = wrapper.find('.t-dialog');
+      await nextTick();
+      expect(dialog.classes()).toContain('t-dialog--draggable');
+    });
+
+    it(':draggable', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} draggable mode="modeless" body="this is content"></Dialog>
+      ));
+      const dialog = wrapper.find('.t-dialog');
+      await nextTick();
+      expect(dialog.classes()).toContain('t-dialog--draggable');
     });
   });
 
-  // test events
-  // describe('@event', () => {});
+  describe(':events', () => {
+    it(':onCancel', async () => {
+      const visible = ref(true);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} onCancel={fn}>
+          this is content
+        </Dialog>
+      ));
+      const btn = wrapper.find('.t-dialog__footer .t-dialog__cancel');
+      await nextTick();
+      await btn.trigger('click');
+      expect(fn).toBeCalled();
+    });
 
-  // // test slots
-  // describe('<slot>', () => {
-  //   it('', () => {});
-  // });
+    it(':onConfirm', async () => {
+      const visible = ref(true);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} onConfirm={fn}>
+          this is content
+        </Dialog>
+      ));
+      const btn = wrapper.find('.t-dialog__footer .t-dialog__confirm');
+      await nextTick();
+      await btn.trigger('click');
+      expect(fn).toBeCalled();
+    });
 
-  // // test exposure function
-  // describe('function', () => {
-  //   it('', () => {});
-  // });
+    it(':onClose', async () => {
+      const visible = ref(true);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} onClose={fn}>
+          this is content
+        </Dialog>
+      ));
+      const btn = wrapper.find('.t-dialog__close');
+      await nextTick();
+      await btn.trigger('click');
+      expect(fn).toBeCalled();
+    });
+
+    it(':onCloseBtnClick', async () => {
+      const visible = ref(true);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} onCloseBtnClick={fn}>
+          this is content
+        </Dialog>
+      ));
+      const btn = wrapper.find('.t-dialog__close');
+      await nextTick();
+      await btn.trigger('click');
+      expect(fn).toBeCalled();
+    });
+  });
 });

@@ -1,3 +1,5 @@
+/* eslint-disable no-template-curly-in-string */
+
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
@@ -96,7 +98,7 @@ describe('Slider', () => {
           expect(String(tooltipContent) === String(testValue)).toBeTruthy();
         });
       });
-      it(`label={string} without \${value}% works fine`, () => {
+      it('label={string} without ${value}% works fine', () => {
         const testLabel = 'test label';
         const wrapper = mount(
           {
@@ -112,7 +114,7 @@ describe('Slider', () => {
           expect(String(tooltipContent) === String(testLabel)).toBeTruthy();
         });
       });
-      it(`label={string} with \${value}% works fine`, () => {
+      it('label={string} with ${value}% works fine', () => {
         const testLabel = `label:\${value}%`;
         const testValue = Math.floor(Math.random() * 100);
         const wrapper = mount(

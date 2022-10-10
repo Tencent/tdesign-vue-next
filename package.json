@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.23.1",
+  "version": "0.24.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -126,7 +126,7 @@
     "@vue/compiler-sfc": "^3.2.26",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/server-renderer": "^3.2.4",
-    "@vue/test-utils": "^2.0.0-rc.21",
+    "@vue/test-utils": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
     "c8": "^7.11.2",

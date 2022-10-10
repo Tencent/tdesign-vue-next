@@ -165,9 +165,8 @@ export default defineComponent({
       node: TreeNodeModel<TreeOptionData>,
       trigger: TreeSelectValueChangeTrigger,
     ) => {
-      setTreeSelectValue(valueParam, { node });
+      setTreeSelectValue(valueParam, { node, trigger });
       changeNodeInfo();
-      props.onChange?.(valueParam, { node, trigger });
     };
 
     const clear = (content: { e: MouseEvent }) => {
@@ -192,7 +191,9 @@ export default defineComponent({
       valueParam: Array<TreeNodeValue>,
       context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
     ) => {
-      setInnerVisible(false);
+      if (!props.multiple) {
+        setInnerVisible(false);
+      }
       // 多选模式屏蔽 Active 事件
       if (props.multiple) {
         return;
@@ -436,7 +437,7 @@ export default defineComponent({
             >
               <p
                 v-show={props.loading && !tDisabled.value}
-                class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
+                class={[`${classPrefix.value}-select-loading-tips`, `${classPrefix.value}-select__right-icon-polyfill`]}
               >
                 {renderDefaultTNode('loadingText', {
                   defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.loadingText}</div>,

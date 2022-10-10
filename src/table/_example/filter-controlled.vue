@@ -42,7 +42,7 @@
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
-import { DateRangePickerPanel, Textarea } from 'tdesign-vue-next';
+import { DateRangePickerPanel } from 'tdesign-vue-next';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),

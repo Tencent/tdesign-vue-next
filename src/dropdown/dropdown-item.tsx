@@ -1,84 +1,63 @@
-import { defineComponent, ref, inject } from 'vue';
-import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, ref, PropType } from 'vue';
+import { TdDropdownProps } from '../dropdown/type';
 
-import TDivider from '../divider';
-import itemProps from './dropdown-item-props';
+import dropdownItemProps from './dropdown-item-props';
 import useRipple from '../hooks/useRipple';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useContent } from '../hooks/tnode';
-import { injectKey } from './const';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+import { pxCompat } from '../utils/helper';
 
 export default defineComponent({
   name: 'TDropdownItem',
   props: {
-    ...itemProps,
-    path: {
-      type: String,
-      default: '',
+    ...dropdownItemProps,
+    maxColumnWidth: {
+      type: [String, Number] as PropType<TdDropdownProps['maxColumnWidth']>,
+      default: 100,
     },
-    hasChildren: {
-      type: Boolean,
-      default: false,
+    minColumnWidth: {
+      type: [String, Number] as PropType<TdDropdownProps['minColumnWidth']>,
+      default: 10,
     },
-    onHover: {
-      type: Function,
-    },
+    isSubmenu: Boolean,
   },
-  setup(props) {
-    const renderContent = useContent();
+  setup(props, { slots }) {
+    const renderTNodeJSX = useTNodeJSX();
+
     const itemRef = ref<HTMLElement>();
-    useRipple(itemRef);
 
-    const { STATUS } = useCommonClassName();
-    const COMPONENT_NAME = usePrefixClass('dropdown__item');
-    const classPrefix = usePrefixClass();
-    const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
-
-    const dropdownProvider = inject(injectKey);
-    const { handleMenuClick } = dropdownProvider;
-
-    const renderSuffix = () => {
-      return props.hasChildren ? <ChevronRightIcon class={`${COMPONENT_NAME.value}__item-icon`} /> : null;
-    };
-
-    const handleItemClick = (e: MouseEvent): void => {
-      e.stopPropagation();
-      if (!props.hasChildren && !props.disabled) {
-        const data = {
-          value: props.value,
-          path: props.path || `/${props.value}`,
-          content: props.content,
-        };
-        props.onClick?.(data, { e });
-        handleMenuClick(data, { e });
-      }
-    };
-
-    const handleMouseover = (): void => {
-      props.onHover?.(props.path);
+    useRipple(props.isSubmenu ? null : itemRef);
+    const prefixIcon = renderTNodeJSX('prefixIcon');
+    const dropdownItemClass = usePrefixClass('dropdown__item');
+    const handleItemClick = (e: MouseEvent) => {
+      props.onClick?.(props.value, {
+        e,
+      });
     };
 
     return () => {
       const classes = [
-        COMPONENT_NAME.value,
+        dropdownItemClass.value,
+        `${dropdownItemClass.value}--theme-${props.theme}`,
         {
-          [`${classPrefix.value}-dropdown--suffix`]: props.hasChildren,
-          [STATUS.value.disabled]: props.disabled,
-          [STATUS.value.active]: props.active,
+          [`${dropdownItemClass.value}--active`]: props.active,
+          [`${dropdownItemClass.value}--disabled`]: props.disabled,
         },
       ];
 
       return (
-        <div>
-          <div ref={itemRef} class={classes} onClick={handleItemClick} onMouseover={handleMouseover}>
-            <div class={`${COMPONENT_NAME.value}-content`}>
-              <span class={`${COMPONENT_NAME.value}-text`}>{renderContent('content', 'default')}</span>
-            </div>
-            {renderSuffix()}
-          </div>
-          {props.divider ? <TDivider /> : null}
-        </div>
+        <li
+          class={classes}
+          onClick={handleItemClick}
+          style={{
+            maxWidth: pxCompat(props.maxColumnWidth),
+            minWidth: pxCompat(props.minColumnWidth),
+          }}
+          ref={itemRef}
+        >
+          {props.prefixIcon ? <div class={`${dropdownItemClass.value}-icon`}>{prefixIcon}</div> : null}
+          {renderTNodeJSX('default')}
+        </li>
       );
     };
   },

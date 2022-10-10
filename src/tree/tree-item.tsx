@@ -10,7 +10,7 @@ import { useCLASSNAMES, injectKey } from './constants';
 import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
-import { useConfig } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import useDraggable from './hooks/useDraggable';
@@ -25,26 +25,50 @@ export default defineComponent({
     onChange: Function as PropType<(e: TypeEventState) => void>,
     onDrop: Function as PropType<(node: TreeNode, val: number, e: DragEvent) => void>,
     onDragStart: Function as PropType<(node: TreeNode, e: DragEvent) => void>,
+    expandOnClickNode: Boolean,
   },
   setup(props) {
     const treeScope = inject(injectKey);
+    const isClicked = ref(false);
     const label = ref<HTMLElement>();
     useRipple(label);
 
     const CLASS_NAMES = useCLASSNAMES();
 
     const { globalConfig } = useConfig('tree');
+    const classPrefix = usePrefixClass();
     const { CaretRightSmallIcon } = useGlobalIcon({ CaretRightSmallIcon: TdCaretRightSmallIcon });
 
     const handleClick = (evt: MouseEvent) => {
-      const { node } = props;
-
+      const { node, expandOnClickNode } = props;
       const state: TypeEventState = {
         mouseEvent: evt,
         event: evt,
         node,
         path: node.getPath(),
       };
+
+      const srcTarget = evt.target as HTMLElement;
+      const isBranchTrigger =
+        node.children &&
+        props.expandOnClickNode &&
+        (srcTarget.className === `${classPrefix.value}-checkbox__input` || srcTarget.tagName.toLowerCase() === 'input');
+      // checkbox 上也有 click 事件, 避免重复的 click 事件触发
+      if (isClicked.value || isBranchTrigger) return;
+
+      // 处理expandOnClickNode时与checkbox的选中的逻辑冲突
+      if (
+        expandOnClickNode &&
+        node.children &&
+        srcTarget.className?.indexOf?.(`${classPrefix.value}-tree__label`) !== -1
+      )
+        evt.preventDefault();
+
+      isClicked.value = true;
+      setTimeout(() => {
+        isClicked.value = false;
+      });
+
       props.onClick?.(state);
     };
 
@@ -284,6 +308,9 @@ export default defineComponent({
           disabled: checkboxDisabled,
         };
 
+        // 当开启expandOnClickNode且为非叶子节点时 不选中选项
+        const stopLabelTrigger = props.expandOnClickNode && node.children instanceof Array && node.children?.length > 0;
+
         labelNode = (
           <TCheckBox
             class={labelClasses}
@@ -293,6 +320,7 @@ export default defineComponent({
             name={node.value.toString()}
             onChange={() => handleChange()}
             ignore="expand"
+            stopLabelTrigger={stopLabelTrigger}
             needRipple={true}
             {...itemCheckProps}
           >

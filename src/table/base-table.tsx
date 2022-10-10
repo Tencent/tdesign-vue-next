@@ -58,9 +58,10 @@ export default defineComponent({
     const tableElmRef = ref<HTMLTableElement>();
     const tableBodyRef = ref<HTMLTableElement>();
     const tableFootHeight = ref(0);
-    const { virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } = useClassName();
+    const { classPrefix, virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } =
+      useClassName();
     // 表格基础样式类
-    const { tableClasses, tableContentStyles, tableElementStyles } = useStyle(props);
+    const { tableClasses, sizeClassNames, tableContentStyles, tableElementStyles } = useStyle(props);
     const { globalConfig } = useConfig('table');
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
@@ -245,6 +246,7 @@ export default defineComponent({
 
     return {
       thList,
+      classPrefix,
       isVirtual,
       globalConfig,
       tableFootHeight,
@@ -253,6 +255,7 @@ export default defineComponent({
       tableElmWidth,
       tableRef,
       tableElmRef,
+      sizeClassNames,
       tableBaseClass,
       spansAndLeafNodes,
       dynamicBaseTableClasses,
@@ -372,6 +375,20 @@ export default defineComponent({
       </Affix>
     );
 
+    const headProps = {
+      isFixedHeader: this.isFixedHeader,
+      rowAndColFixedPosition: this.rowAndColFixedPosition,
+      isMultipleHeader: this.isMultipleHeader,
+      bordered: this.bordered,
+      spansAndLeafNodes: this.spansAndLeafNodes,
+      thList: this.thList,
+      thWidthList: this.thWidthList,
+      resizable: this.resizable,
+      columnResizeParams: this.columnResizeParams,
+      classPrefix: this.classPrefix,
+      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+    };
+
     /**
      * Affixed Header
      */
@@ -401,20 +418,8 @@ export default defineComponent({
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-          {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
           {renderColGroup()}
-          <THead
-            v-slots={this.$slots}
-            isFixedHeader={this.isFixedHeader}
-            rowAndColFixedPosition={this.rowAndColFixedPosition}
-            isMultipleHeader={this.isMultipleHeader}
-            bordered={this.bordered}
-            spansAndLeafNodes={this.spansAndLeafNodes}
-            thList={this.thList}
-            thWidthList={this.thWidthList}
-            resizable={this.resizable}
-            columnResizeParams={this.columnResizeParams}
-          />
+          <THead v-slots={this.$slots} {...headProps} />
         </table>
       </div>
     );
@@ -478,6 +483,8 @@ export default defineComponent({
       '-webkit-transform': translate,
     };
     const tableBodyProps = {
+      classPrefix: this.classPrefix,
+      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
       data: this.isVirtual ? this.visibleData : data,
@@ -510,20 +517,7 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {renderColGroup()}
-          {this.showHeader && (
-            <THead
-              v-slots={this.$slots}
-              isFixedHeader={this.isFixedHeader}
-              rowAndColFixedPosition={this.rowAndColFixedPosition}
-              isMultipleHeader={this.isMultipleHeader}
-              bordered={this.bordered}
-              spansAndLeafNodes={this.spansAndLeafNodes}
-              thList={this.thList}
-              thWidthList={this.thWidthList}
-              resizable={this.resizable}
-              columnResizeParams={this.columnResizeParams}
-            />
-          )}
+          {this.showHeader && <THead v-slots={this.$slots} {...headProps} />}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
