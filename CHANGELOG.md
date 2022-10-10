@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.24.1 `2022-10-10` 
+### 🐞 Bug Fixes
+- `Dropdown`: 修复插槽用法的使用缺陷 ([issue #1825](https://github.com/Tencent/tdesign-vue-next/issues/1825)) @uyarn ([#1827](https://github.com/Tencent/tdesign-vue-next/pull/1827))
+- `Hooks`: 修复受控属性 `modelValue` 和其他受控属性处理逻辑不一致的问题 @jxwanglong ([#1828](https://github.com/Tencent/tdesign-vue-next/pull/1828))
+### 🚧 Others
+- `Message`: 补充 `message` 单元测试 @LadyChatterleyLover ([#1824](https://github.com/Tencent/tdesign-vue-next/pull/1824))
+
+
 ## 🌈 0.24.0 `2022-10-09` 
 ### ❗ Breaking Changes
 - `Dropdown`: 调整`Dropdown`样式，优化多层菜单样式结构，多层菜单结构有变动 @uyarn ([#1817](https://github.com/Tencent/tdesign-vue-next/pull/1817))
