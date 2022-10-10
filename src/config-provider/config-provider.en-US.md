@@ -1,14 +1,13 @@
 :: BASE_DOC ::
 
 ## API
-
 ### GlobalConfigProvider
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 alert | Object | - | Alert global configs。Typescript：`AlertConfig` | N
 anchor | Object | - | Anchor global configs。Typescript：`AnchorConfig` | N
-animation | Object | - | Typescript：`Partial<Record<'include'|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+animation | Object | - | Typescript：`Partial<Record<'include'\|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' \| 'expand' \| 'fade'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 calendar | Object | - | Calendar global configs。Typescript：`CalendarConfig` | N
 cascader | Object | - | Cascader global configs。Typescript：`CascaderConfig` | N
 classPrefix | String | t | \- | N
@@ -17,6 +16,7 @@ datePicker | Object | - | DatePicker global configs。Typescript：`DatePickerCo
 dialog | Object | - | Dialog global configs。Typescript：`DialogConfig` | N
 drawer | Object | - | Drawer global configs。Typescript：`DrawerConfig` | N
 form | Object | - | Form global configs。Typescript：`FormConfig` | N
+icon | Object | - | icon config。Typescript：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 input | Object | - | Input global configs。Typescript：`InputConfig` | N
 list | Object | - | List global configs。Typescript：`ListConfig` | N
 pagination | Object | - | Pagination global configs。Typescript：`PaginationConfig` | N
@@ -118,7 +118,7 @@ placeholder | Object | - | Typescript：`{ date?: string; month?: string; year?:
 preDecade | String | - | pre decade text | N
 preMonth | String | - | pre month text | N
 preYear | String | - | pre year text | N
-presets | Object | - | Typescript：`ConfigPresetDate` `interface ConfigPresetDate { [name: string]: DateConfigValue | (() => DateConfigValue) }` `type DateConfigValue = string | Date | Array<DateConfigValue>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+presets | Object | - | Typescript：`ConfigPresetDate` `interface ConfigPresetDate { [name: string]: DateConfigValue \| (() => DateConfigValue) }` `type DateConfigValue = string \| Date \| Array<DateConfigValue>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 quarters | Array | - | Typescript：`string[]` | N
 rangeSeparator | String | - | range separator text | N
 selectDate | String | - | select date text | N
@@ -131,28 +131,28 @@ yearAriaLabel | String | - | year text | N
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-cancel | Object | - | Typescript：`string | ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+cancel | Object | - | Typescript：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 closeOnEscKeydown | Boolean | true | \- | N
 closeOnOverlayClick | Boolean | true | \- | N
-confirm | Object | - | Typescript：`string | ButtonProps` | N
+confirm | Object | - | Typescript：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | Typescript：`{ default: string; info: string; warning: string; danger: string; success: string; }` | N
 
 ### DrawerConfig
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-cancel | String | - | Typescript：`string | ButtonProps` | N
+cancel | String | - | Typescript：`string \| ButtonProps` | N
 closeOnEscKeydown | Boolean | true | \- | N
 closeOnOverlayClick | Boolean | true | \- | N
-confirm | String | - | Typescript：`string | ButtonProps` | N
-size | String | small | \- | N
+confirm | String | - | Typescript：`string \| ButtonProps` | N
+size | String | 'small' | \- | N
 
 ### PopconfirmConfig
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-cancel | String / Object | - | Typescript：`string | ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
-confirm | String / Object | - | Typescript：`string | ButtonProps` | N
+cancel | String / Object | - | Typescript：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+confirm | String / Object | - | Typescript：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | Typescript：`{ default: string; warning: string; danger: string; }` | N
 
 ### TableConfig
@@ -165,7 +165,7 @@ columnConfigButtonText | String | - | \- | N
 columnConfigDescriptionText | String | - | \- | N
 columnConfigTitleText | String | - | \- | N
 confirmText | String | - | \- | N
-empty | String / Slot / Function | - | Typescript：`string | TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 expandIcon | Slot / Function | undefined | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filterIcon | Slot / Function | undefined | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 hideSortTips | Boolean | false | hide sort tips | N
@@ -178,7 +178,7 @@ sortAscendingOperationText | String | - | \- | N
 sortCancelOperationText | String | - | \- | N
 sortDescendingOperationText | String | - | \- | N
 sortIcon | Slot / Function | undefined | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-treeExpandAndFoldIcon | Function | undefined | Typescript：`TNode<{ type: 'expand' | 'fold' }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+treeExpandAndFoldIcon | Function | undefined | Typescript：`TNode<{ type: 'expand' \| 'fold' }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 
 ### SelectConfig
 
@@ -221,7 +221,7 @@ dragger | Object | - | Typescript：`UploadConfigDragger` | N
 file | Object | - | Typescript：`UploadConfigFileList` | N
 progress | Object | - | Typescript：`UploadConfigProgress` | N
 sizeLimitMessage | String | - | \- | N
-triggerUploadText | Object | - | Typescript：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload: string, delete?: string }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+triggerUploadText | Object | - | Typescript：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload?: string, delete?: string }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 
 ### UploadConfigProgress
 
