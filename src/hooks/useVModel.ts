@@ -14,7 +14,9 @@ export default function useVModel<T, P extends (...args: any) => void>(
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
-  const isVM = Object.prototype.hasOwnProperty.call(vProps, 'modelValue');
+  const isVM =
+    Object.prototype.hasOwnProperty.call(vProps, 'modelValue') ||
+    Object.prototype.hasOwnProperty.call(vProps, 'model-value');
   const isVMP =
     Object.prototype.hasOwnProperty.call(vProps, propName) ||
     Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName));

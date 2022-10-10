@@ -167,9 +167,6 @@ function customRender({ source, file, md }) {
   // split md
   let [demoMd = '', apiMd = ''] = content.split(pageData.apiFlag);
 
-  // fix table | render error
-  apiMd = apiMd.replace(/`[^`]+`/g, (str) => str.replace(/\|/g, '\\|'));
-
   const mdSegment = {
     ...pageData,
     componentName,
