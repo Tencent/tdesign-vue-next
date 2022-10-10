@@ -70,12 +70,9 @@ export default defineComponent({
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
 
     const needRequiredMark = computed(() => {
-      const { requiredMark } = props;
-      if (typeof requiredMark === 'boolean') return requiredMark;
-      const parentRequiredMark =
-        form?.requiredMark === undefined ? globalConfig.value.requiredMark : form?.requiredMark;
+      const requiredMark = props.requiredMark ?? form?.requiredMark ?? globalConfig.value.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
-      return Boolean(parentRequiredMark && isRequired);
+      return requiredMark || (requiredMark ?? isRequired);
     });
 
     const hasLabel = computed(() => slots.label || props.label);
