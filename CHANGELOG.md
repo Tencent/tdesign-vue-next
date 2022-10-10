@@ -5,6 +5,54 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.24.0 `2022-10-09` 
+### ❗ Breaking Changes
+- `Dropdown`: 调整`Dropdown`样式，优化多层菜单样式结构，多层菜单结构有变动 @uyarn ([#1817](https://github.com/Tencent/tdesign-vue-next/pull/1817))
+### 🚀 Features
+- `Table`: 
+  - 表格列属性 `attrs` 支持自定义任意单元格属性 @chaishi ([#1804](https://github.com/Tencent/tdesign-vue-next/pull/1804))
+  - 新增列属性 `colspan`，用于设置单行表头合并 @chaishi ([#1804](https://github.com/Tencent/tdesign-vue-next/pull/1804))
+  - 超出省略功能，支持同时设置省略浮层内容 `ellipsis.content` 和属性透传 `ellipsis.props` @chaishi ([#1804](https://github.com/Tencent/tdesign-vue-next/pull/1804))
+- `Dropdown`: 
+  - 支持`direction` API，支持向左展开菜单 @uyarn ([#1817](https://github.com/Tencent/tdesign-vue-next/pull/1817))
+  -  新增`theme`等API 支持自定义菜单项主题 @uyarn ([#1817](https://github.com/Tencent/tdesign-vue-next/pull/1817))
+  - 支持直接使用 `t-dropdown-menu` 作为子节点，同时继续支持 `dropdown` 的具名插槽，插槽方式支持多级菜单嵌套 @uyarn ([#1817](https://github.com/Tencent/tdesign-vue-next/pull/1817))
+- `Dialog`: 增加 `fullscreen api`  @gumingWu ([#1687](https://github.com/Tencent/tdesign-vue-next/pull/1687))
+- `Select`: 调整下拉交互允许输入时，不关闭下拉面板，减少相关交互问题 @uyarn ([#1808](https://github.com/Tencent/tdesign-vue-next/pull/1808))
+### 🐞 Bug Fixes
+- `Upload`: 
+  - 修复 `upload` 导出预期外的变量导致组件注册时出现告警 @pengYYYYY ([#1775](https://github.com/Tencent/tdesign-vue-next/pull/1775))
+  - 添加参数 `response` 到事件 `onSuccess`，单文件是对象，多文件是数组，[issue#1774](https://github.com/Tencent/tdesign-vue-next/issues/1774) @chaishi ([#1776](https://github.com/Tencent/tdesign-vue-next/pull/1776))
+- `Tree`:
+  -  修复`expandOnClickNode`与`checkable`冲突的问题 @uyarn ([#1812](https://github.com/Tencent/tdesign-vue-next/pull/1812))
+  - 修复`disabled`状态下无法展开子选项的错误 @uyarn ([#1812](https://github.com/Tencent/tdesign-vue-next/pull/1812))
+- `TreeSelect`: 
+  - 修复节点选中状态变化时 `change` 事件触发两次([issue #1787](https://github.com/Tencent/tdesign-vue-next/issues/1787)) @Lmmmmmm-bb ([#1797](https://github.com/Tencent/tdesign-vue-next/pull/1797))
+  - 修复多选状态下点击选项直接关闭面板的问题 @uyarn ([#1812](https://github.com/Tencent/tdesign-vue-next/pull/1812))
+- `Swiper`: 修复卡片模式时，切换空白的问题([issue #1763](https://github.com/Tencent/tdesign-vue-next/issues/1763)) @btea ([#1796](https://github.com/Tencent/tdesign-vue-next/pull/1796))
+- `Popup`: 修复更改 `classprefix` 导致展开收起动画失效及相关连锁问题 @uyarn ([#1790](https://github.com/Tencent/tdesign-vue-next/pull/1790))
+- `TimePicker`: 修复部分设备下无法获取内联 `token` 导致的滚动异常 @uyarn ([#1790](https://github.com/Tencent/tdesign-vue-next/pull/1790))
+
+### 🚧 Others
+- `Textarea`: 补充 `textarea`单元测试 @LadyChatterleyLover ([#1772](https://github.com/Tencent/tdesign-vue-next/pull/1772))
+- `Radio`: 补充 `radio`单元测试 @LadyChatterleyLover ([#1772](https://github.com/Tencent/tdesign-vue-next/pull/1772))
+- `Checkbox`: 补充 `checkbox` 单元测试 @LadyChatterleyLover ([#1781](https://github.com/Tencent/tdesign-vue-next/pull/1781))
+- `Progress`: 补充 `progress`单元测试 @LadyChatterleyLover ([#1783](https://github.com/Tencent/tdesign-vue-next/pull/1783))
+- `Input`: 补充 `input` 单元测试 @LadyChatterleyLover ([#1764](https://github.com/Tencent/tdesign-vue-next/pull/1764))
+- `Comment`: 补充 `comment` 单元测试 @LadyChatterleyLover ([#1785](https://github.com/Tencent/tdesign-vue-next/pull/1785))
+- `Loading`: 补充 `loading` 单元测试 @LadyChatterleyLover ([#1789](https://github.com/Tencent/tdesign-vue-next/pull/1789))
+- `List`: 补充 `list` 单元测试 @LadyChatterleyLover ([#1788](https://github.com/Tencent/tdesign-vue-next/pull/1788))
+- `Alert`: 补充 `alert` 单元测试 @LadyChatterleyLover ([#1786](https://github.com/Tencent/tdesign-vue-next/pull/1786))
+- `Progress`: 用 `space` 组件替换更新 `progress` 的示例代码 @yusongh ([#1799](https://github.com/Tencent/tdesign-vue-next/pull/1799))
+- `TreeSelect`: 增加 `change` 事件单元测试 @Lmmmmmm-bb ([#1797](https://github.com/Tencent/tdesign-vue-next/pull/1797))
+- `Comment`: 用 `space` 组件替换更新 `comment` 的示例代码 @RayJason ([#1805](https://github.com/Tencent/tdesign-vue-next/pull/1805))
+- `List`: 用 `space` 组件替换更新 `list` 的示例代码 @RayJason ([#1805](https://github.com/Tencent/tdesign-vue-next/pull/1805))
+- `Loading`: 用 `space` 组件替换更新 `loading` 的示例代码@RayJason ([#1805](https://github.com/Tencent/tdesign-vue-next/pull/1805))
+- `Dialog`: 补充 `dialog` 单元测试 @LadyChatterleyLover ([#1811](https://github.com/Tencent/tdesign-vue-next/pull/1811))
+- `Steps`: 补充 `steps` 单元测试 @LadyChatterleyLover ([#1813](https://github.com/Tencent/tdesign-vue-next/pull/1813))
+- `InputNumber`: 补充 `input-number` 单元测试 @LadyChatterleyLover ([#1816](https://github.com/Tencent/tdesign-vue-next/pull/1816))
+
+
 ## 🌈 0.23.1 `2022-09-28` 
 ### 🐞 Bug Fixes
 - `Upload`: 
