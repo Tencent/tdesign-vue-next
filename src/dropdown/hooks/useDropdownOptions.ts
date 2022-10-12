@@ -14,23 +14,25 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
   }
 
   if (Array.isArray(menuGroup)) {
-    return menuGroup.map((item) => {
-      const groupChildren = item.children?.default?.();
+    return menuGroup
+      .map((item) => {
+        const groupChildren = item.children?.default?.();
 
-      const contentIdx = groupChildren?.findIndex?.(
-        (v: VNode) => typeof v.children === 'string' && (v.type as { description: string }).description !== 'Comment',
-      );
-      const childrenContent = groupChildren?.filter?.(
-        (v: VNode) =>
-          typeof v.children !== 'string' &&
-          ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
-      );
-      return {
-        ...item.props,
-        content: groupChildren?.[contentIdx]?.children || groupChildren,
-        children: childrenContent.length > 0 ? getOptionsFromChildren(childrenContent) : null,
-      };
-    });
+        const contentIdx = groupChildren?.findIndex?.(
+          (v: VNode) => typeof v.children === 'string' && (v.type as { description: string }).description !== 'Comment',
+        );
+        const childrenContent = groupChildren?.filter?.(
+          (v: VNode) =>
+            typeof v.children !== 'string' &&
+            ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
+        );
+        return {
+          ...item.props,
+          content: groupChildren?.[contentIdx]?.children || groupChildren,
+          children: childrenContent?.length > 0 ? getOptionsFromChildren(childrenContent) : null,
+        };
+      })
+      .filter((v) => !!v.content);
   }
 
   return [];
