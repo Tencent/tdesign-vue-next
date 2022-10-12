@@ -59,7 +59,6 @@ describe('Drawer', () => {
       const btn = wrapper.findComponent(CloseIcon);
       expect(btn.exists()).toBeTruthy();
     });
-
     it(':footer', async () => {
       const visible = ref(true);
       const wrapper = mount(() => <Drawer visible={visible.value} body={text} />);
@@ -69,7 +68,6 @@ describe('Drawer', () => {
       expect(footer.exists()).toBeTruthy();
       expect(btns.length).toBe(2);
     });
-
     it(':header', async () => {
       const visible = ref(true);
       const wrapper = mount(() => <Drawer visible={visible.value} body={text} header="header" />);
