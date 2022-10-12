@@ -64049,12 +64049,16 @@ exports[`csr snapshot test > csr test ./src/guide/_example/dialog-body.vue 1`] =
   class="dialog-body"
   data-v-354953ef=""
 >
-  <img
-    alt="demo"
-    class="dialog-img"
+  <div
+    class="img-wrapper"
     data-v-354953ef=""
-    src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-  />
+  >
+    <img
+      alt="demo"
+      data-v-354953ef=""
+      src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+    />
+  </div>
   <p
     data-v-354953ef=""
   >
