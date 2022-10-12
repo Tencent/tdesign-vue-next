@@ -286,7 +286,14 @@ export default defineComponent({
     );
     watch(innerPopupVisible, (value) => {
       if (value) {
+        // 显示
         hoverIndex.value = -1;
+      } else {
+        // 隐藏
+        // eslint-disable-next-line no-lonely-if
+        if (innerInputValue.value) {
+          setInputValue('');
+        }
       }
     });
 
