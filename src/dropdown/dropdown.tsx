@@ -18,7 +18,6 @@ export default defineComponent({
     const isPopupVisible = ref(false);
 
     const options = useDropdownOptions(props);
-    const trigger = renderTNodeJSX('default');
     const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
       if (props.hideAfterItemClick) {
         isPopupVisible.value = false;
@@ -33,6 +32,8 @@ export default defineComponent({
     };
 
     return () => {
+      const trigger = renderTNodeJSX('default');
+
       const popupParams = {
         ...attrs,
         disabled: props.disabled,
