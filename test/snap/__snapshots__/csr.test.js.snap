@@ -147923,7 +147923,7 @@ exports[`csr snapshot test > csr test ./src/tooltip/_example/mouse.vue 1`] = `
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./src/tooltip/_example/theme.vue 1`] = `
+exports[`csr snapshot test > csr test ./src/tooltip/_example/no-arrow.vue 1`] = `
 <div>
   
   <button
@@ -147943,7 +147943,7 @@ exports[`csr snapshot test > csr test ./src/tooltip/_example/theme.vue 1`] = `
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 1`] = `
+exports[`csr snapshot test > csr test ./src/tooltip/_example/theme.vue 1`] = `
 <div
   class="tdesign-tooltip-demo"
 >
@@ -148040,7 +148040,7 @@ exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 1`] = `
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 2`] = `
+exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 1`] = `
 <div
   class="tdesign-tooltip-demo"
   data-v-2b456f39=""
