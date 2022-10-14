@@ -3,7 +3,7 @@ import isObject from 'lodash/isObject';
 import props from './props';
 import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
-import TStepItem from './step-item';
+import StepItem from './step-item';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
@@ -11,9 +11,6 @@ import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',
-  components: {
-    TStepItem,
-  },
   props: { ...props },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('steps');
@@ -86,14 +83,12 @@ export default defineComponent({
         const nodes: VNode[] = getChildComponentByName('StepItem') as VNode[];
         options = getOptionListBySlots(nodes);
       }
-      return options;
-    };
 
-    watchEffect(() => {
-      getOptions()?.forEach((item, index) => {
+      (options || []).forEach((item, index) => {
         if (item.value !== undefined) indexMap.value[item.value] = index;
       });
-    });
+      return options;
+    };
 
     const renderContent = () => {
       const options = getOptions();
@@ -102,7 +97,7 @@ export default defineComponent({
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
         index = item.value !== undefined ? index : stepIndex;
 
-        return <t-step-item {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
+        return <StepItem {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
       });
     };
 
