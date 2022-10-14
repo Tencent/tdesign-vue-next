@@ -1,6 +1,6 @@
 import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
+import { describe, expect, vi, it } from 'vitest';
 import Transfer from '@/src/transfer/index.ts';
 
 const data = [];
@@ -15,7 +15,7 @@ const data = [];
 })();
 
 const pagination = {
-  pageSize: 20,
+  pageSize: 5,
   total: 20,
   current: 1,
 };
@@ -25,523 +25,194 @@ const targetValue = ['1'];
 describe('Transfer', () => {
   // test for props
   describe('Props', () => {
-    describe('checked', () => {
-      it(':checked', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} checked={checkedValue} pagination={pagination} />;
-          },
-        });
-        const domLabels = wrapper.vm.$el.querySelectorAll('.t-transfer__list-content')[0].querySelectorAll('label');
+    it(':data', () => {
+      const wrapper = mount(() => <Transfer data={data} />);
+      const transfer = wrapper.find('.t-transfer');
+      expect(transfer.exists()).toBeTruthy();
+      const list = wrapper.findAll('.t-transfer__list');
+      expect(list.length).toBe(2);
+      const operations = wrapper.find('.t-transfer__operations');
+      expect(operations.exists()).toBeTruthy();
+      expect(list[0].findAll('.t-transfer__list-item').length).toBe(20);
+      expect(list[1].findAll('.t-transfer__list-item').length).toBe(0);
+      expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
+      expect(list[1].find('.t-transfer__empty').text()).toBe('暂无数据');
+    });
 
-        checkedValue.forEach((item) => {
-          const i = Number(item);
-          const dom = domLabels[i];
-          expect(dom.className.indexOf('t-is-checked') > -1).toBe(true);
-        });
+    it(':checked', () => {
+      const checked = ref(['2']);
+      const wrapper = mount(() => <Transfer data={data} checked={checked.value} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      const items = list[0].findAll('.t-transfer__list-item');
+      expect(items[2].classes()).toContain('t-is-checked');
+      const header = wrapper.find('.t-transfer__list-header');
+      const checkbox = header.find('.t-checkbox');
+      expect(checkbox.classes()).toContain('t-is-indeterminate');
+      const text = header.findAll('span')[2];
+      expect(text.exists()).toBeTruthy();
+      expect(text.text()).toBe('1 / 20 项');
+    });
+
+    it(':defaultChecked', () => {
+      const checked = ref(['2']);
+      const wrapper = mount(() => <Transfer data={data} checked={checked.value} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      const items = list[0].findAll('.t-transfer__list-item');
+      expect(items[2].classes()).toContain('t-is-checked');
+      const header = wrapper.find('.t-transfer__list-header');
+      const checkbox = header.find('.t-checkbox');
+      expect(checkbox.classes()).toContain('t-is-indeterminate');
+      const text = header.findAll('span')[2];
+      expect(text.exists()).toBeTruthy();
+      expect(text.text()).toBe('1 / 20 项');
+    });
+
+    it(':direction:left', () => {
+      const checked = ref(['2']);
+      const wrapper = mount(() => <Transfer data={data} checked={checked.value} direction="left" />);
+      const transfer = wrapper.find('.t-transfer');
+      const btns = transfer.findAll('button');
+      expect(btns[0].classes()).toContain('t-is-disabled');
+      expect(btns[1].classes()).toContain('t-is-disabled');
+    });
+
+    it(':direction:right', async () => {
+      const checked = ref(['2']);
+      const targetValue = ref(['3']);
+      const wrapper = mount(() => (
+        <Transfer data={data} checked={checked.value} direction="right" v-model={targetValue.value} />
+      ));
+      const transfer = wrapper.find('.t-transfer');
+      const list = transfer.findAll('.t-transfer__list');
+      const item = list[1].find('.t-transfer__list-item');
+      const checkbox = item.find('input');
+      const btns = transfer.findAll('button');
+      await checkbox.trigger('change');
+      expect(btns[1].classes()).toContain('t-is-disabled');
+    });
+
+    it(':disabled', async () => {
+      const checked = ref(['2']);
+      const targetValue = ref(['3']);
+      const wrapper = mount(() => (
+        <Transfer data={data} checked={checked.value} disabled v-model={targetValue.value} />
+      ));
+      const transfer = wrapper.find('.t-transfer');
+      const list = transfer.findAll('.t-transfer__list');
+      const checkboxGroup = list[0].find('.t-transfer__list-content .t-checkbox-group');
+      const btns = transfer.findAll('button');
+      const labels = checkboxGroup.findAll('label');
+      labels.forEach((label) => {
+        expect(label.classes()).toContain('t-is-disabled');
+      });
+      btns.forEach((label) => {
+        expect(label.classes()).toContain('t-is-disabled');
       });
     });
 
-    describe('dynamic set checked', () => {
-      it('change checked value', async () => {
-        const wrapper = await mount({
-          setup() {
-            const checked = ref(['1', '2']);
-            const change = () => {
-              checked.value = ['3', '4', '5'];
-            };
-            return {
-              checked,
-              change,
-            };
-          },
-          render() {
-            return <Transfer data={data} v-model:checked={this.checked} />;
-          },
-        });
-        const { vm } = wrapper;
-        expect(vm.checked.length).toBe(2);
-        vm.change();
-        await nextTick();
-        expect(vm.checked.length).toBe(3);
-        expect(vm.checked[2]).toBe('5');
-      });
+    it(':empty', () => {
+      const wrapper = mount(() => <Transfer data={data} empty="暂无可用数据" />);
+      const transfer = wrapper.find('.t-transfer');
+      const list = transfer.findAll('.t-transfer__list');
+      expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
+      expect(list[1].find('.t-transfer__empty').text()).toBe('暂无可用数据');
     });
 
-    describe('defaultChecked', () => {
-      it(':defaultChecked', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} defaultChecked={checkedValue} pagination={pagination} />;
-          },
-        });
-        const domLabels = wrapper.vm.$el.querySelectorAll('.t-transfer__list-content')[0].querySelectorAll('label');
-
-        checkedValue.forEach((item) => {
-          const i = Number(item);
-          const dom = domLabels[i];
-          expect(dom.className.indexOf('t-is-checked') > -1).toBe(true);
-        });
-      });
+    it(':footer', () => {
+      const slots = {
+        footer: () => <div class="footer">footer</div>,
+      };
+      const wrapper = mount(() => <Transfer data={data} v-slots={slots} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      expect(list[0].find('.footer').exists()).toBeTruthy();
+      expect(list[0].find('.footer').text()).toBe('footer');
+      expect(list[1].find('.footer').exists()).toBeTruthy();
+      expect(list[1].find('.footer').text()).toBe('footer');
     });
 
-    describe('data', () => {
-      it('empty', () => {
-        const wrapper = mount(Transfer);
-        expect(wrapper.exists()).toBe(true);
-      });
-
-      it('data length', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} pagination={pagination}></Transfer>;
-          },
-        });
-
-        const len = wrapper.vm.$el.querySelectorAll('.t-transfer__list-item').length; // wrapper.vm.$el.getElementsByTagName('li').length
-        expect(len).toBe(data.length);
-        expect(wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled').length).toBe(8);
-      });
-
-      it('data label', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} pagination={pagination}></Transfer>;
-          },
-        });
-
-        wrapper.vm.$el.querySelectorAll('.t-transfer__list-item').forEach((el, index) => {
-          expect(el.innerHTML.indexOf(data[index].label) > 0).toEqual(true);
-        });
-      });
+    it(':title', () => {
+      const slots = {
+        title: () => <div class="title">title</div>,
+      };
+      const wrapper = mount(() => <Transfer data={data} v-slots={slots} />);
+      const list = wrapper.findAll('.t-transfer__list .t-transfer__list-header');
+      expect(list[0].find('.title').exists()).toBeTruthy();
+      expect(list[0].find('.title').text()).toBe('title');
+      expect(list[1].find('.title').exists()).toBeTruthy();
+      expect(list[1].find('.title').text()).toBe('title');
     });
 
-    describe('direction', () => {
-      it('left', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} checked={checkedValue} direction="left"></Transfer>;
-          },
-        });
-
-        const [el] = wrapper.vm.$el.querySelectorAll('.t-transfer__operations button');
-        expect([...el.classList]).toContain('t-is-disabled');
-      });
-
-      it('right', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} checked={checkedValue} value={targetValue} direction="right"></Transfer>;
-          },
-        });
-
-        const [, el] = wrapper.vm.$el.querySelectorAll('.t-transfer__operations button');
-        expect([...el.classList]).toContain('t-is-disabled');
-      });
-
-      it('both', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} checked={checkedValue} value={targetValue} direction="both"></Transfer>;
-          },
-        });
-
-        const [right, left] = wrapper.vm.$el.querySelectorAll('.t-transfer__operations button');
-        expect([...right.classList]).not.toContain('t-is-disabled');
-        expect([...left.classList]).not.toContain('t-is-disabled');
-      });
+    it(':operation', () => {
+      const operation = ['向左', '向右'];
+      const wrapper = mount(() => <Transfer data={data} operation={operation} />);
+      const operations = wrapper.find('.t-transfer__operations');
+      const btns = operations.findAll('button');
+      expect(btns[0].find('.t-button__text').text()).toBe('向右');
+      expect(btns[1].find('.t-button__text').text()).toBe('向左');
     });
 
-    describe('disabled', () => {
-      it(':disabled', async () => {
-        const fn = vi.fn();
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} disabled={true} on-checked-change={fn} pagination={pagination}></Transfer>;
-          },
-        });
-
-        wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled')[0].click();
-        expect(fn).not.toHaveBeenCalled();
-
-        const doms = wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled');
-        expect(doms.length).toBe(data.length + 2);
-      });
+    it(':pagination', () => {
+      const wrapper = mount(() => <Transfer data={data} pagination={pagination} />);
+      const paginationDom = wrapper.find('.t-pagination');
+      expect(paginationDom.exists()).toBeTruthy();
     });
 
-    describe('empty', () => {
-      it('没有数据~', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer empty="没有数据~"></Transfer>;
-          },
-        });
-
-        expect(wrapper.vm.$el.querySelector('.t-transfer__empty').innerHTML).toEqual('没有数据~');
-      });
-
-      it('function', async () => {
-        // eslint-disable-next-line
-        const empty = (h) => (
-          <div>
-            <button>数据为空</button>
-          </div>
-        );
-
-        const wrapper = await mount({
-          render() {
-            return <Transfer empty={empty}></Transfer>;
-          },
-        });
-        expect(wrapper.vm.$el.querySelector('.t-transfer__empty').outerHTML).toEqual(
-          '<div class="t-transfer__empty"><div><button>数据为空</button></div></div>',
-        );
-      });
+    it(':search', () => {
+      const wrapper = mount(() => <Transfer data={data} search />);
+      const search = wrapper.findAll('.t-transfer__search-wrapper input');
+      expect(search.length).toBe(2);
     });
 
-    describe('footer', () => {
-      it('function', async () => {
-        const footer = (h, { type }) => h('div', `render footer: ${type}`);
-        const wrapper = await mount({
-          render() {
-            return <Transfer footer={footer}></Transfer>;
-          },
-        });
-
-        expect(wrapper.vm.$el.querySelector('.t-transfer__list-source > div:last-child').innerHTML).toEqual(
-          'render footer: source',
-        );
-      });
-
-      // it('slot', async () => {
-      //   const wrapper = await mount({
-      //     render() {
-      //       return (
-      //         <Transfer data={data}>
-      //           <div slot="footer" slot-scope="props">
-      //             <p style="padding: 10px;border-top: 1px solid #eee">source源</p>
-      //           </div>
-      //         </Transfer>
-      //       );
-      //     },
-      //   });
-      //   expect(wrapper.vm.$el
-      //     .querySelector('.t-transfer__list-source')
-      //     .lastChild.querySelector('p')
-      //     .innerHTML)
-      //     .toBe('source源');
-      // });
-    });
-
-    describe('keys', () => {
-      const otherData = data.map((item) => ({
-        name: item.label,
-        key: item.value,
-      }));
-      let wrapper;
-
-      beforeEach(async () => {
-        wrapper = await mount({
-          render() {
-            return <Transfer data={otherData} keys={{ value: 'key', label: 'name' }}></Transfer>;
-          },
-        });
-      });
-
-      it('data length', async () => {
-        const len = wrapper.vm.$el.querySelectorAll('.t-transfer__list-item').length; // wrapper.vm.$el.getElementsByTagName('li').length
-        expect(len).toBe(otherData.length);
-      });
-
-      it('key label', async () => {
-        wrapper.vm.$el.querySelectorAll('.t-transfer__list-item').forEach((el, index) => {
-          expect(el.innerHTML.indexOf(otherData[index].name) > 0).toEqual(true);
-        });
-      });
-    });
-
-    describe('operation', () => {
-      it('string', async () => {
-        const operation = ['to left', 'to right'];
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} operation={operation}></Transfer>;
-          },
-        });
-
-        expect(wrapper.vm.$el.querySelectorAll('.t-transfer__operations .t-button__text')[0].innerHTML).toEqual(
-          'to right',
-        );
-      });
-    });
-
-    describe('pagination', () => {
-      it('pageSize', async () => {
-        const pageConfig = {
-          pageSize: 8,
-          total: 20,
-          current: 1,
-        };
-        const { pageSize } = pageConfig;
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} pagination={pageConfig}></Transfer>;
-          },
-        });
-        const el = wrapper.vm.$el;
-
-        const len = el.querySelectorAll('.t-transfer__list-item').length; // wrapper.vm.$el.getElementsByTagName('li').length
-        expect(len).toBe(pageSize);
-      });
-
-      it('current', async () => {
-        const pageConfig = {
-          pageSize: 8,
-          total: 20,
-          current: 2,
-        };
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} pagination={pageConfig}></Transfer>;
-          },
-        });
-
-        const [el] = wrapper.vm.$el.querySelectorAll('.t-transfer__list-item');
-
-        expect(el.querySelector('input').value).toBe(data[(pageConfig.current - 1) * pageConfig.pageSize].value);
-      });
-    });
-
-    describe('search', () => {
-      it(':search', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} search={true}></Transfer>;
-          },
-        });
-        expect(wrapper.vm.$el.getElementsByClassName('t-input__inner').length).toBe(2);
-      });
-    });
-
-    describe('targetSort', () => {
-      it('original', async () => {
-        const wrapper = await mount({
-          components: {
-            Transfer,
-          },
-          template: `
-          <Transfer :data="data" :checked="checkedValue" v-model="targetValue" />
-          `,
-          data() {
-            return {
-              data,
-              checkedValue: ['2'],
-              targetValue: ['1', '5'],
-            };
-          },
-        });
-
-        wrapper.vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
-        expect(wrapper.vm.$data.targetValue).toEqual(['1', '2', '5']);
-
-        await wrapper.vm.$nextTick();
-        const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
-        );
-        const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
-        expect(targetColumnValues).toEqual(['1', '2', '5']);
-      });
-
-      it('push', async () => {
-        const wrapper = await mount({
-          components: {
-            Transfer,
-          },
-          template: `
-          <Transfer :data="data" :checked="checkedValue" targetSort="push" v-model="targetValue" />
-          `,
-          data() {
-            return {
-              data,
-              checkedValue: ['2'],
-              targetValue: ['1', '5'],
-            };
-          },
-        });
-
-        wrapper.vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
-        expect(wrapper.vm.$data.targetValue).toEqual(['1', '5', '2']);
-
-        await wrapper.vm.$nextTick();
-        const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
-        );
-        const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
-        expect(targetColumnValues).toEqual(['1', '5', '2']);
-      });
-
-      it('unshift', async () => {
-        const wrapper = await mount({
-          components: {
-            Transfer,
-          },
-          template: `
-          <Transfer :data="data" :checked="checkedValue"  targetSort="unshift" v-model="targetValue" />
-          `,
-          data() {
-            return {
-              data,
-              checkedValue: ['2'],
-              targetValue: ['1', '5'],
-            };
-          },
-        });
-
-        wrapper.vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
-        expect(wrapper.vm.$data.targetValue).toEqual(['2', '1', '5']);
-
-        await wrapper.vm.$nextTick();
-        const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
-        );
-        const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
-        expect(targetColumnValues).toEqual(['2', '1', '5']);
-      });
-    });
-
-    describe('title', () => {
-      it(':title', () => {
-        const wrapper = mount(Transfer, {
-          propsData: {
-            title: ['源列表', '目标列表'],
-          },
-        });
-        const doms = wrapper.vm.$el.querySelectorAll('.t-transfer__list-header');
-        expect(doms[0].lastChild.innerHTML).toEqual('源列表');
-        expect(doms[1].lastChild.innerHTML).toEqual('目标列表');
-      });
-    });
-
-    describe('transferItem', () => {
-      it('function', async () => {
-        const transferItem = (h, { data }) => (
-          <div class="transfer-item">
-            {data.value}:{data.label}
-          </div>
-        );
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} transfer-item={transferItem}></Transfer>;
-          },
-        });
-
-        const allTransferItem = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer__list-source .t-transfer__list-item .transfer-item',
-        );
-
-        allTransferItem.forEach((item, index) => {
-          expect(item.innerHTML).toEqual(`${data[index].value}:${data[index].label}`);
-        });
-      });
-
-      it('slot', async () => {
-        const wrapper = await mount({
-          components: {
-            Transfer,
-          },
-          template: `
-            <Transfer :data="data">
-              <template v-slot:transferItem="transferItemProps">
-                <div class="transfer-item">{{transferItemProps.data.value}}:{{transferItemProps.data.label}}</div>
-              </template>
-            </Transfer>
-          `,
-          data() {
-            return {
-              data,
-            };
-          },
-        });
-
-        const allTransferItem = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer__list-source .t-transfer__list-item .transfer-item',
-        );
-
-        allTransferItem.forEach((item, index) => {
-          expect(item.innerHTML).toEqual(`${data[index].value}:${data[index].label}`);
-        });
-      });
-    });
-
-    describe('value', () => {
-      it(':value', async () => {
-        const wrapper = await mount({
-          render() {
-            return <Transfer data={data} value={targetValue} pagination={pagination}></Transfer>;
-          },
-        });
-
-        let count = 0;
-        const domLabels = wrapper.vm.$el
-          .querySelectorAll('.t-transfer__list-target .t-transfer__list-content')[0]
-          .querySelectorAll('.t-checkbox__label');
-
-        targetValue.forEach((item) => {
-          const i = Number(item);
-          const dom = domLabels[count].querySelectorAll('span')[0];
-
-          expect(dom.innerHTML).toBe(`内容${i + 1}`);
-          count += 1;
-        });
-      });
-
-      it('v-model', async () => {
-        const wrapper = await mount({
-          setup() {
-            const checkedValue = ref(['2']);
-            const targetValue = ref(['1', '5']);
-            const change = () => {
-              targetValue.value = [];
-            };
-            return {
-              checkedValue,
-              targetValue,
-              change,
-            };
-          },
-          render() {
-            return <Transfer data={data} checked={this.checkedValue} v-model={this.targetValue} />;
-          },
-        });
-        const { vm } = wrapper;
-        vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
-        expect(vm.targetValue).toEqual(['1', '2', '5']);
-        vm.change();
-        await nextTick();
-        expect(vm.targetValue.length).toBe(0);
-        expect(vm.$el.querySelectorAll('.t-transfer__list-target .t-transfer__list-item').length).toBe(0);
-      });
+    it(':showCheckAll', () => {
+      const wrapper = mount(() => <Transfer data={data} search />);
+      const checkAll = wrapper.findAll('.t-transfer__list-header .t-checkbox');
+      expect(checkAll.length).toBe(2);
     });
   });
 
-  describe('Events', () => {
-    it('onChange', async () => {
+  describe(':events', () => {
+    it(':onChange', async () => {
       const fn = vi.fn();
-      const wrapper = await mount({
-        render() {
-          return <Transfer data={data} pagination={pagination} checked={checkedValue} onChange={fn} />;
-        },
-      });
+      const checked = ref(['1']);
+      const wrapper = mount(() => <Transfer data={data} defaultChecked={checked.value} onChange={fn} />);
+      const operations = wrapper.find('.t-transfer__operations');
+      const btns = operations.findAll('button');
+      await btns[0].trigger('click');
+      expect(fn).toBeCalled();
+    });
 
-      wrapper.vm.$el.querySelectorAll('.t-transfer__operations button')[0].click();
+    it(':onPageChange', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(() => <Transfer data={data} pagination={pagination} onPageChange={fn} />);
+      const next = wrapper.find('.t-pagination__btn-next');
+      await next.trigger('click');
+      expect(fn).toBeCalled();
+    });
 
-      await wrapper.vm.$nextTick();
-      expect(fn).toHaveBeenCalled();
-      expect(fn.mock.calls[0][0]).toEqual(checkedValue);
-      expect(fn.mock.calls[0][1]).toEqual({
-        type: 'target',
-        movedValue: checkedValue,
-      });
+    it(':onSearch', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(() => <Transfer data={data} search onSearch={fn} />);
+      const input = wrapper.find('.t-transfer__search-wrapper input');
+      await input.trigger('input');
+      expect(fn).toBeCalled();
+    });
+
+    it(':onCheckedChange', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(() => <Transfer data={data} onCheckedChange={fn} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      const input = list[0].findAll('.t-checkbox input');
+      await input[0].trigger('change');
+      expect(fn).toBeCalled();
+    });
+
+    it(':onScroll', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(() => <Transfer data={data} onScroll={fn} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      const content = list[0].find('.t-transfer__list-content');
+      await content.trigger('scroll');
+      expect(fn).toBeCalled();
     });
   });
 });
