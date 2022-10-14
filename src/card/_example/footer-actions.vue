@@ -30,11 +30,11 @@
     <br />
     <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
       <template #footer>
-        <t-button variant="text" shape="square">
-          <heart-icon size="24" />
+        <t-button variant="text" shape="square" :style="{ 'margin-right': '8px' }">
+          <heart-icon size="16" />
         </t-button>
         <t-button variant="text" shape="square">
-          <share-icon size="24" />
+          <share-icon size="16" />
         </t-button>
       </template>
       <template #actions>

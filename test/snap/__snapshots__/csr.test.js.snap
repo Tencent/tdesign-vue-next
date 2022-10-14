@@ -24146,6 +24146,7 @@ exports[`csr snapshot test > csr test ./src/card/_example/footer-actions.vue 1`]
         
         <button
           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+          style="margin-right: 8px;"
           type="button"
         >
           <span
