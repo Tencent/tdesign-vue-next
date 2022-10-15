@@ -142971,6 +142971,51 @@ exports[`csr snapshot test > csr test ./src/tag/_example/base.vue 1`] = `
       <!---->
     </span>
   </div>
+  <div
+    class="tag-demo"
+    data-v-307c55f7=""
+  >
+    <span
+      class="t-tag t-tag--primary t-tag--light-outline t-size-m"
+      data-v-307c55f7=""
+    >
+      <!---->
+      
+      标签一
+      
+      <!---->
+    </span>
+    <span
+      class="t-tag t-tag--success t-tag--light-outline t-size-m"
+      data-v-307c55f7=""
+    >
+      <!---->
+      
+      标签二
+      
+      <!---->
+    </span>
+    <span
+      class="t-tag t-tag--warning t-tag--light-outline t-size-m"
+      data-v-307c55f7=""
+    >
+      <!---->
+      
+      标签三
+      
+      <!---->
+    </span>
+    <span
+      class="t-tag t-tag--danger t-tag--light-outline t-size-m"
+      data-v-307c55f7=""
+    >
+      <!---->
+      
+      标签四
+      
+      <!---->
+    </span>
+  </div>
 </div>
 `;
 
