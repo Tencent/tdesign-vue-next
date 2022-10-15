@@ -366,6 +366,7 @@ export default defineComponent({
     });
 
     return {
+      containerRef,
       innerVisible,
       triggerEl,
       overlayEl,
