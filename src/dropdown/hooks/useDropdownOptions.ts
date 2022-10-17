@@ -18,18 +18,21 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
       .map((item) => {
         const groupChildren = item.children?.default?.();
 
-        const contentIdx = groupChildren?.findIndex?.(
-          (v: VNode) => typeof v.children === 'string' && (v.type as { description: string }).description !== 'Comment',
+        // 当前节点的渲染内容
+        const contentCtx = groupChildren?.filter?.(
+          (v: VNode) => !['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
         );
-        const childrenContent = groupChildren?.filter?.(
+        // 嵌套菜单的节点
+        const childrenCtx = groupChildren?.filter?.(
           (v: VNode) =>
             typeof v.children !== 'string' &&
             ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
         );
+
         return {
           ...item.props,
-          content: groupChildren?.[contentIdx]?.children || groupChildren,
-          children: childrenContent?.length > 0 ? getOptionsFromChildren(childrenContent) : null,
+          content: contentCtx || groupChildren,
+          children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
         };
       })
       .filter((v) => !!v.content);

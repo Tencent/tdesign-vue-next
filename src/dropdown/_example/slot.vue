@@ -59,7 +59,7 @@
               </t-dropdown-menu>
             </t-dropdown-item>
 
-            <t-dropdown-item :value="2"> 操作二 </t-dropdown-item>
+            <t-dropdown-item :value="2">操作二 </t-dropdown-item>
 
             <t-dropdown-item :value="3">操作三</t-dropdown-item>
           </t-dropdown-menu>
@@ -73,7 +73,7 @@ import { MessagePlugin } from 'tdesign-vue-next';
 
 const clickHandler = (data) => {
   console.log(data, 'data');
-  if (data.value !== 212) MessagePlugin.success(`选中【${data.content}】`);
+  if (data.value !== 212) MessagePlugin.success(`选中【${data.value}】`);
 };
 const handleClick = () => {
   MessagePlugin.success(`点击 操作2-1-2`);
