@@ -1,17 +1,18 @@
 <template>
   <div class="tdesign-demo-block-column-large">
     <!-- 按钮操作区域 -->
-    <div>
+    <t-space direction="vertical">
       <t-radio-group v-model="placement" variant="default-filled">
         <t-radio-button value="top-left">左上角</t-radio-button>
         <t-radio-button value="top-right">右上角</t-radio-button>
         <t-radio-button value="bottom-left">左下角</t-radio-button>
         <t-radio-button value="bottom-right">右下角</t-radio-button>
       </t-radio-group>
-      <br /><br />
-      <t-checkbox v-model="bordered">是否显示边框</t-checkbox>
-      <t-checkbox v-model="customText">自定义列配置按钮</t-checkbox>
-    </div>
+      <t-space>
+        <t-checkbox v-model="bordered">是否显示边框</t-checkbox>
+        <t-checkbox v-model="customText">自定义列配置按钮</t-checkbox>
+      </t-space>
+    </t-space>
 
     <!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
     <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->

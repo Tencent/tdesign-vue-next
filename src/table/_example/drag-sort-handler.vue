@@ -1,9 +1,9 @@
 <template>
   <div class="demo-container t-table-demo-sort">
-    <div>
+    <t-space>
       <t-checkbox v-model="loading"> 加载状态 </t-checkbox>
       <t-button size="small" variant="base" @click="resetData">重置数据</t-button>
-    </div>
+    </t-space>
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
       <t-table
