@@ -28,7 +28,6 @@ export default {
     // 替换成对应 demo 文件
     source = source.replace(/\{\{\s+(.+)\s+\}\}/g, (demoStr, demoFileName) => {
       const demoPath = path.resolve(resourceDir, `../../src/${name}/_example/${demoFileName}.vue`);
-      console.log(demoPath);
       if (!fs.existsSync(demoPath)) return '\n<h3>DEMO (🚧建设中）...</h3>';
 
       return `\n::: demo _example/${demoFileName} ${name}\n:::\n`;

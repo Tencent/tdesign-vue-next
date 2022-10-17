@@ -189,7 +189,7 @@ watch(
   width: 1200px;
 }
 
-.tdesign-demo__table-affix .t-table {
+/* .tdesign-demo__table-affix .t-table {
   max-width: 800px;
-}
+} */
 </style>

@@ -132,7 +132,7 @@ const handleSkip = ({ e, current, total }) => {
   margin-top: 50px;
 }
 
-.action button {
+.action button:first-child {
   margin-right: 10px;
 }
 </style>

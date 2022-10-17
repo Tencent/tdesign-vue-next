@@ -5,8 +5,8 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
+import intersection from 'lodash/intersection';
 
-import { intersection } from 'lodash';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
@@ -286,7 +286,14 @@ export default defineComponent({
     );
     watch(innerPopupVisible, (value) => {
       if (value) {
+        // 显示
         hoverIndex.value = -1;
+      } else {
+        // 隐藏
+        // eslint-disable-next-line no-lonely-if
+        if (innerInputValue.value) {
+          setInputValue('');
+        }
       }
     });
 

@@ -71,7 +71,6 @@ const columns = ref([
 ]);
 
 const getRowClassName = ({ row, rowIndex }) => {
-  console.log(row, rowIndex);
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };

@@ -24,6 +24,12 @@
       <t-tag theme="warning" variant="outline">标签三</t-tag>
       <t-tag theme="danger" variant="outline">标签四</t-tag>
     </div>
+    <div class="tag-demo">
+      <t-tag theme="primary" variant="light-outline">标签一</t-tag>
+      <t-tag theme="success" variant="light-outline">标签二</t-tag>
+      <t-tag theme="warning" variant="light-outline">标签三</t-tag>
+      <t-tag theme="danger" variant="light-outline">标签四</t-tag>
+    </div>
   </div>
 </template>
 <script setup>

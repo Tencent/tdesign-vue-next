@@ -113,9 +113,9 @@ export default defineComponent({
     return () => (
       <Popup
         ref={popupRef}
-        visible={innerVisible.value}
         {...popupProps.value}
         overlayInnerStyle={overlayInnerStyle.value}
+        visible={innerVisible.value}
       />
     );
   },

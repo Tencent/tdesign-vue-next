@@ -1,4 +1,4 @@
-import { defineComponent, SetupContext, computed, ref } from 'vue';
+import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
@@ -57,30 +57,26 @@ export default defineComponent({
       props.onDragSort?.(params);
     };
 
-    return {
-      store,
-      dataSource,
-      tColumns,
-      tIndeterminateSelectedRowKeys,
-      onDragSortChange,
-      onInnerSelectChange,
-      /** 对外暴露的方法 */
+    context.expose({
+      store: store.value,
+      dataSource: dataSource.value,
       ...treeInstanceFunctions,
-    };
-  },
+    });
 
-  render() {
-    const props = {
-      ...this.$props,
-      data: this.dataSource,
-      columns: this.tColumns,
-      // 半选状态节点
-      indeterminateSelectedRowKeys: this.tIndeterminateSelectedRowKeys,
-      // 树形结构不允许本地数据分页
-      disableDataPage: Boolean(this.tree && Object.keys(this.tree).length),
-      onSelectChange: this.onInnerSelectChange,
-      onDragSort: this.onDragSortChange,
+    return () => {
+      const { vnode } = getCurrentInstance();
+      const enhancedProps = {
+        ...vnode.props,
+        data: dataSource.value,
+        columns: tColumns.value,
+        // 半选状态节点
+        indeterminateSelectedRowKeys: tIndeterminateSelectedRowKeys.value,
+        // 树形结构不允许本地数据分页
+        disableDataPage: Boolean(props.tree && Object.keys(props.tree).length),
+        onSelectChange: onInnerSelectChange,
+        onDragSort: onDragSortChange,
+      };
+      return <PrimaryTable v-slots={context.slots} {...enhancedProps} />;
     };
-    return <PrimaryTable v-slots={this.$slots} {...props} {...this.$attrs} />;
   },
 });

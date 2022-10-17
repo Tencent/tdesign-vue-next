@@ -218,6 +218,9 @@ export default function useTree(props: TdTreeProps) {
       cacheMap.clear();
 
       treeStore.value.reload(list);
+      // 刷新节点，必须在配置选中之前执行
+      // 这样选中态联动判断才能找到父节点
+      treeStore.value.refreshNodes();
       if (!list.length) return;
       // 初始化选中状态
       if (Array.isArray(innerChecked.value)) {

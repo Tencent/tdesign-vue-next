@@ -495,7 +495,10 @@ export default function useFixed(
       footerAffixedBottom,
       tableContentWidth,
     ],
-    updateThWidthListHandler,
+    () => {
+      updateThWidthListHandler();
+      updateAffixPosition();
+    },
     { immediate: true },
   );
 

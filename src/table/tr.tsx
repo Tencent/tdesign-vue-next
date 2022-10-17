@@ -286,7 +286,7 @@ export default defineComponent({
       const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...params, type: 'td' }) : col.attrs;
       const attrs = { ...normalAttrs, ...cellSpans };
       return (
-        <td key={`${col.colKey}_${colIndex}`} class={classes} style={tdStyles.style} {...attrs} onClick={onClick}>
+        <td key={col.colKey || colIndex} class={classes} style={tdStyles.style} {...attrs} onClick={onClick}>
           {col.ellipsis ? this.renderEllipsisCell(params, { cellNode }) : cellNode}
         </td>
       );
