@@ -38,7 +38,8 @@ export default defineComponent({
           renderContent = (
             <div key={idx}>
               <DropdownItem
-                class={[`${dropdownClass.value}__item`, `${dropdownClass.value}__item--suffix`]}
+                style={optionItem.style}
+                class={[`${dropdownClass.value}__item`, `${dropdownClass.value}__item--suffix`, optionItem.class]}
                 value={optionItem.value}
                 theme={optionItem.theme}
                 active={optionItem.active}
@@ -83,7 +84,8 @@ export default defineComponent({
           renderContent = (
             <div key={idx}>
               <DropdownItem
-                class={`${dropdownClass.value}__item`}
+                style={optionItem.style}
+                class={[`${dropdownClass.value}__item`, optionItem.class]}
                 value={optionItem.value}
                 theme={optionItem.theme}
                 active={optionItem.active}
