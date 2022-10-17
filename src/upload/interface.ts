@@ -26,3 +26,5 @@ export interface CommonDisplayFileProps {
 }
 
 export type UploadProps = TdUploadProps;
+
+export * from './type';
