@@ -137930,11 +137930,13 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
         type,
         row
       } = params;
+
       if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
         return __vite_ssr_import_0__.createVNode(__vite_ssr_import_2__.Loading, {
           \\"size\\": \\"14px\\"
         }, null);
       }
+
       return type === 'expand' ? __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.AddRectangleIcon, null, null) : __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.MinusRectangleIcon, null, null);
     }"
   >
