@@ -80,7 +80,9 @@ docClass: timeline
 
 ## 🌈 0.23.0 `2022-09-27` 
 ### ❗ Breaking Changes
-- `Upload`: `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+- `Upload`: 
+  - `autoUpload=false` 时，增加 `onChange` 事件的触发@chaishi ([#1723](https://github.com/Tencent/tdesign-vue-next/pull/1723))
+  - ⚠️ `formatResponse` 不再对 `file` 对象进行格式化，仅处理 `response` 属性进行处理。如果要扩展 `file` 对象，请在 `onChange` 事件中处理
 
 ### 🚀 Features
 - `Upload`: 

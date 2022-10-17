@@ -120,12 +120,12 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     const filterValue: FilterValue = {
       ...tFilterValue.value,
       [column.colKey]:
+        column.filter.resetValue ??
         {
           single: '',
           multiple: [],
           input: '',
-        }[column.filter.type] ||
-        column.filter.resetValue ||
+        }[column.filter.type] ??
         '',
     };
     emitFilterChange(filterValue, column);

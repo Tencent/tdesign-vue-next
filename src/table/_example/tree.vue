@@ -29,6 +29,12 @@
       :tree-expand-and-fold-icon="treeExpandIcon"
       :pagination="pagination"
       :before-drag-sort="beforeDragSort"
+      :column-controller="{
+        placement: 'bottom-left',
+        // 允许控制哪些列显示或隐藏
+        fields: ['id', 'platform', 'operate'],
+        dialogProps: { preventScrollThrough: true },
+      }"
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
       @drag-sort="onDragSort"
@@ -127,6 +133,7 @@ function getData(currentPage = 1) {
 const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
+const displayColumns = ref(['drag', 'id', 'key', 'platform', 'operate']);
 
 const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
 

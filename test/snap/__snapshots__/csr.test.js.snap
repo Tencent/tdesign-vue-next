@@ -112881,143 +112881,181 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
   class="tdesign-demo-block-column-large"
 >
   <!-- 按钮操作区域 -->
-  <div>
+  <div
+    class="t-space t-space-vertical"
+    style="gap: 16px;"
+  >
+    
+    
     <div
-      class="t-radio-group t-size-m t-radio-group--filled"
+      class="t-space-item"
     >
-      
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="top-left"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          左上角
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button t-is-checked"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="top-right"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          右上角
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="bottom-left"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          左下角
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="bottom-right"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-          右下角
-          
-          
-        </span>
-      </label>
-      
       <div
-        class="t-radio-group__bg-block"
-        style="width: 0px; left: 0px;"
-      />
+        class="t-radio-group t-size-m t-radio-group--filled"
+      >
+        
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="top-left"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            左上角
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button t-is-checked"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="top-right"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            右上角
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="bottom-left"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            左下角
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="bottom-right"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            右下角
+            
+            
+          </span>
+        </label>
+        
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
+      </div>
     </div>
-    <br />
-    <br />
-    <label
-      class="t-checkbox t-is-checked"
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
     >
-      <input
-        class="t-checkbox__former"
-        type="checkbox"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
+      <div
+        class="t-space t-space-horizontal"
+        style="gap: 16px;"
       >
         
-        是否显示边框
         
-      </span>
-    </label>
-    <label
-      class="t-checkbox"
-    >
-      <input
-        class="t-checkbox__former"
-        type="checkbox"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
+        <div
+          class="t-space-item"
+        >
+          <label
+            class="t-checkbox t-is-checked"
+          >
+            <input
+              class="t-checkbox__former"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              是否显示边框
+              
+            </span>
+          </label>
+        </div>
+        <!---->
         
-        自定义列配置按钮
         
-      </span>
-    </label>
+        <div
+          class="t-space-item"
+        >
+          <label
+            class="t-checkbox"
+          >
+            <input
+              class="t-checkbox__former"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              自定义列配置按钮
+              
+            </span>
+          </label>
+        </div>
+        <!---->
+        
+        
+      </div>
+    </div>
+    <!---->
+    
+    
   </div>
   <!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
   <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
@@ -115009,37 +115047,56 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
 <div
   class="demo-container t-table-demo-sort"
 >
-  <div>
-    <label
-      class="t-checkbox"
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
     >
-      <input
-        class="t-checkbox__former"
-        type="checkbox"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
+      <label
+        class="t-checkbox"
       >
-        
-         加载状态 
-        
-      </span>
-    </label>
-    <button
-      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      type="button"
+        <input
+          class="t-checkbox__former"
+          type="checkbox"
+        />
+        <span
+          class="t-checkbox__input"
+        />
+        <span
+          class="t-checkbox__label"
+        >
+          
+           加载状态 
+          
+        </span>
+      </label>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
     >
-      <span
-        class="t-button__text"
+      <button
+        class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+        type="button"
       >
-        
-        重置数据
-        
-      </span>
-    </button>
+        <span
+          class="t-button__text"
+        >
+          
+          重置数据
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
   </div>
   <div
     class="item"
@@ -137916,7 +137973,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
   <div
-    beforedragsort="params => {
+    before-drag-sort="params => {
       console.log('beforeDragSort:', params);
       return true;
     }"
@@ -137925,7 +137982,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     showsortcolumnbgcolor="false"
     style="position: relative;"
     tree="[object Object]"
-    treeexpandandfoldicon="(h, params) => {
+    tree-expand-and-fold-icon="(h, params) => {
       const {
         type,
         row
@@ -139160,7 +139217,46 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
+    <div
+      class="t-table__bottom-content"
+    >
+      <div
+        class="t-table__column-controller-trigger t-align-bottom-left"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
+        >
+          
+          
+          <svg
+            class="t-icon t-icon-setting"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          
+          <span
+            class="t-button__text"
+          >
+            列配置
+          </span>
+          
+        </button>
+      </div>
+    </div>
     <!---->
     <div
       class="t-table__pagination-wrap"

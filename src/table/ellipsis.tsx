@@ -42,7 +42,7 @@ export default defineComponent({
     overlayClassName: String,
     classPrefix: {
       type: String,
-      default: 't-',
+      default: 't',
     },
   },
 
