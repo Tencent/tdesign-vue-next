@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tooltip-demo">
+  <t-space>
     <t-tooltip content="文字提示仅展示文本内容">
       <t-button theme="default">default</t-button>
     </t-tooltip>
@@ -18,5 +18,5 @@
     <t-tooltip content="文字提示仅展示文本内容" theme="light">
       <t-button variant="outline">light</t-button>
     </t-tooltip>
-  </div>
+  </t-space>
 </template>

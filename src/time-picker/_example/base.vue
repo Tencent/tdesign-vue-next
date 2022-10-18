@@ -1,8 +1,8 @@
 <template>
-  <div class="tdesign-demo-block">
+  <t-space direction="vertical">
     <t-time-picker v-model="time1" class="demos" />
     <t-time-picker v-model="time2" class="demos" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

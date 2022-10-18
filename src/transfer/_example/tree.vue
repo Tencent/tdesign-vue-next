@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <t-transfer
-      v-model="targetValue"
-      v-model:checked="checked"
-      :data="items"
-      @change="onChange"
-      @checked-change="handleCheckedChange"
-    >
-      <template #tree="slotProps">
-        <t-tree v-bind="slotProps" checkable hover expand-all transition />
-      </template>
-    </t-transfer>
-  </div>
+  <t-transfer
+    v-model="targetValue"
+    v-model:checked="checked"
+    :data="items"
+    @change="onChange"
+    @checked-change="handleCheckedChange"
+  >
+    <template #tree="slotProps">
+      <t-tree v-bind="slotProps" checkable hover expand-all transition />
+    </template>
+  </t-transfer>
 </template>
 <script setup>
 import { ref } from 'vue';

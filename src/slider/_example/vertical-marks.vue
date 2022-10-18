@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-slider">
+  <t-space>
     <div class="vertical-marks-block">
       <t-slider
         v-model="value1"
@@ -23,7 +23,7 @@
         :input-number-props="false"
       />
     </div>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

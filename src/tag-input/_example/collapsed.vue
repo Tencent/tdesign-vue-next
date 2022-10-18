@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column" style="width: 80%">
+  <t-space direction="vertical">
     <t-tag-input v-model="tags" :min-collapsed-num="1" />
 
     <!-- 方式一：使用渲染函数自定义折叠项 -->
@@ -18,7 +18,7 @@
         </t-popup>
       </template>
     </t-tag-input>
-  </div>
+  </t-space>
 </template>
 
 <script lang="jsx">

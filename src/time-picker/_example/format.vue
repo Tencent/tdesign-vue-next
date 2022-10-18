@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-time-picker v-model="time" class="demos" format="h:m:s a" />
-  </div>
+  <t-time-picker v-model="time" class="demos" format="h:m:s a" />
 </template>
 
 <script setup>

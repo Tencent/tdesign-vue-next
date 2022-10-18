@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <!-- 选项过多时，可折叠 -->
     <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options" />
-    <br /><br />
 
     <!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
     <t-select
@@ -13,7 +12,6 @@
       :collapsed-items="collapsedItems"
       :options="options"
     />
-    <br /><br />
 
     <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
     <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options">
@@ -29,7 +27,7 @@
         </t-popup>
       </template>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

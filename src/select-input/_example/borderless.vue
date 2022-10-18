@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <t-select-input
-      :value="selectValue"
-      :popup-visible="popupVisible"
-      placeholder="Please Select"
-      borderless
-      style="width: 200px"
-      clearable
-      @popup-visible-change="onPopupVisibleChange"
-      @clear="onClear"
-    >
-      <template #panel>
-        <ul class="tdesign-demo__select-input-ul-borderless">
-          <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            {{ item.label }}
-          </li>
-        </ul>
-      </template>
-    </t-select-input>
-  </div>
+  <t-select-input
+    :value="selectValue"
+    :popup-visible="popupVisible"
+    placeholder="Please Select"
+    borderless
+    style="width: 200px"
+    clearable
+    @popup-visible-change="onPopupVisibleChange"
+    @clear="onClear"
+  >
+    <template #panel>
+      <ul class="tdesign-demo__select-input-ul-borderless">
+        <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
+          {{ item.label }}
+        </li>
+      </ul>
+    </template>
+  </t-select-input>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

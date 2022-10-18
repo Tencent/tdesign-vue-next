@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <t-space direction="vertical">
     <div class="operations">
       <t-form label-width="120">
         <t-form-item label="节点可高亮">
@@ -23,7 +23,7 @@
       @click="onClick"
       @active="onActive"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

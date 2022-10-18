@@ -1,6 +1,6 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
+    <t-space>
       <t-switch v-model="slotChecked" size="large">
         <template #label="slotProps">{{ slotProps.value ? '开' : '关' }}</template>
       </t-switch>
@@ -14,23 +14,23 @@
           </template>
         </template>
       </t-switch>
-    </div>
+    </t-space>
 
-    <div class="tdesign-demo-block-row">
+    <t-space>
       <t-switch v-model="checked" size="large" :label="['开', '关']"></t-switch>
       <t-switch size="large" :label="['开', '关']"></t-switch>
-    </div>
+    </t-space>
 
-    <div class="tdesign-demo-block-row">
+    <t-space>
       <t-switch v-model="renderChecked" size="large" :label="[renderActiveContent, renderInactiveContent]"></t-switch>
       <t-switch size="large" :label="[renderActiveContent, renderInactiveContent]"></t-switch>
-    </div>
+    </t-space>
 
-    <div class="tdesign-demo-block-row">
+    <t-space>
       <t-switch v-model="renderChecked2" size="large" :label="renderContent"></t-switch>
       <t-switch size="large" :label="renderContent"></t-switch>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

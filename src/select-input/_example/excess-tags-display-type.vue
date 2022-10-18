@@ -1,8 +1,7 @@
 <template>
-  <div class="tdesign-demo__select-input-excess-tags-display-type" style="width: 100%">
+  <t-space direction="vertical" class="tdesign-demo__select-input-excess-tags-display-type" style="width: 100%">
     <!-- excessTagsDisplayType: 'scroll'，超出时，滚动显示 -->
     <p>第一种呈现方式：超出时滚动显示</p>
-    <br />
     <t-select-input
       :value="value"
       :tag-input-props="{ excessTagsDisplayType: 'scroll' }"
@@ -22,11 +21,8 @@
       </template>
     </t-select-input>
 
-    <br /><br /><br />
-
     <!-- excessTagsDisplayType: 'scroll'，超出时，换行显示 -->
     <p>第二种呈现方式：超出时换行显示</p>
-    <br />
     <t-select-input
       :value="value"
       :tag-input-props="{ excessTagsDisplayType: 'break-line' }"
@@ -45,7 +41,7 @@
         />
       </template>
     </t-select-input>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { computed, ref } from 'vue';

@@ -1,9 +1,7 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space direction="vertical">
     <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
     <t-select v-model="value1" :options="options1" placeholder="请选择云解决方案" multiple />
-
-    <br /><br />
 
     <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
     <t-select v-model="value2" placeholder="请选择云产品" multiple>
@@ -11,11 +9,9 @@
       <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
     </t-select>
 
-    <br /><br />
-
     <!-- 超出 2 个的选中项折叠，如果想要自定义折叠项，参考下文「自定义折叠的选中项」 -->
     <t-select v-model="value3" :options="options1" :min-collapsed-num="2" placeholder="请选择云解决方案" multiple />
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

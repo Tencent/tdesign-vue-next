@@ -1,26 +1,28 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <t-input-adornment prepend="checked:">
-      <t-input :value="allChecked" @change="onAllCheckedInput" />
-    </t-input-adornment>
-    <t-input-adornment prepend="expanded:">
-      <t-input :value="allExpanded" @change="onAllExpandedInput" />
-    </t-input-adornment>
-    <t-input-adornment prepend="activated:">
-      <t-input :value="allActived" @change="onAllActivedInput" />
-    </t-input-adornment>
-    <t-tree
-      v-model="checked"
-      v-model:expanded="expanded"
-      v-model:actived="actived"
-      :data="items"
-      checkable
-      activable
-      :expand-on-click-node="false"
-      :active-multiple="false"
-      :value-mode="valueMode"
-    />
-  </div>
+  <t-space direction="vertical">
+    <t-space direction="vertical">
+      <t-input-adornment prepend="checked:">
+        <t-input :value="allChecked" />
+      </t-input-adornment>
+      <t-input-adornment prepend="expanded:">
+        <t-input :value="allExpanded" />
+      </t-input-adornment>
+      <t-input-adornment prepend="activated:">
+        <t-input :value="allActived" />
+      </t-input-adornment>
+    </t-space>
+  </t-space>
+  <t-tree
+    v-model="checked"
+    v-model:expanded="expanded"
+    v-model:actived="actived"
+    :data="items"
+    checkable
+    activable
+    :expand-on-click-node="false"
+    :active-multiple="false"
+    :value-mode="valueMode"
+  />
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tag-demo">
+  <t-space>
     <t-check-tag
       v-for="(tag, index) in tags"
       :key="index"
@@ -10,7 +10,7 @@
     >
       {{ tag.name }}
     </t-check-tag>
-  </div>
+  </t-space>
 </template>
 <script setup>
 const tags = [
@@ -35,12 +35,3 @@ const handleChange = (isChecked) => {
   console.log(isChecked);
 };
 </script>
-<style lang="less" scoped>
-.tag-demo {
-  width: 500px;
-  display: flex;
-  > * {
-    margin-right: 30px;
-  }
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="tdesign-demo-block-column" style="max-width: 500px">
+  <t-space direction="vertical">
     <t-input placeholder="请输入内容" @focus="onFocus" />
-  </div>
+  </t-space>
 </template>
 <script setup>
 const onFocus = () => {

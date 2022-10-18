@@ -1,25 +1,23 @@
 <template>
-  <div class="tdesign-demo-upload">
-    <div>
-      <t-upload
-        v-model="files"
-        action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
-        :tips="tips"
-        theme="custom"
-        :before-upload="beforeUpload"
-        multiple
-        @fail="handleFail"
-        @success="tips = ''"
-      >
-        <t-button theme="primary">自定义上传</t-button>
-      </t-upload>
-      <div v-if="files && files.length" class="list-custom">
-        <ul style="padding: 0">
-          <li v-for="(item, index) in files" :key="index" style="list-style-type: none">{{ item.name }}</li>
-        </ul>
-      </div>
+  <t-space direction="vertical">
+    <t-upload
+      v-model="files"
+      action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
+      :tips="tips"
+      theme="custom"
+      :before-upload="beforeUpload"
+      multiple
+      @fail="handleFail"
+      @success="tips = ''"
+    >
+      <t-button theme="primary">自定义上传</t-button>
+    </t-upload>
+    <div v-if="files && files.length" class="list-custom">
+      <ul style="padding: 0">
+        <li v-for="(item, index) in files" :key="index" style="list-style-type: none">{{ item.name }}</li>
+      </ul>
     </div>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column" style="max-width: 500px">
-    <t-input v-model="value" clearable placeholder="请输入" @clear="onClear" @blur="onBlur" />
-  </div>
+  <t-input v-model="value" clearable placeholder="请输入" @clear="onClear" @blur="onBlur" />
 </template>
 <script setup>
 import { ref } from 'vue';

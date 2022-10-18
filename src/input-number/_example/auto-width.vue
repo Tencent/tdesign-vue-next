@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-input-number v-model="value" auto-width theme="row" :min="-2" />
-  </div>
+  <t-input-number v-model="value" auto-width theme="row" :min="-2" />
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value"
       filterable
@@ -20,7 +20,7 @@
       style="width: 400px; display: inline-block"
       @search="remoteMethod2"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

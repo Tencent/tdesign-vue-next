@@ -1,54 +1,52 @@
 <template>
-  <div>
-    <!-- :popup-props="{ trigger: 'hover' }" -->
-    <!-- 前置内容使用 label 自定义，支持同名插槽 label -->
-    <t-select-input
-      :value="selectValue"
-      :popup-visible="popupVisible"
-      label="前置内容："
-      style="width: 300px"
-      placeholder="Please Select"
-      clearable
-      @popup-visible-change="onPopupVisibleChange"
-      @clear="onClear"
-    >
-      <template #panel>
-        <ul class="tdesign-demo__select-input-ul-label-suffix">
-          <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            {{ item.label }}
-          </li>
-        </ul>
-      </template>
-      <!-- 后置图标 -->
-      <template #suffixIcon>
-        <chevron-down-icon />
-      </template>
-    </t-select-input>
-    <br /><br />
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <!-- 前置内容使用 label 自定义，支持同名插槽 label -->
+  <t-select-input
+    :value="selectValue"
+    :popup-visible="popupVisible"
+    label="前置内容："
+    style="width: 300px"
+    placeholder="Please Select"
+    clearable
+    @popup-visible-change="onPopupVisibleChange"
+    @clear="onClear"
+  >
+    <template #panel>
+      <ul class="tdesign-demo__select-input-ul-label-suffix">
+        <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
+          {{ item.label }}
+        </li>
+      </ul>
+    </template>
+    <!-- 后置图标 -->
+    <template #suffixIcon>
+      <chevron-down-icon />
+    </template>
+  </t-select-input>
+  <br /><br />
 
-    <!-- 后置内容使用 suffix 自定义，支持同名插槽 suffix -->
-    <t-select-input
-      :value="selectValue"
-      :popup-visible="popupVisible2"
-      suffix="单位：元"
-      style="width: 300px"
-      placeholder="Please Select"
-      clearable
-      @popup-visible-change="onPopupVisibleChange2"
-      @clear="onClear"
-    >
-      <template #panel>
-        <ul class="tdesign-demo__select-input-ul-label-suffix">
-          <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            {{ item.label }}
-          </li>
-        </ul>
-      </template>
-      <template #suffixIcon>
-        <chevron-down-icon />
-      </template>
-    </t-select-input>
-  </div>
+  <!-- 后置内容使用 suffix 自定义，支持同名插槽 suffix -->
+  <t-select-input
+    :value="selectValue"
+    :popup-visible="popupVisible2"
+    suffix="单位：元"
+    style="width: 300px"
+    placeholder="Please Select"
+    clearable
+    @popup-visible-change="onPopupVisibleChange2"
+    @clear="onClear"
+  >
+    <template #panel>
+      <ul class="tdesign-demo__select-input-ul-label-suffix">
+        <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
+          {{ item.label }}
+        </li>
+      </ul>
+    </template>
+    <template #suffixIcon>
+      <chevron-down-icon />
+    </template>
+  </t-select-input>
 </template>
 <script setup>
 import { ref } from 'vue';

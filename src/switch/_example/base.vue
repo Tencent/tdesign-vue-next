@@ -1,8 +1,8 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space>
     <t-switch />
     <t-switch v-model="checked" @change="onChange" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

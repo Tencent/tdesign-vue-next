@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-input-status">
+  <t-space direction="vertical" class="tdesign-demo-select-input-status" style="width: 100%">
     <div>
       <span>禁用状态：</span>
       <t-select-input :value="selectValue" disabled tips="这是禁用状态文本提示" placeholder="Please Select">
@@ -8,7 +8,6 @@
         </template>
       </t-select-input>
     </div>
-    <br />
 
     <div>
       <span>只读状态：</span>
@@ -18,7 +17,6 @@
         </template>
       </t-select-input>
     </div>
-    <br /><br />
 
     <div>
       <span>成功状态：</span>
@@ -28,7 +26,6 @@
         </template>
       </t-select-input>
     </div>
-    <br />
 
     <div>
       <span>警告状态：</span>
@@ -38,7 +35,6 @@
         </template>
       </t-select-input>
     </div>
-    <br />
 
     <div>
       <span>错误状态：</span>
@@ -48,8 +44,7 @@
         </template>
       </t-select-input>
     </div>
-    <br />
-  </div>
+  </t-space>
 </template>
 <script setup>
 const selectValue = 'TDesign';

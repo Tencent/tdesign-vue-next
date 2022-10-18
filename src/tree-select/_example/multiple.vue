@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-tree-select-multiple">
-    <t-tree-select v-model="value" :data="options" multiple clearable placeholder="请选择" />
-  </div>
+  <t-tree-select v-model="value" :data="options" multiple clearable placeholder="请选择" />
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -39,9 +37,3 @@ const options = [
 
 const value = ref(['guangzhou', 'shenzhen']);
 </script>
-<style scoped>
-.tdesign-tree-select-multiple {
-  width: 300px;
-  margin: 0 20px;
-}
-</style>

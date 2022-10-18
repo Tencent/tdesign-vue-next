@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value"
       placeholder="-请选择-"
@@ -14,7 +14,7 @@
       :popup-props="popupProps2"
       style="width: 200px; display: inline-block; margin-left: 20px"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
