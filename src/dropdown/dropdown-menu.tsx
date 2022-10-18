@@ -100,7 +100,7 @@ export default defineComponent({
                         handleItemClick({ data: optionItem, context })
                 }
               >
-                <span class={`${dropdownClass.value}-text`}>{optionItem.content}</span>
+                <span class={`${dropdownClass.value}__item-text`}>{optionItem.content}</span>
               </DropdownItem>
               {optionItem.divider ? <TDivider /> : null}
             </div>
