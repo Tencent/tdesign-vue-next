@@ -1,30 +1,33 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <t-input-adornment prepend="checked:">
-      <t-input :value="allChecked" />
-    </t-input-adornment>
-    <t-input-adornment prepend="expanded:">
-      <t-input :value="allExpanded" />
-    </t-input-adornment>
-    <t-input-adornment prepend="activated:">
-      <t-input :value="allActived" />
-    </t-input-adornment>
-    <t-tree
-      :data="items"
-      checkable
-      activable
-      :expand-on-click-node="false"
-      :active-multiple="false"
-      :expanded="expanded"
-      :actived="actived"
-      :value="checked"
-      :value-mode="valueMode"
-      @expand="handleExpand"
-      @change="handleChange"
-      @active="handleActive"
-      @click="handleClick"
-    />
-  </div>
+  <t-space direction="vertical">
+    <t-space direction="vertical">
+      <t-input-adornment prepend="checked:">
+        <t-input :value="allChecked" />
+      </t-input-adornment>
+      <t-input-adornment prepend="expanded:">
+        <t-input :value="allExpanded" />
+      </t-input-adornment>
+      <t-input-adornment prepend="activated:">
+        <t-input :value="allActived" />
+      </t-input-adornment>
+    </t-space>
+  </t-space>
+
+  <t-tree
+    :data="items"
+    checkable
+    activable
+    :expand-on-click-node="false"
+    :active-multiple="false"
+    :expanded="expanded"
+    :actived="actived"
+    :value="checked"
+    :value-mode="valueMode"
+    @expand="handleExpand"
+    @change="handleChange"
+    @active="handleActive"
+    @click="handleClick"
+  />
 </template>
 
 <script setup>
@@ -179,8 +182,3 @@ const handleActive = (vals, context) => {
 
 const valueMode = 'onlyLeaf';
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-</style>

@@ -1,13 +1,9 @@
 <template>
-  <div class="demo-slider">
-    <div class="block">
-      <t-slider v-model="value1" />
-    </div>
+  <t-space direction="vertical" class="slider-demo-container">
+    <t-slider v-model="value1" />
 
-    <div class="block">
-      <t-slider v-model="value2" range />
-    </div>
-  </div>
+    <t-slider v-model="value2" range />
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -16,7 +12,7 @@ const value1 = ref(12);
 const value2 = ref([30, 70]);
 </script>
 <style>
-.block {
+.slider-demo-container {
   padding: 30px 24px;
 }
 </style>

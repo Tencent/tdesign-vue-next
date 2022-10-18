@@ -1,21 +1,19 @@
 <template>
-  <div class="tdesign-tree-base">
-    <div class="operations">
-      <t-form label-width="150">
-        <t-form-item label="可选">
-          <t-switch v-model="checkable" />
-        </t-form-item>
-        <t-form-item label="默认展开全部">
-          <t-switch v-model="expandAll" />
-        </t-form-item>
-        <t-form-item label="懒加载">
-          <t-switch v-model="lazy" />
-        </t-form-item>
-      </t-form>
-    </div>
+  <t-space direction="vertical">
+    <t-form label-width="150">
+      <t-form-item label="可选">
+        <t-switch v-model="checkable" />
+      </t-form-item>
+      <t-form-item label="默认展开全部">
+        <t-switch v-model="expandAll" />
+      </t-form-item>
+      <t-form-item label="懒加载">
+        <t-switch v-model="lazy" />
+      </t-form-item>
+    </t-form>
     <div v-if="rebuilding" class="rebuild-container">树重建中....</div>
     <t-tree v-else :data="items" :checkable="checkable" hover :load="load" :expand-all="expandAll" :lazy="lazy" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -64,13 +62,3 @@ const load = (node) =>
     }, 1000);
   });
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-.rebuild-container {
-  width: 100px;
-  margin: 50px 20px;
-  text-align: center;
-}
-</style>

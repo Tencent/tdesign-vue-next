@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-tree-select
       v-model="value"
       :data="options"
@@ -15,7 +15,7 @@
         <t-tag>更多...</t-tag>
       </template>
     </t-tree-select>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -53,12 +53,3 @@ const options = [
 const value = ref(['guangzhou', 'shenzhen']);
 const slotValue = ref(['guangzhou', 'shenzhen']);
 </script>
-<style scoped>
-.tdesign-tree-select-collapsed {
-  width: 300px;
-  margin: 0 20px;
-}
-.demo-space {
-  margin-bottom: 20px;
-}
-</style>

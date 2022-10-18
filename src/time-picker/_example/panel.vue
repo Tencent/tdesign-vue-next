@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
-    <time-picker-panel :value="value" @change="handleChange" />
-  </div>
+  <time-picker-panel :value="value" @change="handleChange" />
 </template>
 <script setup>
 import { ref } from 'vue';

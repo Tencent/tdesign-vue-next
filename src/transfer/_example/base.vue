@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <t-transfer
-      v-model="targetValue"
-      :data="list"
-      :checked="checked"
-      @change="onChange"
-      @checked-change="handleCheckedChange"
-    />
-  </div>
+  <t-transfer
+    v-model="targetValue"
+    :data="list"
+    :checked="checked"
+    @change="onChange"
+    @checked-change="handleCheckedChange"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';

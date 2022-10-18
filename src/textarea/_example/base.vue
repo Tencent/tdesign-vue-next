@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <t-space direction="vertical">
     <t-textarea v-model="value" placeholder="请输入描述文案" name="description" @change="onChange" />
 
     <t-textarea
@@ -15,7 +15,7 @@
       name="description"
       :autosize="{ minRows: 3, maxRows: 5 }"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

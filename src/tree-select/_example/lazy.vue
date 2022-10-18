@@ -1,15 +1,13 @@
 <template>
-  <div class="tdesign-tree-select-lazy">
-    <t-tree-select
-      v-model="value"
-      :data="options"
-      clearable
-      placeholder="请选择"
-      :tree-props="{
-        load: loadFunc,
-      }"
-    />
-  </div>
+  <t-tree-select
+    v-model="value"
+    :data="options"
+    clearable
+    placeholder="请选择"
+    :tree-props="{
+      load: loadFunc,
+    }"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -53,9 +51,3 @@ const loadFunc = (node) =>
     }, 1000);
   });
 </script>
-<style scoped>
-.tdesign-tree-select-lazy {
-  width: 300px;
-  margin: 0 20px;
-}
-</style>

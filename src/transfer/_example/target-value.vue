@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-transfer v-model="targetValue" :data="list" />
-  </div>
+  <t-transfer v-model="targetValue" :data="list" />
 </template>
 <script setup>
 import { ref } from 'vue';

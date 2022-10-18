@@ -1,17 +1,11 @@
 <template>
-  <div class="demo-slider">
-    <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :marks="marks1" />
-    </div>
+  <t-space direction="vertical" class="slider-demo-container">
+    <t-slider v-model="value1" :show-tooltip="true" :marks="marks1" />
 
-    <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" />
-    </div>
+    <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" />
 
-    <div class="block">
-      <t-slider v-model="value3" :show-tooltip="true" :marks="[10, 20, 40, 80]" />
-    </div>
-  </div>
+    <t-slider v-model="value3" :show-tooltip="true" :marks="[10, 20, 40, 80]" />
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
@@ -39,7 +33,7 @@ const marks2 = {
 };
 </script>
 <style>
-.block {
+.slider-demo-container {
   padding: 30px 24px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
+  <t-space direction="vertical">
     <div>
       <t-radio-group v-model="uploadMethod" variant="default-filled">
         <t-radio-button value="requestSuccessMethod">上传成功示例</t-radio-button>
@@ -14,7 +14,7 @@
       placeholder="自定义上传方法需要返回成功或失败信息"
       :on-fail="handleRequestFail"
     ></t-upload>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref, computed } from 'vue';

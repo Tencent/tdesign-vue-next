@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column" style="width: 100%">
+  <t-space direction="vertical">
     <div class="t-tdesign-demo__tag-input">
       <label>禁用状态：</label>
       <t-tag-input :value="tags1" disabled />
@@ -24,7 +24,7 @@
       <label>错误状态：</label>
       <t-tag-input v-model="tags5" status="error" tips="校验存在严重问题文本提示" clearable />
     </div>
-  </div>
+  </t-space>
 </template>
 
 <script setup>

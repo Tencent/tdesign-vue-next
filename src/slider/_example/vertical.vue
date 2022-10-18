@@ -1,13 +1,9 @@
 <template>
-  <div class="demo-slider">
-    <div class="vertical-block">
-      <t-slider v-model="value1" :layout="layout" :show-tooltip="true" />
-    </div>
+  <t-space class="slider-demo-container">
+    <t-slider v-model="value1" :layout="layout" :show-tooltip="true" />
 
-    <div class="vertical-block">
-      <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" />
-    </div>
-  </div>
+    <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" />
+  </t-space>
 </template>
 <script>
 import { defineComponent, ref } from 'vue';
@@ -26,9 +22,7 @@ export default defineComponent({
 });
 </script>
 <style>
-.vertical-block {
-  display: inline-block;
+.slider-demo-container {
   padding: 30px 24px;
-  height: 300px;
 }
 </style>

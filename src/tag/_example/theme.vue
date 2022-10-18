@@ -1,27 +1,27 @@
 <template>
-  <div class="tdesign-tag-theme">
-    <div class="tdesign-demo-block">
+  <t-space direction="vertical">
+    <t-space class="tdesign-demo-block">
       深色
       <t-tag theme="primary">标签一</t-tag>
       <t-tag theme="success">标签二</t-tag>
       <t-tag theme="warning">标签三</t-tag>
       <t-tag theme="danger">标签四</t-tag>
-    </div>
-    <div class="tdesign-demo-block light">
+    </t-space>
+    <t-space class="tdesign-demo-block light">
       浅色
       <t-tag theme="primary" variant="light">标签一</t-tag>
       <t-tag theme="success" variant="light">标签二</t-tag>
       <t-tag theme="warning" variant="light">标签三</t-tag>
       <t-tag theme="danger" variant="light">标签四</t-tag>
-    </div>
-    <div class="tdesign-demo-block plain">
+    </t-space>
+    <t-space class="tdesign-demo-block plain">
       朴素
       <t-tag variant="outline" theme="primary">标签一</t-tag>
       <t-tag variant="outline" theme="success">标签二</t-tag>
       <t-tag variant="outline" theme="warning">标签三</t-tag>
       <t-tag variant="outline" theme="danger">标签四</t-tag>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <style lang="less" scoped>

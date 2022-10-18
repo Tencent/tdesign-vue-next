@@ -1,28 +1,17 @@
 <template>
-  <div class="demo-slider">
-    <div class="block">
-      <t-slider
-        v-model="value1"
-        :show-tooltip="true"
-        :max="max"
-        :min="min"
-        :marks="marks"
-        :input-number-props="false"
-      />
-    </div>
+  <t-space class="slider-demo-container" direction="vertical">
+    <t-slider v-model="value1" :show-tooltip="true" :max="max" :min="min" :marks="marks" :input-number-props="false" />
 
-    <div class="block">
-      <t-slider
-        v-model="value2"
-        range
-        :show-tooltip="true"
-        :max="max"
-        :min="min"
-        :marks="marks"
-        :input-number-props="false"
-      />
-    </div>
-  </div>
+    <t-slider
+      v-model="value2"
+      range
+      :show-tooltip="true"
+      :max="max"
+      :min="min"
+      :marks="marks"
+      :input-number-props="false"
+    />
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -38,7 +27,7 @@ const marks = {
 };
 </script>
 <style>
-.block {
+.slider-demo-container {
   padding: 30px 24px;
 }
 </style>

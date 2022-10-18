@@ -1,36 +1,34 @@
 <template>
-  <div class="tdesign-tree-base">
-    <div class="operations">
-      <t-form>
-        <t-form-item label="可选" style="margin-bottom: 16px">
-          <t-switch v-model="checkable" />
-        </t-form-item>
-        <t-form-item label="严格模式" style="margin-bottom: 16px">
-          <t-switch v-model="checkStrictly" />
-        </t-form-item>
-        <t-form-item label="选中值模式" style="margin-bottom: 16px">
-          <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
-            <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">
-              {{ item.label }}
-            </t-radio-button>
-          </t-radio-group>
-        </t-form-item>
-        <t-form-item label="value 类型" style="margin-bottom: 16px">
-          <t-radio-group v-model="valueType" name="value-type" variant="default-filled">
-            <t-radio-button v-for="item in valueTypeOptions" :key="item.value" :value="item.value">
-              {{ item.label }}
-            </t-radio-button>
-          </t-radio-group>
-        </t-form-item>
-        <t-form-item label="value 别名" style="margin-bottom: 16px">
-          <t-radio-group v-model="valueAlias" name="value-type" variant="default-filled">
-            <t-radio-button v-for="item in valueAliasOptions" :key="item.value" :value="item.value">
-              {{ item.label }}
-            </t-radio-button>
-          </t-radio-group>
-        </t-form-item>
-      </t-form>
-    </div>
+  <t-space direction="vertical">
+    <t-form>
+      <t-form-item label="可选">
+        <t-switch v-model="checkable" />
+      </t-form-item>
+      <t-form-item label="严格模式">
+        <t-switch v-model="checkStrictly" />
+      </t-form-item>
+      <t-form-item label="选中值模式">
+        <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
+          <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">
+            {{ item.label }}
+          </t-radio-button>
+        </t-radio-group>
+      </t-form-item>
+      <t-form-item label="value 类型">
+        <t-radio-group v-model="valueType" name="value-type" variant="default-filled">
+          <t-radio-button v-for="item in valueTypeOptions" :key="item.value" :value="item.value">
+            {{ item.label }}
+          </t-radio-button>
+        </t-radio-group>
+      </t-form-item>
+      <t-form-item label="value 别名">
+        <t-radio-group v-model="valueAlias" name="value-type" variant="default-filled">
+          <t-radio-button v-for="item in valueAliasOptions" :key="item.value" :value="item.value">
+            {{ item.label }}
+          </t-radio-button>
+        </t-radio-group>
+      </t-form-item>
+    </t-form>
     <t-tree
       :data="items"
       hover
@@ -42,7 +40,7 @@
       @change="onChange"
       @click="onClick"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

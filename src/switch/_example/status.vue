@@ -1,9 +1,9 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space>
     <t-switch v-model="checked1" size="large"></t-switch>
     <t-switch v-model="checked2" size="large" loading></t-switch>
     <t-switch size="large" disabled></t-switch>
-  </div>
+  </t-space>
 </template>
 
 <script setup>

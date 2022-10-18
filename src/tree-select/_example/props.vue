@@ -1,14 +1,12 @@
 <template>
-  <div class="tdesign-tree-select-base">
-    <t-tree-select
-      v-model="value"
-      :data="options"
-      clearable
-      placeholder="请选择"
-      :popup-props="popupProps"
-      :tree-props="treeProps"
-    />
-  </div>
+  <t-tree-select
+    v-model="value"
+    :data="options"
+    clearable
+    placeholder="请选择"
+    :popup-props="popupProps"
+    :tree-props="treeProps"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -60,9 +58,3 @@ const treeProps = {
   },
 };
 </script>
-<style scoped>
-.tdesign-tree-select-base {
-  width: 300px;
-  margin: 0 20px;
-}
-</style>

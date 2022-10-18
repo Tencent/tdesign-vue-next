@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column" style="width: 80%">
-    <t-tag-input v-model="tags" auto-width clearable />
-  </div>
+  <t-tag-input v-model="tags" auto-width clearable />
 </template>
 
 <script setup>

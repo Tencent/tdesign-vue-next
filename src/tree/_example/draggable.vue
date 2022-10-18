@@ -1,19 +1,17 @@
 <template>
-  <div class="tdesign-tree-base">
-    <t-tree
-      :data="items"
-      activable
-      hover
-      transition
-      expand-all
-      draggable
-      @drag-start="handleDragStart"
-      @drag-end="handleDragEnd"
-      @drag-over="handleDragOver"
-      @drag-leave="handleDragLeave"
-      @drop="handleDrop"
-    />
-  </div>
+  <t-tree
+    :data="items"
+    activable
+    hover
+    transition
+    expand-all
+    draggable
+    @drag-start="handleDragStart"
+    @drag-end="handleDragEnd"
+    @drag-over="handleDragOver"
+    @drag-leave="handleDragLeave"
+    @drop="handleDrop"
+  />
 </template>
 
 <script setup>
@@ -82,5 +80,3 @@ const handleDrop = ({ node, dropPosition, e }) => {
   console.log(node, dropPosition, e);
 };
 </script>
-
-<style scoped></style>

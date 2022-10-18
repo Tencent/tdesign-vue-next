@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <t-tooltip :key="renderId" default-visible :content="`提示在 ${timeout} 秒后消失`" :duration="5000">
-      <t-button variant="outline" :disabled="Boolean(timeout)" @click="renderId += 1">定时消失</t-button>
-    </t-tooltip>
-  </div>
+  <t-tooltip :key="renderId" default-visible :content="`提示在 ${timeout} 秒后消失`" :duration="5000">
+    <t-button variant="outline" :disabled="Boolean(timeout)" @click="renderId += 1">定时消失</t-button>
+  </t-tooltip>
 </template>
 
 <script setup>
