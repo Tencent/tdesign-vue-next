@@ -1,10 +1,9 @@
 <template>
-  <div class="tdesign-demo__select-input-multiple" style="width: 100%">
+  <t-space direction="vertical" class="tdesign-demo__select-input-multiple" style="width: 100%">
     <div>
       <t-checkbox v-model="allowInput">是否允许输入</t-checkbox>
       <t-checkbox v-model="creatable">允许创建新选项（Enter 创建）</t-checkbox>
     </div>
-    <br />
     <div>
       <t-radio-group
         v-model="excessTagsDisplayType"
@@ -14,7 +13,6 @@
         ]"
       />
     </div>
-    <br /><br />
 
     <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
@@ -43,7 +41,7 @@
         <chevron-down-icon />
       </template>
     </t-select-input>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { computed, ref } from 'vue';

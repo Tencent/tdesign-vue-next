@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-select v-model="value" placeholder="-请选择-" multiple :max="2" :options="options" style="width: 200px" />
-  </div>
+  <t-select v-model="value" placeholder="-请选择-" multiple :max="2" :options="options" style="width: 200px" />
 </template>
 <script setup>
 import { ref } from 'vue';

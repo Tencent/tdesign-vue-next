@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <!-- 自定义选中项内容，valueDisplay 为渲染函数（function） -->
     <t-select
       v-model="value1"
@@ -9,7 +9,6 @@
       multiple
       clearable
     />
-    <br /><br />
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
     <t-select v-model="value2" :options="options" placeholder="请选择" multiple clearable>
@@ -30,11 +29,10 @@
       </template>
     </t-select>
 
-    <br /><br />
     <t-select v-model="value3" :options="options" placeholder="请选择" clearable>
       <template #valueDisplay="{ value }"> {{ value ? `单选自定义（${value}）` : '' }} </template>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value1"
       size="small"
@@ -26,7 +26,7 @@
       size="large"
       style="width: 200px; display: inline-block"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

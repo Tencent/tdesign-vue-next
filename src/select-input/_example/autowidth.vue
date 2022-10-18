@@ -1,29 +1,27 @@
 <template>
-  <div>
-    <!-- :popup-props="{ trigger: 'hover' }" -->
-    <t-select-input
-      :value="selectValue"
-      :popup-visible="popupVisible"
-      placeholder="Please Select"
-      clearable
-      auto-width
-      allow-input
-      @popup-visible-change="onPopupVisibleChange"
-      @clear="onClear"
-      @input-change="onInputChange"
-    >
-      <template #panel>
-        <ul class="tdesign-demo__select-input-ul-auto-width">
-          <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            {{ item.label }}
-          </li>
-        </ul>
-      </template>
-      <template #suffixIcon>
-        <chevron-down-icon />
-      </template>
-    </t-select-input>
-  </div>
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <t-select-input
+    :value="selectValue"
+    :popup-visible="popupVisible"
+    placeholder="Please Select"
+    clearable
+    auto-width
+    allow-input
+    @popup-visible-change="onPopupVisibleChange"
+    @clear="onClear"
+    @input-change="onInputChange"
+  >
+    <template #panel>
+      <ul class="tdesign-demo__select-input-ul-auto-width">
+        <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
+          {{ item.label }}
+        </li>
+      </ul>
+    </template>
+    <template #suffixIcon>
+      <chevron-down-icon />
+    </template>
+  </t-select-input>
 </template>
 <script setup>
 import { ref } from 'vue';

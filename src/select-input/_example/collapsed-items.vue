@@ -1,6 +1,5 @@
 <template>
-  <div class="tdesign-demo__select-input-collapsed-items" style="width: 100%">
-    <br />
+  <t-space direction="vertical" class="tdesign-demo__select-input-collapsed-items">
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
@@ -19,8 +18,6 @@
         />
       </template>
     </t-select-input>
-
-    <br /><br /><br />
 
     <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
     <t-select-input
@@ -42,8 +39,6 @@
         />
       </template>
     </t-select-input>
-
-    <br /><br /><br />
 
     <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
     <t-select-input
@@ -74,7 +69,7 @@
         />
       </template>
     </t-select-input>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { computed, ref } from 'vue';

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-options">
+  <t-space direction="vertical">
     <!-- 方式一：使用 options 自定义下拉选项内容 -->
     <t-select
       v-model="value1"
@@ -7,7 +7,6 @@
       :popup-props="{ overlayClassName: 'tdesign-demo-select__overlay-option' }"
       placeholder="请选择"
     />
-    <br /><br />
 
     <!-- 方式二：使用插槽自定义下拉选项内容 -->
     <t-select
@@ -25,7 +24,7 @@
         </div>
       </t-option>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref, computed } from 'vue';

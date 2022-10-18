@@ -1,13 +1,9 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
-    <div>
-      <t-input-number v-model="value1" large-number :decimal-places="2" step="1" style="width: 300px"></t-input-number>
-    </div>
+  <t-space direction="vertical">
+    <t-input-number v-model="value1" large-number :decimal-places="2" step="1" style="width: 300px"></t-input-number>
 
-    <div>
-      <t-input-number v-model="value2" large-number step="0.888" style="width: 300px"></t-input-number>
-    </div>
-  </div>
+    <t-input-number v-model="value2" large-number step="0.888" style="width: 300px"></t-input-number>
+  </t-space>
 </template>
 
 <script setup>

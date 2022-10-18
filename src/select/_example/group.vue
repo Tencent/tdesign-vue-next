@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space direction="vertical">
     <!-- 方式一：直接传 options 数据，比插槽的方式更简单 -->
     <t-select v-model="value1" :options="options" placeholder="请选择" filterable />
 
@@ -16,7 +16,7 @@
         </t-option>
       </t-option-group>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

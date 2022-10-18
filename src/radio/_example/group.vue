@@ -1,32 +1,24 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <div>
-      <t-radio-group v-model="value" name="city" :options="options" @change="onChange"></t-radio-group>
-    </div>
+  <t-space direction="vertical">
+    <t-radio-group v-model="value" name="city" :options="options" @change="onChange"></t-radio-group>
 
-    <div>
-      <t-radio-group default-value="选项一" name="city" :options="itemOptions" @change="onChange"></t-radio-group>
-    </div>
+    <t-radio-group default-value="选项一" name="city" :options="itemOptions" @change="onChange"></t-radio-group>
 
-    <div>
-      <t-radio-group default-value="1" @change="onChange">
-        <t-radio value="1">选项一</t-radio>
-        <t-radio value="2">选项二</t-radio>
-        <t-radio value="3">选项三</t-radio>
-        <t-radio value="4" disabled>选项四</t-radio>
-      </t-radio-group>
-    </div>
+    <t-radio-group default-value="1" @change="onChange">
+      <t-radio value="1">选项一</t-radio>
+      <t-radio value="2">选项二</t-radio>
+      <t-radio value="3">选项三</t-radio>
+      <t-radio value="4" disabled>选项四</t-radio>
+    </t-radio-group>
 
     <h5>可取消选中单选框组</h5>
-    <div>
-      <t-radio-group default-value="1" @change="onChange">
-        <t-radio allow-uncheck value="1">可取消选中项一</t-radio>
-        <t-radio allow-uncheck value="2">可取消选中项二</t-radio>
-        <t-radio allow-uncheck value="3">可取消选中项三</t-radio>
-        <t-radio value="4">不可取消选中项</t-radio>
-      </t-radio-group>
-    </div>
-  </div>
+    <t-radio-group default-value="1" @change="onChange">
+      <t-radio allow-uncheck value="1">可取消选中项一</t-radio>
+      <t-radio allow-uncheck value="2">可取消选中项二</t-radio>
+      <t-radio allow-uncheck value="3">可取消选中项三</t-radio>
+      <t-radio value="4">不可取消选中项</t-radio>
+    </t-radio-group>
+  </t-space>
 </template>
 
 <script setup>
