@@ -70229,7 +70229,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/textarea.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 1`] = `
 <div
-  class="t-space t-space-vertical"
+  class="t-space t-space-vertical adornment-select"
   style="gap: 16px;"
 >
   
