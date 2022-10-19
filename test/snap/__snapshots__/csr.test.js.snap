@@ -70229,7 +70229,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/textarea.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 1`] = `
 <div
-  class="t-space t-space-vertical"
+  class="t-space t-space-vertical adornment-select"
   style="gap: 16px;"
 >
   
@@ -139004,11 +139004,13 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
         type,
         row
       } = params;
+
       if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
         return __vite_ssr_import_0__.createVNode(__vite_ssr_import_2__.Loading, {
           \\"size\\": \\"14px\\"
         }, null);
       }
+
       return type === 'expand' ? __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.AddRectangleIcon, null, null) : __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.MinusRectangleIcon, null, null);
     }"
   >
