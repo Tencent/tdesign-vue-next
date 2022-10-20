@@ -283,8 +283,6 @@ export default defineComponent({
       // 根据校验结果设置校验状态
       if (rules.length) {
         verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
-      } else {
-        verifyStatus.value = ValidateStatus.TO_BE_VALIDATED;
       }
       // 重置处理
       if (needResetField.value) {
