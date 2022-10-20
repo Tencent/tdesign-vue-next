@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-input-number v-model="value" :max="15" :min="-5" :step="1.2" :decimal-places="2" @change="onChange" />
-  </div>
+  <t-input-number v-model="value" :max="15" :min="-5" :step="1.2" :decimal-places="2" @change="onChange" />
 </template>
 
 <script setup>

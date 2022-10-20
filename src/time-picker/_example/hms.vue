@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-time-picker v-model="value" @change="timeChange" @open="open" @close="close" />
-  </div>
+  <t-time-picker v-model="value" @change="timeChange" @open="open" @close="close" />
 </template>
 
 <script setup>

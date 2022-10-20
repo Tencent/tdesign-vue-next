@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
-    <t-tree :data="items" activable hover transition />
-  </div>
+  <t-tree :data="items" activable hover transition />
 </template>
 
 <script setup>
@@ -52,8 +50,3 @@ const items = [
   },
 ];
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-</style>

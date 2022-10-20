@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value"
       placeholder="-请选择-"
@@ -20,7 +20,7 @@
       @blur="handleBlur"
       @focus="handleFocus"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

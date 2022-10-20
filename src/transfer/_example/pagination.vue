@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <t-transfer
-      v-model="targetValue"
-      theme="primary"
-      :data="list"
-      :checked-value="checkedValue"
-      :pagination="pagination"
-      :on-page-change="handlePageChange"
-    />
-  </div>
+  <t-transfer
+    v-model="targetValue"
+    theme="primary"
+    :data="list"
+    :checked-value="checkedValue"
+    :pagination="pagination"
+    :on-page-change="handlePageChange"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';

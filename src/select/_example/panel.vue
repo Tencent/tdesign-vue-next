@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space direction="vertical">
     <!-- 自定义面板顶部内容：如自定义搜索框。同时支持插槽和 Props(this,panelTopContent) -->
     <t-select v-model="value1" :options="options1" clearable placeholder="请选择云解决方案">
       <template #panelTopContent>
@@ -26,7 +26,7 @@
         </div>
       </template>
     </t-select>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

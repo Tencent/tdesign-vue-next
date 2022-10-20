@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-slider">
+  <t-space>
     <div class="number-vertical-block">
       <t-slider v-model="value1" :layout="layout" :show-tooltip="true" :input-number-props="inputNumberProps" />
     </div>
@@ -7,7 +7,7 @@
     <div class="number-vertical-block">
       <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" :input-number-props="inputNumberProps" />
     </div>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

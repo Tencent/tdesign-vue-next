@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tooltip-demo">
+  <t-space>
     <t-tooltip content="文字提示仅展示文本内容">
       <t-button variant="outline">悬浮时触发（默认）</t-button>
     </t-tooltip>
@@ -12,7 +12,7 @@
     <t-tooltip content="文字提示仅展示文本内容" trigger="context-menu">
       <t-button variant="outline">右击时触发</t-button>
     </t-tooltip>
-  </div>
+  </t-space>
 </template>
 <style lang="less" scoped>
 .tdesign-tooltip-demo {

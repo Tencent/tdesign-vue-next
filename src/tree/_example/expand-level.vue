@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
-    <t-tree :data="items" hover :expand-level="1" />
-  </div>
+  <t-tree :data="items" hover :expand-level="1" />
 </template>
 
 <script setup>
@@ -46,8 +44,3 @@ const items = [
   },
 ];
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-</style>

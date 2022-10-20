@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value"
       value-type="object"
@@ -19,7 +19,7 @@
       style="width: 200px; display: inline-block"
       @change="handleChange"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { defineComponent, ref } from 'vue';

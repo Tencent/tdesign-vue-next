@@ -1,11 +1,9 @@
 <template>
-  <div class="tdesign-tree-select-prefix">
-    <t-tree-select v-model="value" :data="options" placeholder="请输入">
-      <template #prefixIcon>
-        <t-icon name="browse" size="16" />
-      </template>
-    </t-tree-select>
-  </div>
+  <t-tree-select v-model="value" :data="options" placeholder="请输入">
+    <template #prefixIcon>
+      <t-icon name="browse" size="16" />
+    </template>
+  </t-tree-select>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -43,9 +41,3 @@ const options = [
 
 const value = ref('');
 </script>
-<style scoped>
-.tdesign-tree-select-prefix {
-  width: 300px;
-  margin: 0 20px;
-}
-</style>

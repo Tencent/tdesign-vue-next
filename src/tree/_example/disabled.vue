@@ -1,26 +1,22 @@
 <template>
-  <div class="tdesign-tree-base">
-    <div class="operations">
-      <t-form>
-        <t-form-item label="是否禁用整个 tree" label-width="150">
-          <t-switch v-model="disabled" />
-        </t-form-item>
-        <t-form-item label="是否只禁用 checkbox" label-width="200">
-          <t-switch v-model="disableCheck" />
-        </t-form-item>
-      </t-form>
-    </div>
+  <t-space direction="vertical">
+    <t-form>
+      <t-form-item label="是否禁用整个 tree" label-width="150">
+        <t-switch v-model="disabled" />
+      </t-form-item>
+      <t-form-item label="是否只禁用 checkbox" label-width="200">
+        <t-switch v-model="disableCheck" />
+      </t-form-item>
+    </t-form>
     <t-tree :data="items" hover checkable expand-all :disabled="disabled" :disable-check="disableCheck" />
 
-    <div class="operations">
-      <t-form>
-        <t-form-item label="禁用指定节点 checkbox" label-width="200">
-          <t-switch v-model="disableTarget" />
-        </t-form-item>
-      </t-form>
-    </div>
+    <t-form>
+      <t-form-item label="禁用指定节点 checkbox" label-width="200">
+        <t-switch v-model="disableTarget" />
+      </t-form-item>
+    </t-form>
     <t-tree :data="items" hover checkable expand-all :disable-check="fnDisableCheck" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -79,8 +75,3 @@ const fnDisableCheck = (node) => {
   return false;
 };
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-</style>

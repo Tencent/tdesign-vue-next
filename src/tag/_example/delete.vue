@@ -1,24 +1,24 @@
 <template>
-  <div class="tag-demo">
-    <div class="tag-block">
+  <t-space direction="vertical">
+    <t-space class="tag-block">
       <t-tag theme="primary" closable>标签一</t-tag>
       <t-tag theme="success" closable>标签二</t-tag>
       <t-tag theme="warning" closable>标签三</t-tag>
       <t-tag theme="danger" closable>标签四</t-tag>
-    </div>
-    <div class="tag-block light">
+    </t-space>
+    <t-space class="tag-block light">
       <t-tag theme="primary" variant="light" closable>标签一</t-tag>
       <t-tag theme="success" variant="light" closable>标签二</t-tag>
       <t-tag theme="warning" variant="light" closable>标签三</t-tag>
       <t-tag theme="danger" variant="light" closable>标签四</t-tag>
-    </div>
-    <div class="tag-block">
+    </t-space>
+    <t-space class="tag-block">
       <t-tag variant="outline" theme="primary" closable>标签一</t-tag>
       <t-tag variant="outline" theme="success" closable>标签二</t-tag>
       <t-tag variant="outline" theme="warning" closable>标签三</t-tag>
       <t-tag variant="outline" theme="danger" closable>标签四</t-tag>
-    </div>
-    <div class="tag-block">
+    </t-space>
+    <t-space class="tag-block">
       <t-tag
         v-for="(tag, index) in tags"
         :key="index"
@@ -32,15 +32,15 @@
       >
         {{ tag.name }}
       </t-tag>
-    </div>
-    <div class="tag-block editable">
+    </t-space>
+    <t-space class="tag-block editable">
       <t-tag v-if="!inputVisible" @click="handleClickAdd">
         <add-icon />
         添加标签
       </t-tag>
       <t-input v-else ref="input" size="small" style="width: 94px" @blur="handleInputEnter" @enter="handleInputEnter" />
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { nextTick, ref } from 'vue';
@@ -93,16 +93,3 @@ const handleClickAdd = () => {
   });
 };
 </script>
-<style lang="less" scoped>
-.tag-block {
-  display: flex;
-  margin-bottom: 30px;
-  > * {
-    margin-right: 30px;
-  }
-}
-
-.editable .t-tag {
-  cursor: pointer;
-}
-</style>

@@ -1,11 +1,11 @@
 <template>
-  <div class="tdesign-demo-select-base">
+  <t-space direction="vertical">
     <t-select v-model="value1" :options="options" placeholder="请选择云解决方案" />
 
     <t-select v-model="value2" :options="options" disabled placeholder="请选择云解决方案" />
 
     <t-select v-model="value3" :options="options" loading placeholder="请选择云解决方案" />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <t-transfer
-      v-model="targetValue"
-      theme="primary"
-      :data="list"
-      :checked-value="checkedValue"
-      :transfer-item="transferItem"
-    />
-  </div>
+  <t-transfer
+    v-model="targetValue"
+    theme="primary"
+    :data="list"
+    :checked-value="checkedValue"
+    :transfer-item="transferItem"
+  />
 </template>
 
 <script setup lang="jsx">

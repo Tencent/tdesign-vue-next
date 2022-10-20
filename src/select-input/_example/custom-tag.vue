@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-select-input-custom-tag">
+  <t-space direction="vertical" class="tdesign-demo-select-input-custom-tag">
     <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
     <t-select-input :value="selectValue1" placeholder="Please Select" clearable @clear="onClear">
       <template #valueDisplay>
@@ -17,8 +17,6 @@
       </template>
     </t-select-input>
 
-    <br /><br />
-
     <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
     <t-select-input :value="selectValue2" clearable placeholder="Please Select" multiple @tag-change="onTagChange2">
       <template #tag="{ value }">
@@ -31,8 +29,6 @@
         <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
       </template>
     </t-select-input>
-
-    <br /><br />
 
     <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
     <t-select-input :value="selectValue3" placeholder="Please Select" multiple @tag-change="onTagChange3">
@@ -55,7 +51,7 @@
         <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
       </template>
     </t-select-input>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

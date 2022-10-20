@@ -1,11 +1,11 @@
 <template>
-  <div class="tdesign-demo-block-column" style="width: 80%">
+  <t-space direction="vertical">
     <t-tag-input v-model="tags1" size="small" clearable />
 
     <t-tag-input v-model="tags2" clearable />
 
     <t-tag-input v-model="tags3" size="large" clearable />
-  </div>
+  </t-space>
 </template>
 
 <script setup>

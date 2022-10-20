@@ -1,15 +1,13 @@
 <template>
-  <div class="tdesign-demo-block-column">
-    <t-textarea
-      v-model="value"
-      placeholder="请输入"
-      @keypress="onKeypress"
-      @keydown="onKeydown"
-      @keyup="onKeyup"
-      @focus="onFocus"
-      @blur="onBlur"
-    />
-  </div>
+  <t-textarea
+    v-model="value"
+    placeholder="请输入"
+    @keypress="onKeypress"
+    @keydown="onKeydown"
+    @keyup="onKeyup"
+    @focus="onFocus"
+    @blur="onBlur"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';

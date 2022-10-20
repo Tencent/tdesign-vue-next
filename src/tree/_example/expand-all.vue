@@ -1,17 +1,15 @@
 <template>
-  <div class="tdesign-tree-demo">
-    <div class="operations">
-      <t-form label-width="150">
-        <t-form-item label="切换数据">
-          <t-switch @change="toggleData" />
-        </t-form-item>
-        <t-form-item label="展开动画">
-          <t-switch v-model="transition" />
-        </t-form-item>
-      </t-form>
-    </div>
+  <t-space direction="vertical">
+    <t-form label-width="150">
+      <t-form-item label="切换数据">
+        <t-switch @change="toggleData" />
+      </t-form-item>
+      <t-form-item label="展开动画">
+        <t-switch v-model="transition" />
+      </t-form-item>
+    </t-form>
     <t-tree :data="items" expand-all :transition="transition" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
@@ -85,8 +83,3 @@ const toggleData = () => {
   items.value = items.value === data1 ? data2 : data1;
 };
 </script>
-<style scoped>
-.tdesign-tree-base .t-button {
-  margin: 0 10px 10px 0;
-}
-</style>

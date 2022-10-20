@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-transfer v-model:checked="checked" :data="list" />
-  </div>
+  <t-transfer v-model:checked="checked" :data="list" />
 </template>
 <script setup>
 import { ref } from 'vue';

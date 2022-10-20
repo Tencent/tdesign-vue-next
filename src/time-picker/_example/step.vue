@@ -1,7 +1,5 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-time-picker v-model="time1" :steps="[1, 2, 3]" />
-  </div>
+  <t-time-picker v-model="time1" :steps="[1, 2, 3]" />
 </template>
 
 <script setup>

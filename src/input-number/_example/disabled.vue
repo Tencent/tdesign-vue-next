@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <t-input-number v-model="value" :max="15" :min="-2" :disabled="true" />
-  </div>
+  <t-input-number v-model="value" :max="15" :min="-2" :disabled="true" />
 </template>
 
 <script setup>

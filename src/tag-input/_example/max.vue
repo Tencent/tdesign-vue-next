@@ -1,7 +1,5 @@
 <template>
-  <div style="width: 100%">
-    <t-tag-input v-model="tags" placeholder="最多只能输入 3 个标签" :max="3" @enter="onEnter" />
-  </div>
+  <t-tag-input v-model="tags" placeholder="最多只能输入 3 个标签" :max="3" @enter="onEnter" />
 </template>
 
 <script setup>

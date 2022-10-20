@@ -1,13 +1,9 @@
 <template>
-  <div class="demo-slider">
-    <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :step="step" />
-    </div>
+  <t-space class="slider-demo-container" direction="vertical">
+    <t-slider v-model="value1" :show-tooltip="true" :step="step" />
 
-    <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :step="step" />
-    </div>
-  </div>
+    <t-slider v-model="value2" range :show-tooltip="true" :step="step" />
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -17,7 +13,7 @@ const value2 = ref([30, 70]);
 const step = 4;
 </script>
 <style>
-.block {
+.slider-demo-container {
   padding: 30px 24px;
 }
 </style>

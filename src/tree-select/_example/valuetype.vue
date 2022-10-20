@@ -1,16 +1,8 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-tree-select v-model="value" :data="options" clearable value-type="object" placeholder="请选择" />
-    <t-tree-select
-      v-model="mulValue"
-      class="tree-select-multiple"
-      :data="options"
-      clearable
-      multiple
-      value-type="object"
-      placeholder="请选择"
-    />
-  </div>
+    <t-tree-select v-model="mulValue" :data="options" clearable multiple value-type="object" placeholder="请选择" />
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -52,12 +44,3 @@ const mulValue = ref([
   { label: '深圳市', value: 'shenzhen' },
 ]);
 </script>
-<style scoped>
-.tdesign-tree-select-base {
-  width: 300px;
-  margin: 0 20px;
-}
-.tree-select-multiple {
-  margin-top: 20px;
-}
-</style>

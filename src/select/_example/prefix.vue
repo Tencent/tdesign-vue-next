@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <t-select v-model="value" style="width: 200px" :options="options" clearable placeholder="-请选择-">
-      <template #prefixIcon>
-        <icon name="browse" style="margin-right: 8px" />
-      </template>
-    </t-select>
-  </div>
+  <t-select v-model="value" style="width: 200px" :options="options" clearable placeholder="-请选择-">
+    <template #prefixIcon>
+      <icon name="browse" style="margin-right: 8px" />
+    </template>
+  </t-select>
 </template>
 <script setup>
 import { ref } from 'vue';

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-select
       v-model="value"
       placeholder="-请选择-"
@@ -16,7 +16,7 @@
       style="width: 200px; display: inline-block"
       :options="options"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

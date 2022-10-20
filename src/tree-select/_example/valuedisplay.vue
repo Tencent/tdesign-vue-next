@@ -1,24 +1,16 @@
 <template>
-  <div class="tdesign-demo-block-row">
+  <t-space direction="vertical">
     <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
       <template #valueDisplay="{ value: valueDisplay }"> {{ valueDisplay.label }}({{ valueDisplay.value }}) </template>
     </t-tree-select>
-    <t-tree-select
-      v-model="mulValue"
-      class="tree-select-multiple"
-      :data="options"
-      multiple
-      clearable
-      filterable
-      placeholder="请选择"
-    >
+    <t-tree-select v-model="mulValue" :data="options" multiple clearable filterable placeholder="请选择">
       <template #valueDisplay="{ value: valueDisplay, onClose }">
         <t-tag v-for="(item, index) in valueDisplay" :key="index" closable :on-close="() => onClose(index)">
           {{ item.label }}({{ item.value }})
         </t-tag>
       </template>
     </t-tree-select>
-  </div>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -56,12 +48,3 @@ const options = [
   },
 ];
 </script>
-<style scoped>
-.tdesign-tree-select-valuedisplay {
-  width: 300px;
-  margin: 0 20px;
-}
-.tree-select-multiple {
-  margin-top: 20px;
-}
-</style>

@@ -1,14 +1,10 @@
 <template>
-  <div class="tdesign-demo-block">
+  <t-space direction="vertical">
     <h3>禁用整个选择器</h3>
-    <br />
     <t-time-picker v-model="time1" :disabled="true" />
-    <br />
-    <br />
     <h3>禁用指定时间</h3>
-    <br />
     <t-time-picker :disable-time="disableTime" />
-  </div>
+  </t-space>
 </template>
 
 <script setup>
