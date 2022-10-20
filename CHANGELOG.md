@@ -4,6 +4,41 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.2 `2022-10-17` 
+### 🚀 Features
+- `Select`: 下拉框隐藏的时候清空筛选文本 @skytt ([#1847](https://github.com/Tencent/tdesign-vue-next/pull/1847))
+- `Tag`: 样式优化，实现 `light-outline` 风格 @HelKyle ([#1859](https://github.com/Tencent/tdesign-vue-next/pull/1859))
+- `Table`: 增强型表格，支持列配置，支持不传 `displayColumns` 时默认显示全部列，([issue #1784](https://github.com/Tencent/tdesign-vue-next/issues/1784)) @chaishi ([#1869](https://github.com/Tencent/tdesign-vue-next/pull/1869))
+- `DatePicker`: 调整 `requiredMark api` 可独立控制星号展示 @HQ-Lin ([#1832](https://github.com/Tencent/tdesign-vue-next/pull/1832))
+### 🐞 Bug Fixes
+- `Dropdown`: 
+  - 修复插槽下 `item` 使用 `v-if` 异常的问题 @uyarn ([#1851](https://github.com/Tencent/tdesign-vue-next/pull/1851))
+  - 修复`trigger`部分响应式丢失的问题 @uyarn ([#1858](https://github.com/Tencent/tdesign-vue-next/pull/1858))
+  - 修复插槽平铺内容为子节点内容渲染丢失部分元素的问题 @uyarn ([#1870](https://github.com/Tencent/tdesign-vue-next/pull/1870))
+- `Table`: 
+  - 筛选功能，`resetValue` 无效，([issue #1611](https://github.com/Tencent/tdesign-vue/issues/1611)) @chaishi ([#1869](https://github.com/Tencent/tdesign-vue-next/pull/1869))
+  - 表头吸顶功能，数据变化更新吸顶位置，([issue #1585](https://github.com/Tencent/tdesign-vue/issues/1585)) @chaishi ([#1869](https://github.com/Tencent/tdesign-vue-next/pull/1869))
+  - 组件类型未导出 ([issue #1815](https://github.com/Tencent/tdesign-vue-next/issues/1815)) @pengYYYYY ([#1871](https://github.com/Tencent/tdesign-vue-next/pull/1871))
+  - 移除demo中对吸顶表格的最大宽度限制 @ZTao-z ([#1854](https://github.com/Tencent/tdesign-vue-next/pull/1854))
+- `Tooltip`: 修复 `tooltip` 无法显示问题([issue #1834](https://github.com/Tencent/tdesign-vue-next/issues/1834)) @ChrisLee0211 ([#1842](https://github.com/Tencent/tdesign-vue-next/pull/1842))
+- `DatePicker`: 修复 `range` 数据格式化异常问题 @HQ-Lin ([#1845](https://github.com/Tencent/tdesign-vue-next/pull/1845))
+- `Tree`: `watch` 联动判断找不到父节点 ([issue #1754](https://github.com/Tencent/tdesign-vue-next/issues/1754)) @Reg1350 ([#1848](https://github.com/Tencent/tdesign-vue-next/pull/1848))
+- `Card`: 修复 `demo` 样式 @yilaierwang ([#1861](https://github.com/Tencent/tdesign-vue-next/pull/1861))
+- `Avatar`: `demo` 中头像类型展示，删除重复头像并调整展示顺序 @tutaizi ([#1838](https://github.com/Tencent/tdesign-vue-next/pull/1838))
+- `Tree`: `watch` 联动判断找不到父节点 ([issue #1754](https://github.com/Tencent/tdesign-vue-next/issues/1754)) @Reg1350 ([#1848](https://github.com/Tencent/tdesign-vue-next/pull/1848))
+- `Card`: 修复 `demo` 样式 @yilaierwang ([#1861](https://github.com/Tencent/tdesign-vue-next/pull/1861))
+- `Avatar`: `demo` 中头像类型展示，删除重复头像并调整展示顺序 @tutaizi ([#1838](https://github.com/Tencent/tdesign-vue-next/pull/1838))
+- `Popup`: 关闭时销毁 `dom` @Lmmmmmm-bb ([#1867](https://github.com/Tencent/tdesign-vue-next/pull/1867))
+
+### 🚧 Others
+- `Tooltip`: 补充 `tooltip` 单元测试 @LadyChatterleyLover ([#1849](https://github.com/Tencent/tdesign-vue-next/pull/1849))
+- `Drawer`: 补充 `drawer` 单元测试 @LadyChatterleyLover ([#1833](https://github.com/Tencent/tdesign-vue-next/pull/1833))
+- `Guide`: 样式优化 @zhangpaopao0609 ([#1853](https://github.com/Tencent/tdesign-vue-next/pull/1853))
+- `Transfer`: 补充 `transfer` 单元测试 @LadyChatterleyLover ([#1862](https://github.com/Tencent/tdesign-vue-next/pull/1862))
+- `TagInput`:  补充 `tag-input` 单元测试 @LadyChatterleyLover ([#1865](https://github.com/Tencent/tdesign-vue-next/pull/1865))
+- `InputAdornment`: 样式优化 @zhangpaopao0609 ([#1852](https://github.com/Tencent/tdesign-vue-next/pull/1852))
+- `Site`: 增加官网构建更新覆盖率徽章 @pengYYYYY ([#1866](https://github.com/Tencent/tdesign-vue-next/pull/1866))
+- `ColorPicker`: 补充 `color-picker `单元测试 @S-mohan ([#1872](https://github.com/Tencent/tdesign-vue-next/pull/1872))
 
 ## 🌈 0.24.1 `2022-10-10` 
 ### 🐞 Bug Fixes
