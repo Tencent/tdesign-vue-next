@@ -1,19 +1,22 @@
 <template>
-  <div v-for="(item, index) in commentsData" :key="index">
-    <t-comment :avatar="item.avatar" :author="item.author" :datetime="item.datetime" :content="item.content">
-      <template #actions>
-        <t-space key="thumbUp" :size="6">
-          <t-icon name="thumb-up" />
-          <span>6</span>
-        </t-space>
-        <t-space key="chat" :size="6">
-          <t-icon name="chat" />
-          <span>回复</span>
-        </t-space>
+  <t-list :split="true">
+    <t-list-item v-for="(item, index) in commentsData" :key="index">
+      <template #content>
+        <t-comment :avatar="item.avatar" :author="item.author" :datetime="item.datetime" :content="item.content">
+          <template #actions>
+            <t-space key="thumbUp" :size="6">
+              <t-icon name="thumb-up" />
+              <span>6</span>
+            </t-space>
+            <t-space key="chat" :size="6">
+              <t-icon name="chat" />
+              <span>回复</span>
+            </t-space>
+          </template>
+        </t-comment>
       </template>
-    </t-comment>
-    <t-divider />
-  </div>
+    </t-list-item>
+  </t-list>
 </template>
 
 <script setup>
