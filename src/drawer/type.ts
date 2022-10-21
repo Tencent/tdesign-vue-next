@@ -5,7 +5,7 @@
  * */
 
 import { ButtonProps } from '../button';
-import { TNode, AttachNode } from '../common';
+import { TNode, AttachNode, Styles } from '../common';
 
 export interface TdDrawerProps {
   /**
@@ -135,3 +135,45 @@ export interface DrawerCloseContext {
   trigger: DrawerEventSource;
   e: MouseEvent | KeyboardEvent;
 }
+export interface DrawerOptions extends Omit<TdDrawerProps, 'attach'> {
+  /**
+   * 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * @default 'body'
+   */
+  attach?: AttachNode;
+  /**
+   * 弹框类名，示例：'t-class-Drawer-first t-class-Drawer-second'
+   * @default ''
+   */
+  className?: string;
+  /**
+   * 弹框 style 属性，输入 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText)
+   */
+  style?: string | Styles;
+}
+
+export interface DrawerInstance {
+  /**
+   * 销毁弹框
+   */
+  destroy?: () => void;
+  /**
+   * 隐藏弹框
+   */
+  hide?: () => void;
+  /**
+   * 显示弹框
+   */
+  show?: () => void;
+  /**
+   * 更新弹框内容
+   */
+  update?: (props: DrawerOptions) => void;
+}
+
+export interface DrawerCloseContext {
+  trigger: DrawerEventSource;
+  e: MouseEvent | KeyboardEvent;
+}
+
+export type DrawerMethod = (options?: DrawerOptions) => DrawerInstance;

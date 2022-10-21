@@ -52904,6 +52904,35 @@ exports[`csr snapshot test > csr test ./src/drawer/_example/placement.vue 1`] = 
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/drawer/_example/plugin.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        DialogPlugin.confirm
+        
+      </span>
+    </button>
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/drawer/_example/popup.vue 1`] = `
 <div>
   <div
