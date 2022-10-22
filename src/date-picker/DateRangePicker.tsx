@@ -84,6 +84,10 @@ export default defineComponent({
           }
           month.value = nextMonth;
           year.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).year());
+          // 月份季度选择时需要确保右侧面板年份比左侧大
+          if ((props.mode === 'month' || props.mode === 'quarter') && year.value[0] === year.value[1]) {
+            year.value = [year.value[0], year.value[0] + 1];
+          }
         } else {
           year.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).year());
           month.value = value.value.map((v: string) => parseToDayjs(v || new Date(), formatRef.value.format).month());
