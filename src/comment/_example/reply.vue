@@ -4,6 +4,7 @@
     author="评论作者名"
     datetime="今天 16:38"
     content="这里是评论者写的评论内容。"
+    class="comment-reply"
   >
     <template #actions>
       <t-space key="thumbUp" :size="6">
@@ -44,3 +45,13 @@
     </template>
   </t-comment>
 </template>
+
+<style lang="less">
+.comment-reply.t-comment {
+  & > .t-comment__inner {
+    .t-comment__actions {
+      margin-right: 24px;
+    }
+  }
+}
+</style>
