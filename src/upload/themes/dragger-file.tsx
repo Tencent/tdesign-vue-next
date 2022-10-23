@@ -58,7 +58,8 @@ export default defineComponent({
     const renderImage = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
-      return <div class={`${uploadPrefix}__dragger-img-wrap`}>{file.url && <img src={file.url} />}</div>;
+      const url = file.url || file.response?.url;
+      return <div class={`${uploadPrefix}__dragger-img-wrap`}>{url && <img src={url} />}</div>;
     };
 
     const renderUploading = () => {
