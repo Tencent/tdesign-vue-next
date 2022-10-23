@@ -78,9 +78,7 @@ export default defineComponent({
     const renderMainPreview = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
-      const fileName = props.abridgeName
-        ? abridgeName(file.name, props.abridgeName[0], props.abridgeName[1])
-        : file.name;
+      const fileName = props.abridgeName ? abridgeName(file.name, ...props.abridgeName) : file.name;
       return (
         <div class={`${uploadPrefix}__dragger-progress`}>
           {props.theme === 'image' && renderImage()}
