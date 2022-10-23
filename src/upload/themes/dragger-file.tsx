@@ -179,9 +179,9 @@ export default defineComponent({
         ref={draggerFileRef}
         class={classes.value}
         onDrop={drag.handleDrop}
-        onDragEnter={drag.handleDragenter}
-        onDragOver={drag.handleDragover}
-        onDragLeave={drag.handleDragleave}
+        onDragenter={drag.handleDragenter}
+        onDragover={drag.handleDragover}
+        onDragleave={drag.handleDragleave}
       >
         {props.trigger?.(h, { files: displayFiles.value, dragActive: dragActive.value }) || getContent()}
       </div>
