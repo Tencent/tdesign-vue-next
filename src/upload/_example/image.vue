@@ -66,6 +66,7 @@
       theme="image"
       tips="允许选择多张图片文件上传，最多只能上传 3 张图片"
       accept="image/*"
+      :abridge-name="[6, 6]"
       :disabled="disabled"
       :auto-upload="autoUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
