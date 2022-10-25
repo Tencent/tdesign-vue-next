@@ -1,9 +1,9 @@
-import { computed, Slots, VNode, Ref } from 'vue';
+import { computed, Slots, VNode, Ref, ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
 
 import { useChildComponentSlots } from '../../hooks/slot';
-import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue } from '../type';
+import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue, SelectOption } from '../type';
 
 type UniOption = (TdOptionProps | SelectOptionGroup) & {
   index?: number;
@@ -12,6 +12,7 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
 
 export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>) => {
   const getChildComponentSlots = useChildComponentSlots();
+  const optionsCache = ref<SelectOption[]>([]);
 
   const options = computed(() => {
     let dynamicIndex = 0;
@@ -94,7 +95,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
 
   const optionsMap = computed(() => {
     const res = new Map<SelectValue, TdOptionProps>();
-    optionsList.value.forEach((option: TdOptionProps) => {
+    optionsList.value.concat(optionsCache.value).forEach((option: TdOptionProps) => {
       res.set(option.value, option);
     });
     return res;
@@ -104,5 +105,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     options,
     optionsMap,
     optionsList,
+    optionsCache,
   };
 };
