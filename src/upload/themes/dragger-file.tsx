@@ -12,6 +12,7 @@ import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
+import ImageViewer from '../../image-viewer';
 
 export interface DraggerProps extends CommonDisplayFileProps {
   trigger?: TdUploadProps['trigger'];
@@ -58,7 +59,14 @@ export default defineComponent({
     const renderImage = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
-      return <div class={`${uploadPrefix}__dragger-img-wrap`}>{file.url && <img src={file.url} />}</div>;
+      const url = file.url || file.response?.url;
+      return (
+        <div class={`${uploadPrefix}__dragger-img-wrap`}>
+          {url && (
+            <ImageViewer images={[url]} trigger={(h, { open }: any) => <img src={url} onClick={open} />}></ImageViewer>
+          )}
+        </div>
+      );
     };
 
     const renderUploading = () => {
@@ -77,9 +85,7 @@ export default defineComponent({
     const renderMainPreview = () => {
       const file = displayFiles.value[0];
       if (!file) return null;
-      const fileName = props.abridgeName
-        ? abridgeName(file.name, props.abridgeName[0], props.abridgeName[1])
-        : file.name;
+      const fileName = props.abridgeName ? abridgeName(file.name, ...props.abridgeName) : file.name;
       return (
         <div class={`${uploadPrefix}__dragger-progress`}>
           {props.theme === 'image' && renderImage()}
@@ -179,9 +185,9 @@ export default defineComponent({
         ref={draggerFileRef}
         class={classes.value}
         onDrop={drag.handleDrop}
-        onDragEnter={drag.handleDragenter}
-        onDragOver={drag.handleDragover}
-        onDragLeave={drag.handleDragleave}
+        onDragenter={drag.handleDragenter}
+        onDragover={drag.handleDragover}
+        onDragleave={drag.handleDragleave}
       >
         {props.trigger?.(h, { files: displayFiles.value, dragActive: dragActive.value }) || getContent()}
       </div>

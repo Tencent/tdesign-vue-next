@@ -17726,7 +17726,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  一月
+                  1 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17742,7 +17742,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  二月
+                  2 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17758,7 +17758,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  三月
+                  3 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17774,77 +17774,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  四月
-                </div>
-                <div
-                  class="t-calendar__table-body-cell-content"
-                >
-                  <!---->
-                </div>
-                
-              </td>
-              
-            </tr>
-            <tr
-              class="t-calendar__table-body-row"
-            >
-              
-              <td
-                class="t-calendar__table-body-cell"
-              >
-                
-                <div
-                  class="t-calendar__table-body-cell-display"
-                >
-                  五月
-                </div>
-                <div
-                  class="t-calendar__table-body-cell-content"
-                >
-                  <!---->
-                </div>
-                
-              </td>
-              <td
-                class="t-calendar__table-body-cell"
-              >
-                
-                <div
-                  class="t-calendar__table-body-cell-display"
-                >
-                  六月
-                </div>
-                <div
-                  class="t-calendar__table-body-cell-content"
-                >
-                  <!---->
-                </div>
-                
-              </td>
-              <td
-                class="t-calendar__table-body-cell"
-              >
-                
-                <div
-                  class="t-calendar__table-body-cell-display"
-                >
-                  七月
-                </div>
-                <div
-                  class="t-calendar__table-body-cell-content"
-                >
-                  <!---->
-                </div>
-                
-              </td>
-              <td
-                class="t-calendar__table-body-cell"
-              >
-                
-                <div
-                  class="t-calendar__table-body-cell-display"
-                >
-                  八月
+                  4 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17866,7 +17796,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  九月
+                  5 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17882,7 +17812,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  十月
+                  6 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17898,7 +17828,77 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  十一月
+                  7 月
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  8 月
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  9 月
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  10 月
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  11 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -17914,7 +17914,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  十二月
+                  12 月
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -37009,7 +37009,7 @@ exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
 <div
-  class="t-comment"
+  class="t-comment comment-reply"
 >
   <div
     class="t-comment__inner"
@@ -45803,7 +45803,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   >
                     
                     <div
-                      class="t-input__wrap t-select-input t-select"
+                      class="t-input__wrap t-select-input t-select-input--empty t-select"
                     >
                       <div
                         class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -98976,7 +98976,7 @@ exports[`csr snapshot test > csr test ./src/select/_example/disabled.vue 1`] = `
     >
       
       <div
-        class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select"
+        class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-select"
       >
         <div
           class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -98986,31 +98986,20 @@ exports[`csr snapshot test > csr test ./src/select/_example/disabled.vue 1`] = `
             class="t-input__prefix"
           >
             
-            <span
-              class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
-            >
-              <!---->
-              
-              shanghai
-              
-              <!---->
-            </span>
-            <span
-              class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
-            >
-              <!---->
-              
-              beijing
-              
-              <!---->
-            </span>
             
           </div>
-          <!---->
+          <input
+            class="t-input__inner"
+            disabled=""
+            placeholder="-请选择-"
+            readonly=""
+            type="text"
+            unselectable="on"
+          />
           <span
             class="t-input__input-pre"
           >
-            
+            -请选择-
           </span>
           <!---->
           <!---->

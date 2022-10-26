@@ -221,6 +221,7 @@ export default function useUpload(props: TdUploadProps) {
     upload({
       action: props.action,
       headers: props.headers,
+      name: props.name,
       withCredentials: props.withCredentials,
       uploadedFiles: uploadValue.value,
       toUploadFiles: files,

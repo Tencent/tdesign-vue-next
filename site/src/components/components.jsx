@@ -54,7 +54,9 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          const versions = filterVersions(Object.keys(res.versions).filter((v) => !v.includes('alpha')));
+          const versions = filterVersions(
+            Object.keys(res.versions).filter((v) => !v.includes('alpha') && !v.includes('patch')),
+          );
           versions.forEach((v) => {
             const nums = v.split('.');
             if (nums[0] === '0' && nums[1] < 6) return false;

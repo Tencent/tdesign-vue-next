@@ -41,7 +41,7 @@ export default defineComponent({
       label: props.keys?.label || 'label',
       value: props.keys?.value || 'value',
     }));
-    const { options, optionsMap, optionsList } = useSelectOptions(props, keys);
+    const { options, optionsMap, optionsList, optionsCache } = useSelectOptions(props, keys);
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -50,7 +50,7 @@ export default defineComponent({
           ? orgValue.value[keys.value.value]
           : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
       }
-      return orgValue.value;
+      return orgValue.value || (!props.multiple ? undefined : []);
     });
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], e) => {
       if (props.valueType === 'object') {
@@ -86,7 +86,7 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsList.value)) ||
+        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -94,8 +94,8 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsList.value)
-        : getSingleContent(innerValue.value, optionsList.value),
+        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
+        : getSingleContent(innerValue.value, optionsMap),
     );
 
     // valueDisplayParams参数
@@ -269,10 +269,31 @@ export default defineComponent({
       props.onSearch?.(`${value}`);
     }, 300);
 
+    const addCache = (val: SelectValue) => {
+      if (props.multiple) {
+        const newCache = [];
+        for (const item of (val as SelectValue[]) || []) {
+          const option = optionsMap.value.get(item);
+          if (option) {
+            newCache.push(option);
+          }
+        }
+        optionsCache.value = Array.from(new Set([...newCache, ...optionsCache.value]));
+      } else {
+        const option = optionsMap.value.get(val);
+        if (option) {
+          optionsCache.value = Array.from(new Set([option, ...optionsCache.value]));
+        }
+      }
+    };
+
     watch(
       orgValue,
-      () => {
+      (val) => {
         checkValueInvalid();
+        nextTick(() => {
+          addCache(val);
+        });
       },
       {
         immediate: true,
