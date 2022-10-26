@@ -291,7 +291,9 @@ export default defineComponent({
       orgValue,
       (val) => {
         checkValueInvalid();
-        addCache(val);
+        nextTick(() => {
+          addCache(val);
+        });
       },
       {
         immediate: true,
