@@ -147,7 +147,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         store.append(options);
         statusContext.treeStore = store;
       } else {
-        if (isEqual(treeStore.config.options, options)) return;
         treeStore.reload(options);
         treeStore.refreshNodes();
       }

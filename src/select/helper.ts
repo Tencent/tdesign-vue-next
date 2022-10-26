@@ -1,6 +1,6 @@
-import { InjectionKey, ComputedRef, Slots } from 'vue';
+import { InjectionKey, ComputedRef } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
-import { TdSelectProps, TdOptionProps, SelectValue, SelectOption, SelectOptionGroup } from './type';
+import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from './type';
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
@@ -22,19 +22,21 @@ export const selectInjectKey: InjectionKey<
   }>
 > = Symbol('selectProvide');
 
-export const getSingleContent = (value: TdSelectProps['value'], options: SelectOption[]): string => {
-  for (const option of options) {
-    if ((option as TdOptionProps).value === value) {
-      return option?.label;
-    }
-  }
-  return value as string;
+export const getSingleContent = (
+  value: TdSelectProps['value'],
+  optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
+): string => {
+  const option = optionsMap.value.get(value);
+  return option?.label as string;
 };
 
-export const getMultipleContent = (value: SelectValue[], options: SelectOption[]) => {
+export const getMultipleContent = (
+  value: SelectValue[],
+  optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
+) => {
   const res = [];
   for (const iterator of value) {
-    const resLabel = getSingleContent(iterator, options);
+    const resLabel = getSingleContent(iterator, optionsMap);
     if (resLabel) {
       res.push(resLabel);
     }
