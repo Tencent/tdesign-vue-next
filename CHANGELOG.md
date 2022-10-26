@@ -4,6 +4,28 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.3 `2022-10-26` 
+### 🚀 Features
+- `Upload`: 多图片上传，图片文件名支持 `abridgeName` @chaishi ([#1899](https://github.com/Tencent/tdesign-vue-next/pull/1899))
+-  `Site`: 增加 `boxshadow` 主题生成器 @uyarn ([#1884](https://github.com/Tencent/tdesign-vue-next/pull/1884))
+
+### 🐞 Bug Fixes
+- `Dropdown`: 修复子节点文字省略功能丢失的问题 @uyarn ([#1877](https://github.com/Tencent/tdesign-vue-next/pull/1877))
+- `Upload`: 
+  - 修复 `name` 无效问题 @chaishi ([#1899](https://github.com/Tencent/tdesign-vue-next/pull/1899))
+  - 图片上传，自定义上传方法不支持图片回显问题 @chaishi ([#1899](https://github.com/Tencent/tdesign-vue-next/pull/1899))
+  - 修复 `theme=file` `draggable=true` 时，拖拽无效问题，[issue#1559](https://github.com/Tencent/tdesign-react/issues/1559) @chaishi ([#1899](https://github.com/Tencent/tdesign-vue-next/pull/1899))
+- `Select`: 
+  - 修复远程搜索带过滤时，已选择内容 `label` 丢失问题([issue #1466](https://github.com/Tencent/tdesign-vue-next/issues/1466)) @pengYYYYY ([#1908](https://github.com/Tencent/tdesign-vue-next/pull/1908))
+  - 修复初始值为 `undefined` 时，出现报错 @pengYYYYY ([#1908](https://github.com/Tencent/tdesign-vue-next/pull/1908))
+### 🚧 Others
+- `Demo`: 完成示例代码 `space` 组件替换 @pengYYYYY ([#1878](https://github.com/Tencent/tdesign-vue-next/pull/1878))
+- `InputAdornment`: 样式优化 @zhangpaopao0609 ([#1883](https://github.com/Tencent/tdesign-vue-next/pull/1883))
+- `Transfer`: 样式优化 @zhangpaopao0609 ([#1886](https://github.com/Tencent/tdesign-vue-next/pull/1886))
+- `Notification`: 样式优化 @zhangpaopao0609 ([#1888](https://github.com/Tencent/tdesign-vue-next/pull/1888))
+- `Comment`: 样式优化 @zhangpaopao0609 ([#1896](https://github.com/Tencent/tdesign-vue-next/pull/1896))
+- `DatePicker`: 月份及季度选择时右侧面板展示修复 @sinbadmaster ([#1891](https://github.com/Tencent/tdesign-vue-next/pull/1891))
+
 ## 🌈 0.24.2 `2022-10-17` 
 ### 🚀 Features
 - `Select`: 下拉框隐藏的时候清空筛选文本 @skytt ([#1847](https://github.com/Tencent/tdesign-vue-next/pull/1847))
