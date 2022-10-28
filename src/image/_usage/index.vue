@@ -7,8 +7,6 @@
         src="https://tdesign.gtimg.com/demo/demo-image-1.png"
         fit="cover"
         :style="{ width: '120px', height: '120px' }"
-        overlay-content="悬浮内容"
-        overlay-trigger="hover"
       />
     </template>
   </base-usage>
