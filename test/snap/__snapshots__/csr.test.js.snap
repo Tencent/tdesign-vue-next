@@ -69887,7 +69887,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
 <div
   class="t-space t-space-horizontal t-demo__input-status"
-  style="gap: 16px; max-width: 500px;"
+  style="gap: 80; max-width: 500px;"
 >
   
   

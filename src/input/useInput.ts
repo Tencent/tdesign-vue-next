@@ -1,12 +1,15 @@
-import { ref, computed, watch, nextTick, toRefs, inject, onBeforeMount } from 'vue';
-import { getCharacterLength } from '../utils/helper';
-import { InputValue } from './type';
-import { ExtendsTdInputProps } from './input';
+import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
-
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useLengthLimit from './useLengthLimit';
+
+export interface ExtendsTdInputProps extends TdInputProps {
+  showInput: boolean;
+  keepWrapperWidth: boolean;
+  allowTriggerBlur: boolean;
+}
 
 export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);

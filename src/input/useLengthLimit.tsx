@@ -1,7 +1,7 @@
 import { computed, ComputedRef, onBeforeMount, onMounted, watch } from 'vue';
 import { TdInputProps } from './type';
 import log from '../_common/js/log';
-import { getCharacterLength } from '../_common/js/utils/helper';
+import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';
 
 export interface UseLengthLimitParams {
   value: string;
@@ -18,7 +18,8 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
     const { allowInputOverMax, maxlength, maxcharacter } = params.value;
     if (!(maxlength || maxcharacter) || allowInputOverMax || !inputValue) return inputValue;
     if (maxlength) {
-      return inputValue.slice(0, maxlength);
+      // input value could be unicode 😊
+      return limitUnicodeMaxLength(inputValue, maxlength);
     }
     if (maxcharacter) {
       const r = getCharacterLength(inputValue, maxcharacter);
@@ -30,11 +31,13 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
 
   const limitNumber = computed(() => {
     const { maxlength, maxcharacter, value } = params.value;
+    if (typeof value === 'number') return String(value);
     if (maxlength && maxcharacter) {
       log.warn('Input', 'Pick one of maxlength and maxcharacter please.');
     }
     if (maxlength) {
-      return `${value?.length || 0}/${maxlength}`;
+      const length = value?.length ? getUnicodeLength(value) : 0;
+      return `${length}/${maxlength}`;
     }
     if (maxcharacter) {
       return `${getCharacterLength(value || '')}/${maxcharacter}`;
