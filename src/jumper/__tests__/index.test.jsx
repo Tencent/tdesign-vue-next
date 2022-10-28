@@ -1,215 +1,87 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
+import { ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } from 'tdesign-icons-vue-next';
 import Jumper from '@/src/jumper/index.ts';
 
 describe('Jumper', () => {
   describe(':props', () => {
-    it(':disabled, default', () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper onChange={fn} />;
-        },
+    it('', () => {
+      const wrapper = mount(() => <Jumper />);
+      expect(wrapper.find('.t-jumper').exists()).toBeTruthy();
+      expect(wrapper.findAll('.t-button').length).toBe(3);
+    });
+
+    it(':disabled', () => {
+      const wrapper = mount(() => <Jumper disabled />);
+      const jumper = wrapper.find('.t-jumper');
+      const buttons = jumper.findAll('button');
+      buttons.forEach((button) => {
+        expect(button.classes()).toContain('t-is-disabled');
       });
-      wrapper.find('button').trigger('click');
-      expect(fn).toHaveBeenCalledOnce();
-      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':disabled, false', () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper disabled onChange={fn} />;
-        },
+    it(':layout', () => {
+      const wrapper1 = mount(() => <Jumper />);
+      const jumper1 = wrapper1.find('.t-jumper');
+      const buttons1 = jumper1.findAll('button');
+      expect(buttons1[0].findComponent(ChevronLeftIcon).exists()).toBeTruthy();
+      expect(buttons1[2].findComponent(ChevronRightIcon).exists()).toBeTruthy();
+      const wrapper2 = mount(() => <Jumper layout="vertical" />);
+      const jumper2 = wrapper2.find('.t-jumper');
+      const buttons2 = jumper2.findAll('button');
+      expect(buttons2[0].findComponent(ChevronUpIcon).exists()).toBeTruthy();
+      expect(buttons2[2].findComponent(ChevronDownIcon).exists()).toBeTruthy();
+    });
+
+    it(':showCurrent', () => {
+      const wrapper = mount(() => <Jumper showCurrent={false} />);
+      const jumper = wrapper.find('.t-jumper');
+      const buttons = jumper.findAll('button');
+      expect(buttons.length).toBe(2);
+      expect(jumper.find('.t-jumper__current').exists()).toBeFalsy();
+    });
+
+    it(':size', () => {
+      const sizeList = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        const wrapper = mount(() => <Jumper size={size} />);
+        const jumper = wrapper.find('.t-jumper');
+        const buttons = jumper.findAll('button');
+        buttons.forEach((button) => {
+          expect(button.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+        });
       });
-      wrapper.find('button').trigger('click');
-      expect(fn).not.toHaveBeenCalled();
-      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':disabled:prev, prev false', () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper disabled={{ prev: true }} onChange={fn} />;
-        },
+    it(':variant', () => {
+      const variantList = ['text', 'outline'];
+      variantList.forEach((variant) => {
+        const wrapper = mount(() => <Jumper variant={variant} />);
+        const jumper = wrapper.find('.t-jumper');
+        const buttons = jumper.findAll('button');
+        buttons.forEach((button) => {
+          expect(button.classes()).toContain(`t-button--variant-${variant}`);
+        });
       });
-      wrapper.find('.t-jumper__prev').trigger('click');
-      expect(fn).not.toHaveBeenCalled();
-      wrapper.find('.t-jumper__current').trigger('click');
-      expect(fn).toBeCalledTimes(1);
-      wrapper.find('.t-jumper__next').trigger('click');
-      expect(fn).toBeCalledTimes(2);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':disabled:current, current false', () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper disabled={{ current: true }} onChange={fn} />;
-        },
-      });
-      wrapper.find('.t-jumper__current').trigger('click');
-      expect(fn).not.toHaveBeenCalled();
-      wrapper.find('.t-jumper__prev').trigger('click');
-      expect(fn).toBeCalledTimes(1);
-      wrapper.find('.t-jumper__next').trigger('click');
-      expect(fn).toBeCalledTimes(2);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':disabled:next, next false', () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper disabled={{ next: true }} onChange={fn} />;
-        },
-      });
-      wrapper.find('.t-jumper__next').trigger('click');
-      expect(fn).not.toHaveBeenCalled();
-      wrapper.find('.t-jumper__prev').trigger('click');
-      expect(fn).toBeCalledTimes(1);
-      wrapper.find('.t-jumper__current').trigger('click');
-      expect(fn).toBeCalledTimes(2);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':showCurrent:true, default', () => {
-      const wrapper = mount(Jumper);
-      const currentButton = wrapper.find('.t-jumper__current');
-      expect(currentButton.exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':showCurrent:false', () => {
-      const wrapper = mount({
-        render() {
-          return <Jumper showCurrent={false} />;
-        },
-      });
-      const currentButton = wrapper.find('.t-jumper__current');
-      expect(currentButton.exists()).toBeFalsy();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':size:small', () => {
-      const wrapper = mount({
-        render() {
-          return <Jumper size="small" />;
-        },
-      });
-      const children = wrapper.findAll('.t-size-s');
-      expect(children.length).toBe(3);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':size:medium, default', () => {
-      const wrapper = mount(Jumper);
-      const children = wrapper.findAll('.t-size-m');
-      expect(children.length).toBe(3);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':size:large', () => {
-      const wrapper = mount({
-        render() {
-          return <Jumper size="large" />;
-        },
-      });
-      const children = wrapper.findAll('.t-size-l');
-      expect(children.length).toBe(3);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':variant, default', () => {
-      const wrapper = mount(Jumper);
-      const children = wrapper.findAll('.t-button--variant-text');
-      expect(children.length).toBe(3);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':variant:outline', () => {
-      const wrapper = mount({
-        render() {
-          return <Jumper variant="outline" />;
-        },
-      });
-      const children = wrapper.findAll('.t-button--variant-outline');
-      expect(children.length).toBe(3);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':layout:horizontal, default', () => {
-      const wrapper = mount(Jumper);
-      const left = wrapper.find('.t-icon-chevron-left');
-      const right = wrapper.find('.t-icon-chevron-right');
-      expect(left.exists()).toBeTruthy();
-      expect(right.exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':layout:vertical', () => {
-      const wrapper = mount({
-        render() {
-          return <Jumper layout="vertical" />;
-        },
-      });
-      const up = wrapper.find('.t-icon-chevron-up');
-      const down = wrapper.find('.t-icon-chevron-down');
-      expect(up.exists()).toBeTruthy();
-      expect(down.exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':tips, default', () => {
-      const wrapper = mount(Jumper);
-      const prevButton = wrapper.find('.t-jumper__prev');
-      const currentButton = wrapper.find('.t-jumper__current');
-      const nextButton = wrapper.find('.t-jumper__next');
-      expect(prevButton.attributes('title')).toBeUndefined();
-      expect(currentButton.attributes('title')).toBeUndefined();
-      expect(nextButton.attributes('title')).toBeUndefined();
     });
 
     it(':tips', () => {
-      const tips = { prev: 'Prev Tips', current: 'Current Tips', next: 'Next Tips' };
-      const wrapper = mount({
-        render() {
-          return <Jumper tips={tips} />;
-        },
-      });
-      const prevButton = wrapper.find('.t-jumper__prev');
-      const currentButton = wrapper.find('.t-jumper__current');
-      const nextButton = wrapper.find('.t-jumper__next');
-      expect(prevButton.attributes('title')).toBe(tips.prev);
-      expect(currentButton.attributes('title')).toBe(tips.current);
-      expect(nextButton.attributes('title')).toBe(tips.next);
+      const tips = { prev: '前尘忆梦', current: '回到现在', next: '展望未来' };
+      const wrapper = mount(() => <Jumper tips={tips} />);
+      const jumper = wrapper.find('.t-jumper');
+      const buttons = jumper.findAll('button');
+      expect(buttons[0].element.getAttribute('title')).toBe(tips.prev);
+      expect(buttons[1].element.getAttribute('title')).toBe(tips.current);
+      expect(buttons[2].element.getAttribute('title')).toBe(tips.next);
     });
-  });
 
-  describe('@event', () => {
-    it('@change', () => {
+    it(':onChange', async () => {
       const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Jumper onChange={fn} />;
-        },
-      });
-      // Jumper component onChange props exist
-      const jumperWrapper = wrapper.findComponent(Jumper);
-      expect(jumperWrapper.props('onChange')).toBeTruthy();
-
-      const prevButton = wrapper.find('.t-jumper__prev');
-      const currentButton = wrapper.find('.t-jumper__current');
-      const nextButton = wrapper.find('.t-jumper__next');
-      prevButton.trigger('click');
-      expect(fn).toBeCalledTimes(1);
-      currentButton.trigger('click');
-      expect(fn).toBeCalledTimes(2);
-      nextButton.trigger('click');
-      expect(fn).toBeCalledTimes(3);
+      const wrapper = mount(() => <Jumper onChange={fn} />);
+      const jumper = wrapper.find('.t-jumper');
+      const buttons = jumper.findAll('button');
+      await buttons[0].trigger('click');
+      expect(fn).toBeCalled();
     });
   });
 });
