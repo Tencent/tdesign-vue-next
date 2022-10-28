@@ -83,5 +83,8 @@ const createDrawer: DrawerMethod = (props: DrawerOptions) => {
 export type DrawerPluginType = Plugin;
 
 export const DrawerPlugin: DrawerPluginType = createDrawer as DrawerPluginType;
+DrawerPlugin.install = (app: App): void => {
+  app.config.globalProperties.$drawer = createDrawer;
+};
 
 export default DrawerPlugin;
