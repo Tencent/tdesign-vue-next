@@ -1,5 +1,5 @@
 <template>
-  <t-space class="slider-demo-container">
+  <t-space size="200px" class="slider-demo-container">
     <t-slider v-model="value1" :layout="layout" :show-tooltip="true" />
 
     <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" />
@@ -24,5 +24,6 @@ export default defineComponent({
 <style>
 .slider-demo-container {
   padding: 30px 24px;
+  height: 300px;
 }
 </style>

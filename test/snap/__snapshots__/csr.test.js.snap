@@ -105590,7 +105590,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/step.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/slider/_example/vertical.vue 1`] = `
 <div
   class="t-space t-space-horizontal slider-demo-container"
-  style="gap: 16px;"
+  style="gap: 200px;"
 >
   
   
