@@ -17,7 +17,7 @@ export default {
       return ['left', 'center', 'right'].includes(val);
     },
   },
-  /** 超出maxlength或maxcharacter之后是否还允许输入 */
+  /** 超出 `maxlength` 或 `maxcharacter` 之后是否允许继续输入 */
   allowInputOverMax: Boolean,
   /** 宽度随内容自适应 */
   autoWidth: Boolean,
@@ -84,7 +84,6 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
-    default: 'default' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
