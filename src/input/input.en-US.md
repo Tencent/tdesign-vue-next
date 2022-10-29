@@ -12,7 +12,7 @@ autocomplete | String | undefined | \- | N
 autofocus | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 disabled | Boolean | - | \- | N
-format | Function | - | Typescript：`InputFormatType` `type InputFormatType = (value: InputValue) => number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
+format | Function | - | Typescript：`InputFormatType` `type InputFormatType = (value: InputValue) => string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 inputClass | String / Object / Array | - | Typescript：`ClassName`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | \- | N
