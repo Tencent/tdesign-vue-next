@@ -84,7 +84,7 @@ export interface TdInputProps {
    */
   showClearIconOnEmpty?: boolean;
   /**
-   * 是否在右侧显示字数限制文本
+   * 是否在输入框右侧显示字数统计
    * @default false
    */
   showLimitNumber?: boolean;
