@@ -13,7 +13,7 @@ export interface TdInputProps {
    */
   align?: 'left' | 'center' | 'right';
   /**
-   * 超出maxlength或maxcharacter之后是否还允许输入
+   * 超出 `maxlength` 或 `maxcharacter` 之后是否允许继续输入
    * @default false
    */
   allowInputOverMax?: boolean;
@@ -84,7 +84,7 @@ export interface TdInputProps {
    */
   showClearIconOnEmpty?: boolean;
   /**
-   * 是否在右侧显示字数限制文本
+   * 是否在输入框右侧显示字数统计
    * @default false
    */
   showLimitNumber?: boolean;
@@ -188,6 +188,6 @@ export interface TdInputProps {
   onWheel?: (context: { e: WheelEvent }) => void;
 }
 
-export type InputFormatType = (value: InputValue) => number | string;
+export type InputFormatType = (value: InputValue) => string;
 
-export type InputValue = string | number;
+export type InputValue = string;

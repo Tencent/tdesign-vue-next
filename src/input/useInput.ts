@@ -1,11 +1,15 @@
-import { ref, computed, watch, nextTick, toRefs, inject, onBeforeMount } from 'vue';
-import { getCharacterLength } from '../utils/helper';
-import { InputValue } from './type';
-import { ExtendsTdInputProps } from './input';
+import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
-
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
+import useLengthLimit from './useLengthLimit';
+
+export interface ExtendsTdInputProps extends TdInputProps {
+  showInput: boolean;
+  keepWrapperWidth: boolean;
+  allowTriggerBlur: boolean;
+}
 
 export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
@@ -20,21 +24,16 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const renderType = ref(props.type);
   const inputRef = ref<HTMLInputElement>(null);
   const inputPreRef = ref(null);
-  // 字数限制统计
-  const limitNumber = ref('');
 
-  const innerStatus = computed(() => {
-    if (limitNumber.value) {
-      const [current, total] = limitNumber.value.split('/');
-      return Number(current) > Number(total) ? 'error' : '';
-    }
-    return '';
-  });
-
-  const tStatus = computed(() => {
-    if (props.status) return props.status;
-    return innerStatus.value;
-  });
+  const limitParams = computed(() => ({
+    value: innerValue.value === undefined ? undefined : String(innerValue.value),
+    status: props.status,
+    maxlength: props.maxlength,
+    maxcharacter: props.maxcharacter,
+    allowInputOverMax: props.allowInputOverMax,
+    onValidate: props.onValidate,
+  }));
+  const { limitNumber, getValueByLimitNumber, tStatus } = useLengthLimit(limitParams);
 
   const showClear = computed(() => {
     return (
@@ -81,20 +80,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const inputValueChangeHandle = (e: InputEvent | CompositionEvent) => {
     const { target } = e;
     let val = (target as HTMLInputElement).value;
-    if (props.maxcharacter && props.maxcharacter > 0) {
-      const stringInfo = getCharacterLength(val, props.maxcharacter);
-      if (typeof stringInfo === 'object') {
-        if (!props.allowInputOverMax) {
-          val = stringInfo.characters;
-        }
-        limitNumber.value = `${stringInfo.length}/${props.maxcharacter}`;
-      }
-    }
-    if (props.maxlength && props.maxlength > 0) {
-      if (!props.allowInputOverMax) {
-        val = val.substring(0, props.maxlength);
-      }
-      limitNumber.value = `${val.length}/${props.maxlength}`;
+    if (props.type !== 'number') {
+      val = getValueByLimitNumber(val);
     }
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
@@ -171,25 +158,6 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     },
     { immediate: true },
   );
-
-  watch(innerStatus, () => {
-    props.onValidate?.({ error: innerStatus.value ? 'exceed-maximum' : undefined });
-  });
-
-  const updateLimitNumber = () => {
-    if (props.maxcharacter && props.maxcharacter > 0) {
-      const len = getCharacterLength(String(innerValue.value));
-      limitNumber.value = `${len}/${props.maxcharacter}`;
-    }
-    if (props.maxlength && props.maxlength > 0) {
-      const val = !innerValue.value ? '' : innerValue.value;
-      limitNumber.value = `${String(val).length}/${props.maxlength}`;
-    }
-  };
-
-  onBeforeMount(() => {
-    updateLimitNumber();
-  });
 
   expose({
     inputRef,

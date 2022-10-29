@@ -1,14 +1,10 @@
-import { defineComponent, h, computed } from 'vue';
+import { defineComponent, computed } from 'vue';
 import {
   BrowseIcon as TdBrowseIcon,
   BrowseOffIcon as TdBrowseOffIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-
 import props from './props';
-import { TdInputProps } from './type';
-
-// hooks
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -16,12 +12,6 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-
-export interface ExtendsTdInputProps extends TdInputProps {
-  showInput: boolean;
-  keepWrapperWidth: boolean;
-  allowTriggerBlur: boolean;
-}
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -238,7 +228,9 @@ export default defineComponent({
             ) : null}
           </div>
           {tips && (
-            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${props.status}`}>{tips}</div>
+            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${tStatus.value || 'default'}`}>
+              {tips}
+            </div>
           )}
         </div>
       );

@@ -12,7 +12,7 @@ autocomplete | String | undefined | \- | N
 autofocus | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 disabled | Boolean | - | \- | N
-format | Function | - | Typescript：`InputFormatType` `type InputFormatType = (value: InputValue) => number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
+format | Function | - | Typescript：`InputFormatType` `type InputFormatType = (value: InputValue) => string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 inputClass | String / Object / Array | - | Typescript：`ClassName`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | \- | N
@@ -29,8 +29,8 @@ suffix | String / Slot / Function | - | Typescript：`string \| TNode`。[see mo
 suffixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 type | String | text | options：text/number/url/tel/password/search/submit/hidden | N
-value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`InputValue` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
-defaultValue | String / Number | - | uncontrolled property。Typescript：`InputValue` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
+value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`InputValue` `type InputValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
+defaultValue | String / Number | - | uncontrolled property。Typescript：`InputValue` `type InputValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 onBlur | Function |  | Typescript：`(value: InputValue, context: { e: FocusEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent }) => void`<br/> | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
