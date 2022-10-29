@@ -69512,7 +69512,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/max-length-count.vue 
         <input
           class="t-input__inner"
           maxlength="5"
-          placeholder="内置字数限制，最大文本长度，一个中文字符等于一个长度"
+          placeholder="内置字数限制，最大文本长度，一个中文字等于一个长度"
           type="text"
         />
         <!---->
@@ -69548,7 +69548,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/max-length-count.vue 
         <!---->
         <input
           class="t-input__inner"
-          placeholder="内置字数限制，最大字符数量限制，一个中文等于两个字符"
+          placeholder="内置字数限制，最大字符数量限制，一个中文字等于两个字符"
           type="text"
         />
         <!---->
@@ -69887,7 +69887,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
 <div
   class="t-space t-space-horizontal t-demo__input-status"
-  style="gap: 80; max-width: 500px;"
+  style="gap: 80px; max-width: 500px;"
 >
   
   
@@ -70115,7 +70115,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
             <!---->
           </div>
           <div
-            class="t-input__tips t-input__tips--undefined"
+            class="t-input__tips t-input__tips--default"
           >
             这是普通文本提示
           </div>
@@ -72737,7 +72737,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/status.vue 1`]
                 <!---->
               </div>
               <div
-                class="t-input__tips t-input__tips--undefined"
+                class="t-input__tips t-input__tips--default"
               >
                 这是普通文本提示
               </div>

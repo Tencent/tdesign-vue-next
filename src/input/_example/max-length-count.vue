@@ -5,14 +5,14 @@
       v-model="input1"
       :maxlength="5"
       show-limit-number
-      placeholder="内置字数限制，最大文本长度，一个中文字符等于一个长度"
+      placeholder="内置字数限制，最大文本长度，一个中文字等于一个长度"
     />
 
     <t-input
       v-model="input2"
       :maxcharacter="10"
       show-limit-number
-      placeholder="内置字数限制，最大字符数量限制，一个中文等于两个字符"
+      placeholder="内置字数限制，最大字符数量限制，一个中文字等于两个字符"
     />
 
     <t-input

@@ -228,7 +228,9 @@ export default defineComponent({
             ) : null}
           </div>
           {tips && (
-            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${props.status}`}>{tips}</div>
+            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${tStatus.value || 'default'}`}>
+              {tips}
+            </div>
           )}
         </div>
       );
