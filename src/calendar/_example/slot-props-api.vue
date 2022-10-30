@@ -14,7 +14,7 @@ const renderHead = (h, params) => {
   return <div>{title}</div>;
 };
 
-const renderCell = (params) => {
+const renderCell = (h, params) => {
   const dataList = [
     {
       value: 'error',

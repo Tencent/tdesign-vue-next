@@ -357,6 +357,7 @@ export default defineComponent({
                         t={t}
                         global={globalConfig.value}
                         cell={props.cell}
+                        cellAppend={props.cellAppend}
                         fillWithZero={props.fillWithZero}
                         onClick={(e: MouseEvent) => clickCell(e, item)}
                         onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
@@ -401,6 +402,7 @@ export default defineComponent({
                     t={t}
                     global={globalConfig.value}
                     cell={props.cell}
+                    cellAppend={props.cellAppend}
                     fillWithZero={props.fillWithZero}
                     onClick={(e: MouseEvent) => clickCell(e, item)}
                     onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
