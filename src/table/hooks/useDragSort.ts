@@ -63,7 +63,6 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     let dragInstanceTmp: Sortable = null;
     const baseOptions: SortableOptions = {
       animation: 150,
-      ...props.dragSortOptions,
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
@@ -91,6 +90,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
         params.currentData = params.newData;
         props.onDragSort?.(params);
       },
+      ...props.dragSortOptions,
     };
 
     if (!dragContainer) return;
