@@ -324,7 +324,9 @@ export default defineComponent({
       <colgroup>
         {columns.map((col) => {
           const style: Styles = {
-            width: formatCSSUnit(this.thWidthList[col.colKey] || col.width) || defaultColWidth,
+            width:
+              formatCSSUnit((columnResizable ? this.thWidthList[col.colKey] : undefined) || col.width) ||
+              defaultColWidth,
           };
           if (col.minWidth) {
             style.minWidth = formatCSSUnit(col.minWidth);
@@ -517,7 +519,9 @@ export default defineComponent({
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {renderColGroup()}
-          {this.showHeader && <THead v-slots={this.$slots} {...headProps} />}
+          {this.showHeader && (
+            <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
+          )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
