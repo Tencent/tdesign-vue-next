@@ -5,7 +5,7 @@
  * */
 
 import { ButtonProps } from '../button';
-import { TNode, AttachNode, Styles } from '../common';
+import { TNode, Styles, AttachNode } from '../common';
 
 export interface TdDrawerProps {
   /**
@@ -127,22 +127,14 @@ export interface TdDrawerProps {
   onOverlayClick?: (context: { e: MouseEvent }) => void;
 }
 
-export type FooterButton = string | ButtonProps | TNode | null;
-
-export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
-
-export interface DrawerCloseContext {
-  trigger: DrawerEventSource;
-  e: MouseEvent | KeyboardEvent;
-}
 export interface DrawerOptions extends Omit<TdDrawerProps, 'attach'> {
   /**
-   * 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * 抽屉挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
    * @default 'body'
    */
   attach?: AttachNode;
   /**
-   * 弹框类名，示例：'t-class-Drawer-first t-class-Drawer-second'
+   * 抽屉类名，示例：'t-class-drawer-first t-class-drawer-second'
    * @default ''
    */
   className?: string;
@@ -154,26 +146,30 @@ export interface DrawerOptions extends Omit<TdDrawerProps, 'attach'> {
 
 export interface DrawerInstance {
   /**
-   * 销毁弹框
+   * 销毁抽屉
    */
   destroy?: () => void;
   /**
-   * 隐藏弹框
+   * 隐藏抽屉
    */
   hide?: () => void;
   /**
-   * 显示弹框
+   * 显示抽屉
    */
   show?: () => void;
   /**
-   * 更新弹框内容
+   * 更新抽屉内容
    */
   update?: (props: DrawerOptions) => void;
 }
+
+export type FooterButton = string | ButtonProps | TNode;
+
+export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
 export interface DrawerCloseContext {
   trigger: DrawerEventSource;
   e: MouseEvent | KeyboardEvent;
 }
 
-export type DrawerMethod = (options?: DrawerOptions) => DrawerInstance;
+export type DrawerMethod = (options?: DrawerOptions) => void;
