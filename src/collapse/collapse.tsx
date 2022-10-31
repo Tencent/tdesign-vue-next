@@ -43,6 +43,7 @@ export default defineComponent({
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
     provide('getUniqId', getUniqId);
+    provide('renderParentTNode', renderTNodeJSX);
     return () => {
       const nodes = renderTNodeJSX('default');
       return <div class={classes.value}>{nodes}</div>;

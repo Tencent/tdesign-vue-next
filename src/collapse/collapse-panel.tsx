@@ -25,10 +25,9 @@ export default defineComponent({
       disabled: disableAll,
       expandIconPlacement,
       expandOnRowClick,
-      expandIcon: expandIconAll,
     } = inject<any>('collapseProps');
+    const renderParentTNode: Function = inject('renderParentTNode');
     const innerValue = value.value || getUniqId();
-    const showExpandIcon = computed(() => (expandIcon.value === undefined ? expandIconAll.value : expandIcon.value));
     if (defaultExpandAll.value) {
       updateCollapseValue(innerValue);
     }
@@ -45,19 +44,28 @@ export default defineComponent({
     });
     const handleClick = (e: MouseEvent) => {
       const canExpand =
-        (expandOnRowClick.value && e.target === headRef.value) ||
-        (e.target as Element).getAttribute('name') === 'arrow';
+        (expandOnRowClick.value && e.currentTarget === headRef.value) ||
+        (e.currentTarget as Element).getAttribute('name') === 'arrow';
       if (canExpand && !isDisabled.value) {
         updateCollapseValue(innerValue);
       }
+      e.stopPropagation();
     };
-    const renderIcon = (direction: string) => {
+    const renderDefaultIcon = () => {
+      return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
+    };
+    const renderIcon = () => {
+      const tNodeRender = expandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
       return (
-        <FakeArrow
+        <div
           name="arrow"
-          isActive={isActive.value}
-          overlayClassName={`${componentName.value}__icon ${componentName.value}__icon--${direction}`}
-        />
+          class={`${componentName.value}__icon ${componentName.value}__icon--${expandIconPlacement.value} ${
+            isActive.value ? `${componentName.value}__icon--active` : ''
+          }`}
+          onClick={handleClick}
+        >
+          {tNodeRender('expandIcon', renderDefaultIcon())}
+        </div>
       );
     };
     const renderBlank = () => {
@@ -72,11 +80,11 @@ export default defineComponent({
       ];
       return (
         <div ref={headRef} class={cls} onClick={handleClick}>
-          {showExpandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
+          {expandIconPlacement.value === 'left' && renderIcon()}
           {renderTNodeJSX('header')}
           {renderBlank()}
           {renderTNodeJSX('headerRightContent')}
-          {showExpandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
+          {expandIconPlacement.value === 'right' && renderIcon()}
         </div>
       );
     };
