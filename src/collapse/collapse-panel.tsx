@@ -33,6 +33,7 @@ export default defineComponent({
     }
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     const headRef = ref<HTMLElement>();
+    const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
       collapseValue.value instanceof Array
@@ -44,8 +45,7 @@ export default defineComponent({
     });
     const handleClick = (e: MouseEvent) => {
       const canExpand =
-        (expandOnRowClick.value && e.currentTarget === headRef.value) ||
-        (e.currentTarget as Element).getAttribute('name') === 'arrow';
+        (expandOnRowClick.value && e.currentTarget === headRef.value) || e.currentTarget === iconRef.value;
       if (canExpand && !isDisabled.value) {
         updateCollapseValue(innerValue);
       }
@@ -58,7 +58,7 @@ export default defineComponent({
       const tNodeRender = expandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
       return (
         <div
-          name="arrow"
+          ref={iconRef}
           class={`${componentName.value}__icon ${componentName.value}__icon--${expandIconPlacement.value} ${
             isActive.value ? `${componentName.value}__icon--active` : ''
           }`}
