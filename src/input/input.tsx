@@ -190,7 +190,6 @@ export default defineComponent({
             {labelContent}
             {props.showInput && (
               <input
-                id={props.inputId}
                 class={`${COMPONENT_NAME.value}__inner`}
                 {...inputAttrs.value}
                 {...inputEvents}
