@@ -43,12 +43,12 @@ export default {
       return ['mid', 'both-ends'].includes(val);
     },
   },
-  /** 分页总页数 */
+  /** 每一页的数据量 */
   pageSize: {
     type: Number,
     default: undefined,
   },
-  /** 分页总页数，非受控属性 */
+  /** 每一页的数据量，非受控属性 */
   defaultPageSize: {
     type: Number,
     default: 10,
@@ -56,7 +56,11 @@ export default {
   /** 分页大小控制器，值为 [] 则不显示 */
   pageSizeOptions: {
     type: Array as PropType<TdPaginationProps['pageSizeOptions']>,
-    default: () => [5, 10, 20, 50],
+    default: (): TdPaginationProps['pageSizeOptions'] => [5, 10, 20, 50],
+  },
+  /** 透传全部属性到 Select 组件，也可使用 `selectProps.popupProps` 透传全部 Popup 组件 */
+  selectProps: {
+    type: Object as PropType<TdPaginationProps['selectProps']>,
   },
   /** 是否显示跳转首页尾页页码控制器 */
   showFirstAndLastPageBtn: Boolean,

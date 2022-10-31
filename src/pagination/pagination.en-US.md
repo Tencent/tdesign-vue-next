@@ -1,20 +1,20 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Pagination Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 current | Number | 1 | `v-model` and `v-model:current` is supported | N
 defaultCurrent | Number | 1 | uncontrolled property | N
-disabled | Boolean | false | \- | N
+disabled | Boolean | - | \- | N
 foldedMaxPageBtn | Number | 5 | \- | N
 maxPageBtn | Number | 10 | \- | N
 pageEllipsisMode | String | mid | options：mid/both-ends | N
 pageSize | Number | 10 | each page count。`v-model:pageSize` is supported | N
 defaultPageSize | Number | 10 | each page count。uncontrolled property | N
-pageSizeOptions | Array | () => [5, 10, 20, 50] | Typescript：`Array<number \| { label: string; value: number }>` | N
+pageSizeOptions | Array | [5, 10, 20, 50] | Typescript：`Array<number \| { label: string; value: number }>` | N
+selectProps | Object | - | Typescript：`SelectProps`，[Select API Documents](./select?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/pagination/type.ts) | N
 showFirstAndLastPageBtn | Boolean | false | \- | N
 showJumper | Boolean | false | \- | N
 showPageNumber | Boolean | true | \- | N
