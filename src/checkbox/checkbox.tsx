@@ -71,6 +71,7 @@ export default defineComponent({
 
     // methods
     const handleChange = (e: Event) => {
+      if (props.readonly) return;
       const checked = !selfChecked.value;
       setInnerChecked(checked, { e });
       if (checkboxGroup && checkboxGroup.handleCheckboxChange) {
