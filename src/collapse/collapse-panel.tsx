@@ -9,14 +9,14 @@ import useCollapseAnimation from './useCollapseAnimation';
 export default defineComponent({
   name: 'TCollapsePanel',
   props,
-  setup(props: TdCollapsePanelProps) {
+  setup(props: TdCollapsePanelProps, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const componentName = usePrefixClass('collapse-panel');
     const disableClass = usePrefixClass('is-disabled');
     const clickableClass = usePrefixClass('is-clickable');
     const transitionClass = usePrefixClass('slide-down');
-    const { value, disabled, destroyOnCollapse, expandIcon } = toRefs(props);
+    const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
     const getUniqId: Function = inject('getUniqId', () => undefined, false);
@@ -32,7 +32,6 @@ export default defineComponent({
       updateCollapseValue(innerValue);
     }
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
-    const headRef = ref<HTMLElement>();
     const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
@@ -43,9 +42,9 @@ export default defineComponent({
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
     });
+    const panelExpandIcon = computed(() => slots.expandIcon || props.expandIcon);
     const handleClick = (e: MouseEvent) => {
-      const canExpand =
-        (expandOnRowClick.value && e.currentTarget === headRef.value) || e.currentTarget === iconRef.value;
+      const canExpand = expandOnRowClick.value || e.currentTarget === iconRef.value;
       if (canExpand && !isDisabled.value) {
         updateCollapseValue(innerValue);
       }
@@ -55,7 +54,7 @@ export default defineComponent({
       return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
     };
     const renderIcon = () => {
-      const tNodeRender = expandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
+      const tNodeRender = panelExpandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
       return (
         <div
           ref={iconRef}
@@ -79,7 +78,7 @@ export default defineComponent({
         },
       ];
       return (
-        <div ref={headRef} class={cls} onClick={handleClick}>
+        <div class={cls} onClick={handleClick}>
           {expandIconPlacement.value === 'left' && renderIcon()}
           {renderTNodeJSX('header')}
           {renderBlank()}
