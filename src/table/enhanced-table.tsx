@@ -1,4 +1,4 @@
-import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
+import { defineComponent, SetupContext, computed, ref, getCurrentInstance, watch } from 'vue';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
@@ -17,6 +17,7 @@ export default defineComponent({
   },
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
+    const enhancedTableRef = ref(null);
     const { store, dataSource, formatTreeColumn, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
 
     const treeDataMap = ref(store.value.treeDataMap);
@@ -61,6 +62,15 @@ export default defineComponent({
       store: store.value,
       dataSource: dataSource.value,
       ...treeInstanceFunctions,
+      validateRowData: (rowValue: any) => {
+        enhancedTableRef.value.validateRowData(rowValue);
+      },
+      validateTableData: () => {
+        enhancedTableRef.value.validateTableData();
+      },
+      clearValidateData: () => {
+        enhancedTableRef.value.clearValidateData();
+      },
     });
 
     return () => {
@@ -76,7 +86,7 @@ export default defineComponent({
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
       };
-      return <PrimaryTable v-slots={context.slots} {...enhancedProps} />;
+      return <PrimaryTable ref={enhancedTableRef} v-slots={context.slots} {...enhancedProps} />;
     };
   },
 });

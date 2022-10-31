@@ -51,6 +51,16 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     { immediate: true },
   );
 
+  // 本地分页的表格，index 不同，需加上分页计数
+  function getDataPageIndex(index: number) {
+    const { pagination } = props;
+    // 开启本地分页的场景
+    if (!props.disableDataPage && pagination && data.value.length > pagination.pageSize) {
+      return pagination.pageSize * (pagination.current - 1) + index;
+    }
+    return index;
+  }
+
   // 行拖拽排序
   const registerRowDragEvent = (element: HTMLDivElement): void => {
     if (!isRowHandlerDraggable.value && !isRowDraggable.value) return;
@@ -63,7 +73,6 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     let dragInstanceTmp: Sortable = null;
     const baseOptions: SortableOptions = {
       animation: 150,
-      ...props.dragSortOptions,
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
@@ -83,7 +92,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
           current: data.value[currentIndex],
           targetIndex,
           target: data.value[targetIndex],
-          newData: swapDragArrayElement([...props.data], currentIndex, targetIndex),
+          newData: swapDragArrayElement([...props.data], getDataPageIndex(currentIndex), getDataPageIndex(targetIndex)),
           e: evt,
           sort: 'row',
         };
@@ -91,6 +100,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
         params.currentData = params.newData;
         props.onDragSort?.(params);
       },
+      ...props.dragSortOptions,
     };
 
     if (!dragContainer) return;

@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { SelectProps } from '../select';
 import { TNode } from '../common';
 
 export interface TdPaginationProps {
@@ -24,7 +25,6 @@ export interface TdPaginationProps {
   modelValue?: number;
   /**
    * 是否禁用分页组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -43,20 +43,24 @@ export interface TdPaginationProps {
    */
   pageEllipsisMode?: 'mid' | 'both-ends';
   /**
-   * 分页总页数
+   * 每一页的数据量
    * @default 10
    */
   pageSize?: number;
   /**
-   * 分页总页数，非受控属性
+   * 每一页的数据量，非受控属性
    * @default 10
    */
   defaultPageSize?: number;
   /**
    * 分页大小控制器，值为 [] 则不显示
-   * @default () => [5, 10, 20, 50]
+   * @default [5, 10, 20, 50]
    */
   pageSizeOptions?: Array<number | { label: string; value: number }>;
+  /**
+   * 透传全部属性到 Select 组件，也可使用 `selectProps.popupProps` 透传全部 Popup 组件
+   */
+  selectProps?: SelectProps;
   /**
    * 是否显示跳转首页尾页页码控制器
    * @default false
