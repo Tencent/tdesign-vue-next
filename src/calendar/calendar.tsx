@@ -207,13 +207,8 @@ export default defineComponent({
                   autoWidth={true}
                   {...controller.configData.value.year.selectProps}
                   disabled={dateSelect.isYearSelectDisabled.value}
-                >
-                  {dateSelect.yearSelectOptionList.value.map((item) => (
-                    <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
-                      {item.label}
-                    </TOption>
-                  ))}
-                </TSelect>
+                  options={dateSelect.yearSelectOptionList.value}
+                ></TSelect>
               </div>
             )}
             {dateSelect.isMonthSelectVisible.value && (
@@ -224,13 +219,8 @@ export default defineComponent({
                   size={state.controlSize}
                   {...controller.configData.value.month.selectProps}
                   disabled={dateSelect.isMonthSelectDisabled.value}
-                >
-                  {dateSelect.monthSelectOptionList.value.map((item) => (
-                    <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
-                      {item.label}
-                    </TOption>
-                  ))}
-                </TSelect>
+                  options={dateSelect.monthSelectOptionList.value}
+                ></TSelect>
               </div>
             )}
             {modeSelect.isVisible.value && (

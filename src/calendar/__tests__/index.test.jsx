@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import MockDate from 'mockdate';
 import Calendar from '@/src/calendar/index.ts';
 
@@ -28,6 +29,81 @@ describe('Calendar', () => {
             <>
               <Calendar cell={cellStr}></Calendar>
               <Calendar cell={renderCell}></Calendar>
+            </>
+          );
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':controllerConfig', () => {
+      const myControllerConfig = {
+        visible: true,
+        disabled: false, // 是否禁用（全部控件）
+        // 年份选择框组件相关设置
+        year: {
+          visible: true, // 是否显示
+          selectProps: {
+            // 用于透传props给该select组件
+            disabled: false,
+            size: 'small',
+          },
+        },
+        // 月份选择框组件相关设置
+        month: {
+          visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
+          selectProps: {
+            // 用于透传props给该select组件
+            disabled: false,
+            size: 'small',
+          },
+        },
+        // 模式切换单选组件设置
+        mode: {
+          visible: true, // 是否显示
+          radioGroupProps: {
+            disabled: false,
+            size: 'small',
+          },
+        },
+        // 隐藏\显示周末按钮组件相关设置
+        weekend: {
+          visible: true, // 是否显示
+          showWeekendButtonProps: {
+            // 用于透传props给显示周末按钮组件
+            disabled: false,
+            size: 'small',
+          },
+          hideWeekendButtonProps: {
+            // 用于透传props给隐藏周末按钮组件
+            disabled: false,
+            variant: 'base',
+            size: 'small',
+          },
+        },
+        // “今天\本月”按钮组件相关设置
+        current: {
+          visible: true, // 是否显示
+          currentDayButtonProps: {
+            // 用于透传props给“今天”钮组件（“month”模式下有效）
+            disabled: false,
+            size: 'small',
+            theme: 'warning',
+          },
+          currentMonthButtonProps: {
+            // 用于透传props给“本月”按钮组件（“year”模式下有效）
+            disabled: false,
+            size: 'small',
+            theme: 'success',
+          },
+        },
+      };
+      const wrapper = mount({
+        render() {
+          return (
+            <>
+              <Calendar controllerConfig={false}></Calendar>
+              <Calendar controllerConfig={myControllerConfig}></Calendar>
             </>
           );
         },
@@ -211,6 +287,39 @@ describe('Calendar', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('@event', () => {
+    it('@cell-click', () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return <Calendar onCellClick={fn}></Calendar>;
+        },
+      });
+      wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)').trigger('click');
+      expect(fn).toHaveBeenCalled();
+    });
+    it('@cell-double-click', () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return <Calendar onCellDoubleClick={fn}></Calendar>;
+        },
+      });
+      wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)').trigger('dblclick');
+      expect(fn).toHaveBeenCalled();
+    });
+    it('@cell-right-click', () => {
+      const fn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return <Calendar onCellRightClick={fn}></Calendar>;
+        },
+      });
+      wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)').trigger('contextmenu');
+      expect(fn).toHaveBeenCalled();
     });
   });
 
