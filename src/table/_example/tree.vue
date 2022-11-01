@@ -143,6 +143,8 @@ const resetData = () => {
   // 直接赋值，仅在 keys 发生变化时会重置；无论什么情况都希望更新数据，请使用 table.value.resetData(newData)
   // data.value = newData;
   table.value.resetData(newData);
+
+  console.log(table.value);
 };
 
 const onEditClick = (row) => {

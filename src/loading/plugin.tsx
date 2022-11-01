@@ -36,7 +36,7 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const loadingInstance: LoadingInstance = {
     hide: () => {
       loading.loading = false;
-      loading.$el.parentNode.removeChild(loading.$el);
+      loading.$el.parentNode?.removeChild(loading.$el);
       removeClass(attach, parentRelativeClass);
     },
   };
