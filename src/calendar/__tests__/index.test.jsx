@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
+import { expect, it, vi } from 'vitest';
 import MockDate from 'mockdate';
 import Calendar from '@/src/calendar/index.ts';
 
