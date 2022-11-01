@@ -1,4 +1,4 @@
-import { defineComponent, provide, reactive, ref, toRefs } from 'vue';
+import { defineComponent, ref } from 'vue';
 import omit from 'lodash/omit';
 import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
@@ -17,7 +17,6 @@ export default defineComponent({
     const popupElem = ref(null);
     const isPopupVisible = ref(false);
 
-    const options = useDropdownOptions(props);
     const handleMenuClick = (data: DropdownOption, context: { e: MouseEvent }) => {
       if (props.hideAfterItemClick) {
         isPopupVisible.value = false;
@@ -32,7 +31,8 @@ export default defineComponent({
     };
 
     return () => {
-      const trigger = renderTNodeJSX('default');
+      const trigger = renderTNodeJSX('default')?.[0];
+      const options = useDropdownOptions(props);
 
       const popupParams = {
         ...attrs,
