@@ -28427,22 +28427,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -28480,22 +28483,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             设置默认展开项
             <div
               class="t-collapse-panel__header--blank"
@@ -28532,22 +28538,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             自定义折叠面板内容
             <div
               class="t-collapse-panel__header--blank"
@@ -28812,22 +28821,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             嵌套折叠面板
             <div
               class="t-collapse-panel__header--blank"
@@ -28862,22 +28874,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板1
                         <div
                           class="t-collapse-panel__header--blank"
@@ -28914,22 +28929,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板2
                         <div
                           class="t-collapse-panel__header--blank"
@@ -28966,22 +28984,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板3
                         <div
                           class="t-collapse-panel__header--blank"
@@ -29018,22 +29039,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板4
                         <div
                           class="t-collapse-panel__header--blank"
@@ -29113,22 +29137,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29166,22 +29193,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29221,24 +29251,27 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              
+              <svg
+                class="t-icon t-icon-star"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M9.54 6.38L8 3.26 6.46 6.38l-3.44.5L5.5 9.31l-.59 3.43L8 11.12l3.08 1.62-.59-3.43L13 6.88l-3.45-.5zm5-.29a.3.3 0 01.16.52l-3.13 3.05.74 4.3a.3.3 0 01-.44.32L8 12.25l-3.87 2.03a.3.3 0 01-.43-.31l.73-4.31L1.3 6.6a.3.3 0 01.17-.52l4.33-.62 1.93-3.92a.3.3 0 01.54 0l1.94 3.92 4.32.62z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </div>
             
-            这是一个折叠标题
+            自定义icon1
             
             <div
               class="t-collapse-panel__header--blank"
@@ -29276,23 +29309,24 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
-            这是一个折叠标题
+              <svg
+                class="t-icon t-icon-logo-github"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5.5 14.5v-1.8h-.9c-.73 0-1.32-.6-1.32-1.32 0-.25-.2-.46-.46-.46H2.1v-.85h.73a1.31 1.31 0 011.31 1.31.46.46 0 00.46.46h.91v-.38a2 2 0 01.22-.9 6.12 6.12 0 01-.92-.4l-.02-.01c-.5-.27-.94-.6-1.29-.98-.63-.67-1-1.49-1-2.37 0-.85.34-1.64.92-2.29l-.05-.22c-.2-.96 0-1.96.54-2.78a3.7 3.7 0 012.68.92l.36.31a7.26 7.26 0 012.17.02l.37-.33a3.7 3.7 0 012.68-.92c.54.82.74 1.82.54 2.78l-.07.33c.52.63.82 1.38.82 2.18 0 1.38-.9 2.6-2.28 3.35-.29.15-.6.29-.92.4a2 2 0 01.25.97v2.98h-5zM7.08 3.73l-.46.07-.7-.62a2.7 2.7 0 00-1.43-.66 2.7 2.7 0 00-.15 1.57l.15.7-.33.38c-.45.5-.67 1.06-.67 1.63 0 1.1.9 2.25 2.55 2.81l1.09.37-.52 1.03a1 1 0 00-.11.45v2.04h3v-1.98a1 1 0 00-.12-.49L8.8 10l1.13-.39c1.64-.56 2.52-1.71 2.52-2.8 0-.54-.2-1.06-.59-1.54l-.3-.37.16-.8a2.7 2.7 0 00-.15-1.57 2.7 2.7 0 00-1.43.66l-.72.64-.47-.08a6.25 6.25 0 00-1.87 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+            自定义icon2
             <div
               class="t-collapse-panel__header--blank"
             />
@@ -29333,31 +29367,6 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
       class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
-      
-      
-      <div
-        class="t-space-item"
-      >
-        <label
-          class="t-checkbox t-is-checked"
-        >
-          <input
-            class="t-checkbox__former"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            显示箭头
-            
-          </span>
-        </label>
-      </div>
-      <!---->
       
       
       <div
@@ -29470,22 +29479,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29523,77 +29535,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
-            
-            这是一个折叠标题
-            
             <div
-              class="t-collapse-panel__header--blank"
-            />
-            <!---->
-            <!---->
-          </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
-            <div
-              class="t-collapse-panel__body"
-              style="display: none;"
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <div
-                class="t-collapse-panel__content"
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                
-                 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。 
-                
-              </div>
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
             </div>
-          </transition-stub>
-        </div>
-      </div>
-      <div
-        class="t-collapse-panel"
-      >
-        <div
-          class="t-collapse-panel__wrapper"
-        >
-          <div
-            class="t-collapse-panel__header t-is-clickable"
-          >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
             
             这是一个折叠标题
             
@@ -29633,22 +29593,83 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
+            
+            这是一个折叠标题
+            
+            <div
+              class="t-collapse-panel__header--blank"
+            />
+            <!---->
+            <!---->
+          </div>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
+            <div
+              class="t-collapse-panel__body"
+              style="display: none;"
+            >
+              <div
+                class="t-collapse-panel__content"
+              >
+                
+                 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。 
+                
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div
+        class="t-collapse-panel"
+      >
+        <div
+          class="t-collapse-panel__wrapper"
+        >
+          <div
+            class="t-collapse-panel__header t-is-clickable"
+          >
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
+            >
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29719,22 +29740,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29772,22 +29796,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29827,22 +29854,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29882,22 +29912,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29991,6 +30024,31 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
       <!---->
       
       
+      <div
+        class="t-space-item"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            显示箭头
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -30013,22 +30071,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header t-is-clickable"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30118,22 +30179,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30223,22 +30287,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header t-is-clickable"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30328,22 +30395,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
