@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
     <t-collapse :default-value="[1]" @change="handlePanelChange">
-      <t-collapse-panel :expand-icon="renderStarIcon" header="这是一个折叠标题">
+      <t-collapse-panel header="这是一个折叠标题">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
       <t-collapse-panel destroy-on-collapse header="设置默认展开项">
@@ -31,7 +31,6 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { StarIcon, LogoGithubIcon, HeartFilledIcon } from 'tdesign-icons-vue-next';
 
 const currentItem = ref([1]);
 const tags1 = ref(['Vue', 'React']);
@@ -50,10 +49,6 @@ const onChange = (val, context) => {
 };
 const onPaste = (context) => {
   console.log(context);
-};
-
-const renderStarIcon = () => {
-  return <LogoGithubIcon />;
 };
 </script>
 <style lang="less">
