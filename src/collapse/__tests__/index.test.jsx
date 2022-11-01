@@ -103,11 +103,15 @@ describe('Collapse', () => {
       });
 
       const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header svg').classes()).toContain('t-collapse-panel__icon--left');
+      expect(panel.find('.t-collapse-panel__header .t-collapse-panel__icon').classes()).toContain(
+        't-collapse-panel__icon--left',
+      );
 
       expandIconPlacement.value = 'right';
       await wrapper.vm.$nextTick();
-      expect(panel.find('.t-collapse-panel__header svg').classes()).toContain('t-collapse-panel__icon--right');
+      expect(panel.find('.t-collapse-panel__header .t-collapse-panel__icon').classes()).toContain(
+        't-collapse-panel__icon--right',
+      );
     });
 
     test(':expandMutex', async () => {
@@ -159,7 +163,7 @@ describe('Collapse', () => {
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledTimes(1);
 
-      await panel.find('.t-collapse-panel__header svg').trigger('click');
+      await panel.find('.t-collapse-panel__header .t-collapse-panel__icon').trigger('click');
       expect(handleChange).toHaveBeenCalledTimes(2);
     });
 
