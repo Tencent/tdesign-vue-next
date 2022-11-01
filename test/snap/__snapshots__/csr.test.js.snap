@@ -53983,29 +53983,18 @@ exports[`csr snapshot test > csr test ./src/dropdown/_example/slot.vue 1`] = `
         class="t-space-item"
       >
         
-        <span>
-          
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
-          >
-            <span
-              class="t-button__text"
-            >
-              
-              下拉菜单
-              
-            </span>
-          </button>
-          <div
-            class="t-dropdown__menu t-dropdown__menu--right"
-            style="max-height: 300px;"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
+            下拉菜单
             
-          </div>
-          
-        </span>
+          </span>
+        </button>
         <!---->
         
       </div>
