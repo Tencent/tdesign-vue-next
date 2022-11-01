@@ -12,10 +12,10 @@
       </t-collapse-panel>
       <t-collapse-panel value="2">
         <template #expandIcon><StarIcon /></template>
-        <template #header>这是一个折叠标题2</template>
+        <template #header>自定义icon1</template>
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
-      <t-collapse-panel :expand-icon="renderStarIcon" value="3" header="这是一个折叠标题">
+      <t-collapse-panel :expand-icon="renderStarIcon" value="3" header="自定义icon2">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
     </t-collapse>
