@@ -320,13 +320,14 @@ export default defineComponent({
     }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
-    const renderColGroup = () => (
+    const renderColGroup = (isAffixHeader = true) => (
       <colgroup>
         {columns.map((col) => {
           const style: Styles = {
             width:
-              formatCSSUnit((columnResizable ? this.thWidthList[col.colKey] : undefined) || col.width) ||
-              defaultColWidth,
+              formatCSSUnit(
+                (isAffixHeader || columnResizable ? this.thWidthList[col.colKey] : undefined) || col.width,
+              ) || defaultColWidth,
           };
           if (col.minWidth) {
             style.minWidth = formatCSSUnit(col.minWidth);
@@ -420,7 +421,7 @@ export default defineComponent({
         class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-          {renderColGroup()}
+          {renderColGroup(true)}
           <THead v-slots={this.$slots} {...headProps} />
         </table>
       </div>
@@ -458,7 +459,7 @@ export default defineComponent({
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
-            {renderColGroup()}
+            {renderColGroup(true)}
             <TFoot
               rowKey={this.rowKey}
               v-slots={this.$slots}
@@ -518,7 +519,7 @@ export default defineComponent({
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
-          {renderColGroup()}
+          {renderColGroup(false)}
           {this.showHeader && (
             <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
           )}
