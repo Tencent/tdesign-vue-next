@@ -48,12 +48,12 @@ export default defineComponent({
 
       return (
         <Popup
-          {...popupParams}
           destroyOnClose
           ref={popupElem}
           visible={isPopupVisible.value}
           onVisibleChange={handleVisibleChange}
           expandAnimation
+          {...popupParams}
           v-slots={{
             content: () => (
               <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
