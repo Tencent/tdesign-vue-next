@@ -4,7 +4,7 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-## 🌈 0.24.4 `2022-11-01` 
+## 🌈 0.24.5 `2022-11-01` 
 ### 🚀 Features
 - `Pagination`: 透传`selectProps` 和 `selectProps.popupProps` 到组件 `Pagination`，以便实现挂载节点等复杂场景需求， ([tdesign-react#1611](https://github.com/Tencent/tdesign-react/issues/1611)) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
 - `Input`: 支持对 `unicode` 字符长度的判定 @chaishi ([#1927](https://github.com/Tencent/tdesign-vue-next/pull/1927))
