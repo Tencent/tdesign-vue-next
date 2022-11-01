@@ -151,6 +151,9 @@ export default defineComponent({
       inputValue.value = formatDate(nextDate, {
         format: formatRef.value.format,
       });
+      cacheValue.value = formatDate(nextDate, {
+        format: formatRef.value.format,
+      });
 
       props.onPick?.(nextDate);
     }
