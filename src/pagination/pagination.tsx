@@ -9,7 +9,6 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-
 import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -29,7 +28,7 @@ export default defineComponent({
   name: 'TPagination',
   props,
 
-  setup(props) {
+  setup(props: TdPaginationProps) {
     const { modelValue, pageSize, current } = toRefs(props);
     const renderTNodeJSX = useTNodeJSX();
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -258,6 +257,7 @@ export default defineComponent({
               class={CLASS_MAP.sizerClass.value}
               autoWidth={true}
               onChange={onSelectorChange}
+              {...props.selectProps}
             >
               {sizeOptions.value.map((item, index) => (
                 <Option value={item.value} label={item.label} key={index} />

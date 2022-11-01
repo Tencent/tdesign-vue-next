@@ -182,7 +182,7 @@ export interface FormRule {
    */
   boolean?: boolean;
   /**
-   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)，示例：`{ date: { delimiters: '-' }, message: '日期分隔线必须是短横线（-）' }`
+   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)，示例：`{ date: { delimiters: ['-'] }, message: '日期分隔线必须是短横线（-）' }`
    */
   date?: boolean | IsDateOptions;
   /**

@@ -1,5 +1,5 @@
 <template>
-  <t-space class="t-demo__input-status" style="max-width: 500px">
+  <t-space class="t-demo__input-status" :size="80" style="max-width: 500px">
     <t-space direction="vertical">
       <t-input disabled default-value="禁用状态" />
       <t-input readonly default-value="只读状态" />

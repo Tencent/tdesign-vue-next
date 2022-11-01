@@ -9,14 +9,14 @@ import useCollapseAnimation from './useCollapseAnimation';
 export default defineComponent({
   name: 'TCollapsePanel',
   props,
-  setup(props: TdCollapsePanelProps) {
+  setup(props: TdCollapsePanelProps, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const componentName = usePrefixClass('collapse-panel');
     const disableClass = usePrefixClass('is-disabled');
     const clickableClass = usePrefixClass('is-clickable');
     const transitionClass = usePrefixClass('slide-down');
-    const { value, disabled, destroyOnCollapse, expandIcon } = toRefs(props);
+    const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
     const getUniqId: Function = inject('getUniqId', () => undefined, false);
@@ -25,15 +25,14 @@ export default defineComponent({
       disabled: disableAll,
       expandIconPlacement,
       expandOnRowClick,
-      expandIcon: expandIconAll,
     } = inject<any>('collapseProps');
+    const renderParentTNode: Function = inject('renderParentTNode');
     const innerValue = value.value || getUniqId();
-    const showExpandIcon = computed(() => (expandIcon.value === undefined ? expandIconAll.value : expandIcon.value));
     if (defaultExpandAll.value) {
       updateCollapseValue(innerValue);
     }
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
-    const headRef = ref<HTMLElement>();
+    const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
       collapseValue.value instanceof Array
@@ -43,21 +42,29 @@ export default defineComponent({
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
     });
+    const panelExpandIcon = computed(() => slots.expandIcon || props.expandIcon);
     const handleClick = (e: MouseEvent) => {
-      const canExpand =
-        (expandOnRowClick.value && e.target === headRef.value) ||
-        (e.target as Element).getAttribute('name') === 'arrow';
+      const canExpand = expandOnRowClick.value || e.currentTarget === iconRef.value;
       if (canExpand && !isDisabled.value) {
         updateCollapseValue(innerValue);
       }
+      e.stopPropagation();
     };
-    const renderIcon = (direction: string) => {
+    const renderDefaultIcon = () => {
+      return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
+    };
+    const renderIcon = () => {
+      const tNodeRender = panelExpandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
       return (
-        <FakeArrow
-          name="arrow"
-          isActive={isActive.value}
-          overlayClassName={`${componentName.value}__icon ${componentName.value}__icon--${direction}`}
-        />
+        <div
+          ref={iconRef}
+          class={`${componentName.value}__icon ${componentName.value}__icon--${expandIconPlacement.value} ${
+            isActive.value ? `${componentName.value}__icon--active` : ''
+          }`}
+          onClick={handleClick}
+        >
+          {tNodeRender('expandIcon', renderDefaultIcon())}
+        </div>
       );
     };
     const renderBlank = () => {
@@ -71,12 +78,12 @@ export default defineComponent({
         },
       ];
       return (
-        <div ref={headRef} class={cls} onClick={handleClick}>
-          {showExpandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
+        <div class={cls} onClick={handleClick}>
+          {expandIconPlacement.value === 'left' && renderIcon()}
           {renderTNodeJSX('header')}
           {renderBlank()}
           {renderTNodeJSX('headerRightContent')}
-          {showExpandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
+          {expandIconPlacement.value === 'right' && renderIcon()}
         </div>
       );
     };

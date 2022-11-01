@@ -131,7 +131,7 @@ export default defineComponent({
       });
       submitParams.value = undefined;
     };
-    const submit = async <T extends Data>(params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
+    const submit = async (params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
       submitParams.value = params;
       requestSubmit(formRef.value);
     };

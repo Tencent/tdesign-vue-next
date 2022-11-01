@@ -19734,7 +19734,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -19784,7 +19784,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -28427,22 +28427,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -28480,22 +28483,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             设置默认展开项
             <div
               class="t-collapse-panel__header--blank"
@@ -28532,22 +28538,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             自定义折叠面板内容
             <div
               class="t-collapse-panel__header--blank"
@@ -28812,22 +28821,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             嵌套折叠面板
             <div
               class="t-collapse-panel__header--blank"
@@ -28862,22 +28874,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板1
                         <div
                           class="t-collapse-panel__header--blank"
@@ -28914,22 +28929,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板2
                         <div
                           class="t-collapse-panel__header--blank"
@@ -28966,22 +28984,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板3
                         <div
                           class="t-collapse-panel__header--blank"
@@ -29018,22 +29039,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                       <div
                         class="t-collapse-panel__header t-is-clickable"
                       >
-                        <svg
-                          class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left"
-                          fill="none"
-                          height="16"
-                          name="arrow"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          class="t-collapse-panel__icon t-collapse-panel__icon--left t-collapse-panel__icon--active"
                         >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
+                          <svg
+                            class="t-fake-arrow t-collapse-panel__icon--default"
+                            fill="none"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                              stroke="black"
+                              stroke-opacity="0.9"
+                              stroke-width="1.3"
+                            />
+                          </svg>
+                        </div>
                         子面板4
                         <div
                           class="t-collapse-panel__header--blank"
@@ -29113,22 +29137,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29166,22 +29193,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29221,24 +29251,27 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              
+              <svg
+                class="t-icon t-icon-star"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M9.54 6.38L8 3.26 6.46 6.38l-3.44.5L5.5 9.31l-.59 3.43L8 11.12l3.08 1.62-.59-3.43L13 6.88l-3.45-.5zm5-.29a.3.3 0 01.16.52l-3.13 3.05.74 4.3a.3.3 0 01-.44.32L8 12.25l-3.87 2.03a.3.3 0 01-.43-.31l.73-4.31L1.3 6.6a.3.3 0 01.17-.52l4.33-.62 1.93-3.92a.3.3 0 01.54 0l1.94 3.92 4.32.62z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </div>
             
-            这是一个折叠标题
+            自定义icon1
             
             <div
               class="t-collapse-panel__header--blank"
@@ -29276,23 +29309,24 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
-            这是一个折叠标题
+              <svg
+                class="t-icon t-icon-logo-github"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M5.5 14.5v-1.8h-.9c-.73 0-1.32-.6-1.32-1.32 0-.25-.2-.46-.46-.46H2.1v-.85h.73a1.31 1.31 0 011.31 1.31.46.46 0 00.46.46h.91v-.38a2 2 0 01.22-.9 6.12 6.12 0 01-.92-.4l-.02-.01c-.5-.27-.94-.6-1.29-.98-.63-.67-1-1.49-1-2.37 0-.85.34-1.64.92-2.29l-.05-.22c-.2-.96 0-1.96.54-2.78a3.7 3.7 0 012.68.92l.36.31a7.26 7.26 0 012.17.02l.37-.33a3.7 3.7 0 012.68-.92c.54.82.74 1.82.54 2.78l-.07.33c.52.63.82 1.38.82 2.18 0 1.38-.9 2.6-2.28 3.35-.29.15-.6.29-.92.4a2 2 0 01.25.97v2.98h-5zM7.08 3.73l-.46.07-.7-.62a2.7 2.7 0 00-1.43-.66 2.7 2.7 0 00-.15 1.57l.15.7-.33.38c-.45.5-.67 1.06-.67 1.63 0 1.1.9 2.25 2.55 2.81l1.09.37-.52 1.03a1 1 0 00-.11.45v2.04h3v-1.98a1 1 0 00-.12-.49L8.8 10l1.13-.39c1.64-.56 2.52-1.71 2.52-2.8 0-.54-.2-1.06-.59-1.54l-.3-.37.16-.8a2.7 2.7 0 00-.15-1.57 2.7 2.7 0 00-1.43.66l-.72.64-.47-.08a6.25 6.25 0 00-1.87 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+            自定义icon2
             <div
               class="t-collapse-panel__header--blank"
             />
@@ -29333,31 +29367,6 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/icon.vue 1`] = `
       class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
-      
-      
-      <div
-        class="t-space-item"
-      >
-        <label
-          class="t-checkbox t-is-checked"
-        >
-          <input
-            class="t-checkbox__former"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            显示箭头
-            
-          </span>
-        </label>
-      </div>
-      <!---->
       
       
       <div
@@ -29470,22 +29479,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29523,77 +29535,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
-            
-            这是一个折叠标题
-            
             <div
-              class="t-collapse-panel__header--blank"
-            />
-            <!---->
-            <!---->
-          </div>
-          <transition-stub
-            appear="false"
-            css="true"
-            name="t-slide-down"
-            persisted="false"
-          >
-            <div
-              class="t-collapse-panel__body"
-              style="display: none;"
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <div
-                class="t-collapse-panel__content"
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                
-                 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。 
-                
-              </div>
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
             </div>
-          </transition-stub>
-        </div>
-      </div>
-      <div
-        class="t-collapse-panel"
-      >
-        <div
-          class="t-collapse-panel__wrapper"
-        >
-          <div
-            class="t-collapse-panel__header t-is-clickable"
-          >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
             
             这是一个折叠标题
             
@@ -29633,22 +29593,83 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/mutex.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
+            
+            这是一个折叠标题
+            
+            <div
+              class="t-collapse-panel__header--blank"
+            />
+            <!---->
+            <!---->
+          </div>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="t-slide-down"
+            persisted="false"
+          >
+            <div
+              class="t-collapse-panel__body"
+              style="display: none;"
+            >
+              <div
+                class="t-collapse-panel__content"
+              >
+                
+                 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。 
+                
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div
+        class="t-collapse-panel"
+      >
+        <div
+          class="t-collapse-panel__wrapper"
+        >
+          <div
+            class="t-collapse-panel__header t-is-clickable"
+          >
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
+            >
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29719,22 +29740,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29772,22 +29796,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29827,22 +29854,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             
             这是一个折叠标题
             
@@ -29882,22 +29912,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
           <div
             class="t-collapse-panel__header t-is-clickable"
           >
-            <svg
-              class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-              fill="none"
-              height="16"
-              name="arrow"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="t-collapse-panel__icon t-collapse-panel__icon--left "
             >
-              <path
-                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                stroke="black"
-                stroke-opacity="0.9"
-                stroke-width="1.3"
-              />
-            </svg>
+              <svg
+                class="t-fake-arrow t-collapse-panel__icon--default"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+            </div>
             这是一个折叠标题
             <div
               class="t-collapse-panel__header--blank"
@@ -29991,6 +30024,31 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/other.vue 1`] = `
       <!---->
       
       
+      <div
+        class="t-space-item"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            显示箭头
+            
+          </span>
+        </label>
+      </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -30013,22 +30071,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header t-is-clickable"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30118,22 +30179,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30223,22 +30287,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header t-is-clickable"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30328,22 +30395,25 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/rightSlot.vue 1`] 
       <div
         class="t-collapse-panel__header"
       >
-        <svg
-          class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left"
-          fill="none"
-          height="16"
-          name="arrow"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="t-collapse-panel__icon t-collapse-panel__icon--left "
         >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
+          <svg
+            class="t-fake-arrow t-collapse-panel__icon--default"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </div>
         这是一个折叠标题可以设置右侧操作区域
         <div
           class="t-collapse-panel__header--blank"
@@ -30482,7 +30552,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default t-input--prefix t-input--auto-width"
+                    class="t-input t-input--prefix t-input--auto-width"
                   >
                     <!---->
                     <div
@@ -30564,7 +30634,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default t-input--prefix t-input--auto-width"
+                    class="t-input t-input--prefix t-input--auto-width"
                   >
                     <!---->
                     <div
@@ -30651,7 +30721,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default t-input--prefix t-input--auto-width"
+                class="t-input t-input--prefix t-input--auto-width"
               >
                 <!---->
                 <div
@@ -30918,7 +30988,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/enable-alpha.v
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -30953,7 +31023,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/enable-alpha.v
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -30988,7 +31058,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/enable-alpha.v
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -31023,7 +31093,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/enable-alpha.v
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -31836,7 +31906,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/panel.vue 1`] 
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -31871,7 +31941,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/panel.vue 1`] 
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -31906,7 +31976,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/panel.vue 1`] 
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default t-align-center"
+                  class="t-input t-align-center"
                 >
                   <!---->
                   <!---->
@@ -32752,7 +32822,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -32787,7 +32857,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -32822,7 +32892,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -33790,7 +33860,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -33825,7 +33895,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -33860,7 +33930,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/recent-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -34459,7 +34529,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/status-disable
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-disabled t-is-default t-input--prefix t-input--auto-width"
+          class="t-input t-is-disabled t-input--prefix t-input--auto-width"
         >
           <!---->
           <div
@@ -34700,7 +34770,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/status-readonl
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-disabled t-is-default t-align-center"
+                  class="t-input t-is-disabled t-align-center"
                 >
                   <!---->
                   <!---->
@@ -34736,7 +34806,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/status-readonl
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-disabled t-is-default t-align-center"
+                  class="t-input t-is-disabled t-align-center"
                 >
                   <!---->
                   <!---->
@@ -34772,7 +34842,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/status-readonl
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-disabled t-is-default t-align-center"
+                  class="t-input t-is-disabled t-align-center"
                 >
                   <!---->
                   <!---->
@@ -35619,7 +35689,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -35654,7 +35724,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -35689,7 +35759,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -36079,7 +36149,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -36114,7 +36184,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -36149,7 +36219,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/swatch-color.v
                         unselectable="off"
                       >
                         <div
-                          class="t-input t-is-default t-align-center"
+                          class="t-input t-align-center"
                         >
                           <!---->
                           <!---->
@@ -36250,7 +36320,7 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/trigger.vue 1`
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default t-input--prefix t-input--auto-width"
+          class="t-input t-input--prefix t-input--auto-width"
         >
           <!---->
           <div
@@ -39107,7 +39177,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/input.vue 1
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-default t-input--suffix"
+      class="t-input t-input--suffix"
     >
       <!---->
       <!---->
@@ -39187,7 +39257,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -39240,7 +39310,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
             style="width: 400px;"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -39341,7 +39411,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -39927,7 +39997,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/others.vue 
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -41122,7 +41192,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/pagination.
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -42208,7 +42278,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/custom-icon.vue
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42235,7 +42305,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/custom-icon.vue
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42321,7 +42391,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42348,7 +42418,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42417,7 +42487,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42444,7 +42514,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -42523,7 +42593,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -42548,7 +42618,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -42615,7 +42685,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -42640,7 +42710,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -43136,7 +43206,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/disable-date.vu
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -43163,7 +43233,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/disable-date.vu
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default t-is-readonly"
+                class="t-input t-is-readonly"
               >
                 <!---->
                 <!---->
@@ -43541,7 +43611,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/month.vue 1`] =
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -43566,7 +43636,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/month.vue 1`] =
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47334,7 +47404,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/quarter.vue 1`]
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47359,7 +47429,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/quarter.vue 1`]
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47493,7 +47563,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/week.vue 1`] = 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47518,7 +47588,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/week.vue 1`] = 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47652,7 +47722,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/year.vue 1`] = 
               class="t-input__wrap t-range-input__inner-left"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -47677,7 +47747,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/year.vue 1`] = 
               class="t-input__wrap t-range-input__inner-right"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -52564,7 +52634,7 @@ exports[`csr snapshot test > csr test ./src/drawer/_example/operation.vue 1`] = 
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -52615,7 +52685,7 @@ exports[`csr snapshot test > csr test ./src/drawer/_example/operation.vue 1`] = 
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -52666,7 +52736,7 @@ exports[`csr snapshot test > csr test ./src/drawer/_example/operation.vue 1`] = 
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -53913,29 +53983,18 @@ exports[`csr snapshot test > csr test ./src/dropdown/_example/slot.vue 1`] = `
         class="t-space-item"
       >
         
-        <span>
-          
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
-          >
-            <span
-              class="t-button__text"
-            >
-              
-              下拉菜单
-              
-            </span>
-          </button>
-          <div
-            class="t-dropdown__menu t-dropdown__menu--right"
-            style="max-height: 300px;"
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
+            下拉菜单
             
-          </div>
-          
-        </span>
+          </span>
+        </button>
         <!---->
         
       </div>
@@ -54220,7 +54279,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/align.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -54270,7 +54329,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/align.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default t-input--suffix"
+                class="t-input t-input--suffix"
               >
                 <!---->
                 <!---->
@@ -54397,7 +54456,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/base.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -54447,7 +54506,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/base.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -54802,7 +54861,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -54858,7 +54917,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -54914,7 +54973,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default t-input--suffix"
+            class="t-input t-input--suffix"
           >
             <!---->
             <!---->
@@ -54987,7 +55046,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -55324,7 +55383,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -55376,7 +55435,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/clear-validate.vue 1`]
           data-v-6f67d4f0=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -55554,7 +55613,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/custom-validator.vue 1
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -55604,7 +55663,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/custom-validator.vue 1
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-input--suffix"
+            class="t-input t-input--suffix"
           >
             <!---->
             <!---->
@@ -55679,7 +55738,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/custom-validator.vue 1
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-input--suffix"
+            class="t-input t-input--suffix"
           >
             <!---->
             <!---->
@@ -55877,7 +55936,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/disabled.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-disabled t-is-default"
+                class="t-input t-is-disabled"
               >
                 <!---->
                 <!---->
@@ -56531,7 +56590,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/disabled.vue 1`] = `
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-disabled t-is-default"
+                  class="t-input t-is-disabled"
                 >
                   <!---->
                   <!---->
@@ -56902,7 +56961,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -56958,7 +57017,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -57014,7 +57073,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default t-input--suffix"
+                class="t-input t-input--suffix"
               >
                 <!---->
                 <!---->
@@ -57087,7 +57146,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -57404,7 +57463,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -57456,7 +57515,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/error-message.vue 1`] 
               data-v-e6f62b80=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -57688,7 +57747,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/layout.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -57737,7 +57796,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/layout.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default t-input--suffix"
+                class="t-input t-input--suffix"
               >
                 <!---->
                 <!---->
@@ -57815,7 +57874,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix"
+              class="t-input t-input--prefix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -57873,7 +57932,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/login.vue 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--prefix t-input--suffix"
+              class="t-input t-input--prefix t-input--suffix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -58086,7 +58145,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/reset.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -58136,7 +58195,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/reset.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -58461,7 +58520,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/size.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -58511,7 +58570,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/size.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -59076,7 +59135,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-complicated-d
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -59472,7 +59531,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-complicated-d
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -59876,7 +59935,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-message.vue 1
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -59930,7 +59989,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-message.vue 1
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -59984,7 +60043,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validate-message.vue 1
             class="t-input__wrap"
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -60168,7 +60227,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -60224,7 +60283,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -60280,7 +60339,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default t-input--suffix"
+              class="t-input t-input--suffix"
             >
               <!---->
               <!---->
@@ -60353,7 +60412,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -60430,7 +60489,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
               unselectable="off"
             >
               <div
-                class="t-input t-is-default t-align-center"
+                class="t-input t-align-center"
               >
                 <!---->
                 <!---->
@@ -60789,7 +60848,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -60841,7 +60900,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator.vue 1`] = `
             data-v-064ce350=""
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -61071,7 +61130,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61121,7 +61180,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61171,7 +61230,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61221,7 +61280,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61271,7 +61330,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61321,7 +61380,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61371,7 +61430,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61456,7 +61515,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -61519,7 +61578,7 @@ exports[`csr snapshot test > csr test ./src/form/_example/validator-status.vue 1
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63519,7 +63578,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/base.vue 1`] = `
               data-v-60077dce=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63551,7 +63610,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/base.vue 1`] = `
               data-v-60077dce=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63710,7 +63769,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/custom-popup.vue 1`] 
               data-v-2edbaa18=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63742,7 +63801,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/custom-popup.vue 1`] 
               data-v-2edbaa18=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63901,7 +63960,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/dialog.vue 1`] = `
               data-v-41d64fe0=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -63933,7 +63992,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/dialog.vue 1`] = `
               data-v-41d64fe0=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -64186,7 +64245,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/no-mask.vue 1`] = `
               data-v-0b463be0=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -64218,7 +64277,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/no-mask.vue 1`] = `
               data-v-0b463be0=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -64377,7 +64436,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/popup-dialog.vue 1`] 
               data-v-fe5de85e=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -64409,7 +64468,7 @@ exports[`csr snapshot test > csr test ./src/guide/_example/popup-dialog.vue 1`] 
               data-v-fe5de85e=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -68807,7 +68866,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -68840,7 +68899,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -68881,7 +68940,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -68924,7 +68983,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/align.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -68951,7 +69010,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/align.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -68978,7 +69037,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/align.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-align-right"
+        class="t-input t-align-right"
       >
         <!---->
         <!---->
@@ -69006,7 +69065,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/auto-width.vue 1`] = 
   class="t-input__wrap"
 >
   <div
-    class="t-input t-is-default t-input--auto-width"
+    class="t-input t-input--auto-width"
   >
     <!---->
     <!---->
@@ -69042,7 +69101,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/base.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -69069,7 +69128,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/base.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -69096,7 +69155,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/base.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-input--prefix t-input--suffix"
       >
         <!---->
         <div
@@ -69133,7 +69192,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/clearable.vue 1`] = `
   class="t-input__wrap"
 >
   <div
-    class="t-input t-is-default"
+    class="t-input"
   >
     <!---->
     <!---->
@@ -69165,7 +69224,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/focus.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -69231,7 +69290,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           style="width: 100px;"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69251,7 +69310,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69286,7 +69345,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69306,7 +69365,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69341,7 +69400,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69361,7 +69420,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69397,7 +69456,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           style="width: 100px;"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69423,7 +69482,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           style="width: 100px;"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69444,7 +69503,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           style="width: 100px;"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69465,7 +69524,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/group.vue 1`] = `
           style="width: 100px;"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -69505,14 +69564,14 @@ exports[`csr snapshot test > csr test ./src/input/_example/max-length-count.vue 
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-input--suffix"
+        class="t-input t-input--suffix"
       >
         <!---->
         <!---->
         <input
           class="t-input__inner"
           maxlength="5"
-          placeholder="内置字数限制"
+          placeholder="内置字数限制，最大文本长度，一个中文字等于一个长度"
           type="text"
         />
         <!---->
@@ -69548,7 +69607,43 @@ exports[`csr snapshot test > csr test ./src/input/_example/max-length-count.vue 
         <!---->
         <input
           class="t-input__inner"
-          placeholder="字数超出时允许继续输入"
+          placeholder="内置字数限制，最大字符数量限制，一个中文字等于两个字符"
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          <!---->
+          <div
+            class="t-input__limit-number"
+          >
+            0/10
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="内置字数限制，字数超出时允许继续输入"
           type="text"
         />
         <!---->
@@ -69578,14 +69673,14 @@ exports[`csr snapshot test > csr test ./src/input/_example/max-length-count.vue 
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-input--suffix"
+        class="t-input t-input--suffix"
       >
         <!---->
         <!---->
         <input
           class="t-input__inner"
           maxlength="5"
-          placeholder="自定义字数限制"
+          placeholder="自定义字数限制文本"
           type="text"
         />
         <!---->
@@ -69621,7 +69716,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/password.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-input--prefix t-input--suffix"
       >
         <span
           class="t-input__prefix t-input__prefix-icon"
@@ -69692,7 +69787,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/password.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default t-input--prefix t-input--suffix"
+        class="t-input t-input--prefix t-input--suffix"
       >
         <span
           class="t-input__prefix t-input__prefix-icon"
@@ -69771,7 +69866,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-l t-is-default"
+        class="t-input t-size-l"
       >
         <!---->
         <!---->
@@ -69798,7 +69893,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -69825,7 +69920,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-s t-is-default"
+        class="t-input t-size-s"
       >
         <!---->
         <!---->
@@ -69851,7 +69946,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/size.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
 <div
   class="t-space t-space-horizontal t-demo__input-status"
-  style="gap: 16px; max-width: 500px;"
+  style="gap: 80px; max-width: 500px;"
 >
   
   
@@ -69871,7 +69966,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-disabled t-is-default"
+            class="t-input t-is-disabled"
           >
             <!---->
             <!---->
@@ -69899,7 +69994,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default t-is-readonly"
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -69942,7 +70037,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -70064,7 +70159,7 @@ exports[`csr snapshot test > csr test ./src/input/_example/status.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -70306,7 +70401,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -70645,7 +70740,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -70728,7 +70823,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -70805,7 +70900,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -70881,7 +70976,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default t-align-center"
+              class="t-input t-align-center"
             >
               <!---->
               <!---->
@@ -70957,7 +71052,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default t-align-right"
+              class="t-input t-align-right"
             >
               <!---->
               <!---->
@@ -71027,7 +71122,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -71063,7 +71158,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default t-align-center"
+              class="t-input t-align-center"
             >
               <!---->
               <!---->
@@ -71099,7 +71194,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/align.vue 1`] 
             unselectable="off"
           >
             <div
-              class="t-input t-is-default t-align-right"
+              class="t-input t-align-right"
             >
               <!---->
               <!---->
@@ -71161,7 +71256,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/auto-width.vue
     unselectable="off"
   >
     <div
-      class="t-input t-is-default t-align-center t-input--auto-width"
+      class="t-input t-align-center t-input--auto-width"
     >
       <!---->
       <!---->
@@ -71246,7 +71341,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/center.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center t-input--auto-width"
+          class="t-input t-align-center t-input--auto-width"
         >
           <!---->
           <!---->
@@ -71327,7 +71422,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/center.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center"
+          class="t-input t-align-center"
         >
           <!---->
           <!---->
@@ -71486,7 +71581,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/default.vue 1`
     unselectable="off"
   >
     <div
-      class="t-input t-is-default t-align-center"
+      class="t-input t-align-center"
     >
       <!---->
       <!---->
@@ -71559,7 +71654,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/disabled.vue 1
     unselectable="off"
   >
     <div
-      class="t-input t-is-disabled t-is-default t-align-center"
+      class="t-input t-is-disabled t-align-center"
     >
       <!---->
       <!---->
@@ -71633,7 +71728,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/empty.vue 1`] 
     unselectable="off"
   >
     <div
-      class="t-input t-is-default t-align-center"
+      class="t-input t-align-center"
     >
       <!---->
       <!---->
@@ -71714,7 +71809,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/format.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center t-input--auto-width"
+          class="t-input t-align-center t-input--auto-width"
         >
           <!---->
           <!---->
@@ -71794,7 +71889,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/format.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center t-input--auto-width"
+          class="t-input t-align-center t-input--auto-width"
         >
           <!---->
           <!---->
@@ -71885,7 +71980,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/large-number.v
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center"
+          class="t-input t-align-center"
         >
           <!---->
           <!---->
@@ -71962,7 +72057,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/large-number.v
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center"
+          class="t-input t-align-center"
         >
           <!---->
           <!---->
@@ -72048,7 +72143,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/left.vue 1`] =
         unselectable="off"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -72125,7 +72220,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/left.vue 1`] =
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-center t-input--prefix"
+          class="t-input t-align-center t-input--prefix"
         >
           <!---->
           <div
@@ -72195,7 +72290,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/normal.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -72231,7 +72326,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/normal.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-right t-input--prefix t-input--suffix"
+          class="t-input t-align-right t-input--prefix t-input--suffix"
         >
           <!---->
           <div
@@ -72284,7 +72379,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/normal.vue 1`]
         unselectable="off"
       >
         <div
-          class="t-input t-is-default t-align-right t-input--prefix t-input--suffix"
+          class="t-input t-align-right t-input--prefix t-input--suffix"
         >
           <!---->
           <div
@@ -72351,7 +72446,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/size.vue 1`] =
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -72421,7 +72516,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/size.vue 1`] =
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -72490,7 +72585,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/size.vue 1`] =
       unselectable="off"
     >
       <div
-        class="t-input t-is-default t-align-center"
+        class="t-input t-align-center"
       >
         <!---->
         <!---->
@@ -72685,7 +72780,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/status.vue 1`]
               unselectable="off"
             >
               <div
-                class="t-input t-is-default t-align-center"
+                class="t-input t-align-center"
               >
                 <!---->
                 <!---->
@@ -73101,7 +73196,7 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/step.vue 1`] =
     unselectable="off"
   >
     <div
-      class="t-input t-is-default t-align-center"
+      class="t-input t-align-center"
     >
       <!---->
       <!---->
@@ -83671,7 +83766,7 @@ exports[`csr snapshot test > csr test ./src/message/_example/placement.vue 1`] =
           data-v-d40079bc=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -83699,7 +83794,7 @@ exports[`csr snapshot test > csr test ./src/message/_example/placement.vue 1`] =
           data-v-d40079bc=""
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -85724,7 +85819,7 @@ exports[`csr snapshot test > csr test ./src/notification/_example/placement.vue 
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -85751,7 +85846,7 @@ exports[`csr snapshot test > csr test ./src/notification/_example/placement.vue 
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -87113,7 +87208,7 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/jump.vue 1`] = `
               unselectable="off"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -88014,7 +88109,7 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/simple.vue 1`] =
               unselectable="off"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -88182,7 +88277,7 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/simple-mini.vue 
               unselectable="off"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -89370,7 +89465,7 @@ exports[`csr snapshot test > csr test ./src/popup/_example/trigger.vue 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -94493,7 +94588,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/base.vue 1`] = 
       class="t-input__wrap t-range-input__inner-left"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -94518,7 +94613,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/base.vue 1`] = 
       class="t-input__wrap t-range-input__inner-right"
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -94558,7 +94653,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/popup.vue 1`] =
         class="t-input__wrap t-range-input__inner-left"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -94583,7 +94678,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/popup.vue 1`] =
         class="t-input__wrap t-range-input__inner-right"
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -94631,7 +94726,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94656,7 +94751,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94696,7 +94791,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94721,7 +94816,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94761,7 +94856,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94786,7 +94881,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/size.vue 1`] = 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94836,7 +94931,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94861,7 +94956,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94901,7 +94996,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94926,7 +95021,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94966,7 +95061,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -94991,7 +95086,7 @@ exports[`csr snapshot test > csr test ./src/range-input/_example/status.vue 1`] 
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -105590,7 +105685,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/step.vue 1`] = `
 exports[`csr snapshot test > csr test ./src/slider/_example/vertical.vue 1`] = `
 <div
   class="t-space t-space-horizontal slider-demo-container"
-  style="gap: 16px;"
+  style="gap: 200px;"
 >
   
   
@@ -116562,7 +116657,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -116678,7 +116773,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -116794,7 +116889,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -116910,7 +117005,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -117162,7 +117257,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-row.vue 1`] 
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input t-is-default t-input--auto-width"
+                    class="t-input t-input--auto-width"
                   >
                     <!---->
                     <!---->
@@ -136451,7 +136546,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                   unselectable="off"
                 >
                   <div
-                    class="t-input t-is-default"
+                    class="t-input"
                   >
                     <!---->
                     <!---->
@@ -136767,7 +136862,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination-ajax.vue 1
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default"
+                  class="t-input"
                 >
                   <!---->
                   <!---->
@@ -149400,7 +149495,7 @@ exports[`csr snapshot test > csr test ./src/time-picker/_example/range.vue 1`] =
           class="t-input__wrap t-range-input__inner-left"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -149425,7 +149520,7 @@ exports[`csr snapshot test > csr test ./src/time-picker/_example/range.vue 1`] =
           class="t-input__wrap t-range-input__inner-right"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -150177,7 +150272,7 @@ exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 1`] = `
       data-v-2b456f39=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -154103,7 +154198,7 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/pagination.vue 1`]
                 unselectable="off"
               >
                 <div
-                  class="t-input t-is-default"
+                  class="t-input"
                 >
                   <!---->
                   <!---->
@@ -154320,7 +154415,7 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/search.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -154901,7 +154996,7 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/search.vue 1`] = `
           class="t-input__wrap"
         >
           <div
-            class="t-input t-is-default"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -157907,7 +158002,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -157944,7 +158039,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -157981,7 +158076,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -160840,7 +160935,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/filter.vue 1`] = `
       data-v-58473978=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -164662,7 +164757,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
         data-v-43574890=""
       >
         <div
-          class="t-input t-is-default"
+          class="t-input"
         >
           <!---->
           <!---->
@@ -165366,7 +165461,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
               data-v-47c625e7=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -165405,7 +165500,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
               data-v-47c625e7=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -165444,7 +165539,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
               data-v-47c625e7=""
             >
               <div
-                class="t-input t-is-default"
+                class="t-input"
               >
                 <!---->
                 <!---->
@@ -165954,7 +166049,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
       data-v-527076bf=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -165986,7 +166081,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
       data-v-527076bf=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
@@ -166018,7 +166113,7 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
       data-v-527076bf=""
     >
       <div
-        class="t-input t-is-default"
+        class="t-input"
       >
         <!---->
         <!---->
