@@ -4,6 +4,38 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.4 `2022-11-01` 
+### 🚀 Features
+- `Pagination`: 透传`selectProps` 和 `selectProps.popupProps` 到组件 `Pagination`，以便实现挂载节点等复杂场景需求， ([tdesign-react#1611](https://github.com/Tencent/tdesign-react/issues/1611)) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
+- `Input`: 支持对 `unicode` 字符长度的判定 @chaishi ([#1927](https://github.com/Tencent/tdesign-vue-next/pull/1927))
+
+### 🐞 Bug Fixes
+
+- `Table`: 
+  - 修复吸顶表头超出省略问题，[tdesign-vue#1639](https://github.com/Tencent/tdesign-vue/issues/1639) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
+  - 提高 `dragSortOptions` 优先级，以便父组件自定义全部参数，[tdesign-react#1556](https://github.com/Tencent/tdesign-react/issues/1556) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
+  - 本地分页表格中，使用拖拽排序，数据交换结果不正确，[tdesign-vue#1342](https://github.com/Tencent/tdesign-vue/issues/1342) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
+- `Dropdown`: 
+  - 修复无法使用 `v-for` 渲染 `item` 的异常 @uyarn ([#1936](https://github.com/Tencent/tdesign-vue-next/pull/1936))
+  - 修复在 `JSX` 中使用有告警的异常 @uyarn ([#1936](https://github.com/Tencent/tdesign-vue-next/pull/1936))
+- `Form`: 
+   - 修复 `onBlur` 会清空校验状态的问题 @k1nz ([#1933](https://github.com/Tencent/tdesign-vue-next/pull/1933))
+   - 修正 `date` 规则中 `delimiters` 属性值 @k1nz ([#1933](https://github.com/Tencent/tdesign-vue-next/pull/1933))
+- `Slider`: 修复 `vertical` 示例展示异常 ([issue #1904](https://github.com/Tencent/tdesign-vue-next/issues/1904)) @pengYYYYY ([#1918](https://github.com/Tencent/tdesign-vue-next/pull/1918))
+- `CheckBox`: 修复 `readonly` 属性没效果 ([issue #1928](https://github.com/Tencent/tdesign-vue-next/issues/1919)) @pengYYYYY ([#1930](https://github.com/Tencent/tdesign-vue-next/pull/1930))
+- `Loading`: 修复部分场景 `v-loading` 异常的问题 ([issue #1917](https://github.com/Tencent/tdesign-vue-next/issues/1917)) @uyarn ([#1937](https://github.com/Tencent/tdesign-vue-next/pull/1937))
+- `Datepicker`: 修复 `popupProps.onVisibleChange` 方法不能正常触发的问题 @xiaosansiji ([#1939](https://github.com/Tencent/tdesign-vue-next/pull/1939))
+- `Select`: 修复无法使用 `0` 作为 `value` ([issue #1928](https://github.com/Tencent/tdesign-vue-next/issues/1928)) @pengYYYYY ([#1940](https://github.com/Tencent/tdesign-vue-next/pull/1940))
+- `Collapse`: 修复 `ExpandIcon` 未按照 `API` 文档实现 ([issue #1894](https://github.com/Tencent/tdesign-vue-next/issues/1894)) @asbstty ([#1941](https://github.com/Tencent/tdesign-vue-next/pull/1941))
+- `DatePicker`: 修复单选日期时间无法确定问题 @HQ-Lin ([#1942](https://github.com/Tencent/tdesign-vue-next/pull/1942))
+### 🚧 Others
+- `Space`: 补充 `Space` 单元测试 @LadyChatterleyLover ([#1920](https://github.com/Tencent/tdesign-vue-next/pull/1920))
+- `Icon`: 补充 `Icon` 组件单元测试 @LadyChatterleyLover ([#1925](https://github.com/Tencent/tdesign-vue-next/pull/1925))
+- `Image`: 补充 `Image` 组件单元测试 @LadyChatterleyLover ([#1922](https://github.com/Tencent/tdesign-vue-next/pull/1922))
+- `Jumper`: 补充 `Jumper` 单元测试 @LadyChatterleyLover ([#1921](https://github.com/Tencent/tdesign-vue-next/pull/1921))
+- `Form`: 补充 `Form` 单元测试 @k1nz ([#1933](https://github.com/Tencent/tdesign-vue-next/pull/1933))
+- `Input`: 独立长度限制相关逻辑 `useLimitLength` @chaishi ([#1927](https://github.com/Tencent/tdesign-vue-next/pull/1927))
+
 ## 🌈 0.24.3 `2022-10-26` 
 ### 🚀 Features
 - `Upload`: 多图片上传，图片文件名支持 `abridgeName` @chaishi ([#1899](https://github.com/Tencent/tdesign-vue-next/pull/1899))
