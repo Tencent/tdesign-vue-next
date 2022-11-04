@@ -224,6 +224,7 @@ export default defineComponent({
         }
       }
       if (formattedVal !== value.value) props.onChange?.(formattedVal);
+
       if (distance !== scrollTop) {
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
 
@@ -341,7 +342,7 @@ export default defineComponent({
               >
                 {/* eslint-disable-next-line no-nested-ternary */}
                 {timeArr.includes(col)
-                  ? TWELVE_HOUR_FORMAT.test(format.value) && el === '00'
+                  ? TWELVE_HOUR_FORMAT.test(format.value) && col === EPickerCols.hour && el === '00'
                     ? '12'
                     : el
                   : globalConfig.value[el === AM ? 'anteMeridiem' : 'postMeridiem']}

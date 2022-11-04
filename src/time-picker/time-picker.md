@@ -25,6 +25,7 @@ onClose | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>�
 onFocus | Function |  | TS 类型：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/>输入框获得焦点时触发，value 表示组件当前有效值 | N
 onInput | Function |  | TS 类型：`(context: { value: TimePickerValue; e: InputEvent }) => void`<br/>当输入框内容发生变化时触发，参数 value 表示组件当前有效值 | N
 onOpen | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>面板打开时触发 | N
+onPick | Function |  | TS 类型：`(value: TimePickerValue, context: { e: MouseEvent }) => void`<br/>面板选中值后触发 | N
 
 ### TimePicker Events
 
@@ -36,6 +37,7 @@ close | `(context: { e: MouseEvent })` | 面板关闭时触发
 focus | `(context: { value: TimePickerValue; e: FocusEvent })` | 输入框获得焦点时触发，value 表示组件当前有效值
 input | `(context: { value: TimePickerValue; e: InputEvent })` | 当输入框内容发生变化时触发，参数 value 表示组件当前有效值
 open | `(context: { e: MouseEvent })` | 面板打开时触发
+pick | `(value: TimePickerValue, context: { e: MouseEvent })` | 面板选中值后触发
 
 ### TimeRangePicker Props
 
@@ -59,6 +61,7 @@ onBlur | Function |  | TS 类型：`(context: { value: TimeRangeValue; e?: Focus
 onChange | Function |  | TS 类型：`(value: TimeRangeValue) => void`<br/>选中值发生变化时触发 | N
 onFocus | Function |  | TS 类型：`(context?: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangePickerPartial })  => void`<br/>范围输入框获得焦点时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/> | N
 onInput | Function |  | TS 类型：`(context: { value: TimeRangeValue; e?: InputEvent; position?: TimeRangePickerPartial  })  => void`<br/>当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/> | N
+onPick | Function |  | TS 类型：`(value: TimeRangeValue, context: { e: MouseEvent, position?: TimeRangePickerPartial }) => void`<br/>面板选中值后触发 | N
 
 ### TimeRangePicker Events
 
@@ -68,3 +71,4 @@ blur | `(context: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangeP
 change | `(value: TimeRangeValue)` | 选中值发生变化时触发
 focus | `(context?: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangePickerPartial }) ` | 范围输入框获得焦点时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/>
 input | `(context: { value: TimeRangeValue; e?: InputEvent; position?: TimeRangePickerPartial  }) ` | 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/>
+pick | `(value: TimeRangeValue, context: { e: MouseEvent, position?: TimeRangePickerPartial })` | 面板选中值后触发

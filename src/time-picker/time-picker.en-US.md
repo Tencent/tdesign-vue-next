@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### TimePicker Props
 
 name | type | default | description | required
@@ -26,6 +25,7 @@ onClose | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>
 onFocus | Function |  | Typescript：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/> | N
 onInput | Function |  | Typescript：`(context: { value: TimePickerValue; e: InputEvent }) => void`<br/> | N
 onOpen | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
+onPick | Function |  | Typescript：`(value: TimePickerValue, context: { e: MouseEvent }) => void`<br/> | N
 
 ### TimePicker Events
 
@@ -37,6 +37,7 @@ close | `(context: { e: MouseEvent })` | \-
 focus | `(context: { value: TimePickerValue; e: FocusEvent })` | \-
 input | `(context: { value: TimePickerValue; e: InputEvent })` | \-
 open | `(context: { e: MouseEvent })` | \-
+pick | `(value: TimePickerValue, context: { e: MouseEvent })` | \-
 
 ### TimeRangePicker Props
 
@@ -60,6 +61,7 @@ onBlur | Function |  | Typescript：`(context: { value: TimeRangeValue; e?: Focu
 onChange | Function |  | Typescript：`(value: TimeRangeValue) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context?: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangePickerPartial })  => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/> | N
 onInput | Function |  | Typescript：`(context: { value: TimeRangeValue; e?: InputEvent; position?: TimeRangePickerPartial  })  => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/> | N
+onPick | Function |  | Typescript：`(value: TimeRangeValue, context: { e: MouseEvent, position?: TimeRangePickerPartial }) => void`<br/> | N
 
 ### TimeRangePicker Events
 
@@ -69,3 +71,4 @@ blur | `(context: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangeP
 change | `(value: TimeRangeValue)` | \-
 focus | `(context?: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangePickerPartial }) ` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/>
 input | `(context: { value: TimeRangeValue; e?: InputEvent; position?: TimeRangePickerPartial  }) ` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/>
+pick | `(value: TimeRangeValue, context: { e: MouseEvent, position?: TimeRangePickerPartial })` | \-
