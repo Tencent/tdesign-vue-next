@@ -146,7 +146,15 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   watch(
     innerValue,
     (v) => {
-      inputValue.value = v;
+      const { format } = props;
+      if (format) {
+        const r = format(innerValue.value);
+        if (inputValue.value !== r) {
+          inputValue.value = r;
+        }
+      } else {
+        inputValue.value = v;
+      }
     },
     { immediate: true },
   );
