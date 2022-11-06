@@ -1,4 +1,4 @@
-import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import { ref, onMounted, computed, watch, nextTick, toRefs, inject, onBeforeMount } from 'vue';
 import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
@@ -23,7 +23,6 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const focused = ref(false);
   const renderType = ref(props.type);
   const inputRef = ref<HTMLInputElement>(null);
-  const inputPreRef = ref(null);
 
   const limitParams = computed(() => ({
     value: innerValue.value === undefined ? undefined : String(innerValue.value),
@@ -193,6 +192,5 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     emitClear,
     onClearIconMousedown,
     innerValue,
-    inputPreRef,
   };
 }
