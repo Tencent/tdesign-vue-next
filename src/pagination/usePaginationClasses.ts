@@ -1,4 +1,5 @@
 import { computed, Ref } from 'vue';
+import { getIEVersion } from '../_common/js/utils/helper';
 import { useCommonClassName } from '../hooks/useConfig';
 import { TdPaginationProps } from './type';
 
@@ -20,6 +21,7 @@ export default function usePaginationClasses(
     SIZE.value[props.size],
     {
       [STATUS.value.disabled]: props.disabled,
+      [`${name.value}-ie`]: getIEVersion() < 11,
     },
   ]);
 

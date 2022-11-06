@@ -43,7 +43,7 @@ export default defineComponent({
     },
   },
 
-  setup(props, { slots, expose }) {
+  setup(props, { expose }) {
     const { globalConfig } = useConfig('input');
     const { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } = useGlobalIcon({
       BrowseIcon: TdBrowseIcon,
@@ -61,7 +61,6 @@ export default defineComponent({
       isHover,
       tStatus,
       inputRef,
-      inputPreRef,
       renderType,
       showClear,
       focused,
@@ -70,7 +69,9 @@ export default defineComponent({
       limitNumber,
       ...inputHandle
     } = useInput(props, expose);
-    useInputWidth(props, inputPreRef, inputRef, innerValue);
+
+    const { inputPreRef } = useInputWidth(props, inputRef, innerValue);
+
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
     const tPlaceholder = computed(() => props.placeholder ?? globalConfig.value.placeholder);
