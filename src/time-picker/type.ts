@@ -110,7 +110,7 @@ export interface TdTimePickerProps {
   /**
    * 面板选中值后触发
    */
-  onPick?: (value: TimePickerValue, context: { e: MouseEvent }) => void;
+  onPick?: (value: TimePickerValue) => void;
 }
 
 export interface TdTimeRangePickerProps {
@@ -205,7 +205,7 @@ export interface TdTimeRangePickerProps {
   /**
    * 面板选中值后触发
    */
-  onPick?: (value: TimeRangeValue, context: { e: MouseEvent; position?: TimeRangePickerPartial }) => void;
+  onPick?: (value: TimeRangeValue, context: { position?: TimeRangePickerPartial }) => void;
 }
 
 export interface PresetTime {

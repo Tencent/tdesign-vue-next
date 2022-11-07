@@ -13,7 +13,12 @@ dayjs.extend(customParseFormat);
 export default defineComponent({
   name: 'TimePickerPanel',
 
-  props: { ...panelProps(), isFooterDisplay: Boolean, handleConfirmClick: Function, onChange: Function },
+  props: {
+    ...panelProps(),
+    isFooterDisplay: Boolean,
+    handleConfirmClick: Function,
+    onChange: Function,
+  },
 
   setup(props) {
     const panelClassName = usePrefixClass('time-picker__panel');
