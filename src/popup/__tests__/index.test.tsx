@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest';
-import { usePrefixClass } from '@/src/hooks/useConfig';
+import { usePrefixClass } from '../../hooks/useConfig';
 import Popup from '../popup';
 
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
@@ -303,7 +303,7 @@ describe('Popup', () => {
     it('onScroll', () => {});
     /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发 */
     it('onVisibleChange', () => {});
-    it.only('keydown-esc hide popup', async () => {
+    it('keydown-esc hide popup', async () => {
       const wrapper = await mount(Popup, {
         props: {
           visible: false,
