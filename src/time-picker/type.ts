@@ -20,11 +20,6 @@ export interface TdTimePickerProps {
    */
   clearable?: boolean;
   /**
-   * 是否禁用组件
-   * @default false
-   */
-  disabled?: boolean;
-  /**
    * 禁用时间项
    */
   disableTime?: (
@@ -32,6 +27,11 @@ export interface TdTimePickerProps {
     m: number,
     s: number,
   ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
+  /**
+   * 是否禁用组件
+   * @default false
+   */
+  disabled?: boolean;
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default HH:mm:ss
@@ -54,6 +54,10 @@ export interface TdTimePickerProps {
    * 透传给 popup 组件的参数
    */
   popupProps?: PopupProps;
+  /**
+   * 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }`
+   */
+  presets?: PresetTime;
   /**
    * 尺寸
    * @default medium
@@ -103,6 +107,10 @@ export interface TdTimePickerProps {
    * 面板打开时触发
    */
   onOpen?: (context: { e: MouseEvent }) => void;
+  /**
+   * 面板选中值后触发
+   */
+  onPick?: (value: TimePickerValue) => void;
 }
 
 export interface TdTimeRangePickerProps {
@@ -117,11 +125,6 @@ export interface TdTimeRangePickerProps {
    */
   clearable?: boolean;
   /**
-   * 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用
-   * @default false
-   */
-  disabled?: boolean | Array<boolean>;
-  /**
    * 禁用时间项
    */
   disableTime?: (
@@ -130,6 +133,11 @@ export interface TdTimeRangePickerProps {
     s: number,
     context: { partial: TimeRangePickerPartial },
   ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
+  /**
+   * 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用
+   * @default false
+   */
+  disabled?: boolean | Array<boolean>;
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default HH:mm:ss
@@ -148,6 +156,10 @@ export interface TdTimeRangePickerProps {
    * 透传给 popup 组件的参数
    */
   popupProps?: PopupProps;
+  /**
+   * 预设快捷时间范围选择，示例：{ '下午': ['13:00:00', '18:00:00'] }
+   */
+  presets?: PresetTimeRange;
   /**
    * 透传给范围输入框 RangeInput 组件的参数
    */
@@ -190,10 +202,22 @@ export interface TdTimeRangePickerProps {
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { value: TimeRangeValue; e?: InputEvent; position?: TimeRangePickerPartial }) => void;
+  /**
+   * 面板选中值后触发
+   */
+  onPick?: (value: TimeRangeValue, context: { position?: TimeRangePickerPartial }) => void;
+}
+
+export interface PresetTime {
+  [presetName: string]: TimePickerValue | (() => TimePickerValue);
 }
 
 export type TimePickerValue = string;
 
 export type TimeRangePickerPartial = 'start' | 'end';
+
+export interface PresetTimeRange {
+  [presetRageName: string]: TimeRangeValue | (() => TimeRangeValue);
+}
 
 export type TimeRangeValue = Array<string>;
