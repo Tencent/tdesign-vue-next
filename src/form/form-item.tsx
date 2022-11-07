@@ -72,7 +72,7 @@ export default defineComponent({
     const needRequiredMark = computed(() => {
       const requiredMark = props.requiredMark ?? form?.requiredMark ?? globalConfig.value.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
-      return requiredMark || (requiredMark ?? isRequired);
+      return requiredMark ?? isRequired;
     });
 
     const hasLabel = computed(() => slots.label || props.label);
@@ -283,8 +283,6 @@ export default defineComponent({
       // 根据校验结果设置校验状态
       if (rules.length) {
         verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
-      } else {
-        verifyStatus.value = ValidateStatus.TO_BE_VALIDATED;
       }
       // 重置处理
       if (needResetField.value) {

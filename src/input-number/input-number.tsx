@@ -5,13 +5,9 @@ import {
   ChevronDownIcon as TdChevronDownIcon,
   ChevronUpIcon as TdChevronUpIcon,
 } from 'tdesign-icons-vue-next';
-
 import TButton from '../button';
 import TInput from '../input';
 import props from './props';
-
-// hooks
-import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import { TdInputNumberProps } from './type';

@@ -29,7 +29,7 @@
     <p>当前展开项:{{ currentItem }}</p>
   </t-space>
 </template>
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
 
 const currentItem = ref([1]);
@@ -37,7 +37,6 @@ const tags1 = ref(['Vue', 'React']);
 const tags2 = ref(['Vue', 'React']);
 const tags3 = ref(['Vue', 'React']);
 const handlePanelChange = (val) => {
-  console.log('val>>>>>>', val);
   currentItem.value = val;
 };
 

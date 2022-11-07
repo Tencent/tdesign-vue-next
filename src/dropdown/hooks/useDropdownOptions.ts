@@ -6,12 +6,15 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
   if (!menuGroup) return [];
 
   // 处理内部嵌套场景
-  if (menuGroup[0].type?.name === 'TDropdownMenu') {
+  if (menuGroup[0]?.type?.name === 'TDropdownMenu') {
     const groupChildren = menuGroup[0]?.children?.default?.();
     if (Array.isArray(groupChildren)) {
       return getOptionsFromChildren(groupChildren);
     }
   }
+
+  // 处理v-if的场景
+  if (Array.isArray(menuGroup[0]?.children)) return getOptionsFromChildren(menuGroup[0]?.children);
 
   if (Array.isArray(menuGroup)) {
     return menuGroup
@@ -44,7 +47,6 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
 export default function useDropdownOptions(props: TdDropdownProps): ComputedRef<DropdownOption[]> {
   const getChildComponentSlots = useChildComponentSlots();
   const instance = getCurrentInstance();
-
   const menuSlot =
     (getChildComponentSlots('DropdownMenu')?.[0]?.children as Slots)?.default?.() || instance.slots?.dropdown?.();
 

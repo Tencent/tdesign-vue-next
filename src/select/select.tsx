@@ -50,7 +50,11 @@ export default defineComponent({
           ? orgValue.value[keys.value.value]
           : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
       }
-      return orgValue.value || (!props.multiple ? undefined : []);
+      // 处理多选情况下值为非迭代器的情况
+      if (props.multiple && !orgValue.value) {
+        return [];
+      }
+      return orgValue.value;
     });
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], e) => {
       if (props.valueType === 'object') {
