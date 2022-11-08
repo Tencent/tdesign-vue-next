@@ -21,6 +21,7 @@ const useComponentClassName = () => {
     NAME_CLASS: usePrefixClass('tag-input'),
     CLEAR_CLASS: usePrefixClass('tag-input__suffix-clear'),
     BREAK_LINE_CLASS: usePrefixClass('tag-input--break-line'),
+    SCROLL_CLASS: usePrefixClass('tag-input--scroll'),
   };
 };
 
@@ -30,7 +31,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps) {
-    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
+    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS, SCROLL_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
     const { inputValue } = toRefs(props);
@@ -72,6 +73,7 @@ export default defineComponent({
         NAME_CLASS.value,
         {
           [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
+          [SCROLL_CLASS.value]: excessTagsDisplayType.value === 'scroll',
         },
       ];
     });
