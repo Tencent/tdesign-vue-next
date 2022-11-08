@@ -2,6 +2,7 @@ import { defineComponent, ref, onMounted, computed, onUnmounted } from 'vue';
 import omit from 'lodash/omit';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
+import { useTNodeDefault } from '../hooks/tnode';
 import { TdImageProps } from './type';
 import props from './props';
 
@@ -77,6 +78,8 @@ export default defineComponent({
       );
     };
 
+    const renderTNodDefault = useTNodeDefault();
+
     return () => (
       <div
         ref={imageRef}
@@ -134,10 +137,11 @@ export default defineComponent({
 
         {hasError.value && (
           <div class={`${classPrefix.value}-image__error`}>
-            {props.error || (
+            {renderTNodDefault(
+              'error',
               <div direction="vertical" size={8} align="center">
                 图片无法显示
-              </div>
+              </div>,
             )}
           </div>
         )}
