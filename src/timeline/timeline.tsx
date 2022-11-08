@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs } from 'vue';
+import { defineComponent, provide, computed } from 'vue';
 import TimeLineProps from './props';
 import { TimelineInjectKey, DefaultAlign } from './hooks';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -1,4 +1,4 @@
-import _Timeline from './TimeLine';
+import _Timeline from './timeline';
 import _TimelineItem from './TimelineItem';
 import withInstall from '../utils/withInstall';
 
