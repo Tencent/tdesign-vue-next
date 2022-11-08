@@ -20,10 +20,6 @@ export default {
   dotColor: {
     type: String as PropType<TdTimeLineItemProps['dotColor']>,
     default: 'default' as TdTimeLineItemProps['dotColor'],
-    validator(val: TdTimeLineItemProps['dotColor']): boolean {
-      if (!val) return true;
-      return ['primary', 'warning', 'error', 'default'].includes(val);
-    },
   },
   /** 标签文本内容，可完全自定义 */
   label: {

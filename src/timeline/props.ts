@@ -11,7 +11,7 @@ export default {
   /** 标签信息放在时间轴的位置，`mode='alternate'` 时生效。纵向时间轴信息位置：左侧、右侧或两侧，默认信息在时间轴右侧。横向时间轴信息位置：上方、下方、两侧 */
   labelAlign: {
     type: String as PropType<TdTimeLineProps['labelAlign']>,
-    default: 'right' as TdTimeLineProps['labelAlign'],
+    default: 'left' as TdTimeLineProps['labelAlign'],
     validator(val: TdTimeLineProps['labelAlign']): boolean {
       if (!val) return true;
       return ['left', 'right', 'alternate', 'top', 'bottom'].includes(val);
