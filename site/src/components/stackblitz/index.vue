@@ -1,6 +1,12 @@
 <template>
   <t-tooltip content="在 Stackblitz 中打开">
-    <form ref="formRef" method="post" action="https://stackblitz.com/run" target="_blank" @click="submit">
+    <form
+      ref="formRef"
+      method="post"
+      action="https://stackblitz.com/run?file=package.json,src%2Fdemo.vue"
+      target="_blank"
+      @click="submit"
+    >
       <input type="hidden" name="project[files][src/demo.vue]" :value="code" />
       <input type="hidden" name="project[files][src/index.css]" :value="styleContent" />
       <input type="hidden" name="project[files][src/main.js]" :value="mainJsContent" />
