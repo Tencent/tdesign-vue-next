@@ -51,13 +51,12 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
   default?: string | TNode;
   /**
    * 是否禁用
-   * @default false
    */
   disabled?: boolean;
   /**
    * 用于自定义拖拽区域
    */
-  dragContent?: TNode<TriggerContext>;
+  dragContent?: TNode | TNode<TriggerContext>;
   /**
    * 是否启用拖拽上传，不同的组件风格默认值不同
    */
@@ -65,7 +64,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
   /**
    * 用于完全自定义文件列表内容
    */
-  fileListDisplay?: TNode<{ files: UploadFile[] }>;
+  fileListDisplay?: TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>;
   /**
    * 已上传文件列表，同 `value`
    * @default []
@@ -212,11 +211,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   onDrop?: (context: { e: DragEvent }) => void;
   /**
-   * 上传失败后触发。`response` 指接口响应结果，`response.error` 会作为错误文本提醒。如果希望判定为上传失败，但接口响应数据不包含 `error` 字段，可以使用 `formatResponse` 格式化 `response` 数据结构
+   * 上传失败后触发。`response` 指接口响应结果，`response.error` 会作为错误文本提醒。如果希望判定为上传失败，但接口响应数据不包含 `error` 字段，可以使用 `formatResponse` 格式化 `response` 数据结构。如果是多文件多请求上传场景，请到事件 `onOneFileFail` 中查看 `response`
    */
   onFail?: (options: UploadFailContext) => void;
   /**
-   * 单个文件上传失败后触发，如果一个请求上传一个文件，则会触发多次
+   * 多文件/图片场景下，单个文件上传失败后触发，如果一个请求上传一个文件，则会触发多次。单文件/图片不会触发
    */
   onOneFileFail?: (options: UploadFailContext) => void;
   /**
@@ -314,6 +313,13 @@ export interface UploadFile {
    * @default ''
    */
   url?: string;
+}
+
+export interface UploadDisplayDragEvents {
+  onDrop?: (event: DragEvent) => void;
+  onDragenter?: (event: DragEvent) => void;
+  onDragover?: (event: DragEvent) => void;
+  onDragleave?: (event: DragEvent) => void;
 }
 
 export type ResponseType = { error?: string; url?: string } & Record<string, any>;
