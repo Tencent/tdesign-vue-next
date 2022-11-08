@@ -139,6 +139,7 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        slots={slots}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
           {renderTrigger()}
