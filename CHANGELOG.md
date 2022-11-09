@@ -4,6 +4,32 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.6 `2022-11-09` 
+### 🚀 Features
+- `Table`: 优化超出省略场景，浮层默认出现位置 `placement` @chaishi ([#1968](https://github.com/Tencent/tdesign-vue-next/pull/1968))
+- `TimePicker`: 新增`onPick` API 用于处理每次选择时间的回调 @uyarn ([#1975](https://github.com/Tencent/tdesign-vue-next/pull/1975))
+- `Upload`: 多上传文件模式支持使用 `fileListDisplay` 自定义文件列表，插槽和属性均可 ([issue #1976](https://github.com/Tencent/tdesign-vue-next/issues/1976)) @chaishi ([#1978](https://github.com/Tencent/tdesign-vue-next/pull/1978))
+- `Demo`: `stackblitz` 默认打开 `.vue` 文件 ([issue #1974](https://github.com/Tencent/tdesign-vue-next/issues/1974)) @pengYYYYY ([#1977](https://github.com/Tencent/tdesign-vue-next/pull/1977))
+- `Timeline`: 增加 `timeline` 组件 @pengYYYYY ([#1980](https://github.com/Tencent/tdesign-vue-next/pull/1980))
+- `TagInput`: 修复空引用错误 ([issue #1983](https://github.com/Tencent/tdesign-vue-next/issues/1983)) @pengYYYYY ([#1980](https://github.com/Tencent/tdesign-vue-next/pull/1980))
+### 🐞 Bug Fixes
+- `Input`: 
+  - 默认值 `format` 失效问题，[issue#1964](https://github.com/Tencent/tdesign-vue-next/issues/1964) @chaishi ([#1968](https://github.com/Tencent/tdesign-vue-next/pull/1968))
+  - 修复在输入框进行预渲染处于 `display: none` 状态时，宽度计算不正确问题，[tdesign-vue#1678](https://github.com/Tencent/tdesign-vue/issues/1678) @chaishi ([#1968](https://github.com/Tencent/tdesign-vue-next/pull/1968))
+  - 元素判空 @chaishi ([#1969](https://github.com/Tencent/tdesign-vue-next/pull/1969))
+- `Calendar`: 
+  - 修复了年份选择下拉框刷新的问题 @PsTiu ([#1972](https://github.com/Tencent/tdesign-vue-next/pull/1972))
+  - 修复日历组件 `cellAppend` 属性作为 `Function` 时参数错误的问题 @PsTiu ([#1972](https://github.com/Tencent/tdesign-vue-next/pull/1972))
+- `Table`: 当禁用resizable时，表格默认使用用户定义的列宽 @ZTao-z ([#1935](https://github.com/Tencent/tdesign-vue-next/pull/1935))
+- `TimePicker`: 修复12小时制时分列首位的异常 @uyarn ([#1975](https://github.com/Tencent/tdesign-vue-next/pull/1975))
+- `Popup`: 使用 `overlayInnerStyle` 定义定宽 ([issue #1970](https://github.com/Tencent/tdesign-vue-next/issues/1970)) @pengYYYYY ([#1977](https://github.com/Tencent/tdesign-vue-next/pull/1977))
+- `Image`: 修复 `error slot` 无效 ([issue #1961](https://github.com/Tencent/tdesign-vue-next/issues/1961)) @pengYYYYY ([#1977](https://github.com/Tencent/tdesign-vue-next/pull/1977))
+### 🚧 Others
+- `docs`:  增加英文文档 @uyarn ([#1963](https://github.com/Tencent/tdesign-vue-next/pull/1963))
+- `InputNumber`: 文档问题 @chaishi ([#1969](https://github.com/Tencent/tdesign-vue-next/pull/1969))
+- `Calendar`: 补充日历组件单元测试 @PsTiu ([#1972](https://github.com/Tencent/tdesign-vue-next/pull/1972))
+- `TimePicker`: 补充 `time-picker` 单元测试用例 @uyarn ([#1979](https://github.com/Tencent/tdesign-vue-next/pull/1979))
+- `Popup`: 补充 `popup`  单元测试用例 @byq1213 ([#1966](https://github.com/Tencent/tdesign-vue-next/pull/1966))
 ## 🌈 0.24.5 `2022-11-01` 
 ### 🚀 Features
 - `Pagination`: 透传`selectProps` 和 `selectProps.popupProps` 到组件 `Pagination`，以便实现挂载节点等复杂场景需求， ([tdesign-react#1611](https://github.com/Tencent/tdesign-react/issues/1611)) @chaishi ([#1931](https://github.com/Tencent/tdesign-vue-next/pull/1931))
