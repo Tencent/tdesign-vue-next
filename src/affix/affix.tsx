@@ -11,7 +11,6 @@ export default defineComponent({
   props,
   emits: ['fixedChange'],
   setup(props, context) {
-    const a = 1;
     const COMPONENT_NAME = usePrefixClass('affix');
     const renderTNodeJSX = useTNodeJSX();
 
