@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
-    <t-space>
-      <h4>加载中</h4>
+    <t-space align="center">
+      <h3>加载中</h3>
       <t-switch v-model="loading" />
     </t-space>
     <t-timeline mode="same">

@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
-    <t-space>
-      <h4>时间轴方向</h4>
+    <t-space align="center">
+      <h3>时间轴方向</h3>
       <t-radio-group v-model="layout" variant="default-filled">
         <t-radio-button value="vertical">垂直时间轴</t-radio-button>
         <t-radio-button value="horizontal">水平时间轴</t-radio-button>

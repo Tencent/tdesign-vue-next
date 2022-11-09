@@ -1,22 +1,22 @@
 <template>
   <t-space direction="vertical">
-    <t-space>
-      <h4>时间轴方向</h4>
+    <t-space align="center">
+      <h3>时间轴方向</h3>
       <t-radio-group v-model="layout" variant="default-filled">
         <t-radio-button value="vertical">垂直时间轴</t-radio-button>
         <t-radio-button value="horizontal">水平时间轴</t-radio-button>
       </t-radio-group>
     </t-space>
-    <t-space>
-      <h4>对齐方式</h4>
+    <t-space align="center">
+      <h3>对齐方式</h3>
       <t-radio-group v-model="labelAlign" variant="default-filled">
         <t-radio-button value="left">左对齐</t-radio-button>
         <t-radio-button value="alternate">交错对齐</t-radio-button>
         <t-radio-button value="right">右对齐</t-radio-button>
       </t-radio-group>
     </t-space>
-    <t-space>
-      <h4>label对齐方式</h4>
+    <t-space align="center">
+      <h3>label对齐方式</h3>
       <t-radio-group v-model="mode" variant="default-filled">
         <t-radio-button value="same">同侧</t-radio-button>
         <t-radio-button value="alternate">交错</t-radio-button>

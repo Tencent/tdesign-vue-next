@@ -149913,7 +149913,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/base.vue 1`] = `
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -149921,9 +149921,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/base.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           时间轴方向
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -150298,7 +150298,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/customDot.vue 1`] 
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -150306,9 +150306,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/customDot.vue 1`] 
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           时间轴样式
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -150359,7 +150359,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/customDot.vue 1`] 
             >
               
               
-              Dot样式
+              点状样式
               
               
             </span>
@@ -150583,7 +150583,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -150591,9 +150591,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           时间轴方向
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -150668,7 +150668,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -150676,9 +150676,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           对齐方式
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -150775,7 +150775,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -150783,9 +150783,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/layout.vue 1`] = `
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           label对齐方式
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -151003,7 +151003,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/loading.vue 1`] = 
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -151011,9 +151011,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/loading.vue 1`] = 
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           加载中
-        </h4>
+        </h3>
       </div>
       <!---->
       
@@ -151192,7 +151192,7 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/reverse.vue 1`] = 
     class="t-space-item"
   >
     <div
-      class="t-space t-space-horizontal"
+      class="t-space t-space-align-center t-space-horizontal"
       style="gap: 16px;"
     >
       
@@ -151200,9 +151200,9 @@ exports[`csr snapshot test > csr test ./src/timeline/_example/reverse.vue 1`] = 
       <div
         class="t-space-item"
       >
-        <h4>
+        <h3>
           是否倒序
-        </h4>
+        </h3>
       </div>
       <!---->
       

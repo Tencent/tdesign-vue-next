@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
-    <t-space>
-      <h4>是否倒序</h4>
+    <t-space align="center">
+      <h3>是否倒序</h3>
       <t-switch v-model="reverse" />
     </t-space>
     <t-timeline :reverse="reverse" mode="same">

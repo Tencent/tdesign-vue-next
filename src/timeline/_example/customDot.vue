@@ -1,10 +1,10 @@
 <template>
   <t-space direction="vertical">
-    <t-space>
-      <h4>时间轴样式</h4>
+    <t-space align="center">
+      <h3>时间轴样式</h3>
       <t-radio-group v-model="dot" variant="default-filled">
         <t-radio-button value="default">默认样式</t-radio-button>
-        <t-radio-button value="dot">Dot样式</t-radio-button>
+        <t-radio-button value="dot">点状样式</t-radio-button>
       </t-radio-group>
     </t-space>
     <t-timeline mode="same" :theme="dot">
