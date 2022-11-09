@@ -2,9 +2,9 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import Space from '@/src/space/index.ts';
 import Button from '@/src/button/index.ts';
-import Divder from '@/src/divider/index.ts';
+import Divider from '@/src/divider/index.ts';
 
-describe('Skeleton', () => {
+describe('Space', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => (
@@ -88,7 +88,7 @@ describe('Skeleton', () => {
 
   it(':separator', () => {
     const slots = {
-      separator: () => <Divder layout="vertical" />,
+      separator: () => <Divider layout="vertical" />,
     };
     const wrapper = mount(() => (
       <Space v-slots={slots}>
@@ -100,7 +100,7 @@ describe('Skeleton', () => {
     const space = wrapper.find('.t-space');
     const separators = space.findAll('.t-space-item-separator');
     expect(separators.length).toBe(2);
-    expect(separators[0].findComponent(Divder).exists()).toBeTruthy();
-    expect(separators[1].findComponent(Divder).exists()).toBeTruthy();
+    expect(separators[0].findComponent(Divider).exists()).toBeTruthy();
+    expect(separators[1].findComponent(Divider).exists()).toBeTruthy();
   });
 });

@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### TimeLine Props
 
 name | type | default | description | required
