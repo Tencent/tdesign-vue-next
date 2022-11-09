@@ -12,12 +12,12 @@ export default {
   allowInput: Boolean,
   /** 是否允许清除选中值 */
   clearable: Boolean,
-  /** 是否禁用组件 */
-  disabled: Boolean,
   /** 禁用时间项 */
   disableTime: {
     type: Function as PropType<TdTimePickerProps['disableTime']>,
   },
+  /** 是否禁用组件 */
+  disabled: Boolean,
   /** 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
@@ -40,6 +40,10 @@ export default {
   /** 透传给 popup 组件的参数 */
   popupProps: {
     type: Object as PropType<TdTimePickerProps['popupProps']>,
+  },
+  /** 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }` */
+  presets: {
+    type: Object as PropType<TdTimePickerProps['presets']>,
   },
   /** 尺寸 */
   size: {
@@ -81,4 +85,6 @@ export default {
   onInput: Function as PropType<TdTimePickerProps['onInput']>,
   /** 面板打开时触发 */
   onOpen: Function as PropType<TdTimePickerProps['onOpen']>,
+  /** 面板选中值后触发 */
+  onPick: Function as PropType<TdTimePickerProps['onPick']>,
 };

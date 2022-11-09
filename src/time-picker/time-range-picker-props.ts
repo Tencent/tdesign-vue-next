@@ -12,14 +12,14 @@ export default {
   allowInput: Boolean,
   /** 是否允许清除选中值 */
   clearable: Boolean,
+  /** 禁用时间项 */
+  disableTime: {
+    type: Function as PropType<TdTimeRangePickerProps['disableTime']>,
+  },
   /** 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用 */
   disabled: {
     type: [Boolean, Array] as PropType<TdTimeRangePickerProps['disabled']>,
     default: false,
-  },
-  /** 禁用时间项 */
-  disableTime: {
-    type: Function as PropType<TdTimeRangePickerProps['disableTime']>,
   },
   /** 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
@@ -39,7 +39,10 @@ export default {
   /** 透传给 popup 组件的参数 */
   popupProps: {
     type: Object as PropType<TdTimeRangePickerProps['popupProps']>,
-    default: () => {},
+  },
+  /** 预设快捷时间范围选择，示例：{ '下午': ['13:00:00', '18:00:00'] } */
+  presets: {
+    type: Object as PropType<TdTimeRangePickerProps['presets']>,
   },
   /** 透传给范围输入框 RangeInput 组件的参数 */
   rangeInputProps: {
@@ -80,4 +83,6 @@ export default {
   onFocus: Function as PropType<TdTimeRangePickerProps['onFocus']>,
   /** 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
   onInput: Function as PropType<TdTimeRangePickerProps['onInput']>,
+  /** 面板选中值后触发 */
+  onPick: Function as PropType<TdTimeRangePickerProps['onPick']>,
 };

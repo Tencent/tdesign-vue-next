@@ -72,6 +72,7 @@ export default defineComponent({
       } else {
         currentValue.value = [currentValue.value[0] ?? newValue, newValue];
       }
+      handleOnPick(newValue);
     };
 
     const handleInputBlur = (value: TimeRangeValue, { e }: { e: FocusEvent }) => {
@@ -103,6 +104,19 @@ export default defineComponent({
 
     const handleFocus = (value: TimeRangeValue, { e, position }: { e: FocusEvent; position: RangeInputPosition }) => {
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
+    };
+
+    const handleOnPick = (pickValue: string) => {
+      let pickedRangeValue = [];
+      let context = {};
+      if (currentPanelIdx.value === 0) {
+        pickedRangeValue = [pickValue, currentValue.value[1] ?? pickValue];
+        context = { position: 'start' };
+      } else {
+        pickedRangeValue = [currentValue.value[0] ?? pickValue, pickValue];
+        context = { position: 'end' };
+      }
+      props.onPick?.(pickedRangeValue, context);
     };
 
     watch(
@@ -153,6 +167,7 @@ export default defineComponent({
               isFooterDisplay={true}
               value={currentValue.value[currentPanelIdx.value || 0]}
               onChange={handleTimeChange}
+              onPick={handleOnPick}
               handleConfirmClick={handleClickConfirm}
               position={currentPanelIdx.value === 0 ? 'start' : 'end'}
             />

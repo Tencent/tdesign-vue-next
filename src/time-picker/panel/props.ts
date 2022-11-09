@@ -43,7 +43,7 @@ export const panelProps = () => ({
   isShowPanel: {
     ...BooleanType,
     ...{
-      default: false,
+      default: true,
     },
   },
   hideDisabledTime: {

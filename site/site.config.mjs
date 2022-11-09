@@ -398,6 +398,12 @@ export default {
           component: () => import('tdesign-vue-next/tag/tag.md'),
         },
         {
+          title: 'Timeline 时间轴',
+          name: 'timeline',
+          path: '/vue-next/components/timeline',
+          component: () => import('tdesign-vue-next/timeline/timeline.md'),
+        },
+        {
           title: 'Tooltip 文字提示',
           name: 'tooltip',
           path: '/vue-next/components/tooltip',

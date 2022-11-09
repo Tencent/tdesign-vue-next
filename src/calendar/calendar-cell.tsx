@@ -34,6 +34,7 @@ export default defineComponent({
     t: Function,
     global: Object,
     cell: [String, Function],
+    cellAppend: [String, Function],
   },
   emits: [...Object.values(clickTypeEmitEventMap)],
   setup(props, { emit }) {
@@ -91,12 +92,10 @@ export default defineComponent({
       return (
         props.item && (
           <td class={cellCls.value} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
-            {typeof props.cell === 'function'
-              ? props.cell({ ...props.item })
-              : renderContent('cell', undefined, {
-                  defaultNode: renderDefaultNode(),
-                  params: { ...props.item },
-                })}
+            {renderContent('cell', undefined, {
+              defaultNode: renderDefaultNode(),
+              params: { ...props.item },
+            })}
           </td>
         )
       );

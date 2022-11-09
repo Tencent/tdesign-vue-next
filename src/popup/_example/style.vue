@@ -21,15 +21,15 @@
     </t-popup>
 
     <t-popup
-      content="overlayStyle 作为函数使用，可以让浮层内容和触发元素同宽"
-      :overlay-style="(triggerElem) => ({ width: `${triggerElem.offsetWidth}px` })"
+      content="overlayInnerStyle 作为函数使用，可以让浮层内容和触发元素同宽"
+      :overlay-inner-style="(triggerElem) => ({ width: `${triggerElem.offsetWidth}px` })"
       placement="bottom"
     >
       <t-button variant="outline">浮层和触发元素同宽</t-button>
     </t-popup>
   </t-space>
 </template>
-
+<script></script>
 <style scoped>
 .tdesign-demo__custom-popup {
   font-weight: 500;

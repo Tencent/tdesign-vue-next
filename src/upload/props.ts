@@ -194,9 +194,9 @@ export default {
   onDragleave: Function as PropType<TdUploadProps['onDragleave']>,
   /** 拖拽结束时触发 */
   onDrop: Function as PropType<TdUploadProps['onDrop']>,
-  /** 上传失败后触发。`response` 指接口响应结果，`response.error` 会作为错误文本提醒。如果希望判定为上传失败，但接口响应数据不包含 `error` 字段，可以使用 `formatResponse` 格式化 `response` 数据结构 */
+  /** 上传失败后触发。`response` 指接口响应结果，`response.error` 会作为错误文本提醒。如果希望判定为上传失败，但接口响应数据不包含 `error` 字段，可以使用 `formatResponse` 格式化 `response` 数据结构。如果是多文件多请求上传场景，请到事件 `onOneFileFail` 中查看 `response` */
   onFail: Function as PropType<TdUploadProps['onFail']>,
-  /** 单个文件上传失败后触发，如果一个请求上传一个文件，则会触发多次 */
+  /** 多文件/图片场景下，单个文件上传失败后触发，如果一个请求上传一个文件，则会触发多次。单文件/图片不会触发 */
   onOneFileFail: Function as PropType<TdUploadProps['onOneFileFail']>,
   /** 单个文件上传成功后触发，在多文件场景下会触发多次。`context.file` 表示当前上传成功的单个文件，`context.response` 表示上传请求的返回数据 */
   onOneFileSuccess: Function as PropType<TdUploadProps['onOneFileSuccess']>,

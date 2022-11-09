@@ -55,6 +55,7 @@ export * from './skeleton';
 export * from './swiper';
 export * from './table';
 export * from './tag';
+export * from './timeline';
 export * from './tooltip';
 export * from './tree';
 export * from './collapse';

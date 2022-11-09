@@ -77,6 +77,7 @@ export default defineComponent({
 
     const handlePanelChange = (v: string) => {
       currentValue.value = v;
+      props.onPick?.(v);
     };
 
     watch(
