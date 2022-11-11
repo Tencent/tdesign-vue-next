@@ -9,7 +9,7 @@ import { TNode } from '../common';
 export interface TdTimeLineProps {
   /**
    * 标签信息放在时间轴的位置，`mode='alternate'` 时生效。纵向时间轴信息位置：左侧、右侧或两侧，默认信息在时间轴右侧。横向时间轴信息位置：上方、下方、两侧
-   * @default right
+   * @default left
    */
   labelAlign?: 'left' | 'right' | 'alternate' | 'top' | 'bottom';
   /**
