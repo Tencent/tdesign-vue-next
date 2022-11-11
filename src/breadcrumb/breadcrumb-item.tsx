@@ -6,6 +6,7 @@ import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useTNodeJSX } from '../hooks/tnode';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
@@ -39,6 +40,7 @@ export default defineComponent({
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
+
     const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
     const maxWithStyle = computed(() => {
       const maxItemWidth = localTBreadcrumb?.maxItemWidth;
@@ -73,6 +75,8 @@ export default defineComponent({
     };
 
     return () => {
+      const renderTNodeJSX = useTNodeJSX();
+
       const itemClass = [COMPONENT_NAME.value, themeClassName.value];
       const textClass = [textFlowClass.value];
 
@@ -90,8 +94,11 @@ export default defineComponent({
         },
       };
       const textContent = (
-        <span ref={breadcrumbText} {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
-          {slots.default()}
+        <span {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
+          {renderTNodeJSX('icon')}
+          <span ref={breadcrumbText} class={`${maxLengthClass.value}-text`}>
+            {renderTNodeJSX('default')}
+          </span>
         </span>
       );
       let itemContent = <span {...{ class: textClass, ...listeners }}>{textContent}</span>;
