@@ -3419,9 +3419,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/base.vue 1`] = `
         class="t-breadcrumb__inner"
         style="max-width: 150px;"
       >
-        
-         页面1 
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+           页面1 
+          
+        </span>
       </span>
     </a>
     <span
@@ -3453,9 +3458,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/base.vue 1`] = `
         class="t-breadcrumb__inner"
         style="max-width: 150px;"
       >
-        
-        页面2面包屑文案超长时悬浮显示文案全部信息
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2面包屑文案超长时悬浮显示文案全部信息
+          
+        </span>
       </span>
     </span>
     <span
@@ -3487,9 +3497,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/base.vue 1`] = `
         class="t-breadcrumb__inner"
         style="max-width: 160px;"
       >
-        
-         面包屑中文案过长时可缩略显示，鼠标hover时显示全部 
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+           面包屑中文案过长时可缩略显示，鼠标hover时显示全部 
+          
+        </span>
       </span>
     </span>
     <span
@@ -3530,9 +3545,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/custom.vue 1`] =
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面1
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
       </span>
     </span>
     <span
@@ -3553,9 +3573,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/custom.vue 1`] =
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面2
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2
+          
+        </span>
       </span>
     </span>
     <span
@@ -3576,9 +3601,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/custom.vue 1`] =
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面3
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面3
+          
+        </span>
       </span>
     </span>
     <span
@@ -3608,37 +3638,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/dropdown.vue 1`]
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面1
-        
-      </span>
-    </span>
-    <span
-      class="t-breadcrumb__separator"
-    >
-      /
-    </span>
-  </div>
-  <div
-    class="t-breadcrumb__item light"
-  >
-    <span
-      class="t-breadcrumb--text-overflow"
-    >
-      <span
-        class="t-breadcrumb__inner"
-        style="max-width: 120px;"
-      >
-        
-        页面2 
-        <svg
-          class="t-icon t-icon-chevron-down"
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
         >
-          <use
-            href="#t-icon-chevron-down"
-          />
-        </svg>
-        
+          
+          页面1
+          
+        </span>
       </span>
     </span>
     <span
@@ -3657,9 +3664,47 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/dropdown.vue 1`]
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面3
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2 
+          <svg
+            class="t-icon t-icon-chevron-down"
+          >
+            <use
+              href="#t-icon-chevron-down"
+            />
+          </svg>
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      /
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面3
+          
+        </span>
       </span>
     </span>
     <span
@@ -3698,9 +3743,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
             class="t-breadcrumb__inner"
             style="max-width: 120px;"
           >
-            
-            首页
-            
+            <!---->
+            <span
+              class="t-breadcrumb__inner-text"
+            >
+              
+              首页
+              
+            </span>
           </span>
         </a>
         <span
@@ -3734,9 +3784,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
             class="t-breadcrumb__inner"
             style="max-width: 120px;"
           >
-            
-            页面1(覆盖路由)
-            
+            <!---->
+            <span
+              class="t-breadcrumb__inner-text"
+            >
+              
+              页面1(覆盖路由)
+              
+            </span>
           </span>
         </a>
         <span
@@ -3770,9 +3825,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
             class="t-breadcrumb__inner"
             style="max-width: 120px;"
           >
-            
-            页面2
-            
+            <!---->
+            <span
+              class="t-breadcrumb__inner-text"
+            >
+              
+              页面2
+              
+            </span>
           </span>
         </a>
         <span
@@ -3804,9 +3864,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
             class="t-breadcrumb__inner"
             style="max-width: 120px;"
           >
-            
-            页面3(disabled)
-            
+            <!---->
+            <span
+              class="t-breadcrumb__inner-text"
+            >
+              
+              页面3(disabled)
+              
+            </span>
           </span>
         </span>
         <span
@@ -3838,9 +3903,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/href.vue 1`] = `
             class="t-breadcrumb__inner"
             style="max-width: 120px;"
           >
-            
-            页面4自定义点击
-            
+            <!---->
+            <span
+              class="t-breadcrumb__inner-text"
+            >
+              
+              页面4自定义点击
+              
+            </span>
           </span>
         </span>
         <span
@@ -3906,8 +3976,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/icon.vue 1`] = `
             href="#t-icon-books"
           />
         </svg>
-        页面1
         
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
       </span>
     </span>
     <span
@@ -3947,8 +4023,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/icon.vue 1`] = `
             href="#t-icon-books"
           />
         </svg>
-        页面2
         
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2
+          
+        </span>
       </span>
     </span>
     <span
@@ -3988,8 +4070,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/icon.vue 1`] = `
             href="#t-icon-books"
           />
         </svg>
-        页面3
         
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面3
+          
+        </span>
       </span>
     </span>
     <span
@@ -4030,9 +4118,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/options.vue 1`] 
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面1
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
       </span>
     </span>
     <span
@@ -4064,9 +4157,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/options.vue 1`] 
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面2
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2
+          
+        </span>
       </span>
     </span>
     <span
@@ -4100,9 +4198,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/options.vue 1`] 
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面3
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面3
+          
+        </span>
       </span>
     </a>
     <span
@@ -4145,9 +4248,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/to.vue 1`] = `
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-         首页 
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+           首页 
+          
+        </span>
       </span>
     </a>
     <span
@@ -4179,9 +4287,14 @@ exports[`csr snapshot test > csr test ./src/breadcrumb/_example/to.vue 1`] = `
         class="t-breadcrumb__inner"
         style="max-width: 120px;"
       >
-        
-        页面1
-        
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
       </span>
     </span>
     <span
@@ -4973,27 +5086,30 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
+      
+      
+      <svg
+        class="t-icon t-icon-add"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      
       <span
         class="t-button__text"
       >
         
-        <svg
-          class="t-icon t-icon-add"
-          fill="none"
-          height="1em"
-          slot="icon"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
          新建 
         
       </span>
+      
     </button>
   </div>
   <!---->
@@ -5006,32 +5122,35 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
       type="button"
     >
+      
+      
+      <svg
+        class="t-icon t-icon-cloud-upload"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M6.14 10.72L7.5 9.39l.03 5.12 1.01-.01-.03-5.1 1.37 1.34.72-.7-2.26-2.2a.5.5 0 00-.7 0l-2.22 2.18.72.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      
       <span
         class="t-button__text"
       >
         
-        <svg
-          class="t-icon t-icon-cloud-upload"
-          fill="none"
-          height="1em"
-          slot="icon"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M6.14 10.72L7.5 9.39l.03 5.12 1.01-.01-.03-5.1 1.37 1.34.72-.7-2.26-2.2a.5.5 0 00-.7 0l-2.22 2.18.72.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
          上传文件 
         
       </span>
+      
     </button>
   </div>
   <!---->
@@ -5041,36 +5160,34 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
     class="t-space-item"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
       type="button"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <svg
+        class="t-icon t-icon-discount"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
       >
-        
-        <svg
-          class="t-icon t-icon-discount"
-          fill="none"
-          height="1em"
-          slot="icon"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            clip-rule="evenodd"
-            d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
-            fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-        </svg>
-        
-      </span>
+        <path
+          d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
+          fill="currentColor"
+          fill-opacity="0.9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
     </button>
   </div>
   <!---->
@@ -5080,34 +5197,32 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
     class="t-space-item"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
       type="button"
     >
-      <span
-        class="t-button__text"
+      
+      
+      <svg
+        class="t-icon t-icon-cloud-download"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
       >
-        
-        <svg
-          class="t-icon t-icon-cloud-download"
-          fill="none"
-          height="1em"
-          slot="icon"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M9.8 11.3l-1.3 1.29v-4.6h-1v4.6L6.2 11.3l-.7.7 2.15 2.15c.2.2.51.2.7 0L10.5 12l-.7-.71z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-      </span>
+        <path
+          d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M9.8 11.3l-1.3 1.29v-4.6h-1v4.6L6.2 11.3l-.7.7 2.15 2.15c.2.2.51.2.7 0L10.5 12l-.7-.71z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      
+      
+      
     </button>
   </div>
   <!---->

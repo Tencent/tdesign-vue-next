@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
@@ -31,11 +30,11 @@ export interface TdBreadcrumbItemProps {
   /**
    * 子元素
    */
-  content?: string | number | TNode;
+  content?: string | TNode;
   /**
    * 子元素，同 content
    */
-  default?: string | number | TNode;
+  default?: string | TNode;
   /**
    * 是否禁用当前项点击
    */
@@ -46,7 +45,11 @@ export interface TdBreadcrumbItemProps {
    */
   href?: string;
   /**
-   * 最大宽度，超出后会以省略号形式呈现。优先级高于 Breadcrum 中的 maxItemWidth
+   * 面板屑项内的前置图标
+   */
+  icon?: TNode;
+  /**
+   * 最大宽度，超出后会以省略号形式呈现。优先级高于 Breadcrumb 中的 maxItemWidth
    */
   maxWidth?: string;
   /**
@@ -55,7 +58,7 @@ export interface TdBreadcrumbItemProps {
    */
   replace?: boolean;
   /**
-   * 路由对象。如果项目存在 Router，则默认使用 Router。
+   * 路由对象。如果项目存在 Router，则默认使用 Router
    */
   router?: any;
   /**
