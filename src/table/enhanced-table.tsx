@@ -17,7 +17,7 @@ export default defineComponent({
   },
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
-    const enhancedTableRef = ref(null);
+    const primaryTableRef = ref(null);
     const { store, dataSource, formatTreeColumn, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
 
     const treeDataMap = ref(store.value.treeDataMap);
@@ -63,13 +63,16 @@ export default defineComponent({
       dataSource: dataSource.value,
       ...treeInstanceFunctions,
       validateRowData: (rowValue: any) => {
-        enhancedTableRef.value.validateRowData(rowValue);
+        primaryTableRef.value.validateRowData(rowValue);
       },
       validateTableData: () => {
-        enhancedTableRef.value.validateTableData();
+        primaryTableRef.value.validateTableData();
       },
       clearValidateData: () => {
-        enhancedTableRef.value.clearValidateData();
+        primaryTableRef.value.clearValidateData();
+      },
+      refreshTable: () => {
+        primaryTableRef.value.refreshTable();
       },
     });
 
@@ -86,7 +89,7 @@ export default defineComponent({
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
       };
-      return <PrimaryTable ref={enhancedTableRef} v-slots={context.slots} {...enhancedProps} />;
+      return <PrimaryTable v-slots={context.slots} {...enhancedProps} ref={primaryTableRef} />;
     };
   },
 });
