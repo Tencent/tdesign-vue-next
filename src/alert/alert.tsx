@@ -141,7 +141,9 @@ export default defineComponent({
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
-      if (e.propertyName === 'opacity') {
+      const isTransitionTarget = e.target === alertRef.value;
+      // 防止子元素冒泡触发
+      if (e.propertyName === 'opacity' && isTransitionTarget) {
         visible.value = false;
         props.onClosed?.({ e });
       }
