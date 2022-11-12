@@ -126,7 +126,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const onInnerInputChange = (val: string, ctx: { e: InputEvent }) => {
     if (!canInputNumber(val, props.largeNumber)) return;
-    userInput.value = val;
     // 大数-字符串；普通数-数字。此处是了将 2e3，2.1e3 等内容转换为数字
     const newVal = props.largeNumber || !val ? val : Number(val);
     if (newVal !== tValue.value && !['-', '.', 'e', 'E'].includes(val.slice(-1))) {
