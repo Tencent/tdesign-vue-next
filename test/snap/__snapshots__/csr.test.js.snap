@@ -36578,78 +36578,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
                 评论作者名A写的评论内容。
               </div>
               <!---->
-              <ul
+              <div
                 class="t-comment__actions"
               >
                 
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-thumb-up"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-thumb-up"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-thumb-up"
+                        >
+                          <use
+                            href="#t-icon-thumb-up"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          6
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        6
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-chat"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-chat"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-chat"
+                        >
+                          <use
+                            href="#t-icon-chat"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          回复
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        回复
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
+                  </span>
+                </button>
                 
-              </ul>
+              </div>
             </div>
           </div>
           <!---->
@@ -36703,78 +36721,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
                 评论作者名B写的评论内容。
               </div>
               <!---->
-              <ul
+              <div
                 class="t-comment__actions"
               >
                 
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-thumb-up"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-thumb-up"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-thumb-up"
+                        >
+                          <use
+                            href="#t-icon-thumb-up"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          6
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        6
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-chat"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-chat"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-chat"
+                        >
+                          <use
+                            href="#t-icon-chat"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          回复
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        回复
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
+                  </span>
+                </button>
                 
-              </ul>
+              </div>
             </div>
           </div>
           <!---->
@@ -36828,78 +36864,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/list.vue 1`] = `
                 评论作者名C写的评论内容。
               </div>
               <!---->
-              <ul
+              <div
                 class="t-comment__actions"
               >
                 
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-thumb-up"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-thumb-up"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-thumb-up"
+                        >
+                          <use
+                            href="#t-icon-thumb-up"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          6
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        6
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="t-space t-space-horizontal"
-                    style="gap: 6px;"
+                  </span>
+                </button>
+                <button
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
                   >
                     
-                    
                     <div
-                      class="t-space-item"
+                      class="t-space t-space-horizontal"
+                      style="gap: 6px;"
                     >
-                      <svg
-                        class="t-icon t-icon-chat"
+                      
+                      
+                      <div
+                        class="t-space-item"
                       >
-                        <use
-                          href="#t-icon-chat"
-                        />
-                      </svg>
+                        <svg
+                          class="t-icon t-icon-chat"
+                        >
+                          <use
+                            href="#t-icon-chat"
+                          />
+                        </svg>
+                      </div>
+                      <!---->
+                      
+                      
+                      <div
+                        class="t-space-item"
+                      >
+                        <span>
+                          回复
+                        </span>
+                      </div>
+                      <!---->
+                      
+                      
                     </div>
-                    <!---->
                     
-                    
-                    <div
-                      class="t-space-item"
-                    >
-                      <span>
-                        回复
-                      </span>
-                    </div>
-                    <!---->
-                    
-                    
-                  </div>
-                </li>
+                  </span>
+                </button>
                 
-              </ul>
+              </div>
             </div>
           </div>
           <!---->
@@ -36961,78 +37015,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/operation.vue 1`] =
         这里是评论者写的评论内容。
       </div>
       <!---->
-      <ul
+      <div
         class="t-comment__actions"
       >
         
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-thumb-up"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-thumb-up"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-thumb-up"
+                >
+                  <use
+                    href="#t-icon-thumb-up"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  6
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                6
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+          </span>
+        </button>
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-chat"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-chat"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-chat"
+                >
+                  <use
+                    href="#t-icon-chat"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  回复
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                回复
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
+          </span>
+        </button>
         
-      </ul>
+      </div>
     </div>
   </div>
   <!---->
@@ -37114,78 +37186,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/quote.vue 1`] = `
         </div>
         
       </div>
-      <ul
+      <div
         class="t-comment__actions"
       >
         
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-thumb-up"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-thumb-up"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-thumb-up"
+                >
+                  <use
+                    href="#t-icon-thumb-up"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  6
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                6
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+          </span>
+        </button>
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-chat"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-chat"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-chat"
+                >
+                  <use
+                    href="#t-icon-chat"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  回复
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                回复
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
+          </span>
+        </button>
         
-      </ul>
+      </div>
     </div>
   </div>
   <!---->
@@ -37231,78 +37321,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
         这里是评论者写的评论内容。
       </div>
       <!---->
-      <ul
+      <div
         class="t-comment__actions"
       >
         
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-thumb-up"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-thumb-up"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-thumb-up"
+                >
+                  <use
+                    href="#t-icon-thumb-up"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  6
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                6
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
-        <li>
-          <div
-            class="t-space t-space-horizontal"
-            style="gap: 6px;"
+          </span>
+        </button>
+        <button
+          class="t-button t-size-s t-button--variant-text t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
           >
             
-            
             <div
-              class="t-space-item"
+              class="t-space t-space-horizontal"
+              style="gap: 6px;"
             >
-              <svg
-                class="t-icon t-icon-chat"
+              
+              
+              <div
+                class="t-space-item"
               >
-                <use
-                  href="#t-icon-chat"
-                />
-              </svg>
+                <svg
+                  class="t-icon t-icon-chat"
+                >
+                  <use
+                    href="#t-icon-chat"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <span>
+                  回复
+                </span>
+              </div>
+              <!---->
+              
+              
             </div>
-            <!---->
             
-            
-            <div
-              class="t-space-item"
-            >
-              <span>
-                回复
-              </span>
-            </div>
-            <!---->
-            
-            
-          </div>
-        </li>
+          </span>
+        </button>
         
-      </ul>
+      </div>
     </div>
   </div>
   <div
@@ -37389,78 +37497,96 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
             这里是评论者写的评论内容。
           </div>
           <!---->
-          <ul
+          <div
             class="t-comment__actions"
           >
             
-            <li>
-              <div
-                class="t-space t-space-horizontal"
-                style="gap: 6px;"
+            <button
+              class="t-button t-size-s t-button--variant-text t-button--theme-default"
+              type="button"
+            >
+              <span
+                class="t-button__text"
               >
                 
-                
                 <div
-                  class="t-space-item"
+                  class="t-space t-space-horizontal"
+                  style="gap: 6px;"
                 >
-                  <svg
-                    class="t-icon t-icon-thumb-up"
+                  
+                  
+                  <div
+                    class="t-space-item"
                   >
-                    <use
-                      href="#t-icon-thumb-up"
-                    />
-                  </svg>
+                    <svg
+                      class="t-icon t-icon-thumb-up"
+                    >
+                      <use
+                        href="#t-icon-thumb-up"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      6
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
                 </div>
-                <!---->
                 
-                
-                <div
-                  class="t-space-item"
-                >
-                  <span>
-                    6
-                  </span>
-                </div>
-                <!---->
-                
-                
-              </div>
-            </li>
-            <li>
-              <div
-                class="t-space t-space-horizontal"
-                style="gap: 6px;"
+              </span>
+            </button>
+            <button
+              class="t-button t-size-s t-button--variant-text t-button--theme-default"
+              type="button"
+            >
+              <span
+                class="t-button__text"
               >
                 
-                
                 <div
-                  class="t-space-item"
+                  class="t-space t-space-horizontal"
+                  style="gap: 6px;"
                 >
-                  <svg
-                    class="t-icon t-icon-chat"
+                  
+                  
+                  <div
+                    class="t-space-item"
                   >
-                    <use
-                      href="#t-icon-chat"
-                    />
-                  </svg>
+                    <svg
+                      class="t-icon t-icon-chat"
+                    >
+                      <use
+                        href="#t-icon-chat"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      回复
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
                 </div>
-                <!---->
                 
-                
-                <div
-                  class="t-space-item"
-                >
-                  <span>
-                    回复
-                  </span>
-                </div>
-                <!---->
-                
-                
-              </div>
-            </li>
+              </span>
+            </button>
             
-          </ul>
+          </div>
         </div>
       </div>
       <!---->
