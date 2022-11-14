@@ -152210,6 +152210,80 @@ exports[`csr snapshot test > csr test ./src/tooltip/_example/trigger.vue 1`] = `
 </div>
 `;
 
+exports[`csr snapshot test > csr test ./src/tooltip/_example/with-popup-or-popconfirm.vue 1`] = `
+<div
+  class="t-space t-space-horizontal"
+  style="gap: 16px;"
+>
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <span>
+      
+      <!-- 在中间包一层元素 -->
+      <!-- 搭配 Popconfirm 同理 -->
+      <div
+        style="display: inline-block;"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            Tooltip 在 Popup 内部
+            
+          </span>
+        </button>
+        <!---->
+        
+      </div>
+      
+    </span>
+    <!---->
+    
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    
+    <div
+      style="display: inline-block;"
+    >
+      
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          Popup 在 Tooltip 内部
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  
+  
+</div>
+`;
+
 exports[`csr snapshot test > csr test ./src/transfer/_example/base.vue 1`] = `
 <div
   class="t-transfer"
