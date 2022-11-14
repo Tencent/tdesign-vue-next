@@ -25,5 +25,6 @@
 .describe {
   margin-top: 8px;
   font-size: 12px;
+  color: var(--td-text-color-secondary);
 }
 </style>
