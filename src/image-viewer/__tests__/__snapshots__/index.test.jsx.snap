@@ -19,7 +19,6 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        style="font-size: 20px;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -347,7 +346,6 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        style="font-size: 20px;"
         viewBox="0 0 16 16"
         width="1em"
       >
