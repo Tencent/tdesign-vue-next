@@ -18,7 +18,7 @@ import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
-import { formatSlderValue, getStopStyle } from './util/common';
+import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
 
@@ -45,12 +45,8 @@ export default defineComponent({
     const firstButtonRef = ref<SliderButtonType>();
     const secondButtonRef = ref<SliderButtonType>();
 
-    // const sliderState = reactive({
-    //   // TODO: 该属性应该是暴露出来的api供用户配置才对
-    //   showSteps: true,
-    // });
-    const firstValue = ref(formatSlderValue(sliderValue.value, 'first'));
-    const secondValue = ref(formatSlderValue(sliderValue.value, 'second'));
+    const firstValue = ref(formatSliderValue(sliderValue.value, 'first'));
+    const secondValue = ref(formatSliderValue(sliderValue.value, 'second'));
     const dragging = ref(false);
     const sliderSize = ref(1);
 
@@ -413,7 +409,7 @@ export default defineComponent({
               />
             )}
             {props.showStep && (
-              <div>
+              <div class={`${COMPONENT_NAME.value}__stops`}>
                 {steps.value.map((item, key) => (
                   <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
                 ))}
