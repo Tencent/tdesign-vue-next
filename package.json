@@ -24,7 +24,8 @@
     "dist",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "helper"
   ],
   "sideEffects": [
     "*.vue",
@@ -195,5 +196,10 @@
       "prettier --write",
       "eslint --fix"
     ]
-  }
+  },
+  "vetur": {
+    "tags": "helper/tags.json",
+    "attributes": "helper/attributes.json"
+  },
+  "web-types": "helper/web-types.json"
 }
