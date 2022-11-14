@@ -60,11 +60,11 @@ const footerType = ref('normal');
 const columns = [
   {
     align: 'center',
-    width: '100',
     className: 'row',
     colKey: 'index',
     title: '序号',
     foot: () => <b style="color: rgb(0, 82, 217)">表尾</b>,
+    width: '64',
   },
   {
     width: 100,

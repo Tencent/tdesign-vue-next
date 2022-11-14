@@ -69,6 +69,7 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
       title: '序号',
       foot: () => <b style="color: rgb(0, 82, 217)">表尾</b>,
       fixed: fixedLeftColumn ? 'left' : undefined,
+      width: '64',
     },
     {
       colKey: 'platform',
@@ -115,7 +116,7 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
       colKey: 'operation',
       title: '操作',
       cell: () => '查看',
-      width: 80,
+      width: 120,
       foot: '-',
       fixed: fixedRightColumn ? 'right' : undefined,
     },

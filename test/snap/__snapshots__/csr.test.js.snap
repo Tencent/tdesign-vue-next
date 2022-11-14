@@ -41895,7 +41895,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/table.vue 1
         <colgroup>
           
           <col
-            style="width: 64px;"
+            style="width: 46px;"
           />
           <col />
           <col />
@@ -111789,7 +111789,9 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
         >
           <colgroup>
             
-            <col />
+            <col
+              style="width: 64px;"
+            />
             <col />
             <col />
             <col />
@@ -111799,7 +111801,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
             <col />
             <col />
             <col
-              style="width: 80px;"
+              style="width: 120px;"
             />
             
           </colgroup>
@@ -113077,7 +113079,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/base.vue 1`] = `
           <colgroup>
             
             <col
-              style="width: 100px;"
+              style="width: 64px;"
             />
             <col />
             <col />
@@ -115154,7 +115156,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-footer.vue 1`]
         <colgroup>
           
           <col
-            style="width: 100px;"
+            style="width: 64px;"
           />
           <col
             style="width: 100px;"
@@ -115489,21 +115491,27 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-header.vue 1`]
                 class="t-table__th-cell-inner"
               >
                 
-                <svg
-                  class="t-icon t-icon-app"
+                <div
                   data-v-2508703f=""
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                  style="display: flex; align-items: center;"
                 >
-                  <path
-                    d="M11.25 1.75a3 3 0 100 6 3 3 0 000-6zm-2 3a2 2 0 114 0 2 2 0 01-4 0zM2 3a1 1 0 011-1h3.5a1 1 0 011 1v3.5a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1 0v3.5h3.5V3H3zM2 9.5a1 1 0 011-1h3.5a1 1 0 011 1V13a1 1 0 01-1 1H3a1 1 0 01-1-1V9.5zm1 0V13h3.5V9.5H3zM8.5 9.5a1 1 0 011-1H13a1 1 0 011 1V13a1 1 0 01-1 1H9.5a1 1 0 01-1-1V9.5zm1 3.5H13V9.5H9.5V13z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                 类型 
+                  <svg
+                    class="t-icon t-icon-app"
+                    data-v-2508703f=""
+                    fill="none"
+                    height="1em"
+                    style="margin-right: 8px;"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M11.25 1.75a3 3 0 100 6 3 3 0 000-6zm-2 3a2 2 0 114 0 2 2 0 01-4 0zM2 3a1 1 0 011-1h3.5a1 1 0 011 1v3.5a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1 0v3.5h3.5V3H3zM2 9.5a1 1 0 011-1h3.5a1 1 0 011 1V13a1 1 0 01-1 1H3a1 1 0 01-1-1V9.5zm1 0V13h3.5V9.5H3zM8.5 9.5a1 1 0 011-1H13a1 1 0 011 1V13a1 1 0 01-1 1H9.5a1 1 0 01-1-1V9.5zm1 3.5H13V9.5H9.5V13z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                   类型
+                </div>
                 
               </div>
             </th>
@@ -116555,7 +116563,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
           <colgroup>
             
             <col
-              style="width: 80px;"
+              style="width: 46px;"
             />
             <col />
             <col />
@@ -119266,7 +119274,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/expandable.vue 1`] = 
         <colgroup>
           
           <col
-            style="width: 64px;"
+            style="width: 46px;"
           />
           <col />
           <col />
@@ -120793,7 +120801,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-column.vue 1`] 
         <colgroup>
           
           <col
-            style="width: 100px;"
+            style="width: 64px;"
           />
           <col
             style="width: 100px;"
@@ -122438,7 +122446,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header-col.vue 
           <colgroup>
             
             <col
-              style="width: 100px;"
+              style="width: 64px;"
             />
             <col
               style="width: 120px;"
@@ -136347,7 +136355,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
         <colgroup>
           
           <col
-            style="width: 100px;"
+            style="width: 64px;"
           />
           <col
             style="width: 100px;"
@@ -136938,7 +136946,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination-ajax.vue 1
       <colgroup>
         
         <col
-          style="width: 64px;"
+          style="width: 46px;"
         />
         <col
           style="width: 200px;"
@@ -139036,7 +139044,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
         <colgroup>
           
           <col
-            style="width: 80px;"
+            style="width: 64px;"
           />
           <col />
           <col />
@@ -139443,7 +139451,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
         <colgroup>
           
           <col
-            style="width: 80px;"
+            style="width: 46px;"
           />
           <col
             style="width: 100px;"
@@ -140969,7 +140977,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
         <colgroup>
           
           <col
-            style="width: 64px;"
+            style="width: 46px;"
           />
           <col
             style="width: 20px;"

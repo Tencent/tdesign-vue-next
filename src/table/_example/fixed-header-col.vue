@@ -55,7 +55,7 @@ const tableLayout = ref('fixed');
 const columns = [
   {
     align: 'center',
-    width: 100,
+    width: 64,
     colKey: 'index',
     title: '序号',
     fixed: 'left',

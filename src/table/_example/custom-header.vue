@@ -2,7 +2,9 @@
   <div>
     <t-table :data="data" :columns="columns" row-key="property">
       <!-- 自定义表头，title值为插槽名称  -->
-      <template #title-slot-name> <app-icon /> 类型 </template>
+      <template #title-slot-name>
+        <div style="display: flex; align-items: center"><app-icon style="margin-right: 8px" /> 类型</div>
+      </template>
     </t-table>
   </div>
 </template>
