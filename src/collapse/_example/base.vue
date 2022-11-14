@@ -8,7 +8,7 @@
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
       <t-collapse-panel header="自定义折叠面板内容">
-        <div class="tdesign-demo-block-column" style="width: 80%">
+        <div class="tdesign-demo-block-column" style="width: 100%">
           <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
 
           <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
