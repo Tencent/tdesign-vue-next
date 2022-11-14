@@ -20,7 +20,7 @@ const columns = [
   {
     colKey: 'row-select',
     type: 'multiple',
-    width: 64,
+    width: 46,
   },
   {
     width: 200,

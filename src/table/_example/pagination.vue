@@ -32,7 +32,7 @@ for (let i = 0; i < TOTAL; i++) {
 const columns = [
   {
     align: 'center',
-    width: '100',
+    width: '64',
     className: 'row',
     colKey: 'index',
     title: '序号',

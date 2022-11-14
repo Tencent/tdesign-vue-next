@@ -74,7 +74,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   const getExpandColumn = () => {
     const expandCol: PrimaryTableCol<TableRowData> = {
       colKey: '__EXPAND_ROW_ICON_COLUMN__',
-      width: 64,
+      width: 46,
       className: tableExpandClasses.iconCell,
       fixed: isFirstColumnFixed.value ? 'left' : undefined,
       cell: renderExpandIcon,
