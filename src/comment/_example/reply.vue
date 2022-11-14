@@ -45,13 +45,3 @@
     </template>
   </t-comment>
 </template>
-
-<style lang="less">
-.comment-reply.t-comment {
-  & > .t-comment__inner {
-    .t-comment__actions {
-      margin-right: 24px;
-    }
-  }
-}
-</style>
