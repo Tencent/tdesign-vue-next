@@ -19,10 +19,3 @@ import { UserIcon } from 'tdesign-icons-vue-next';
 const icon = () => <UserIcon />;
 const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>
-<style lang="less" scoped>
-.demo-avatar {
-  .t-avatar {
-    margin-right: 40px;
-  }
-}
-</style>

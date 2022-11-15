@@ -4,32 +4,28 @@
       <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
         <div class="tdesign-demo-dropdown-trigger">
           <t-button variant="text" shape="square">
-            <more-icon size="24" />
+            <more-icon />
           </t-button>
         </div>
       </t-dropdown>
     </template>
     <template #footer>
-      <t-row :align="'middle'" justify="center">
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <thumb-up-icon size="24" />
+      <t-row :align="'middle'" justify="center" style="gap: 24px">
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <thumb-up-icon />
           </t-button>
         </t-col>
-        <t-col flex="none">
-          <t-divider layout="vertical" />
-        </t-col>
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <chat-icon size="24" />
+
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <chat-icon />
           </t-button>
         </t-col>
-        <t-col flex="none">
-          <t-divider layout="vertical" />
-        </t-col>
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <share-icon size="24" />
+
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <share-icon />
           </t-button>
         </t-col>
       </t-row>
