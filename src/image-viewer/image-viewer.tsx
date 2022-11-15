@@ -22,7 +22,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
-    const isExpand = ref(false);
+    const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
     const { index, visible, modelValue } = toRefs(props);
@@ -131,7 +131,9 @@ export default defineComponent({
       deltaY > 0 ? onZoomIn() : onZoomOut();
     };
 
-    const transStyle = computed(() => ({ transform: `translateX(-${indexValue.value * 84}px)` }));
+    const transStyle = computed(() => ({
+      transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
+    }));
 
     const renderHeader = () => (
       <div class={headerClass.value}>
@@ -141,8 +143,6 @@ export default defineComponent({
           onClick={toggleExpand}
         />
         <div class={`${COMPONENT_NAME.value}__header-prev`}>
-          <div class={`${COMPONENT_NAME.value}__bokeh-left`} />
-          <div class={`${COMPONENT_NAME.value}__bokeh-right`} />
           <div class={`${COMPONENT_NAME.value}__header-trans`} style={transStyle.value}>
             {images.value.map((image, index) => (
               <div
@@ -204,7 +204,7 @@ export default defineComponent({
               onClose={onClose}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
-              closeBtn={props.closeBtn}
+              title={props.title}
             />
           </>
         );
