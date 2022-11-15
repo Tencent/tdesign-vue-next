@@ -28695,7 +28695,7 @@ exports[`csr snapshot test > csr test ./src/collapse/_example/base.vue 1`] = `
                 
                 <div
                   class="tdesign-demo-block-column"
-                  style="width: 80%;"
+                  style="width: 100%;"
                 >
                   <div
                     class="t-input__wrap t-tag-input t-tag-input--break-line"
@@ -37442,47 +37442,20 @@ exports[`csr snapshot test > csr test ./src/comment/_example/reply.vue 1`] = `
               class="t-comment__name"
             >
               
-              <div
-                class="t-space t-space-horizontal"
-                style="gap: 4px;"
+              <span>
+                评论作者名B
+              </span>
+              <svg
+                class="t-icon t-icon-caret-right-small t-size-m"
+                style="margin: 0px 4px;"
               >
-                
-                
-                <div
-                  class="t-space-item"
-                >
-                  <span>
-                    评论作者名B
-                  </span>
-                </div>
-                <!---->
-                
-                
-                <div
-                  class="t-space-item"
-                >
-                  <svg
-                    class="t-icon t-icon-caret-right-small t-size-s"
-                  >
-                    <use
-                      href="#t-icon-caret-right-small"
-                    />
-                  </svg>
-                </div>
-                <!---->
-                
-                
-                <div
-                  class="t-space-item"
-                >
-                  <span>
-                    评论作者名A
-                  </span>
-                </div>
-                <!---->
-                
-                
-              </div>
+                <use
+                  href="#t-icon-caret-right-small"
+                />
+              </svg>
+              <span>
+                评论作者名A
+              </span>
               
             </span>
             <span
