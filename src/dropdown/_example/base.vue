@@ -3,10 +3,8 @@
     <t-dropdown :options="options" @click="clickHandler">
       <t-space>
         <t-button variant="text">
-          <t-space :size="0">
-            更多
-            <t-icon name="chevron-down" size="16" />
-          </t-space>
+          更多
+          <template #suffix> <t-icon name="chevron-down" size="16" /></template>
         </t-button>
       </t-space>
     </t-dropdown>

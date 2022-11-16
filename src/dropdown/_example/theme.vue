@@ -2,10 +2,8 @@
   <t-space class="tdesign-demo-dropdown">
     <t-dropdown :options="options" @click="clickHandler">
       <t-button variant="text">
-        <t-space :size="0" class="tdesign-demo-dropdown__text">
-          下拉菜单
-          <chevron-down-icon size="16" />
-        </t-space>
+        下拉菜单
+        <template #suffix><chevron-down-icon size="16" /></template>
       </t-button>
     </t-dropdown>
   </t-space>
@@ -64,10 +62,3 @@ const clickHandler = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>
-<style lang="less" scoped>
-.tdesign-demo-dropdown {
-  &__text {
-    display: inline-flex;
-  }
-}
-</style>

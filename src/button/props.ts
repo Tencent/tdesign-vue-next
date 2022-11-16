@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdButtonProps } from './type';
@@ -19,12 +18,12 @@ export default {
   default: {
     type: [String, Function] as PropType<TdButtonProps['default']>,
   },
-  /** 是否禁用按钮 */
+  /** 禁用状态 */
   disabled: Boolean,
-  /** 跳转地址 */
-  href: String,
   /** 是否为幽灵按钮（镂空按钮） */
   ghost: Boolean,
+  /** 跳转地址。href 存在时，按钮标签默认使用 `<a>` 渲染；如果指定了 `tag` 则使用指定的标签渲染 */
+  href: String,
   /** 按钮内部图标，可完全自定义 */
   icon: {
     type: Function as PropType<TdButtonProps['icon']>,
@@ -36,6 +35,7 @@ export default {
     type: String as PropType<TdButtonProps['shape']>,
     default: 'rectangle' as TdButtonProps['shape'],
     validator(val: TdButtonProps['shape']): boolean {
+      if (!val) return true;
       return ['rectangle', 'square', 'round', 'circle'].includes(val);
     },
   },
@@ -44,22 +44,27 @@ export default {
     type: String as PropType<TdButtonProps['size']>,
     default: 'medium' as TdButtonProps['size'],
     validator(val: TdButtonProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
-  /**渲染按钮的 HTML 标签*/
+  /** 右侧内容，可用于定义右侧图标 */
+  suffix: {
+    type: Function as PropType<TdButtonProps['suffix']>,
+  },
+  /** 渲染按钮的 HTML 标签，默认使用标签 `<button>` 渲染，可以自定义为 `<a>` `<div>` 等。透传全部 HTML 属性，如：`href/target/data-*` 等。⚠️ 禁用按钮 `<button disabled>`无法显示 Popup 浮层信息，可通过修改 `tag=div` 解决这个问题 */
   tag: {
     type: String as PropType<TdButtonProps['tag']>,
-    default: undefined as TdButtonProps['tag'],
     validator(val: TdButtonProps['tag']): boolean {
+      if (!val) return true;
       return ['button', 'a', 'div'].includes(val);
     },
   },
   /** 组件风格，依次为默认色、品牌色、危险色、警告色、成功色 */
   theme: {
     type: String as PropType<TdButtonProps['theme']>,
-    default: undefined as TdButtonProps['theme'],
     validator(val: TdButtonProps['theme']): boolean {
+      if (!val) return true;
       return ['default', 'primary', 'danger', 'warning', 'success'].includes(val);
     },
   },
@@ -68,6 +73,7 @@ export default {
     type: String as PropType<TdButtonProps['type']>,
     default: 'button' as TdButtonProps['type'],
     validator(val: TdButtonProps['type']): boolean {
+      if (!val) return true;
       return ['submit', 'reset', 'button'].includes(val);
     },
   },
@@ -76,6 +82,7 @@ export default {
     type: String as PropType<TdButtonProps['variant']>,
     default: 'base' as TdButtonProps['variant'],
     validator(val: TdButtonProps['variant']): boolean {
+      if (!val) return true;
       return ['base', 'outline', 'dashed', 'text'].includes(val);
     },
   },
