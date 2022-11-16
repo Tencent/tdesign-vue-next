@@ -125,13 +125,13 @@ const controllerConfig = reactive({
     showWeekendButtonProps: {
       // 用于透传props给显示周末按钮组件
       disabled: false,
-      size: 'small',
+      size: 'medium',
     },
     hideWeekendButtonProps: {
       // 用于透传props给隐藏周末按钮组件
       disabled: false,
       variant: 'base',
-      size: 'small',
+      size: 'medium',
     },
   },
   // “今天\本月”按钮组件相关设置

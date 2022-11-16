@@ -189,7 +189,6 @@ export default defineComponent({
         return controller.checkControllerDisabled('current', p);
       }),
     };
-
     const renderControl = () => {
       return (
         <div class={cls.control.value}>
@@ -241,12 +240,13 @@ export default defineComponent({
                 </TRadioGroup>
               </div>
             )}
+
             {weekendBtn.isVisible.value && (
               <div class={cls.controlSectionCell.value}>
                 <TCheckTag
                   class={cls.controlTag.value}
                   theme={state.isShowWeekend ? 'default' : 'primary'}
-                  size={state.controlSize}
+                  size="large"
                   {...weekendBtn.vBind.value}
                   disabled={weekendBtn.isDisabled.value}
                   onClick={() => {
