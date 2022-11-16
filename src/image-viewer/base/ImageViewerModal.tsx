@@ -1,5 +1,4 @@
 import { computed, defineComponent, PropType } from 'vue';
-import { CloseIcon } from 'tdesign-icons-vue-next';
 import TDialog from '../../dialog';
 import TImageItem from './ImageItem';
 import TImageViewerUtils from './ImageViewerUtils';
@@ -18,6 +17,7 @@ export default defineComponent({
     scale: Number,
     rotate: Number,
     mirror: Number,
+    title: props.title,
     currentImage: {
       type: Object as PropType<ImageInfo>,
       default() {
@@ -62,24 +62,11 @@ export default defineComponent({
         width={1000}
         cancelBtn={null}
         confirmBtn={null}
-        closeBtn={false}
         draggable={props.draggable}
         zIndex={props.zIndex}
         showOverlay={props.showOverlay}
         class={`${classPrefix.value}-image-viewer__dialog`}
-        header={() => (
-          <div class={`${classPrefix.value}-image-viewer__mini-header`}>
-            {`${props.index + 1}/${props.images.length}`}
-            <span
-              class={`${classPrefix.value}-image-viewer__mini-close`}
-              onClick={(e: MouseEvent) => {
-                props.onClose({ e, trigger: 'close-btn' });
-              }}
-            >
-              {renderJSX('closeBtn', <CloseIcon size="1.5rem" />)}
-            </span>
-          </div>
-        )}
+        header={renderJSX('title', '')}
         footer={() => (
           <div class={`${classPrefix.value}-image-viewer-mini__footer`}>
             <TImageViewerUtils

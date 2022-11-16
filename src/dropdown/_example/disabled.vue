@@ -2,10 +2,8 @@
   <t-space>
     <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
       <t-button variant="text">
-        <t-space :size="0">
-          下拉菜单
-          <chevron-down-icon size="16" />
-        </t-space>
+        下拉菜单
+        <template #suffix> <chevron-down-icon size="16" /></template>
       </t-button>
     </t-dropdown>
   </t-space>

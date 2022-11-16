@@ -245,7 +245,7 @@ const columns = [
     title: '排序',
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     cell: (h) => <MoveIcon />,
-    width: 80,
+    width: 46,
   },
   {
     colKey: 'id',

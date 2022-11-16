@@ -1,5 +1,5 @@
 <template>
-  <t-space direction="vertical" size="large">
+  <div class="tdesign-demo-block-column-large">
     <t-space direction="vertical">
       <h3>使用插槽</h3>
       <t-calendar>
@@ -18,7 +18,7 @@
       <h3>使用week属性 - TNode</h3>
       <t-calendar :week="renderWeek" />
     </t-space>
-  </t-space>
+  </div>
 </template>
 
 <script lang="jsx" setup>

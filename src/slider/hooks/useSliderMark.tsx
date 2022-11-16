@@ -66,32 +66,32 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
   });
 
   const renderMask = (onChangeFn?: (point: number) => void): VNode => {
-    if (markList.value.length) {
-      return (
-        <div>
-          <div>
-            {markList.value.map((item, index) => (
-              <div
-                class={`${name}__stop ${name}__mark-stop`}
-                style={getStopStyle(item.position, config.value.vertical)}
-                key={index}
-              />
-            ))}
-          </div>
-          <div class={`${name}__mark`}>
-            {markList.value.map((item, key) => (
-              <TSliderMark
-                mark={item.mark as any}
-                point={item.point}
-                key={key}
-                style={getStopStyle(item.position, config.value.vertical)}
-                onClickMarkPoint={onChangeFn}
-              />
-            ))}
-          </div>
+    if (!markList.value.length) return null;
+
+    return (
+      <div>
+        <div class={`${name}__stops`}>
+          {markList.value.map((item, index) => (
+            <div
+              class={`${name}__stop ${name}__mark-stop`}
+              style={getStopStyle(item.position, config.value.vertical)}
+              key={index}
+            />
+          ))}
         </div>
-      );
-    }
+        <div class={`${name}__mark`}>
+          {markList.value.map((item, key) => (
+            <TSliderMark
+              mark={item.mark as any}
+              point={item.point}
+              key={key}
+              style={getStopStyle(item.position, config.value.vertical)}
+              onClickMarkPoint={onChangeFn}
+            />
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return renderMask;

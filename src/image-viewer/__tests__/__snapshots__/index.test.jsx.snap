@@ -10,7 +10,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   />
   
   <div
-    class="t-image-viewer__modal-header"
+    class="t-image-viewer__modal-header t-is-show"
   >
     <div
       class="t-image-viewer__modal-icon t-image-viewer__header-pre-bt"
@@ -19,7 +19,6 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        style="font-size: 20px;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -35,14 +34,8 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       class="t-image-viewer__header-prev"
     >
       <div
-        class="t-image-viewer__bokeh-left"
-      />
-      <div
-        class="t-image-viewer__bokeh-right"
-      />
-      <div
         class="t-image-viewer__header-trans"
-        style="transform: translateX(-84px);"
+        style="transform: translateX(calc(-1 * (40px / 9 * 16 + 4px)));"
       >
         
         <div
@@ -338,7 +331,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
   />
   
   <div
-    class="t-image-viewer__modal-header"
+    class="t-image-viewer__modal-header t-is-show"
   >
     <div
       class="t-image-viewer__modal-icon t-image-viewer__header-pre-bt"
@@ -347,7 +340,6 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        style="font-size: 20px;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -363,14 +355,8 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       class="t-image-viewer__header-prev"
     >
       <div
-        class="t-image-viewer__bokeh-left"
-      />
-      <div
-        class="t-image-viewer__bokeh-right"
-      />
-      <div
         class="t-image-viewer__header-trans"
-        style="transform: translateX(-84px);"
+        style="transform: translateX(calc(-1 * (40px / 9 * 16 + 4px)));"
       >
         
         <div

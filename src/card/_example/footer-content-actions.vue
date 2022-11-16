@@ -6,7 +6,7 @@
     <template #actions>
       <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
         <t-button variant="text" shape="square">
-          <more-icon size="24" />
+          <more-icon />
         </t-button>
       </t-dropdown>
     </template>

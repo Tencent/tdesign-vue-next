@@ -9,7 +9,7 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 export default defineComponent({
   name: 'TButton',
   props,
-  setup(props, { attrs }) {
+  setup(props, { attrs, slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('button');
@@ -44,10 +44,17 @@ export default defineComponent({
       let buttonContent = renderContent('default', 'content');
       const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
       const iconOnly = icon && !buttonContent;
+      const suffix =
+        props.suffix || slots.suffix ? (
+          <span className={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
+        ) : null;
 
       buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
       if (icon) {
         buttonContent = [icon, buttonContent];
+      }
+      if (suffix) {
+        buttonContent = [buttonContent].concat(suffix);
       }
 
       const renderTag = () => {

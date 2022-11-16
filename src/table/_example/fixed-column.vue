@@ -65,7 +65,7 @@ const columns = computed(() => {
   return [
     {
       align: 'center',
-      width: 100,
+      width: 64,
       colKey: 'index',
       title: '序号',
       fixed: 'left',

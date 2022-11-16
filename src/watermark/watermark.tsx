@@ -1,4 +1,4 @@
-import { computed, onMounted, defineComponent, h, VNode, ref, reactive } from 'vue';
+import { computed, onMounted, defineComponent, h, watch, ref, reactive } from 'vue';
 import props from './props';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
@@ -58,14 +58,17 @@ export default defineComponent({
       offsetTop: offsetTop.value,
     };
 
-    onMounted(() => {
+    const injectWaterMark = () => {
       generateBase64Url(bgImageOptions, (base64Url) => {
         backgroundImage.value = base64Url;
       });
-      parent.value = watermarkRef.value.parentElement;
       const keyframesStyle = randomMovingStyle();
       injectStyle(keyframesStyle);
+    };
 
+    onMounted(() => {
+      injectWaterMark();
+      parent.value = watermarkRef.value.parentElement;
       useMutationObserver(
         parent.value,
         (mutations) => {
@@ -93,6 +96,8 @@ export default defineComponent({
         },
       );
     });
+
+    watch(() => props.watermarkContent, injectWaterMark, { deep: true });
 
     return {
       gapX,

@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.24.6",
+  "version": "0.24.7",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -24,7 +24,8 @@
     "dist",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "helper"
   ],
   "sideEffects": [
     "*.vue",
@@ -175,7 +176,7 @@
     "tdesign-publish-cli": "^0.0.12",
     "tdesign-site-components": "^0.11.4",
     "tdesign-theme-generator": "^0.5.0",
-    "typescript": "^4.5.4",
+    "typescript": "~4.8.4",
     "vite": "^2.9.5",
     "vite-plugin-pwa": "^0.12.0",
     "vite-plugin-tdoc": "^2.0.2",
@@ -195,5 +196,10 @@
       "prettier --write",
       "eslint --fix"
     ]
-  }
+  },
+  "vetur": {
+    "tags": "helper/tags.json",
+    "attributes": "helper/attributes.json"
+  },
+  "web-types": "helper/web-types.json"
 }

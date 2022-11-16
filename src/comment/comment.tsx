@@ -3,6 +3,7 @@ import props from './props';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import Button from '../button';
 
 export default defineComponent({
   name: 'TComment',
@@ -44,13 +45,14 @@ export default defineComponent({
 
       const renderActions = () => {
         if (!actions || !actions.length) return null;
-
         return (
-          <ul class={`${COMPONENT_NAME.value}__actions`}>
-            {(Array.isArray(actions) ? actions : [actions]).map((action, index: number) => (
-              <li key={`action-${index}`}>{action}</li>
+          <div class={`${COMPONENT_NAME.value}__actions`}>
+            {(Array.isArray(actions) ? actions : [actions]).map((action, index) => (
+              <Button key={`action-${index}`} size="small" variant="text">
+                {action}
+              </Button>
             ))}
-          </ul>
+          </div>
         );
       };
 

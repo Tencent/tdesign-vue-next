@@ -57,7 +57,7 @@ const columns = [
     // 序号列，设置 colKey = serial-number 即可
     colKey: 'serial-number',
     title: '序号',
-    width: '100',
+    width: '64',
     // 对齐方式
     align: 'center',
     // 设置列类名

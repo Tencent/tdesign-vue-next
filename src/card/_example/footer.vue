@@ -1,32 +1,22 @@
 <template>
   <t-card :cover="cover" bordered :style="{ width: '400px' }">
-    <template #avatar>
-      <t-avatar size="56px" :icon="icon" />
-    </template>
-    <template #actions>
-      <t-tag theme="success">{{ actions }}</t-tag>
-    </template>
     <template #footer>
-      <t-row :align="'middle'" justify="center">
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <thumb-up-icon size="24" />
+      <t-row :align="'middle'" justify="center" style="gap: 24px">
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <thumb-up-icon />
           </t-button>
         </t-col>
-        <t-col flex="none">
-          <t-divider layout="vertical" />
-        </t-col>
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <chat-icon size="24" />
+
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <chat-icon />
           </t-button>
         </t-col>
-        <t-col flex="none">
-          <t-divider layout="vertical" />
-        </t-col>
-        <t-col flex="auto">
-          <t-button block variant="text">
-            <share-icon size="24" />
+
+        <t-col flex="auto" style="display: inline-flex; justify-content: center">
+          <t-button variant="text" shape="square">
+            <share-icon />
           </t-button>
         </t-col>
       </t-row>
@@ -34,9 +24,7 @@
   </t-card>
 </template>
 <script setup lang="jsx">
-import { ThumbUpIcon, ChatIcon, ShareIcon, UserIcon } from 'tdesign-icons-vue-next';
+import { ThumbUpIcon, ChatIcon, ShareIcon } from 'tdesign-icons-vue-next';
 
-const icon = () => <UserIcon />;
-const actions = '默认标签';
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

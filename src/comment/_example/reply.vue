@@ -24,11 +24,9 @@
         content="这里是评论者写的评论内容。"
       >
         <template #author>
-          <t-space :size="4">
-            <span>评论作者名B</span>
-            <t-icon name="caret-right-small" size="small" />
-            <span>评论作者名A</span>
-          </t-space>
+          <span>评论作者名B</span>
+          <t-icon name="caret-right-small" size="medium" style="margin: 0 4px" />
+          <span>评论作者名A</span>
         </template>
 
         <template #actions>
@@ -45,12 +43,13 @@
     </template>
   </t-comment>
 </template>
-
 <style lang="less">
-.comment-reply.t-comment {
-  & > .t-comment__inner {
-    .t-comment__actions {
-      margin-right: 24px;
+.comment-reply {
+  > .t-comment__inner {
+    > .t-comment__content {
+      > .t-comment__actions {
+        margin-right: 24px;
+      }
     }
   }
 }

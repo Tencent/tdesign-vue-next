@@ -114,16 +114,10 @@ describe('TimePicker', () => {
           popupProps: {
             visible: false,
           },
-          disableTime: (h) => {
-            const disableHour = [1, 2, 3];
-            if (h > 4) {
-              return {
-                hour: disableHour,
-                minute: [1, 2, 3, 4, 5],
-              };
-            }
+          disableTime: () => {
             return {
-              hour: disableHour,
+              hour: [1, 2, 3],
+              minute: [1, 2, 3, 4, 5],
             };
           },
         },
@@ -154,16 +148,10 @@ describe('TimePicker', () => {
             visible: false,
           },
           hideDisabledTime: false,
-          disableTime: (h) => {
-            const disableHour = [1, 2, 3];
-            if (h > 4) {
-              return {
-                hour: disableHour,
-                minute: [1, 2, 3, 4, 5],
-              };
-            }
+          disableTime: () => {
             return {
-              hour: disableHour,
+              hour: [1, 2, 3],
+              minute: [1, 2, 3, 4, 5],
             };
           },
         },

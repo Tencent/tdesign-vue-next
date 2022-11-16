@@ -57,22 +57,24 @@ const displayNum = (cellData) => {
   .shadow {
     position: absolute;
     width: 100%;
-    height: 12px;
+    height: 22px;
     bottom: 0;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   }
   .number {
-    font-weight: bold;
+    font-weight: 600;
     position: absolute;
-    top: 3px;
-    right: 5px;
+    right: 0;
     font-size: 14px;
+    line-height: 22px;
   }
   .item {
     position: relative;
     display: flex;
     align-items: center;
     color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 20px;
     span {
       display: block;
       left: 1px;

@@ -51,7 +51,7 @@ const columns = [
         <MoveIcon />
       </span>
     ),
-    width: 80,
+    width: 46,
   },
   { colKey: 'instance', title: '集群名称' },
   {

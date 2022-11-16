@@ -8,6 +8,12 @@
 
 {{ duration }}
 
+### 搭配 Popup 或 Popconfirm 使用
+
+**Tooltip、Popconfirm、Popover** 都需要劫持 children 的相关事件，使用时需要**在中间添加一层元素**防止事件劫持失效。
+
+{{ with-popup-or-popconfirm }}
+
 ## API
 ### Tooltip Props
 

@@ -205,10 +205,10 @@ watch(
 .more-detail {
   > p {
     display: inline-block;
-    margin: 5px;
+    margin: 4px 0;
   }
   > p.title {
-    width: 100px;
+    width: 120px;
   }
 }
 </style>

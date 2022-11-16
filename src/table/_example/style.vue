@@ -29,7 +29,7 @@ const columns = ref([
     colKey: 'serial-number',
     title: '序号',
     align: 'center',
-    width: 80,
+    width: 64,
   },
   { colKey: 'framework', title: '框架' },
   {

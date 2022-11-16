@@ -15,7 +15,7 @@ export const getStopStyle = (position: number, isVertical: boolean) => {
  * @param type 第一个滑块or第二个滑块值
  * @returns {number}
  */
-export const formatSlderValue = (val: number | number[], type: 'first' | 'second') => {
+export const formatSliderValue = (val: number | number[], type: 'first' | 'second') => {
   if (type === 'first') {
     if (val instanceof Array) {
       return val[0];
