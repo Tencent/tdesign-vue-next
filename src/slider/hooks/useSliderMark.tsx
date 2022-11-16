@@ -71,13 +71,16 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
     return (
       <div>
         <div class={`${name}__stops`}>
-          {markList.value.map((item, index) => (
-            <div
-              class={`${name}__stop ${name}__mark-stop`}
-              style={getStopStyle(item.position, config.value.vertical)}
-              key={index}
-            />
-          ))}
+          {markList.value.map((item, index) => {
+            if (item.position === 0 || item.position === 100) return null;
+            return (
+              <div
+                class={`${name}__stop ${name}__mark-stop`}
+                style={getStopStyle(item.position, config.value.vertical)}
+                key={index}
+              />
+            );
+          })}
         </div>
         <div class={`${name}__mark`}>
           {markList.value.map((item, key) => (

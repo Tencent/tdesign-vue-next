@@ -76,8 +76,8 @@ export default defineComponent({
     });
     const barStyle = computed(() => {
       const barStart = props.range ? `${(100 * (minValue.value - props.min)) / rangeDiff.value}%` : '0%';
-      const cuttentDiff = props.range ? maxValue.value - minValue.value : firstValue.value - props.min;
-      const barSize = `${(100 * cuttentDiff) / rangeDiff.value}%`;
+      const currentDiff = props.range ? maxValue.value - minValue.value : firstValue.value - props.min;
+      const barSize = `${(100 * currentDiff) / rangeDiff.value}%`;
       return vertical.value
         ? {
             height: barSize,
@@ -410,9 +410,12 @@ export default defineComponent({
             )}
             {props.showStep && (
               <div class={`${COMPONENT_NAME.value}__stops`}>
-                {steps.value.map((item, key) => (
-                  <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
-                ))}
+                {steps.value.map((item: any, key) => {
+                  if (item.position === 0 || item.position === 100) return null;
+                  return (
+                    <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
+                  );
+                })}
               </div>
             )}
             {renderMask(changeValue)}
