@@ -4,6 +4,32 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.7 `2022-11-16` 
+### 🚀 Features
+- `Breadcrumb`: 新增`icon`API @uyarn ([#1998](https://github.com/Tencent/tdesign-vue-next/pull/1998))
+- `Slider`: 修复 `slider` 样式问题 ([issue #237](https://github.com/Tencent/tdesign/issues/237)) @HQ-Lin ([#2011](https://github.com/Tencent/tdesign-vue-next/pull/2011))
+- `Button`: 新增`suffix` API，支持需要为按钮配置文字后置图标的场景 @uyarn ([#2018](https://github.com/Tencent/tdesign-vue-next/pull/2018))
+- `CodeTip`: 增加编辑器代码提示 @chaishi ([#2005](https://github.com/Tencent/tdesign-vue-next/pull/2005))
+
+### 🐞 Bug Fixes
+- `ImageViewer`: 
+  - 调整`ImageViewer`顶部按钮的大小 @Wen1kang ([#2010](https://github.com/Tencent/tdesign-vue-next/pull/2010))
+  - 修复样式问题 @HQ-Lin ([#2015](https://github.com/Tencent/tdesign-vue-next/pull/2015))
+- `Breadcrumb`: 修复文字省略样式失效的问题 @uyarn ([#1998](https://github.com/Tencent/tdesign-vue-next/pull/1998))
+- `InputNumber`: `value` 支持受控 @chaishi ([#2002](https://github.com/Tencent/tdesign-vue-next/pull/2002))
+- `Alert`: 修复内嵌 `link` 时，`hover` 会导致 `alert` 消失 @Lmmmmmm-bb ([#2000](https://github.com/Tencent/tdesign-vue-next/pull/2000))
+- `Table`: 修复 `EnhancedTable` 树形结构，在编译后的运行过程中缺少实例方法（开发环境正常）问题 ([issue#1999](https://github.com/Tencent/tdesign-vue-next/issues/1999)) @chaishi ([#2004](https://github.com/Tencent/tdesign-vue-next/pull/2004))
+- `Comment`: 修复 `comment` 样式问题 @HQ-Lin ([#2007](https://github.com/Tencent/tdesign-vue-next/pull/2007))
+- `Select`: 修复筛选默认模糊大小写的功能([Tencent/tdeisng-vue#1787](https://github.com/Tencent/tdesign-vue/pull/1787)) @skytt ([#2009](https://github.com/Tencent/tdesign-vue-next/pull/2009))
+- `Watermark`: 修复异步获取 `watermark` `content`，水印不更新的问题 @insekkei ([#1997](https://github.com/Tencent/tdesign-vue-next/pull/1997))
+- `PopConfirm`: 修复 `text` 描述的颜色 @iLunZ ([#2006](https://github.com/Tencent/tdesign-vue-next/pull/2006))
+
+### 🚧 Others
+- `Card`: 优化 `demo` 样式 @Wen1kang ([#2014](https://github.com/Tencent/tdesign-vue-next/pull/2014))
+- `Avatar`: 优化 `demo` 样式 @Wen1kang ([#2014](https://github.com/Tencent/tdesign-vue-next/pull/2014))
+- `Comment`: 优化 `demo` 样式 @Wen1kang ([#2013](https://github.com/Tencent/tdesign-vue-next/pull/2013))
+- `Collapse`: 优化 `demo` 样式 @Wen1kang ([#2013](https://github.com/Tencent/tdesign-vue-next/pull/2013))
+- `Calender`: 优化 `demo` 样式 @Wen1kang ([#2016](https://github.com/Tencent/tdesign-vue-next/pull/2016))
 ## 🌈 0.24.6 `2022-11-09` 
 ### 🚀 Features
 - `Table`: 优化超出省略场景，浮层默认出现位置 `placement` @chaishi ([#1968](https://github.com/Tencent/tdesign-vue-next/pull/1968))
