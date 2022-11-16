@@ -2,10 +2,10 @@
   <t-space>
     <t-dropdown :options="options" :max-column-width="120" direction="left" @click="clickHandler">
       <t-button variant="text">
-        <t-space :size="0" class="tdesign-demo-dropdown__text">
-          下拉菜单
+        下拉菜单
+        <template #suffix>
           <chevron-down-icon size="16" />
-        </t-space>
+        </template>
       </t-button>
     </t-dropdown>
   </t-space>
