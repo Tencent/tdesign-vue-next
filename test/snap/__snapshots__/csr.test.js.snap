@@ -42329,7 +42329,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/custom-icon.vue
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42442,7 +42442,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42538,7 +42538,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-presets-al
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42642,7 +42642,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -42734,7 +42734,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/date-range.vue 
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -43257,7 +43257,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/disable-date.vu
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -43660,7 +43660,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/month.vue 1`] =
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47453,7 +47453,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/quarter.vue 1`]
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47612,7 +47612,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/week.vue 1`] = 
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -47771,7 +47771,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/year.vue 1`] = 
             <div
               class="t-range-input__inner-separator"
             >
-              
+               - 
             </div>
             <div
               class="t-input__wrap t-range-input__inner-right"
@@ -105112,10 +105112,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/marks.vue 1`] = `
               class="t-slider__stops"
             >
               
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 0%;"
-              />
+              <!---->
               <div
                 class="t-slider__stop t-slider__mark-stop"
                 style="left: 20%;"
@@ -105132,10 +105129,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/marks.vue 1`] = `
                 class="t-slider__stop t-slider__mark-stop"
                 style="left: 80%;"
               />
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 100%;"
-              />
+              <!---->
               
             </div>
             <div
@@ -105254,10 +105248,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/marks.vue 1`] = `
               class="t-slider__stops"
             >
               
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 0%;"
-              />
+              <!---->
               <div
                 class="t-slider__stop t-slider__mark-stop"
                 style="left: 20%;"
@@ -105274,10 +105265,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/marks.vue 1`] = `
                 class="t-slider__stop t-slider__mark-stop"
                 style="left: 80%;"
               />
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 100%;"
-              />
+              <!---->
               
             </div>
             <div
@@ -105490,14 +105478,8 @@ exports[`csr snapshot test > csr test ./src/slider/_example/min-and-max.vue 1`] 
               class="t-slider__stops"
             >
               
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 0%;"
-              />
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 100%;"
-              />
+              <!---->
+              <!---->
               
             </div>
             <div
@@ -105584,14 +105566,8 @@ exports[`csr snapshot test > csr test ./src/slider/_example/min-and-max.vue 1`] 
               class="t-slider__stops"
             >
               
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 0%;"
-              />
-              <div
-                class="t-slider__stop t-slider__mark-stop"
-                style="left: 100%;"
-              />
+              <!---->
+              <!---->
               
             </div>
             <div
@@ -105920,10 +105896,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/vertical-marks.vue 1
                 class="t-slider__stops"
               >
                 
-                <div
-                  class="t-slider__stop t-slider__mark-stop"
-                  style="top: calc(100% - 1px);"
-                />
+                <!---->
                 <div
                   class="t-slider__stop t-slider__mark-stop"
                   style="top: calc(80% - 1px);"
@@ -105940,10 +105913,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/vertical-marks.vue 1
                   class="t-slider__stop t-slider__mark-stop"
                   style="top: calc(20% - 1px);"
                 />
-                <div
-                  class="t-slider__stop t-slider__mark-stop"
-                  style="top: calc(0% - 1px);"
-                />
+                <!---->
                 
               </div>
               <div
@@ -106068,10 +106038,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/vertical-marks.vue 1
                 class="t-slider__stops"
               >
                 
-                <div
-                  class="t-slider__stop t-slider__mark-stop"
-                  style="top: calc(100% - 1px);"
-                />
+                <!---->
                 <div
                   class="t-slider__stop t-slider__mark-stop"
                   style="top: calc(80% - 1px);"
@@ -106088,10 +106055,7 @@ exports[`csr snapshot test > csr test ./src/slider/_example/vertical-marks.vue 1
                   class="t-slider__stop t-slider__mark-stop"
                   style="top: calc(20% - 1px);"
                 />
-                <div
-                  class="t-slider__stop t-slider__mark-stop"
-                  style="top: calc(0% - 1px);"
-                />
+                <!---->
                 
               </div>
               <div
