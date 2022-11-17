@@ -40,8 +40,8 @@ const tags = ref(['StudentA', 'StudentB', 'StudentC']);
   position: relative;
 }
 .displayItem img {
-  width: 20px;
+  width: 18px;
   border-radius: 50%;
-  vertical-align: text-top;
+  vertical-align: middle;
 }
 </style>
