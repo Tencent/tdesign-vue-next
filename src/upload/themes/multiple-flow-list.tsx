@@ -176,12 +176,12 @@ export default defineComponent({
 
     const renderNormalActionCol = (file: UploadFile, index: number) => (
       <td>
-        <TButton
+        <Link
           theme="primary"
-          variant="text"
+          hover="color"
           content={locale.value?.triggerUploadText?.delete}
           onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
-        ></TButton>
+        ></Link>
       </td>
     );
 
@@ -190,12 +190,12 @@ export default defineComponent({
       // 第一行数据才需要合并单元格
       index === 0 ? (
         <td rowSpan={displayFiles.value.length} class={`${uploadPrefix}__flow-table__batch-row`}>
-          <TButton
+          <Link
             theme="primary"
-            variant="text"
+            hover="color"
             content={locale.value?.triggerUploadText?.delete}
             onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: null })}
-          ></TButton>
+          ></Link>
         </td>
       ) : null;
 

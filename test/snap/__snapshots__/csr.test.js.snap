@@ -169968,30 +169968,26 @@ exports[`csr snapshot test > csr test ./src/upload/_example/draggable.vue 1`] = 
               <div
                 class="t-upload__dragger-btns"
               >
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
-                  type="button"
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color t-upload__dragger-progress-cancel"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    重新选择
-                    
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
-                  type="button"
+                  <!---->
+                  
+                  重新选择
+                  
+                  <!---->
+                </a>
+                <a
+                  class="t-link t-link--theme-danger t-link--hover-color t-upload__dragger-delete-btn"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    删除
-                    
-                  </span>
-                </button>
+                  <!---->
+                  
+                  删除
+                  
+                  <!---->
+                </a>
               </div>
             </div>
           </div>
