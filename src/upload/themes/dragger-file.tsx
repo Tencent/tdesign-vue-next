@@ -5,7 +5,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
-import TLink from '../../Link';
+import TLink from '../../link';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import useCommonClassName from '../../hooks/useCommonClassName';
@@ -108,7 +108,7 @@ export default defineComponent({
                   theme="primary"
                   hover="color"
                   class={`${uploadPrefix}__dragger-progress-cancel`}
-                  onClick={(e) =>
+                  onClick={(e: MouseEvent) =>
                     props.cancelUpload?.({
                       e,
                       file: props.toUploadFiles[0] || props.files[0],
@@ -146,7 +146,7 @@ export default defineComponent({
                   hover="color"
                   disabled={disabled.value}
                   class={`${uploadPrefix}__dragger-delete-btn`}
-                  onClick={(e) => props.onRemove({ e, index: 0, file })}
+                  onClick={(e: MouseEvent) => props.onRemove({ e, index: 0, file })}
                 >
                   {locale.value.triggerUploadText.delete}
                 </TLink>
