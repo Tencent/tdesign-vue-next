@@ -23,7 +23,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const inputRef = ref();
   const userInput = ref('');
-  const displayValue = ref();
 
   const tDisabled = useFormDisabled();
 
@@ -90,11 +89,12 @@ export default function useInputNumber(props: TdInputNumberProps) {
     () => {
       // @ts-ignore 没有输入完成，则无需校验
       if ([undefined, '', null].includes(tValue.value)) return;
+      const { max, min, largeNumber } = props;
       const error = getMaxOrMinValidateResult({
         value: tValue.value,
-        largeNumber: props.largeNumber,
-        max: props.max,
-        min: props.min,
+        largeNumber,
+        max,
+        min,
       });
       isError.value = error;
       props.onValidate?.({ error });
@@ -126,18 +126,37 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const onInnerInputChange = (val: string, ctx: { e: InputEvent }) => {
     if (!canInputNumber(val, props.largeNumber)) return;
-    // 大数-字符串；普通数-数字。此处是了将 2e3，2.1e3 等内容转换为数字
-    const newVal = props.largeNumber || !val ? val : Number(val);
-    if (newVal !== tValue.value && !['-', '.', 'e', 'E'].includes(val.slice(-1))) {
+    if (props.largeNumber) {
+      setTValue(val, { type: 'input', e: ctx.e });
+      return;
+    }
+    // 普通数-数字。此处是为了将 2e3，2.1e3 等内容转换为数字
+    const isNumberCode = ['-', '.', 'e', 'E'].includes(val.slice(-1));
+    const smallNumber = val === '' ? undefined : Number(val);
+    const newVal = isNumberCode ? val : smallNumber;
+    if (!isNaN(Number(newVal)) || !newVal || !isNumberCode) {
       setTValue(newVal, { type: 'input', e: ctx.e });
+      userInput.value = String(newVal);
+    } else {
+      userInput.value = val;
     }
   };
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
+    const { largeNumber, max, min, decimalPlaces } = props;
+    if (!props.allowInputOverLimit) {
+      const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
+      if (r === 'below-minimum') {
+        setTValue(min, { type: 'blur', e: ctx.e });
+      } else if (r === 'exceed-maximum') {
+        setTValue(max, { type: 'blur', e: ctx.e });
+      }
+      return;
+    }
     userInput.value = getUserInput(tValue.value);
     const newValue = formatToNumber(value, {
-      decimalPlaces: props.decimalPlaces,
-      largeNumber: props.largeNumber,
+      decimalPlaces,
+      largeNumber,
     });
     if (newValue !== value && String(newValue) !== value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
@@ -206,7 +225,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
     wrapClasses,
     reduceClasses,
     addClasses,
-    displayValue,
     tDisabled,
     isError,
     listeners,
