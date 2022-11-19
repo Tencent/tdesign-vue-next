@@ -136,8 +136,8 @@ export default function useInputNumber(props: TdInputNumberProps) {
     const newVal = isNumberCode ? val : smallNumber;
     if (!isNaN(Number(newVal)) || !newVal || !isNumberCode) {
       setTValue(newVal, { type: 'input', e: ctx.e });
-      userInput.value = String(newVal);
-    } else {
+      userInput.value = newVal ? String(newVal) : '';
+    } else if (isNumberCode) {
       userInput.value = val;
     }
   };
