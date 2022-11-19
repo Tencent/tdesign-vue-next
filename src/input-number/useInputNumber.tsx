@@ -134,7 +134,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
     const isNumberCode = ['-', '.', 'e', 'E'].includes(val.slice(-1));
     const smallNumber = val === '' ? undefined : Number(val);
     const newVal = isNumberCode ? val : smallNumber;
-    if (!isNaN(Number(newVal)) || !newVal || !isNumberCode) {
+    if ((!isNaN(Number(newVal)) || !newVal) && !isNumberCode) {
       setTValue(newVal, { type: 'input', e: ctx.e });
       userInput.value = newVal ? String(newVal) : '';
     } else if (isNumberCode) {
