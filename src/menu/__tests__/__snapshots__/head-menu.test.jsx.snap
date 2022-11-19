@@ -8,13 +8,16 @@ exports[`HeadMenu > props > :active 1`] = `
     class="t-head-menu__inner"
   >
     <!---->
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        
+      </ul>
+    </div>
     <!---->
   </div>
   <!---->
@@ -30,13 +33,16 @@ exports[`HeadMenu > props > :height 1`] = `
     class="t-head-menu__inner"
   >
     <!---->
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        
+      </ul>
+    </div>
     <!---->
   </div>
   <!---->
@@ -51,13 +57,16 @@ exports[`HeadMenu > props > :theme 1`] = `
     class="t-head-menu__inner"
   >
     <!---->
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        
+      </ul>
+    </div>
     <!---->
   </div>
   <!---->
@@ -72,14 +81,17 @@ exports[`HeadMenu > slot > <default> 1`] = `
     class="t-head-menu__inner"
   >
     <!---->
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      <div />
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        <div />
+        
+      </ul>
+    </div>
     <!---->
   </div>
   <!---->
@@ -100,13 +112,16 @@ exports[`HeadMenu > slot > <logo> 1`] = `
       <div />
       
     </div>
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        
+      </ul>
+    </div>
     <!---->
   </div>
   <!---->
@@ -121,13 +136,16 @@ exports[`HeadMenu > slot > <operations> 1`] = `
     class="t-head-menu__inner"
   >
     <!---->
-    <ul
-      class="t-menu"
-      style="flex: 1;"
+    <div
+      class="t-menu__container"
     >
-      
-      
-    </ul>
+      <ul
+        class="t-menu"
+      >
+        
+        
+      </ul>
+    </div>
     <div
       class="t-menu__operations"
     >
