@@ -6960,7 +6960,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6976,7 +6976,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6992,7 +6992,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7008,7 +7008,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7024,7 +7024,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7040,7 +7040,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7062,7 +7062,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7078,7 +7078,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7094,7 +7094,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7480,7 +7480,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7496,7 +7496,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7512,7 +7512,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/base.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10872,7 +10872,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10888,7 +10888,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10904,7 +10904,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10920,7 +10920,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10936,7 +10936,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10952,7 +10952,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10974,7 +10974,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -10990,7 +10990,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -11006,7 +11006,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -11406,7 +11406,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -11422,7 +11422,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -11438,7 +11438,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -12365,7 +12365,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12381,7 +12381,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12397,7 +12397,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12413,7 +12413,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12429,7 +12429,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12445,7 +12445,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  06
+                  6
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12467,7 +12467,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  07
+                  7
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12483,7 +12483,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  08
+                  8
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12499,7 +12499,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  09
+                  9
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12885,7 +12885,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12901,7 +12901,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -12917,7 +12917,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/controller-config.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -13267,7 +13267,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13283,7 +13283,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13299,7 +13299,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13315,7 +13315,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13331,7 +13331,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13347,7 +13347,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13369,7 +13369,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13385,7 +13385,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13401,7 +13401,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13787,7 +13787,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13803,7 +13803,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -13819,7 +13819,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -14206,7 +14206,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14222,7 +14222,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14238,7 +14238,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14254,7 +14254,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14270,7 +14270,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14286,7 +14286,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  06
+                  6
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14308,7 +14308,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  07
+                  7
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14324,7 +14324,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  08
+                  8
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14340,7 +14340,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  09
+                  9
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14726,7 +14726,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14742,7 +14742,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -14758,7 +14758,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/events-props-api.v
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -15141,7 +15141,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15157,7 +15157,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15173,7 +15173,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15189,7 +15189,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15213,7 +15213,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15229,7 +15229,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15245,7 +15245,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15541,7 +15541,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/filter.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15572,70 +15572,99 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
   <div
     class="t-space-item"
   >
-    <div
+    <form
+      class="t-form t-form-inline"
       data-v-67d2fdc0=""
     >
-      <label
-        data-v-67d2fdc0=""
-      >
-        日历的第一列为：
-      </label>
+      
       <div
-        class="t-select__wrap demo-select-base"
+        class="t-form__item t-form-item__"
         data-v-67d2fdc0=""
       >
-        
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-form__label t-form__label--right"
+          style="width: 100px;"
+        >
+          <label
+            for=""
+          >
+            第一列设为：
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+            class="t-form__controls-content"
           >
-            <!---->
+            
             <div
-              class="t-input__prefix"
+              class="t-select__wrap demo-select-base"
+              data-v-67d2fdc0=""
             >
               
-              <!---->
+              <div
+                class="t-input__wrap t-select-input t-select"
+              >
+                <div
+                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                >
+                  <!---->
+                  <div
+                    class="t-input__prefix"
+                  >
+                    
+                    <!---->
+                    <!---->
+                    
+                  </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请选择"
+                    readonly=""
+                    type="text"
+                    unselectable="on"
+                  />
+                  <!---->
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-fake-arrow t-select__right-icon"
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                        stroke="black"
+                        stroke-opacity="0.9"
+                        stroke-width="1.3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <!---->
+              </div>
               <!---->
               
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
+            
             <!---->
-            <!---->
-            <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
           </div>
+          
           <!---->
+          <!---->
+          
         </div>
-        <!---->
-        
       </div>
-    </div>
+      
+    </form>
   </div>
   <!---->
   
@@ -16049,7 +16078,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16071,7 +16100,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16087,7 +16116,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16103,7 +16132,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16119,7 +16148,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16135,7 +16164,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  06
+                  6
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16151,7 +16180,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  07
+                  7
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16167,7 +16196,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  08
+                  8
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16189,7 +16218,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  09
+                  9
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16575,7 +16604,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16591,7 +16620,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16607,7 +16636,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16623,7 +16652,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16639,7 +16668,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/first-day-of-week.
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -16990,7 +17019,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17006,7 +17035,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17022,7 +17051,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17038,7 +17067,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17054,7 +17083,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17070,7 +17099,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17092,7 +17121,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17108,7 +17137,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17124,7 +17153,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17510,7 +17539,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17526,7 +17555,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17542,7 +17571,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/head.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17571,70 +17600,99 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/mode.vue 1`] = `
   <div
     class="t-space-item"
   >
-    <div
+    <form
+      class="t-form t-form-inline"
       data-v-e9a00fe2=""
     >
-      <label
-        data-v-e9a00fe2=""
-      >
-        可以在组件外切换成：
-      </label>
+      
       <div
-        class="t-select__wrap demo-select-base"
+        class="t-form__item t-form-item__"
         data-v-e9a00fe2=""
       >
-        
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-form__label t-form__label--right"
+          style="width: 100px;"
+        >
+          <label
+            for=""
+          >
+            切换模式为：
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+            class="t-form__controls-content"
           >
-            <!---->
+            
             <div
-              class="t-input__prefix"
+              class="t-select__wrap demo-select-base"
+              data-v-e9a00fe2=""
             >
               
-              <!---->
+              <div
+                class="t-input__wrap t-select-input t-select"
+              >
+                <div
+                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                >
+                  <!---->
+                  <div
+                    class="t-input__prefix"
+                  >
+                    
+                    <!---->
+                    <!---->
+                    
+                  </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请选择"
+                    readonly=""
+                    type="text"
+                    unselectable="on"
+                  />
+                  <!---->
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-fake-arrow t-select__right-icon"
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                        stroke="black"
+                        stroke-opacity="0.9"
+                        stroke-width="1.3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <!---->
+              </div>
               <!---->
               
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
+            
             <!---->
-            <!---->
-            <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
           </div>
+          
           <!---->
+          <!---->
+          
         </div>
-        <!---->
-        
       </div>
-    </div>
+      
+    </form>
   </div>
   <!---->
   
@@ -18369,7 +18427,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18385,7 +18443,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18401,7 +18459,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18417,7 +18475,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18433,7 +18491,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18449,7 +18507,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18471,7 +18529,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18487,7 +18545,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18503,7 +18561,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18889,7 +18947,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18905,7 +18963,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18921,7 +18979,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/range.vue 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -19924,6 +19982,16 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
   <div
     class="t-space-item"
   >
+    <h2>
+      单个高亮日期
+    </h2>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
     <div
       class="t-calendar t-calendar--full"
     >
@@ -20329,7 +20397,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20351,7 +20419,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20367,7 +20435,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20383,7 +20451,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20399,7 +20467,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20415,7 +20483,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  06
+                  6
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20431,7 +20499,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  07
+                  7
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20447,7 +20515,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  08
+                  8
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20469,7 +20537,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  09
+                  9
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20839,7 +20907,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  01
+                  1
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20855,7 +20923,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  02
+                  2
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20871,7 +20939,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  03
+                  3
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20887,7 +20955,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  04
+                  4
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20903,7 +20971,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  05
+                  5
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -20919,7 +20987,1043 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/value.vue 1`] = `
                 <div
                   class="t-calendar__table-body-cell-display"
                 >
-                  06
+                  6
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <br />
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <h2>
+      多个高亮日期
+    </h2>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-calendar t-calendar--full"
+    >
+      <div
+        class="t-calendar__control"
+      >
+        <div
+          class="t-calendar__title"
+        >
+          <!---->
+        </div>
+        <div
+          class="t-calendar__control-section"
+        >
+          <div
+            class="t-calendar__control-section-cell"
+          >
+            <div
+              class="t-select__wrap"
+            >
+              
+              <div
+                class="t-input__wrap t-select-input t-select"
+              >
+                <div
+                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                >
+                  <!---->
+                  <div
+                    class="t-input__prefix"
+                  >
+                    
+                    <!---->
+                    <!---->
+                    
+                  </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请选择"
+                    readonly=""
+                    type="text"
+                    unselectable="on"
+                  />
+                  <span
+                    class="t-input__input-pre"
+                  >
+                    1998 年
+                  </span>
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-fake-arrow t-select__right-icon"
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                        stroke="black"
+                        stroke-opacity="0.9"
+                        stroke-width="1.3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <!---->
+              </div>
+              <!---->
+              
+            </div>
+          </div>
+          <div
+            class="t-calendar__control-section-cell"
+          >
+            <div
+              class="t-select__wrap"
+            >
+              
+              <div
+                class="t-input__wrap t-select-input t-select"
+              >
+                <div
+                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                >
+                  <!---->
+                  <div
+                    class="t-input__prefix"
+                  >
+                    
+                    <!---->
+                    <!---->
+                    
+                  </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请选择"
+                    readonly=""
+                    type="text"
+                    unselectable="on"
+                  />
+                  <span
+                    class="t-input__input-pre"
+                  >
+                    11 月
+                  </span>
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-fake-arrow t-select__right-icon"
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                        stroke="black"
+                        stroke-opacity="0.9"
+                        stroke-width="1.3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <!---->
+              </div>
+              <!---->
+              
+            </div>
+          </div>
+          <div
+            class="t-calendar__control-section-cell"
+            style="height: auto;"
+          >
+            <div
+              class="t-radio-group t-size-m t-radio-group--filled"
+            >
+              
+              
+              <label
+                class="t-radio-button t-is-checked"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name=""
+                  type="radio"
+                  value="month"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  月
+                  
+                  
+                </span>
+              </label>
+              <label
+                class="t-radio-button"
+              >
+                <input
+                  class="t-radio-button__former"
+                  name=""
+                  type="radio"
+                  value="year"
+                />
+                <span
+                  class="t-radio-button__input"
+                />
+                <span
+                  class="t-radio-button__label"
+                >
+                  
+                  
+                  年
+                  
+                  
+                </span>
+              </label>
+              
+              
+              <div
+                class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="t-calendar__control-section-cell"
+          >
+            <span
+              class="t-tag t-tag--check t-tag--default t-size-l t-calendar__control-tag"
+              theme="default"
+            >
+              
+              隐藏周末
+              
+            </span>
+          </div>
+          <div
+            class="t-calendar__control-section-cell"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                今天
+                
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-calendar__panel t-calendar__panel--month"
+      >
+        <table
+          class="t-calendar__table"
+        >
+          <thead
+            class="t-calendar__table-head"
+          >
+            <tr
+              class="t-calendar__table-head-row"
+            >
+              
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  一
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  二
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  三
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  四
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  五
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  六
+                </span>
+              </th>
+              <th
+                class="t-calendar__table-head-cell"
+              >
+                <span>
+                  日
+                </span>
+              </th>
+              
+            </tr>
+          </thead>
+          <tbody
+            class="t-calendar__table-body"
+          >
+            
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  26
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled t-is-checked"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  27
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  28
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  29
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  30
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  31
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  1
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  2
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  3
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  4
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  5
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  6
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  7
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  8
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  9
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  10
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-checked"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  11
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-checked"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  12
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-checked"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  13
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  14
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  15
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  16
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  17
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  18
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  19
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  20
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  21
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  22
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  23
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  24
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  25
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  26
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  27
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  28
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  29
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              
+            </tr>
+            <tr
+              class="t-calendar__table-body-row"
+            >
+              
+              <td
+                class="t-calendar__table-body-cell"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  30
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  1
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  2
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  3
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  4
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled t-is-checked"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  5
+                </div>
+                <div
+                  class="t-calendar__table-body-cell-content"
+                >
+                  <!---->
+                </div>
+                
+              </td>
+              <td
+                class="t-calendar__table-body-cell t-is-disabled"
+              >
+                
+                <div
+                  class="t-calendar__table-body-cell-display"
+                >
+                  6
                 </div>
                 <div
                   class="t-calendar__table-body-cell-content"
@@ -21290,7 +22394,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21306,7 +22410,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21322,7 +22426,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21338,7 +22442,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    04
+                    4
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21354,7 +22458,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    05
+                    5
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21370,7 +22474,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    06
+                    6
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21392,7 +22496,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    07
+                    7
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21408,7 +22512,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    08
+                    8
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21424,7 +22528,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    09
+                    9
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21810,7 +22914,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21826,7 +22930,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -21842,7 +22946,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22193,7 +23297,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22209,7 +23313,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22225,7 +23329,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22241,7 +23345,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    04
+                    4
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22257,7 +23361,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    05
+                    5
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22273,7 +23377,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    06
+                    6
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22295,7 +23399,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    07
+                    7
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22311,7 +23415,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    08
+                    8
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22327,7 +23431,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    09
+                    9
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22713,7 +23817,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22729,7 +23833,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -22745,7 +23849,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23124,7 +24228,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23140,7 +24244,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23156,7 +24260,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23172,7 +24276,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    04
+                    4
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23188,7 +24292,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    05
+                    5
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23204,7 +24308,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    06
+                    6
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23226,7 +24330,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    07
+                    7
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23242,7 +24346,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    08
+                    8
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23258,7 +24362,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    09
+                    9
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23644,7 +24748,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    01
+                    1
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23660,7 +24764,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    02
+                    2
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"
@@ -23676,7 +24780,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/week.vue 1`] = `
                   <div
                     class="t-calendar__table-body-cell-display"
                   >
-                    03
+                    3
                   </div>
                   <div
                     class="t-calendar__table-body-cell-content"

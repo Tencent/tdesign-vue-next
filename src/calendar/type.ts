@@ -5,6 +5,7 @@
  * */
 
 import { RadioGroupProps } from '../radio';
+import { TdCheckTagProps as CheckTagProps } from '../tag';
 import { ButtonProps } from '../button';
 import { SelectProps } from '../select';
 import { TNode } from '../common';
@@ -54,6 +55,10 @@ export interface TdCalendarProps {
    */
   month?: string | number;
   /**
+   * 是否高亮多个日期单元格
+   */
+  multiple?: boolean;
+  /**
    * 是否禁用单元格右键默认系统菜单
    * @default false
    */
@@ -70,7 +75,7 @@ export interface TdCalendarProps {
   /**
    * 当前高亮的日期
    */
-  value?: CalendarValue;
+  value?: CalendarValue | CalendarValue[];
   /**
    * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`
    */
@@ -122,7 +127,7 @@ export interface CalendarController {
   /**
    * 隐藏/显示周末控制器
    */
-  weekend?: { visible?: boolean; showWeekendButtonProps?: ButtonProps; hideWeekendButtonProps?: ButtonProps };
+  weekend?: { visible?: boolean; showWeekendButtonProps?: CheckTagProps; hideWeekendButtonProps?: CheckTagProps };
   /**
    * 日历年份控制器
    */

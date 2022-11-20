@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
-import { CalendarCell } from './type';
+import { TdCalendarProps, CalendarCell } from './type';
+import { CalendarState } from './interface';
 
 // 组件的一些常量
 import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from './const';
@@ -58,13 +59,16 @@ export const addDate = (dt: Date, days: number) => {
  * @param year 月历年份
  * @param curDate 当前日期
  */
-export const createYearCellsData = (year: number, curDate: dayjs.Dayjs, format: string): CalendarCell[] => {
+export const createYearCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[] => {
+  const { curSelectedYear: year, curDate, curDateList } = state;
+  const { format, multiple } = props;
+
   const monthsArr: CalendarCell[] = [];
-  const isCurYear = curDate.year() === year;
   for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
     const date = new Date(year, num - 1);
-    const curDateMon = parseInt(curDate.format('M'), 10);
-    const isCurrent = isCurYear && curDateMon === num;
+    const isCurrent = multiple
+      ? !!curDateList.find((item) => item.year() === year && parseInt(item.format('M'), 10) === num)
+      : curDate.year() === year && parseInt(curDate.format('M'), 10) === num;
     monthsArr.push({
       mode: 'year',
       isCurrent,
@@ -87,18 +91,21 @@ export const createYearCellsData = (year: number, curDate: dayjs.Dayjs, format: 
  * @param curDate 当前日期
  * @param format 日期格式
  */
-export const createMonthCellsData = (
-  year: number,
-  month: number,
-  firstDayOfWeek: number,
-  curDate: dayjs.Dayjs,
-  format: string,
-): CalendarCell[][] => {
+export const createMonthCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[][] => {
+  const {
+    curSelectedYear: year,
+    curSelectedMonth: month,
+    realFirstDayOfWeek: firstDayOfWeek,
+    curDate,
+    curDateList,
+  } = state;
+  const { format, multiple } = props;
+
   const daysArr: CalendarCell[][] = [];
   // 当前月份的开始日期
   const begin: Date = dayjs(`${year}-${month}`).startOf('month').toDate();
   // 当前月份的结束日期
-  const end: Date = dayjs(`${year}-${month}`).endOf('month').toDate();
+  const end: Date = dayjs(dayjs(`${year}-${month}`).endOf('month').format('YYYY-MM-DD')).toDate();
   const days = end.getDate();
 
   const beginDateColIndex = getCellColIndex(firstDayOfWeek, begin);
@@ -121,10 +128,16 @@ export const createMonthCellsData = (
     };
   };
 
+  const judgeIsCurrent = (date: Date) => {
+    const isCurrent = multiple ? !!curDateList.find((item) => item.isSame(dayjs(date))) : curDate.isSame(dayjs(date));
+    return isCurrent;
+  };
+
   // 添加上个月中和当前月第一天同一周的日期
   for (let i = 0; i < beginDateColIndex; i++) {
     const date = addDate(begin, i - beginDateColIndex);
-    arr.push(createCellData(-1, false, date, num));
+    const isCurrent = judgeIsCurrent(date);
+    arr.push(createCellData(-1, isCurrent, date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -133,7 +146,8 @@ export const createMonthCellsData = (
   }
   for (let i = 0; i < days; i++) {
     const date = addDate(begin, i);
-    arr.push(createCellData(0, curDate.isSame(dayjs(date)), date, num));
+    const isCurrent = judgeIsCurrent(date);
+    arr.push(createCellData(0, isCurrent, date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -145,7 +159,8 @@ export const createMonthCellsData = (
     const nextMonthCellNum = 7 - arr.length;
     for (let i = 0; i < nextMonthCellNum; i++) {
       const date = addDate(end, i + 1);
-      arr.push(createCellData(1, false, date, num));
+      const isCurrent = judgeIsCurrent(date);
+      arr.push(createCellData(1, isCurrent, date, num));
     }
     daysArr.push(arr);
   }

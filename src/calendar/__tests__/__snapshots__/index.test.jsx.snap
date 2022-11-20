@@ -1425,7 +1425,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1441,7 +1441,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1457,7 +1457,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1473,7 +1473,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1489,7 +1489,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1505,7 +1505,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1527,7 +1527,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1543,7 +1543,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1559,7 +1559,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1945,7 +1945,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1961,7 +1961,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1977,7 +1977,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2320,7 +2320,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2338,7 +2338,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2356,7 +2356,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2374,7 +2374,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2392,7 +2392,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2410,7 +2410,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2434,7 +2434,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2452,7 +2452,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2470,7 +2470,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2902,7 +2902,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2920,7 +2920,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2938,7 +2938,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3065,7 +3065,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3081,7 +3081,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3097,7 +3097,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3113,7 +3113,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3129,7 +3129,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3145,7 +3145,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3167,7 +3167,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3183,7 +3183,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3199,7 +3199,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3585,7 +3585,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3601,7 +3601,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3617,7 +3617,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3959,7 +3959,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3975,7 +3975,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -3991,7 +3991,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4007,7 +4007,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4023,7 +4023,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4039,7 +4039,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4061,7 +4061,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4077,7 +4077,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4093,7 +4093,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4479,7 +4479,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4495,7 +4495,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4511,7 +4511,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -6732,7 +6732,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6754,7 +6754,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6770,7 +6770,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6786,7 +6786,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6802,7 +6802,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6818,7 +6818,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6834,7 +6834,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6850,7 +6850,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -6872,7 +6872,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7258,7 +7258,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7274,7 +7274,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7290,7 +7290,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7306,7 +7306,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7322,7 +7322,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7666,7 +7666,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7682,7 +7682,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7698,7 +7698,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7714,7 +7714,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7730,7 +7730,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7746,7 +7746,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7768,7 +7768,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7784,7 +7784,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -7800,7 +7800,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -8186,7 +8186,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -8202,7 +8202,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -8218,7 +8218,7 @@ exports[`Calendar > :props > :format 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -8566,7 +8566,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8582,7 +8582,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8598,7 +8598,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8614,7 +8614,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8630,7 +8630,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8646,7 +8646,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8668,7 +8668,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8684,7 +8684,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -8700,7 +8700,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9086,7 +9086,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9102,7 +9102,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9118,7 +9118,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9461,7 +9461,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9477,7 +9477,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9493,7 +9493,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9509,7 +9509,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9525,7 +9525,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9541,7 +9541,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9563,7 +9563,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9579,7 +9579,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9595,7 +9595,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9981,7 +9981,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -9997,7 +9997,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10013,7 +10013,7 @@ exports[`Calendar > :props > :head 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10363,7 +10363,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10379,7 +10379,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10395,7 +10395,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10411,7 +10411,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10427,7 +10427,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10443,7 +10443,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10465,7 +10465,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10481,7 +10481,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10497,7 +10497,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10883,7 +10883,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10899,7 +10899,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -10915,7 +10915,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11244,7 +11244,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11260,7 +11260,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11276,7 +11276,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11292,7 +11292,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11316,7 +11316,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11332,7 +11332,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11348,7 +11348,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11644,7 +11644,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -11996,7 +11996,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12012,7 +12012,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12028,7 +12028,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12044,7 +12044,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12060,7 +12060,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12076,7 +12076,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12098,7 +12098,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12114,7 +12114,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12130,7 +12130,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12516,7 +12516,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12532,7 +12532,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -12548,7 +12548,7 @@ exports[`Calendar > :props > :mode 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13291,7 +13291,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13307,7 +13307,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13323,7 +13323,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13339,7 +13339,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13355,7 +13355,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13371,7 +13371,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13393,7 +13393,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13409,7 +13409,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13425,7 +13425,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13811,7 +13811,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13827,7 +13827,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -13843,7 +13843,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14184,7 +14184,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14200,7 +14200,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14216,7 +14216,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14232,7 +14232,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14248,7 +14248,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14264,7 +14264,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14286,7 +14286,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14302,7 +14302,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14318,7 +14318,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14704,7 +14704,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14720,7 +14720,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -14736,7 +14736,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -15082,7 +15082,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15098,7 +15098,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15114,7 +15114,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15130,7 +15130,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15146,7 +15146,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15162,7 +15162,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15184,7 +15184,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15200,7 +15200,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15216,7 +15216,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15602,7 +15602,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15618,7 +15618,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15634,7 +15634,7 @@ exports[`Calendar > :props > :range 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -15956,7 +15956,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -15972,7 +15972,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -15988,7 +15988,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16004,7 +16004,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16020,7 +16020,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16036,7 +16036,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16058,7 +16058,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16074,7 +16074,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16090,7 +16090,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16476,7 +16476,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16492,7 +16492,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16508,7 +16508,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16823,7 +16823,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16839,7 +16839,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16855,7 +16855,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16871,7 +16871,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16887,7 +16887,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16903,7 +16903,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16925,7 +16925,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16941,7 +16941,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -16957,7 +16957,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -17343,7 +17343,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -17359,7 +17359,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -17375,7 +17375,7 @@ exports[`Calendar > :props > :theme 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -17721,7 +17721,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17737,7 +17737,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17753,7 +17753,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17769,7 +17769,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17785,7 +17785,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17801,7 +17801,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17823,7 +17823,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17839,7 +17839,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -17855,7 +17855,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18241,7 +18241,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18257,7 +18257,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18273,7 +18273,7 @@ exports[`Calendar > :props > :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -18607,7 +18607,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18623,7 +18623,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18639,7 +18639,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18655,7 +18655,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18671,7 +18671,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18687,7 +18687,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18709,7 +18709,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18725,7 +18725,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -18741,7 +18741,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19127,7 +19127,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19143,7 +19143,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19159,7 +19159,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19500,7 +19500,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19516,7 +19516,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19532,7 +19532,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19548,7 +19548,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19564,7 +19564,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19580,7 +19580,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19602,7 +19602,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19618,7 +19618,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -19634,7 +19634,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20020,7 +20020,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20036,7 +20036,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20052,7 +20052,7 @@ exports[`Calendar > :props > :week 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20418,7 +20418,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20434,7 +20434,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20450,7 +20450,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20466,7 +20466,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20482,7 +20482,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20504,7 +20504,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20520,7 +20520,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20536,7 +20536,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20552,7 +20552,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20922,7 +20922,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20938,7 +20938,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -20954,7 +20954,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21311,7 +21311,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21327,7 +21327,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21343,7 +21343,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21359,7 +21359,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21375,7 +21375,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21397,7 +21397,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21413,7 +21413,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21429,7 +21429,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21445,7 +21445,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21815,7 +21815,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21831,7 +21831,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -21847,7 +21847,7 @@ exports[`Calendar > :props > :year:month 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -22848,7 +22848,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22868,7 +22868,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22888,7 +22888,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22908,7 +22908,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22928,7 +22928,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22948,7 +22948,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22974,7 +22974,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -22994,7 +22994,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23014,7 +23014,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23492,7 +23492,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23512,7 +23512,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23532,7 +23532,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23885,7 +23885,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23901,7 +23901,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23917,7 +23917,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23933,7 +23933,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23949,7 +23949,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23965,7 +23965,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -23987,7 +23987,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24003,7 +24003,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24019,7 +24019,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24405,7 +24405,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24421,7 +24421,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24437,7 +24437,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24795,7 +24795,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24811,7 +24811,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24827,7 +24827,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24843,7 +24843,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              04
+              4
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24859,7 +24859,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              05
+              5
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24875,7 +24875,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              06
+              6
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24897,7 +24897,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              07
+              7
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24913,7 +24913,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              08
+              8
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -24929,7 +24929,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              09
+              9
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -25315,7 +25315,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              01
+              1
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -25331,7 +25331,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              02
+              2
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -25347,7 +25347,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              03
+              3
             </div>
             <div
               class="t-calendar__table-body-cell-content"

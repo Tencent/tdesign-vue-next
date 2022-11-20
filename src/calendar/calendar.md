@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
-## API
-### Calendar Props
+## API### Calendar Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
@@ -15,10 +14,11 @@ head | String / Slot / Function | - | 头部插槽（左上角处，默认不显
 isShowWeekendDefault | Boolean | true | 默认是否显示周末 | N
 mode | String | month | 日历展示维度。可选项：month/year | N
 month | String / Number | - | 控制当前面板展示月份，优先级高于 `controllerConfig.month` | N
+multiple | Boolean | - | 是否高亮多个日期单元格 | N
 preventCellContextmenu | Boolean | false | 是否禁用单元格右键默认系统菜单 | N
 range | Array | - | 用于设置日历的年月份显示范围，[范围开始，范围结束]。TS 类型：`Array<CalendarValue>` | N
 theme | String | full | 日历风格。可选项：full/card | N
-value | String / Date | - | 当前高亮的日期。TS 类型：`CalendarValue` `type CalendarValue = string \| Date`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts) | N
+value | String / Date | - | 当前高亮的日期。TS 类型：`CalendarValue \| CalendarValue[]` `type CalendarValue = string \| Date`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts) | N
 week | Array / Slot / Function | - | 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`。TS 类型：`Array<string> \| TNode<CalendarWeek>` `interface CalendarWeek { day: WeekDay }` `type WeekDay = 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts) | N
 year | String / Number | - | 控制当前面板展示年份，优先级高于 `controllerConfig.year` | N
 onCellClick | Function |  | TS 类型：`(options: { cell: CalendarCell; e: MouseEvent }) => void`<br/>日历单元格点击时触发 | N
