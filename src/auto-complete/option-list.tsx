@@ -104,6 +104,16 @@ export default defineComponent({
       { immediate: true },
     );
 
+    watch(
+      () => props.value,
+      () => {
+        if (!props.value) {
+          active.value = '';
+        }
+      },
+      { immediate: true },
+    );
+
     onBeforeUnmount(() => {
       document.removeEventListener('keydown', onKeyInnerPress);
     });
