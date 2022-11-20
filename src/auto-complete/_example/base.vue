@@ -24,7 +24,7 @@ function onChange(value) {
     const text = '搜索联想词';
     const pureValue = value.replace(`第一个${text}`, '').replace(`第二个${text}`, '').replace(`第三个${text}`, '');
 
-    this.options = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
+    options.value = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
     clearTimeout(timer.value);
   }, 200);
 }

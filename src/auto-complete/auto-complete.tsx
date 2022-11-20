@@ -69,11 +69,6 @@ export default defineComponent({
       props.onFocus?.({ ...context, value });
     };
 
-    const inputListeners = computed(() => ({
-      change: onInputChange,
-      focus: onInnerFocus,
-    }));
-
     const onInnerSelect: TdAutoCompleteProps['onSelect'] = (value, context) => {
       if (props.readonly || props.disabled) return;
       popupVisible.value = false;
@@ -92,13 +87,14 @@ export default defineComponent({
       const triggerNode = renderContent('default', 'content') || (
         <Input
           placeholder={props.placeholder ?? global.value.placeholder}
-          on={inputListeners.value}
           tips={props.tips}
           status={props.status}
           readonly={props.readonly}
           disabled={props.disabled}
+          onChange={onInputChange}
+          onFocus={onInnerFocus}
           {...innerInputProps.value}
-          slots={slots}
+          v-slots={slots}
         />
       );
       // 联想词列表
@@ -113,9 +109,7 @@ export default defineComponent({
           highlightKeyword={props.highlightKeyword}
           filterable={props.filterable}
           filter={props.filter}
-          slots={{
-            option: slots.option,
-          }}
+          v-slots={{ option: slots.option }}
         />
       );
       const topContent = renderTNodeJSX('panelTopContent');
@@ -138,12 +132,12 @@ export default defineComponent({
         <div class={classes.value}>
           <Popup
             visible={popupVisible.value}
-            on={{ 'visible-change': onPopupVisibleChange }}
+            onVisibleChange={onPopupVisibleChange}
             trigger="focus"
             placement="bottom-left"
             hideEmptyPopup={true}
             content={panelContent ? () => panelContent : null}
-            props={popupProps}
+            {...popupProps}
           >
             {triggerNode}
           </Popup>

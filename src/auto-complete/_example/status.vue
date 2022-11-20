@@ -65,18 +65,19 @@ const value3 = ref('');
 const value4 = ref('');
 const value5 = ref('');
 const value6 = ref('');
+const timer = ref(null);
 
 const options = ref(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
 function onChange(value) {
-  clearTimeout(this.timer);
-  this.timer = setTimeout(() => {
+  clearTimeout(timer.value);
+  timer.value = setTimeout(() => {
     const text = '搜索联想词';
     const pureValue = value.replace(`第一个${text}`, '').replace(`第二个${text}`, '').replace(`第三个${text}`, '');
 
-    this.options = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
-    clearTimeout(this.timer);
+    options.value = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
+    clearTimeout(timer.value);
   }, 200);
 }
 </script>

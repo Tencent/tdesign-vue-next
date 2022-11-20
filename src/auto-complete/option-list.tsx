@@ -20,6 +20,8 @@ export default defineComponent({
     filter: Function as PropType<TdAutoCompleteProps['filter']>,
   },
 
+  emits: ['select'],
+
   setup(props, { emit, slots }) {
     const active = ref('');
     const classPrefix = usePrefixClass();

@@ -21,7 +21,6 @@
         <div class="custom-option">
           <img :src="option.avatar" />
           <div class="custom-option__main">
-            <!-- highlightKeyword -->
             <t-highlight-option :content="option.text" :keyword="value2" />
             <small class="description">{{ option.description }}</small>
           </div>
@@ -40,6 +39,7 @@ const TEXTS = ['第一个默认联想词', '第二个默认联想词', '第三�
 
 const value1 = ref('');
 const value2 = ref('');
+const timer = ref(null);
 const options2 = ref([
   {
     label: '第一个默认联想词',
@@ -65,7 +65,7 @@ const options1 = computed(() =>
       <div class="custom-option">
         <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
         <div class="custom-option__main">
-          <t-highlight-option content={text} keyword={this.value1} />
+          <THighlightOption content={text} keyword={value1.value} />
           <small class="description">这是关于联想词的描述，使用 Props 属性渲染</small>
         </div>
       </div>
@@ -75,13 +75,13 @@ const options1 = computed(() =>
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
 function onChange(value) {
-  clearTimeout(this.timer);
-  this.timer = setTimeout(() => {
+  clearTimeout(timer.value);
+  timer.value = setTimeout(() => {
     const text = '搜索联想词';
     const pureValue = value.replace(`第一个${text}`, '').replace(`第二个${text}`, '').replace(`第三个${text}`, '');
 
-    this.options = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
-    clearTimeout(this.timer);
+    options2.value = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
+    clearTimeout(timer.value);
   }, 200);
 }
 </script>

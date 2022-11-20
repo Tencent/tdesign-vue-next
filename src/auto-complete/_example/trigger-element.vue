@@ -10,18 +10,19 @@
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('第一个默认联想词');
+const value = ref('');
+const timer = ref(null);
 const options = ref(['First AutoComplete Textarea', 'Second AutoComplete Textarea', 'Third AutoComplete Textarea']);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
 function onChange(value) {
-  clearTimeout(this.timer);
-  this.timer = setTimeout(() => {
+  clearTimeout(timer.value);
+  timer.value = setTimeout(() => {
     const text = 'AutoComplete Textarea';
     const pureValue = value.replace(`First ${text}`, '').replace(`Second ${text}`, '').replace(`Third ${text}`, '');
 
-    this.options = [`${pureValue}First ${text}`, `${pureValue}Second ${text}`, `${pureValue}Third ${text}`];
-    clearTimeout(this.timer);
+    options.value = [`${pureValue}First ${text}`, `${pureValue}Second ${text}`, `${pureValue}Third ${text}`];
+    clearTimeout(timer.value);
   }, 200);
 }
 </script>
