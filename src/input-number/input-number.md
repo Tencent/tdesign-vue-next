@@ -6,6 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 align | String | - | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
+allowInputOverLimit | Boolean | true | 是否允许输入超过 `max` `min` 范围外的数字。为保障用户体验，仅在失去焦点时进行数字范围矫正。默认允许超出，数字超出范围时，输入框变红提醒 | N
 autoWidth | Boolean | false | 宽度随内容自适应 | N
 decimalPlaces | Number | undefined | [小数位数](https://en.wiktionary.org/wiki/decimal_place) | N
 disabled | Boolean | - | 禁用组件 | N
