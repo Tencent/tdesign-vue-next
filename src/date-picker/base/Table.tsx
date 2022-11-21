@@ -47,9 +47,9 @@ export default defineComponent({
 
       if (Array.isArray(value)) {
         if (!value.length) return {};
-        const [startObj, endObj] = value.map((v) => parseToDayjs(v, format));
-        const startYear = startObj.year();
-        const startWeek = startObj.week();
+        const [startObj, endObj] = value.map((v) => v && parseToDayjs(v, format));
+        const startYear = startObj && startObj.year();
+        const startWeek = startObj && startObj.week();
         const endYear = endObj && endObj.year();
         const endWeek = endObj && endObj.week();
 
