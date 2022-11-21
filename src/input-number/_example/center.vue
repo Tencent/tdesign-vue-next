@@ -2,8 +2,10 @@
   <t-space direction="vertical">
     <t-input-number v-model="value1" :step="0.1" :max="5" auto-width />
 
-    <t-input-number v-model="decimalValue" :step="0.18" :max="5" style="width: 200px" />
+    <!-- 失去焦点时，规范超出范围的数字 -->
+    <t-input-number v-model="decimalValue" :step="0.18" :max="5" :allow-input-over-limit="false" style="width: 200px" />
 
+    <!-- 数字超出范围仅提醒，不代用户做任何事情 -->
     <t-input-number
       v-model="value2"
       theme="row"
