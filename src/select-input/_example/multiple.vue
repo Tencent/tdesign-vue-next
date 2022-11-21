@@ -21,7 +21,14 @@
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"
       :tag-input-props="{ excessTagsDisplayType }"
-      :popup-props="{ overlayStyle: { maxHeight: '280px', overflow: 'auto' } }"
+      :popup-props="{
+        overlayInnerClassName: ['narrow-scrollbar'],
+        overlayInnerStyle: {
+          maxHeight: '280px',
+          overflowY: 'auto',
+          overscrollBehavior: 'contain',
+        },
+      }"
       clearable
       multiple
       @tag-change="onTagChange"
