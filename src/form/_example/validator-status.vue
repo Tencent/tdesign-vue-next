@@ -47,7 +47,7 @@
       <t-form-item label="加载中" name="loading">
         <t-input v-model="formData.loading" placeholder="正在校验中，请稍等"></t-input>
         <template #statusIcon>
-          <div style="width: 25px; display: flex; justify-content: center">
+          <div style="width: 16px; display: flex; justify-content: center">
             <t-loading size="small" />
           </div>
         </template>
@@ -64,10 +64,10 @@
 
         <template #statusIcon>
           <t-button v-if="item.id === 0 || item.id === lastAddItem - 1" variant="dashed" @click="addItem">
-            <t-icon name="add" size="16px" style="color: #0004" />
+            <t-icon name="add" />
           </t-button>
           <t-button v-if="item.id > 0" variant="dashed" @click="removeItem(item, index)">
-            <t-icon name="remove" size="16px" style="color: #0004" />
+            <t-icon name="remove" />
           </t-button>
         </template>
       </t-form-item>

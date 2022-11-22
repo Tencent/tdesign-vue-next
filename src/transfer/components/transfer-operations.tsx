@@ -83,6 +83,8 @@ export default defineComponent({
       <div class={`${classPrefix.value}-transfer__operations`}>
         <Button
           variant="outline"
+          size="small"
+          shape={typeof props.operation?.[1] === 'string' ? 'rectangle' : 'square'}
           key={props.rightDisabled ? 'right-outline' : 'right-base'}
           disabled={props.rightDisabled}
           onClick={moveToRight}
@@ -92,6 +94,8 @@ export default defineComponent({
         </Button>
         <Button
           variant="outline"
+          size="small"
+          shape={typeof props.operation?.[0] === 'string' ? 'rectangle' : 'square'}
           key={props.rightDisabled ? 'left-outline' : 'left-base'}
           disabled={props.leftDisabled}
           onClick={moveToLeft}
