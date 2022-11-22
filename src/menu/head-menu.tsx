@@ -120,6 +120,7 @@ export default defineComponent({
       );
     };
 
+    const menuContainerRef = ref<HTMLDivElement>();
     const menuRef = ref<HTMLUListElement>();
     const innerRef = ref<HTMLDivElement>();
     const logoRef = ref<HTMLDivElement>();
@@ -132,8 +133,8 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
-      const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
-      const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
+      const menuPaddingLeft = getComputedCssValue(menuContainerRef.value, 'paddingLeft');
+      const menuPaddingRight = getComputedCssValue(menuContainerRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
       if (logoRef.value) {
         const logoMarginLeft = getComputedCssValue(logoRef.value, 'marginLeft');
@@ -200,9 +201,11 @@ export default defineComponent({
                 {logo}
               </div>
             )}
-            <ul class={`${classPrefix.value}-menu`} style={{ flex: 1 }} ref={menuRef}>
-              {content}
-            </ul>
+            <div class={`${classPrefix.value}-menu__container`} ref={menuContainerRef}>
+              <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
+                {content}
+              </ul>
+            </div>
             {operations && (
               <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>
                 {operations}

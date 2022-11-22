@@ -106,7 +106,7 @@ export default defineComponent({
     };
 
     // 移动开始
-    const handleStart = (id: string, e: MouseEvent) => {
+    const handleStart = (id: string) => {
       const rect = refSlider.value.getBoundingClientRect();
       sliderRect.left = rect.left;
       sliderRect.width = rect.width || GRADIENT_SLIDER_DEFAULT_WIDTH;
@@ -115,8 +115,6 @@ export default defineComponent({
       }
       isMoved.value = false;
       isDragging.value = true;
-      e.preventDefault();
-      e.stopPropagation();
       handleSelectedIdChange(id);
       // 让slider获取焦点，以便键盘事件生效。
       refSlider.value.focus();
@@ -251,7 +249,7 @@ export default defineComponent({
                       left,
                     }}
                     onClick={(e: MouseEvent) => e.stopPropagation()}
-                    onMousedown={(e: MouseEvent) => this.handleStart(t.id, e)}
+                    onMousedown={(e: MouseEvent) => this.handleStart(t.id)}
                   >
                     <span class={['gradient-thumbs__item-inner', `${baseClassName}--bg-alpha`]}></span>
                   </li>

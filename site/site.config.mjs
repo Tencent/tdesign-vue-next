@@ -176,6 +176,12 @@ export default {
       type: 'component', // 组件文档
       children: [
         {
+          title: 'AutoComplete 自动完成',
+          name: 'auto-complete',
+          path: '/vue-next/components/auto-complete',
+          component: () => import('tdesign-vue-next/auto-complete/auto-complete.md'),
+        },
+        {
           title: 'Cascader 级联组件',
           name: 'cascader',
           meta: {},
