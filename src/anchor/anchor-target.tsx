@@ -3,6 +3,7 @@ import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
+import Popup from '../popup';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
@@ -32,9 +33,9 @@ export default defineComponent({
       return (
         <TAG id={id} class={className}>
           {children && children(null)}
-          <t-popup content={globalConfig.value.copyText} placement="top" showArrow class={iconClassName}>
+          <Popup content={globalConfig.value.copyText} placement="top" showArrow class={iconClassName}>
             <FileCopyIcon onClick={toCopyText} />
-          </t-popup>
+          </Popup>
         </TAG>
       );
     };
