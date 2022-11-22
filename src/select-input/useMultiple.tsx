@@ -35,6 +35,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
+    if (!props.value) return [];
     if (!(props.value instanceof Array)) {
       return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
     }

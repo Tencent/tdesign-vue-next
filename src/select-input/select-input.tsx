@@ -68,6 +68,7 @@ export default defineComponent({
     const mainContent = (
       <Popup
         ref="selectInputRef"
+        key={this.multiple ? 'multiple' : 'single'}
         class={this.popupClasses}
         trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
         placement="bottom-left"
