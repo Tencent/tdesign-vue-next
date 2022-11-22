@@ -24,9 +24,9 @@ describe('Anchor', () => {
         render() {
           return (
             <Anchor>
-              <AnchorTarget></AnchorTarget>
-              <AnchorTarget></AnchorTarget>
-              <AnchorTarget></AnchorTarget>
+              <AnchorTarget id={`#anchor-target-1`}></AnchorTarget>
+              <AnchorTarget id={`#anchor-target-2`}></AnchorTarget>
+              <AnchorTarget id={`#anchor-target-3`}></AnchorTarget>
             </Anchor>
           );
         },
@@ -34,17 +34,6 @@ describe('Anchor', () => {
       expect(wrapper.find('.t-anchor').exists()).toBeTruthy();
       const AnchorTargetList = wrapper.findAllComponents(AnchorTarget);
       expect(AnchorTargetList.length).toBe(3);
-    });
-  });
-  describe('@event', () => {
-    test('_______', () => {
-      expect(true).toEqual(true);
-    });
-  });
-
-  describe('<slot>', () => {
-    test('_______', () => {
-      expect(true).toEqual(true);
     });
   });
 });
