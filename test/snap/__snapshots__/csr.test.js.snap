@@ -26155,7 +26155,7 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/collapsed.vue 1`] 
           </span>
           
           <span
-            style="color: rgb(237, 123, 47);"
+            style="color: rgb(237, 123, 47); margin-left: 10px;"
           >
             +
             2
@@ -26240,7 +26240,7 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/collapsed.vue 1`] 
           
           
           <span
-            style="color: rgb(0, 168, 112);"
+            style="color: rgb(0, 168, 112); margin-left: 10px;"
           >
             +2
           </span>
@@ -139818,11 +139818,13 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
         type,
         row
       } = params;
+
       if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
         return __vite_ssr_import_0__.createVNode(__vite_ssr_import_2__.Loading, {
           \\"size\\": \\"14px\\"
         }, null);
       }
+
       return type === 'expand' ? __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.AddRectangleIcon, null, null) : __vite_ssr_import_0__.createVNode(__vite_ssr_import_3__.MinusRectangleIcon, null, null);
     }"
   >
