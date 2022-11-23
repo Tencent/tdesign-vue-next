@@ -1,7 +1,11 @@
-import { computed, h, inject } from 'vue';
-import _mergeWith from 'lodash/mergeWith';
-import { defaultGlobalConfig, configProviderInjectKey } from './context';
+import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
+import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
 import { GlobalConfigProvider } from './type';
+
+// 这是为了解决在非component里调用useConfig hook时发出的警告
+// https://github.com/Tencent/tdesign-vue-next/issues/2025
+const globalConfigCopy = ref<GlobalConfigProvider>();
 
 export * from './type';
 
@@ -12,7 +16,7 @@ export * from './type';
  * useConfig('pagination')
  */
 export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
-  const injectGlobalConfig = inject(configProviderInjectKey, null);
+  const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
   const globalConfig = computed(() => mergedGlobalConfig.value[componentName]);
 
@@ -49,3 +53,21 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
     classPrefix,
   };
 }
+
+/**
+ * provide globalConfig
+ * @param {GlobalConfigProvider} propsGlobalConfig
+ * @returns {GlobalConfigProvider}
+ */
+export const provideConfig = (propsGlobalConfig: GlobalConfigProvider) => {
+  const defaultData = cloneDeep(defaultGlobalConfig);
+  const mergedGlobalConfig = computed(() => mergeWith(defaultData, propsGlobalConfig));
+
+  provide(configProviderInjectKey, mergedGlobalConfig);
+
+  if (!globalConfigCopy.value) {
+    globalConfigCopy.value = mergedGlobalConfig.value;
+  }
+
+  return mergedGlobalConfig;
+};
