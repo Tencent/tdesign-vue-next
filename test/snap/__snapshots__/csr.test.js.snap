@@ -26155,7 +26155,7 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/collapsed.vue 1`] 
           </span>
           
           <span
-            style="color: rgb(237, 123, 47);"
+            style="color: rgb(237, 123, 47); margin-left: 10px;"
           >
             +
             2
@@ -26240,7 +26240,7 @@ exports[`csr snapshot test > csr test ./src/cascader/_example/collapsed.vue 1`] 
           
           
           <span
-            style="color: rgb(0, 168, 112);"
+            style="color: rgb(0, 168, 112); margin-left: 10px;"
           >
             +2
           </span>
