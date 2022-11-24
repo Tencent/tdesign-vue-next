@@ -4,6 +4,15 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.9 `2022-11-24` 
+### 🚀 Features
+- `Volar`: 新增 `volar` 代码提示文件 @chaishi ([#2055](https://github.com/Tencent/tdesign-vue-next/pull/2055))
+### 🐞 Bug Fixes
+- `Cascader`:  修复自定义 collapsed demo 展示问题 @xiaosansiji ([#2048](https://github.com/Tencent/tdesign-vue-next/pull/2048))
+- `Table`: 可编辑行，修复因没有监听数据变化，出现的校验不通过问题，[tdesign-vue#1822](https://github.com/Tencent/tdesign-vue/issues/1822) @chaishi ([#2053](https://github.com/Tencent/tdesign-vue-next/pull/2053))
+- `Dropdown`: 修复多次点击下拉菜单选项且开启 `hideAfterClick` 后无法弹出菜单的异常 @uyarn ([#2052](https://github.com/Tencent/tdesign-vue-next/pull/2052))
+- `Menu`:  修复 `submenu` 子菜单左右间距不一致 @dianjie ([#2047](https://github.com/Tencent/tdesign-vue-next/pull/2047))
+
 ## 🌈 0.24.8 `2022-11-22` 
 ### 🚀 Features
 - `InputNumber`: 
