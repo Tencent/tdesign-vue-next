@@ -43,61 +43,77 @@
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
 import { DateRangePickerPanel } from 'tdesign-vue-next';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import isNumber from 'lodash/isNumber';
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
-  firstName: ['Eric', 'Gilberta', 'Heriberto', 'Lazarus', 'Zandra'][i % 4],
-  lastName: ['Spinke', 'Purves', 'Kment', 'Skures', 'Croson'][i % 4],
-  email: [
-    'espinke0@apache.org',
-    'gpurves1@issuu.com',
-    'hkment2@nsw.gov.au',
-    'lskures3@apache.org',
-    'zcroson5@virginia.edu',
-  ][i % 4],
-  createTime: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
+  applicant: ['贾明', '张三', '王芳'][i % 3],
+  status: i % 3,
+  channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+  detail: {
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+  },
+  matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+  time: [2, 3, 1, 4][i % 4],
+  createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
 
 const align = ref('left');
 
 const columns = computed(() => [
+  { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
   {
-    title: 'FirstName',
-    colKey: 'firstName',
+    title: '申请状态',
+    colKey: 'status',
     align: align.value,
     // 单选过滤配置
     filter: {
       type: 'single',
       list: [
-        { label: 'anyone', value: '' },
-        { label: 'Heriberto', value: 'Heriberto' },
-        { label: 'Eric', value: 'Eric' },
+        { label: '审批通过', value: 0 },
+        { label: '已过期', value: 1 },
+        { label: '审批失败', value: 2 },
       ],
       // 支持透传全部 Popup 组件属性
       // popupProps: {
       //   attach: document.body,
       // },
     },
+    cell: (h, { row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
   {
-    title: 'LastName',
-    colKey: 'lastName',
+    title: '签署方式',
+    colKey: 'channel',
     // 多选过滤配置
     filter: {
       type: 'multiple',
       resetValue: [],
       list: [
         { label: 'All', checkAll: true },
-        { label: 'Skures', value: 'Skures' },
-        { label: 'Purves', value: 'Purves' },
+        { label: '电子签署', value: '电子签署' },
+        { label: '纸质签署', value: '纸质签署' },
       ],
       // 是否显示重置取消按钮，一般情况不需要显示
       showConfirmAndReset: true,
     },
   },
   {
-    title: 'Email',
-    colKey: 'email',
+    title: '邮箱地址',
+    colKey: 'detail.email',
     // 输入框过滤配置
     filter: {
       type: 'input',
@@ -114,7 +130,7 @@ const columns = computed(() => [
     },
   },
   {
-    title: 'Date',
+    title: '申请时间',
     colKey: 'createTime',
     // 用于查看同时存在排序和过滤时的图标显示是否正常
     sorter: true,
@@ -133,7 +149,7 @@ const columns = computed(() => [
   },
 ]);
 
-const filterValue = ref({ lastName: [], createTime: [] });
+const filterValue = ref({ channel: [], createTime: [] });
 const data = ref([...initData]);
 const bordered = ref(true);
 
@@ -142,11 +158,11 @@ const request = (filters) => {
     clearTimeout(timer);
     const newData = initData.filter((item) => {
       let result = true;
-      if (filters.firstName) {
-        result = item.firstName === filters.firstName;
+      if (isNumber(filters.status)) {
+        result = item.status === filters.status;
       }
-      if (result && filters.lastName && filters.lastName.length) {
-        result = filters.lastName.includes(item.lastName);
+      if (result && filters.channel && filters.channel.length) {
+        result = filters.channel.includes(item.channel);
       }
       if (result && filters.email) {
         result = item.email.indexOf(filters.email) !== -1;

@@ -25,87 +25,65 @@
       bordered
       resizable
     >
-      <template #operation="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+      <template #operation="{ row }">
+        <t-link theme="primary" hover="color" @click="rehandleClickOp(row)">
+          {{ row.status === 0 ? '查看详情' : '再次申请' }}
+        </t-link>
       </template>
     </t-table>
   </div>
 </template>
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const data = [];
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 for (let i = 0; i < 20; i++) {
   data.push({
-    index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
+    index: i + 1,
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
     detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
+      email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
     },
-    description: '数据源',
-    needed: i % 4 === 0 ? '是' : '否',
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
 
 const fixedTopAndBottomRows = ref(false);
 const tableLayout = ref('fixed');
 
-const columns = [
+const columns = ref([
+  { colKey: 'applicant', title: '申请人', width: '100', foot: '共20条' },
   {
-    align: 'center',
-    width: 64,
-    colKey: 'index',
-    title: '序号',
-    fixed: 'left',
-    foot: '总述',
-  },
-  {
-    colKey: 'platform',
-    title: '平台',
-    width: 120,
-    foot: '公有(5)',
-  },
-  {
-    colKey: 'type',
-    title: '类型',
-    width: 120,
-    foot: 'Number(5)',
-  },
-  {
-    colKey: 'default',
-    title: '默认值',
-    width: 150,
+    colKey: 'status',
+    title: '审批状态',
+    width: '150',
     foot: '-',
+    cell: (h, { rowIndex }) => {
+      const status = rowIndex % 3;
+      return (
+        <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
+          {statusNameListMap[status].icon}
+          {statusNameListMap[status].label}
+        </t-tag>
+      );
+    },
   },
-  {
-    colKey: 'detail.position',
-    title: '详情信息',
-    width: 250,
-    foot: '-',
-  },
-  {
-    colKey: 'description',
-    title: '说明',
-    width: 120,
-    foot: '数据(10)',
-  },
-  {
-    colKey: 'needed',
-    title: '必传',
-    foot: '否(6)',
-    width: 120,
-  },
-  {
-    colKey: 'operation',
-    title: '操作',
-    width: 100,
-    cell: 'operation',
-    fixed: 'right',
-  },
-];
-const rehandleClickOp = ({ text, row }) => {
-  console.log(text, row);
+  { colKey: 'matters', title: '申请事项', width: '150', foot: '-' },
+  { colKey: 'createTime', title: '申请日期', width: '120', foot: '-' },
+  { colKey: 'operation', title: '操作', width: '150', foot: '-' },
+]);
+
+const rehandleClickOp = (context) => {
+  console.log(context);
 };
 </script>

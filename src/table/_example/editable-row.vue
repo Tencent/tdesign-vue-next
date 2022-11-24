@@ -11,7 +11,7 @@
       :columns="columns"
       :data="data"
       :editable-row-keys="editableRowKeys"
-      vertical-align="top"
+      table-layout="auto"
       bordered
       @row-edit="onRowEdit"
       @row-validate="onRowValidate"
@@ -27,8 +27,8 @@ import dayjs from 'dayjs';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
-  firstName: ['Eric', 'Gilberta', 'Heriberto', 'Lazarus', 'Zandra'][i % 4],
-  framework: ['Vue', 'React', 'Miniprogram', 'Flutter'][i % 4],
+  firstName: ['贾明', '张三', '王芳'][i % 3],
+  status: i % 3,
   email: [
     'espinke0@apache.org',
     'gpurves1@issuu.com',
@@ -36,8 +36,13 @@ const initData = new Array(5).fill(null).map((_, i) => ({
     'lskures3@apache.org',
     'zcroson5@virginia.edu',
   ][i % 4],
-  letters: [['A'], ['B', 'E'], ['C'], ['D', 'G', 'H']][i % 4],
-  createTime: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
+  letters: [
+    ['激励奖品快递费'],
+    ['相关周边制作费', '激励奖品快递费'],
+    ['相关周边制作费'],
+    ['激励奖品快递费', '相关周边制作费'],
+  ][i % 4],
+  createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
 
 const tableRef = ref();
@@ -127,11 +132,18 @@ const onRowEdit = (params) => {
   // data.value = newData;
 };
 
+const STATUS_OPTIONS = [
+  { label: '审批通过', value: 0 },
+  { label: '审批过期', value: 1 },
+  { label: '审批失败', value: 2 },
+];
+
 const columns = computed(() => [
   {
-    title: 'FirstName',
+    title: '申请人',
     colKey: 'firstName',
     align: align.value,
+    width: 120,
     // 编辑状态相关配置，全部集中在 edit
     edit: {
       // 1. 支持任意组件。需保证组件包含 `value` 和 `onChange` 两个属性，且 onChange 的第一个参数值为 new value。
@@ -152,20 +164,16 @@ const columns = computed(() => [
     },
   },
   {
-    title: 'Framework',
-    colKey: 'framework',
+    title: '申请状态',
+    colKey: 'status',
+    cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {
         clearable: true,
         autoWidth: true,
-        options: [
-          { label: 'Vue', value: 'Vue' },
-          { label: 'React', value: 'React' },
-          { label: 'Miniprogram', value: 'Miniprogram' },
-          { label: 'Flutter', value: 'Flutter' },
-        ],
+        options: STATUS_OPTIONS,
       },
       // 校验规则，此处同 Form 表单
       rules: [{ required: true, message: '不能为空' }],
@@ -173,7 +181,7 @@ const columns = computed(() => [
     },
   },
   {
-    title: 'Letters',
+    title: '申请事项',
     colKey: 'letters',
     cell: (h, { row }) => row.letters.join('、'),
     edit: {
@@ -186,14 +194,11 @@ const columns = computed(() => [
           minCollapsedNum: 1,
           autoWidth: true,
           options: [
-            { label: 'A', value: 'A' },
-            { label: 'B', value: 'B' },
-            { label: 'C', value: 'C' },
-            { label: 'D', value: 'D' },
-            { label: 'E', value: 'E' },
-            // 如果框架选择了 React，则 Letters 隐藏 G 和 H
-            { label: 'G', value: 'G', show: () => editedRow.framework !== 'React' },
-            { label: 'H', value: 'H', show: () => editedRow.framework !== 'React' },
+            { label: '宣传物料制作费用', value: '宣传物料制作费用' },
+            { label: 'algolia 服务报销', value: 'algolia 服务报销' },
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
+            { label: '相关周边制作费', value: '相关周边制作费', show: () => editedRow.status !== 0 },
+            { label: '激励奖品快递费', value: '激励奖品快递费', show: () => editedRow.status !== 0 },
           ].filter((t) => (t.show === undefined ? true : t.show())),
         };
       },
@@ -203,7 +208,7 @@ const columns = computed(() => [
     },
   },
   {
-    title: 'Date',
+    title: '创建日期',
     colKey: 'createTime',
     className: 't-demo-col__datepicker',
     // props, 透传全部属性到 DatePicker 组件
@@ -220,7 +225,7 @@ const columns = computed(() => [
     },
   },
   {
-    title: 'Operate',
+    title: '操作栏',
     colKey: 'operate',
     width: 150,
     cell: (h, { row }) => {
@@ -228,19 +233,19 @@ const columns = computed(() => [
       return (
         <div class="table-operations">
           {!editable && (
-            <Button theme="primary" variant="text" data-id={row.key} onClick={onEdit}>
+            <t-link theme="primary" hover="color" data-id={row.key} onClick={onEdit}>
               编辑
-            </Button>
+            </t-link>
           )}
           {editable && (
-            <Button theme="primary" variant="text" data-id={row.key} onClick={onSave}>
+            <t-link theme="primary" hover="color" data-id={row.key} onClick={onSave}>
               保存
-            </Button>
+            </t-link>
           )}
           {editable && (
-            <Button theme="primary" variant="text" data-id={row.key} onClick={onCancel}>
+            <t-link theme="primary" hover="color" data-id={row.key} onClick={onCancel}>
               取消
-            </Button>
+            </t-link>
           )}
         </div>
       );
@@ -250,10 +255,8 @@ const columns = computed(() => [
 </script>
 
 <style>
-.t-table-demo__editable-row .table-operations > button {
-  padding: 0 8px;
-  line-height: 22px;
-  height: 22px;
+.t-table-demo__editable-row .table-operations > .t-link {
+  margin-right: 8px;
 }
 .t-table-demo__editable-row .t-demo-col__datepicker .t-date-picker {
   width: 120px;

@@ -18,7 +18,7 @@
 
     <!-- :defaultExpandedRowKeys="defaultExpandedRowKeys" -->
     <t-table
-      row-key="id"
+      row-key="index"
       :columns="columns"
       :data="emptyData ? [] : data"
       :expanded-row-keys="expandedRowKeys"
@@ -29,14 +29,10 @@
       table-content-width="1200"
       @expand-change="rehandleExpandChange"
     >
-      <template #status="{ row }">
-        <p v-if="row.status === 0" class="status">健康</p>
-        <p v-if="row.status === 1" class="status unhealth">异常</p>
-      </template>
-      <template #op-column><p>操作</p></template>
-      <template #op="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
-        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+      <template #operation="{ row }">
+        <t-link hover="color" theme="primary" @click="rehandleClickOp(row)">
+          {{ row.status === 0 ? '查看详情' : '再次申请' }}
+        </t-link>
       </template>
     </t-table>
 
@@ -72,42 +68,51 @@
 <script setup lang="jsx">
 import { ref, watch, computed } from 'vue';
 
-import { ChevronRightCircleIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
+import {
+  ChevronRightCircleIcon,
+  ChevronRightIcon,
+  CheckCircleFilledIcon,
+  ErrorCircleFilledIcon,
+  CloseCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 
 const getColumns = (isFixedColumn) => [
-  { colKey: 'instance', title: '集群名称', fixed: isFixedColumn ? 'left' : '' },
+  { colKey: 'applicant', title: '申请人', width: '80', fixed: isFixedColumn ? 'left' : '' },
   {
     colKey: 'status',
-    title: '状态',
+    title: '申请状态',
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
-  { colKey: 'owner', title: '管理员' },
-  { colKey: 'description', title: '描述' },
-  { colKey: 'field1', title: '字段 1' },
-  { colKey: 'field2', title: '字段 2' },
-  { colKey: 'field3', title: '字段 3' },
-  { colKey: 'field4', title: '字段 4' },
-  { colKey: 'field5', title: '字段 5' },
-  { colKey: 'field6', title: '字段 6' },
-  {
-    colKey: 'op',
-    title: 'op-column',
-    cell: 'op',
-    fixed: isFixedColumn ? 'right' : '',
-  },
+  { colKey: 'channel', title: '签署方式' },
+  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'createTime', title: '申请时间' },
+  { colKey: 'operation', title: '操作', fixed: isFixedColumn ? 'right' : '' },
 ];
 
-const data = new Array(5).fill(null).map((item, index) => ({
-  id: index + 100,
-  instance: `JQTest${index + 1}`,
-  status: index % 2,
-  owner: 'jenny;peter',
-  description: 'description',
-  field1: 'field1',
-  field2: 'field2',
-  field3: 'field3',
-  field4: 'field4',
-  field5: 'field5',
-  field6: 'field6',
+const data = new Array(5).fill(null).map((item, i) => ({
+  index: i + 1,
+  applicant: ['贾明', '张三', '王芳'][i % 3],
+  status: i % 3,
+  channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+  detail: {
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+  },
+  matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+  time: [2, 3, 1, 4][i % 4],
+  createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
 
 const expandControl = ref('true');
@@ -122,19 +127,19 @@ const columns = computed(() => getColumns(fixedColumns.value));
 const expandedRow = (h, { row }) => (
   <div class="more-detail">
     <p class="title">
-      <b>集群名称:</b>
+      <b>申请人:</b>
     </p>
-    <p class="content">{row.instance}</p>
+    <p class="content">{row.applicant}</p>
     <br />
     <p class="title">
-      <b>管理员:</b>
+      <b>邮箱地址:</b>
     </p>
-    <p class="content">{row.owner}</p>
+    <p class="content">{row.detail.email}</p>
     <br />
     <p class="title">
-      <b>描述:</b>
+      <b>签署方式:</b>
     </p>
-    <p class="content">{row.description}</p>
+    <p class="content">{row.channel}</p>
   </div>
 );
 
@@ -162,7 +167,7 @@ watch(
         // 第一行不显示展开图标
         if (index === 0) return false;
         // 第三行，使用自定义展开图标
-        if (row.id === 103) return <ChevronRightIcon />;
+        if (index === 3) return <ChevronRightIcon />;
         // 其他行，使用表格同款展开图标
         return <ChevronRightCircleIcon />;
       };
@@ -178,29 +183,6 @@ watch(
 .link {
   cursor: pointer;
   margin-right: 15px;
-}
-.status {
-  position: relative;
-  color: #00a870;
-  margin-left: 10px;
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    content: '';
-    background-color: #00a870;
-    width: 6px;
-    height: 6px;
-    margin-left: -10px;
-    border-radius: 50%;
-  }
-}
-.status.unhealth {
-  color: #e34d59;
-  &::before {
-    background-color: #e34d59;
-  }
 }
 .more-detail {
   > p {

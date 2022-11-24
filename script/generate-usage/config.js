@@ -164,19 +164,48 @@ module.exports = {
     configStr: `const configList = ref(baseConfigJson);`,
     panelStr: `
       const panelList = [
-        {label: 'baseTable', value: 'baseTable', config: baseConfigJson},
+        {label: 'Table', value: 'baseTable', config: baseConfigJson},
       ];
     `,
     script: `
-      const data = ref(Array(30).fill(0).map((_, i) => ({
-        index: i,
-        platform: '公有',
-        description: '数据源',
-      })));
+      import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+      const statusNameListMap = {
+        0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+        1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+        2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+      };
+      
+      const data = ref(
+        Array(4)
+          .fill(0)
+          .map((_, i) => ({
+            index: i,
+            applicant: ['贾明', '张三', '王芳'][i % 3],
+            status: i % 3,
+            channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+            detail: {
+              email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+            },
+          })),
+      );
+      
       const columns = ref([
-        {colKey: 'index', title: 'index'},
-        {colKey: 'platform', title: '平台'},
-        {colKey: 'description', title: '说明'},
+        { colKey: 'applicant', title: '申请人', width: '100' },
+        {
+          colKey: 'status',
+          title: '审批状态',
+          cell: (h, { row }) => {
+            return (
+              <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+                {statusNameListMap[row.status].icon}
+                {statusNameListMap[row.status].label}
+              </t-tag>
+            );
+          },
+        },
+        { colKey: 'channel', title: '签署方式', width: '120' },
+        { colKey: 'detail.email', title: '电子邮件', width: '200' },
       ]);
     `,
     panelChangeStr: `
@@ -191,9 +220,7 @@ module.exports = {
         row-key="index"
         :data="data"
         :columns="columns"
-        :max-height="140"
-        :pagination="{ total: 30 }"
-      />`,
+      ></t-base-table>`,
     },
   },
   tabs: {
@@ -658,14 +685,6 @@ module.exports = {
           <t-button>Button</t-button>
           <t-button>Button</t-button>
         </t-space>
-      `,
-    },
-  },
-  jumper: {
-    panelStr: `const panelList = [{label: 'jumper', value: 'jumper'}];`,
-    render: {
-      jumper: `
-        <t-jumper v-bind="configProps"></t-jumper>
       `,
     },
   },
