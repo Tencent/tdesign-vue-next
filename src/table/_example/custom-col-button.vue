@@ -26,7 +26,7 @@
       :columns="columns"
       :column-controller="{
         placement,
-        fields: ['platform', 'type', 'default'],
+        fields: ['channel', 'email', 'createTime'],
         dialogProps: { preventScrollThrough: true },
         buttonProps: customText ? { content: '显示列控制', theme: 'primary', variant: 'base' } : undefined,
       }"
@@ -35,7 +35,8 @@
       table-layout="auto"
       stripe
       @column-change="onColumnChange"
-    ></t-table>
+    >
+    </t-table>
 
     <!-- 非受控用法，示例代码有效，勿删 -->
     <!-- <t-table
@@ -52,60 +53,56 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const placement = ref('top-right');
 const bordered = ref(true);
 const customText = ref(false);
 
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
+
 const initialData = [];
 for (let i = 0; i < 100; i++) {
   initialData.push({
     index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
-    detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
-    },
-    needed: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
 
 const data = ref([...initialData]);
 
-const staticColumn = ['index', 'needed', 'detail.position'];
-const displayColumns = ref(staticColumn.concat(['platform', 'type', 'default']));
+const staticColumn = ['applicant', 'status'];
+const displayColumns = ref(staticColumn.concat(['channel', 'email', 'createTime']));
 
-const columns = [
+const columns = ref([
+  { colKey: 'applicant', title: '申请人', width: '100' },
   {
-    align: 'center',
-    className: 'row',
-    colKey: 'index',
-    title: '序号',
+    colKey: 'status',
+    title: '申请状态',
+    width: '150',
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
-  {
-    colKey: 'platform',
-    title: '平台',
-  },
-  {
-    colKey: 'type',
-    title: '类型',
-  },
-  {
-    colKey: 'default',
-    title: '默认值',
-  },
-  {
-    colKey: 'needed',
-    title: '是否必传',
-  },
-  {
-    colKey: 'detail.position',
-    title: '详情信息',
-    ellipsis: true,
-  },
-];
+  { colKey: 'channel', title: '签署方式', width: '120' },
+  { colKey: 'email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'createTime', title: '申请时间', width: '150' },
+]);
 
 const onColumnChange = (params) => {
   console.log(params);

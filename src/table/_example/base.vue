@@ -29,92 +29,34 @@
       :show-header="showHeader"
       cell-empty-content="-"
       @row-click="handleRowClick"
-    />
+    >
+    </t-table>
   </t-space>
 </template>
 
 <script setup lang="jsx">
 import { ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 const data = [];
 const total = 28;
 for (let i = 0; i < total; i++) {
   data.push({
     index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['0', '[]'][i % 5],
-    detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
-    },
-    needed: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
-  {
-    // 序号列，设置 colKey = serial-number 即可
-    colKey: 'serial-number',
-    title: '序号',
-    width: '64',
-    // 对齐方式
-    align: 'center',
-    // 设置列类名
-    className: 'custom-column-class-name',
-    // 设置列属性
-    attrs: {
-      'data-id': 'first-column',
-      style: {},
-    },
-  },
-  {
-    colKey: 'platform',
-    title: '平台',
-  },
-  {
-    colKey: 'type',
-    title: '类型',
-  },
-  {
-    colKey: 'default',
-    title: '默认值',
-  },
-  {
-    colKey: 'needed',
-    title: '是否必传',
-  },
-  {
-    colKey: 'detail.position',
-    title: '详情信息',
-    /**
-     * 1.内容超出时，是否显示省略号。值为 true，则浮层默认显示单元格内容；
-     * 2.值类型为 Function 则自定义浮层显示内容；
-     * 3.值类型为 Object，则自动透传属性到 Tooltip 组件。
-     */
-    ellipsis: true,
-    ellipsisTitle: false,
-
-    // 透传省略内容浮层 Tooltip 组件全部特性，示例代码有效，勿删！！！
-    // ellipsis: { placement: 'bottom', destroyOnClose: false },
-
-    // 完全自定义 ellipsis 浮层的样式和内容，示例代码有效，勿删！！！
-    // ellipsis: (h, { row, col, rowIndex, colIndex }) => {
-    //   if (rowIndex % 2) {
-    //     return (
-    //       <div>
-    //         is even row {rowIndex + 1}, with data {row.detail.position}
-    //       </div>
-    //     );
-    //   }
-    //   return (
-    //     <div>
-    //       is odd row {rowIndex + 1}, with data {row.detail.position}
-    //     </div>
-    //   );
-    // },
-  },
-];
 
 const stripe = ref(true);
 const bordered = ref(true);
@@ -123,12 +65,31 @@ const tableLayout = ref(false);
 const size = ref('medium');
 const showHeader = ref(true);
 
+const columns = ref([
+  { colKey: 'applicant', title: '申请人', width: '100' },
+  {
+    colKey: 'status',
+    title: '申请状态',
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
+  },
+  { colKey: 'channel', title: '签署方式' },
+  { colKey: 'email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'createTime', title: '申请时间' },
+]);
+
 const handleRowClick = (e) => {
   console.log(e);
 };
 
 const pagination = {
-  defaultCurrent: 2,
+  defaultCurrent: 1,
   defaultPageSize: 5,
   total,
 };

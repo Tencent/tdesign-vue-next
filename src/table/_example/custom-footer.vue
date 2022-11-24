@@ -21,27 +21,34 @@
       <!-- 如果是通栏表尾，只需设置 footer-summary，支持同名 Props 属性 footerSummary -->
       <!-- 通栏表尾和普通表尾，允许同时存在 -->
       <template v-if="footerType === 'full'" #footerSummary>
-        <div class="t-table__row-filter-inner">通栏总结行信息</div>
+        <div class="t-table__row-filter-inner">表尾信息</div>
       </template>
-      <template #t-foot-required> <b>必传(插槽)</b> </template>
+      <template #t-foot-required> <div style="text-align: center; font-weight: bold">表尾信息</div> </template>
     </t-table>
   </div>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const data = [];
-for (let i = 0; i < 3; i++) {
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
+
+for (let i = 0; i < 5; i++) {
   data.push({
     index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
-    detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
-    },
-    required: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
 
@@ -59,41 +66,33 @@ const footerType = ref('normal');
 
 const columns = [
   {
-    align: 'center',
-    className: 'row',
-    colKey: 'index',
-    title: '序号',
-    foot: () => <b style="color: rgb(0, 82, 217)">表尾</b>,
-    width: '64',
+    align: 'left',
+    colKey: 'applicant',
+    title: '申请人',
+    foot: () => <b style="font-weight: bold">表尾信息</b>,
+    width: '120',
   },
   {
-    width: 100,
-    colKey: 'platform',
-    title: '平台',
-    foot: (h, { rowIndex }) => <div style="width: 100%; text-align: center">第 {rowIndex + 1} 行</div>,
+    title: '审批状态',
+    colKey: 'status',
+    // 使用 cell 方法自定义单元格：
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
+    foot: (h, { rowIndex }) => <div style="width: 100%; ">表尾信息 </div>,
   },
+  { colKey: 'channel', title: '签署方式', width: '120', foot: 't-foot-required' },
+  { colKey: 'email', title: '邮箱地址', ellipsis: true, foot: () => <div>表尾信息</div> },
   {
-    colKey: 'type',
-    title: '类型',
-  },
-  {
-    colKey: 'default',
-    title: '默认值',
-    foot: (h, { row }) => <span>{row.default || '空'}</span>,
-  },
-  {
-    colKey: 'required',
-    title: '是否必传',
-    width: 150,
-    // 使用插槽渲染，插槽名称为 't-foot-required'
-    foot: 't-foot-required',
-  },
-  {
-    colKey: 'detail.position',
-    title: '详情信息',
-    width: 200,
-    ellipsis: true,
-    foot: () => <div>渲染函数输出表尾信息</div>,
+    colKey: 'createTime',
+    title: '申请时间',
+    width: '150',
+    foot: () => <div style="text-align: center">表尾信息</div>,
   },
 ];
 

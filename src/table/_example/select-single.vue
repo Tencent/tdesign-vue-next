@@ -3,31 +3,40 @@
     <!-- 支持非受控属性 default-selected-row-keys -->
     <!-- 支持语法糖 v-model:selected-row-keys -->
     <t-table
-      row-key="id"
+      row-key="index"
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
       @select-change="rehandleSelectChange"
     >
-      <template #status="{ row }">
-        <p v-if="row.status === 0" class="status">健康</p>
-        <p v-if="row.status === 1" class="status unhealth">异常</p>
-      </template>
-      <template #op-column>
-        <p>操作</p>
-      </template>
-      <template #op="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
-        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
-      </template>
     </t-table>
   </div>
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
+
+const data = [];
+for (let i = 0; i < 5; i++) {
+  data.push({
+    index: i,
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
+  });
+}
 const columns = [
   {
     // title: '单选',
@@ -46,31 +55,26 @@ const columns = [
     // checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
     width: 50,
   },
-  { colKey: 'instance', title: '集群名称', width: 120 },
+  { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',
-    title: '状态',
-    width: 100,
-    cell: 'status',
+    title: '申请状态',
+    width: '150',
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
-  { colKey: 'owner', title: '管理员' },
-  { colKey: 'description', title: '描述' },
-  {
-    colKey: 'op',
-    width: 150,
-    title: 'op-column',
-    cell: 'op',
-  },
+  { colKey: 'channel', title: '签署方式', width: '120' },
+  { colKey: 'email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'createTime', title: '申请时间', width: '150' },
 ];
-const data = new Array(5).fill(null).map((item, index) => ({
-  id: index + 100,
-  instance: `JQTest${index + 1}`,
-  status: index % 2,
-  owner: 'jenny;peter',
-  description: 'test',
-}));
 
-const selectedRowKeys = ref([102]);
+const selectedRowKeys = ref([2]);
 
 const rehandleClickOp = ({ row }) => {
   console.log(row);

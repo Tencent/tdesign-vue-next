@@ -7,7 +7,18 @@
 <script lang="jsx" setup>
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
-import { FileCopyIcon } from 'tdesign-icons-vue-next';
+import {
+  FileCopyIcon,
+  ErrorCircleFilledIcon,
+  CheckCircleFilledIcon,
+  CloseCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 
 // thanks to https://www.zhangxinxu.com/wordpress/2021/10/js-copy-paste-clipboard/
 function copyToClipboard(text) {
@@ -32,49 +43,42 @@ const total = 5;
 for (let i = 0; i < total; i++) {
   data.push({
     id: i + 1,
+    applicant: ['贾明（kyrieJia）', '张三（threeZhang)', '王芳（fangWang)'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
     desc: ['单元格文本超出省略设置', '这是普通文本的超出省略'][i % 2],
-    link: 'Long link text. Popup content is pure text',
+    link: '点击查看审批详情',
     something: '仅标题省略',
     // 透传 Tooltip Props 到浮层组件
-    ellipsisProps: 'Setting ellipsis tooltip to be light',
+    ellipsisProps: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
     // 完全自定义超出省略的 Tips 内容
-    ellipsisContent: 'Custom Ellipsis Content',
-    propsAndContent1: 'Setting props and content at the same time',
-    propsAndContent2: 'Setting props and content at the same time',
+    ellipsisContent: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    propsAndContent1: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
+    propsAndContent2: [2, 3, 1, 4][i % 4],
   });
 }
 
 const columns = ref([
-  // {
-  //   title: 'ID',
-  //   colKey: 'id',
-  //   width: 80,
-  // },
   {
-    title: 'Description',
-    colKey: 'desc',
+    colKey: 'applicant',
+    title: '申请人',
     ellipsis: true,
   },
   {
-    title: '这是一个很长很长的标题',
-    colKey: 'something',
+    colKey: 'status',
+    title: '审批状态',
     width: 120,
-    ellipsisTitle: true,
+    cell: (h, { col, row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
   {
-    title: 'Link',
-    colKey: 'link',
-    // 超出省略的内容显示纯文本，不带任何样式和元素
-    ellipsis: (h, { row }) => row.link,
-    // 注意这种 JSX 写法需设置 <script lang="jsx" setup>
-    cell: (h, { row }) => (
-      <a href="/vue-next/components/table" target="_blank">
-        {row.link}
-      </a>
-    ),
-  },
-  {
-    title: 'Ellipsis Props',
+    title: '邮箱地址',
     colKey: 'ellipsisProps',
     // 浮层浅色背景，方向默认朝下出现
     ellipsis: {
@@ -83,7 +87,7 @@ const columns = ref([
     },
   },
   {
-    title: 'Ellipsis Content',
+    title: '申请事项',
     colKey: 'ellipsisContent',
     // ellipsis 定义超出省略的浮层内容，cell 定义单元格内容
     ellipsis: (h, { row }) => (
@@ -97,9 +101,10 @@ const columns = ref([
     ),
   },
   {
-    title: 'Props & Content',
+    title: '审核时间',
     colKey: 'propsAndContent1',
     // 支持同时设置 tooltipProps 和 浮层内容,
+    width: 100,
     ellipsis: {
       props: {
         theme: 'light',
@@ -108,14 +113,26 @@ const columns = ref([
       content: (h, { row }) => (
         <div>
           <p>
-            <b>Tooltip1:</b> {row.propsAndContent1}
+            <b>创建日期:</b> {row.propsAndContent1}
           </p>
           <p>
-            <b>Tooltip2:</b> {row.propsAndContent2}
+            <b>审核时长(天):</b> {row.propsAndContent2}
           </p>
         </div>
       ),
     },
+  },
+  {
+    title: '操作',
+    colKey: 'link',
+    // 超出省略的内容显示纯文本，不带任何样式和元素
+    ellipsis: (h, { row }) => row.link,
+    // 注意这种 JSX 写法需设置 <script lang="jsx" setup>
+    cell: (h, { row }) => (
+      <a href="/vue-next/components/table" target="_blank">
+        {row.link}
+      </a>
+    ),
   },
 ]);
 </script>

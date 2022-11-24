@@ -31,16 +31,27 @@
     ></t-table>
   </div>
 </template>
-<script setup>
+<script setup lang="jsx">
 import { computed, ref } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 
 const initialData = [];
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 19; i++) {
   initialData.push({
     index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    property: ['A', 'B', 'C'][i % 3],
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    time: [3, 2, 4, 1][i % 4],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
+    property: ['组长审批', '部门审批', '财务审批'][i % 3],
     default: i,
     detail: {
       position: `读取 ${i} 个数据的嵌套信息值`,
@@ -48,28 +59,26 @@ for (let i = 0; i < 20; i++) {
     needed: i % 4 === 0 ? '是' : '否',
     type_default: '-',
     description: '数据源',
-    field1: '字段1',
-    field2: '字段2',
-    field3: '字段3',
-    field4: '字段4',
+    field1: [100, 200, 400, 500][i % 4],
+    field2: [100, 200, 400, 500][i % 4],
+    field3: [100, 200, 400, 500][i % 4],
+    field4: [100, 200, 400, 500][i % 4],
     field5: '字段5',
     field6: '字段6',
-    field7: '字段7',
-    field8: '字段8',
-    text: '这是一段很长很长很长的文本',
+    field7: `审批单号00${i + 1}`,
   });
 }
 
 function getColumns(fixedLeftCol, fixedRightCol) {
   return [
     {
-      title: '序号',
-      colKey: 'index',
+      title: '申请人',
+      colKey: 'applicant',
       fixed: fixedLeftCol && 'left',
       width: 100,
     },
     {
-      title: '汇总属性',
+      title: '申请汇总',
       fixed: fixedLeftCol && 'left',
       width: 100,
       colKey: 'total_info',
@@ -77,37 +86,38 @@ function getColumns(fixedLeftCol, fixedRightCol) {
         {
           align: 'left',
           colKey: 'platform',
-          title: '平台',
+          title: '申请状态',
           fixed: fixedLeftCol && 'left',
-          width: 100,
+          width: 120,
+          sorter: (a, b) => a.default - b.default,
+          cell: (h, { col, row }) => {
+            return (
+              <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+                {statusNameListMap[row.status].icon}
+                {statusNameListMap[row.status].label}
+              </t-tag>
+            );
+          },
         },
         {
-          title: '类型及默认值',
+          title: '申请渠道和金额',
           colKey: 'type_default',
           fixed: fixedLeftCol && 'left',
           width: 100,
           children: [
             {
               align: 'left',
-              colKey: 'type',
+              colKey: 'channel',
               title: '类型',
               fixed: fixedLeftCol && 'left',
               width: 110,
             },
             {
-              align: 'left',
-              colKey: 'default',
-              title: '默认值',
+              align: 'center',
+              colKey: 'time',
+              title: '申请耗时(天)',
               fixed: fixedLeftCol && 'left',
-              width: 100,
-              sorter: (a, b) => a.default - b.default,
-            },
-            {
-              align: 'left',
-              colKey: 'needed',
-              title: '是否必传',
-              fixed: fixedLeftCol && 'left',
-              width: 100,
+              width: 150,
             },
           ],
         },
@@ -115,27 +125,26 @@ function getColumns(fixedLeftCol, fixedRightCol) {
     },
     {
       colKey: 'field1',
-      title: '字段1',
+      title: '住宿费',
       width: 100,
     },
-    {
-      colKey: 'field2',
-      title: '字段2',
-      width: 100,
-    },
-
     {
       colKey: 'field3',
-      title: '字段3',
+      title: '交通费',
       width: 100,
     },
     {
       colKey: 'field4',
-      title: '字段4',
+      title: '物料费',
       width: 100,
     },
     {
-      title: '属性及说明',
+      colKey: 'field2',
+      title: '奖品激励费',
+      width: 120,
+    },
+    {
+      title: '审批汇总',
       colKey: 'instruction',
       fixed: fixedRightCol && 'right',
       width: 100,
@@ -143,16 +152,16 @@ function getColumns(fixedLeftCol, fixedRightCol) {
         {
           align: 'left',
           colKey: 'property',
-          title: '属性',
+          title: '审批状态',
           fixed: fixedRightCol && 'right',
-          width: 110,
+          width: 120,
           filter: {
             type: 'single',
             list: [
-              { label: 'any', value: '' },
-              { label: 'A', value: 'A' },
-              { label: 'B', value: 'B' },
-              { label: 'D', value: 'D' },
+              { label: '所有状态', value: '' },
+              { label: '组长审批', value: '组长审批' },
+              { label: '部门审批', value: '部门审批' },
+              { label: '财务审批', value: '财务审批' },
             ],
           },
         },
@@ -165,33 +174,27 @@ function getColumns(fixedLeftCol, fixedRightCol) {
           width: 100,
           children: [
             {
-              colKey: 'field6',
-              title: '字段6',
-              fixed: fixedRightCol && 'right',
-              width: 100,
-            },
-            {
               colKey: 'field7',
-              title: '字段7',
+              title: '审批单号',
               fixed: fixedRightCol && 'right',
-              width: 100,
+              width: 120,
             },
             {
-              colKey: 'text',
-              title: '描述',
+              colKey: 'email',
+              title: '邮箱地址',
               fixed: fixedRightCol && 'right',
               ellipsis: true,
-              width: 100,
+              width: 150,
             },
           ],
         },
       ],
     },
     {
-      colKey: 'field5',
-      title: '字段5',
+      colKey: 'createTime',
+      title: '申请时间',
       fixed: fixedRightCol && 'right',
-      width: 100,
+      width: '120',
     },
   ];
 }

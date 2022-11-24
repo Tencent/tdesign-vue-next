@@ -17,7 +17,7 @@
 
     <!-- 受控用法，示例代码有效，勿删 -->
     <t-table
-      row-key="id"
+      row-key="index"
       :columns="columns"
       :data="data"
       :sort="sort"
@@ -36,47 +36,65 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
+import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-const columns = [
-  { colKey: 'instance', title: '集群名称', width: 150 },
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
+
+const initialData = [];
+for (let i = 0; i < 5; i++) {
+  initialData.push({
+    index: i,
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
+  });
+}
+
+const columns = ref([
+  { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',
-    title: '状态',
-    width: 100,
+    title: '申请状态',
+    width: '150',
     sortType: 'all',
-    sorter: true,
-    // 自定义列，或单元格类名
-    // className: (params) => {
-    //   console.log(params);
-    //   return 'status-class-bg';
-    // },
+    sorter: (a, b) => a.status - b.status,
+    cell: (h, { row }) => {
+      return (
+        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+          {statusNameListMap[row.status].icon}
+          {statusNameListMap[row.status].label}
+        </t-tag>
+      );
+    },
   },
   {
-    colKey: 'survivalTime',
-    title: '存活时间(s)',
-    width: 200,
+    colKey: 'time',
+    title: '申请耗时(天)',
+    width: '120',
+    align: 'center',
     sortType: 'all',
-    sorter: true,
+    sorter: (a, b) => a.time - b.time,
   },
-  { colKey: 'owner', title: '管理员', width: 100 },
-];
-
-const initData = new Array(4).fill(null).map((_, i) => ({
-  id: i + 1,
-  instance: `JQTest${i + 1}`,
-  status: [0, 1, 2, 1][i % 3],
-  owner: ['jenny;peter', 'jenny', 'peter'][i % 3],
-  survivalTime: [1000, 1000, 500, 1500][i % 3],
-}));
+  { colKey: 'channel', title: '签署方式', width: '120' },
+  { colKey: 'createTime', title: '申请时间', width: '150' },
+]);
 
 const sort = ref({
   sortBy: 'status',
   descending: true,
 });
 
-const data = ref([...initData]);
+const data = ref([...initialData]);
 const hideSortTips = ref(false);
 
 const request = (sort) => {

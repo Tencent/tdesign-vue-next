@@ -168,15 +168,39 @@ module.exports = {
       ];
     `,
     script: `
-      const data = ref(Array(30).fill(0).map((_, i) => ({
-        index: i,
-        platform: '公有',
-        description: '数据源',
-      })));
+      import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+      const data = ref(
+        Array(30)
+          .fill(0)
+          .map((_, i) => ({
+            index: i,
+            applicant: ['贾明', '张三', '王芳'][i % 3],
+            status: i % 3,
+            channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+            email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+          })),
+      );
+      const statusNameListMap = {
+        0: { label: '审批通过', theme: 'success' },
+        1: { label: '已过期', theme: 'warning' },
+        2: { label: '审批失败', theme: 'danger' },
+      };
       const columns = ref([
-        {colKey: 'index', title: 'index'},
-        {colKey: 'platform', title: '平台'},
-        {colKey: 'description', title: '说明'},
+        { colKey: 'applicant', title: '申请人', width: '100' },
+        {
+          colKey: 'status',
+          title: '审批状态',
+          cell: (h, { row }) => {
+            return (
+              <t-tag theme={statusNameListMap[row.status].theme} variant="light">
+                {row.status ? <InfoCircleFilledIcon /> : < CheckCircleFilledIcon/>}
+                {statusNameListMap[row.status].label}
+              </t-tag>
+            );
+          },
+        },
+        { colKey: 'channel', title: '签署方式', width: '120' },
+        { colKey: 'email', title: '电子邮件', width: '200' },
       ]);
     `,
     panelChangeStr: `
@@ -193,7 +217,7 @@ module.exports = {
         :columns="columns"
         :max-height="140"
         :pagination="{ total: 30 }"
-      />`,
+      ></t-base-table>`,
     },
   },
   tabs: {
