@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.24.8",
+  "version": "0.24.9",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -25,6 +25,7 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
+    "global.d.ts",
     "helper"
   ],
   "sideEffects": [
