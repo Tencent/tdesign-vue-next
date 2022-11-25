@@ -70,7 +70,7 @@ update | `(props: DialogOptions)` | \- | \-
 
 ### DialogPlugin
 
-同时也支持 `this.$dialog`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog`。
 
 name | params | default | description
 -- | -- | -- | --
@@ -80,7 +80,7 @@ options | \- | - | Typescript：`DialogOptions`
 
 ### DialogPlugin.confirm
 
-同时也支持 `this.$dialog.confirm`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog.confirm`。
 
 name | params | default | description
 -- | -- | -- | --
@@ -88,7 +88,7 @@ options | \- | - | Typescript：`DialogOptions`
 
 ### DialogPlugin.alert
 
-同时也支持 `this.$dialog.alert`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog.alert`。
 
 name | params | default | description
 -- | -- | -- | --

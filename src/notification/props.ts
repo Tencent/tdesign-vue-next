@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdNotificationProps } from './type';
@@ -41,6 +40,7 @@ export default {
     type: String as PropType<TdNotificationProps['theme']>,
     default: 'info' as TdNotificationProps['theme'],
     validator(val: TdNotificationProps['theme']): boolean {
+      if (!val) return true;
       return ['info', 'success', 'warning', 'error'].includes(val);
     },
   },
