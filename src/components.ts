@@ -21,6 +21,7 @@ export * from './steps';
 export * from './tabs';
 
 // 输入
+export * from './auto-complete';
 export * from './cascader';
 export * from './checkbox';
 export * from './date-picker';

@@ -4,6 +4,41 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.24.9 `2022-11-24` 
+### 🚀 Features
+- `Volar`: 新增 `volar` 代码提示文件 @chaishi ([#2055](https://github.com/Tencent/tdesign-vue-next/pull/2055))
+### 🐞 Bug Fixes
+- `Cascader`:  修复自定义 collapsed demo 展示问题 @xiaosansiji ([#2048](https://github.com/Tencent/tdesign-vue-next/pull/2048))
+- `Table`: 可编辑行，修复因没有监听数据变化，出现的校验不通过问题，[tdesign-vue#1822](https://github.com/Tencent/tdesign-vue/issues/1822) @chaishi ([#2053](https://github.com/Tencent/tdesign-vue-next/pull/2053))
+- `Dropdown`: 修复多次点击下拉菜单选项且开启 `hideAfterClick` 后无法弹出菜单的异常 @uyarn ([#2052](https://github.com/Tencent/tdesign-vue-next/pull/2052))
+- `Menu`:  修复 `submenu` 子菜单左右间距不一致 @dianjie ([#2047](https://github.com/Tencent/tdesign-vue-next/pull/2047))
+
+## 🌈 0.24.8 `2022-11-22` 
+### 🚀 Features
+- `InputNumber`: 
+  - 支持 `allowInputOverLimit`，用于设置是否允许输入数字超过 `max` `min` 范围的值 @chaishi ([#2030](https://github.com/Tencent/tdesign-vue-next/pull/2030))
+  - 新增和减少按钮支持 `allowInputOverLimit` @chaishi ([#2037](https://github.com/Tencent/tdesign-vue-next/pull/2037))
+- `AutoComplete`: 新增组件 `AutoComplete` 自动填充 @chaishi ([#2031](https://github.com/Tencent/tdesign-vue-next/pull/2031))
+### 🐞 Bug Fixes
+- `DatePicker`: 
+  - 修复 `seperator` 问题 @honkinglin ([#2021](https://github.com/Tencent/tdesign-vue-next/pull/2021))
+  - 修复周选择器高亮错误问题 @honkinglin ([#2036](https://github.com/Tencent/tdesign-vue-next/pull/2036))
+- `ColorPicker`: 修复渐变滑竿滑动后导致 `picker` 自动关闭的问题 @S-mohan ([#2024](https://github.com/Tencent/tdesign-vue-next/pull/2024))
+- `TagInput`: 修复 `tag-input` 示例代码上下间距不对称问题 @yusongh ([#2028](https://github.com/Tencent/tdesign-vue-next/pull/2028))
+- `Upload`: 部分 `button` 组件使用 `link` 替换 @Wen1kang ([#2027](https://github.com/Tencent/tdesign-vue-next/pull/2027))
+- `HeadMenu`: 修复菜单折叠问题 @dianjie ([#2029](https://github.com/Tencent/tdesign-vue-next/pull/2029))
+- `InputNumber`: 修复上个版本无法输入小数点问题 @chaishi ([#2030](https://github.com/Tencent/tdesign-vue-next/pull/2030))
+- `Transfer`: 修复 `operations` 样式问题 @Wen1kang ([#2042](https://github.com/Tencent/tdesign-vue-next/pull/2042))
+- `Anchor`: 修复组件对 `popup` 的引用错误 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
+- `HeadMenu`: 修复菜单折叠问题 @dianjie ([#2029](https://github.com/Tencent/tdesign-vue-next/pull/2029))
+### 🚧 Others
+- `SelectInput`: `demo` 原生滚动条样式改为内置样式 @dianjie ([#2033](https://github.com/Tencent/tdesign-vue-next/pull/2033))
+- `Form`: 修复 `form` 示例代码样式问题 @Wen1kang ([#2042](https://github.com/Tencent/tdesign-vue-next/pull/2042))
+- `Cascader`: 补充组件单元测试 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
+- `Select`: 补充组件单元测试 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
+- `Notification`: 补充组件单元测试 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
+- `Anchor`: 补充组件单元测试 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
+- `AutoComplete`: 补充组件单元测试 @pengYYYYY ([#2043](https://github.com/Tencent/tdesign-vue-next/pull/2043))
 ## 🌈 0.24.7 `2022-11-16` 
 ### 🚀 Features
 - `Breadcrumb`: 新增`icon`API @uyarn ([#1998](https://github.com/Tencent/tdesign-vue-next/pull/1998))

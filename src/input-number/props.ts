@@ -16,6 +16,11 @@ export default {
       return ['left', 'center', 'right'].includes(val);
     },
   },
+  /** 是否允许输入超过 `max` `min` 范围外的数字。为保障用户体验，仅在失去焦点时进行数字范围矫正。默认允许超出，数字超出范围时，输入框变红提醒 */
+  allowInputOverLimit: {
+    type: Boolean,
+    default: true,
+  },
   /** 宽度随内容自适应 */
   autoWidth: Boolean,
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */

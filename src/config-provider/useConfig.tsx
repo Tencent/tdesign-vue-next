@@ -44,6 +44,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
 
   return {
     t,
+    global: globalConfig,
     globalConfig,
     classPrefix,
   };

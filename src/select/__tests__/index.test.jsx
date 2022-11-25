@@ -1,8 +1,52 @@
 import { mount } from '@vue/test-utils';
 import { Select, OptionGroup, Option } from '@/src/select/index.ts';
 
-// every component needs four parts: props/events/slots/functions.
+const options = [
+  { label: '架构云', value: '1' },
+  { label: '大数据', value: '2' },
+  { label: '区块链', value: '3' },
+  { label: '物联网', value: '4', disabled: true },
+  { label: '人工智能', value: '5' },
+  {
+    label: '计算场景（高性能计算）',
+    value: '6',
+    content: () => <p>计算场景（高性能计算）</p>,
+  },
+];
+
 describe('Select', () => {
+  describe(':base', () => {
+    it(':render single', async () => {
+      const wrapper = mount({
+        render() {
+          return <Select options={options}></Select>;
+        },
+      });
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      const panelNode = document.querySelector('.t-select__list');
+      expect(document.querySelectorAll('.t-select-option').length).toBe(6);
+      expect(document.querySelectorAll('.t-is-disabled').length).toBe(1);
+      expect(document.querySelectorAll('p').length).toBe(1);
+      panelNode.parentNode.removeChild(panelNode);
+    });
+
+    it(':render multiple', async () => {
+      const wrapper = mount({
+        render() {
+          return <Select options={options} multiple></Select>;
+        },
+      });
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      const panelNode = document.querySelector('.t-select__list');
+      expect(document.querySelectorAll('.t-checkbox').length).toBe(6);
+      panelNode.parentNode.removeChild(panelNode);
+    });
+  });
+
+  // old
+
   // test props api
   describe(':props', () => {
     it(':disabled', () => {
