@@ -14,3 +14,5 @@ export type OptionGroupProps = TdOptionGroupProps;
 export const Select = withInstall(_Select);
 export const Option = withInstall(_Option);
 export const OptionGroup = withInstall(_OptionGroup);
+
+export default Select;

@@ -1,6 +1,6 @@
 <template>
   <t-space direction="vertical">
-    <t-space direction="vertical">
+    <t-space direction="vertical" style="width: 100%">
       <span>展示首尾页码省略</span>
       <t-pagination
         v-model="current"
@@ -11,7 +11,7 @@
         @current-change="onCurrentChange"
       />
     </t-space>
-    <t-space direction="vertical">
+    <t-space direction="vertical" style="width: 100%">
       <span>不展示首尾页码省略</span>
       <t-pagination
         v-model="current"
@@ -47,11 +47,3 @@ const onChange = (pageInfo) => {
   console.log(pageInfo);
 };
 </script>
-<style lang="less">
-.t-space {
-  width: 100%;
-  &-item {
-    width: 100%;
-  }
-}
-</style>
