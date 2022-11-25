@@ -140,12 +140,6 @@ export default {
           component: () => import('tdesign-vue-next/dropdown/dropdown.md'),
         },
         {
-          title: 'Jumper 跳转',
-          name: 'jumper',
-          path: '/vue-next/components/jumper',
-          component: () => import('tdesign-vue-next/jumper/jumper.md'),
-        },
-        {
           title: 'Menu 导航菜单',
           name: 'menu',
           path: '/vue-next/components/menu',

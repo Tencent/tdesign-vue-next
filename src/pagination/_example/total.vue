@@ -1,7 +1,5 @@
 <template>
-  <t-space>
-    <t-pagination v-model="current" v-model:page-size="pageSize" :total="total" :total-content="renderTotalContent" />
-  </t-space>
+  <t-pagination v-model="current" v-model:page-size="pageSize" :total="total" :total-content="renderTotalContent" />
 </template>
 
 <script setup lang="jsx">

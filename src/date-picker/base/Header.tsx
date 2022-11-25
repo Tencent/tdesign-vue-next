@@ -1,6 +1,6 @@
 import { defineComponent, PropType, ref, computed } from 'vue';
-import TJumper, { JumperTrigger } from '../../jumper';
-import TSelect from '../../select/select';
+import { PaginationMini, JumperTrigger } from '../../pagination';
+import TSelect from '../../select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 
@@ -166,7 +166,7 @@ export default defineComponent({
           />
         </div>
 
-        <TJumper tips={labelMap[props.mode]} size="small" onChange={props.onJumperClick} />
+        <PaginationMini tips={labelMap[props.mode]} size="small" onChange={props.onJumperClick} />
       </div>
     );
   },
