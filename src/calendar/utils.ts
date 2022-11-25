@@ -136,8 +136,7 @@ export const createMonthCellsData = (props: TdCalendarProps, state: CalendarStat
   // 添加上个月中和当前月第一天同一周的日期
   for (let i = 0; i < beginDateColIndex; i++) {
     const date = addDate(begin, i - beginDateColIndex);
-    const isCurrent = judgeIsCurrent(date);
-    arr.push(createCellData(-1, isCurrent, date, num));
+    arr.push(createCellData(-1, false, date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -159,8 +158,7 @@ export const createMonthCellsData = (props: TdCalendarProps, state: CalendarStat
     const nextMonthCellNum = 7 - arr.length;
     for (let i = 0; i < nextMonthCellNum; i++) {
       const date = addDate(end, i + 1);
-      const isCurrent = judgeIsCurrent(date);
-      arr.push(createCellData(1, isCurrent, date, num));
+      arr.push(createCellData(1, false, date, num));
     }
     daysArr.push(arr);
   }

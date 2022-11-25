@@ -13,7 +13,7 @@ import { useState, useCalendarClass, userController, useColHeaders } from './hoo
 import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
 
 // 子组件
-import { Select as TSelect, Option as TOption } from '../select';
+import { Select as TSelect } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
