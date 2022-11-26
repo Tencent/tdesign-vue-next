@@ -84,7 +84,7 @@ export default defineComponent({
 
     return () => {
       // 触发元素
-      const triggerNode = renderContent('default', 'content') || (
+      const triggerNode = renderContent('default', 'triggerElement') || (
         <Input
           placeholder={props.placeholder ?? global.value.placeholder}
           tips={props.tips}
