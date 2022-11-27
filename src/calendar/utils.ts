@@ -56,8 +56,6 @@ export const addDate = (dt: Date, days: number) => {
 
 /**
  * 创建月历单元格数据
- * @param year 月历年份
- * @param curDate 当前日期
  */
 export const createYearCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[] => {
   const { curSelectedYear: year, curDate, curDateList } = state;
@@ -85,11 +83,6 @@ export const createYearCellsData = (props: TdCalendarProps, state: CalendarState
 
 /**
  * 创建日历单元格数据
- * @param year 日历年份
- * @param month 日历月份
- * @param firstDayOfWeek 周起始日（1~7）
- * @param curDate 当前日期
- * @param format 日期格式
  */
 export const createMonthCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[][] => {
   const {

@@ -7,7 +7,6 @@ import Calendar from '@/src/calendar/index.ts';
 MockDate.set('2020-12-28');
 // every component needs four parts: props/events/slots/functions.
 describe('Calendar', () => {
-  // test props api (按照 api 列表顺序)
   describe(':props', () => {
     it('', () => {
       const wrapper = mount({
@@ -266,6 +265,20 @@ describe('Calendar', () => {
       const wrapper = mount({
         render() {
           return <Calendar value={'1998-11-11'}></Calendar>;
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':multiple', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Calendar
+              multiple={true}
+              value={['1998-10-27', '1998-11-11', '1998-11-12', '1998-11-13', '1998-12-05']}
+            ></Calendar>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
