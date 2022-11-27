@@ -25,12 +25,21 @@ for (let i = 0; i < total; i++) {
 }
 
 const columns = ref([
+  // 序号示例代码，序号在跨分页场景中依旧保持连贯
   {
     colKey: 'serial-number',
     title: '序号',
     align: 'center',
     width: 64,
   },
+  // 序号示例代码，序号在每一页都从 1 开始
+  // {
+  //   colKey: 'serialNumber',
+  //   title: '序号',
+  //   align: 'center',
+  //   width: 64,
+  //   cell: (h, { rowIndex }) => rowIndex + 1,
+  // },
   { colKey: 'framework', title: '框架' },
   {
     colKey: 'data',

@@ -43,11 +43,9 @@ const selectedRowKeys = ref([]);
 
 const columns = [
   {
-    align: 'center',
-    width: '64',
-    className: 'row',
-    colKey: 'index',
+    colKey: 'serial-number',
     title: '序号',
+    width: 60,
   },
   {
     width: 100,

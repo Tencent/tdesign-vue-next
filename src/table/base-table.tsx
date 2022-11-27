@@ -115,7 +115,7 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, isPaginateData, renderPagination } = usePagination(props);
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props);
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);
@@ -248,6 +248,7 @@ export default defineComponent({
       thList,
       classPrefix,
       isVirtual,
+      innerPagination,
       globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
@@ -508,6 +509,8 @@ export default defineComponent({
       handleRowMounted: this.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),
+      // 内部使用分页信息必须取 innerPagination
+      pagination: this.innerPagination,
     };
     const tableContent = (
       <div

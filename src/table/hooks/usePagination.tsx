@@ -1,12 +1,13 @@
-import { ref, SetupContext, toRefs, watch } from 'vue';
+import { ref, toRefs, watch } from 'vue';
 import { useConfig } from '../../hooks/useConfig';
-import Pagination, { PageInfo } from '../../pagination';
+import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
 export default function usePagination(props: TdBaseTableProps) {
   const { pagination, data, disableDataPage } = toRefs(props);
   const { classPrefix } = useConfig();
+  const innerPagination = ref<PaginationProps>(props.pagination);
 
   const dataSource = ref<TableRowData[]>([]);
   const isPaginateData = ref(false);
@@ -56,6 +57,7 @@ export default function usePagination(props: TdBaseTableProps) {
           {...paginationProps}
           onChange={(pageInfo: PageInfo) => {
             props.pagination?.onChange?.(pageInfo);
+            innerPagination.value = pageInfo;
             // 如果是非受控情况的分页变化，还需更新分页数据（data）
             if (pagination && !pagination.value.current && pagination.value.defaultCurrent) {
               updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
@@ -70,6 +72,7 @@ export default function usePagination(props: TdBaseTableProps) {
   return {
     isPaginateData,
     dataSource,
+    innerPagination,
     renderPagination,
   };
 }
