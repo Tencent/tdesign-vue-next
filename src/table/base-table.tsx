@@ -57,6 +57,7 @@ export default defineComponent({
     const tableRef = ref<HTMLDivElement>();
     const tableElmRef = ref<HTMLTableElement>();
     const tableBodyRef = ref<HTMLTableElement>();
+    const bottomContentRef = ref<HTMLDivElement>();
     const tableFootHeight = ref(0);
     const { classPrefix, virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } =
       useClassName();
@@ -148,6 +149,12 @@ export default defineComponent({
         isFixedHeader.value &&
         ((isMultipleHeader.value && isWidthOverflow.value) || !isMultipleHeader.value),
     );
+
+    const dividerBottom = computed(() => {
+      const bottomRect = bottomContentRef.value?.getBoundingClientRect();
+      const paginationRect = paginationRef.value?.getBoundingClientRect();
+      return (bottomRect?.height || 0) + (paginationRect?.height || 0);
+    });
 
     watch(tableElmRef, () => {
       setUseFixedTableElmRef(tableElmRef.value);
@@ -262,6 +269,7 @@ export default defineComponent({
       dynamicBaseTableClasses,
       tableContentStyles,
       tableElementStyles,
+      dividerBottom,
       virtualScrollClasses,
       tableLayoutClasses,
       tableElmClasses,
@@ -283,6 +291,7 @@ export default defineComponent({
       translateY,
       affixHeaderRef,
       affixFooterRef,
+      bottomContentRef,
       paginationRef,
       showAffixHeader,
       showAffixFooter,
@@ -566,7 +575,11 @@ export default defineComponent({
         {this.renderPagination()}
       </div>
     );
-    const bottom = !!bottomContent && <div class={this.tableBaseClass.bottomContent}>{bottomContent}</div>;
+    const bottom = !!bottomContent && (
+      <div ref="bottomContentRef" class={this.tableBaseClass.bottomContent}>
+        {bottomContent}
+      </div>
+    );
 
     return (
       <div ref="tableRef" class={this.dynamicBaseTableClasses} style="position: relative">
@@ -580,18 +593,19 @@ export default defineComponent({
 
         {loadingContent}
 
+        {bottom}
+
         {/* 右侧滚动条分隔线 */}
         {this.showRightDivider && (
           <div
             class={this.tableBaseClass.scrollbarDivider}
             style={{
               right: `${this.scrollbarWidth}px`,
+              bottom: this.dividerBottom ? `${this.dividerBottom}px` : undefined,
               height: `${this.tableContentRef?.getBoundingClientRect().height}px`,
             }}
           ></div>
         )}
-
-        {bottom}
 
         {/* 吸底的滚动条 */}
         {this.horizontalScrollAffixedBottom && renderAffixedHorizontalScrollbar()}
