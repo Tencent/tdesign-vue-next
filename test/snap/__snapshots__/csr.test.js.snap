@@ -42071,6 +42071,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/table.vue 1
   <div
     class="t-table t-table--bordered"
     data-v-7dcbc254=""
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -42324,6 +42325,7 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/table.vue 1
     expandedrow="h => {
       return __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"This is expanded row info\\")]);
     }"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -111971,6 +111973,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
     </div>
     <div
       class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--column-resizable t-table--col-draggable"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -112789,6 +112792,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/async-loading.vue 1`]
   <div
     asyncloading="loading"
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -113271,6 +113275,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/base.vue 1`] = `
   >
     <div
       class="t-table t-table--bordered t-table--striped"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -113773,6 +113778,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-cell.vue 1`] =
   <div
     class="t-table"
     data-v-d50b79d8=""
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -114008,6 +114014,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
     class="t-table t-table--striped"
     columncontrollervisible="false"
     displaycolumns="index,needed,detail.position,platform,type,default"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -114710,6 +114717,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
   <div
     class="t-table t-table--bordered t-table--striped"
     displaycolumns="index,needed,detail.position,platform,type,default"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115348,6 +115356,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-footer.vue 1`]
   <!-- footData 之所以是数组，是为了支持多行表尾数据 -->
   <div
     class="t-table t-table--bordered"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115665,6 +115674,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-header.vue 1`]
   <div
     class="t-table"
     data-v-2508703f=""
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115863,6 +115873,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/data-sort.vue 1`] = `
       </div>
       <div
         class="t-table"
+        reserveselectedrowonpaginate="true"
         showsortcolumnbgcolor="false"
         sort="[object Object]"
         style="position: relative;"
@@ -116206,6 +116217,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-col-sort.vue 1`]
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--col-draggable"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -116453,6 +116465,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-draggable"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -116755,6 +116768,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-handler-draggable"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -117092,6 +117106,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
       // 第一行不允许编辑
       return cellParams.rowIndex !== 0;
     }"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -117705,6 +117720,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-row.vue 1`] 
   <div
     class="t-table t-table--bordered t-vertical-align-top t-table--row-edit"
     editablerowkeys="1"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -118377,6 +118393,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
 <div>
   <div
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -118896,6 +118913,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
 <div>
   <div
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119028,6 +119046,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
   <br />
   <div
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119166,6 +119185,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
   <br />
   <div
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119465,6 +119485,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/expandable.vue 1`] = 
       \\"class\\": \\"content\\"
     }, [row.description])])"
     expandedrowkeys="2"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -120365,6 +120386,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/filter-controlled.vue
     class="t-table t-table--bordered"
     data-v-8850064e=""
     filtervalue="[object Object]"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -120993,6 +121015,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-column.vue 1`] 
   <div
     class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
     data-v-c5be352e=""
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -121541,6 +121564,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header.vue 1`] 
   <!-- footData 可以是多行，均支持固定在底部 -->
   <div
     class="t-table t-table--bordered"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -122637,6 +122661,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header-col.vue 
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
       class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -123900,6 +123925,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/lazy.vue 1`] = `
     <br />
     <div
       class="t-table t-table--bordered"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -133023,6 +133049,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
 <div>
   <div
     class="t-table t-size-s t-table--loading"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133216,6 +133243,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
   </div>
   <div
     class="t-table t-size-s t-table--loading"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133419,6 +133447,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
   </div>
   <div
     class="t-table t-size-s t-table--loading"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133625,6 +133654,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
 <div>
   <div
     class="t-table t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -134071,6 +134101,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/multi-header.vue 1`] 
     <!-- :scroll="{ type: 'virtual' }" -->
     <div
       class="t-table t-table--bordered t-table--multiple-header"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
       v-model:sort="[object Object]"
@@ -136175,6 +136206,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
     <!-- 支持受控用法 ，也支持非受控用法 -->
     <div
       class="t-table"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       sort="[object Object],[object Object]"
       style="position: relative;"
@@ -136544,599 +136576,803 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
 `;
 
 exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = `
-<div>
+<div
+  class="t-space t-space-vertical"
+  style="gap: 16px;"
+>
+  
+  
   <div
-    class="t-table"
-    showsortcolumnbgcolor="false"
-    style="position: relative;"
+    class="t-space-item"
   >
-    <!---->
-    <!---->
     <div
-      class="t-table__content"
+      class="t-radio-group t-size-m t-radio-group--filled"
     >
-      <!---->
-      <table
-        class="t-table--layout-fixed"
+      
+      <label
+        class="t-radio-button t-is-checked"
       >
-        <colgroup>
-          
-          <col
-            style="width: 64px;"
-          />
-          <col
-            style="width: 100px;"
-          />
-          <col />
-          <col />
-          <col />
-          <col
-            style="width: 200px;"
-          />
-          <col />
-          
-        </colgroup>
-        <thead
-          class="t-table__header"
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="true"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
         >
           
-          <tr>
+          
+          跨分页选中
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="false"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          当前页选中
+          
+          
+        </span>
+      </label>
+      
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-table"
+      reserveselectedrowonpaginate="true"
+      selectedrowkeys=""
+      showsortcolumnbgcolor="false"
+      style="position: relative;"
+    >
+      <!---->
+      <!---->
+      <div
+        class="t-table__content"
+      >
+        <!---->
+        <table
+          class="t-table--layout-fixed"
+        >
+          <colgroup>
             
-            <th
-              class="row t-table__th-index t-align-center"
-              data-colkey="index"
-            >
-              <div
-                class="t-table__th-cell-inner"
+            <col
+              style="width: 64px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            <col />
+            <col />
+            <col />
+            <col
+              style="width: 200px;"
+            />
+            <col />
+            <col
+              style="width: 46px;"
+            />
+            
+          </colgroup>
+          <thead
+            class="t-table__header"
+          >
+            
+            <tr>
+              
+              <th
+                class="row t-table__th-index t-align-center"
+                data-colkey="index"
               >
-                序号
-              </div>
-            </th>
-            <th
-              class="t-table__th-platform"
-              data-colkey="platform"
-            >
-              <div
-                class="t-table__th-cell-inner"
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  序号
+                </div>
+              </th>
+              <th
+                class="t-table__th-platform"
+                data-colkey="platform"
               >
-                平台
-              </div>
-            </th>
-            <th
-              class="t-table__th-type"
-              data-colkey="type"
-            >
-              <div
-                class="t-table__th-cell-inner"
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  平台
+                </div>
+              </th>
+              <th
+                class="t-table__th-type"
+                data-colkey="type"
               >
-                类型
-              </div>
-            </th>
-            <th
-              class="t-table__th-default"
-              data-colkey="default"
-            >
-              <div
-                class="t-table__th-cell-inner"
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  类型
+                </div>
+              </th>
+              <th
+                class="t-table__th-default"
+                data-colkey="default"
               >
-                默认值
-              </div>
-            </th>
-            <th
-              class="t-table__th-needed"
-              data-colkey="needed"
-            >
-              <div
-                class="t-table__th-cell-inner"
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  默认值
+                </div>
+              </th>
+              <th
+                class="t-table__th-needed"
+                data-colkey="needed"
               >
-                是否必传
-              </div>
-            </th>
-            <th
-              class="t-table__th-detail.position"
-              data-colkey="detail.position"
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  是否必传
+                </div>
+              </th>
+              <th
+                class="t-table__th-detail.position"
+                data-colkey="detail.position"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    
+                    详情信息
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                class="t-table__th-description"
+                data-colkey="description"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  说明
+                </div>
+              </th>
+              <th
+                class="t-table__cell-check t-table__th-row-select"
+                data-colkey="row-select"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  <label
+                    class="t-checkbox"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      <!---->
+                    </span>
+                  </label>
+                </div>
+              </th>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="t-table__body"
+          >
+            
+            <!---->
+            <tr
+              class=""
             >
-              <div
-                class="t-table__th-cell-inner"
+              
+              <td
+                class="row t-align-center"
+              >
+                5
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                0
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class="t-table-td--ellipsis"
               >
                 <div
                   class="t-table__ellipsis t-text-ellipsis"
                 >
                   
-                  详情信息
+                  读取 5 个数据的嵌套信息值
                   
                 </div>
-              </div>
-            </th>
-            <th
-              class="t-table__th-description"
-              data-colkey="description"
-            >
-              <div
-                class="t-table__th-cell-inner"
+              </td>
+              <td
+                class=""
               >
-                说明
-              </div>
-            </th>
+                数据源
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class="row t-align-center"
+              >
+                6
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                []
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  读取 6 个数据的嵌套信息值
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                数据源
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class="row t-align-center"
+              >
+                7
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                {}
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  读取 7 个数据的嵌套信息值
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                数据源
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class="row t-align-center"
+              >
+                8
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                -
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  读取 8 个数据的嵌套信息值
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                数据源
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class="row t-align-center"
+              >
+                9
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                0
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  读取 9 个数据的嵌套信息值
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                数据源
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
+              
+            </tr>
+            <!---->
             
-          </tr>
-          
-        </thead>
-        <tbody
-          class="t-table__body"
-        >
-          
+          </tbody>
           <!---->
-          <tr
-            class=""
-          >
-            
-            <td
-              class="row t-align-center"
-            >
-              5
-            </td>
-            <td
-              class=""
-            >
-              私有
-            </td>
-            <td
-              class=""
-            >
-              Number
-            </td>
-            <td
-              class=""
-            >
-              0
-            </td>
-            <td
-              class=""
-            >
-              否
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 5 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            <td
-              class=""
-            >
-              数据源
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="row t-align-center"
-            >
-              6
-            </td>
-            <td
-              class=""
-            >
-              共有
-            </td>
-            <td
-              class=""
-            >
-              Array
-            </td>
-            <td
-              class=""
-            >
-              []
-            </td>
-            <td
-              class=""
-            >
-              否
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 6 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            <td
-              class=""
-            >
-              数据源
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="row t-align-center"
-            >
-              7
-            </td>
-            <td
-              class=""
-            >
-              私有
-            </td>
-            <td
-              class=""
-            >
-              Object
-            </td>
-            <td
-              class=""
-            >
-              {}
-            </td>
-            <td
-              class=""
-            >
-              否
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 7 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            <td
-              class=""
-            >
-              数据源
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="row t-align-center"
-            >
-              8
-            </td>
-            <td
-              class=""
-            >
-              共有
-            </td>
-            <td
-              class=""
-            >
-              String
-            </td>
-            <td
-              class=""
-            >
-              -
-            </td>
-            <td
-              class=""
-            >
-              是
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 8 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            <td
-              class=""
-            >
-              数据源
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="row t-align-center"
-            >
-              9
-            </td>
-            <td
-              class=""
-            >
-              私有
-            </td>
-            <td
-              class=""
-            >
-              Number
-            </td>
-            <td
-              class=""
-            >
-              0
-            </td>
-            <td
-              class=""
-            >
-              否
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 9 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            <td
-              class=""
-            >
-              数据源
-            </td>
-            
-          </tr>
-          <!---->
-          
-        </tbody>
-        <!---->
-      </table>
-    </div>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <div
-      class="t-table__pagination-wrap"
-      style="opacity: 1;"
-    >
+        </table>
+      </div>
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
       <div
-        class="t-table__pagination"
+        class="t-table__pagination-wrap"
+        style="opacity: 1;"
       >
         <div
-          class="t-pagination t-size-m"
+          class="t-table__pagination"
         >
           <div
-            class="t-pagination__total"
+            class="t-pagination t-size-m"
           >
-            共 60 项数据
-          </div>
-          <div
-            class="t-select__wrap t-pagination__select"
-          >
-            
             <div
-              class="t-input__wrap t-select-input t-select"
+              class="t-pagination__total"
             >
+              共 60 项数据
+            </div>
+            <div
+              class="t-select__wrap t-pagination__select"
+            >
+              
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                class="t-input__wrap t-select-input t-select"
               >
-                <!---->
                 <div
-                  class="t-input__prefix"
+                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                 >
-                  
                   <!---->
-                  <!---->
-                  
-                </div>
-                <input
-                  class="t-input__inner"
-                  placeholder="请选择"
-                  readonly=""
-                  type="text"
-                  unselectable="on"
-                />
-                <span
-                  class="t-input__input-pre"
-                >
-                  5 条/页
-                </span>
-                <!---->
-                <!---->
-                <span
-                  class="t-input__suffix t-input__suffix-icon"
-                >
-                  <svg
-                    class="t-fake-arrow t-select__right-icon"
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="t-input__prefix"
                   >
-                    <path
-                      d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                      stroke="black"
-                      stroke-opacity="0.9"
-                      stroke-width="1.3"
-                    />
-                  </svg>
-                </span>
+                    
+                    <!---->
+                    <!---->
+                    
+                  </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请选择"
+                    readonly=""
+                    type="text"
+                    unselectable="on"
+                  />
+                  <span
+                    class="t-input__input-pre"
+                  >
+                    5 条/页
+                  </span>
+                  <!---->
+                  <!---->
+                  <span
+                    class="t-input__suffix t-input__suffix-icon"
+                  >
+                    <svg
+                      class="t-fake-arrow t-select__right-icon"
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                        stroke="black"
+                        stroke-opacity="0.9"
+                        stroke-width="1.3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <!---->
               </div>
               <!---->
+              
             </div>
             <!---->
-            
-          </div>
-          <!---->
-          <div
-            class="t-pagination__btn t-pagination__btn-prev"
-            disabled="false"
-          >
-            <svg
-              class="t-icon t-icon-chevron-left"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </div>
-          <ul
-            class="t-pagination__pager"
-          >
-            <li
-              class="t-pagination__number"
-            >
-              1
-            </li>
-            <!---->
-            
-            <li
-              class="t-pagination__number t-is-current"
-            >
-              2
-            </li>
-            <li
-              class="t-pagination__number"
-            >
-              3
-            </li>
-            <li
-              class="t-pagination__number"
-            >
-              4
-            </li>
-            <li
-              class="t-pagination__number"
-            >
-              5
-            </li>
-            
-            <li
-              class="t-pagination__number t-pagination__number--more"
+            <div
+              class="t-pagination__btn t-pagination__btn-prev"
+              disabled="false"
             >
               <svg
-                class="t-icon t-icon-ellipsis"
+                class="t-icon t-icon-chevron-left"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+                  d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                   fill="currentColor"
                   fill-opacity="0.9"
                 />
               </svg>
-            </li>
-            <li
-              class="t-pagination__number"
+            </div>
+            <ul
+              class="t-pagination__pager"
             >
-              12
-            </li>
-          </ul>
-          <!---->
-          <div
-            class="t-pagination__btn t-pagination__btn-next"
-            disabled="false"
-          >
-            <svg
-              class="t-icon t-icon-chevron-right"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </div>
-          <!---->
-          <div
-            class="t-pagination__jump"
-          >
-            跳至
-            <div
-              class="t-input-adornment t-input-adornment--append"
-            >
+              <li
+                class="t-pagination__number"
+              >
+                1
+              </li>
               <!---->
+              
+              <li
+                class="t-pagination__number t-is-current"
+              >
+                2
+              </li>
+              <li
+                class="t-pagination__number"
+              >
+                3
+              </li>
+              <li
+                class="t-pagination__number"
+              >
+                4
+              </li>
+              <li
+                class="t-pagination__number"
+              >
+                5
+              </li>
+              
+              <li
+                class="t-pagination__number t-pagination__number--more"
+              >
+                <svg
+                  class="t-icon t-icon-ellipsis"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </li>
+              <li
+                class="t-pagination__number"
+              >
+                12
+              </li>
+            </ul>
+            <!---->
+            <div
+              class="t-pagination__btn t-pagination__btn-next"
+              disabled="false"
+            >
+              <svg
+                class="t-icon t-icon-chevron-right"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </div>
+            <!---->
+            <div
+              class="t-pagination__jump"
+            >
+              跳至
               <div
-                class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+                class="t-input-adornment t-input-adornment--append"
               >
                 <!---->
                 <div
-                  class="t-input__wrap"
-                  unselectable="off"
+                  class="t-input-number t-size-m t-input-number--normal t-pagination__input"
                 >
+                  <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
+                    unselectable="off"
                   >
-                    <!---->
-                    <!---->
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                      placeholder=""
-                      type="text"
-                    />
-                    <!---->
-                    <!---->
-                    <!---->
+                    <div
+                      class="t-input"
+                    >
+                      <!---->
+                      <!---->
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                        placeholder=""
+                        type="text"
+                      />
+                      <!---->
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
                     <!---->
                   </div>
                   <!---->
+                  <!---->
                 </div>
-                <!---->
-                <!---->
+                <span
+                  class="t-input-adornment__append"
+                >
+                  / 12 页
+                </span>
               </div>
-              <span
-                class="t-input-adornment__append"
-              >
-                / 12 页
-              </span>
             </div>
           </div>
         </div>
       </div>
+      <div
+        class="t-table__resize-line"
+        style="display: none; left: 10px; height: 10px; bottom: 0px;"
+      />
     </div>
-    <div
-      class="t-table__resize-line"
-      style="display: none; left: 10px; height: 10px; bottom: 0px;"
-    />
   </div>
+  <!---->
+  
+  
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/table/_example/pagination-ajax.vue 1`] = `
 <div
   class="t-table t-table--bordered t-table--striped"
+  reserveselectedrowonpaginate="true"
   selectedrowkeys=""
   showsortcolumnbgcolor="false"
   style="position: relative;"
@@ -137458,6 +137694,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
   <div
     class="t-table"
     data-v-1119a7d2=""
+    reserveselectedrowonpaginate="true"
     selectedrowkeys=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -137981,6 +138218,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
   <div
     class="t-table"
     data-v-2dd73e0f=""
+    reserveselectedrowonpaginate="true"
     selectedrowkeys="102"
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -138492,6 +138730,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/show-columns.vue 1`] 
   <div
     class="t-table"
     data-v-058353a7=""
+    reserveselectedrowonpaginate="true"
     show-columns=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -138862,6 +139101,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/single-sort.vue 1`] =
   <!-- 受控用法，示例代码有效，勿删 -->
   <div
     class="t-table t-table--bordered"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="true"
     sort="[object Object]"
     style="position: relative;"
@@ -139236,6 +139476,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
   <!-- row-class-name 设置行类名 -->
   <div
     class="t-table"
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -139630,6 +139871,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     }"
     class="t-table t-table--row-handler-draggable"
     indeterminateselectedrowkeys=""
+    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
     tree="[object Object]"
@@ -141167,6 +141409,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
     }) => __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\\\u6211\\\\u662F \\"), row.key, __vite_ssr_import_0__.createTextVNode(\\" \\\\u53F7\\")])"
     expandedrowkeys=""
     indeterminateselectedrowkeys=""
+    reserveselectedrowonpaginate="true"
     selectedrowkeys=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -141838,6 +142081,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
   >
     <div
       class="t-table"
+      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
