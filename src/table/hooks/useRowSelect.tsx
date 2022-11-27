@@ -176,10 +176,10 @@ export default function useRowSelect(
   }
 
   watch(
-    [data, rowKey],
-    ([data, rowKey]) => {
-      for (let i = 0, len = data.length; i < len; i++) {
-        selectedRowDataMap.value.set(get(data[i], rowKey || 'id'), data[i]);
+    () => [[...data.value], rowKey],
+    () => {
+      for (let i = 0, len = data.value.length; i < len; i++) {
+        selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
       }
     },
     { immediate: true },
