@@ -13533,7 +13533,7 @@ exports[`Calendar > :props > :multiple 1`] = `
             
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             
             <div
@@ -13549,7 +13549,7 @@ exports[`Calendar > :props > :multiple 1`] = `
             
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             
             <div
@@ -18777,7 +18777,7 @@ exports[`Calendar > :props > :value 1`] = `
             
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             
             <div

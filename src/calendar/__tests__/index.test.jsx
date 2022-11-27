@@ -264,7 +264,7 @@ describe('Calendar', () => {
     it(':value', () => {
       const wrapper = mount({
         render() {
-          return <Calendar value={'1998-11-11'}></Calendar>;
+          return <Calendar value={'2020-12-11'}></Calendar>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -273,12 +273,7 @@ describe('Calendar', () => {
     it(':multiple', () => {
       const wrapper = mount({
         render() {
-          return (
-            <Calendar
-              multiple={true}
-              value={['1998-10-27', '1998-11-11', '1998-11-12', '1998-11-13', '1998-12-05']}
-            ></Calendar>
-          );
+          return <Calendar multiple={true} value={['2020-11-30', '2020-12-16', '2020-12-17', '2021-01-01']}></Calendar>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
