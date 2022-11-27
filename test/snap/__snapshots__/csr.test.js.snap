@@ -141080,7 +141080,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     </div>
     <!---->
     <!---->
-    <!---->
     <div
       class="t-table__bottom-content"
     >
@@ -141121,6 +141120,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
         </button>
       </div>
     </div>
+    <!---->
     <!---->
     <div
       class="t-table__pagination-wrap"
