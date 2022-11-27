@@ -1,6 +1,7 @@
-// 行选中相关功能：单选 + 多选
-
-import { computed, toRefs, h, ref, watch } from 'vue';
+/**
+ * 行选中相关功能：单选 + 多选
+ */
+import { computed, toRefs, h, ref, watch, Ref } from 'vue';
 import intersection from 'lodash/intersection';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
@@ -22,7 +23,8 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, data, rowKey } = toRefs(props);
+  const { selectedRowKeys, columns, rowKey, data, pagination, reserveSelectedRowOnPaginate } = toRefs(props);
+  const currentPaginateData = ref<TableRowData[]>(data.value);
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
@@ -32,13 +34,28 @@ export default function useRowSelect(
   );
   const selectedRowDataMap = ref(new Map<string | number, TableRowData>());
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
-  const canSelectedRows = computed(() => data.value.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex)));
+  const canSelectedRows = computed(() => {
+    const currentData = reserveSelectedRowOnPaginate.value ? data.value : currentPaginateData.value;
+    return currentData.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex));
+  });
   // 选中的行，和所有可以选择的行，交集，用于计算 isSelectedAll 和 isIndeterminate
   const intersectionKeys = computed(() =>
     intersection(
       tSelectedRowKeys.value,
       canSelectedRows.value.map((t) => get(t, props.rowKey || 'id')),
     ),
+  );
+
+  watch(
+    [data, pagination, reserveSelectedRowOnPaginate],
+    () => {
+      if (reserveSelectedRowOnPaginate.value) return;
+      const { pageSize, current, defaultPageSize, defaultCurrent } = pagination.value;
+      const tPageSize = pageSize || defaultPageSize;
+      const tCurrent = current || defaultCurrent;
+      currentPaginateData.value = data.value.slice(tPageSize * (tCurrent - 1), tPageSize * tCurrent);
+    },
+    { immediate: true },
   );
 
   watch(
@@ -170,6 +187,8 @@ export default function useRowSelect(
 
   return {
     selectedRowClassNames,
+    currentPaginateData,
+    setTSelectedRowKeys,
     formatToRowSelectColumn,
   };
 }
