@@ -42071,7 +42071,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/table.vue 1
   <div
     class="t-table t-table--bordered"
     data-v-7dcbc254=""
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -42325,7 +42324,6 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/table.vue 1
     expandedrow="h => {
       return __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"This is expanded row info\\")]);
     }"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -111973,7 +111971,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
     </div>
     <div
       class="t-table t-table--bordered t-table--affixed-header t-table--column-fixed t-table--column-resizable t-table--col-draggable"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -112792,7 +112789,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/async-loading.vue 1`]
   <div
     asyncloading="loading"
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -113275,7 +113271,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/base.vue 1`] = `
   >
     <div
       class="t-table t-table--bordered t-table--striped"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -113778,7 +113773,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-cell.vue 1`] =
   <div
     class="t-table"
     data-v-d50b79d8=""
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -114014,7 +114008,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
     class="t-table t-table--striped"
     columncontrollervisible="false"
     displaycolumns="index,needed,detail.position,platform,type,default"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -114717,7 +114710,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
   <div
     class="t-table t-table--bordered t-table--striped"
     displaycolumns="index,needed,detail.position,platform,type,default"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115356,7 +115348,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-footer.vue 1`]
   <!-- footData 之所以是数组，是为了支持多行表尾数据 -->
   <div
     class="t-table t-table--bordered"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115674,7 +115665,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-header.vue 1`]
   <div
     class="t-table"
     data-v-2508703f=""
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -115873,7 +115863,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/data-sort.vue 1`] = `
       </div>
       <div
         class="t-table"
-        reserveselectedrowonpaginate="true"
         showsortcolumnbgcolor="false"
         sort="[object Object]"
         style="position: relative;"
@@ -116217,7 +116206,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-col-sort.vue 1`]
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--col-draggable"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -116465,7 +116453,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-draggable"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -116768,7 +116755,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-handler-draggable"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -117106,7 +117092,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-cell.vue 1`]
       // 第一行不允许编辑
       return cellParams.rowIndex !== 0;
     }"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -117720,7 +117705,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-row.vue 1`] 
   <div
     class="t-table t-table--bordered t-vertical-align-top t-table--row-edit"
     editablerowkeys="1"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -118393,7 +118377,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
 <div>
   <div
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -118913,7 +118896,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
 <div>
   <div
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119046,7 +119028,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
   <br />
   <div
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119185,7 +119166,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/empty.vue 1`] = `
   <br />
   <div
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -119485,7 +119465,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/expandable.vue 1`] = 
       \\"class\\": \\"content\\"
     }, [row.description])])"
     expandedrowkeys="2"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -120386,7 +120365,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/filter-controlled.vue
     class="t-table t-table--bordered"
     data-v-8850064e=""
     filtervalue="[object Object]"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -121015,7 +120993,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-column.vue 1`] 
   <div
     class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
     data-v-c5be352e=""
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -121564,7 +121541,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header.vue 1`] 
   <!-- footData 可以是多行，均支持固定在底部 -->
   <div
     class="t-table t-table--bordered"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -122661,7 +122637,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header-col.vue 
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
       class="t-table t-table--bordered t-table--column-fixed t-table--column-resizable"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -123925,7 +123900,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/lazy.vue 1`] = `
     <br />
     <div
       class="t-table t-table--bordered"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
@@ -133049,7 +133023,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
 <div>
   <div
     class="t-table t-size-s t-table--loading"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133243,7 +133216,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
   </div>
   <div
     class="t-table t-size-s t-table--loading"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133447,7 +133419,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/loading.vue 1`] = `
   </div>
   <div
     class="t-table t-size-s t-table--loading"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -133654,7 +133625,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
 <div>
   <div
     class="t-table t-table--bordered t-table--rowspan-colspan t-table--column-resizable"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -134101,7 +134071,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/multi-header.vue 1`] 
     <!-- :scroll="{ type: 'virtual' }" -->
     <div
       class="t-table t-table--bordered t-table--multiple-header"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
       v-model:sort="[object Object]"
@@ -136206,7 +136175,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
     <!-- 支持受控用法 ，也支持非受控用法 -->
     <div
       class="t-table"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       sort="[object Object],[object Object]"
       style="position: relative;"
@@ -136648,7 +136616,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
   >
     <div
       class="t-table"
-      reserveselectedrowonpaginate="true"
       selectedrowkeys=""
       showsortcolumnbgcolor="false"
       style="position: relative;"
@@ -137372,7 +137339,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
 exports[`csr snapshot test > csr test ./src/table/_example/pagination-ajax.vue 1`] = `
 <div
   class="t-table t-table--bordered t-table--striped"
-  reserveselectedrowonpaginate="true"
   selectedrowkeys=""
   showsortcolumnbgcolor="false"
   style="position: relative;"
@@ -137694,7 +137660,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
   <div
     class="t-table"
     data-v-1119a7d2=""
-    reserveselectedrowonpaginate="true"
     selectedrowkeys=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -138218,7 +138183,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
   <div
     class="t-table"
     data-v-2dd73e0f=""
-    reserveselectedrowonpaginate="true"
     selectedrowkeys="102"
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -138730,7 +138694,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/show-columns.vue 1`] 
   <div
     class="t-table"
     data-v-058353a7=""
-    reserveselectedrowonpaginate="true"
     show-columns=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -139101,7 +139064,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/single-sort.vue 1`] =
   <!-- 受控用法，示例代码有效，勿删 -->
   <div
     class="t-table t-table--bordered"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="true"
     sort="[object Object]"
     style="position: relative;"
@@ -139476,7 +139438,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
   <!-- row-class-name 设置行类名 -->
   <div
     class="t-table"
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
   >
@@ -139871,7 +139832,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree.vue 1`] = `
     }"
     class="t-table t-table--row-handler-draggable"
     indeterminateselectedrowkeys=""
-    reserveselectedrowonpaginate="true"
     showsortcolumnbgcolor="false"
     style="position: relative;"
     tree="[object Object]"
@@ -141409,7 +141369,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
     }) => __vite_ssr_import_0__.createVNode(\\"div\\", null, [__vite_ssr_import_0__.createTextVNode(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\\\u6211\\\\u662F \\"), row.key, __vite_ssr_import_0__.createTextVNode(\\" \\\\u53F7\\")])"
     expandedrowkeys=""
     indeterminateselectedrowkeys=""
-    reserveselectedrowonpaginate="true"
     selectedrowkeys=""
     showsortcolumnbgcolor="false"
     style="position: relative;"
@@ -142081,7 +142040,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
   >
     <div
       class="t-table"
-      reserveselectedrowonpaginate="true"
       showsortcolumnbgcolor="false"
       style="position: relative;"
     >
