@@ -45612,10 +45612,10 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                 </div>
               </div>
               <div
-                class="t-jumper"
+                class="t-pagination-mini"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
                   title="上个月"
                   type="button"
                 >
@@ -45637,7 +45637,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
                   title="当前"
                   type="button"
                 >
@@ -45659,7 +45659,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
                   title="下个月"
                   type="button"
                 >
@@ -46317,10 +46317,10 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                 </div>
               </div>
               <div
-                class="t-jumper"
+                class="t-pagination-mini"
               >
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
                   title="上个月"
                   type="button"
                 >
@@ -46342,7 +46342,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
                   title="当前"
                   type="button"
                 >
@@ -46364,7 +46364,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   
                 </button>
                 <button
-                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+                  class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
                   title="下个月"
                   type="button"
                 >
@@ -47079,10 +47079,10 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   </div>
                 </div>
                 <div
-                  class="t-jumper"
+                  class="t-pagination-mini"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
                     title="上个月"
                     type="button"
                   >
@@ -47104,7 +47104,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
                     title="当前"
                     type="button"
                   >
@@ -47126,7 +47126,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
                     title="下个月"
                     type="button"
                   >
@@ -47767,10 +47767,10 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   </div>
                 </div>
                 <div
-                  class="t-jumper"
+                  class="t-pagination-mini"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
                     title="上个月"
                     type="button"
                   >
@@ -47792,7 +47792,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
                     title="当前"
                     type="button"
                   >
@@ -47814,7 +47814,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
                     title="下个月"
                     type="button"
                   >
@@ -48477,10 +48477,10 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                   </div>
                 </div>
                 <div
-                  class="t-jumper"
+                  class="t-pagination-mini"
                 >
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
                     title="上个月"
                     type="button"
                   >
@@ -48502,7 +48502,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
                     title="当前"
                     type="button"
                   >
@@ -48524,7 +48524,7 @@ exports[`csr snapshot test > csr test ./src/date-picker/_example/panel.vue 1`] =
                     
                   </button>
                   <button
-                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
+                    class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
                     title="下个月"
                     type="button"
                   >
@@ -75047,381 +75047,6 @@ exports[`csr snapshot test > csr test ./src/input-number/_example/step.vue 1`] =
 </div>
 `;
 
-exports[`csr snapshot test > csr test ./src/jumper/_example/layout.vue 1`] = `
-<div
-  class="t-jumper"
->
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-chevron-up"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-round"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-chevron-down"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/jumper/_example/size.vue 1`] = `
-<div
-  class="t-space t-space-vertical"
-  style="gap: 16px; text-align: center;"
->
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <div
-      class="t-jumper"
-    >
-      <button
-        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-round"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-s t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-    </div>
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <div
-      class="t-jumper"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-round"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-    </div>
-  </div>
-  <!---->
-  
-  
-  <div
-    class="t-space-item"
-  >
-    <div
-      class="t-jumper"
-    >
-      <button
-        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-round"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-      <button
-        class="t-button t-size-l t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
-        type="button"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-        
-      </button>
-    </div>
-  </div>
-  <!---->
-  
-  
-</div>
-`;
-
-exports[`csr snapshot test > csr test ./src/jumper/_example/tips.vue 1`] = `
-<div
-  class="t-jumper"
->
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__prev"
-    title="前尘忆梦"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-chevron-left"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__current"
-    title="回到现在"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-round"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-jumper__next"
-    title="展望未来"
-    type="button"
-  >
-    
-    <svg
-      class="t-icon t-icon-chevron-right"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-    >
-      <path
-        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-    
-    
-  </button>
-</div>
-`;
-
 exports[`csr snapshot test > csr test ./src/layout/_example/aside.vue 1`] = `
 <section
   class="t-layout"
@@ -88886,386 +88511,358 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/base.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/jump.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
-  style="gap: 16px;"
+  class="t-pagination t-size-m"
 >
-  
-  
   <div
-    class="t-space-item"
+    class="t-pagination__total"
   >
+    共 101 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
     <div
-      class="t-pagination t-size-m"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
-        class="t-pagination__total"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
       >
-        共 101 项数据
-      </div>
-      <div
-        class="t-select__wrap t-pagination__select"
-      >
-        
+        <!---->
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-input__prefix"
         >
-          <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          20 条/页
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-select__right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
-            <span
-              class="t-input__input-pre"
-            >
-              20 条/页
-            </span>
-            <!---->
-            <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
-          </div>
-          <!---->
-        </div>
-        <!---->
-        
+          </svg>
+        </span>
       </div>
       <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-        disabled="true"
-      >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <ul
-        class="t-pagination__pager"
-      >
-        <!---->
-        <!---->
-        
-        <li
-          class="t-pagination__number t-is-current"
-        >
-          1
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          2
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          3
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          4
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          5
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          6
-        </li>
-        
-        <!---->
-        <!---->
-      </ul>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <!---->
-      <div
-        class="t-pagination__jump"
-      >
-        跳至
-        <div
-          class="t-input-adornment t-input-adornment--append"
-        >
-          <!---->
-          <div
-            class="t-input-number t-size-m t-input-number--normal t-pagination__input"
-          >
-            <!---->
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder=""
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <span
-            class="t-input-adornment__append"
-          >
-            / 6 页
-          </span>
-        </div>
-      </div>
     </div>
+    <!---->
+    
   </div>
   <!---->
-  
-  
+  <div
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <ul
+    class="t-pagination__pager"
+  >
+    <!---->
+    <!---->
+    
+    <li
+      class="t-pagination__number t-is-current"
+    >
+      1
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      2
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      3
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      4
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      5
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      6
+    </li>
+    
+    <!---->
+    <!---->
+  </ul>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <div
+    class="t-pagination__jump"
+  >
+    跳至
+    <div
+      class="t-input-adornment t-input-adornment--append"
+    >
+      <!---->
+      <div
+        class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+      >
+        <!---->
+        <div
+          class="t-input__wrap"
+          unselectable="off"
+        >
+          <div
+            class="t-input"
+          >
+            <!---->
+            <!---->
+            <input
+              autocomplete="off"
+              class="t-input__inner"
+              placeholder=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <span
+        class="t-input-adornment__append"
+      >
+        / 6 页
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/mini.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
-  style="gap: 16px;"
+  class="t-pagination t-size-s"
 >
-  
-  
   <div
-    class="t-space-item"
+    class="t-pagination__total"
   >
+    共 100 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
     <div
-      class="t-pagination t-size-s"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
-        class="t-pagination__total"
+        class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
       >
-        共 100 项数据
-      </div>
-      <div
-        class="t-select__wrap t-pagination__select"
-      >
-        
+        <!---->
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-input__prefix"
         >
-          <div
-            class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
-          >
-            <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <span
-              class="t-input__input-pre"
-            >
-              5 条/页
-            </span>
-            <!---->
-            <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
-          </div>
+          
           <!---->
+          <!---->
+          
         </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          5 条/页
+        </span>
         <!---->
-        
-      </div>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-        disabled="true"
-      >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <ul
-        class="t-pagination__pager"
-      >
-        <li
-          class="t-pagination__number t-is-current"
-        >
-          1
-        </li>
         <!---->
-        
-        <li
-          class="t-pagination__number"
-        >
-          2
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          3
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          4
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          5
-        </li>
-        
-        <li
-          class="t-pagination__number t-pagination__number--more"
+        <span
+          class="t-input__suffix t-input__suffix-icon"
         >
           <svg
-            class="t-icon t-icon-ellipsis"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          20
-        </li>
-      </ul>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
+        </span>
       </div>
       <!---->
-      <!---->
     </div>
+    <!---->
+    
   </div>
   <!---->
-  
-  
+  <div
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <ul
+    class="t-pagination__pager"
+  >
+    <li
+      class="t-pagination__number t-is-current"
+    >
+      1
+    </li>
+    <!---->
+    
+    <li
+      class="t-pagination__number"
+    >
+      2
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      3
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      4
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      5
+    </li>
+    
+    <li
+      class="t-pagination__number t-pagination__number--more"
+    >
+      <svg
+        class="t-icon t-icon-ellipsis"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      20
+    </li>
+  </ul>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <!---->
 </div>
 `;
 
@@ -89281,7 +88878,7 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/more.vue 1`] = `
   >
     <div
       class="t-space t-space-vertical"
-      style="gap: 16px;"
+      style="gap: 16px; width: 100%;"
     >
       
       
@@ -89494,7 +89091,7 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/more.vue 1`] = `
   >
     <div
       class="t-space t-space-vertical"
-      style="gap: 16px;"
+      style="gap: 16px; width: 100%;"
     >
       
       
@@ -89667,7 +89264,172 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/more.vue 1`] = `
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/page-num.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
+  class="t-pagination t-size-m"
+  show-sizer=""
+>
+  <div
+    class="t-pagination__total"
+  >
+    共 645 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
+    <div
+      class="t-input__wrap t-select-input t-select"
+    >
+      <div
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          每页 30 条
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-select__right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <ul
+    class="t-pagination__pager"
+  >
+    <li
+      class="t-pagination__number t-is-current"
+    >
+      1
+    </li>
+    <!---->
+    
+    <li
+      class="t-pagination__number"
+    >
+      2
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      3
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      4
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      5
+    </li>
+    
+    <li
+      class="t-pagination__number t-pagination__number--more"
+    >
+      <svg
+        class="t-icon t-icon-ellipsis"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      22
+    </li>
+  </ul>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`csr snapshot test > csr test ./src/pagination/_example/pagination-mini.vue 1`] = `
+<div
+  class="t-space t-space-vertical"
   style="gap: 16px;"
 >
   
@@ -89676,166 +89438,266 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/page-num.vue 1`]
     class="t-space-item"
   >
     <div
-      class="t-pagination t-size-m"
-      show-sizer=""
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
     >
+      
+      
       <div
-        class="t-pagination__total"
+        class="t-space-item"
       >
-        共 645 项数据
+        <span>
+          layout:
+        </span>
       </div>
+      <!---->
+      
+      
       <div
-        class="t-select__wrap t-pagination__select"
+        class="t-space-item"
       >
-        
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-radio-group t-size-m t-radio-group--filled"
         >
-          <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+          
+          <label
+            class="t-radio-button t-is-checked"
           >
-            <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
             <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="vertical"
             />
             <span
-              class="t-input__input-pre"
-            >
-              每页 30 条
-            </span>
-            <!---->
-            <!---->
+              class="t-radio-button__input"
+            />
             <span
-              class="t-input__suffix t-input__suffix-icon"
+              class="t-radio-button__label"
             >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
+              
+              
+              vertical
+              
+              
             </span>
-          </div>
-          <!---->
-        </div>
-        <!---->
-        
-      </div>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-        disabled="true"
-      >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <ul
-        class="t-pagination__pager"
-      >
-        <li
-          class="t-pagination__number t-is-current"
-        >
-          1
-        </li>
-        <!---->
-        
-        <li
-          class="t-pagination__number"
-        >
-          2
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          3
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          4
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          5
-        </li>
-        
-        <li
-          class="t-pagination__number t-pagination__number--more"
-        >
-          <svg
-            class="t-icon t-icon-ellipsis"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          </label>
+          <label
+            class="t-radio-button"
           >
-            <path
-              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
-              fill="currentColor"
-              fill-opacity="0.9"
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="horizontal"
             />
-          </svg>
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          22
-        </li>
-      </ul>
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              horizontal
+              
+              
+            </span>
+          </label>
+          
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
+        </div>
+      </div>
       <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
+        class="t-space-item"
       >
+        <span>
+          size:
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-radio-group t-size-m t-radio-group--filled"
+        >
+          
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="small"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              small
+              
+              
+            </span>
+          </label>
+          <label
+            class="t-radio-button t-is-checked"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="medium"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              medium
+              
+              
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="large"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              large
+              
+              
+            </span>
+          </label>
+          
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-pagination-mini"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__prev"
+        title="前尘忆梦"
+        type="button"
+      >
+        
         <svg
-          class="t-icon t-icon-chevron-right"
+          class="t-icon t-icon-chevron-up"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
             fill="currentColor"
             fill-opacity="0.9"
           />
         </svg>
-      </div>
-      <!---->
-      <!---->
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__current"
+        title="回到现在"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-round"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only t-pagination-mini__next"
+        title="展望未来"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-down"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+      </button>
     </div>
   </div>
   <!---->
@@ -89846,536 +89708,494 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/page-num.vue 1`]
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/simple.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
-  style="gap: 16px;"
+  class="t-pagination t-size-m"
 >
-  
-  
   <div
-    class="t-space-item"
+    class="t-pagination__total"
   >
+    共 100 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
     <div
-      class="t-pagination t-size-m"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
-        class="t-pagination__total"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
       >
-        共 100 项数据
-      </div>
-      <div
-        class="t-select__wrap t-pagination__select"
-      >
-        
+        <!---->
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          5 条/页
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-select__right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <div
+    class="t-pagination__jump"
+  >
+    跳至
+    <div
+      class="t-input-adornment t-input-adornment--append"
+    >
+      <!---->
+      <div
+        class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+      >
+        <!---->
+        <div
+          class="t-input__wrap"
+          unselectable="off"
         >
           <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+            class="t-input"
           >
             <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
+            <!---->
             <input
+              autocomplete="off"
               class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
+              placeholder=""
               type="text"
-              unselectable="on"
             />
-            <span
-              class="t-input__input-pre"
-            >
-              5 条/页
-            </span>
             <!---->
             <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
         <!---->
-        
+        <!---->
       </div>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-        disabled="true"
+      <span
+        class="t-input-adornment__append"
       >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <!---->
-      <div
-        class="t-pagination__jump"
-      >
-        跳至
-        <div
-          class="t-input-adornment t-input-adornment--append"
-        >
-          <!---->
-          <div
-            class="t-input-number t-size-m t-input-number--normal t-pagination__input"
-          >
-            <!---->
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder=""
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <span
-            class="t-input-adornment__append"
-          >
-            / 20 页
-          </span>
-        </div>
-      </div>
-      <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <!---->
-      <!---->
+        / 20 页
+      </span>
     </div>
   </div>
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
   <!---->
-  
-  
+  <!---->
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/simple-mini.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
-  style="gap: 16px;"
+  class="t-pagination t-size-s"
 >
-  
-  
   <div
-    class="t-space-item"
+    class="t-pagination__total"
   >
+    共 100 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
     <div
-      class="t-pagination t-size-s"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
-        class="t-pagination__total"
+        class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
       >
-        共 100 项数据
-      </div>
-      <div
-        class="t-select__wrap t-pagination__select"
-      >
-        
+        <!---->
         <div
-          class="t-input__wrap t-select-input t-select"
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          5 条/页
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-fake-arrow t-select__right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+  </div>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <div
+    class="t-pagination__jump"
+  >
+    跳至
+    <div
+      class="t-input-adornment t-input-adornment--append"
+    >
+      <!---->
+      <div
+        class="t-input-number t-size-s t-input-number--normal t-pagination__input"
+      >
+        <!---->
+        <div
+          class="t-input__wrap"
+          unselectable="off"
         >
           <div
-            class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+            class="t-input"
           >
             <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
+            <!---->
             <input
+              autocomplete="off"
               class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
+              placeholder=""
               type="text"
-              unselectable="on"
             />
-            <span
-              class="t-input__input-pre"
-            >
-              5 条/页
-            </span>
             <!---->
             <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
         <!---->
-        
+        <!---->
       </div>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-        disabled="true"
+      <span
+        class="t-input-adornment__append"
       >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <!---->
-      <div
-        class="t-pagination__jump"
-      >
-        跳至
-        <div
-          class="t-input-adornment t-input-adornment--append"
-        >
-          <!---->
-          <div
-            class="t-input-number t-size-s t-input-number--normal t-pagination__input"
-          >
-            <!---->
-            <div
-              class="t-input__wrap"
-              unselectable="off"
-            >
-              <div
-                class="t-input"
-              >
-                <!---->
-                <!---->
-                <input
-                  autocomplete="off"
-                  class="t-input__inner"
-                  placeholder=""
-                  type="text"
-                />
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <span
-            class="t-input-adornment__append"
-          >
-            / 20 页
-          </span>
-        </div>
-      </div>
-      <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <!---->
-      <!---->
+        / 20 页
+      </span>
     </div>
   </div>
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
   <!---->
-  
-  
+  <!---->
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./src/pagination/_example/total.vue 1`] = `
 <div
-  class="t-space t-space-horizontal"
-  style="gap: 16px;"
+  class="t-pagination t-size-m"
 >
-  
-  
   <div
-    class="t-space-item"
+    class="t-pagination__total"
   >
+    共 685 项数据
+  </div>
+  <div
+    class="t-select__wrap t-pagination__select"
+  >
+    
     <div
-      class="t-pagination t-size-m"
+      class="t-input__wrap t-select-input t-select"
     >
       <div
-        class="t-pagination__total"
+        class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
       >
-        共 685 项数据
-      </div>
-      <div
-        class="t-select__wrap t-pagination__select"
-      >
-        
-        <div
-          class="t-input__wrap t-select-input t-select"
-        >
-          <div
-            class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
-          >
-            <!---->
-            <div
-              class="t-input__prefix"
-            >
-              
-              <!---->
-              <!---->
-              
-            </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <span
-              class="t-input__input-pre"
-            >
-              10 条/页
-            </span>
-            <!---->
-            <!---->
-            <span
-              class="t-input__suffix t-input__suffix-icon"
-            >
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-            </span>
-          </div>
-          <!---->
-        </div>
         <!---->
-        
-      </div>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-prev"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-left"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </div>
-      <ul
-        class="t-pagination__pager"
-      >
-        <li
-          class="t-pagination__number"
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__input-pre"
         >
-          1
-        </li>
-        <li
-          class="t-pagination__number t-pagination__number--more"
+          10 条/页
+        </span>
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
         >
           <svg
-            class="t-icon t-icon-ellipsis"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
-            height="1em"
+            height="16"
             viewBox="0 0 16 16"
-            width="1em"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
-              fill="currentColor"
-              fill-opacity="0.9"
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
             />
           </svg>
-        </li>
-        
-        <li
-          class="t-pagination__number"
-        >
-          10
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          11
-        </li>
-        <li
-          class="t-pagination__number t-is-current"
-        >
-          12
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          13
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          14
-        </li>
-        
-        <li
-          class="t-pagination__number t-pagination__number--more"
-        >
-          <svg
-            class="t-icon t-icon-ellipsis"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        <li
-          class="t-pagination__number"
-        >
-          69
-        </li>
-      </ul>
-      <!---->
-      <div
-        class="t-pagination__btn t-pagination__btn-next"
-        disabled="false"
-      >
-        <svg
-          class="t-icon t-icon-chevron-right"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
+        </span>
       </div>
-      <!---->
       <!---->
     </div>
+    <!---->
+    
   </div>
   <!---->
-  
-  
+  <div
+    class="t-pagination__btn t-pagination__btn-prev"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-left"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <ul
+    class="t-pagination__pager"
+  >
+    <li
+      class="t-pagination__number"
+    >
+      1
+    </li>
+    <li
+      class="t-pagination__number t-pagination__number--more"
+    >
+      <svg
+        class="t-icon t-icon-ellipsis"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </li>
+    
+    <li
+      class="t-pagination__number"
+    >
+      10
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      11
+    </li>
+    <li
+      class="t-pagination__number t-is-current"
+    >
+      12
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      13
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      14
+    </li>
+    
+    <li
+      class="t-pagination__number t-pagination__number--more"
+    >
+      <svg
+        class="t-icon t-icon-ellipsis"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </li>
+    <li
+      class="t-pagination__number"
+    >
+      69
+    </li>
+  </ul>
+  <!---->
+  <div
+    class="t-pagination__btn t-pagination__btn-next"
+    disabled="false"
+  >
+    <svg
+      class="t-icon t-icon-chevron-right"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+        fill="currentColor"
+        fill-opacity="0.9"
+      />
+    </svg>
+  </div>
+  <!---->
+  <!---->
 </div>
 `;
 

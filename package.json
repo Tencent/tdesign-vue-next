@@ -95,6 +95,7 @@
     "@types/validator": "^13.6.3",
     "dayjs": "^1.9.7",
     "lodash": "^4.17.15",
+    "mitt": "^3.0.0",
     "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "^0.1.5",
     "tinycolor2": "^1.4.2",

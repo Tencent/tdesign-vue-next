@@ -69,6 +69,7 @@ export default defineComponent({
       default: () => renderContent('default', 'triggerElement'),
       overlayClassName: tooltipOverlayClassName.value,
       onVisibleChange: onTipVisibleChange,
+      disabled: props.disabled,
     }));
 
     const overlayInnerStyle = computed(() => {
@@ -109,7 +110,6 @@ export default defineComponent({
     ctx.expose({
       updatePopper: onPopupUpdate,
     });
-
     return () => (
       <Popup
         ref={popupRef}
