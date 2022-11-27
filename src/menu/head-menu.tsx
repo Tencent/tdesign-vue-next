@@ -1,4 +1,17 @@
-import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect, toRefs, h } from 'vue';
+import {
+  defineComponent,
+  computed,
+  provide,
+  ref,
+  reactive,
+  watch,
+  onMounted,
+  watchEffect,
+  toRefs,
+  h,
+  VNode,
+  Component,
+} from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
@@ -187,6 +200,23 @@ export default defineComponent({
       }
       return slot;
     };
+
+    const initVMenu = (slots: VNode[], parentValue?: string) => {
+      slots.forEach((node) => {
+        const nodeValue = node.props?.value;
+        if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
+          vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default });
+        }
+        if (typeof (node.children as any)?.default === 'function') {
+          initVMenu((node.children as any).default(), nodeValue);
+          return;
+        }
+        if (Array.isArray(node.children)) {
+          initVMenu(node.children as VNode[], nodeValue);
+        }
+      });
+    };
+    initVMenu(ctx.slots.default?.() || ctx.slots.content?.() || []);
 
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
