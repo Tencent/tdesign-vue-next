@@ -3,6 +3,7 @@
   <t-select-input
     :value="selectValue"
     :popup-visible="popupVisible"
+    :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
     style="width: 300px"
     placeholder="Please Select"
     clearable
@@ -59,16 +60,19 @@ const onInputChange = (val, context) => {
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {
-  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 2px;
 }
 .tdesign-demo__select-input-ul-single > li {
   display: block;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;

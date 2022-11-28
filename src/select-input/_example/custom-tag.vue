@@ -1,7 +1,13 @@
 <template>
   <t-space direction="vertical" class="tdesign-demo-select-input-custom-tag">
     <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
-    <t-select-input :value="selectValue1" placeholder="Please Select" clearable @clear="onClear">
+    <t-select-input
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
+      :value="selectValue1"
+      placeholder="Please Select"
+      clearable
+      @clear="onClear"
+    >
       <template #valueDisplay>
         <span v-if="selectValue1" class="displaySpan">
           <ControlPlatformIcon class="tdesign-demo-select-input__img" />
@@ -88,16 +94,19 @@ const onTagChange3 = (val) => {
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {
-  padding: 4px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .tdesign-demo__select-input-ul-single > li {
   display: block;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo__select-input-borderless-multiple" style="width: 100%">
+  <div class="tdesign-demo__select-input-autowidth-multiple" style="width: 100%">
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
@@ -14,7 +14,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__panel-options-borderless-multiple"
+          class="tdesign-demo__panel-options-autowidth-multiple"
           @change="onCheckedChange"
         />
       </template>
@@ -90,29 +90,32 @@ const onTagChange = (currentTags, context) => {
   }
 };
 </script>
-<style lang="less">
-.tdesign-demo__panel-options-borderless-multiple {
+<style>
+.tdesign-demo__panel-options-autowidth-multiple {
   width: 100%;
-  padding: 4px 0;
-  display: inline-block;
+  padding: 2px 0;
+  margin: 0 -2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.tdesign-demo__panel-options-borderless-multiple .t-checkbox {
+
+.tdesign-demo__panel-options-autowidth-multiple .t-checkbox {
   display: flex;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  margin-bottom: 4px;
 }
 
-.tdesign-demo__panel-options-borderless-multiple .t-checkbox:hover {
+.tdesign-demo__panel-options-autowidth-multiple .t-checkbox:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 </style>

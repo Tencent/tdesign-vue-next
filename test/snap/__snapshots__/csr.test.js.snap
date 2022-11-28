@@ -99914,7 +99914,7 @@ exports[`csr snapshot test > csr test ./src/select/_example/collapsed.vue 1`] = 
             </span>
             
             <span
-              style="color: rgb(237, 123, 47);"
+              style="color: rgb(237, 123, 47); margin-left: 8px;"
             >
               +
               2
@@ -100002,7 +100002,7 @@ exports[`csr snapshot test > csr test ./src/select/_example/collapsed.vue 1`] = 
             
             
             <span
-              style="color: rgb(0, 168, 112);"
+              style="color: rgb(0, 168, 112); margin-left: 8px;"
             >
               +2
             </span>
@@ -102942,7 +102942,6 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/autocomplete.v
         
         <svg
           class="t-icon t-icon-search"
-          data-v-6de3cc0f=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -103004,7 +103003,6 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/autowidth.vue 
         
         <svg
           class="t-icon t-icon-chevron-down"
-          data-v-d3026d40=""
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -103029,7 +103027,7 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/autowidth.vue 
 
 exports[`csr snapshot test > csr test ./src/select-input/_example/autowidth-multiple.vue 1`] = `
 <div
-  class="tdesign-demo__select-input-borderless-multiple"
+  class="tdesign-demo__select-input-autowidth-multiple"
   style="width: 100%;"
 >
   
@@ -103123,7 +103121,6 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/borderless.vue
   
   <div
     class="t-input__wrap t-select-input t-select-input--borderless"
-    style="width: 200px;"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix"
@@ -104677,52 +104674,71 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
   <div
     class="t-space-item"
   >
-    <div>
-      <span>
-        禁用状态：
-      </span>
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-select-input__wrap"
+        class="t-space-item"
       >
-        
+        <span>
+          禁用状态：
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-input__wrap t-select-input"
+          class="t-select-input__wrap"
         >
+          
           <div
-            class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix"
+            class="t-input__wrap t-select-input"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-is-disabled t-is-default t-is-readonly t-input--prefix"
             >
-              
+              <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                disabled=""
+                placeholder="Please Select"
+                readonly=""
+                type="text"
+                unselectable="on"
+              />
               <!---->
               <!---->
-              
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              disabled=""
-              placeholder="Please Select"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <!---->
-            <!---->
-            <!---->
             <!---->
           </div>
           <!---->
-        </div>
-        <!---->
-        
-        <div
-          class="t-input__tips t-input__tips--default"
-        >
-          这是禁用状态文本提示
+          
+          <div
+            class="t-input__tips t-input__tips--default"
+          >
+            这是禁用状态文本提示
+          </div>
         </div>
       </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -104731,51 +104747,70 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
   <div
     class="t-space-item"
   >
-    <div>
-      <span>
-        只读状态：
-      </span>
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-select-input__wrap"
+        class="t-space-item"
       >
-        
+        <span>
+          只读状态：
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-input__wrap t-select-input"
+          class="t-select-input__wrap"
         >
+          
           <div
-            class="t-input t-is-default t-is-readonly t-input--prefix"
+            class="t-input__wrap t-select-input"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-is-default t-is-readonly t-input--prefix"
             >
-              
+              <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                placeholder="Please Select"
+                readonly=""
+                type="text"
+                unselectable="on"
+              />
               <!---->
               <!---->
-              
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="Please Select"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <!---->
-            <!---->
-            <!---->
             <!---->
           </div>
           <!---->
-        </div>
-        <!---->
-        
-        <div
-          class="t-input__tips t-input__tips--default"
-        >
-          这是普通状态的文本提示
+          
+          <div
+            class="t-input__tips t-input__tips--default"
+          >
+            这是普通状态的文本提示
+          </div>
         </div>
       </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -104784,51 +104819,70 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
   <div
     class="t-space-item"
   >
-    <div>
-      <span>
-        成功状态：
-      </span>
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-select-input__wrap"
+        class="t-space-item"
       >
-        
+        <span>
+          成功状态：
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-input__wrap t-select-input"
+          class="t-select-input__wrap"
         >
+          
           <div
-            class="t-input t-is-success t-is-readonly t-input--prefix"
+            class="t-input__wrap t-select-input"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-is-success t-is-readonly t-input--prefix"
             >
-              
+              <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                placeholder="Please Select"
+                readonly=""
+                type="text"
+                unselectable="on"
+              />
               <!---->
               <!---->
-              
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="Please Select"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <!---->
-            <!---->
-            <!---->
             <!---->
           </div>
           <!---->
-        </div>
-        <!---->
-        
-        <div
-          class="t-input__tips t-input__tips--success"
-        >
-          校验通过文本提示
+          
+          <div
+            class="t-input__tips t-input__tips--success"
+          >
+            校验通过文本提示
+          </div>
         </div>
       </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -104837,51 +104891,70 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
   <div
     class="t-space-item"
   >
-    <div>
-      <span>
-        警告状态：
-      </span>
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-select-input__wrap"
+        class="t-space-item"
       >
-        
+        <span>
+          警告状态：
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-input__wrap t-select-input"
+          class="t-select-input__wrap"
         >
+          
           <div
-            class="t-input t-is-warning t-is-readonly t-input--prefix"
+            class="t-input__wrap t-select-input"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-is-warning t-is-readonly t-input--prefix"
             >
-              
+              <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                placeholder="Please Select"
+                readonly=""
+                type="text"
+                unselectable="on"
+              />
               <!---->
               <!---->
-              
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="Please Select"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <!---->
-            <!---->
-            <!---->
             <!---->
           </div>
           <!---->
-        </div>
-        <!---->
-        
-        <div
-          class="t-input__tips t-input__tips--warning"
-        >
-          校验不通过文本提示
+          
+          <div
+            class="t-input__tips t-input__tips--warning"
+          >
+            校验不通过文本提示
+          </div>
         </div>
       </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
@@ -104890,51 +104963,70 @@ exports[`csr snapshot test > csr test ./src/select-input/_example/status.vue 1`]
   <div
     class="t-space-item"
   >
-    <div>
-      <span>
-        错误状态：
-      </span>
+    <div
+      class="t-space t-space-align-center t-space-horizontal"
+      style="gap: 16px;"
+    >
+      
+      
       <div
-        class="t-select-input__wrap"
+        class="t-space-item"
       >
-        
+        <span>
+          错误状态：
+        </span>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
         <div
-          class="t-input__wrap t-select-input"
+          class="t-select-input__wrap"
         >
+          
           <div
-            class="t-input t-is-error t-is-readonly t-input--prefix"
+            class="t-input__wrap t-select-input"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-is-error t-is-readonly t-input--prefix"
             >
-              
+              <!---->
+              <div
+                class="t-input__prefix"
+              >
+                
+                <!---->
+                <!---->
+                
+              </div>
+              <input
+                class="t-input__inner"
+                placeholder="Please Select"
+                readonly=""
+                type="text"
+                unselectable="on"
+              />
               <!---->
               <!---->
-              
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="Please Select"
-              readonly=""
-              type="text"
-              unselectable="on"
-            />
-            <!---->
-            <!---->
-            <!---->
             <!---->
           </div>
           <!---->
-        </div>
-        <!---->
-        
-        <div
-          class="t-input__tips t-input__tips--error"
-        >
-          校验存在严重问题文本提示
+          
+          <div
+            class="t-input__tips t-input__tips--error"
+          >
+            校验存在严重问题文本提示
+          </div>
         </div>
       </div>
+      <!---->
+      
+      
     </div>
   </div>
   <!---->
