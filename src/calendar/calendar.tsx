@@ -1,6 +1,8 @@
 import { defineComponent, computed, watch } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
+import { remove } from 'lodash';
+
 import props from './props';
 import * as utils from './utils';
 import { useConfig } from '../hooks/useConfig';
@@ -11,7 +13,7 @@ import { useState, useCalendarClass, userController, useColHeaders } from './hoo
 import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
 
 // 子组件
-import { Select as TSelect, Option as TOption } from '../select';
+import { Select as TSelect } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
@@ -290,7 +292,16 @@ export default defineComponent({
       }
     };
     const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
-      state.curDate = dayjs(cellData.date);
+      const d = dayjs(cellData.date);
+      if (props.multiple) {
+        if (state.curDateList.find((item) => item.isSame(d))) {
+          state.curDateList = remove(state.curDateList, (item) => !item.isSame(d));
+        } else {
+          state.curDateList.push(d);
+        }
+      } else {
+        state.curDate = d;
+      }
       cellClickEmit('onCellClick', e, cellData);
     };
     const doubleClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
@@ -304,13 +315,7 @@ export default defineComponent({
     };
 
     const monthCellsData = computed<CalendarCell[][]>(() => {
-      const daysArr: CalendarCell[][] = utils.createMonthCellsData(
-        state.curSelectedYear,
-        state.curSelectedMonth,
-        state.realFirstDayOfWeek,
-        state.curDate,
-        props.format,
-      );
+      const daysArr: CalendarCell[][] = utils.createMonthCellsData(props, state);
       return daysArr;
     });
     const renderMonthBody = () => {
@@ -365,7 +370,7 @@ export default defineComponent({
 
     const yearCellsData = computed<CalendarCell[][]>(() => {
       const re: CalendarCell[][] = [];
-      const monthsArr: CalendarCell[] = utils.createYearCellsData(state.curSelectedYear, state.curDate, props.format);
+      const monthsArr: CalendarCell[] = utils.createYearCellsData(props, state);
       const rowCount = Math.ceil(monthsArr.length / DEFAULT_YEAR_CELL_NUMINROW);
       let index = 0;
       for (let i = 1; i <= rowCount; i++) {

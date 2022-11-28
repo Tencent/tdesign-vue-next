@@ -16,12 +16,12 @@ export default {
   cellAppend: {
     type: [String, Function] as PropType<TdCalendarProps['cellAppend']>,
   },
-  /** 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置 */
+  /** 右上角控制器配置。支持全局配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置 */
   controllerConfig: {
     type: [Boolean, Object] as PropType<TdCalendarProps['controllerConfig']>,
     default: undefined,
   },
-  /** 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9` */
+  /** 小于 10 的日期，是否使用 '0' 填充。支持全局配置。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9` */
   fillWithZero: {
     type: Boolean,
     default: undefined,
@@ -61,6 +61,8 @@ export default {
   month: {
     type: [String, Number] as PropType<TdCalendarProps['month']>,
   },
+  /** 是否高亮多个日期单元格 */
+  multiple: Boolean,
   /** 是否禁用单元格右键默认系统菜单 */
   preventCellContextmenu: Boolean,
   /** 用于设置日历的年月份显示范围，[范围开始，范围结束] */
@@ -78,7 +80,7 @@ export default {
   },
   /** 当前高亮的日期 */
   value: {
-    type: [String, Date] as PropType<TdCalendarProps['value']>,
+    type: [String, Array, Date] as PropType<TdCalendarProps['value']>,
   },
   /** 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day` */
   week: {

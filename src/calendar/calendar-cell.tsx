@@ -59,8 +59,11 @@ export default defineComponent({
     });
     const cellCls = computed(() => {
       const { mode, date, formattedDate, isCurrent } = props.item;
+      const now = new Date();
       const isNow =
-        mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
+        mode === 'year'
+          ? now.getMonth() === date.getMonth() && now.getFullYear() === date.getFullYear()
+          : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
         cls.tableBodyCell.value,
         {

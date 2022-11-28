@@ -4,8 +4,9 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { RadioGroupProps } from '../radio';
 import { ButtonProps } from '../button';
+import { RadioGroupProps } from '../radio';
+import { CheckTagProps } from '../tag';
 import { SelectProps } from '../select';
 import { TNode } from '../common';
 
@@ -19,11 +20,11 @@ export interface TdCalendarProps {
    */
   cellAppend?: string | TNode<CalendarCell>;
   /**
-   * 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置
+   * 右上角控制器配置。支持全局配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置
    */
   controllerConfig?: boolean | CalendarController;
   /**
-   * 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9`
+   * 小于 10 的日期，是否使用 '0' 填充。支持全局配置。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9`
    */
   fillWithZero?: boolean;
   /**
@@ -54,6 +55,10 @@ export interface TdCalendarProps {
    */
   month?: string | number;
   /**
+   * 是否高亮多个日期单元格
+   */
+  multiple?: boolean;
+  /**
    * 是否禁用单元格右键默认系统菜单
    * @default false
    */
@@ -70,7 +75,7 @@ export interface TdCalendarProps {
   /**
    * 当前高亮的日期
    */
-  value?: CalendarValue;
+  value?: CalendarValue | CalendarValue[];
   /**
    * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`
    */
@@ -122,7 +127,7 @@ export interface CalendarController {
   /**
    * 隐藏/显示周末控制器
    */
-  weekend?: { visible?: boolean; showWeekendButtonProps?: ButtonProps; hideWeekendButtonProps?: ButtonProps };
+  weekend?: { visible?: boolean; showWeekendButtonProps?: CheckTagProps; hideWeekendButtonProps?: CheckTagProps };
   /**
    * 日历年份控制器
    */

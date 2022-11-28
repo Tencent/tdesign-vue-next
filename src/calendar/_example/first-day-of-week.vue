@@ -1,11 +1,12 @@
 <template>
   <t-space direction="vertical">
-    <div>
-      <label>日历的第一列为：</label>
-      <t-select v-model="firstDayOfWeek" class="demo-select-base">
-        <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
-      </t-select>
-    </div>
+    <t-form layout="inline">
+      <t-form-item label="第一列设为：">
+        <t-select v-model="firstDayOfWeek" class="demo-select-base">
+          <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
+        </t-select>
+      </t-form-item>
+    </t-form>
     <t-calendar :first-day-of-week="firstDayOfWeek" />
   </t-space>
 </template>
