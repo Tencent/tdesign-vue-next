@@ -3,6 +3,7 @@
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       borderless
       allow-input
       placeholder="select frameworks"
@@ -90,23 +91,25 @@ const onTagChange = (currentTags, context) => {
 <style lang="less">
 .tdesign-demo__panel-options-borderless-multiple {
   width: 100%;
-  padding: 4px 0;
-  display: inline-block;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
+
 .tdesign-demo__panel-options-borderless-multiple .t-checkbox {
   display: flex;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  margin-bottom: 4px;
 }
 
 .tdesign-demo__panel-options-borderless-multiple .t-checkbox:hover {

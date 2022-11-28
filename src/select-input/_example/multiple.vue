@@ -27,6 +27,7 @@
           maxHeight: '280px',
           overflowY: 'auto',
           overscrollBehavior: 'contain',
+          padding: '6px',
         },
       }"
       clearable
@@ -124,28 +125,28 @@ const onInputChange = (val, context) => {
   console.log(val, context);
 };
 </script>
-<style lang="less">
+<style>
 .tdesign-demo__panel-options-multiple {
   width: 100%;
-  padding: 4px 0;
-  display: inline-block;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .tdesign-demo__panel-options-multiple .t-checkbox {
   display: flex;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  margin-bottom: 4px;
 }
-
 .tdesign-demo__panel-options-multiple .t-checkbox:hover {
   background-color: var(--td-bg-color-container-hover);
 }

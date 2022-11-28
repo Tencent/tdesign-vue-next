@@ -5,6 +5,7 @@
     <t-select-input
       :value="value"
       :tag-input-props="{ excessTagsDisplayType: 'scroll' }"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
       clearable
@@ -26,6 +27,7 @@
     <t-select-input
       :value="value"
       :tag-input-props="{ excessTagsDisplayType: 'break-line' }"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
       clearable
@@ -103,25 +105,26 @@ const onTagChange = (currentTags, context) => {
   }
 };
 </script>
-<style lang="less">
+<style>
 .tdesign-demo__panel-options-excess-tags-display-type {
   width: 100%;
-  padding: 4px 0;
-  display: inline-block;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .tdesign-demo__panel-options-excess-tags-display-type .t-checkbox {
   display: flex;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 4px;
   margin-right: 0;
 }
 
