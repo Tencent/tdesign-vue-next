@@ -77188,42 +77188,39 @@ exports[`csr snapshot test > csr test ./src/list/_example/base.vue 1`] = `
           class="t-list-item__action"
         >
           
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作1 
-              
-            </span>
-          </button>
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+            <!---->
+            
+             操作1 
+            
+            <!---->
+          </a>
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作2 
-              
-            </span>
-          </button>
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+            <!---->
+            
+             操作2 
+            
+            <!---->
+          </a>
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作3 
-              
-            </span>
-          </button>
+            <!---->
+            
+             操作3 
+            
+            <!---->
+          </a>
           
         </li>
       </div>
@@ -77241,42 +77238,39 @@ exports[`csr snapshot test > csr test ./src/list/_example/base.vue 1`] = `
           class="t-list-item__action"
         >
           
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作1 
-              
-            </span>
-          </button>
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+            <!---->
+            
+             操作1 
+            
+            <!---->
+          </a>
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作2 
-              
-            </span>
-          </button>
-          <button
-            class="t-button t-size-m t-button--variant-text t-button--theme-default"
-            type="button"
+            <!---->
+            
+             操作2 
+            
+            <!---->
+          </a>
+          <a
+            class="t-link t-link--theme-primary t-link--hover-color"
+            style="margin-left: 16px;"
+            target=""
           >
-            <span
-              class="t-button__text"
-            >
-              
-               操作3 
-              
-            </span>
-          </button>
+            <!---->
+            
+             操作3 
+            
+            <!---->
+          </a>
           
         </li>
       </div>
@@ -78347,42 +78341,39 @@ exports[`csr snapshot test > csr test ./src/list/_example/operation.vue 1`] = `
             >
               
               <span>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作1
-                    
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                  <!---->
+                  
+                  操作1
+                  
+                  <!---->
+                </a>
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作2
-                    
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                  <!---->
+                  
+                  操作2
+                  
+                  <!---->
+                </a>
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作3
-                    
-                  </span>
-                </button>
+                  <!---->
+                  
+                  操作3
+                  
+                  <!---->
+                </a>
               </span>
               
             </li>
@@ -78428,42 +78419,39 @@ exports[`csr snapshot test > csr test ./src/list/_example/operation.vue 1`] = `
             >
               
               <span>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作1
-                    
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                  <!---->
+                  
+                  操作1
+                  
+                  <!---->
+                </a>
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作2
-                    
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-text t-button--theme-default"
-                  type="button"
+                  <!---->
+                  
+                  操作2
+                  
+                  <!---->
+                </a>
+                <a
+                  class="t-link t-link--theme-primary t-link--hover-color"
+                  style="margin-left: 16px;"
+                  target=""
                 >
-                  <span
-                    class="t-button__text"
-                  >
-                    
-                    操作3
-                    
-                  </span>
-                </button>
+                  <!---->
+                  
+                  操作3
+                  
+                  <!---->
+                </a>
               </span>
               
             </li>
