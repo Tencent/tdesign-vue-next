@@ -362,7 +362,7 @@ const onExpandAllToggle = () => {
 
 const appendToRoot = () => {
   const key = Math.round(Math.random() * 10010);
-  table.value.appendTo('', {
+  const newData = {
     id: key,
     key: `我是 ${key}_${1} 号`,
     platform: key % 2 === 0 ? '共有' : '私有',
@@ -373,7 +373,9 @@ const appendToRoot = () => {
     },
     needed: key % 4 === 0 ? '是' : '否',
     description: '数据源',
-  });
+  };
+  // data.value.push(newData);
+  table.value.appendTo('', newData);
 
   // 同时添加多个元素，示例代码有效勿删
   // appendMultipleDataTo();
