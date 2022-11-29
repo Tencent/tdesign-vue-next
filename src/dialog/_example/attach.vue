@@ -8,7 +8,13 @@
       <t-button theme="primary" @click="visibleShowInAttachedElement = true">展示在挂载元素区域</t-button>
     </t-space>
 
-    <t-dialog v-model:visible="visibleBody" attach="body" header="挂载在body" :on-confirm="() => (visibleBody = false)">
+    <t-dialog
+      v-model:visible="visibleBody"
+      attach="body"
+      header="挂载在body"
+      destroy-on-close
+      :on-confirm="() => (visibleBody = false)"
+    >
       <template #body>
         <div>我是被挂载到body元素的对话框</div>
         <div>我是内容</div>
@@ -22,6 +28,7 @@
       v-model:visible="visibleIdAttach"
       attach="#app"
       header="挂载到id为app的元素"
+      destroy-on-close
       :on-confirm="() => (visibleIdAttach = false)"
     >
       <template #body>
@@ -36,6 +43,7 @@
     <t-dialog
       v-model:visible="visibleFunctionAttach"
       :attach="getAttach"
+      destroy-on-close
       header="函数返回挂载节点"
       :on-confirm="() => (visibleFunctionAttach = false)"
     >
@@ -51,6 +59,7 @@
     <t-dialog
       v-model:visible="visibleShowInAttachedElement"
       header="对话框仅展示在挂载元素区域"
+      destroy-on-close
       :show-in-attached-element="true"
       placement="center"
       :on-confirm="() => (visibleShowInAttachedElement = false)"
