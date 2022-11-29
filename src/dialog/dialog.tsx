@@ -86,6 +86,9 @@ function InitDragEvent(dragBox: HTMLElement) {
     document.addEventListener('dragend', mouseUpHandler);
   });
 }
+
+let key = 1;
+
 export default defineComponent({
   name: 'TDialog',
 
@@ -105,7 +108,6 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props: TdDialogProps, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
-    const LOCK_CLASS = usePrefixClass('dialog--lock');
     const classPrefix = usePrefixClass();
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
@@ -127,7 +129,8 @@ export default defineComponent({
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
 
     useDestroyOnClose();
-    const scrollWidth = ref(0);
+    const timer = ref();
+    const styleEl = ref();
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
@@ -186,11 +189,10 @@ export default defineComponent({
       (value) => {
         if (value) {
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
-            if (scrollWidth.value > 0 && props.preventScrollThrough) {
-              const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
-              document.body.style.cssText = bodyCssText;
+            if (props.preventScrollThrough) {
+              document.head.appendChild(styleEl.value);
             }
-            props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
+
             nextTick(() => {
               if (mousePosition && dialogEle.value) {
                 dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -202,13 +204,19 @@ export default defineComponent({
             });
           }
         } else {
-          document.body.style.cssText = '';
-          removeClass(document.body, LOCK_CLASS.value);
+          clearStyleFunc();
         }
         storeUid(value);
         addKeyboardEvent(value);
       },
     );
+
+    function clearStyleFunc() {
+      clearTimeout(timer.value);
+      timer.value = setTimeout(() => {
+        styleEl.value.parentNode?.removeChild?.(styleEl.value);
+      }, 150);
+    }
 
     const instance = getCurrentInstance();
     const storeUid = (flag: boolean) => {
@@ -385,15 +393,23 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      scrollWidth.value = window.innerWidth - document.body.offsetWidth;
+      const scrollWidth = window.innerWidth - document.body.offsetWidth;
+      styleEl.value = document.createElement('style');
+      styleEl.value.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
+      styleEl.value.innerHTML = `
+        html body {
+          overflow-y: hidden;
+          width: calc(100% - ${scrollWidth}px);
+        }
+      `;
     });
     onBeforeUnmount(() => {
+      clearStyleFunc();
       addKeyboardEvent(false);
     });
 
     return {
       COMPONENT_NAME,
-      scrollWidth,
       isModal,
       isModeLess,
       isFullScreen,
