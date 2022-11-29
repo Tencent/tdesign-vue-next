@@ -25,6 +25,7 @@ import useLazyLoad from './hooks/useLazyLoad';
 import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
+import { PaginationProps } from '..';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -50,6 +51,7 @@ export const TABLE_PROPS = [
   'rowspanAndColspan',
   'scroll',
   'cellEmptyContent',
+  'pagination',
   'onCellClick',
   'onRowClick',
   'onRowDblclick',
@@ -89,11 +91,18 @@ export function renderCell(
   slots: SetupContext['slots'],
   extra?: {
     cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
+    pagination?: PaginationProps;
   },
 ) {
   const { col, row, rowIndex } = params;
   // support serial number column
   if (col.colKey === 'serial-number') {
+    const { current, pageSize, defaultCurrent, defaultPageSize } = extra?.pagination || {};
+    const tCurrent = current || defaultCurrent;
+    const tPageSize = pageSize || defaultPageSize;
+    if (tPageSize && tCurrent) {
+      return tPageSize * (tCurrent - 1) + rowIndex + 1;
+    }
     return rowIndex + 1;
   }
   if (isFunction(col.cell)) {
@@ -267,7 +276,10 @@ export default defineComponent({
     renderTd(params: BaseTableCellParams<TableRowData>, extra: RenderTdExtra) {
       const { col, colIndex, rowIndex } = params;
       const { cellSpans, dataLength, rowAndColFixedPosition } = extra;
-      const cellNode = renderCell(params, this.tSlots, { cellEmptyContent: extra.cellEmptyContent });
+      const cellNode = renderCell(params, this.tSlots, {
+        cellEmptyContent: extra.cellEmptyContent,
+        pagination: this.pagination,
+      });
       const tdStyles = getColumnFixedStyles(col, colIndex, rowAndColFixedPosition, this.tableColFixedClasses);
       const customClasses = formatClassNames(col.className, { ...params, type: 'td' });
       const classes = [

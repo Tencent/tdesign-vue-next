@@ -6,9 +6,7 @@ import {
   SetupContext,
   onMounted,
   computed,
-  onBeforeMount,
   ComputedRef,
-  onUnmounted,
   onBeforeUnmount,
   Ref,
 } from 'vue';
@@ -317,7 +315,9 @@ export default function useFixed(
     if (shadowLastScrollLeft === scrollLeft && (!extra || !extra.skipScrollLimit)) return;
     shadowLastScrollLeft = scrollLeft;
     const isShowRight = target.clientWidth + scrollLeft < target.scrollWidth;
-    showColumnShadow.left = scrollLeft > 0;
+    const isShowLeft = scrollLeft > 0;
+    if (showColumnShadow.left === isShowLeft && showColumnShadow.right === isShowRight) return;
+    showColumnShadow.left = isShowLeft;
     showColumnShadow.right = isShowRight;
   };
 

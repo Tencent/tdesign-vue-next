@@ -1,17 +1,26 @@
 <template>
-  <div>
+  <t-space direction="vertical">
+    <!-- 按钮操作区域 -->
+    <t-radio-group v-model="reserveSelectedRowOnPaginate" variant="default-filled">
+      <t-radio-button :value="true">跨分页选中</t-radio-button>
+      <t-radio-button :value="false">当前页选中</t-radio-button>
+    </t-radio-group>
+
     <t-table
+      v-model:selected-row-keys="selectedRowKeys"
       row-key="index"
       :data="data"
       :columns="columns"
       :pagination="pagination"
+      :reserve-selected-row-on-paginate="reserveSelectedRowOnPaginate"
       @page-change="onPageChange"
       @change="onChange"
+      @select-change="onSelectChange"
     />
-  </div>
+  </t-space>
 </template>
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 const data = [];
 const TOTAL = 60;
@@ -29,13 +38,14 @@ for (let i = 0; i < TOTAL; i++) {
   });
 }
 
+const reserveSelectedRowOnPaginate = ref(true);
+const selectedRowKeys = ref([]);
+
 const columns = [
   {
-    align: 'center',
-    width: '64',
-    className: 'row',
-    colKey: 'index',
+    colKey: 'serial-number',
     title: '序号',
+    width: 60,
   },
   {
     width: 100,
@@ -64,6 +74,11 @@ const columns = [
     colKey: 'description',
     title: '说明',
   },
+  {
+    colKey: 'row-select',
+    type: 'multiple',
+    width: 46,
+  },
 ];
 
 // 非受控用法
@@ -85,5 +100,9 @@ const onPageChange = (pageInfo, context) => {
   // 受控用法需要下面两行代码
   // pagination.current = pageInfo.current;
   // pagination.pageSize = pageInfo.pageSize;
+};
+
+const onSelectChange = (selectedRowKeys, context) => {
+  console.log(selectedRowKeys, context);
 };
 </script>

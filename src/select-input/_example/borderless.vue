@@ -2,9 +2,9 @@
   <t-select-input
     :value="selectValue"
     :popup-visible="popupVisible"
+    :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
     placeholder="Please Select"
     borderless
-    style="width: 200px"
     clearable
     @popup-visible-change="onPopupVisibleChange"
     @clear="onClear"
@@ -50,16 +50,19 @@ const onPopupVisibleChange = (val, context) => {
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-borderless {
-  padding: 4px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .tdesign-demo__select-input-ul-borderless > li {
   display: block;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
