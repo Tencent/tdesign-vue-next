@@ -6,20 +6,20 @@ export default function useInputEventHandler(props: TdInputProps, isHover: Ref<B
     if (props.disabled) return;
     const { code } = e;
     if (code === 'Enter' || code === 'NumpadEnter') {
-      props.onEnter?.(innerValue.value, { e });
+      props.onEnter?.((e.currentTarget as HTMLInputElement).value, { e });
     } else {
-      props.onKeydown?.(innerValue.value, { e });
+      props.onKeydown?.((e.currentTarget as HTMLInputElement).value, { e });
     }
   };
 
   const handleKeyUp = (e: KeyboardEvent) => {
     if (props.disabled) return;
-    props.onKeyup?.(innerValue.value, { e });
+    props.onKeyup?.((e.currentTarget as HTMLInputElement).value, { e });
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
     if (props.disabled) return;
-    props.onKeypress?.(innerValue.value, { e });
+    props.onKeypress?.((e.currentTarget as HTMLInputElement).value, { e });
   };
 
   const onHandlePaste = (e: ClipboardEvent) => {

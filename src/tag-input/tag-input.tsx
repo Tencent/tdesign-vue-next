@@ -1,15 +1,12 @@
-import { defineComponent, computed, toRefs, nextTick, reactive } from 'vue';
-
+import { defineComponent, computed, toRefs, ref, nextTick, reactive } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
-
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-
 import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
 import useHover from './hooks/useHover';
@@ -33,7 +30,7 @@ export default defineComponent({
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
-    const { inputValue } = toRefs(props);
+    const { inputValue, inputProps } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
       inputValue,
       props.defaultInputValue,
@@ -47,14 +44,15 @@ export default defineComponent({
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
     });
-    const { classPrefix: prefix } = useConfig();
+    const isComposition = ref(false);
+    const { classPrefix } = useConfig();
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
       ...props,
       sortOnDraggable: props.dragSort,
       onDragOverCheck: {
         x: true,
-        targetClassNameRegExp: new RegExp(`^${prefix}-tag`),
+        targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
       },
     });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
@@ -68,10 +66,13 @@ export default defineComponent({
     );
 
     const classes = computed(() => {
+      const isEmpty = !(Array.isArray(tagValue.value) && tagValue.value.length);
       return [
         NAME_CLASS.value,
         {
           [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
+          [`${classPrefix.value}-is-empty`]: isEmpty,
+          [`${classPrefix.value}-tag-input--with-tag`]: !isEmpty,
         },
       ];
     });
@@ -92,10 +93,20 @@ export default defineComponent({
       // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
       context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
-      onInnerEnter(value, context);
+      !isComposition.value && onInnerEnter(value, context);
       nextTick(() => {
         scrollToRight();
       });
+    };
+
+    const onInputCompositionstart = (value: InputValue, context: { e: CompositionEvent }) => {
+      isComposition.value = true;
+      inputProps.value?.onCompositionstart?.(value, context);
+    };
+
+    const onInputCompositionend = (value: InputValue, context: { e: CompositionEvent }) => {
+      isComposition.value = false;
+      inputProps.value?.onCompositionend?.(value, context);
     };
 
     const onClick = () => {
@@ -117,6 +128,7 @@ export default defineComponent({
       tagInputPlaceholder,
       showClearIcon,
       tagInputRef,
+      classPrefix,
       setTInputValue,
       addHover,
       cancelHover,
@@ -130,6 +142,8 @@ export default defineComponent({
       onClick,
       onClearClick,
       onClose,
+      onInputCompositionstart,
+      onInputCompositionend,
       classes,
     };
   },
@@ -142,6 +156,10 @@ export default defineComponent({
     ) : (
       renderTNodeJSX(this, 'suffixIcon')
     );
+    const suffixClass = `${this.classPrefix}-tag-input__with-suffix-icon`;
+    if (suffixIconNode && !this.classes.includes(suffixClass)) {
+      this.classes.push(suffixClass);
+    }
     // 自定义 Tag 节点
     const displayNode = renderTNodeJSX(this, 'valueDisplay', {
       params: {
@@ -192,6 +210,8 @@ export default defineComponent({
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
         onClick={this.onClick}
+        onCompositionstart={this.onInputCompositionstart}
+        onCompositionend={this.onInputCompositionend}
         {...(this.inputProps as TdTagInputProps['inputProps'])}
       />
     );
