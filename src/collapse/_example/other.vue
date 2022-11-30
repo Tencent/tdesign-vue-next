@@ -36,6 +36,6 @@ const disabled = ref(false);
 const borderless = ref(false);
 const showArrow = ref(true);
 const handlePanelChange = (val) => {
-  console.log('panel >>>>>> ', val);
+  console.log('panel', val);
 };
 </script>
