@@ -100,7 +100,7 @@ export default defineComponent({
     const clearStyleFunc = () => {
       clearTimeout(styleTimer.value);
       styleTimer.value = setTimeout(() => {
-        styleEl.value.parentNode?.removeChild?.(styleEl.value);
+        styleEl.value?.parentNode?.removeChild?.(styleEl.value);
       }, 150);
     };
 
