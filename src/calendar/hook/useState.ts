@@ -111,6 +111,14 @@ export function useState(props: TdCalendarProps) {
     },
     { immediate: true },
   );
+  watch(
+    () => props.theme,
+    (v: TdCalendarProps['theme']) => {
+      if (v === 'card') state.controlSize = 'small';
+      if (v === 'full') state.controlSize = 'medium';
+    },
+    { immediate: true },
+  );
 
   return {
     state,
