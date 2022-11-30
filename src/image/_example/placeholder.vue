@@ -49,11 +49,11 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { RefreshIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
+import { RefreshIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 
 const loadingCount = ref(0);
 const errorCount = ref(0);
-const renderCustomIcon = <QrcodeIcon size="24" />;
+const renderCustomIcon = <ImageErrorIcon size="24" />;
 
 const renderIcon = () => {
   return <RefreshIcon />;
