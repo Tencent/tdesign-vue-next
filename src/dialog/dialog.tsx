@@ -19,7 +19,6 @@ import {
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
-import { addClass, removeClass } from '../utils/dom';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';

@@ -1,15 +1,17 @@
-import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer, addClass, removeClass } from '../utils/dom';
+import { isServer } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
+
+let key = 1;
 
 export default defineComponent({
   name: 'TDrawer',
@@ -21,12 +23,13 @@ export default defineComponent({
   setup(props, context) {
     const destroyOnCloseVisible = ref(false);
     const isVisible = ref(false);
+    const styleEl = ref();
+    const styleTimer = ref();
     const { globalConfig } = useConfig('drawer');
     const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
-    const LOCK_CLASS = usePrefixClass('drawer--lock');
     const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props);
 
     const confirmBtnAction = (e: MouseEvent) => {
@@ -93,6 +96,14 @@ export default defineComponent({
         justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
       };
     });
+
+    const clearStyleFunc = () => {
+      clearTimeout(styleTimer.value);
+      styleTimer.value = setTimeout(() => {
+        styleEl.value.parentNode?.removeChild?.(styleEl.value);
+      }, 150);
+    };
+
     const handlePushMode = () => {
       if (props.mode !== 'push') return;
       nextTick(() => {
@@ -150,10 +161,12 @@ export default defineComponent({
       () => props.visible,
       (value) => {
         if (isServer) return;
-        if (value && !props.showInAttachedElement) {
-          props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
+        if (value) {
+          if (!props.showInAttachedElement && props.preventScrollThrough) {
+            styleEl.value && document.head.appendChild(styleEl.value);
+          }
         } else {
-          props.preventScrollThrough && removeClass(document.body, LOCK_CLASS.value);
+          clearStyleFunc();
         }
 
         // 处理显示逻辑
@@ -204,6 +217,27 @@ export default defineComponent({
 
     onUpdated(() => {
       updatePushMode();
+    });
+
+    onMounted(() => {
+      const scrollWidth = window.innerWidth - document.body.offsetWidth;
+      styleEl.value = document.createElement('style');
+      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
+      styleEl.value.innerHTML = `
+        html body {
+          overflow-y: hidden;
+          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
+          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
+        }
+      `;
+
+      if (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough) {
+        document.head.appendChild(styleEl.value);
+      }
+    });
+
+    onBeforeUnmount(() => {
+      clearStyleFunc();
     });
 
     return () => {
