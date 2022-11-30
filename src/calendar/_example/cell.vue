@@ -72,9 +72,9 @@ const displayNum = (cellData) => {
     position: relative;
     display: flex;
     align-items: center;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 12px;
-    line-height: 20px;
+    color: var(--td-text-color-secondary);
+    font-size: 14px;
+    line-height: 22px;
     span {
       display: block;
       left: 1px;
@@ -85,13 +85,13 @@ const displayNum = (cellData) => {
     }
   }
   .error {
-    background: #e34d59;
+    background: var(--td-error-color);
   }
   .warning {
-    background: #ed7b2f;
+    background: var(--td-warning-color);
   }
   .success {
-    background: #00a870;
+    background: var(--td-success-color);
   }
 
   .slotWarper {

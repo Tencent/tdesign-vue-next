@@ -8351,7 +8351,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card.vue 1`] = `
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                 >
                   <!---->
                   <div
@@ -8413,7 +8413,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card.vue 1`] = `
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                 >
                   <!---->
                   <div
@@ -8469,7 +8469,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card.vue 1`] = `
             style="height: auto;"
           >
             <div
-              class="t-radio-group t-size-m t-radio-group--filled"
+              class="t-radio-group t-size-s t-radio-group--filled"
             >
               
               
@@ -9308,7 +9308,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card-cell.vue 1`] 
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                 >
                   <!---->
                   <div
@@ -9370,7 +9370,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card-cell.vue 1`] 
                 class="t-input__wrap t-select-input t-select"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
+                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix t-input--auto-width"
                 >
                   <!---->
                   <div
@@ -9426,7 +9426,7 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/card-cell.vue 1`] 
             style="height: auto;"
           >
             <div
-              class="t-radio-group t-size-m t-radio-group--filled"
+              class="t-radio-group t-size-s t-radio-group--filled"
             >
               
               
@@ -11993,11 +11993,22 @@ exports[`csr snapshot test > csr test ./src/calendar/_example/cell-append.vue 1`
                 class="cell-append-demo-outer"
               >
                 <span
-                  class="t-tag t-tag--primary t-tag--dark t-size-s activeTag"
+                  class="t-tag t-tag--success t-tag--light t-size-s activeTag"
+                  style="width: 100%;"
                 >
                   <!---->
                   
-                  今天
+                  我们的纪念日
+                  
+                  <!---->
+                </span>
+                <span
+                  class="t-tag t-tag--warning t-tag--light t-size-s activeTag"
+                  style="width: 100%;"
+                >
+                  <!---->
+                  
+                  家庭聚会
                   
                   <!---->
                 </span>
