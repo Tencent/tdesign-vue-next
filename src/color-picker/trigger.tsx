@@ -16,6 +16,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    clearable: {
+      type: Boolean,
+      default: false,
+    },
     inputProps: {
       type: Object as PropType<TdColorPickerProps['inputProps']>,
       default: () => {
@@ -76,15 +80,14 @@ export default defineComponent({
       },
     };
     return (
-      <div class={`${baseClassName}__trigger--default`}>
-        <TInput
-          {...this.inputProps}
-          v-slots={inputSlots}
-          v-model={this.value}
-          disabled={this.disabled}
-          onBlur={this.handleChange}
-        />
-      </div>
+      <TInput
+        clearable={this.clearable}
+        {...this.inputProps}
+        v-slots={inputSlots}
+        v-model={this.value}
+        disabled={this.disabled}
+        onBlur={this.handleChange}
+      />
     );
   },
 });

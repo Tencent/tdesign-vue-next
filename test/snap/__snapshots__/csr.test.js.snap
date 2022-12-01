@@ -32247,45 +32247,41 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
               class="t-color-picker__trigger"
             >
               <div
-                class="t-color-picker__trigger--default"
+                class="t-input__wrap"
               >
                 <div
-                  class="t-input__wrap"
+                  class="t-input t-input--prefix t-input--auto-width"
                 >
+                  <!---->
                   <div
-                    class="t-input t-input--prefix t-input--auto-width"
+                    class="t-input__prefix"
                   >
-                    <!---->
+                    
                     <div
-                      class="t-input__prefix"
+                      class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
                     >
-                      
-                      <div
-                        class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
-                      >
-                        <span
-                          class="color-inner"
-                          style="background: rgb(0, 82, 217);"
-                        />
-                      </div>
-                      
+                      <span
+                        class="color-inner"
+                        style="background: rgb(0, 82, 217);"
+                      />
                     </div>
-                    <input
-                      class="t-input__inner"
-                      placeholder="请输入"
-                      type="text"
-                    />
-                    <span
-                      class="t-input__input-pre"
-                    >
-                      #0052d9
-                    </span>
-                    <!---->
-                    <!---->
-                    <!---->
+                    
                   </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请输入"
+                    type="text"
+                  />
+                  <span
+                    class="t-input__input-pre"
+                  >
+                    #0052d9
+                  </span>
+                  <!---->
+                  <!---->
                   <!---->
                 </div>
+                <!---->
               </div>
             </div>
             <!---->
@@ -32329,45 +32325,41 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
               class="t-color-picker__trigger"
             >
               <div
-                class="t-color-picker__trigger--default"
+                class="t-input__wrap"
               >
                 <div
-                  class="t-input__wrap"
+                  class="t-input t-input--prefix t-input--auto-width"
                 >
+                  <!---->
                   <div
-                    class="t-input t-input--prefix t-input--auto-width"
+                    class="t-input__prefix"
                   >
-                    <!---->
+                    
                     <div
-                      class="t-input__prefix"
+                      class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
                     >
-                      
-                      <div
-                        class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
-                      >
-                        <span
-                          class="color-inner"
-                          style="background: rgb(0, 82, 217);"
-                        />
-                      </div>
-                      
+                      <span
+                        class="color-inner"
+                        style="background: rgb(0, 82, 217);"
+                      />
                     </div>
-                    <input
-                      class="t-input__inner"
-                      placeholder="请输入"
-                      type="text"
-                    />
-                    <span
-                      class="t-input__input-pre"
-                    >
-                      #0052d9
-                    </span>
-                    <!---->
-                    <!---->
-                    <!---->
+                    
                   </div>
+                  <input
+                    class="t-input__inner"
+                    placeholder="请输入"
+                    type="text"
+                  />
+                  <span
+                    class="t-input__input-pre"
+                  >
+                    #0052d9
+                  </span>
+                  <!---->
+                  <!---->
                   <!---->
                 </div>
+                <!---->
               </div>
             </div>
             <!---->
@@ -32416,44 +32408,40 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/color-mode.vue
           class="t-color-picker__trigger"
         >
           <div
-            class="t-color-picker__trigger--default"
+            class="t-input__wrap"
           >
             <div
-              class="t-input__wrap"
+              class="t-input t-input--prefix t-input--auto-width"
             >
+              <!---->
               <div
-                class="t-input t-input--prefix t-input--auto-width"
+                class="t-input__prefix"
               >
-                <!---->
+                
                 <div
-                  class="t-input__prefix"
+                  class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
                 >
-                  
-                  <div
-                    class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
-                  >
-                    <span
-                      class="color-inner"
-                    />
-                  </div>
-                  
+                  <span
+                    class="color-inner"
+                  />
                 </div>
-                <input
-                  class="t-input__inner"
-                  placeholder="请输入"
-                  type="text"
-                />
-                <span
-                  class="t-input__input-pre"
-                >
-                  linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
-                </span>
-                <!---->
-                <!---->
-                <!---->
+                
               </div>
+              <input
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+              />
+              <span
+                class="t-input__input-pre"
+              >
+                linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
+              </span>
+              <!---->
+              <!---->
               <!---->
             </div>
+            <!---->
           </div>
         </div>
         <!---->
@@ -37091,46 +37079,42 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/status-disable
     class="t-color-picker__trigger"
   >
     <div
-      class="t-color-picker__trigger--default"
+      class="t-input__wrap"
     >
       <div
-        class="t-input__wrap"
+        class="t-input t-is-disabled t-input--prefix t-input--auto-width"
       >
+        <!---->
         <div
-          class="t-input t-is-disabled t-input--prefix t-input--auto-width"
+          class="t-input__prefix"
         >
-          <!---->
+          
           <div
-            class="t-input__prefix"
+            class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
           >
-            
-            <div
-              class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
-            >
-              <span
-                class="color-inner"
-                style="background: rgb(0, 82, 217);"
-              />
-            </div>
-            
+            <span
+              class="color-inner"
+              style="background: rgb(0, 82, 217);"
+            />
           </div>
-          <input
-            class="t-input__inner"
-            disabled=""
-            placeholder="请输入"
-            type="text"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            #0052d9
-          </span>
-          <!---->
-          <!---->
-          <!---->
+          
         </div>
+        <input
+          class="t-input__inner"
+          disabled=""
+          placeholder="请输入"
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          #0052d9
+        </span>
+        <!---->
+        <!---->
         <!---->
       </div>
+      <!---->
     </div>
   </div>
   <!---->
@@ -38882,45 +38866,41 @@ exports[`csr snapshot test > csr test ./src/color-picker/_example/trigger.vue 1`
     class="t-color-picker__trigger"
   >
     <div
-      class="t-color-picker__trigger--default"
+      class="t-input__wrap"
     >
       <div
-        class="t-input__wrap"
+        class="t-input t-input--prefix t-input--auto-width"
       >
+        <!---->
         <div
-          class="t-input t-input--prefix t-input--auto-width"
+          class="t-input__prefix"
         >
-          <!---->
+          
           <div
-            class="t-input__prefix"
+            class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
           >
-            
-            <div
-              class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
-            >
-              <span
-                class="color-inner"
-                style="background: rgb(0, 82, 217);"
-              />
-            </div>
-            
+            <span
+              class="color-inner"
+              style="background: rgb(0, 82, 217);"
+            />
           </div>
-          <input
-            class="t-input__inner"
-            placeholder="请输入"
-            type="text"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            #0052d9
-          </span>
-          <!---->
-          <!---->
-          <!---->
+          
         </div>
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          #0052d9
+        </span>
+        <!---->
+        <!---->
         <!---->
       </div>
+      <!---->
     </div>
   </div>
   <!---->
