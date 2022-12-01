@@ -67203,8 +67203,8 @@ exports[`csr snapshot test > csr test ./src/image/_example/extra-always.vue 1`] 
             class="t-image__overlay-content"
           >
             <span
-              class="t-tag t-tag--warning t-tag--dark t-size-m t-tag--mark"
-              style="position: absolute; right: 8px; bottom: 8px; border-radius: 3px; background: rgb(236, 242, 254); color: rgb(0, 82, 217);"
+              class="t-tag t-tag--primary t-tag--light t-size-m t-tag--mark"
+              style="position: absolute; right: 8px; bottom: 8px; border-radius: 3px;"
             >
               <!---->
               
@@ -67225,6 +67225,94 @@ exports[`csr snapshot test > csr test ./src/image/_example/extra-always.vue 1`] 
               
               <!---->
             </span>
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      
+    </div>
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-space-item"
+  >
+    <div
+      class="t-space t-space-vertical"
+      style="gap: 16px;"
+    >
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <strong
+          style="font-size: 20px;"
+        >
+          插槽使用
+        </strong>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="t-space-item"
+      >
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          disabled="false"
+          style="width: 284px; height: 160px;"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              align="center"
+              direction="vertical"
+              size="8"
+            >
+              图片加载中
+            </div>
+          </div>
+          <!---->
+          <div
+            class="t-image__overlay-content"
+          >
+            
+            <span
+              class="t-tag t-tag--primary t-tag--light t-size-m t-tag--mark"
+              style="position: absolute; right: 8px; bottom: 8px; border-radius: 3px;"
+            >
+              <!---->
+              
+              <svg
+                class="t-icon t-icon-print"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M4 2v2H3a1 1 0 00-1 1v5a1 1 0 001 1h1v3h8v-3h1a1 1 0 001-1V5a1 1 0 00-1-1h-1V2H4zm7 2H5V3h6v1zM3 5h10v5h-1V8H4v2H3V5zm2 8V9h6v4H5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+               高清 
+              
+              <!---->
+            </span>
+            
           </div>
         </div>
       </div>
