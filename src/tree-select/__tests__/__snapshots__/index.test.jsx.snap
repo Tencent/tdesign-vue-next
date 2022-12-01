@@ -64,7 +64,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -557,7 +557,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -984,7 +984,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
@@ -1312,7 +1312,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-tag-input--break-line t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"

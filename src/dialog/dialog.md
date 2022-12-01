@@ -70,7 +70,7 @@ update | `(props: DialogOptions)` | \- | 更新弹框内容
 
 ### DialogPlugin
 
-同时也支持 `this.$dialog`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -80,7 +80,7 @@ options | \- | - | TS 类型：`DialogOptions`
 
 ### DialogPlugin.confirm
 
-同时也支持 `this.$dialog.confirm`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog.confirm`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -88,7 +88,7 @@ options | \- | - | TS 类型：`DialogOptions`
 
 ### DialogPlugin.alert
 
-同时也支持 `this.$dialog.alert`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$dialog.alert`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --

@@ -49,7 +49,7 @@ zIndex | Number | 6000 | 消息通知层级 | N
 
 ### NotificationPlugin
 
-同时也支持 `this.$notification`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -58,7 +58,7 @@ options | Object | - | 必需。消息通知内容。TS 类型：`NotificationOp
 
 ### NotificationPlugin.info
 
-同时也支持 `this.$notification.info`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.info`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -68,7 +68,7 @@ options | Object | - | 必需。消息通知内容。TS 类型：`NotificationIn
 
 ### NotificationPlugin.warning
 
-同时也支持 `this.$notification.warning`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.warning`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -78,7 +78,7 @@ options | Object | - | 必需。消息通知内容。TS 类型：`NotificationIn
 
 ### NotificationPlugin.error
 
-同时也支持 `this.$notification.error`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.error`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -88,7 +88,7 @@ options | Object | - | 必需。消息通知内容。TS 类型：`NotificationIn
 
 ### NotificationPlugin.success
 
-同时也支持 `this.$notification.success`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.success`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -98,7 +98,7 @@ options | Object | - | 必需。消息通知内容。TS 类型：`NotificationIn
 
 ### NotificationPlugin.close
 
-同时也支持 `this.$notification.close`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.close`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -106,7 +106,7 @@ options | Object | - | 必需。该插件参数为 $Notification.info() 等插�
 
 ### NotificationPlugin.closeAll
 
-同时也支持 `this.$notification.closeAll`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.closeAll`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
@@ -114,7 +114,7 @@ options | Object | - | 必需。该插件参数为 $Notification.info() 等插�
 
 ### NotificationPlugin.config
 
-同时也支持 `this.$notification.config`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$notification.config`。
 
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --

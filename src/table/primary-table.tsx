@@ -10,13 +10,7 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import {
-  TdPrimaryTableProps,
-  PrimaryTableCol,
-  TableRowData,
-  PrimaryTableCellParams,
-  PrimaryTableRowEditContext,
-} from './type';
+import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
@@ -40,6 +34,7 @@ const OMIT_PROPS = [
   'expandOnRowClick',
   'multipleSort',
   'expandIcon',
+  'reserveSelectedRowOnPaginate',
   'onChange',
   'onAsyncLoadingClick',
   'onColumnChange',
@@ -65,6 +60,7 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref(null);
+
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
     const { sizeClassNames } = useStyle(props);
@@ -76,7 +72,10 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { formatToRowSelectColumn, selectedRowClassNames } = useRowSelect(props, tableSelectedClasses);
+    const { selectedRowClassNames, currentPaginateData, formatToRowSelectColumn, setTSelectedRowKeys } = useRowSelect(
+      props,
+      tableSelectedClasses,
+    );
     // 过滤功能
     const {
       hasEmptyCondition,
@@ -228,12 +227,21 @@ export default defineComponent({
     });
 
     const onInnerPageChange = (pageInfo: PageInfo, newData: Array<TableRowData>) => {
+      currentPaginateData.value = newData;
       props.onPageChange?.(pageInfo, newData);
       const changeParams: Parameters<TdPrimaryTableProps['onChange']> = [
         { pagination: pageInfo },
         { trigger: 'pagination', currentData: newData },
       ];
       props.onChange?.(...changeParams);
+      // 是否在分页时保留选中结果，如果不保留则需清空
+      if (!props.reserveSelectedRowOnPaginate) {
+        setTSelectedRowKeys([], {
+          selectedRowData: [],
+          type: 'uncheck',
+          currentRowKey: 'CLEAR_ON_PAGINATE',
+        });
+      }
     };
 
     return () => {

@@ -4,6 +4,7 @@
       v-model="value"
       :options="options"
       highlight-keyword
+      :filterable="false"
       placeholder="请输入关键词搜索"
       @change="onChange"
     />

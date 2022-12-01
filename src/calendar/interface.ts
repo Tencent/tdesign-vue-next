@@ -74,7 +74,10 @@ export interface CellEventOption {
  */
 export interface CalendarState {
   realFirstDayOfWeek: number;
-  curDate: dayjs.Dayjs | null;
+  // 当前选中的高亮日期，单选（默认 multiple === false）的时候用这个
+  curDate?: dayjs.Dayjs | null;
+  // 当前选中的高亮日期列表，多选（multiple === true）的时候用这个
+  curDateList?: dayjs.Dayjs[];
   curSelectedYear: number | null;
   curSelectedMonth: number | null;
   curSelectedMode: string | null;

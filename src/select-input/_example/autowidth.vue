@@ -57,18 +57,23 @@ const onInputChange = (val, context) => {
   console.log(val, context);
 };
 </script>
-<style lang="less" scoped>
+<style>
 .tdesign-demo__select-input-ul-auto-width {
-  padding: 4px 0;
+  padding: 2px 0;
+  margin: 0 -2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
+
 .tdesign-demo__select-input-ul-auto-width > li {
   display: block;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;

@@ -4,6 +4,43 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.25.0 `2022-12-01` 
+### ❗ Breaking Changes
+- `Jumper`: Jumper 更名为 PaginationMini 组件，正在使用 Jumper 组件的同学请从 Pagination 中导出替换 @honkinglin ([#2066](https://github.com/Tencent/tdesign-vue-next/pull/2066))
+
+### 🚀 Features
+- `Table`: 选中行功能，新增 `reserveSelectedRowOnPaginate`，用于支持在分页场景中，仅选中当前页数据，切换分页时清空选中结果，全选仅选中当前页数据 @chaishi ([#2074](https://github.com/Tencent/tdesign-vue-next/pull/2074))
+- `Calendar`: 日历组件支持多个高亮单元格； @PsTiu ([#2075](https://github.com/Tencent/tdesign-vue-next/pull/2075))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复本地数据分页场景中，切换分页大小，`onPageChange` 事件参数返回的数据不正确问题 @chaishi ([#2074](https://github.com/Tencent/tdesign-vue-next/pull/2074))
+  - 序号列支持跨分页显示([issue#2072](https://github.com/Tencent/tdesign-vue-next/issues/2072)) @chaishi ([#2074](https://github.com/Tencent/tdesign-vue-next/pull/2074))
+  - 修复分页场景下，设置 max-height 和 bordered 之后，边框线位置不正确 ([issue#2062](https://github.com/Tencent/tdesign-vue-next/issues/2062)) @chaishi ([#2074](https://github.com/Tencent/tdesign-vue-next/pull/2074))
+  - 行选中事件参数选中数据支持 `data.push`([tdesign-vue#1747](https://github.com/Tencent/tdesign-vue/issues/1747)) @chaishi ([#2074](https://github.com/Tencent/tdesign-vue-next/pull/2074))
+- `TagInput`: 
+  - 不同尺寸的间距和高度问题修复 ([issue#1843](https://github.com/Tencent/tdesign-vue/issues/1843)) @chaishi ([#2087](https://github.com/Tencent/tdesign-vue-next/pull/2087))
+  - 右侧图标会和标签重合问题 @chaishi ([#2087](https://github.com/Tencent/tdesign-vue-next/pull/2087))
+  - 修复 `onRemove` 事件参数未能返回最新 `value` 问题 @chaishi ([#2087](https://github.com/Tencent/tdesign-vue-next/pull/2087))
+  - 修复拼音输入时按下 Enter 触发标签确认问题 @chaishi ([#2087](https://github.com/Tencent/tdesign-vue-next/pull/2087))
+  - 修复拼音输入时按下删除键触发标签删除问题，当在拼音输入完成后允许删除标签([issue#1857](https://github.com/Tencent/tdesign-vue-next/issues/1857)) @chaishi ([#2087](https://github.com/Tencent/tdesign-vue-next/pull/2087))
+- `Image`: 
+  - 修复  `placeholder` 接收类型警告 ([issue #2093](https://github.com/Tencent/tdesign-vue-next/issues/2093)) @pengYYYYY ([#2094](https://github.com/Tencent/tdesign-vue-next/pull/2094))
+  -  修复图片组件的 `overlayContent` 无效 ([issue #1996](https://github.com/Tencent/tdesign-vue-next/issues/1996)) @pengYYYYY ([#2094](https://github.com/Tencent/tdesign-vue-next/pull/2094))
+- `AutoComplete`: 支持使用 `triggerElement` 自定义 `AutoComplete` 的触发元素 @chaishi ([#2070](https://github.com/Tencent/tdesign-vue-next/pull/2070))
+- `Tooltip`: 修复继承 `Popup` 组件 `disabled` 属性失效 ([issue #1962](https://github.com/Tencent/tdesign-vue-next/issues/1962)) @Zzongke ([#2069](https://github.com/Tencent/tdesign-vue-next/pull/2069))
+- `Calendar`: 修复日历组件在月历模式下高亮显示的 `bug`。 @PsTiu ([#2075](https://github.com/Tencent/tdesign-vue-next/pull/2075))
+- `Menu`: 修复多层收纳导航 `head-menu` 默认未激活([issue 1810](https://github.com/Tencent/tdesign-vue-next/issues/1810)) @sinbadmaster ([#2073](https://github.com/Tencent/tdesign-vue-next/pull/2073))
+- `Dialog`: 调整 `body` 锁定逻辑 @honkinglin ([#2083](https://github.com/Tencent/tdesign-vue-next/pull/2083))
+- `Drawer`: 修复 `drawer` 动画效果 @honkinglin ([#2089](https://github.com/Tencent/tdesign-vue-next/pull/2089))
+- `Textarea`: 修复 `status` 类型为 `default` 无效 ([issue #2023](https://github.com/Tencent/tdesign-vue-next/issues/2023)) @pengYYYYY ([#2094](https://github.com/Tencent/tdesign-vue-next/pull/2094))
+- `ImageViewer`: 提升 `ImageViewer` 默认 `zIndex` ([issue #2068](https://github.com/Tencent/tdesign-vue-next/issues/2068)) @sinbadmaster ([#2071](https://github.com/Tencent/tdesign-vue-next/pull/2071))
+- `Calendar`: 修复日历组件中 `lodash` 的引入会全量引入 @PsTiu ([#2082](https://github.com/Tencent/tdesign-vue-next/pull/2082))
+
+### 🚧 Others
+- 更新 Message/Notification/Dialog 等组件文档 @chaishi ([#2065](https://github.com/Tencent/tdesign-vue-next/pull/2065))
+- `SelectInput`: 示例代码样式修复 @Wen1kang ([#2077](https://github.com/Tencent/tdesign-vue-next/pull/2077))
+- `Calendar`: 示例代码样式修复 @Wen1kang ([#2090](https://github.com/Tencent/tdesign-vue-next/pull/2090))
+
 ## 🌈 0.24.9 `2022-11-24` 
 ### 🚀 Features
 - `Volar`: 新增 `volar` 代码提示文件 @chaishi ([#2055](https://github.com/Tencent/tdesign-vue-next/pull/2055))

@@ -16,6 +16,22 @@
         :overlay-content="renderButton"
       />
     </t-space>
+
+    <t-space direction="vertical">
+      <strong :style="{ fontSize: '20px' }">插槽使用</strong>
+      <t-image src="https://tdesign.gtimg.com/demo/demo-image-1.png" :style="{ width: '284px', height: '160px' }">
+        <template #overlayContent>
+          <Tag
+            shape="mark"
+            theme="primary"
+            variant="light"
+            :style="{ position: 'absolute', right: '8px', bottom: '8px', borderRadius: '3px' }"
+          >
+            <PrintIcon size="16" /> 高清
+          </Tag>
+        </template>
+      </t-image>
+    </t-space>
   </t-space>
 </template>
 
@@ -52,14 +68,13 @@ const renderMask = (
 const renderButton = (
   <Tag
     shape="mark"
-    theme="warning"
+    theme="primary"
+    variant="light"
     style={{
       position: 'absolute',
       right: '8px',
       bottom: '8px',
       borderRadius: '3px',
-      background: 'rgba(236,242,254,1)',
-      color: 'rgba(0,82,217,1)',
     }}
   >
     <PrintIcon size="16" /> 高清

@@ -1,11 +1,12 @@
 <template>
   <t-space direction="vertical">
-    <div>
-      <label>可以在组件外切换成：</label>
-      <t-select v-model="mode" class="demo-select-base">
-        <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
-      </t-select>
-    </div>
+    <t-form layout="inline">
+      <t-form-item label="切换模式为：">
+        <t-select v-model="mode" class="demo-select-base">
+          <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
+        </t-select>
+      </t-form-item>
+    </t-form>
     <t-calendar :mode="mode" />
   </t-space>
 </template>

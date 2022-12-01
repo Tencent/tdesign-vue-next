@@ -1,14 +1,12 @@
 <template>
-  <t-space>
-    <t-pagination
-      v-model:pageSize="pageSize"
-      :total="100"
-      size="small"
-      @change="onChange"
-      @page-size-change="onPageSizeChange"
-      @current-change="onCurrentChange"
-    />
-  </t-space>
+  <t-pagination
+    v-model:pageSize="pageSize"
+    :total="100"
+    size="small"
+    @change="onChange"
+    @page-size-change="onPageSizeChange"
+    @current-change="onCurrentChange"
+  />
 </template>
 
 <script setup>

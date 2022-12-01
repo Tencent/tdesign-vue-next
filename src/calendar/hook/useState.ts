@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
-import { TdCalendarProps } from '../type';
+import { TdCalendarProps, CalendarValue } from '../type';
 import { CalendarState } from '../interface';
 
 export function useState(props: TdCalendarProps) {
@@ -13,6 +13,7 @@ export function useState(props: TdCalendarProps) {
   const state = reactive<CalendarState>({
     realFirstDayOfWeek: 1,
     curDate: null,
+    curDateList: [],
     curSelectedYear: null,
     curSelectedMonth: null,
     curSelectedMode: null,
@@ -41,7 +42,19 @@ export function useState(props: TdCalendarProps) {
   }
 
   function setCurrentDate(value?: TdCalendarProps['value']): void {
-    state.curDate = value ? dayjs(value) : createDefaultCurDate();
+    if (Array.isArray(value)) {
+      state.curDate = value && value.length ? dayjs(value[0]) : createDefaultCurDate();
+    } else {
+      state.curDate = value ? dayjs(value) : createDefaultCurDate();
+    }
+  }
+
+  function setCurrentDateList(value?: TdCalendarProps['value']): void {
+    if (Array.isArray(value)) {
+      state.curDateList = value && value.length ? value.map((item) => dayjs(item)) : [createDefaultCurDate()];
+    } else {
+      state.curDateList = value ? [dayjs(value)] : [createDefaultCurDate()];
+    }
   }
 
   function checkDayVisibled(day: number) {
@@ -62,7 +75,11 @@ export function useState(props: TdCalendarProps) {
   watch(
     () => props.value,
     (v: TdCalendarProps['value']) => {
-      setCurrentDate(v);
+      if (props.multiple) {
+        setCurrentDateList(v);
+      } else {
+        setCurrentDate(v);
+      }
     },
     { immediate: true },
   );
@@ -91,6 +108,14 @@ export function useState(props: TdCalendarProps) {
     () => props.mode,
     (v: TdCalendarProps['mode']) => {
       state.curSelectedMode = v;
+    },
+    { immediate: true },
+  );
+  watch(
+    () => props.theme,
+    (v: TdCalendarProps['theme']) => {
+      if (v === 'card') state.controlSize = 'small';
+      if (v === 'full') state.controlSize = 'medium';
     },
     { immediate: true },
   );

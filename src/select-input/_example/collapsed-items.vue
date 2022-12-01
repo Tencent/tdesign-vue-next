@@ -3,6 +3,7 @@
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
       clearable
@@ -24,6 +25,7 @@
       :value="value"
       :min-collapsed-num="2"
       :collapsed-items="renderCollapsedItems"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
       clearable
@@ -44,6 +46,7 @@
     <t-select-input
       :value="value"
       :min-collapsed-num="3"
+      :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
       clearable
@@ -136,26 +139,27 @@ const renderCollapsedItems = (_, { collapsedTags }) => {
   return <Tag>更多({collapsedTags.length})</Tag>;
 };
 </script>
-<style lang="less">
+<style>
 .tdesign-demo__panel-options-collapsed-items {
   width: 100%;
-  padding: 4px 0;
-  display: inline-block;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .tdesign-demo__panel-options-collapsed-items .t-checkbox {
   display: flex;
   border-radius: 3px;
   line-height: 22px;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 3px 8px;
   color: var(--td-text-color-primary);
-  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  transition: background-color 0.2s linear;
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  margin-bottom: 4px;
 }
 
 .tdesign-demo__panel-options-collapsed-items .t-checkbox:hover {
