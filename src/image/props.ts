@@ -51,7 +51,7 @@ export default {
   },
   /** 占位元素，展示层级低于 `loading` `error` 和图片本身，值类型为字符串时表示占位图片地址 */
   placeholder: {
-    type: Object as PropType<TdImageProps['placeholder']>,
+    type: [String, Object] as PropType<TdImageProps['placeholder']>,
   },
   /** 等同于原生的 object-position 属性，可选值为 top right bottom left 或 string，可以自定义任何单位，px 或者 百分比 */
   position: {

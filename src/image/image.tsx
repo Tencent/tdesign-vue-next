@@ -65,7 +65,8 @@ export default defineComponent({
       return <div class={`${classPrefix.value}-image__gallery-shadow`} />;
     };
     const renderOverlay = () => {
-      if (!props.overlayContent) return null;
+      const overlayContent = renderTNodDefault('overlayContent');
+      if (!overlayContent) return null;
       return (
         <div
           class={[
@@ -73,7 +74,7 @@ export default defineComponent({
             !shouldShowOverlay.value && `${classPrefix.value}-image__overlay-content--hidden`,
           ]}
         >
-          {props.overlayContent}
+          {overlayContent}
         </div>
       );
     };

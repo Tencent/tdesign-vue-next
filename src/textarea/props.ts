@@ -41,7 +41,7 @@ export default {
   status: {
     type: String as PropType<TdTextareaProps['status']>,
     validator(val: TdTextareaProps['status']): boolean {
-      return ['success', 'warning', 'error'].includes(val);
+      return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
   /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
