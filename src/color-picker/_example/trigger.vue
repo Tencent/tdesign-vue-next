@@ -1,5 +1,5 @@
 <template>
-  <t-color-picker v-model="color" />
+  <t-color-picker v-model="color" :show-primary-color-preview="false" />
 </template>
 <script setup>
 import { ref } from 'vue';

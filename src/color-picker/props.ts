@@ -16,7 +16,7 @@ export default {
   /** 颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色 */
   colorModes: {
     type: Array as PropType<TdColorPickerProps['colorModes']>,
-    default: ['monochrome', 'linear-gradient'],
+    default: () => ['monochrome', 'linear-gradient'],
   },
   /** 是否禁用组件 */
   disabled: Boolean,
@@ -54,6 +54,11 @@ export default {
   /** 透传 SelectInputProps 筛选器输入框组件全部属性 */
   selectInputProps: {
     type: Object as PropType<TdColorPickerProps['selectInputProps']>,
+  },
+  /** 是否展示颜色选择条右侧的颜色预览区域 */
+  showPrimaryColorPreview: {
+    type: Boolean,
+    default: true,
   },
   /** 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色 */
   swatchColors: {

@@ -7,13 +7,23 @@
       </t-space>
       <t-space direction="vertical" size="small">
         <p>仅单色模式</p>
-        <t-color-picker v-model="color2" format="CSS" :color-modes="['monochrome']" />
+        <t-color-picker
+          v-model="color2"
+          format="CSS"
+          :color-modes="['monochrome']"
+          :show-primary-color-preview="false"
+        />
       </t-space>
     </t-space>
 
     <t-space direction="vertical" size="small">
       <p>仅线性渐变模式</p>
-      <t-color-picker v-model="color3" format="CSS" :color-modes="['linear-gradient']" />
+      <t-color-picker
+        v-model="color3"
+        format="CSS"
+        :color-modes="['linear-gradient']"
+        :input-props="{ clearable: true }"
+      />
     </t-space>
   </t-space>
 </template>

@@ -18,6 +18,12 @@
     "options": []
   },
   {
+    "name": "showPrimaryColorPreview",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
     "name": "format",
     "type": "enum",
     "defaultValue": "RGB",

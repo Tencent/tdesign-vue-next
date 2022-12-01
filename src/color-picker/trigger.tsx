@@ -44,7 +44,7 @@ export default defineComponent({
       if (input === props.color) {
         return;
       }
-      if (!Color.isValid(input)) {
+      if (input && !Color.isValid(input)) {
         value.value = props.color;
       } else {
         value.value = input;
