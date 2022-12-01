@@ -2,6 +2,7 @@ import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
 import { GlobalConfigProvider } from './type';
+import type { ConfigProviderProps } from './config-provider';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
@@ -56,12 +57,12 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
 
 /**
  * provide globalConfig
- * @param {GlobalConfigProvider} propsGlobalConfig
- * @returns {GlobalConfigProvider}
+ * @param {ConfigProviderProps} props
+ * @returns {ComputedRef<GlobalConfigProvider>}
  */
-export const provideConfig = (propsGlobalConfig: GlobalConfigProvider) => {
+export const provideConfig = (props: ConfigProviderProps) => {
   const defaultData = cloneDeep(defaultGlobalConfig);
-  const mergedGlobalConfig = computed(() => mergeWith(defaultData, propsGlobalConfig));
+  const mergedGlobalConfig = computed(() => mergeWith(defaultData, props.globalConfig));
 
   provide(configProviderInjectKey, mergedGlobalConfig);
 
