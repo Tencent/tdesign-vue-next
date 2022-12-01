@@ -18,12 +18,7 @@
 
     <t-space direction="vertical" size="small">
       <p>仅线性渐变模式</p>
-      <t-color-picker
-        v-model="color3"
-        format="CSS"
-        :color-modes="['linear-gradient']"
-        :input-props="{ clearable: true }"
-      />
+      <t-color-picker v-model="color3" format="CSS" :color-modes="['linear-gradient']" />
     </t-space>
   </t-space>
 </template>
