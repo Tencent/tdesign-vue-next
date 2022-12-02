@@ -51,7 +51,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { popupProps, disabled, baseClassName } = this;
+    const { popupProps, baseClassName } = this;
     const popProps = {
       placement: 'bottom-left',
       ...((popupProps as any) || {}),
@@ -81,7 +81,8 @@ export default defineComponent({
             'default',
             <DefaultTrigger
               color={this.innerValue}
-              disabled={disabled}
+              disabled={this.disabled}
+              clearable={this.clearable}
               input-props={this.inputProps}
               onTriggerChange={this.setInnerValue}
             />,

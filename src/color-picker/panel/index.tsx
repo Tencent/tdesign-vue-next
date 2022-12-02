@@ -267,7 +267,16 @@ export default defineComponent({
     };
   },
   render() {
-    const { baseClassName, statusClassNames, t, globalConfig, recentColors, recentlyUsedColors, swatchColors } = this;
+    const {
+      t,
+      baseClassName,
+      statusClassNames,
+      globalConfig,
+      recentColors,
+      recentlyUsedColors,
+      swatchColors,
+      showPrimaryColorPreview,
+    } = this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
@@ -312,6 +321,7 @@ export default defineComponent({
     };
 
     const isGradient = this.mode === 'linear-gradient';
+
     return (
       <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
@@ -326,14 +336,16 @@ export default defineComponent({
               {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
             </div>
 
-            <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
-              <span
-                class={`${baseClassName}__sliders-preview-inner`}
-                style={{
-                  background: isGradient ? this.color.linearGradient : this.color.rgba,
-                }}
-              />
-            </div>
+            {showPrimaryColorPreview ? (
+              <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
+                <span
+                  class={`${baseClassName}__sliders-preview-inner`}
+                  style={{
+                    background: isGradient ? this.color.linearGradient : this.color.rgba,
+                  }}
+                />
+              </div>
+            ) : null}
           </div>
 
           <FormatPanel
