@@ -1,22 +1,21 @@
-import { defineComponent, PropType, provide, computed } from 'vue';
-import cloneDeep from 'lodash/cloneDeep';
+import { defineComponent, PropType, ExtractPropTypes } from 'vue';
 import { GlobalConfigProvider } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
-import { configProviderInjectKey, defaultGlobalConfig, mergeWith } from './context';
+import { provideConfig } from './useConfig';
+
+const configProviderProps = {
+  globalConfig: Object as PropType<GlobalConfigProvider>,
+} as const;
+
+export type ConfigProviderProps = ExtractPropTypes<typeof configProviderProps>;
 
 export default defineComponent({
   name: 'TConfigProvider',
 
-  props: {
-    globalConfig: Object as PropType<GlobalConfigProvider>,
-  },
+  props: configProviderProps,
 
   setup(props) {
-    const defaultData = cloneDeep(defaultGlobalConfig);
-    provide(
-      configProviderInjectKey,
-      computed(() => mergeWith(defaultData, props.globalConfig)),
-    );
+    provideConfig(props);
 
     const renderTNodeJSX = useTNodeJSX();
 
