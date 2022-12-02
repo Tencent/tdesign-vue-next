@@ -7,7 +7,12 @@
       </t-space>
       <t-space direction="vertical" size="small">
         <p>仅单色模式</p>
-        <t-color-picker v-model="color2" format="CSS" :color-modes="['monochrome']" />
+        <t-color-picker
+          v-model="color2"
+          format="CSS"
+          :color-modes="['monochrome']"
+          :show-primary-color-preview="false"
+        />
       </t-space>
     </t-space>
 
