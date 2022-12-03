@@ -72,9 +72,7 @@ describe('Radio', () => {
     it(':onClick', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Radio onClick={fn}>label</Radio>);
-      const radio = wrapper.find('input');
-      await nextTick();
-      await radio.trigger('click');
+      await wrapper.trigger('click');
       await nextTick();
       expect(fn).toBeCalled();
     });
