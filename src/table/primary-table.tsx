@@ -1,7 +1,6 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import isFunction from 'lodash/isFunction';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -35,6 +34,7 @@ const OMIT_PROPS = [
   'multipleSort',
   'expandIcon',
   'reserveSelectedRowOnPaginate',
+  'selectOnRowClick',
   'onChange',
   'onAsyncLoadingClick',
   'onColumnChange',
