@@ -1,12 +1,13 @@
 <template>
   <div>
     <!-- 支持非受控属性 default-selected-row-keys -->
-    <!-- 支持语法糖 selected-row-keys.sync -->
+    <!-- 支持语法糖 v-model:selected-row-keys -->
     <t-table
       row-key="tid"
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
+      select-on-row-click
       @select-change="rehandleSelectChange"
     >
       <template #status="{ row }">
