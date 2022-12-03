@@ -103,7 +103,7 @@ export default function useRowSelect(
     const disabled: boolean = typeof col.disabled === 'function' ? col.disabled({ row, rowIndex }) : col.disabled;
     const checkProps = isFunction(col.checkProps) ? col.checkProps({ row, rowIndex }) : col.checkProps;
     return {
-      disabled: disabled || checkProps.disabled,
+      disabled: disabled || checkProps?.disabled,
       checkProps,
     };
   }
