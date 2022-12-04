@@ -109,7 +109,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   };
 
   const refreshVirtualScroll = () => {
-    // console.log('refreshVirtualScroll');
+    updateVisibleData(trScrollTopHeightList.value);
   };
 
   const addIndexToData = (data: any[]) => {
@@ -136,15 +136,15 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   );
 
   watch(
-    [startAndEndIndex],
-    ([startAndEndIndex]) => {
+    [startAndEndIndex, container],
+    ([startAndEndIndex, container]) => {
       if (startAndEndIndex[0] < 0) return;
       const { data } = params.value;
       const [startIndex, endIndex] = startAndEndIndex;
       visibleData.value = data.slice(startIndex, endIndex);
       translateY.value =
         trScrollTopHeightList.value[startIndex - 1] > 0
-          ? trScrollTopHeightList.value[startIndex - 1] - container.value.offsetHeight
+          ? trScrollTopHeightList.value[startIndex - 1] - container.offsetHeight
           : 0;
       // console.log(startIndex, endIndex, translateY.value);
       // console.log(trScrollTopHeightList.value, translateY.value, visibleData.value.map(t => t.id))
