@@ -52,7 +52,7 @@ const statusNameListMap = {
 const initialData = [];
 for (let i = 0; i < 100; i++) {
   initialData.push({
-    index: i,
+    index: i + 1,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],

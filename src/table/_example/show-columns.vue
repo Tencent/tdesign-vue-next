@@ -69,37 +69,4 @@ const data = [
   cursor: pointer;
   margin-right: 15px;
 }
-.status {
-  position: relative;
-  color: #00a870;
-  margin-left: 10px;
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    content: '';
-    background-color: #00a870;
-    width: 6px;
-    height: 6px;
-    margin-left: -10px;
-    border-radius: 50%;
-  }
-}
-.status.unhealth {
-  color: #e34d59;
-  &::before {
-    background-color: #e34d59;
-  }
-}
-.more-detail {
-  margin: 0px 100px;
-  > p {
-    display: inline-block;
-    margin: 5px;
-  }
-  > p.title {
-    width: 100px;
-  }
-}
 </style>

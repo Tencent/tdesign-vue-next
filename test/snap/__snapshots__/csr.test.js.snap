@@ -113880,8 +113880,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -114748,8 +114748,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/async-loading.vue 1`]
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -115439,8 +115439,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/base.vue 1`] = `
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -116413,7 +116413,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
           <col
             style="width: 120px;"
           />
-          <col />
           <col
             style="width: 150px;"
           />
@@ -116453,22 +116452,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
                 class="t-table__th-cell-inner"
               >
                 签署方式
-              </div>
-            </th>
-            <th
-              class="t-table__th-email"
-              data-colkey="email"
-            >
-              <div
-                class="t-table__th-cell-inner"
-              >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  邮箱地址
-                  
-                </div>
               </div>
             </th>
             <th
@@ -116531,17 +116514,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
               电子签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                w.cezkdudy@lhll.au
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-01-01
@@ -116587,17 +116559,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
               class=""
             >
               纸质签署
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                r.nmgw@peurezgn.sl
-                
-              </div>
             </td>
             <td
               class=""
@@ -116647,17 +116608,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
               纸质签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                p.cumx@rampblpa.ru
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-03-01
@@ -116705,17 +116655,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
               电子签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                w.cezkdudy@lhll.au
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-04-01
@@ -116761,17 +116700,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col.vue 1`] = 
               class=""
             >
               纸质签署
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                r.nmgw@peurezgn.sl
-                
-              </div>
             </td>
             <td
               class=""
@@ -117231,7 +117159,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
           <col
             style="width: 120px;"
           />
-          <col />
           <col
             style="width: 150px;"
           />
@@ -117271,22 +117198,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
                 class="t-table__th-cell-inner"
               >
                 签署方式
-              </div>
-            </th>
-            <th
-              class="t-table__th-email"
-              data-colkey="email"
-            >
-              <div
-                class="t-table__th-cell-inner"
-              >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  邮箱地址
-                  
-                </div>
               </div>
             </th>
             <th
@@ -117349,17 +117260,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
               电子签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                w.cezkdudy@lhll.au
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-01-01
@@ -117405,17 +117305,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
               class=""
             >
               纸质签署
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                r.nmgw@peurezgn.sl
-                
-              </div>
             </td>
             <td
               class=""
@@ -117465,17 +117354,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
               纸质签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                p.cumx@rampblpa.ru
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-03-01
@@ -117523,17 +117401,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
               电子签署
             </td>
             <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                w.cezkdudy@lhll.au
-                
-              </div>
-            </td>
-            <td
               class=""
             >
               2022-04-01
@@ -117579,17 +117446,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-col-button.vue
               class=""
             >
               纸质签署
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                r.nmgw@peurezgn.sl
-                
-              </div>
             </td>
             <td
               class=""
@@ -117948,8 +117804,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-footer.vue 1`]
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -118445,8 +118301,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/custom-header.vue 1`]
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -119005,8 +118861,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/data-sort.vue 1`] = `
                   </div>
                 </th>
                 <th
-                  class="t-table__th-email"
-                  data-colkey="email"
+                  class="t-table__th-detail.email"
+                  data-colkey="detail.email"
                 >
                   <div
                     class="t-table__th-cell-inner"
@@ -119458,8 +119314,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-col-sort.vue 1`]
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -119884,8 +119740,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -119920,7 +119776,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
             <!---->
             <tr
               class=""
-              data-id="0"
+              data-id="1"
             >
               
               <td
@@ -119979,7 +119835,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
             </tr>
             <tr
               class=""
-              data-id="1"
+              data-id="2"
             >
               
               <td
@@ -120038,7 +119894,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
             </tr>
             <tr
               class=""
-              data-id="2"
+              data-id="3"
             >
               
               <td
@@ -120097,7 +119953,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
             </tr>
             <tr
               class=""
-              data-id="3"
+              data-id="4"
             >
               
               <td
@@ -120156,7 +120012,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort.vue 1`] = `
             </tr>
             <tr
               class=""
-              data-id="4"
+              data-id="5"
             >
               
               <td
@@ -120379,8 +120235,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -120415,7 +120271,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
             <!---->
             <tr
               class=""
-              data-id="0"
+              data-id="1"
             >
               
               <td
@@ -120493,7 +120349,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
             </tr>
             <tr
               class=""
-              data-id="1"
+              data-id="2"
             >
               
               <td
@@ -120571,7 +120427,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
             </tr>
             <tr
               class=""
-              data-id="2"
+              data-id="3"
             >
               
               <td
@@ -120649,7 +120505,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
             </tr>
             <tr
               class=""
-              data-id="3"
+              data-id="4"
             >
               
               <td
@@ -120727,7 +120583,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/drag-sort-handler.vue
             </tr>
             <tr
               class=""
-              data-id="4"
+              data-id="5"
             >
               
               <td
@@ -122115,6 +121971,9 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
           <col
             style="width: 120px;"
           />
+          <col
+            style="width: 120px;"
+          />
           <col />
           <col />
           <col
@@ -122153,6 +122012,22 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
                 class="t-table__th-cell-inner"
               >
                 审批状态
+              </div>
+            </th>
+            <th
+              class="t-table__th-channel"
+              data-colkey="channel"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  签署方式（超长标题示例）
+                  
+                </div>
               </div>
             </th>
             <th
@@ -122270,6 +122145,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
               </span>
             </td>
             <td
+              class=""
+            >
+              电子签署
+            </td>
+            <td
               class="t-table-td--ellipsis"
             >
               <div
@@ -122360,6 +122240,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
                 
                 <!---->
               </span>
+            </td>
+            <td
+              class=""
+            >
+              纸质签署
             </td>
             <td
               class="t-table-td--ellipsis"
@@ -122454,6 +122339,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
               </span>
             </td>
             <td
+              class=""
+            >
+              纸质签署
+            </td>
+            <td
               class="t-table-td--ellipsis"
             >
               <div
@@ -122546,6 +122436,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
               </span>
             </td>
             <td
+              class=""
+            >
+              电子签署
+            </td>
+            <td
               class="t-table-td--ellipsis"
             >
               <div
@@ -122636,6 +122531,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/ellipsis.vue 1`] = `
                 
                 <!---->
               </span>
+            </td>
+            <td
+              class=""
+            >
+              纸质签署
             </td>
             <td
               class="t-table-td--ellipsis"
@@ -123296,7 +123196,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/expandable.vue 1`] = 
     >
       <!---->
       <table
-        class="t-table--layout-fixed"
+        class="t-table--layout-auto"
+        style="width: 1200px;"
       >
         <colgroup>
           
@@ -123360,8 +123261,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/expandable.vue 1`] = 
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -124239,8 +124140,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/filter-controlled.vue
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -124941,8 +124842,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-column.vue 1`] 
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -125518,8 +125419,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header.vue 1`] 
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -128548,7 +128449,34 @@ exports[`csr snapshot test > csr test ./src/table/_example/fixed-header-col.vue 
             <!---->
             
           </tbody>
-          <!---->
+          <tfoot
+            class="t-table__footer"
+          >
+            <!---->
+            
+            <tr
+              class=""
+            >
+              
+              <td>
+                共20条
+              </td>
+              <td>
+                -
+              </td>
+              <td>
+                -
+              </td>
+              <td>
+                -
+              </td>
+              <td>
+                -
+              </td>
+              
+            </tr>
+            
+          </tfoot>
         </table>
       </div>
       <!---->
@@ -128663,8 +128591,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/lazy.vue 1`] = `
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -138431,8 +138359,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -138715,13 +138643,15 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
               宣传物料制作费用
             </td>
             <td
-              class="t-table__td-last-row"
-              colspan="2"
-              rowspan="2"
+              class=""
             >
               d.cumx@rampblpa.ru
             </td>
-            <!---->
+            <td
+              class=""
+            >
+              纸质签署
+            </td>
             <td
               class=""
             >
@@ -138765,8 +138695,16 @@ exports[`csr snapshot test > csr test ./src/table/_example/merge-cells.vue 1`] =
             >
               algolia 服务报销
             </td>
-            <!---->
-            <!---->
+            <td
+              class=""
+            >
+              w.cezkdudy@lhll.au
+            </td>
+            <td
+              class=""
+            >
+              纸质签署
+            </td>
             <td
               class=""
             >
@@ -139319,8 +139257,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/multi-header.vue 1`] 
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -141147,7 +141085,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
     <div
       style="margin: 16px;"
     >
-      排序方式：[{"sortBy":"status","descending":true},{"sortBy":"survivalTime","descending":false}]
+      排序方式：[{"sortBy":"status","descending":true},{"sortBy":"time","descending":false}]
     </div>
     <!-- 支持受控用法 ，也支持非受控用法 -->
     <div
@@ -141297,7 +141235,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
                           
                           
                           <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                            class="t-table__sort-icon--active t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -141354,8 +141292,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/multiple-sort.vue 1`]
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -141830,6 +141768,9 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
             <col
               style="width: 150px;"
             />
+            <col
+              style="width: 46px;"
+            />
             
           </colgroup>
           <thead
@@ -141869,8 +141810,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -141892,6 +141833,31 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                   class="t-table__th-cell-inner"
                 >
                   申请时间
+                </div>
+              </th>
+              <th
+                class="t-table__cell-check t-table__th-row-select"
+                data-colkey="row-select"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  <label
+                    class="t-checkbox"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      <!---->
+                    </span>
+                  </label>
                 </div>
               </th>
               
@@ -141959,6 +141925,26 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
               >
                 2022-02-01
               </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
               
             </tr>
             <tr
@@ -142016,6 +142002,26 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                 class=""
               >
                 2022-03-01
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
               </td>
               
             </tr>
@@ -142075,6 +142081,26 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
               >
                 2022-04-01
               </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
               
             </tr>
             <tr
@@ -142133,6 +142159,26 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
               >
                 2022-01-01
               </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
+              </td>
               
             </tr>
             <tr
@@ -142190,6 +142236,26 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                 class=""
               >
                 2022-02-01
+              </td>
+              <td
+                class="t-table__cell-check"
+              >
+                <label
+                  class="t-checkbox"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    <!---->
+                  </span>
+                </label>
               </td>
               
             </tr>
@@ -142874,8 +142940,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -143414,8 +143480,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -143528,14 +143594,14 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
             
           </tr>
           <tr
-            class="t-table__row--disabled"
+            class="t-table__row--disabled t-table__row--selected"
           >
             
             <td
               class="t-table__cell-check"
             >
               <label
-                class="t-radio t-is-disabled"
+                class="t-radio t-is-checked t-is-disabled"
               >
                 <input
                   class="t-radio__former"
@@ -143608,14 +143674,14 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
             
           </tr>
           <tr
-            class="t-table__row--selected"
+            class=""
           >
             
             <td
               class="t-table__cell-check"
             >
               <label
-                class="t-radio t-is-checked"
+                class="t-radio"
               >
                 <input
                   class="t-radio__former"
@@ -144674,58 +144740,6 @@ exports[`csr snapshot test > csr test ./src/table/_example/single-sort.vue 1`] =
             </td>
             
           </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class=""
-            >
-              张三
-            </td>
-            <td
-              class="t-table__sort-column"
-            >
-              <span
-                class="t-tag t-tag--danger t-tag--light-outline t-size-m t-tag--round"
-              >
-                <!---->
-                
-                <svg
-                  class="t-icon t-icon-close-circle-filled"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                审批失败
-                
-                <!---->
-              </span>
-            </td>
-            <td
-              class="t-align-center"
-            >
-              2
-            </td>
-            <td
-              class=""
-            >
-              纸质签署
-            </td>
-            <td
-              class=""
-            >
-              2022-01-01
-            </td>
-            
-          </tr>
           <!---->
           
         </tbody>
@@ -144829,7 +144843,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-channel t-align-right"
+              class="custom-cell-class-name t-table__th-channel t-align-right"
               data-colkey="channel"
             >
               <div
@@ -144839,8 +144853,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -144914,7 +144928,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               2
             </td>
             <td
-              class="t-align-right"
+              class="custom-cell-class-name t-align-right"
             >
               电子签署
             </td>
@@ -144978,7 +144992,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               10
             </td>
             <td
-              class="t-align-right"
+              class="custom-cell-class-name t-align-right"
             >
               纸质签署
             </td>
@@ -145041,7 +145055,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               1
             </td>
             <td
-              class="t-align-right"
+              class="custom-cell-class-name t-align-right"
             >
               纸质签署
             </td>
@@ -145104,7 +145118,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               2
             </td>
             <td
-              class="t-align-right"
+              class="custom-cell-class-name t-align-right"
             >
               电子签署
             </td>
@@ -145168,7 +145182,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/style.vue 1`] = `
               10
             </td>
             <td
-              class="t-align-right"
+              class="custom-cell-class-name t-align-right"
             >
               纸质签署
             </td>
@@ -146959,8 +146973,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/tree-select.vue 1`] =
               </div>
             </th>
             <th
-              class="t-table__th-email"
-              data-colkey="email"
+              class="t-table__th-detail.email"
+              data-colkey="detail.email"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -147681,8 +147695,8 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
                 </div>
               </th>
               <th
-                class="t-table__th-email"
-                data-colkey="email"
+                class="t-table__th-detail.email"
+                data-colkey="detail.email"
               >
                 <div
                   class="t-table__th-cell-inner"

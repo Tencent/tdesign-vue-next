@@ -101,7 +101,7 @@ const getColumns = (isFixedColumn) => [
 ];
 
 const data = new Array(5).fill(null).map((item, i) => ({
-  index: i,
+  index: i + 1,
   applicant: ['贾明', '张三', '王芳'][i % 3],
   status: i % 3,
   channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -181,37 +181,5 @@ watch(
 .link {
   cursor: pointer;
   margin-right: 15px;
-}
-.status {
-  position: relative;
-  color: #00a870;
-  margin-left: 10px;
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    content: '';
-    background-color: #00a870;
-    width: 6px;
-    height: 6px;
-    margin-left: -10px;
-    border-radius: 50%;
-  }
-}
-.status.unhealth {
-  color: #e34d59;
-  &::before {
-    background-color: #e34d59;
-  }
-}
-.more-detail {
-  > p {
-    display: inline-block;
-    margin: 4px 0;
-  }
-  > p.title {
-    width: 120px;
-  }
 }
 </style>

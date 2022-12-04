@@ -42,7 +42,7 @@ const statusNameListMap = {
 const initialData = [];
 for (let i = 0; i < 5; i++) {
   initialData.push({
-    index: i,
+    index: i + 1,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -134,46 +134,5 @@ const dataChange = (data) => {
 /** 修正自定义排序图标位置 */
 .t-table-demo-sort .t-table-sort-desc {
   margin-top: -12px;
-}
-
-.demo-container {
-  .title {
-    font-size: 14px;
-    line-height: 28px;
-    display: block;
-    margin: 10px 0px;
-    i {
-      font-style: normal;
-    }
-  }
-  .status {
-    position: relative;
-    color: #00a870;
-    margin-left: 10px;
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 0px;
-      transform: translateY(-50%);
-      content: '';
-      background-color: #00a870;
-      width: 6px;
-      height: 6px;
-      margin-left: -10px;
-      border-radius: 50%;
-    }
-  }
-  .status.unhealth {
-    color: #e34d59;
-    &::before {
-      background-color: #e34d59;
-    }
-  }
-  .status.warning {
-    color: #ed7b2f;
-    &::before {
-      background-color: #ed7b2f;
-    }
-  }
 }
 </style>

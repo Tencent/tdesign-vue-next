@@ -27,11 +27,6 @@
       @sort-change="sortChange"
       @change="onChange"
     >
-      <template #status="{ row }">
-        <p v-if="row.status === 0" class="status">健康</p>
-        <p v-if="row.status === 1" class="status warning">警告</p>
-        <p v-if="row.status === 2" class="status unhealth">异常</p>
-      </template>
     </t-table>
   </div>
 </template>
@@ -53,7 +48,7 @@ const columns = ref([
     title: '申请状态',
     width: '150',
     sortType: 'all',
-    sorter: (a, b) => a.status - b.status,
+    sorter: true,
     cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
@@ -76,7 +71,7 @@ const columns = ref([
 ]);
 
 const initialData = new Array(4).fill(null).map((_, i) => ({
-  index: i,
+  index: i + 1,
   applicant: ['贾明', '张三', '王芳'][i % 3],
   status: i % 3,
   channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -129,45 +124,5 @@ const defaultSortChange = (sort) => {
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {
   background-color: transparent;
-}
-.demo-container {
-  .title {
-    font-size: 14px;
-    line-height: 28px;
-    display: block;
-    margin: 10px 0px;
-    i {
-      font-style: normal;
-    }
-  }
-  .status {
-    position: relative;
-    color: #00a870;
-    margin-left: 10px;
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 0px;
-      transform: translateY(-50%);
-      content: '';
-      background-color: #00a870;
-      width: 6px;
-      height: 6px;
-      margin-left: -10px;
-      border-radius: 50%;
-    }
-  }
-  .status.unhealth {
-    color: #e34d59;
-    &::before {
-      background-color: #e34d59;
-    }
-  }
-  .status.warning {
-    color: #ed7b2f;
-    &::before {
-      background-color: #ed7b2f;
-    }
-  }
 }
 </style>

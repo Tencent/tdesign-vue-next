@@ -3,7 +3,7 @@
     <!-- 支持非受控属性 default-selected-row-keys -->
     <!-- 支持语法糖 v-model:selected-row-keys -->
     <t-table
-      row-key="tid"
+      row-key="index"
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
@@ -27,7 +27,7 @@ const statusNameListMap = {
 const data = [];
 for (let i = 0; i < 5; i++) {
   data.push({
-    index: i,
+    index: i + 100,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -88,28 +88,5 @@ const rehandleSelectChange = (value, { selectedRowData }) => {
 .link {
   cursor: pointer;
   margin-right: 15px;
-}
-.status {
-  position: relative;
-  color: #00a870;
-  margin-left: 10px;
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    content: '';
-    background-color: #00a870;
-    width: 6px;
-    height: 6px;
-    margin-left: -10px;
-    border-radius: 50%;
-  }
-}
-.status.unhealth {
-  color: #e34d59;
-  &::before {
-    background-color: #e34d59;
-  }
 }
 </style>

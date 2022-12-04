@@ -33,7 +33,7 @@ const data = [];
 const TOTAL = 60;
 for (let i = 0; i < TOTAL; i++) {
   data.push({
-    index: i,
+    index: i + 1,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -67,6 +67,7 @@ const columns = [
   { colKey: 'channel', title: '签署方式', width: '120' },
   { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
   { colKey: 'createTime', title: '申请时间', width: '150' },
+  { colKey: 'row-select', type: 'multiple', width: 46 },
 ];
 
 // 非受控用法

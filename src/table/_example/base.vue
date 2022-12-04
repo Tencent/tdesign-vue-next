@@ -47,7 +47,7 @@ const data = [];
 const total = 28;
 for (let i = 0; i < total; i++) {
   data.push({
-    index: i,
+    index: i + 1,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
