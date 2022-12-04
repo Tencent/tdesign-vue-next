@@ -12,6 +12,7 @@ import { CheckboxGroupValue } from '../checkbox';
 import { SortableEvent, SortableOptions } from 'sortablejs';
 import { CheckboxProps } from '../checkbox';
 import { RadioProps } from '../radio';
+import { PopupProps } from '../popup';
 import { InputProps } from '../input';
 import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
@@ -437,6 +438,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   reserveSelectedRowOnPaginate?: boolean;
   /**
+   * 是否在点击整行时选中
+   */
+  selectOnRowClick?: boolean;
+  /**
    * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
    * @default []
    */
@@ -732,6 +737,10 @@ export interface TableColumnFilter {
    * 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效
    */
   list?: Array<OptionData>;
+  /**
+   * 透传 Popup 组件全部属性到筛选器浮层
+   */
+  popupProps?: PopupProps;
   /**
    * 用于透传筛选器属性，可以对筛选器进行任何原组件支持的属性配置
    */

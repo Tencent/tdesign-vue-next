@@ -48,7 +48,6 @@ export default defineComponent({
     };
     const handleClick = (e: MouseEvent) => {
       e.stopPropagation();
-      props.onClick?.({ e });
       if (!radioChecked.value || !props.allowUncheck) return;
       if (radioGroup) {
         radioGroup.setValue(undefined, { e });
@@ -56,6 +55,11 @@ export default defineComponent({
         setInnerChecked(false, { e });
       }
     };
+
+    const onLabelClick = (e: MouseEvent) => {
+      props.onClick?.({ e });
+    };
+
     const inputEvents = computed(() =>
       getValidAttrs({
         focus: attrs.onFocus,
@@ -103,7 +107,7 @@ export default defineComponent({
     const renderContent = useContent();
 
     return () => (
-      <label class={inputClass.value} {...wrapperAttrs.value}>
+      <label class={inputClass.value} {...wrapperAttrs.value} onClick={onLabelClick}>
         <input
           type="radio"
           class={`${prefixCls.value}__former`}

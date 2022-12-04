@@ -139497,7 +139497,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-multiple.vue 1
   data-v-1119a7d2=""
 >
   <!-- 支持非受控属性 default-selected-row-keys -->
-  <!-- 支持语法糖 selected-row-keys.sync -->
+  <!-- 支持语法糖 v-model:selected-row-keys -->
   <div
     class="t-table"
     data-v-1119a7d2=""
@@ -140020,7 +140020,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/select-single.vue 1`]
   data-v-2dd73e0f=""
 >
   <!-- 支持非受控属性 default-selected-row-keys -->
-  <!-- 支持语法糖 selected-row-keys.sync -->
+  <!-- 支持语法糖 v-model:selected-row-keys -->
   <div
     class="t-table"
     data-v-2dd73e0f=""

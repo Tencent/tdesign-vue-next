@@ -73,6 +73,10 @@ const columns = computed(() => [
         { label: 'Heriberto', value: 'Heriberto' },
         { label: 'Eric', value: 'Eric' },
       ],
+      // 支持透传全部 Popup 组件属性
+      // popupProps: {
+      //   attach: document.body,
+      // },
     },
   },
   {
