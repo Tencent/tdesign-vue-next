@@ -17,6 +17,7 @@ import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
 import useVirtualScroll from '../hooks/useVirtualScroll';
+import useVirtualScrollNew, { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';
@@ -215,6 +216,13 @@ export default defineComponent({
     provide('tableContentRef', tableContentRef);
     provide('rowHeightRef', ref(rowHeight));
 
+    // 虚拟滚动相关数据
+    const virtualScrollParams = computed(() => ({
+      data: props.data,
+      scroll: props.scroll,
+    }));
+    const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
+
     let lastScrollY = 0;
     const onInnerVirtualScroll = (e: WheelEvent) => {
       const target = (e.target || e.srcElement) as HTMLElement;
@@ -222,12 +230,18 @@ export default defineComponent({
       // 排除横向滚动出发的纵向虚拟滚动计算
       if (lastScrollY !== top) {
         isVirtual.value && handleVirtualScroll();
+        virtualConfig.isVirtualScroll && virtualConfig.handleScroll();
       } else {
         lastScrollY = 0;
         updateColumnFixedShadow(target);
       }
       lastScrollY = top;
       emitScrollEvent(e);
+    };
+
+    const onRowMounted = (p: any) => {
+      handleRowMounted();
+      virtualConfig.handleRowMounted(p);
     };
 
     // used for top margin
@@ -304,10 +318,12 @@ export default defineComponent({
       columnResizeParams,
       horizontalScrollbarRef,
       tableBodyRef,
+      virtualConfig,
       showAffixPagination,
       renderPagination,
       renderTNode,
       handleRowMounted,
+      onRowMounted,
       onFixedChange,
       onHorizontalScroll,
       updateAffixHeaderOrFooter,
@@ -489,19 +505,20 @@ export default defineComponent({
       </Affix>
     );
 
-    const translate = `translate(0, ${this.scrollHeight}px)`;
+    const translate = `translate(0, ${this.virtualConfig.scrollHeight.value}px)`;
     const virtualStyle = {
       transform: translate,
       '-ms-transform': translate,
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
+    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: this.isVirtual ? this.visibleData : data,
+      data: virtualConfig.isVirtualScroll ? virtualConfig.visibleData.value : data,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,
       tableWidth: this.tableWidth,
@@ -516,7 +533,8 @@ export default defineComponent({
       scroll: this.scroll,
       cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
-      handleRowMounted: this.handleRowMounted,
+      virtualConfig: this.virtualConfig,
+      handleRowMounted: this.onRowMounted,
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),
       // 内部使用分页信息必须取 innerPagination
@@ -529,7 +547,7 @@ export default defineComponent({
         style={this.tableContentStyles}
         onScroll={this.onInnerVirtualScroll}
       >
-        {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
+        {this.virtualConfig.isVirtualScroll && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {renderColGroup(false)}

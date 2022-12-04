@@ -11,6 +11,7 @@ import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { TdBaseTableProps } from './type';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
@@ -22,6 +23,7 @@ export interface TableBodyProps extends BaseTableProps {
   tableElm: any;
   tableWidth: number;
   isWidthOverflow: boolean;
+  virtualConfig: VirtualScrollConfig;
   translateY: number;
   scrollType: string;
   isVirtual: boolean;
@@ -76,6 +78,7 @@ export default defineComponent({
     tableElm: {},
     tableWidth: Number,
     isWidthOverflow: Boolean,
+    virtualConfig: Object as PropType<VirtualScrollConfig>,
     // 以下内容为虚拟滚动所需参数
     translateY: Number,
     scrollType: String,
@@ -177,6 +180,7 @@ export default defineComponent({
         rowIndex,
         dataLength,
         skipSpansMap: this.skipSpansMap,
+        virtualConfig: this.virtualConfig,
         ...pick(this.$props, properties),
         // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
       };
@@ -211,7 +215,8 @@ export default defineComponent({
     const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
     const isEmpty = !this.data?.length && !this.loading && !this.firstFullRow && !this.lastFullRow;
 
-    const translate = `translate(0, ${this.translateY}px)`;
+    // 垫上隐藏的 tr 元素高度
+    const translate = `translateY(${this.virtualConfig?.translateY.value}px)`;
     const posStyle = {
       transform: translate,
       '-ms-transform': translate,

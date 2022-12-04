@@ -9,6 +9,7 @@ import {
   onMounted,
   onBeforeUnmount,
   toRefs,
+  onUpdated,
 } from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
@@ -26,6 +27,7 @@ import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
 import { PaginationProps } from '..';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -82,6 +84,7 @@ export interface TrProps extends TrCommonProps {
   // HTMLDivElement
   tableContentElm?: any;
   cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
+  virtualConfig: VirtualScrollConfig;
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
@@ -141,6 +144,7 @@ export default defineComponent({
     rowAndColFixedPosition: Map as PropType<RowAndColFixedPosition>,
     // 合并单元格，是否跳过渲染
     skipSpansMap: Map as PropType<TrProps['skipSpansMap']>,
+    virtualConfig: Object as PropType<TrProps['virtualConfig']>,
     ...pick(baseTableProps, TABLE_PROPS),
     scrollType: String,
     rowHeight: Number,
@@ -216,6 +220,13 @@ export default defineComponent({
           trs.set($index, trRef.value);
           context.emit('row-mounted');
         }
+      }
+
+      if (props.virtualConfig?.isVirtualScroll.value) {
+        context.emit('row-mounted', {
+          ref: trRef,
+          data: props.row,
+        });
       }
     });
 

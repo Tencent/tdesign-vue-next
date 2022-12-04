@@ -1,12 +1,12 @@
 <template>
   <div class="demo-container">
-    <div class="item">
+    <div class="item" style="padding: 24px">
       <t-table
         row-key="id"
         :columns="columns"
         :data="data"
-        :height="200"
-        :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
+        :height="300"
+        :scroll="{ type: 'virtual', bufferSize: 10, isFixedRowHeight: true }"
       >
       </t-table>
     </div>
@@ -36,14 +36,16 @@ const columns = [
 const initData = [
   {
     id: 1,
-    instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    // instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    instance: 'AAA',
     status: 0,
     owner: 'jenny;peter',
     survivalTime: 1000,
   },
   {
     id: 2,
-    instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    // instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    instance: 'AAA',
     status: 1,
     owner: 'jenny',
     survivalTime: 1000,
