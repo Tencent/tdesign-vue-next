@@ -31,6 +31,11 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   // 列拖拽排序，存储上一次的变化结果
   const lastColList = ref([]);
 
+  // 行拖拽实例
+  let dragRowInstanceTmp: Sortable = null;
+  // 列拖拽实例
+  let dragColInstanceTmp: Sortable = null;
+
   if (props.sortOnRowDraggable) {
     log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
   }
@@ -39,6 +44,16 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     [data],
     ([data]) => {
       lastRowList.value = data?.map((item) => get(item, rowKey.value)) || [];
+      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
+      const timer = setTimeout(() => {
+        if (data.length) {
+          dragRowInstanceTmp?.sort(lastRowList.value);
+        } else {
+          const trList = primaryTableRef.value?.$el.querySelectorAll('tr[data-id]');
+          trList.forEach((node: HTMLElement) => node.remove());
+        }
+        clearTimeout(timer);
+      }, 0);
     },
     { immediate: true },
   );
@@ -47,6 +62,11 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     columns,
     (columns) => {
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
+      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
+      const timer = setTimeout(() => {
+        dragColInstanceTmp?.sort(lastColList.value);
+        clearTimeout(timer);
+      }, 0);
     },
     { immediate: true },
   );
@@ -69,8 +89,6 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       console.error('tbody does not exist.');
       return null;
     }
-    // 拖拽实例
-    let dragInstanceTmp: Sortable = null;
     const baseOptions: SortableOptions = {
       animation: 150,
       ghostClass: tableDraggableClasses.ghost,
@@ -80,7 +98,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
         // 处理受控：拖拽列表恢复原始排序
-        dragInstanceTmp?.sort(lastRowList.value);
+        dragRowInstanceTmp?.sort(lastRowList.value);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
         if ((isFunction(props.firstFullRow) && props.firstFullRow(h)) || context.slots.firstFullRow) {
           currentIndex -= 1;
@@ -105,19 +123,17 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
 
     if (!dragContainer) return;
     if (isRowDraggable.value) {
-      dragInstanceTmp = new Sortable(dragContainer, { ...baseOptions });
+      dragRowInstanceTmp = new Sortable(dragContainer, { ...baseOptions });
     } else {
-      dragInstanceTmp = new Sortable(dragContainer, {
+      dragRowInstanceTmp = new Sortable(dragContainer, {
         ...baseOptions,
         handle: `.${tableDraggableClasses.handle}`,
       });
     }
-    lastRowList.value = dragInstanceTmp.toArray();
+    lastRowList.value = dragRowInstanceTmp.toArray();
   };
 
   const registerOneLevelColDragEvent = (container: HTMLElement, recover: boolean) => {
-    // 拖拽实例
-    let dragInstanceTmp: Sortable = null;
     const options: SortableOptions = {
       animation: 150,
       ...props.dragSortOptions,
@@ -130,7 +146,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       onEnd: (evt: SortableEvent) => {
         if (recover) {
           // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
-          dragInstanceTmp?.sort([...lastColList.value]);
+          dragColInstanceTmp?.sort([...lastColList.value]);
         }
         const { oldIndex, newIndex, target: targetElement } = evt;
         let currentIndex = recover ? oldIndex : newIndex;
@@ -164,8 +180,8 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       },
     };
     if (!container) return;
-    dragInstanceTmp = new Sortable(container, options);
-    return dragInstanceTmp;
+    dragColInstanceTmp = new Sortable(container, options);
+    return dragColInstanceTmp;
   };
 
   // 列拖拽排序：涉及到多级表头、自定义显示列 等综合场景
