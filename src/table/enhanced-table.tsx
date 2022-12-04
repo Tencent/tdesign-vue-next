@@ -89,6 +89,7 @@ export default defineComponent({
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
       };
+      // ref 顺序很重要，如果移动到 v-slots 前面，会让 EnhancedTable 所有实例方法失效，勿动
       return <PrimaryTable v-slots={context.slots} {...enhancedProps} ref={primaryTableRef} />;
     };
   },

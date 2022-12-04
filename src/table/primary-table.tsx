@@ -1,7 +1,6 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import isFunction from 'lodash/isFunction';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -35,6 +34,7 @@ const OMIT_PROPS = [
   'multipleSort',
   'expandIcon',
   'reserveSelectedRowOnPaginate',
+  'selectOnRowClick',
   'onChange',
   'onAsyncLoadingClick',
   'onColumnChange',
@@ -72,10 +72,13 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { selectedRowClassNames, currentPaginateData, formatToRowSelectColumn, setTSelectedRowKeys } = useRowSelect(
-      props,
-      tableSelectedClasses,
-    );
+    const {
+      selectedRowClassNames,
+      currentPaginateData,
+      formatToRowSelectColumn,
+      setTSelectedRowKeys,
+      onInnerSelectRowClick,
+    } = useRowSelect(props, tableSelectedClasses);
     // 过滤功能
     const {
       hasEmptyCondition,
@@ -244,6 +247,11 @@ export default defineComponent({
       }
     };
 
+    const onInnerRowClick: TdPrimaryTableProps['onRowClick'] = (context) => {
+      onInnerExpandRowClick(context);
+      onInnerSelectRowClick(context);
+    };
+
     return () => {
       const formatNode = (
         api: string,
@@ -296,8 +304,8 @@ export default defineComponent({
         renderExpandedRow: showExpandedRow.value ? renderExpandedRow : undefined,
       };
 
-      if (props.expandOnRowClick) {
-        baseTableProps.onRowClick = onInnerExpandRowClick;
+      if (props.expandOnRowClick || props.selectOnRowClick) {
+        baseTableProps.onRowClick = onInnerRowClick;
       }
 
       return (
