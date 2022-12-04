@@ -78,6 +78,12 @@ const columns = ref([
     },
   },
   {
+    title: '签署方式（超长标题示例）',
+    colKey: 'channel',
+    width: 120,
+    ellipsisTitle: true,
+  },
+  {
     title: '邮箱地址',
     colKey: 'ellipsisProps',
     // 浮层浅色背景，方向默认朝下出现

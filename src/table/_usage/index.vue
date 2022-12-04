@@ -28,7 +28,9 @@ const data = ref(
       applicant: ['贾明', '张三', '王芳'][i % 3],
       status: i % 3,
       channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
-      email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+      detail: {
+        email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+      },
     })),
 );
 
@@ -47,11 +49,11 @@ const columns = ref([
     },
   },
   { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'email', title: '邮箱地址', width: '200' },
+  { colKey: 'detail.email', title: '邮箱地址', width: '200' },
 ]);
 
 const configList = ref(baseConfigJson);
-const panelList = [{ label: 'baseTable', value: 'baseTable', config: baseConfigJson }];
+const panelList = [{ label: 'Table', value: 'baseTable', config: baseConfigJson }];
 
 const usageCodeMap = {
   baseTable: `<t-base-table

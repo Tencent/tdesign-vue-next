@@ -16,6 +16,7 @@
     <t-table
       row-key="index"
       :data="data"
+      :foot-data="[{}]"
       :columns="columns"
       :table-layout="tableLayout"
       :table-content-width="tableLayout === 'fixed' ? undefined : '1600px'"
@@ -48,7 +49,9 @@ for (let i = 0; i < 20; i++) {
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
-    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    detail: {
+      email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+    },
     matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
     time: [2, 3, 1, 4][i % 4],
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
@@ -59,11 +62,12 @@ const fixedTopAndBottomRows = ref(false);
 const tableLayout = ref('fixed');
 
 const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: '100' },
+  { colKey: 'applicant', title: '申请人', width: '100', foot: '共20条' },
   {
     colKey: 'status',
     title: '审批状态',
     width: '150',
+    foot: '-',
     cell: (h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
@@ -74,9 +78,9 @@ const columns = ref([
       );
     },
   },
-  { colKey: 'matters', title: '申请事项', width: '150' },
-  { colKey: 'createTime', title: '申请日期', width: '120' },
-  { colKey: 'operation', title: '操作', width: '150' },
+  { colKey: 'matters', title: '申请事项', width: '150', foot: '-' },
+  { colKey: 'createTime', title: '申请日期', width: '120', foot: '-' },
+  { colKey: 'operation', title: '操作', width: '150', foot: '-' },
 ]);
 
 const rehandleClickOp = ({ text, row }) => {

@@ -164,7 +164,7 @@ module.exports = {
     configStr: `const configList = ref(baseConfigJson);`,
     panelStr: `
       const panelList = [
-        {label: 'baseTable', value: 'baseTable', config: baseConfigJson},
+        {label: 'Table', value: 'baseTable', config: baseConfigJson},
       ];
     `,
     script: `
@@ -177,7 +177,9 @@ module.exports = {
             applicant: ['贾明', '张三', '王芳'][i % 3],
             status: i % 3,
             channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
-            email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+            detail: {
+        email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+      },
           })),
       );
       const statusNameListMap = {
@@ -200,7 +202,7 @@ module.exports = {
           },
         },
         { colKey: 'channel', title: '签署方式', width: '120' },
-        { colKey: 'email', title: '电子邮件', width: '200' },
+        { colKey: 'detail.email', title: '电子邮件', width: '200' },
       ]);
     `,
     panelChangeStr: `

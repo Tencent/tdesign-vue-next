@@ -46,20 +46,6 @@ const statusNameListMap = {
   2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
 };
 
-const initialData = [];
-for (let i = 0; i < 5; i++) {
-  initialData.push({
-    index: i,
-    applicant: ['贾明', '张三', '王芳'][i % 3],
-    status: i % 3,
-    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
-    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
-    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
-    time: [2, 3, 1, 4][i % 4],
-    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
-  });
-}
-
 const columns = ref([
   { colKey: 'applicant', title: '申请人', width: '100' },
   {
@@ -83,11 +69,24 @@ const columns = ref([
     width: '120',
     align: 'center',
     sortType: 'all',
-    sorter: (a, b) => a.time - b.time,
+    sorter: true,
   },
   { colKey: 'channel', title: '签署方式', width: '120' },
   { colKey: 'createTime', title: '申请时间', width: '150' },
 ]);
+
+const initialData = new Array(4).fill(null).map((_, i) => ({
+  index: i,
+  applicant: ['贾明', '张三', '王芳'][i % 3],
+  status: i % 3,
+  channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
+  detail: {
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+  },
+  matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+  time: [2, 3, 1, 4][i % 4],
+  createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
+}));
 
 const sort = ref({
   sortBy: 'status',

@@ -49,11 +49,11 @@ for (let i = 0; i < 19; i++) {
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
     time: [3, 2, 4, 1][i % 4],
-    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
     property: ['组长审批', '部门审批', '财务审批'][i % 3],
     default: i,
     detail: {
+      email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
       position: `读取 ${i} 个数据的嵌套信息值`,
     },
     needed: i % 4 === 0 ? '是' : '否',
@@ -180,7 +180,7 @@ function getColumns(fixedLeftCol, fixedRightCol) {
               width: 120,
             },
             {
-              colKey: 'email',
+              colKey: 'detail.email',
               title: '邮箱地址',
               fixed: fixedRightCol && 'right',
               ellipsis: true,

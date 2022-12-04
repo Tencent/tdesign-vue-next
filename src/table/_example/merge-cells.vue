@@ -26,9 +26,15 @@ const data = new Array(6).fill(null).map((_, i) => ({
   applicant: ['贾明', '张三', '王芳'][i % 3],
   channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
   type: ['审批通过', '已过期', '审批失败', '审批中'][i % 4],
-  email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru', 'b.nmgw@peurezgn.sl', 'd.cumx@rampblpa.ru'][
-    i % 5
-  ],
+  detail: {
+    email: [
+      'w.cezkdudy@lhll.au',
+      'r.nmgw@peurezgn.sl',
+      'p.cumx@rampblpa.ru',
+      'b.nmgw@peurezgn.sl',
+      'd.cumx@rampblpa.ru',
+    ][i % 5],
+  },
   needed: ['Y', 'N'][i % 1],
   description: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
   createTime: '2021-11-01',
@@ -55,7 +61,7 @@ const columns = [
     width: 150,
   },
   {
-    colKey: 'email',
+    colKey: 'detail.email',
     title: '邮箱地址',
   },
   {

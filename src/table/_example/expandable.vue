@@ -25,6 +25,8 @@
       :expanded-row="expandedRow"
       :expand-on-row-click="expandOnRowClick"
       :expand-icon="expandIcon"
+      table-layout="auto"
+      table-content-width="1200"
       @expand-change="rehandleExpandChange"
     >
       <template #operation="{ row }">
@@ -93,7 +95,7 @@ const getColumns = (isFixedColumn) => [
     },
   },
   { colKey: 'channel', title: '签署方式' },
-  { colKey: 'email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
   { colKey: 'createTime', title: '申请时间' },
   { colKey: 'operation', title: '操作', fixed: isFixedColumn ? 'right' : '' },
 ];
@@ -103,7 +105,9 @@ const data = new Array(5).fill(null).map((item, i) => ({
   applicant: ['贾明', '张三', '王芳'][i % 3],
   status: i % 3,
   channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
-  email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+  detail: {
+    email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+  },
   matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
   time: [2, 3, 1, 4][i % 4],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
@@ -161,7 +165,7 @@ watch(
         // 第一行不显示展开图标
         if (index === 0) return false;
         // 第三行，使用自定义展开图标
-        if (row.id === 103) return <ChevronRightIcon />;
+        if (index === 3) return <ChevronRightIcon />;
         // 其他行，使用表格同款展开图标
         return <ChevronRightCircleIcon />;
       };
