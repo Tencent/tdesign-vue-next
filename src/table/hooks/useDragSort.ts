@@ -50,7 +50,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
           dragRowInstanceTmp?.sort(lastRowList.value);
         } else {
           const trList = primaryTableRef.value?.$el.querySelectorAll('tr[data-id]');
-          trList.forEach((node: HTMLElement) => node.remove());
+          trList?.forEach((node: HTMLElement) => node.remove());
         }
         clearTimeout(timer);
       }, 0);
@@ -194,7 +194,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       lastColList.value = dragInstanceTmp?.toArray();
     } else {
       // 多级表头只抛出事件，不处理其他未知逻辑（如多层表头之间具体如何交换）
-      trList.forEach((container) => {
+      trList?.forEach((container) => {
         registerOneLevelColDragEvent(container as HTMLElement, false);
       });
     }
