@@ -13,7 +13,7 @@ import {
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
 
-export const specialCode = ['-', '.', 'e', 'E', '0'];
+export const specialCode = ['-', '.', 'e', 'E'];
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框
@@ -148,13 +148,10 @@ export default function useInputNumber(props: TdInputNumberProps) {
     }
     // specialCode 新增或删除这些字符时不触发 change 事件
     const isDelete = e.inputType === 'deleteContentBackward';
-    const inputSpecialCode = specialCode.includes(val.slice(-1));
+    const inputSpecialCode = specialCode.includes(val.slice(-1)) || val.slice(-2) === '.0';
     const deleteSpecialCode = isDelete && specialCode.includes(String(userInput.value).slice(-1));
     if ((!isNaN(Number(val)) && !inputSpecialCode) || deleteSpecialCode) {
-      let newVal = val === '' ? undefined : Number(val);
-      if (isNaN(Number(val))) {
-        newVal = parseFloat(val);
-      }
+      const newVal = val === '' ? undefined : Number(val);
       setTValue(newVal, { type: 'input', e });
     }
     if (inputSpecialCode || deleteSpecialCode) {
@@ -176,14 +173,10 @@ export default function useInputNumber(props: TdInputNumberProps) {
       }
     }
     userInput.value = getUserInput(tValue.value);
-    let newValue = formatToNumber(value, {
+    const newValue = formatToNumber(value, {
       decimalPlaces,
       largeNumber,
     });
-
-    if (!props.largeNumber && isNaN(Number(newValue))) {
-      newValue = parseFloat(value);
-    }
     if (newValue !== value && String(newValue) !== value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
     }
