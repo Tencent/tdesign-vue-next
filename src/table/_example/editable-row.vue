@@ -11,6 +11,7 @@
       :columns="columns"
       :data="data"
       :editable-row-keys="editableRowKeys"
+      table-layout="auto"
       bordered
       @row-edit="onRowEdit"
       @row-validate="onRowValidate"
@@ -165,7 +166,6 @@ const columns = computed(() => [
   {
     title: '申请状态',
     colKey: 'status',
-    width: 120,
     cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     edit: {
       component: Select,
