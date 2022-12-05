@@ -79,15 +79,13 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
       startIndex = endIndex - tripleBufferSize.value;
     }
     if (startAndEndIndex.value[0] !== startIndex) {
-      // console.log(startIndex, endIndex)
       startAndEndIndex.value = [startIndex, endIndex];
     }
   };
 
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
-    if (!(isVirtualScroll.value && rowData && !tScroll.value.isFixedRowHeight)) return;
-    // console.log('没执行');
+    if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight) return;
     const trHeight = rowData.ref.value.offsetHeight;
     const rowIndex = rowData.data.__index__;
     const newTrHeightList = trHeightList.value;

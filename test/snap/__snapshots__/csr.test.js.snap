@@ -143878,6 +143878,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
 >
   <div
     class="item"
+    style="padding: 24px;"
   >
     <div
       class="t-table"
@@ -143888,11 +143889,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
       <!---->
       <div
         class="t-table__content"
-        style="height: 200px;"
+        style="height: 300px;"
       >
         <div
           class="t-table__virtual-scroll-cursor"
-          style="transform: translate(0, 48000px);"
+          style="transform: translate(0, 0px);"
         />
         <table
           class="t-table--layout-fixed t-table--full-height"
@@ -143957,7 +143958,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
           </thead>
           <tbody
             class="t-table__body"
-            style="transform: translate(0, 0px);"
+            style="transform: translateY(0px);"
           >
             <tr
               class="t-table__empty-row"

@@ -1,7 +1,13 @@
 <template>
   <div class="demo-container">
     <div class="item" style="padding: 24px">
-      <t-table row-key="id" :columns="columns" :data="data" :height="300" :scroll="{ type: 'virtual', bufferSize: 10 }">
+      <t-table
+        row-key="id"
+        :columns="columns"
+        :data="data"
+        :height="300"
+        :scroll="{ type: 'virtual', bufferSize: 10, isFixedRowHeight: false }"
+      >
       </t-table>
     </div>
   </div>
