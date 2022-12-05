@@ -5,7 +5,7 @@
  * 2. 支持滚动到特定元素，方便 Select 等组件定位到选中元素(TODO)
  * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动(TODO)
  */
-import { ref, computed, watch, Ref, onMounted } from 'vue';
+import { ref, computed, watch, Ref } from 'vue';
 import { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
 
@@ -47,13 +47,13 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     return tScroll.value.type === 'virtual' && tScroll.value.threshold < data.length;
   });
 
-  const getTrScrollTopHeightList = (trHeightList: number[]) => {
+  const getTrScrollTopHeightList = (trHeightList: number[], containerHeight: number) => {
     const list: number[] = [];
     const { data } = params.value;
     // 大数据场景不建议使用 forEach 一类函数迭代
     // 当前行滚动高度 = 上一行滚动高度 + 当前行高度 + 容器高度
     for (let i = 0, len = data.length; i < len; i++) {
-      list[i] = (list[i - 1] || containerHeight.value) + (trHeightList[i] || tScroll.value.rowHeight);
+      list[i] = (list[i - 1] || containerHeight) + (trHeightList[i] || tScroll.value.rowHeight);
     }
     return list;
   };
@@ -70,10 +70,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
         break;
       }
     }
-    // startAndEndIndex.value[0] < currentIndex &&
-    // if (currentIndex < startAndEndIndex.value[1] - 10) {
-    //   return
-    // }
     const { bufferSize } = tScroll.value;
     let startIndex = currentIndex > 0 && currentIndex <= doubleBufferSize.value ? currentIndex : 0;
     startIndex = currentIndex > doubleBufferSize.value ? currentIndex - bufferSize : startIndex;
@@ -90,7 +86,8 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
 
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
-    if (!isVirtualScroll.value || !rowData || !tScroll.value.isFixedRowHeight) return;
+    if (!(isVirtualScroll.value && rowData && !tScroll.value.isFixedRowHeight)) return;
+    // console.log('没执行');
     const trHeight = rowData.ref.value.offsetHeight;
     const rowIndex = rowData.data.__index__;
     const newTrHeightList = trHeightList.value;
@@ -98,7 +95,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
       newTrHeightList[rowIndex] = trHeight;
       trHeightList.value = newTrHeightList;
 
-      const scrollTopHeightList = getTrScrollTopHeightList(newTrHeightList);
+      const scrollTopHeightList = getTrScrollTopHeightList(newTrHeightList, containerHeight.value);
       trScrollTopHeightList.value = scrollTopHeightList;
 
       const lastIndex = scrollTopHeightList.length - 1;
@@ -115,6 +112,9 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
 
   const refreshVirtualScroll = () => {
     containerHeight.value = container.value.getBoundingClientRect().height;
+    const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
+    trScrollTopHeightList.value = scrollTopHeightList;
+
     if (trScrollTopHeightList.value.length) {
       updateVisibleData(trScrollTopHeightList.value, 0);
     }
@@ -139,8 +139,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
       // 给数据添加下标
       addIndexToData(data);
       visibleData.value = data.slice(0, 15);
-      // const scrollTopHeightList = getTrScrollTopHeightList(trHeightList);
-      // trScrollTopHeightList.value = scrollTopHeightList;
     },
     { immediate: true },
   );
@@ -159,20 +157,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     },
     { immediate: true },
   );
-
-  // onMounted(() => {
-  //   if (!window || !window.IntersectionObserver) return;
-  //   const observeDom = container.value.querySelector('tbody');
-  //   const ob = new window.IntersectionObserver((entries) => {
-  //     const entry = entries[0];
-  //     console.log(observeDom, entry.intersectionRatio);
-  //     // if (entry.intersectionRatio) {
-  //     //   console.log('2341234', entry)
-  //     //   updateVisibleData(trScrollTopHeightList.value);
-  //     // }
-  //   });
-  //   ob.observe(observeDom);
-  // });
 
   return {
     visibleData,

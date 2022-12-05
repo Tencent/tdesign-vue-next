@@ -200,15 +200,17 @@ export default defineComponent({
 
     // 垫上隐藏的 tr 元素高度
     const translate = `translateY(${this.virtualConfig?.translateY.value}px)`;
-    const posStyle = {
-      transform: translate,
-      '-ms-transform': translate,
-      '-moz-transform': translate,
-      '-webkit-transform': translate,
-    };
+    const posStyle = this.virtualConfig?.isVirtualScroll.value
+      ? {
+          transform: translate,
+          '-ms-transform': translate,
+          '-moz-transform': translate,
+          '-webkit-transform': translate,
+        }
+      : undefined;
 
     return (
-      <tbody class={this.tbodyClasses} style={this.virtualConfig.isVirtualScroll && { ...posStyle }}>
+      <tbody class={this.tbodyClasses} style={{ ...posStyle }}>
         {isEmpty ? renderEmpty(this.columns) : list}
       </tbody>
     );
