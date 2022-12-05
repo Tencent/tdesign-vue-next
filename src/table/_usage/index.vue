@@ -2,16 +2,15 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #baseTable="{ configProps }"
-      ><t-base-table v-bind="configProps" row-key="index" :data="data" :columns="columns"
-    /></template>
+      ><t-base-table v-bind="configProps" row-key="index" :data="data" :columns="columns"></t-base-table
+    ></template>
   </base-usage>
 </template>
 
 <script setup lang="jsx">
 /* eslint-disable */
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import baseConfigJson from './base-table-props.json';
-
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {
@@ -49,22 +48,15 @@ const columns = ref([
     },
   },
   { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', width: '200' },
+  { colKey: 'detail.email', title: '电子邮件', width: '200' },
 ]);
 
 const configList = ref(baseConfigJson);
 const panelList = [{ label: 'Table', value: 'baseTable', config: baseConfigJson }];
 
 const usageCodeMap = {
-  baseTable: `<t-base-table
-        v-bind="configProps"
-        row-key="index"
-        :data="data"
-        :columns="columns"
-        :max-height="140"
-        :pagination="{ total: 30 }"
-      >
-    </t-base-table>`,
+  baseTable:
+    '<t-base-table\n        v-bind="configProps"\n        row-key="index"\n        :data="data"\n        :columns="columns"\n      ></t-base-table>',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

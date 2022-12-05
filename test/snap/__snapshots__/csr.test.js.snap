@@ -121314,16 +121314,14 @@ exports[`csr snapshot test > csr test ./src/table/_example/editable-row.vue 1`] 
     >
       <!---->
       <table
-        class="t-table--layout-fixed"
+        class="t-table--layout-auto"
       >
         <colgroup>
           
           <col
             style="width: 120px;"
           />
-          <col
-            style="width: 120px;"
-          />
+          <col />
           <col />
           <col />
           <col

@@ -169,8 +169,15 @@ module.exports = {
     `,
     script: `
       import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+      const statusNameListMap = {
+        0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+        1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+        2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+      };
+      
       const data = ref(
-        Array(30)
+        Array(4)
           .fill(0)
           .map((_, i) => ({
             index: i,
@@ -178,15 +185,11 @@ module.exports = {
             status: i % 3,
             channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
             detail: {
-        email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
-      },
+              email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
+            },
           })),
       );
-      const statusNameListMap = {
-        0: { label: '审批通过', theme: 'success' },
-        1: { label: '已过期', theme: 'warning' },
-        2: { label: '审批失败', theme: 'danger' },
-      };
+      
       const columns = ref([
         { colKey: 'applicant', title: '申请人', width: '100' },
         {
@@ -194,8 +197,8 @@ module.exports = {
           title: '审批状态',
           cell: (h, { row }) => {
             return (
-              <t-tag theme={statusNameListMap[row.status].theme} variant="light">
-                {row.status ? <InfoCircleFilledIcon /> : < CheckCircleFilledIcon/>}
+              <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+                {statusNameListMap[row.status].icon}
                 {statusNameListMap[row.status].label}
               </t-tag>
             );
@@ -217,8 +220,6 @@ module.exports = {
         row-key="index"
         :data="data"
         :columns="columns"
-        :max-height="140"
-        :pagination="{ total: 30 }"
       ></t-base-table>`,
     },
   },
@@ -684,14 +685,6 @@ module.exports = {
           <t-button>Button</t-button>
           <t-button>Button</t-button>
         </t-space>
-      `,
-    },
-  },
-  jumper: {
-    panelStr: `const panelList = [{label: 'jumper', value: 'jumper'}];`,
-    render: {
-      jumper: `
-        <t-jumper v-bind="configProps"></t-jumper>
       `,
     },
   },
