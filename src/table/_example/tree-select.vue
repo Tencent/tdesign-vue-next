@@ -18,6 +18,8 @@
     <!-- 子节点字段不是 children，而是 childrenList -->
     <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
+
+    <!-- 数据数量超过 threshold: 50 条数据时，开启虚拟滚动 -->
     <t-enhanced-table
       ref="enhancedTableRef"
       row-key="key"
@@ -30,6 +32,8 @@
         checkStrictly: checkStrictly === 'true' ? true : false,
       }"
       :selected-row-keys="selectedRowKeys"
+      :height="300"
+      :scroll="{ type: 'virtual', rowHeight: 47, isFixedRowHeight: true, threshold: 50 }"
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
     />
@@ -42,9 +46,9 @@ import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next
 import cloneDeep from 'lodash/cloneDeep';
 
 const initData = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 100; i++) {
   const obj = {
-    key: i,
+    key: `first__${i}`,
     instance: `JQTest${i}`,
     status: i % 2,
     owner: i % 2 === 0 ? 'jenny' : 'peter',
@@ -55,7 +59,7 @@ for (let i = 0; i < 5; i++) {
     const secondObj = {
       ...obj,
       status: secondIndex % 3,
-      key: secondIndex,
+      key: `second_level_${secondIndex}`,
       instance: `JQTest${secondIndex}`,
     };
     secondObj.childrenList = new Array(5).fill(null).map((m, n) => {
@@ -63,7 +67,7 @@ for (let i = 0; i < 5; i++) {
       return {
         ...obj,
         status: thirdIndex % 3,
-        key: thirdIndex,
+        key: `third_level_${thirdIndex}`,
         instance: `JQTest${thirdIndex}`,
       };
     });

@@ -1,9 +1,9 @@
 /**
- * 基于原作者（@louiszhai）的思路二次开发
+ * 基于原作者（@louiszhai）的思路二次开发，为保证其他组件暂不受影响，单独开一个文件
  * 新增支持以下 3 个特性
  * 1. 支持不同表格高度
  * 2. 支持滚动到特定元素，方便 Select 等组件展开时直接定位到选中元素
- * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动(TODO)
+ * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动
  */
 import { ref, computed, watch, Ref } from 'vue';
 import { TScroll } from '../common';
@@ -36,7 +36,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   // 已经通过节点渲染计算出来的各自行高
   const trHeightList = ref<number[]>([]);
   const containerHeight = ref(0);
-  const startAndEndIndex = ref<[number, number]>([-1, -1]);
+  const startAndEndIndex = ref<[number, number]>([0, 15]);
 
   // 设置初始值
   const tScroll = computed(() => {
@@ -97,7 +97,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const handleRowMounted = (rowData: any) => {
     if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight) return;
     const trHeight = rowData.ref.value.offsetHeight;
-    const rowIndex = rowData.data.__index__;
+    const rowIndex = rowData.data.__VIRTUAL_SCROLL_INDEX;
     const newTrHeightList = trHeightList.value;
     if (newTrHeightList[rowIndex] !== trHeight) {
       newTrHeightList[rowIndex] = trHeight;
@@ -129,9 +129,9 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   };
 
   const addIndexToData = (data: any[]) => {
-    data.forEach((data, index) => {
+    data.forEach((item, index) => {
       // eslint-disable-next-line
-      data['__index__'] = index;
+      item['__VIRTUAL_SCROLL_INDEX'] = index;
     });
   };
 
@@ -149,7 +149,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const scrollToElement = (p: ScrollToElementParams) => {
     updateScrollTop(p);
     if (!tScroll.value.isFixedRowHeight) {
-      const duration = p.time || 100;
+      const duration = p.time ?? 100;
       const timer = setTimeout(() => {
         updateScrollTop(p);
         clearTimeout(timer);
@@ -168,6 +168,14 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
       // 给数据添加下标
       addIndexToData(data);
       scrollHeight.value = data.length * tScroll.value.rowHeight;
+
+      const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
+      trScrollTopHeightList.value = scrollTopHeightList;
+
+      if (container.value) {
+        const startIndex = startAndEndIndex.value[0];
+        visibleData.value = data.slice(startIndex, startIndex + tripleBufferSize.value);
+      }
     },
     { immediate: true },
   );
