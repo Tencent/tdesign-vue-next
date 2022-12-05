@@ -5819,16 +5819,14 @@ exports[`csr snapshot test > csr test ./src/button/_example/icon.vue 1`] = `
         width="1em"
       >
         <path
-          d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
+          d="M7.84 5.01A2 2 0 105 7.84 2 2 0 007.84 5zm-.7.7a1 1 0 11-1.42 1.42 1 1 0 011.41-1.41z"
           fill="currentColor"
           fill-opacity="0.9"
         />
         <path
-          clip-rule="evenodd"
-          d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
+          d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3H3v4.95l6.13 6.13 4.95-4.95L7.95 3z"
           fill="currentColor"
           fill-opacity="0.9"
-          fill-rule="evenodd"
         />
       </svg>
       
@@ -113808,7 +113806,7 @@ exports[`csr snapshot test > csr test ./src/table/_example/affix.vue 1`] = `
           
           <div
             class="t-table__affixed-header-elm-wrap"
-            style="width: 0px; height: -6px; opacity: 1; margin-top: 0px;"
+            style="width: 0px; height: 0px; opacity: 1;"
           >
             <!---->
           </div>
@@ -143877,122 +143875,179 @@ exports[`csr snapshot test > csr test ./src/table/_example/virtual-scroll.vue 1`
   class="demo-container"
 >
   <div
-    class="item"
-    style="padding: 24px;"
+    class="t-space t-space-vertical"
+    style="gap: 16px; padding: 24px;"
   >
+    
+    
     <div
-      class="t-table"
-      showsortcolumnbgcolor="false"
-      style="position: relative;"
+      class="t-space-item"
     >
-      <!---->
-      <!---->
-      <div
-        class="t-table__content"
-        style="height: 300px;"
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
       >
-        <div
-          class="t-table__virtual-scroll-cursor"
-          style="transform: translate(0, 0px);"
-        />
-        <table
-          class="t-table--layout-fixed t-table--full-height"
+        <span
+          class="t-button__text"
         >
-          <colgroup>
-            
-            <col />
-            <col />
-            <col />
-            <col />
-            
-          </colgroup>
-          <thead
-            class="t-table__header"
-          >
-            
-            <tr>
-              
-              <th
-                class="t-table__th-id"
-                data-colkey="id"
-              >
-                <div
-                  class="t-table__th-cell-inner"
-                >
-                  id
-                </div>
-              </th>
-              <th
-                class="t-table__th-instance"
-                data-colkey="instance"
-              >
-                <div
-                  class="t-table__th-cell-inner"
-                >
-                  集群名称
-                </div>
-              </th>
-              <th
-                class="t-table__th-survivalTime"
-                data-colkey="survivalTime"
-              >
-                <div
-                  class="t-table__th-cell-inner"
-                >
-                  存活时间(s)
-                </div>
-              </th>
-              <th
-                class="t-table__th-owner"
-                data-colkey="owner"
-              >
-                <div
-                  class="t-table__th-cell-inner"
-                >
-                  管理员
-                </div>
-              </th>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
-            style="transform: translateY(0px);"
-          >
-            <tr
-              class="t-table__empty-row"
-            >
-              <td
-                colspan="4"
-              >
-                <div
-                  class="t-table__empty"
-                >
-                  暂无数据
-                </div>
-              </td>
-            </tr>
-          </tbody>
-          <!---->
-        </table>
-      </div>
-      <!---->
-      <!---->
-      <!---->
-      <!---->
-      <!---->
+          
+          滚动到指定元素
+          
+        </span>
+      </button>
+    </div>
+    <!---->
+    
+    
+    <div
+      class="t-space-item"
+    >
       <div
-        class="t-table__pagination-wrap"
-        style="opacity: 1;"
+        class="t-table t-table--bordered"
+        selectedrowkeys=""
+        showsortcolumnbgcolor="false"
+        style="position: relative;"
       >
         <!---->
+        <!---->
+        <div
+          class="t-table__content"
+          style="height: 300px;"
+        >
+          <div
+            class="t-table__virtual-scroll-cursor"
+            style="transform: translate(0, 47000px);"
+          />
+          <table
+            class="t-table--layout-fixed t-table--full-height"
+          >
+            <colgroup>
+              
+              <col
+                style="width: 50px;"
+              />
+              <col />
+              <col />
+              <col />
+              <col />
+              
+            </colgroup>
+            <thead
+              class="t-table__header"
+            >
+              
+              <tr>
+                
+                <th
+                  class="t-table__cell-check t-table__th-row-select"
+                  data-colkey="row-select"
+                >
+                  <div
+                    class="t-table__th-cell-inner"
+                  >
+                    <label
+                      class="t-checkbox"
+                    >
+                      <input
+                        class="t-checkbox__former"
+                        type="checkbox"
+                      />
+                      <span
+                        class="t-checkbox__input"
+                      />
+                      <span
+                        class="t-checkbox__label"
+                      >
+                        <!---->
+                      </span>
+                    </label>
+                  </div>
+                </th>
+                <th
+                  class="t-table__th-id"
+                  data-colkey="id"
+                >
+                  <div
+                    class="t-table__th-cell-inner"
+                  >
+                    id
+                  </div>
+                </th>
+                <th
+                  class="t-table__th-instance"
+                  data-colkey="instance"
+                >
+                  <div
+                    class="t-table__th-cell-inner"
+                  >
+                    集群名称
+                  </div>
+                </th>
+                <th
+                  class="t-table__th-survivalTime"
+                  data-colkey="survivalTime"
+                >
+                  <div
+                    class="t-table__th-cell-inner"
+                  >
+                    存活时间(s)
+                  </div>
+                </th>
+                <th
+                  class="t-table__th-owner"
+                  data-colkey="owner"
+                >
+                  <div
+                    class="t-table__th-cell-inner"
+                  >
+                    管理员
+                  </div>
+                </th>
+                
+              </tr>
+              
+            </thead>
+            <tbody
+              class="t-table__body"
+              style="transform: translateY(0px);"
+            >
+              <tr
+                class="t-table__empty-row"
+              >
+                <td
+                  colspan="5"
+                >
+                  <div
+                    class="t-table__empty"
+                  >
+                    暂无数据
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="t-table__pagination-wrap"
+          style="opacity: 1;"
+        >
+          <!---->
+        </div>
+        <div
+          class="t-table__resize-line"
+          style="display: none; left: 10px; height: 10px; bottom: 0px;"
+        />
       </div>
-      <div
-        class="t-table__resize-line"
-        style="display: none; left: 10px; height: 10px; bottom: 0px;"
-      />
     </div>
+    <!---->
+    
+    
   </div>
 </div>
 `;

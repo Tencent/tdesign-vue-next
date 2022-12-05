@@ -1,6 +1,6 @@
 <template>
   <!-- 注意组件父元素的宽度 -->
-  <div class="tdesign-demo-block-column-large tdesign-demo__table-affix" style="width: 100%; padding: 24px">
+  <div class="tdesign-demo-block-column-large tdesign-demo__table-affix" style="width: 100%">
     <div>
       <t-checkbox v-model="headerAffixedTop">表头吸顶</t-checkbox>
       <t-checkbox v-model="footerAffixedBottom" style="margin-left: 32px">表尾吸底</t-checkbox>
@@ -17,7 +17,7 @@
       :foot-data="footData"
       :row-class-name="rowClassName"
       :pagination="{ defaultCurrent: 1, defaultPageSize: 5, total: TOTAL }"
-      :header-affixed-top="{ offsetTop: 0, zIndex: 1000 }"
+      :header-affixed-top="{ offsetTop: 87, zIndex: 1000 }"
       :footer-affixed-bottom="
         footerAffixedBottom ? { offsetBottom: paginationAffixedBottom ? 60 : 0, zIndex: 1000 } : false
       "
@@ -33,8 +33,6 @@
     >
       <template #t-foot-required> 插槽渲染表尾 </template>
     </t-table>
-
-    <p style="height: 800px"></p>
   </div>
 </template>
 <script setup lang="jsx">

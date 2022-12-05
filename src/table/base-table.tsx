@@ -382,11 +382,6 @@ export default defineComponent({
     /**
      * Affixed Header
      */
-    // onlyVirtualScrollBordered 用于浏览器兼容性处理，只有 chrome 需要调整 bordered，FireFox 和 Safari 不需要
-    const onlyVirtualScrollBordered =
-      !!(this.virtualConfig.isVirtualScroll.value && !this.headerAffixedTop && this.bordered) &&
-      /Chrome/.test(navigator?.userAgent);
-    const borderWidth = this.bordered && onlyVirtualScrollBordered ? 1 : 0;
     const affixHeaderWrapHeight = this.affixHeaderRef?.getBoundingClientRect().height || 0;
     // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
     const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
@@ -394,7 +389,6 @@ export default defineComponent({
       width: `${this.tableWidth}px`,
       height: `${affixHeaderWrapHeight}px`,
       opacity: headerOpacity,
-      // marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
     };
     // 多级表头左边线缺失
     const affixedLeftBorder = this.bordered ? 1 : 0;
