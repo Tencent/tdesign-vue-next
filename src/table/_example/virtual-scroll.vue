@@ -1,22 +1,47 @@
 <template>
   <div class="demo-container">
-    <div class="item" style="padding: 24px">
+    <t-space direction="vertical" style="padding: 24px">
+      <t-button @click="goToSomeRow">滚动到指定元素</t-button>
+
+      <!-- 固定高度：:scroll="{ type: 'virtual', rowHeight: 47, isFixedRowHeight: true }" -->
       <t-table
+        ref="tableRef"
+        v-model:selected-row-keys="selectedRowKeys"
         row-key="id"
         :columns="columns"
         :data="data"
         :height="300"
-        :scroll="{ type: 'virtual', bufferSize: 10, isFixedRowHeight: false }"
+        bordered
+        :scroll="{ type: 'virtual', rowHeight: 47, isFixedRowHeight: false }"
       >
       </t-table>
-    </div>
+    </t-space>
   </div>
 </template>
 
 <script setup lang="jsx">
 import { ref } from 'vue';
 
+const tableRef = ref();
+
+const goToSomeRow = () => {
+  /** 跳转到第 359 个元素，下标为 358。参数 top 指表头高度 */
+  tableRef.value.scrollToElement({
+    index: 358,
+    top: 47,
+    /** 单个元素高度非固定场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒 */
+    // time: isFixedRowHeight ? 0 : 100,
+  });
+};
+
+const selectedRowKeys = ref([]);
+
 const columns = [
+  {
+    colKey: 'row-select',
+    type: 'multiple',
+    width: 50,
+  },
   {
     colKey: 'id',
     title: 'id',
@@ -37,6 +62,7 @@ const initData = [
   {
     id: 1,
     instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    // instance: 'AAA',
     status: 0,
     owner: 'jenny;peter',
     survivalTime: 1000,
@@ -44,6 +70,7 @@ const initData = [
   {
     id: 2,
     instance: '当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行',
+    // instance: 'AAA',
     status: 1,
     owner: 'jenny',
     survivalTime: 1000,

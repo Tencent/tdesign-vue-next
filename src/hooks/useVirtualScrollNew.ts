@@ -2,10 +2,10 @@
  * 基于原作者（@louiszhai）的思路二次开发
  * 新增支持以下 3 个特性
  * 1. 支持不同表格高度
- * 2. 支持滚动到特定元素，方便 Select 等组件定位到选中元素(TODO)
+ * 2. 支持滚动到特定元素，方便 Select 等组件展开时直接定位到选中元素
  * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动(TODO)
  */
-import { ref, computed, watch, Ref } from 'vue';
+import { ref, computed, watch, Ref, nextTick } from 'vue';
 import { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
 
@@ -14,6 +14,16 @@ export type UseVirtualScrollParams = Ref<{
   data: { [key: string]: any }[];
   scroll: TScroll;
 }>;
+
+export interface ScrollToElementParams {
+  /** 跳转元素下标 */
+  index: number;
+  /** 跳转元素距离顶部的距离 */
+  top?: number;
+  /** 单个元素高度非固定场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒 */
+  time?: number;
+  behavior?: 'auto' | 'smooth';
+}
 
 const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollParams) => {
   /** 注意测试：数据长度为空；数据长度小于表格高度等情况。即期望只有数据量达到一定程度才允许开启虚拟滚动 */
@@ -35,7 +45,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     return {
       bufferSize: scroll.bufferSize || 10,
       isFixedRowHeight: scroll.isFixedRowHeight ?? true,
-      rowHeight: scroll.rowHeight || 48,
+      rowHeight: scroll.rowHeight || 47,
       threshold: scroll.threshold || 100,
       type: scroll.type,
     };
@@ -98,7 +108,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
 
       const lastIndex = scrollTopHeightList.length - 1;
       scrollHeight.value = scrollTopHeightList[lastIndex] - containerHeight.value;
-
       updateVisibleData(scrollTopHeightList, container.value.scrollTop);
     }
   };
@@ -112,9 +121,10 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     containerHeight.value = container.value.getBoundingClientRect().height;
     const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
     trScrollTopHeightList.value = scrollTopHeightList;
+    translateY.value = 0;
 
-    if (trScrollTopHeightList.value.length) {
-      updateVisibleData(trScrollTopHeightList.value, 0);
+    if (scrollTopHeightList.length) {
+      updateVisibleData(scrollTopHeightList, 0);
     }
   };
 
@@ -125,18 +135,39 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     });
   };
 
+  const updateScrollTop = ({ index, top = 0, behavior }: ScrollToElementParams) => {
+    const scrollTop = trScrollTopHeightList.value[index] - containerHeight.value - top;
+    container.value.scrollTo({
+      top: scrollTop,
+      behavior: behavior || 'auto',
+    });
+  };
+
+  /**
+   * 滚动到指定元素（对外暴露的方法，谨慎修改）
+   */
+  const scrollToElement = (p: ScrollToElementParams) => {
+    updateScrollTop(p);
+    if (!tScroll.value.isFixedRowHeight) {
+      const duration = p.time || 100;
+      const timer = setTimeout(() => {
+        updateScrollTop(p);
+        clearTimeout(timer);
+      }, duration);
+    }
+  };
+
   useResizeObserver(isVirtualScroll.value ? container : undefined, refreshVirtualScroll);
 
   // 固定高度场景，可直接通过数据长度计算出最大滚动高度
   watch(
-    () => [[...params.value.data]],
+    () => [[...params.value.data, tScroll]],
     () => {
-      if (!isVirtualScroll.value || !tScroll.value.isFixedRowHeight) return;
+      if (!isVirtualScroll.value) return;
       const { data } = params.value;
-      scrollHeight.value = data.length * tScroll.value.rowHeight;
       // 给数据添加下标
       addIndexToData(data);
-      visibleData.value = data.slice(0, 15);
+      scrollHeight.value = data.length * tScroll.value.rowHeight;
     },
     { immediate: true },
   );
@@ -163,6 +194,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     isVirtualScroll,
     handleScroll,
     handleRowMounted,
+    scrollToElement,
   };
 };
 

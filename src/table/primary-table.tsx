@@ -134,6 +134,9 @@ export default defineComponent({
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },
+      scrollToElement: (data: any) => {
+        primaryTableRef.value.virtualConfig.scrollToElement(data);
+      },
     });
 
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
