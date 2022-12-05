@@ -148,7 +148,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
     }
     // specialCode 新增或删除这些字符时不触发 change 事件
     const isDelete = e.inputType === 'deleteContentBackward';
-    const inputSpecialCode = specialCode.includes(val.slice(-1));
+    const inputSpecialCode = specialCode.includes(val.slice(-1)) || val.slice(-2) === '.0';
     const deleteSpecialCode = isDelete && specialCode.includes(String(userInput.value).slice(-1));
     if ((!isNaN(Number(val)) && !inputSpecialCode) || deleteSpecialCode) {
       const newVal = val === '' ? undefined : Number(val);
@@ -165,10 +165,12 @@ export default function useInputNumber(props: TdInputNumberProps) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
-      } else if (r === 'exceed-maximum') {
-        setTValue(max, { type: 'blur', e: ctx.e });
+        return;
       }
-      return;
+      if (r === 'exceed-maximum') {
+        setTValue(max, { type: 'blur', e: ctx.e });
+        return;
+      }
     }
     userInput.value = getUserInput(tValue.value);
     const newValue = formatToNumber(value, {

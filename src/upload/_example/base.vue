@@ -56,6 +56,7 @@
         action="//service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
         :style="{ marginLeft: '40px' }"
         @fail="handleFail"
+        @progress="handleProgress"
       />
 
       <!-- formatResponse 可控制上传成功或者失败 -->
@@ -158,7 +159,7 @@ const handleSelectChange = (files) => {
 };
 
 const handleSuccess = (params) => {
-  console.log(params);
+  console.log('success', params);
   MessagePlugin.success('上传成功');
 };
 
@@ -199,6 +200,10 @@ const uploadFiles = () => {
 
 const formatResponse = () => {
   return { error: '上传失败，请重试' };
+};
+
+const handleProgress = (params) => {
+  console.log('progress', params);
 };
 
 /** 单个文件校验方法，示例代码有效，勿删 */
