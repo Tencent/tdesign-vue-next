@@ -142,8 +142,6 @@ export default defineComponent({
       { [tableBaseClass.fullHeight]: props.height },
     ]);
 
-    const isVirtual = computed(() => type === 'virtual' && props.data?.length > (props.scroll?.threshold || 100));
-
     const showRightDivider = computed(
       () =>
         props.bordered &&
@@ -194,28 +192,6 @@ export default defineComponent({
       });
     };
 
-    const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
-    const { data } = toRefs<any>(props);
-    const {
-      trs = null,
-      scrollHeight = null,
-      visibleData = null,
-      translateY = null,
-      handleScroll: handleVirtualScroll = null,
-      handleRowMounted = null,
-    } = type === 'virtual'
-      ? useVirtualScroll({
-          container: tableContentRef,
-          data,
-          fixedHeight: isFixedRowHeight,
-          lineHeight: rowHeight,
-          bufferSize,
-          threshold: props.scroll?.threshold,
-        })
-      : {};
-    provide('tableContentRef', tableContentRef);
-    provide('rowHeightRef', ref(rowHeight));
-
     // 虚拟滚动相关数据
     const virtualScrollParams = computed(() => ({
       data: props.data,
@@ -229,19 +205,13 @@ export default defineComponent({
       const top = target.scrollTop;
       // 排除横向滚动出发的纵向虚拟滚动计算
       if (lastScrollY !== top) {
-        isVirtual.value && handleVirtualScroll();
-        virtualConfig.isVirtualScroll && virtualConfig.handleScroll();
+        virtualConfig.isVirtualScroll.value && virtualConfig.handleScroll();
       } else {
         lastScrollY = 0;
         updateColumnFixedShadow(target);
       }
       lastScrollY = top;
       emitScrollEvent(e);
-    };
-
-    const onRowMounted = (p: any) => {
-      handleRowMounted();
-      virtualConfig.handleRowMounted(p);
     };
 
     // used for top margin
@@ -269,7 +239,6 @@ export default defineComponent({
     return {
       thList,
       classPrefix,
-      isVirtual,
       innerPagination,
       globalConfig,
       tableFootHeight,
@@ -297,13 +266,6 @@ export default defineComponent({
       thWidthList,
       isPaginateData,
       dataSource,
-      scrollType: type,
-      rowHeight,
-      trs,
-      bufferSize,
-      scrollHeight,
-      visibleData,
-      translateY,
       affixHeaderRef,
       affixFooterRef,
       bottomContentRef,
@@ -322,8 +284,6 @@ export default defineComponent({
       showAffixPagination,
       renderPagination,
       renderTNode,
-      handleRowMounted,
-      onRowMounted,
       onFixedChange,
       onHorizontalScroll,
       updateAffixHeaderOrFooter,
@@ -367,7 +327,7 @@ export default defineComponent({
     const renderAffixedHeader = () => {
       if (this.showHeader === false) return null;
       return (
-        !!(this.isVirtual || this.headerAffixedTop) &&
+        !!(this.virtualConfig.isVirtualScroll.value || this.headerAffixedTop) &&
         (this.headerAffixedTop ? (
           <Affix
             offsetTop={0}
@@ -424,7 +384,8 @@ export default defineComponent({
      */
     // onlyVirtualScrollBordered 用于浏览器兼容性处理，只有 chrome 需要调整 bordered，FireFox 和 Safari 不需要
     const onlyVirtualScrollBordered =
-      !!(this.isVirtual && !this.headerAffixedTop && this.bordered) && /Chrome/.test(navigator?.userAgent);
+      !!(this.virtualConfig.isVirtualScroll.value && !this.headerAffixedTop && this.bordered) &&
+      /Chrome/.test(navigator?.userAgent);
     const borderWidth = this.bordered && onlyVirtualScrollBordered ? 1 : 0;
     const affixHeaderWrapHeight =
       (this.affixHeaderRef?.getBoundingClientRect().height || 0) - this.scrollbarWidth - borderWidth;
@@ -438,14 +399,21 @@ export default defineComponent({
     };
     // 多级表头左边线缺失
     const affixedLeftBorder = this.bordered ? 1 : 0;
-    const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
+    const affixedHeader = Boolean(
+      (this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value) && this.tableWidth,
+    ) && (
       <div
         ref="affixHeaderRef"
         style={{
           width: `${this.tableWidth - affixedLeftBorder}px`,
           opacity: Number(this.showAffixHeader),
         }}
-        class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
+        class={[
+          'scrollbar',
+          {
+            [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value,
+          },
+        ]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {renderColGroup(true)}
@@ -518,23 +486,16 @@ export default defineComponent({
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: virtualConfig.isVirtualScroll ? virtualConfig.visibleData.value : data,
+      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,
       tableWidth: this.tableWidth,
       isWidthOverflow: this.isWidthOverflow,
-      // 虚拟滚动相关属性
-      isVirtual: this.isVirtual,
-      translateY: this.translateY,
-      scrollType: this.scrollType,
-      rowHeight: this.rowHeight,
-      trs: this.trs,
-      bufferSize: this.bufferSize,
       scroll: this.scroll,
       cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
       virtualConfig: this.virtualConfig,
-      handleRowMounted: this.onRowMounted,
+      handleRowMounted: this.virtualConfig.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),
       // 内部使用分页信息必须取 innerPagination
@@ -547,7 +508,9 @@ export default defineComponent({
         style={this.tableContentStyles}
         onScroll={this.onInnerVirtualScroll}
       >
-        {this.virtualConfig.isVirtualScroll && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
+        {this.virtualConfig.isVirtualScroll.value && (
+          <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />
+        )}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {renderColGroup(false)}

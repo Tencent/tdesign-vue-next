@@ -9,7 +9,6 @@ import {
   onMounted,
   onBeforeUnmount,
   toRefs,
-  onUpdated,
 } from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
@@ -75,11 +74,6 @@ export interface TrProps extends TrCommonProps {
   dataLength: number;
   rowAndColFixedPosition?: RowAndColFixedPosition;
   skipSpansMap?: Map<string, SkipSpansValue>;
-  scrollType?: string;
-  isVirtual?: boolean;
-  rowHeight?: number;
-  trs?: Map<number, object>;
-  bufferSize?: number;
   tableElm?: any;
   // HTMLDivElement
   tableContentElm?: any;
@@ -146,11 +140,6 @@ export default defineComponent({
     skipSpansMap: Map as PropType<TrProps['skipSpansMap']>,
     virtualConfig: Object as PropType<TrProps['virtualConfig']>,
     ...pick(baseTableProps, TABLE_PROPS),
-    scrollType: String,
-    rowHeight: Number,
-    trs: Map as PropType<TrProps['trs']>,
-    bufferSize: Number,
-    isVirtual: Boolean,
     // eslint-disable-next-line
     tableElm: {},
     // eslint-disable-next-line
@@ -213,28 +202,11 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      const { scrollType, isVirtual, row: rowData, trs } = props;
-      if (scrollType === 'virtual') {
-        if (isVirtual) {
-          const { $index } = rowData;
-          trs.set($index, trRef.value);
-          context.emit('row-mounted');
-        }
-      }
-
       if (props.virtualConfig?.isVirtualScroll.value) {
         context.emit('row-mounted', {
           ref: trRef,
           data: props.row,
         });
-      }
-    });
-
-    onBeforeUnmount(() => {
-      if (props.isVirtual) {
-        const { trs, row } = props;
-        const { $index } = row;
-        trs.delete($index);
       }
     });
 

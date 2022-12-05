@@ -24,16 +24,10 @@ export interface TableBodyProps extends BaseTableProps {
   tableWidth: number;
   isWidthOverflow: boolean;
   virtualConfig: VirtualScrollConfig;
-  translateY: number;
-  scrollType: string;
-  isVirtual: boolean;
-  rowHeight: number;
-  trs: Map<number, object>;
-  bufferSize: number;
   // HTMLDivElement
   tableContentElm: any;
   cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
-  handleRowMounted: () => void;
+  handleRowMounted: (rowData: any) => void;
 }
 
 // table 到 body 的相同属性
@@ -79,13 +73,6 @@ export default defineComponent({
     tableWidth: Number,
     isWidthOverflow: Boolean,
     virtualConfig: Object as PropType<VirtualScrollConfig>,
-    // 以下内容为虚拟滚动所需参数
-    translateY: Number,
-    scrollType: String,
-    isVirtual: Boolean,
-    rowHeight: Number,
-    trs: Map as PropType<TableBodyProps['trs']>,
-    bufferSize: Number,
     // eslint-disable-next-line
     tableContentElm: {},
     handleRowMounted: Function as PropType<TableBodyProps['handleRowMounted']>,
@@ -164,11 +151,6 @@ export default defineComponent({
       'scroll',
       'tableElm',
       'tableContentElm',
-      'trs',
-      'bufferSize',
-      'isVirtual',
-      'rowHeight',
-      'scrollType',
       'pagination',
     ];
     this.data?.forEach((row, rowIndex) => {
@@ -213,6 +195,7 @@ export default defineComponent({
     });
 
     const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
+
     const isEmpty = !this.data?.length && !this.loading && !this.firstFullRow && !this.lastFullRow;
 
     // 垫上隐藏的 tr 元素高度
@@ -225,7 +208,7 @@ export default defineComponent({
     };
 
     return (
-      <tbody class={this.tbodyClasses} style={this.isVirtual && { ...posStyle }}>
+      <tbody class={this.tbodyClasses} style={this.virtualConfig.isVirtualScroll && { ...posStyle }}>
         {isEmpty ? renderEmpty(this.columns) : list}
       </tbody>
     );
