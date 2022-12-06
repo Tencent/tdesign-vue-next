@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, Teleport, onMounted, onBeforeUnmount, watch } from 'vue';
+import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './props';
@@ -28,6 +28,9 @@ export default defineComponent({
     const { index, visible, modelValue } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
+
+    const animationEnd = ref(true);
+    const animationTimer = ref();
 
     const wrapClass = computed(() => [
       `${COMPONENT_NAME.value}-preview-image`,
@@ -113,11 +116,16 @@ export default defineComponent({
     watch(
       () => visibleValue.value,
       (val) => {
+        clearTimeout(animationTimer.value);
         if (val) {
+          animationEnd.value = false;
           window.addEventListener('keydown', keydownHandler);
-          return;
+        } else {
+          animationTimer.value = setTimeout(() => {
+            animationEnd.value = true;
+          }, 200);
+          window.removeEventListener('keydown', keydownHandler);
         }
-        window.removeEventListener('keydown', keydownHandler);
       },
     );
 
@@ -214,46 +222,53 @@ export default defineComponent({
         <>
           {renderTNodeJSX('trigger', { params: { open: openHandler } })}
           <Teleport to="body">
-            {visibleValue.value && (
-              <div class={wrapClass.value} style={{ zIndex: zIndexValue.value }} onWheel={onWheel}>
-                {!!showOverlayValue.value && (
-                  <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
-                )}
-                {images.value.length > 1 && (
-                  <>
-                    {renderHeader()}
-                    <div class={`${COMPONENT_NAME.value}__modal-index`}>
-                      {props.title && renderTNodeJSX('title')}
-                      {`${indexValue.value + 1}/${images.value.length}`}
-                    </div>
-                    {renderNavigationArrow('prev')}
-                    {renderNavigationArrow('next')}
-                  </>
-                )}
+            <Transition>
+              {(visibleValue.value || !animationEnd.value) && (
                 <div
-                  class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
-                  onClick={closeBtnAction}
+                  v-show={visibleValue.value}
+                  class={wrapClass.value}
+                  style={{ zIndex: zIndexValue.value }}
+                  onWheel={onWheel}
                 >
-                  {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
+                  {!!showOverlayValue.value && (
+                    <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
+                  )}
+                  {images.value.length > 1 && (
+                    <>
+                      {renderHeader()}
+                      <div class={`${COMPONENT_NAME.value}__modal-index`}>
+                        {props.title && renderTNodeJSX('title')}
+                        {`${indexValue.value + 1}/${images.value.length}`}
+                      </div>
+                      {renderNavigationArrow('prev')}
+                      {renderNavigationArrow('next')}
+                    </>
+                  )}
+                  <div
+                    class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
+                    onClick={closeBtnAction}
+                  >
+                    {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
+                  </div>
+                  <TImageViewerUtils
+                    onZoomIn={onZoomIn}
+                    onZoomOut={onZoomOut}
+                    onMirror={onMirror}
+                    onReset={onRest}
+                    onRotate={onRotate}
+                    scale={scale.value}
+                    currentImage={currentImage.value}
+                  />
+                  <TImageItem
+                    scale={scale.value}
+                    rotate={rotate.value}
+                    mirror={mirror.value}
+                    src={currentImage.value.mainImage}
+                    placementSrc={currentImage.value.thumbnail}
+                  />
                 </div>
-                <TImageViewerUtils
-                  onZoomIn={onZoomIn}
-                  onZoomOut={onZoomOut}
-                  onMirror={onMirror}
-                  onReset={onRest}
-                  onRotate={onRotate}
-                  scale={scale.value}
-                  currentImage={currentImage.value}
-                />
-                <TImageItem
-                  scale={scale.value}
-                  rotate={rotate.value}
-                  mirror={mirror.value}
-                  src={currentImage.value.mainImage}
-                  placementSrc={currentImage.value.thumbnail}
-                />
-              </div>
-            )}
+              )}
+            </Transition>
           </Teleport>
         </>
       );
