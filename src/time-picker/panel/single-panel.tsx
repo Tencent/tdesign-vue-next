@@ -66,7 +66,7 @@ export default defineComponent({
     watch(
       () => dayjsValue.value,
       () => {
-        if (dayjsValue.value) updateTimeScrollPos(true);
+        if (dayjsValue.value && value.value) updateTimeScrollPos(true);
       },
     );
 
@@ -172,7 +172,7 @@ export default defineComponent({
       return distance;
     };
 
-    const handleScroll = (col: EPickerCols, idx: number) => {
+    const handleScroll = (col: EPickerCols, idx: number, e: MouseEvent) => {
       let val: number | string;
       let formattedVal: string;
       if (!props.isShowPanel) return;
@@ -223,7 +223,7 @@ export default defineComponent({
           formattedVal = dayjsValue.value.format(format.value);
         }
       }
-      if (formattedVal !== value.value) props.onChange?.(formattedVal);
+      if (formattedVal !== value.value) props.onChange?.(formattedVal, e);
 
       if (distance !== scrollTop) {
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
@@ -253,7 +253,7 @@ export default defineComponent({
       });
     };
 
-    const handleTimeItemClick = (col: EPickerCols, el: string | number, idx: number) => {
+    const handleTimeItemClick = (col: EPickerCols, el: string | number, idx: number, e: MouseEvent) => {
       if (!timeItemCanUsed(col, el)) return;
       if (timeArr.includes(col)) {
         if (
@@ -268,9 +268,9 @@ export default defineComponent({
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {
-          props.onChange(dayjsValue.value.hour(currentHour - 12).format(format.value));
+          props.onChange(dayjsValue.value.hour(currentHour - 12).format(format.value), e);
         } else if (el === PM && currentHour < 12) {
-          props.onChange(dayjsValue.value.hour(currentHour + 12).format(format.value));
+          props.onChange(dayjsValue.value.hour(currentHour + 12).format(format.value), e);
         }
       }
     };
@@ -326,7 +326,7 @@ export default defineComponent({
             key={`${col}_${idx}`}
             ref={(el) => (colsRef[idx] = el)}
             class={`${panelClassName.value}-body-scroll`}
-            onScroll={debounce(() => handleScroll(col, idx), 50)}
+            onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
           >
             {getColList(col).map((el) => (
               <li
@@ -338,7 +338,7 @@ export default defineComponent({
                     [`${classPrefix.value}-is-current`]: isCurrent(col, el),
                   },
                 ]}
-                onClick={() => handleTimeItemClick(col, el, idx)}
+                onClick={(e) => handleTimeItemClick(col, el, idx, e)}
               >
                 {/* eslint-disable-next-line no-nested-ternary */}
                 {timeArr.includes(col)
