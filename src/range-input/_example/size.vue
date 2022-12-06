@@ -1,5 +1,5 @@
 <template>
-  <t-space>
+  <t-space direction="vertical">
     <t-range-input size="small" />
     <t-range-input />
     <t-range-input size="large" />
