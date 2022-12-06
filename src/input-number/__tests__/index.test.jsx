@@ -16,7 +16,7 @@ describe('InputNumber', () => {
 
     it(':autoWidth', () => {
       const wrapper = mount(() => <InputNumber autoWidth />);
-      const input = wrapper.find('.t-input');
+      const input = wrapper.find('.t-input__wrap');
       expect(input.classes()).toContain('t-input--auto-width');
     });
 
