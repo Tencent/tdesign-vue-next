@@ -75,9 +75,9 @@ export default defineComponent({
       isShowPanel.value = false;
     };
 
-    const handlePanelChange = (v: string) => {
+    const handlePanelChange = (v: string, e: MouseEvent) => {
       currentValue.value = v;
-      props.onPick?.(v);
+      props.onPick?.(v, { e });
     };
 
     watch(
@@ -106,6 +106,8 @@ export default defineComponent({
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputProps={props.inputProps}
           popupProps={{ overlayInnerStyle: { width: 'auto', padding: 0 }, ...(props.popupProps as object) }}
+          status={props.status}
+          tips={props.tips}
           panel={() => (
             <TimePickerPanel
               steps={props.steps}
