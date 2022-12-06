@@ -16,7 +16,7 @@ const open = () => {
 const close = () => {
   console.log('close');
 };
-const pick = (v) => {
-  console.log(v, 'on pick');
+const pick = (v, context) => {
+  console.log(v, context, 'on pick');
 };
 </script>

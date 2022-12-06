@@ -7,6 +7,7 @@
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
 import { RangeInputProps } from '../range-input';
+import { TNode } from '../common';
 
 export interface TdTimePickerProps {
   /**
@@ -64,10 +65,18 @@ export interface TdTimePickerProps {
    */
   size?: 'small' | 'medium' | 'large';
   /**
+   * 输入框状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
    * @default [1, 1, 1]
    */
   steps?: Array<string | number>;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 选中值
    * @default ''
@@ -110,7 +119,7 @@ export interface TdTimePickerProps {
   /**
    * 面板选中值后触发
    */
-  onPick?: (value: TimePickerValue) => void;
+  onPick?: (value: TimePickerValue, context: { e: MouseEvent }) => void;
 }
 
 export interface TdTimeRangePickerProps {
@@ -170,10 +179,18 @@ export interface TdTimeRangePickerProps {
    */
   size?: 'small' | 'medium' | 'large';
   /**
+   * 输入框状态
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
+  /**
    * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
    * @default [1, 1, 1]
    */
   steps?: Array<string | number>;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 选中值
    */
@@ -205,7 +222,7 @@ export interface TdTimeRangePickerProps {
   /**
    * 面板选中值后触发
    */
-  onPick?: (value: TimeRangeValue, context: { position?: TimeRangePickerPartial }) => void;
+  onPick?: (value: TimeRangeValue, context: { e: MouseEvent; position?: TimeRangePickerPartial }) => void;
 }
 
 export interface PresetTime {
