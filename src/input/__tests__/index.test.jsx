@@ -35,8 +35,7 @@ describe('Input', () => {
     });
     it(':autoWidth', async () => {
       const wrapper = mount(() => <Input autoWidth />);
-      const input = wrapper.find('.t-input');
-      expect(input.classes()).toContain('t-input--auto-width');
+      expect(wrapper.classes()).toContain('t-input--auto-width');
     });
     it(':placeholder', async () => {
       const wrapper = mount(() => <Input placeholder="请输入" />);

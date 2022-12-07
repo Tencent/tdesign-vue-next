@@ -29,17 +29,17 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
 
     const selectInputRef = ref();
-    const selectInputWrapRef = ref();
+    const popupRef = ref();
     const { multiple, value, popupVisible, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
     const { renderSelectMultiple } = useMultiple(props, context);
     const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
-    const popupClasses = computed(() => [
-      NAME_CLASS.value,
+    const classes = computed(() => [
+      `${NAME_CLASS.value}`,
       {
-        [BASE_CLASS_BORDERLESS.value]: borderless.value,
         [BASE_CLASS_MULTIPLE.value]: multiple.value,
+        [BASE_CLASS_BORDERLESS.value]: borderless.value,
         [BASE_CLASS_POPUP_VISIBLE.value]: popupVisible.value ?? innerPopupVisible.value,
         [BASE_CLASS_EMPTY.value]: value.value instanceof Array ? !value.value.length : !value.value,
       },
@@ -48,12 +48,12 @@ export default defineComponent({
     return {
       classPrefix,
       NAME_CLASS,
-      selectInputWrapRef,
       innerPopupVisible,
       commonInputProps,
       tOverlayInnerStyle,
       selectInputRef,
-      popupClasses,
+      popupRef,
+      classes,
       onInnerClear,
       renderSelectSingle,
       renderSelectMultiple,
@@ -67,8 +67,7 @@ export default defineComponent({
 
     const mainContent = (
       <Popup
-        ref="selectInputRef"
-        class={this.popupClasses}
+        ref="popupRef"
         trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
         placement="bottom-left"
         {...visibleProps}
@@ -91,10 +90,8 @@ export default defineComponent({
       </Popup>
     );
 
-    if (!this.tips) return mainContent;
-
     return (
-      <div ref="selectInputWrapRef" class={`${this.NAME_CLASS}__wrap`}>
+      <div ref="selectInputRef" class={this.classes}>
         {mainContent}
         <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
           {this.tips}
