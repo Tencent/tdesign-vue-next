@@ -191,10 +191,11 @@ module.exports = {
       );
       
       const columns = ref([
-        { colKey: 'applicant', title: '申请人', width: '100' },
+        { colKey: 'applicant', title: '申请人', width: '120' },
         {
           colKey: 'status',
           title: '审批状态',
+          width: '120',
           cell: (h, { row }) => {
             return (
               <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
@@ -204,8 +205,8 @@ module.exports = {
             );
           },
         },
-        { colKey: 'channel', title: '签署方式', width: '120' },
-        { colKey: 'detail.email', title: '电子邮件', width: '200' },
+        { colKey: 'channel', title: '签署方式' },
+        { colKey: 'detail.email', title: '电子邮件' },
       ]);
     `,
     panelChangeStr: `
