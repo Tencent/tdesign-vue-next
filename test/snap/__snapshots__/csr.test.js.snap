@@ -44727,7 +44727,11 @@ exports[`csr snapshot test > csr test ./src/config-provider/_example/pagination.
         <span
           class="t-input-adornment__append"
         >
-          / 4 
+          <span
+            class="t-input-adornment__text"
+          >
+            / 4 
+          </span>
         </span>
       </div>
     </div>
@@ -72381,7 +72385,11 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
       <span
         class="t-input-adornment__prepend"
       >
-        http://
+        <span
+          class="t-input-adornment__text"
+        >
+          http://
+        </span>
       </span>
       <div
         class="t-input__wrap"
@@ -72439,7 +72447,11 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
       <span
         class="t-input-adornment__append"
       >
-        .com
+        <span
+          class="t-input-adornment__text"
+        >
+          .com
+        </span>
       </span>
     </div>
   </div>
@@ -72455,7 +72467,11 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
       <span
         class="t-input-adornment__prepend"
       >
-        http://
+        <span
+          class="t-input-adornment__text"
+        >
+          http://
+        </span>
       </span>
       <div
         class="t-input__wrap"
@@ -72480,7 +72496,11 @@ exports[`csr snapshot test > csr test ./src/input/_example/addon.vue 1`] = `
       <span
         class="t-input-adornment__append"
       >
-        .com
+        <span
+          class="t-input-adornment__text"
+        >
+          .com
+        </span>
       </span>
     </div>
   </div>
@@ -73863,7 +73883,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 
           class="t-select__wrap"
         >
           <div
-            class="t-select-input t-select-input--borderless t-select"
+            class="t-select-input t-select"
           >
             
             <div
@@ -73996,7 +74016,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 
           class="t-select__wrap"
         >
           <div
-            class="t-select-input t-select-input--borderless t-select"
+            class="t-select-input t-select"
           >
             
             <div
@@ -74078,7 +74098,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 
           class="t-select__wrap"
         >
           <div
-            class="t-select-input t-select-input--borderless t-select"
+            class="t-select-input t-select"
           >
             
             <div
@@ -74212,7 +74232,7 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/select.vue 
           class="t-select__wrap"
         >
           <div
-            class="t-select-input t-select-input--borderless t-select"
+            class="t-select-input t-select"
           >
             
             <div
@@ -74300,7 +74320,11 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
       <span
         class="t-input-adornment__prepend"
       >
-        http://
+        <span
+          class="t-input-adornment__text"
+        >
+          http://
+        </span>
       </span>
       <div
         class="t-input__wrap"
@@ -74367,7 +74391,11 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
       <span
         class="t-input-adornment__append"
       >
-        .com
+        <span
+          class="t-input-adornment__text"
+        >
+          .com
+        </span>
       </span>
     </div>
   </div>
@@ -74383,7 +74411,11 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
       <span
         class="t-input-adornment__prepend"
       >
-        http://
+        <span
+          class="t-input-adornment__text"
+        >
+          http://
+        </span>
       </span>
       <div
         class="t-input__wrap"
@@ -74408,7 +74440,11 @@ exports[`csr snapshot test > csr test ./src/input-adornment/_example/text.vue 1`
       <span
         class="t-input-adornment__append"
       >
-        .com
+        <span
+          class="t-input-adornment__text"
+        >
+          .com
+        </span>
       </span>
     </div>
   </div>
@@ -90561,7 +90597,11 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/jump.vue 1`] = `
       <span
         class="t-input-adornment__append"
       >
-        / 6 页
+        <span
+          class="t-input-adornment__text"
+        >
+          / 6 页
+        </span>
       </span>
     </div>
   </div>
@@ -91744,7 +91784,11 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/simple.vue 1`] =
       <span
         class="t-input-adornment__append"
       >
-        / 20 页
+        <span
+          class="t-input-adornment__text"
+        >
+          / 20 页
+        </span>
       </span>
     </div>
   </div>
@@ -91907,7 +91951,11 @@ exports[`csr snapshot test > csr test ./src/pagination/_example/simple-mini.vue 
       <span
         class="t-input-adornment__append"
       >
-        / 20 页
+        <span
+          class="t-input-adornment__text"
+        >
+          / 20 页
+        </span>
       </span>
     </div>
   </div>
@@ -141089,7 +141137,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination.vue 1`] = 
                 <span
                   class="t-input-adornment__append"
                 >
-                  / 12 页
+                  <span
+                    class="t-input-adornment__text"
+                  >
+                    / 12 页
+                  </span>
                 </span>
               </div>
             </div>
@@ -141431,7 +141483,11 @@ exports[`csr snapshot test > csr test ./src/table/_example/pagination-ajax.vue 1
             <span
               class="t-input-adornment__append"
             >
-              / 1 页
+              <span
+                class="t-input-adornment__text"
+              >
+                / 1 页
+              </span>
             </span>
           </div>
         </div>
@@ -160710,7 +160766,11 @@ exports[`csr snapshot test > csr test ./src/transfer/_example/pagination.vue 1`]
             <span
               class="t-input-adornment__append"
             >
-              / 2 页
+              <span
+                class="t-input-adornment__text"
+              >
+                / 2 页
+              </span>
             </span>
           </div>
         </div>
@@ -164485,7 +164545,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              checked:
+              <span
+                class="t-input-adornment__text"
+              >
+                checked:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -164522,7 +164586,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              expanded:
+              <span
+                class="t-input-adornment__text"
+              >
+                expanded:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -164559,7 +164627,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/controlled.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              activated:
+              <span
+                class="t-input-adornment__text"
+              >
+                activated:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -167417,7 +167489,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/filter.vue 1`] = `
     <span
       class="t-input-adornment__prepend"
     >
-      filter:
+      <span
+        class="t-input-adornment__text"
+      >
+        filter:
+      </span>
     </span>
     <div
       class="t-input__wrap"
@@ -171239,7 +171315,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/operations.vue 1`] = `
       <span
         class="t-input-adornment__prepend"
       >
-        filter:
+        <span
+          class="t-input-adornment__text"
+        >
+          filter:
+        </span>
       </span>
       <div
         class="t-input__wrap"
@@ -171943,7 +172023,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              checked:
+              <span
+                class="t-input-adornment__text"
+              >
+                checked:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -171982,7 +172066,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              expanded:
+              <span
+                class="t-input-adornment__text"
+              >
+                expanded:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -172021,7 +172109,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/sync.vue 1`] = `
             <span
               class="t-input-adornment__prepend"
             >
-              activated:
+              <span
+                class="t-input-adornment__text"
+              >
+                activated:
+              </span>
             </span>
             <div
               class="t-input__wrap"
@@ -172531,7 +172623,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
     <span
       class="t-input-adornment__prepend"
     >
-      checked:
+      <span
+        class="t-input-adornment__text"
+      >
+        checked:
+      </span>
     </span>
     <div
       class="t-input__wrap"
@@ -172563,7 +172659,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
     <span
       class="t-input-adornment__prepend"
     >
-      expanded:
+      <span
+        class="t-input-adornment__text"
+      >
+        expanded:
+      </span>
     </span>
     <div
       class="t-input__wrap"
@@ -172595,7 +172695,11 @@ exports[`csr snapshot test > csr test ./src/tree/_example/vmodel.vue 1`] = `
     <span
       class="t-input-adornment__prepend"
     >
-      activated:
+      <span
+        class="t-input-adornment__text"
+      >
+        activated:
+      </span>
     </span>
     <div
       class="t-input__wrap"
