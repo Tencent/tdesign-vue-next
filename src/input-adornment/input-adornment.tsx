@@ -1,4 +1,6 @@
 import { defineComponent, h, VNodeChild } from 'vue';
+import isString from 'lodash/isString';
+import isNumber from 'lodash/isNumber';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import props from './props';
@@ -13,14 +15,14 @@ export default defineComponent({
 
     const renderAddon = (h: any, type: string, addon: string | Function | undefined): VNodeChild => {
       let addonNode: VNodeChild;
+      const isContentNode = isString(addon) || isNumber(addon);
+
       if (slots[type]) {
         addonNode = slots[type](null);
-      } else if (typeof addon === 'string') {
-        addonNode = addon;
       } else if (typeof addon === 'function') {
         addonNode = addon(h);
       } else {
-        addonNode = null;
+        addonNode = isContentNode ? <span class={`${COMPONENT_NAME.value}__text`}>{addon}</span> : addon;
       }
       return addonNode ? <span class={`${COMPONENT_NAME.value}__${type}`}>{addonNode}</span> : addonNode;
     };
