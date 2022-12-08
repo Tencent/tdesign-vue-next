@@ -4,6 +4,34 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.26.0 `2022-12-08` 
+
+### ❗ Breaking Changes
+- `SelectInput`: 
+  - `selectInputWrapRef` 更名为 `selectInputRef ` @chaishi ([#2125](https://github.com/Tencent/tdesign-vue-next/pull/2125))
+  - 涉及 DOM 类名变更，和 React 保持一致，方便全部框架复用一份 CSS @chaishi ([#2125](https://github.com/Tencent/tdesign-vue-next/pull/2125))
+
+### 🚀 Features
+- `Table`: 
+  - 可筛选表格，新增 `filter.popupProps` ，支持透传 Popup 组件全部属性，[issue#2088](https://github.com/Tencent/tdesign-vue-next/issues/2088) @chaishi ([#2105](https://github.com/Tencent/tdesign-vue-next/pull/2105))
+  - 选中行表格，新增 `selectOnRowClick`，支持点击行选中，[issue#1954](https://github.com/Tencent/tdesign-vue-next/issues/1954) @chaishi ([#2105](https://github.com/Tencent/tdesign-vue-next/pull/2105))
+- `ColorPicker`: 新增`clearable`及`showPrimaryColorPreview`API，控制是否展示颜色选择条右侧预览区域 @uyarn ([#2096](https://github.com/Tencent/tdesign-vue-next/pull/2096))
+- `Upload`:  `onProgress` 事件新增参数 `XMLHttpRequest`，用于获取 http status 等信息 @chaishi ([#2106](https://github.com/Tencent/tdesign-vue-next/pull/2106))
+- `TimePicker`: 新增`tips`和`status` API，onPick新增context参数回调 @uyarn ([#2124](https://github.com/Tencent/tdesign-vue-next/pull/2124))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复拖拽排序问题，[issue#1706](https://github.com/Tencent/tdesign-vue-next/issues/1706)，[issue#1250](https://github.com/Tencent/tdesign-vue-next/issues/1250)，[issue#895](https://github.com/Tencent/tdesign-vue-next/issues/895)，[issue#893](https://github.com/Tencent/tdesign-vue-next/issues/893) @chaishi ([#2105](https://github.com/Tencent/tdesign-vue-next/pull/2105))
+  - 修复表头超出省略报错问题 @chaishi ([#2131](https://github.com/Tencent/tdesign-vue-next/pull/2131))
+  - 本地数据排序，支持默认对排序字段进行数据排序，[issue#2129](https://github.com/Tencent/tdesign-vue-next/issues/2129) @chaishi ([#2131](https://github.com/Tencent/tdesign-vue-next/pull/2131))
+- `ColorPicker`: 修复无法删除颜色值的问题 @uyarn ([#2096](https://github.com/Tencent/tdesign-vue-next/pull/2096))
+- `ConfigProvider`: 修复 `v-loading` 方式使用时会发出警告问题 ([issue #2025](https://github.com/Tencent/tdesign-vue-next/issues/2025)) @yusongh ([#2054](https://github.com/Tencent/tdesign-vue-next/pull/2054))
+- `InputNumber`: 无法输入小数点后面的第一位数字 `0`，[issue#2103](https://github.com/Tencent/tdesign-vue-next/issues/2103) @chaishi ([#2107](https://github.com/Tencent/tdesign-vue-next/pull/2107))
+- `Radio`: 修复 `click` 事件没有绑定在最外层，导致无法正确获取点击事件问题 @chaishi ([#2105](https://github.com/Tencent/tdesign-vue-next/pull/2105))
+- `TimePicker`: 修复面板开启时无法点击清空按钮清空数值的问题 @uyarn ([#2124](https://github.com/Tencent/tdesign-vue-next/pull/2124))
+- `SelectInput`: 修复宽度自适应场景，宽度问题，[issue#2122](https://github.com/Tencent/tdesign-vue-next/issues/2122) @chaishi ([#2125](https://github.com/Tencent/tdesign-vue-next/pull/2125))
+- `InputAdornment`: 修复 inputAdornment 样式 @honkinglin ([#2127](https://github.com/Tencent/tdesign-vue-next/pull/2127))
+- `ImageViewer `: 修复 `image-viewer` 移除动画缺失问题 @honkinglin ([#2118](https://github.com/Tencent/tdesign-vue-next/pull/2118))
+- `RangeInput`: 修复 `status` 无效问题 @honkinglin ([#2123](https://github.com/Tencent/tdesign-vue-next/pull/2123))
 ## 🌈 0.25.0 `2022-12-01` 
 ### ❗ Breaking Changes
 - `Jumper`: Jumper 更名为 PaginationMini 组件，正在使用 Jumper 组件的同学请从 Pagination 中导出替换 @honkinglin ([#2066](https://github.com/Tencent/tdesign-vue-next/pull/2066))
