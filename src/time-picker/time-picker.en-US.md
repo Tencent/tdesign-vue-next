@@ -16,7 +16,9 @@ placeholder | String | undefined | \- | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 presets | Object | - | Typescript：`PresetTime` `interface PresetTime { [presetName: string]: TimePickerValue \| (() => TimePickerValue) }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 size | String | medium | options：small/medium/large | N
+status | String | - | options：default/success/warning/error | N
 steps | Array | [1, 1, 1] | Typescript：`Array<string \| number>` | N
+tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String | - | `v-model` and `v-model:value` is supported。Typescript：`TimePickerValue` `type TimePickerValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 defaultValue | String | - | uncontrolled property。Typescript：`TimePickerValue` `type TimePickerValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 onBlur | Function |  | Typescript：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/> | N
@@ -54,7 +56,9 @@ popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./po
 presets | Object | - | Typescript：`PresetTimeRange` `interface PresetTimeRange { [presetRageName: string]: TimeRangeValue \| (() => TimeRangeValue)}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 rangeInputProps | Object | - | Typescript：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 size | String | medium | options：small/medium/large | N
+status | String | - | options：default/success/warning/error | N
 steps | Array | [1, 1, 1] | Typescript：`Array<string \| number>` | N
+tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | Array | - | `v-model` and `v-model:value` is supported。Typescript：`TimeRangeValue` `type TimeRangeValue = Array<string>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 defaultValue | Array | - | uncontrolled property。Typescript：`TimeRangeValue` `type TimeRangeValue = Array<string>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 onBlur | Function |  | Typescript：`(context: { value: TimeRangeValue; e?: FocusEvent; position?: TimeRangePickerPartial })  => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`type TimeRangePickerPartial = 'start' \| 'end'`<br/> | N

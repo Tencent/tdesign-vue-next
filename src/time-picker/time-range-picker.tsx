@@ -12,7 +12,7 @@ import { formatInputValue, validateInputValue } from '../_common/js/time-picker/
 // interfaces
 import props from './time-range-picker-props';
 import { TimeRangeValue } from './interface';
-
+import { TimeRangePickerPartial } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
@@ -66,13 +66,13 @@ export default defineComponent({
       currentPanelIdx.value = position === 'first' ? 0 : 1;
     };
 
-    const handleTimeChange = (newValue: string) => {
+    const handleTimeChange = (newValue: string, e: MouseEvent) => {
       if (currentPanelIdx.value === 0) {
         currentValue.value = [newValue, currentValue.value[1] ?? newValue];
       } else {
         currentValue.value = [currentValue.value[0] ?? newValue, newValue];
       }
-      handleOnPick(newValue);
+      handleOnPick(newValue, e);
     };
 
     const handleInputBlur = (value: TimeRangeValue, { e }: { e: FocusEvent }) => {
@@ -106,15 +106,15 @@ export default defineComponent({
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
-    const handleOnPick = (pickValue: string) => {
+    const handleOnPick = (pickValue: string, e: MouseEvent) => {
       let pickedRangeValue = [];
-      let context = {};
+      let context;
       if (currentPanelIdx.value === 0) {
         pickedRangeValue = [pickValue, currentValue.value[1] ?? pickValue];
-        context = { position: 'start' };
+        context = { e, position: 'start' as TimeRangePickerPartial };
       } else {
         pickedRangeValue = [currentValue.value[0] ?? pickValue, pickValue];
-        context = { position: 'end' };
+        context = { e, position: 'end' as TimeRangePickerPartial };
       }
       props.onPick?.(pickedRangeValue, context);
     };
@@ -157,6 +157,8 @@ export default defineComponent({
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
+          status={props.status}
+          tips={props.tips}
           panel={() => (
             <TimePickerPanel
               steps={props.steps}
