@@ -22,8 +22,7 @@ describe('TagInput', () => {
 
     it(':autoWidth', () => {
       const wrapper = mount(() => <TagInput autoWidth />);
-      const input = wrapper.find('.t-input');
-      expect(input.classes()).toContain('t-input--auto-width');
+      expect(wrapper.classes()).toContain('t-input--auto-width');
     });
 
     it(':clearable', async () => {

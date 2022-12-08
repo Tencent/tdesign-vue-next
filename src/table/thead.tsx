@@ -97,6 +97,7 @@ export default defineComponent({
       theadClasses,
       theadRef,
       slots,
+      getTableNode,
     };
   },
 

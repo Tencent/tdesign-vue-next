@@ -144,7 +144,14 @@ export default defineComponent({
         }
       }
 
-      const classes = [
+      const wrapClasses = computed(() => [
+        INPUT_WRAP_CLASS.value,
+        {
+          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
+        },
+      ]);
+
+      const classes = computed(() => [
         COMPONENT_NAME.value,
         props.inputClass,
         {
@@ -157,9 +164,8 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
-          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
         },
-      ];
+      ]);
 
       const inputEvents = getValidAttrs({
         onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
@@ -175,9 +181,9 @@ export default defineComponent({
       const tips = renderTNodeJSX('tips');
 
       return (
-        <div class={INPUT_WRAP_CLASS.value}>
+        <div class={wrapClasses.value}>
           <div
-            class={classes}
+            class={classes.value}
             onClick={inputHandle.onRootClick}
             onMouseenter={inputEventHandler.onInputMouseenter}
             onMouseleave={inputEventHandler.onInputMouseleave}

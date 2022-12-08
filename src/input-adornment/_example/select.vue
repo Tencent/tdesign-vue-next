@@ -22,7 +22,6 @@ import { ref } from 'vue';
 
 const protocolSelect = ref(() => (
   <t-select
-    bordered={false}
     autoWidth
     options={['http://', 'https://'].map((value) => ({ label: value, value }))}
     defaultValue="http://"
@@ -31,33 +30,9 @@ const protocolSelect = ref(() => (
 
 const tldSelect = ref(() => (
   <t-select
-    bordered={false}
     autoWidth
     options={['.com', '.cn', '.net', '.org'].map((value) => ({ label: value, value }))}
     defaultValue=".cn"
   />
 ));
 </script>
-
-<style lang="less">
-.adornment-select {
-  .t-input-adornment {
-    .t-input-adornment__prepend,
-    .t-input-adornment__append {
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: var(--td-bg-color-secondarycontainer-hover);
-      }
-      .t-select__wrap {
-        .t-select {
-          .t-input:hover:not(.t-is-disabled) {
-            .t-fake-arrow {
-              color: var(--td-text-color-placeholder);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</style>
