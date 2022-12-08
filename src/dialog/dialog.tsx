@@ -25,6 +25,7 @@ import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
+import { getScrollbarWidth } from '../utils/dom';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -392,7 +393,8 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      const scrollWidth = window.innerWidth - document.body.offsetWidth;
+      const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
+      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
       styleEl.value = document.createElement('style');
       styleEl.value.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
       styleEl.value.innerHTML = `
