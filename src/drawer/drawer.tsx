@@ -3,7 +3,7 @@ import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer } from '../utils/dom';
+import { isServer, getScrollbarWidth } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import TransferDom from '../utils/transfer-dom';
@@ -220,7 +220,9 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      const scrollWidth = window.innerWidth - document.body.offsetWidth;
+      const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
+      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
+
       styleEl.value = document.createElement('style');
       styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
       styleEl.value.innerHTML = `
