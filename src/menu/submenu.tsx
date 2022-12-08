@@ -276,7 +276,7 @@ export default defineComponent({
         icon,
         <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={this.arrowClass}
+          overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
         />,
       ];
@@ -319,7 +319,7 @@ export default defineComponent({
         icon,
         <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={this.arrowClass}
+          overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
         />,
       ];
