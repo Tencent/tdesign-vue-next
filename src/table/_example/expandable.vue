@@ -185,6 +185,7 @@ watch(
   margin-right: 15px;
 }
 .more-detail {
+  line-height: 22px;
   > p {
     display: inline-block;
     margin: 4px 0;

@@ -180,7 +180,7 @@ const onFilterChange = (filters) => {
   filterValue.value = {
     ...filters,
     createTime: filters.createTime || [],
-    lastName: filters.lastName || [],
+    channel: filters.channel || [],
   };
   console.log(filters);
   request(filters);

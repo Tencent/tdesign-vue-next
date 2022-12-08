@@ -62,7 +62,7 @@ const fixedTopAndBottomRows = ref(false);
 const tableLayout = ref('fixed');
 
 const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: '100', foot: '共20条' },
+  { colKey: 'applicant', title: '申请人', width: '100', foot: '共20条', fixed: 'left' },
   {
     colKey: 'status',
     title: '审批状态',
@@ -78,9 +78,11 @@ const columns = ref([
       );
     },
   },
+  { colKey: 'channel', title: '签署方式' },
   { colKey: 'matters', title: '申请事项', width: '150', foot: '-' },
+  { colKey: 'detail.email', title: '邮箱地址' },
   { colKey: 'createTime', title: '申请日期', width: '120', foot: '-' },
-  { colKey: 'operation', title: '操作', width: '150', foot: '-' },
+  { colKey: 'operation', title: '操作', width: '150', foot: '-', fixed: 'right' },
 ]);
 
 const rehandleClickOp = (context) => {
