@@ -44,8 +44,6 @@ export default defineComponent({
     const referenceLayerRef = ref<HTMLElement>();
     // 当前高亮的元素
     const currentHighlightLayerElm = ref<HTMLElement>();
-    // 下一个高亮的元素
-    const nextHighlightLayerElm = ref<HTMLElement>();
     // dialog wrapper ref
     const dialogWrapperRef = ref<HTMLElement>();
     // dialog ref
@@ -66,8 +64,9 @@ export default defineComponent({
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
-      let { top, left } = getRelativePosition(nextHighlightLayerElm.value, currentHighlightLayerElm.value);
-      let { width, height } = nextHighlightLayerElm.value.getBoundingClientRect();
+      // 这里预留了一个相对元素的功能，暂未使用，也是这里导致了 fix #2111
+      let { top, left } = getRelativePosition(currentHighlightLayerElm.value);
+      let { width, height } = currentHighlightLayerElm.value.getBoundingClientRect();
       const highlightPadding = getCurrentCrossProps('highlightPadding');
 
       if (isPopup.value) {
@@ -90,15 +89,12 @@ export default defineComponent({
     };
 
     const showPopupGuide = () => {
-      const currentElement = getTargetElm(currentStepInfo.value.element);
-      nextHighlightLayerElm.value = currentElement;
-
       nextTick(() => {
-        scrollToParentVisibleArea(nextHighlightLayerElm.value);
+        currentHighlightLayerElm.value = getTargetElm(currentStepInfo.value.element);
+        scrollToParentVisibleArea(currentHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value);
-        scrollToElm(nextHighlightLayerElm.value);
-        currentHighlightLayerElm.value = currentElement;
+        scrollToElm(currentHighlightLayerElm.value);
       });
     };
 
@@ -108,12 +104,10 @@ export default defineComponent({
 
     const showDialogGuide = () => {
       nextTick(() => {
-        const currentElement = dialogTooltipRef.value;
-        nextHighlightLayerElm.value = currentElement;
-        scrollToParentVisibleArea(nextHighlightLayerElm.value);
+        currentHighlightLayerElm.value = dialogTooltipRef.value;
+        scrollToParentVisibleArea(currentHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
-        scrollToElm(nextHighlightLayerElm.value);
-        currentHighlightLayerElm.value = currentElement;
+        scrollToElm(currentHighlightLayerElm.value);
       });
     };
 
