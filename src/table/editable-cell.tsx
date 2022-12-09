@@ -316,7 +316,7 @@ export default defineComponent({
             }}
           >
             {cellNode.value}
-            {col.value.edit?.showEditIcon !== false && <Edit1Icon size="12px" />}
+            {col.value.edit?.showEditIcon !== false && <Edit1Icon />}
           </div>
         );
       }

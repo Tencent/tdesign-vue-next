@@ -1,12 +1,10 @@
 /**
  * Thanks to https://github.com/ElemeFE/element/blob/dev/packages/input/src/calcTextareaHeight.js
  */
-type RowsType = number | null;
 
-type ResultType = {
-  height?: string;
-  minHeight?: string;
-};
+import { CSSProperties } from 'vue';
+
+type RowsType = number | null;
 
 let hiddenTextarea: HTMLTextAreaElement;
 
@@ -81,7 +79,7 @@ export default function calcTextareaHeight(
   hiddenTextarea.value = targetElement.value || targetElement.placeholder || '';
 
   let height = hiddenTextarea.scrollHeight;
-  const result: ResultType = {};
+  const result: CSSProperties = {};
 
   if (boxSizing === 'border-box') {
     height += borderSize;

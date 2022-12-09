@@ -71,8 +71,8 @@ const TOTAL = 5;
 function getObject(i, currentPage) {
   return {
     id: i,
-    key: `我是 ${i}_${currentPage} 号`,
-    platform: i % 2 === 0 ? '共有' : '私有',
+    key: `申请人 ${i}_${currentPage} 号`,
+    platform: ['电子签署', '纸质签署', '纸质签署'][i % 3],
     type: ['String', 'Number', 'Array', 'Object'][i % 4],
     default: ['-', '0', '[]', '{}'][i % 4],
     detail: {
@@ -94,14 +94,14 @@ function getData(currentPage = 1) {
       const secondObj = {
         ...obj,
         id: secondIndex,
-        key: `我是 ${secondIndex}_${currentPage} 号`,
+        key: `申请人 ${secondIndex}_${currentPage} 号`,
       };
       secondObj.list = new Array(3).fill(null).map((m, n) => {
         const thirdIndex = secondIndex * 1000 + 100 * m + (n + 1) * 10;
         return {
           ...obj,
           id: thirdIndex,
-          key: `我是 ${thirdIndex}_${currentPage} 号`,
+          key: `申请人 ${thirdIndex}_${currentPage} 号`,
           list: true,
         };
       });
@@ -118,14 +118,14 @@ function getData(currentPage = 1) {
     ...getObject(66666, currentPage),
     /** 如果子节点为懒加载，则初始值设置为 true */
     list: true,
-    key: '我是懒加载节点 66666，点我体验',
+    key: '申请人懒加载节点 66666，点我体验',
   });
   // 懒加载2
   data.push({
     ...getObject(88888, currentPage),
     /** 如果子节点为懒加载，则初始值设置为 true */
     list: true,
-    key: '我是懒加载节点 88888，点我体验 ',
+    key: '申请人懒加载节点 88888，点我体验 ',
   });
   return data;
 }
@@ -174,11 +174,11 @@ const appendTo = (row) => {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   table.value.appendTo(row.key, {
     id: randomKey1,
-    key: `我是 ${randomKey1} 号`,
-    platform: '私有',
+    key: `申请人 ${randomKey1} 号`,
+    platform: '电子签署',
     type: 'Number',
   });
-  MessagePlugin.success(`已插入子节点我是 ${randomKey1} 号，请展开查看`);
+  MessagePlugin.success(`已插入子节点申请人 ${randomKey1} 号，请展开查看`);
 
   // 一次性添加多个子节点。示例代码有效，勿删！!!
   // appendMultipleDataTo(row);
@@ -191,27 +191,27 @@ function appendMultipleDataTo(row) {
   const newData = [
     {
       id: randomKey1,
-      key: `我是 ${randomKey1} 号`,
-      platform: '私有',
+      key: `申请人 ${randomKey1} 号`,
+      platform: '电子签署',
       type: 'Number',
     },
     {
       id: randomKey2,
-      key: `我是 ${randomKey2} 号`,
-      platform: '私有',
+      key: `申请人 ${randomKey2} 号`,
+      platform: '纸质签署',
       type: 'Number',
       list: true,
     },
     {
       id: randomKey3,
-      key: `我是 ${randomKey3} 号`,
-      platform: '私有',
+      key: `申请人 ${randomKey3} 号`,
+      platform: '纸质签署',
       type: 'Number',
       list: true,
     },
   ];
   table.value.appendTo(row?.key, newData);
-  MessagePlugin.success(`已插入子节点我是 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
+  MessagePlugin.success(`已插入子节点申请人 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
 }
 
 // 当前节点之前，新增兄弟节前
@@ -219,11 +219,11 @@ const insertBefore = (row) => {
   const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
   table.value.insertBefore(row.key, {
     id: randomKey,
-    key: `我是 ${randomKey} 号`,
-    platform: '私有',
+    key: `申请人 ${randomKey} 号`,
+    platform: '纸质签署',
     type: 'Number',
   });
-  MessagePlugin.success(`已插入子节点我是 ${randomKey} 号，请展开查看`);
+  MessagePlugin.success(`已插入子节点申请人 ${randomKey} 号，请展开查看`);
 };
 
 // 当前节点之后，新增兄弟节前
@@ -231,11 +231,11 @@ const insertAfter = (row) => {
   const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
   table.value.insertAfter(row.key, {
     id: randomKey,
-    key: `我是 ${randomKey} 号`,
-    platform: '私有',
+    key: `申请人 ${randomKey} 号`,
+    platform: '纸质签署',
     type: 'Number',
   });
-  MessagePlugin.success(`已插入子节点我是 ${randomKey} 号，请展开查看`);
+  MessagePlugin.success(`已插入子节点申请人 ${randomKey} 号，请展开查看`);
 };
 
 const columns = [
@@ -251,45 +251,46 @@ const columns = [
     colKey: 'id',
     title: '编号',
     ellipsis: true,
-    width: 100,
+    width: 80,
   },
   {
     width: 180,
     colKey: 'key',
-    title: '名称',
+    title: '申请人',
     ellipsis: true,
   },
   {
     colKey: 'platform',
-    title: '平台',
-    width: 80,
+    title: '签署方式',
+    width: 100,
   },
   {
     colKey: 'operate',
     width: 340,
     title: '操作',
-    align: 'center',
     // 增、删、改、查 等操作
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     cell: (h, { row }) => (
       <div class="tdesign-table-demo__table-operations">
-        <t-button variant="text" onClick={() => appendTo(row)}>
+        <t-link variant="text" hover="color" onClick={() => appendTo(row)}>
           插入
-        </t-button>
-        <t-button variant="text" onClick={() => insertBefore(row)}>
+        </t-link>
+        <t-link variant="text" hover="color" onClick={() => insertBefore(row)}>
           前插
-        </t-button>
-        <t-button variant="text" onClick={() => insertAfter(row)}>
+        </t-link>
+        <t-link variant="text" hover="color" onClick={() => insertAfter(row)}>
           后插
-        </t-button>
-        <t-button variant="text" onClick={() => onEditClick(row)}>
+        </t-link>
+        <t-link variant="text" hover="color" onClick={() => onEditClick(row)}>
           更新
-        </t-button>
-        <t-button variant="text" onClick={() => onLookUp(row)}>
+        </t-link>
+        <t-link variant="text" hover="color" onClick={() => onLookUp(row)}>
           查看
-        </t-button>
+        </t-link>
         <t-popconfirm content="确认删除吗" onConfirm={() => onDeleteConfirm(row)}>
-          <t-button variant="text">删除</t-button>
+          <t-link variant="text" hover="color" theme="danger">
+            删除
+          </t-link>
         </t-popconfirm>
       </div>
     ),
@@ -316,7 +317,7 @@ const onPageChange = (pageInfo) => {
 };
 
 const onRowToggle = () => {
-  const rowIds = ['我是 1_1 号', '我是 2_1 号', '我是 3_1 号', '我是 4_1 号'];
+  const rowIds = ['申请人 1_1 号', '申请人 2_1 号', '申请人 3_1 号', '申请人 4_1 号'];
   rowIds.forEach((id) => {
     // getData 参数为行唯一标识，lodash.get(row, rowKey)
     const rowData = table.value.getData(id);
@@ -364,7 +365,7 @@ const appendToRoot = () => {
   const key = Math.round(Math.random() * 10010);
   const newData = {
     id: key,
-    key: `我是 ${key}_${1} 号`,
+    key: `申请人 ${key}_${1} 号`,
     platform: key % 2 === 0 ? '共有' : '私有',
     type: ['String', 'Number', 'Array', 'Object'][key % 4],
     default: ['-', '0', '[]', '{}'][key % 4],
@@ -428,7 +429,7 @@ const treeExpandIcon = computed(() => {
 </script>
 
 <style>
-.tdesign-table-demo__table-operations .t-button {
+.tdesign-table-demo__table-operations .t-link {
   padding: 0 8px;
 }
 </style>
