@@ -36,6 +36,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   // 已经通过节点渲染计算出来的各自行高
   const trHeightList = ref<number[]>([]);
   const containerHeight = ref(0);
+  const containerWidth = ref(0);
   const startAndEndIndex = ref<[number, number]>([0, 15]);
 
   // 设置初始值
@@ -44,7 +45,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     if (!scroll) return {};
     return {
       bufferSize: scroll.bufferSize || 10,
-      isFixedRowHeight: scroll.isFixedRowHeight ?? true,
+      isFixedRowHeight: scroll.isFixedRowHeight ?? false,
       rowHeight: scroll.rowHeight || 47,
       threshold: scroll.threshold || 100,
       type: scroll.type,
@@ -83,11 +84,8 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     const { bufferSize } = tScroll.value;
     let startIndex = currentIndex > 0 && currentIndex <= doubleBufferSize.value ? currentIndex : 0;
     startIndex = currentIndex > doubleBufferSize.value ? currentIndex - bufferSize : startIndex;
-    let endIndex = startIndex + tripleBufferSize.value;
-    if (endIndex > trScrollTopHeightList.length) {
-      endIndex = trScrollTopHeightList.length;
-      startIndex = endIndex - tripleBufferSize.value;
-    }
+    startIndex = Math.min(startIndex, trScrollTopHeightList.length - tripleBufferSize.value);
+    const endIndex = startIndex + tripleBufferSize.value;
     if (startAndEndIndex.value[0] !== startIndex) {
       startAndEndIndex.value = [startIndex, endIndex];
     }
@@ -95,7 +93,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
 
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
-    if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight) return;
+    if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) return;
     const trHeight = rowData.ref.value.offsetHeight;
     const rowIndex = rowData.data.__VIRTUAL_SCROLL_INDEX;
     const newTrHeightList = trHeightList.value;
@@ -117,15 +115,23 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     updateVisibleData(trScrollTopHeightList.value, container.value.scrollTop);
   };
 
-  const refreshVirtualScroll = () => {
-    containerHeight.value = container.value.getBoundingClientRect().height;
-    const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
-    trScrollTopHeightList.value = scrollTopHeightList;
-    translateY.value = 0;
+  const refreshVirtualScroll = ([{ contentRect }]: [ResizeObserverEntry]) => {
+    // 如果宽度发生变化，重置滚动位置
+    if (contentRect.width !== containerWidth.value) {
+      container.value.scrollTop = 0;
+      translateY.value = 0;
+    } else if (contentRect.height !== containerHeight.value) {
+      // 如果高度发生变化
+      const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
+      trScrollTopHeightList.value = scrollTopHeightList;
+      translateY.value = 0;
 
-    if (scrollTopHeightList.length) {
-      updateVisibleData(scrollTopHeightList, 0);
+      if (scrollTopHeightList.length) {
+        updateVisibleData(scrollTopHeightList, 0);
+      }
     }
+    containerWidth.value = contentRect.width;
+    containerHeight.value = contentRect.height;
   };
 
   const addIndexToData = (data: any[]) => {

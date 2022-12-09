@@ -16,8 +16,7 @@ import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import useVirtualScroll from '../hooks/useVirtualScroll';
-import useVirtualScrollNew, { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import useVirtualScrollNew from '../hooks/useVirtualScrollNew';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';
@@ -480,6 +479,7 @@ export default defineComponent({
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
       data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,
       tableWidth: this.tableWidth,
@@ -487,7 +487,6 @@ export default defineComponent({
       scroll: this.scroll,
       cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
-      virtualConfig: this.virtualConfig,
       handleRowMounted: this.virtualConfig.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),

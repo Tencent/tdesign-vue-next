@@ -1,11 +1,17 @@
 <template>
   <div class="demo-container">
     <div class="item">
+      <!-- 
+        1. rowHeight 接近平均高度即可
+        2. bufferSize 别太大，5 ～ 30 之间合适
+        3. 如果是固定行高请设置 isFixedRowHeight: true。rowHeight 设置精确值
+        4. 当数据量小于 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，默认值 100
+      -->
       <t-table
         row-key="id"
         :columns="columns"
         :data="data"
-        :height="200"
+        :height="300"
         :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
       >
       </t-table>
@@ -24,6 +30,7 @@ const statusNameListMap = {
 };
 
 const columns = [
+  { colKey: 'serial-number', width: 80, title: '序号' },
   { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',

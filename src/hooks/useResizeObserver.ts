@@ -1,6 +1,9 @@
 import { Ref, onMounted, onBeforeUnmount } from 'vue';
 
-export default function useResizeObserver(container: Ref<HTMLElement>, callback: () => void) {
+export default function useResizeObserver(
+  container: Ref<HTMLElement>,
+  callback: (data: [ResizeObserverEntry]) => void,
+) {
   let containerObserver: ResizeObserver = null;
 
   const observeContainer = () => {
