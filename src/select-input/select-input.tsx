@@ -93,9 +93,11 @@ export default defineComponent({
     return (
       <div ref="selectInputRef" class={this.classes}>
         {mainContent}
-        <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
-          {this.tips}
-        </div>
+        {this.tips && (
+          <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
+            {this.tips}
+          </div>
+        )}
       </div>
     );
   },

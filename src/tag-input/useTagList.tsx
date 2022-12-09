@@ -52,7 +52,7 @@ export default function useTagList(props: TagInputProps) {
   // 按下回退键，删除标签
   const onInputBackspaceKeyUp = (value: InputValue, context: { e: KeyboardEvent }) => {
     const { e } = context;
-    if (!tagValue.value || !tagValue.value.length) return;
+    if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     if (!oldInputValue.value && ['Backspace', 'NumpadDelete'].includes(e.code)) {
       const index = tagValue.value.length - 1;

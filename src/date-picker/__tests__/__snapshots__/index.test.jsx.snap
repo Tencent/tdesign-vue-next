@@ -55,11 +55,7 @@ exports[`DatePicker > :mode 1`] = `
     </div>
     <!---->
     
-    <div
-      class="t-input__tips t-input__tips--default"
-    >
-      <!---->
-    </div>
+    <!---->
   </div>
 </div>
 `;
@@ -120,11 +116,7 @@ exports[`DatePicker > :range 1`] = `
     </div>
     <!---->
     
-    <div
-      class="t-input__tips t-input__tips--default"
-    >
-      <!---->
-    </div>
+    <!---->
   </div>
 </div>
 `;
@@ -184,11 +176,7 @@ exports[`DatePicker > :value 1`] = `
     </div>
     <!---->
     
-    <div
-      class="t-input__tips t-input__tips--default"
-    >
-      <!---->
-    </div>
+    <!---->
   </div>
 </div>
 `;
