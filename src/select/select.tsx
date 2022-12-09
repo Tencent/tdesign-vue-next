@@ -199,7 +199,7 @@ export default defineComponent({
       }
     };
 
-    const popupContentRef = computed(() => selectInputRef.value?.selectInputRef.getOverlay() as HTMLElement);
+    const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
 
     /**
      * 可选选项的列表
