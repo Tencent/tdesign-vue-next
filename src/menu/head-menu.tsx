@@ -164,6 +164,57 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
+    const handleSubMore = (slots: VNode[], sliceIndex: number) => {
+      let finalSlot: VNode[] = [];
+      let subMore: VNode[] = [];
+
+      const hasFragment = slots.some((item) => item.type.toString() === 'Symbol(Fragment)');
+      if (!hasFragment) {
+        finalSlot = slots.slice(0, sliceIndex);
+        subMore = slots.slice(sliceIndex);
+      } else {
+        let currentIndex = -1;
+        const pushIndex = sliceIndex - 1;
+        slots.forEach((item: VNode, index) => {
+          if (currentIndex >= pushIndex) {
+            subMore.push(item);
+            return;
+          }
+          const isFragment = item.type.toString() === 'Symbol(Fragment)';
+          if (index !== currentIndex && !isFragment) {
+            currentIndex = index;
+            finalSlot.push(item);
+          }
+          if (isFragment) {
+            const tempSlot = item.children;
+            const len = tempSlot.length as number;
+            currentIndex += 1;
+            if (len <= sliceIndex - currentIndex) {
+              currentIndex += len;
+              finalSlot.push(item);
+            } else {
+              const temp = item.children as VNode[];
+              item.children = temp.slice(0, sliceIndex - currentIndex);
+              finalSlot.push(item);
+              subMore.push({
+                ...item,
+                children: temp.slice(sliceIndex - currentIndex),
+              });
+              currentIndex = sliceIndex;
+            }
+          }
+        });
+      }
+      if (subMore.length) {
+        finalSlot = finalSlot.concat(
+          <Submenu expandType="popup" title={() => <EllipsisIcon />}>
+            {subMore}
+          </Submenu>,
+        );
+      }
+      return finalSlot;
+    };
+
     const formatContent = () => {
       let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
@@ -173,6 +224,8 @@ export default defineComponent({
         ) as HTMLElement[];
 
         const menuWidth = calcMenuWidth();
+        const firstLeftGap = 32;
+        const itemGap = 8;
         const menuItemMinWidth = 104;
 
         let remainWidth = menuWidth;
@@ -181,22 +234,14 @@ export default defineComponent({
         for (let index = 0; index < validNodes.length; index++) {
           const element = validNodes[index];
           remainWidth -= element.offsetWidth || 0;
+          remainWidth -= index === 0 ? firstLeftGap : itemGap;
           if (remainWidth < menuItemMinWidth) {
             sliceIndex = index;
             break;
           }
         }
 
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
-
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
-        }
+        slot = handleSubMore(slot, sliceIndex);
       }
       return slot;
     };
