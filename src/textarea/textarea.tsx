@@ -1,4 +1,16 @@
-import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs, inject, StyleValue } from 'vue';
+import {
+  defineComponent,
+  computed,
+  watch,
+  ref,
+  nextTick,
+  onMounted,
+  toRefs,
+  inject,
+  StyleValue,
+  CSSProperties,
+} from 'vue';
+import merge from 'lodash/merge';
 import props from './props';
 import { TextareaValue, TdTextareaProps } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
@@ -10,6 +22,8 @@ import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
+import setStyle from '../_common/js/utils/set-style';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -35,14 +49,11 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useFormDisabled();
-    const textareaStyle = ref({});
-    const computedStyle = computed(() => {
-      const { style } = attrs as { style: StyleValue };
-      return [style, textareaStyle.value];
-    });
+    const textareaStyle = ref<CSSProperties>({});
 
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
+    const isComposing = ref(false);
 
     const focus = () => refTextareaElem.value?.focus();
     const blur = () => refTextareaElem.value?.blur();
@@ -50,9 +61,7 @@ export default defineComponent({
     // methods
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
-        nextTick(() => {
-          textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
-        });
+        textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
       } else if (typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
@@ -69,6 +78,7 @@ export default defineComponent({
       if (!textareaElem) {
         return;
       }
+
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
         innerValue.value = sV;
@@ -81,16 +91,21 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, props.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      setInnerValue(val, { e });
+      !isComposing.value && setInnerValue(val, { e });
       nextTick(() => setInputValue(val));
       adjustTextareaHeight();
     };
 
-    const handleInput = (e: any) => {
-      if (e.isComposing || e.inputType === 'insertCompositionText') return;
+    const handleInput = (e: InputEvent) => {
       inputValueChangeHandle(e);
     };
+
+    const onCompositionstart = () => {
+      isComposing.value = true;
+    };
+
     const onCompositionend = (e: InputEvent | CompositionEvent) => {
+      isComposing.value = false;
       inputValueChangeHandle(e as InputEvent);
     };
 
@@ -173,6 +188,11 @@ export default defineComponent({
       },
     );
 
+    watch(textareaStyle, (val) => {
+      const { style } = attrs as { style: StyleValue };
+      setStyle(refTextareaElem.value, merge(style, val));
+    });
+
     expose({
       focus,
       blur,
@@ -209,10 +229,10 @@ export default defineComponent({
         <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
           <textarea
             onInput={handleInput}
+            onCompositionstart={onCompositionstart}
             onCompositionend={onCompositionend}
             ref={refTextareaElem}
             value={innerValue.value}
-            style={computedStyle.value}
             class={classes.value}
             {...inputEvents}
             {...inputAttrs.value}
