@@ -16,7 +16,7 @@
       :foot-data="footData"
       :row-class-name="rowClassName"
       :pagination="{ defaultCurrent: 1, defaultPageSize: 5, total: TOTAL }"
-      :header-affixed-top="{ offsetTop: 87, zIndex: 1000 }"
+      :header-affixed-top="headerAffixedTop ? { offsetTop: 87, zIndex: 1000 } : undefined"
       :footer-affixed-bottom="
         footerAffixedBottom ? { offsetBottom: paginationAffixedBottom ? 60 : 0, zIndex: 1000 } : false
       "
@@ -36,23 +36,28 @@
 </template>
 <script setup lang="jsx">
 import { ref, watch, h } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 
 function getData(count) {
   const data = [];
   for (let i = 0; i < count; i++) {
     data.push({
-      index: i,
-      platform: i % 2 === 0 ? '共有' : '私有',
-      type: ['String', 'Number', 'Array', 'Object'][i % 4],
-      default: ['-', '0', '[]', '{}'][i % 4],
+      index: i + 1,
+      applicant: ['贾明', '张三', '王芳'][i % 3],
+      status: i % 3,
+      channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
       detail: {
-        position: `读取 ${i} 个数据的嵌套信息值`,
+        email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
       },
-      required: i % 4 === 0 ? '是' : '否',
-      description: '数据源',
-      expo: 235245,
-      click: 1653,
-      ctr: '12%',
+      matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+      time: [2, 3, 1, 4][i % 4],
+      createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
     });
   }
   return data;
@@ -63,59 +68,38 @@ const TOTAL = 38;
 function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
   return [
     {
-      align: 'center',
-      className: 'row',
-      colKey: 'index',
-      title: '序号',
-      foot: () => <b style="color: rgb(0, 82, 217)">表尾</b>,
+      align: 'left',
+      colKey: 'applicant',
+      title: '申请人',
+      foot: () => <b style="font-weight: bold">表尾信息</b>,
+      width: '120',
       fixed: fixedLeftColumn ? 'left' : undefined,
-      width: '64',
     },
     {
-      colKey: 'platform',
-      title: '平台',
-      foot: (h, { rowIndex }) => <span>第 {rowIndex + 1} 行</span>,
+      colKey: 'status',
+      title: '申请状态',
+      width: '150',
+      cell: (h, { col, row }) => {
+        return (
+          <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+            {statusNameListMap[row.status].icon}
+            {statusNameListMap[row.status].label}
+          </t-tag>
+        );
+      },
     },
-    {
-      colKey: 'type',
-      title: '类型',
-    },
-    {
-      colKey: 'expo',
-      title: '曝光',
-      foot: '-',
-    },
-    {
-      colKey: 'click',
-      title: '点击',
-      foot: '-',
-    },
-    {
-      colKey: 'ctr',
-      title: '点击率',
-      foot: '-',
-    },
-    {
-      colKey: 'default',
-      title: '默认值',
-      foot: (h, { row }) => <span>{row.default || '空'}</span>,
-    },
-    {
-      colKey: 'required',
-      title: '是否必传',
-      // 使用插槽渲染，插槽名称为 't-foot-required'
-      foot: 't-foot-required',
-    },
-    {
-      colKey: 'detail.position',
-      title: '详情信息',
-      ellipsis: true,
-      foot: () => <div>渲染函数输出表尾信息</div>,
-    },
+    { colKey: 'channel', title: '签署方式', width: '120' },
+    { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
+    { colKey: 'matters', title: '申请事项', ellipsis: true },
+    { colKey: 'createTime', title: '申请时间' },
     {
       colKey: 'operation',
       title: '操作',
-      cell: () => '查看',
+      cell: (h, { row }) => (
+        <t-link hover="color" theme="primary">
+          {row.status === 0 ? '查看详情' : '再次申请'}
+        </t-link>
+      ),
       width: 120,
       foot: '-',
       fixed: fixedRightColumn ? 'right' : undefined,

@@ -32,27 +32,36 @@
       bordered
       resizable
     >
-      <template #operation="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+      <template #operation="{ row }">
+        <t-link theme="primary" hover="color" @click="rehandleClickOp(row)">
+          {{ row.status === 0 ? '查看详情' : '再次申请' }}
+        </t-link>
       </template>
     </t-table>
   </div>
 </template>
-<script setup>
+<script setup lang="jsx">
 import { ref, computed } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const data = [];
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 for (let i = 0; i < 5; i++) {
   data.push({
-    index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
+    index: i + 1,
+    applicant: ['贾明', '张三', '王芳'][i % 3],
+    status: i % 3,
+    channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
     detail: {
-      position: `读取 ${i} 个数据的嵌套信息值`,
+      email: ['w.cezkdudy@lhll.au', 'r.nmgw@peurezgn.sl', 'p.cumx@rampblpa.ru'][i % 3],
     },
-    needed: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
+    matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
+    time: [2, 3, 1, 4][i % 4],
+    createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
 
@@ -63,54 +72,26 @@ const emptyData = ref(false);
 
 const columns = computed(() => {
   return [
+    { colKey: 'applicant', title: '申请人', width: 100, fixed: 'left' },
     {
-      align: 'center',
-      width: 64,
-      colKey: 'index',
-      title: '序号',
-      fixed: 'left',
-    },
-    {
-      colKey: 'platform',
-      title: '平台',
-      width: 100,
+      colKey: 'status',
+      title: '审批状态',
+      width: 150,
       fixed: leftFixedColumn.value >= 2 ? 'left' : undefined,
+      cell: (h, { rowIndex }) => {
+        const status = rowIndex % 3;
+        return (
+          <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
+            {statusNameListMap[status].icon}
+            {statusNameListMap[status].label}
+          </t-tag>
+        );
+      },
     },
-    {
-      colKey: 'type',
-      title: '类型',
-      width: 150,
-    },
-    {
-      colKey: 'default',
-      title: '默认值',
-      width: 150,
-    },
-    {
-      colKey: 'description',
-      title: '说明',
-      width: 100,
-    },
-    {
-      colKey: 'needed',
-      title: '是否必传',
-      width: 150,
-    },
-    {
-      colKey: 'operation',
-      title: '操作',
-      width: 100,
-      cell: 'operation',
-      fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
-    },
-    {
-      colKey: 'detail.position',
-      title: '详情信息',
-      width: 120,
-      fixed: 'right',
-      // 允许自定义浮层 Tooltip 全部属性
-      ellipsis: { placement: 'bottom-right' },
-    },
+    { colKey: 'detail.email', title: '邮箱地址', width: 180 },
+    { colKey: 'matters', title: '申请事项', width: 200 },
+    { colKey: 'createTime', title: '申请日期', width: 120, fixed: rightFixedColumn.value >= 2 ? 'right' : undefined },
+    { colKey: 'operation', title: '操作', width: 100, fixed: 'right' },
   ];
 });
 </script>
