@@ -4,6 +4,16 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.26.1 `2022-12-09` 
+### 🐞 Bug Fixes
+- `Guide`: 相对元素位置不正确 @zhangpaopao0609 ([#2130](https://github.com/Tencent/tdesign-vue-next/pull/2130))
+- `Dialog`: 修复滚动条判断问题  @honkinglin ([#2134](https://github.com/Tencent/tdesign-vue-next/pull/2134))
+- `Table`: `demo` 样式优化 @pengYYYYY ([#2115](https://github.com/Tencent/tdesign-vue-next/pull/2115))
+- `SelectInput`: 修复 `selectInput` 出现异常的`tips` 节点 @pengYYYYY ([#2115](https://github.com/Tencent/tdesign-vue-next/pull/2115))
+- `Select`: 修复虚拟滚动失效的问题 @uyarn ([#2142](https://github.com/Tencent/tdesign-vue-next/pull/2142))
+- `TagInput`: 修复拼音输入时按下删除键触发标签删除问题 @dianjie ([#2140](https://github.com/Tencent/tdesign-vue-next/pull/2140))
+- `Table`: 修复点击行展开报错问题 @chaishi ([#2144](https://github.com/Tencent/tdesign-vue-next/pull/2144))
+- `Textarea`: 修复中文拼硬输入时触发高度计算但不触发 `onChange` ([issue #1852 ](https://github.com/Tencent/tdesign-vue/issues/1852)) @zhangpaopao0609 ([#2145](https://github.com/Tencent/tdesign-vue-next/pull/2145))
 ## 🌈 0.26.0 `2022-12-08` 
 
 ### ❗ Breaking Changes
