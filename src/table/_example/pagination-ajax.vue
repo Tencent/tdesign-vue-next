@@ -13,9 +13,15 @@
     @select-change="onSelectChange"
   />
 </template>
-<script setup>
+<script setup lang="jsx">
 import { ref, reactive, onMounted } from 'vue';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
+const statusNameListMap = {
+  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
+  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
+  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+};
 const columns = [
   {
     colKey: 'row-select',
@@ -23,23 +29,28 @@ const columns = [
     width: 46,
   },
   {
-    colKey: 'serial-number',
-    title: '序号',
-    width: 60,
-  },
-  {
     width: 200,
     colKey: 'name',
     title: '姓名',
-    render(h, { row: { name } }) {
+    render(h, { type, row: { name } }) {
+      if (type === 'title') return '申请人';
       return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
   },
-  // {
-  //   width: 200,
-  //   colKey: 'gender',
-  //   title: '性别',
-  // },
+  {
+    colKey: 'status',
+    title: '申请状态',
+    width: '150',
+    cell: (h, { row, rowIndex }) => {
+      const status = rowIndex % 3;
+      return (
+        <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
+          {statusNameListMap[status].icon}
+          {statusNameListMap[status].label}
+        </t-tag>
+      );
+    },
+  },
   {
     width: 200,
     colKey: 'phone',
@@ -63,8 +74,6 @@ const selectedRowKeys = ref([]);
 const pagination = reactive({
   current: 1,
   pageSize: 10,
-  // defaultCurrent: 1,
-  // defaultPageSize: 10,
   total: 0,
   showJumper: true,
   onChange: (pageInfo) => {

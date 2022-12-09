@@ -5,6 +5,7 @@
     style="width: 200px"
     placeholder="-请选择-"
     clearable
+    auto-width
     :options="options"
   />
 </template>

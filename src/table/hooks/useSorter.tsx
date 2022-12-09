@@ -1,4 +1,4 @@
-import { SetupContext, computed, toRefs, ref } from 'vue';
+import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
@@ -13,6 +13,7 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
   const [tData, setTData] = useDefaultValue(data, [], props.onDataChange, 'data');
   // 本地数据排序：用于记录哪些字段是自定义排序函数
   const sorterFuncMap = computed(() => getSorterFuncMap(props.columns));
+  const innerSort = ref<SortInfo | SortInfo[]>();
 
   const sortArray = computed<Array<SortInfo>>(() => {
     const sort = tSortInfo.value;
@@ -92,6 +93,7 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
     const currentDataSource = currentData;
     setTSortInfo(sortInfo, { currentDataSource, col });
     props.onChange?.({ sorter: sortInfo }, { currentData, trigger: 'sorter' });
+    innerSort.value = sortInfo;
   }
 
   function getSortOrder(descending: boolean) {
@@ -140,6 +142,35 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
       />
     );
   }
+
+  const isSortInfoSame = (a: SortInfo | SortInfo[], b: SortInfo | SortInfo[]) => {
+    const tmpSortInfo = Array.isArray(a) ? a : [a];
+    const tmpInnerSortInfo = Array.isArray(b) ? b : [b];
+    if (tmpSortInfo.length && !b) return false;
+    // eslint-disable-next-line
+    for (let i = 0, len = tmpSortInfo.length; i < len; i++) {
+      const item = tmpSortInfo[i];
+      const result = tmpInnerSortInfo.find((t) => t.sortBy === item.sortBy);
+      if (!result) return false;
+      return item.descending === result.descending;
+    }
+  };
+
+  /**
+   * 如果外部的排序不为空，且和内部排序字段不同，说明传入的 sortInfo 和 data 可能存在不一致，
+   * 此时，需要在组件内部进行排序，并输出事件
+   */
+  watch(
+    tSortInfo,
+    () => {
+      if (!tSortInfo.value) return;
+      // isSortInfoSame 的两个参数顺序不可变
+      if (!isSortInfoSame(tSortInfo.value, innerSort.value)) {
+        handleDataSort(tSortInfo.value);
+      }
+    },
+    { immediate: true },
+  );
 
   return {
     renderSortIcon,
