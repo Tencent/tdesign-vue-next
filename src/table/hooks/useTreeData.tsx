@@ -120,7 +120,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * 组件实例方法，展开或收起某一行
    * @param p 行数据
    */
-  function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon') {
+  function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon' | 'row-click') {
     dataSource.value = [...store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value)];
     const rowValue = get(p.row, rowDataKeys.value.rowKey);
     const rowState = store.value?.treeDataMap?.get(rowValue);
@@ -163,7 +163,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
             {!!(childrenNodes.length || childrenNodes === true) && (
-              <span class={tableTreeClasses.icon} onClick={() => toggleExpandData(p, 'expand-fold-icon')}>
+              <span
+                class={tableTreeClasses.icon}
+                onClick={(e: MouseEvent) => {
+                  toggleExpandData(p, 'expand-fold-icon');
+                  e.stopPropagation();
+                }}
+              >
                 {iconNode}
               </span>
             )}

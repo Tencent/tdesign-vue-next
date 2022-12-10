@@ -28,10 +28,12 @@
       :tree="{
         childrenKey: 'childrenList',
         checkStrictly: checkStrictly === 'true' ? true : false,
+        expandTreeNodeOnClick: true,
       }"
       :selected-row-keys="selectedRowKeys"
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
+      @row-click="onRowClick"
     />
   </div>
 </template>
@@ -152,5 +154,9 @@ const getTreeExpandedRow = () => {
   console.log('全部行信息：', treeExpandedRowState);
 
   MessagePlugin.success('获取成功，请打开控制台查看');
+};
+
+const onRowClick = (data) => {
+  console.log(data);
 };
 </script>
