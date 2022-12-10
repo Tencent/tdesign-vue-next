@@ -121,7 +121,7 @@ const columns = [
     },
   },
   { colKey: 'matters', title: '申请事项', width: '150' },
-  { colKey: 'email', title: '邮箱地址' },
+  // { colKey: 'email', title: '邮箱地址' },
 ];
 
 const data = ref(initData);
@@ -166,7 +166,7 @@ const scrollToElement = () => {
   console.log(treeNodeData);
   enhancedTableRef.value.scrollToElement({
     // 跳转元素下标（第 151 个元素位置）
-    index: treeNodeData.rowIndex,
+    index: treeNodeData.rowIndex - selectedRowKeys.value.length,
     // 滚动元素距离顶部的距离（如表头高度）
     top: 47,
     // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
