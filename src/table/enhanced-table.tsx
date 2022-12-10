@@ -75,6 +75,7 @@ export default defineComponent({
       store: store.value,
       dataSource: dataSource.value,
       ...treeInstanceFunctions,
+      primaryTableRef,
       validateRowData: (rowValue: any) => {
         primaryTableRef.value.validateRowData(rowValue);
       },
