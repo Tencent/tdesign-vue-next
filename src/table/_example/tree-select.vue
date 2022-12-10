@@ -164,6 +164,7 @@ const getTreeExpandedRow = () => {
 const scrollToElement = () => {
   const treeNodeData = enhancedTableRef.value.getData(`first_level_150`);
   console.log(treeNodeData);
+  // 因为可能会存在前面的元素节点展开，或行展开，故而下标跟序号不一定一样，不一定是 150
   enhancedTableRef.value.scrollToElement({
     // 跳转元素下标（第 151 个元素位置）
     index: treeNodeData.rowIndex - selectedRowKeys.value.length,

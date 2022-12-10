@@ -36,7 +36,7 @@ rowClassName | String / Object / Array / Function | - | table `th` classname。T
 rowKey | String | 'id' | required。unique key for each row data | Y
 rowspanAndColspan | Function | - | rowspan and colspan。Typescript：`TableRowspanAndColspanFunc<T>` `type TableRowspanAndColspanFunc<T> = (params: BaseTableCellParams<T>) => RowspanColspan` `interface RowspanColspan { colspan?: number; rowspan?: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowspanAndColspanInFooter | Function | - | rowspan and colspan for footer。Typescript：`TableRowspanAndColspanFunc<T>` | N
-scroll | Object | - | lazy load and virtual scroll。Typescript：`TableScroll` | N
+scroll | Object | - | lazy load and virtual scroll。Typescript：`InfinityScroll`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 showHeader | Boolean | true | show table header | N
 size | String | medium | options：small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 stripe | Boolean | false | show stripe style | N
@@ -257,16 +257,6 @@ resetValue | \- | - | Typescript：`any` | N
 showConfirmAndReset | Boolean | false | \- | N
 type | String | - | Typescript：`FilterType` `type FilterType = 'input' \| 'single' \| 'multiple'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 
-### TableScroll
-
-name | type | default | description | required
--- | -- | -- | -- | --
-bufferSize | Number | 20 | \- | N
-isFixedRowHeight | Boolean | false | \- | N
-rowHeight | Number | - | \- | N
-threshold | Number | 100 | \- | N
-type | String | - | required。options：lazy/virtual | Y
-
 ### TableColumnController
 
 name | type | default | description | required
@@ -300,3 +290,13 @@ childrenKey | String | children | \- | N
 defaultExpandAll | Boolean | false | \- | N
 indent | Number | 24 | \- | N
 treeNodeColumnIndex | Number | 0 | \- | N
+
+### InfinityScroll
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+bufferSize | Number | 20 | \- | N
+isFixedRowHeight | Boolean | false | \- | N
+rowHeight | Number | - | \- | N
+threshold | Number | 100 | \- | N
+type | String | - | required。options：lazy/virtual | Y
