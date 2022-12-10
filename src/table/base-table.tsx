@@ -1,15 +1,4 @@
-import {
-  computed,
-  defineComponent,
-  SetupContext,
-  toRefs,
-  ref,
-  provide,
-  nextTick,
-  PropType,
-  watch,
-  onMounted,
-} from 'vue';
+import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted } from 'vue';
 import pick from 'lodash/pick';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
@@ -32,6 +21,7 @@ import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
 import log from '../_common/js/log';
+import { getIEVersion } from '../_common/js/utils/helper';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -281,6 +271,7 @@ export default defineComponent({
       tableBodyRef,
       virtualConfig,
       showAffixPagination,
+      scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
       onFixedChange,
@@ -381,7 +372,11 @@ export default defineComponent({
     /**
      * Affixed Header
      */
-    const affixHeaderWrapHeight = this.affixHeaderRef?.getBoundingClientRect().height || 0;
+    // IE浏览器需要遮挡header吸顶滚动条，要减去getBoundingClientRect.height的滚动条高度4像素
+    const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
+    const barWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
+    const affixHeaderHeight = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+    const affixHeaderWrapHeight = affixHeaderHeight - barWidth;
     // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
     const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
     const affixHeaderWrapHeightStyle = {

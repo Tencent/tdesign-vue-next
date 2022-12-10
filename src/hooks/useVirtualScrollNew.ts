@@ -155,7 +155,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const scrollToElement = (p: ScrollToElementParams) => {
     updateScrollTop(p);
     if (!tScroll.value.isFixedRowHeight) {
-      const duration = p.time ?? 100;
+      const duration = p.time ?? 60;
       const timer = setTimeout(() => {
         updateScrollTop(p);
         clearTimeout(timer);

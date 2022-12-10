@@ -6,6 +6,7 @@ import PrimaryTable from './primary-table';
 import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
+import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 
 export default defineComponent({
   name: 'TEnhancedTable',
@@ -73,6 +74,9 @@ export default defineComponent({
       },
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
+      },
+      scrollToElement: (data: ScrollToElementParams) => {
+        primaryTableRef.value.scrollToElement(data);
       },
     });
 

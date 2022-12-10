@@ -1,5 +1,5 @@
 <template>
-  <div class="t-table-tree-select-demo">
+  <t-space direction="vertical">
     <t-space>
       <t-radio-group v-model="checkStrictly" variant="default-filled">
         <t-radio-button value="true"> 父子行选中独立 </t-radio-button>
@@ -13,11 +13,14 @@
       </t-radio-group>
 
       <t-button theme="default" @click="getTreeExpandedRow">获取树形结构展开的节点</t-button>
+      <t-button theme="default" @click="scrollToElement">滚动到指定元素</t-button>
     </t-space>
-    <br />
     <!-- 子节点字段不是 children，而是 childrenList -->
     <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
+
+    <!-- !!! 大数据虚拟滚动设置，一般情况不需要。 :scroll="{ type: 'virtual', rowHeight: 49, bufferSize: 10 }" -->
+
     <t-enhanced-table
       ref="enhancedTableRef"
       row-key="key"
@@ -28,12 +31,15 @@
       :tree="{
         childrenKey: 'childrenList',
         checkStrictly: checkStrictly === 'true' ? true : false,
+        treeNodeColumnIndex: 2,
       }"
       :selected-row-keys="selectedRowKeys"
+      :height="300"
+      :scroll="{ type: 'virtual', rowHeight: 49, bufferSize: 10 }"
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
     />
-  </div>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -49,9 +55,9 @@ const statusNameListMap = {
 };
 
 const initData = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 500; i++) {
   const obj = {
-    key: i,
+    key: `first_level_${i}`,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
     channel: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -65,7 +71,7 @@ for (let i = 0; i < 5; i++) {
     const secondObj = {
       ...obj,
       status: secondIndex % 3,
-      key: secondIndex,
+      key: `second_level_${secondIndex}`,
       applicant: ['贾明', '张三', '王芳'][secondIndex % 3],
     };
     secondObj.childrenList = new Array(5).fill(null).map((m, n) => {
@@ -73,7 +79,7 @@ for (let i = 0; i < 5; i++) {
       return {
         ...obj,
         status: thirdIndex % 3,
-        key: thirdIndex,
+        key: `third_level_${thirdIndex}`,
         applicant: ['贾明', '张三', '王芳'][thirdIndex % 3],
       };
     });
@@ -98,6 +104,7 @@ const columns = [
     // 自由调整宽度，如果发现元素看不见，请加大宽度
     width: 50,
   },
+  { colKey: 'serial-number', width: 80, title: '编号' },
   { colKey: 'applicant', title: '申请人', width: 120 },
   {
     colKey: 'status',
@@ -152,5 +159,18 @@ const getTreeExpandedRow = () => {
   console.log('全部行信息：', treeExpandedRowState);
 
   MessagePlugin.success('获取成功，请打开控制台查看');
+};
+
+const scrollToElement = () => {
+  const treeNodeData = enhancedTableRef.value.getData(`first_level_150`);
+  console.log(treeNodeData);
+  enhancedTableRef.value.scrollToElement({
+    // 跳转元素下标（第 151 个元素位置）
+    index: treeNodeData.rowIndex,
+    // 滚动元素距离顶部的距离（如表头高度）
+    top: 47,
+    // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
+    time: 60,
+  });
 };
 </script>

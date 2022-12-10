@@ -19,6 +19,7 @@ import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
+import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -137,7 +138,7 @@ export default defineComponent({
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },
-      scrollToElement: (data: any) => {
+      scrollToElement: (data: ScrollToElementParams) => {
         primaryTableRef.value.virtualConfig.scrollToElement(data);
       },
     });
