@@ -55,7 +55,6 @@ const columns = [
   { colKey: 'createTime', title: '申请时间' },
 ];
 
-// 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
 const initialData = [];
 for (let i = 0; i < 10; i++) {
   initialData.push({
@@ -71,8 +70,7 @@ for (let i = 0; i < 10; i++) {
   });
 }
 
-// 为了使得表格滚动更加平稳，建议指定row-height参数值为接近表格的平均行高
-const times = Array.from(new Array(1000), () => ''); // 测试共计1k条数据
+const times = Array.from(new Array(1000), () => '');
 const testData = [];
 times.forEach((item, i) => {
   const k = i % 10;
