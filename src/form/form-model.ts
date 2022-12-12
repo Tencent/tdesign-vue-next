@@ -67,7 +67,7 @@ export async function validateOneRule(value: ValueType, rule: FormRule): Promise
     }
     const validateRule: ValidateFuncType = VALIDATE_MAP[key];
     // 找到一个校验规则，则无需再找，因为参数只允许对一个规则进行校验
-    if (validateRule && rule[key]) {
+    if (validateRule && (rule[key] || rule[key] === 0)) {
       // rule 值为 true 则表示没有校验参数，只是对值进行默认规则校验
       vOptions = rule[key] === true ? undefined : rule[key];
       vValidateFun = validateRule;
