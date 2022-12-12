@@ -175,7 +175,7 @@ const appendTo = (row) => {
   table.value.appendTo(row.key, {
     id: randomKey1,
     key: `申请人 ${randomKey1} 号`,
-    platform: '私有',
+    platform: '电子签署',
     type: 'Number',
   });
   MessagePlugin.success(`已插入子节点申请人 ${randomKey1} 号，请展开查看`);

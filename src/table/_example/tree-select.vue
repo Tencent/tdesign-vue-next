@@ -32,12 +32,14 @@
         childrenKey: 'childrenList',
         checkStrictly: checkStrictly === 'true' ? true : false,
         treeNodeColumnIndex: 2,
+        expandTreeNodeOnClick: true,
       }"
       :selected-row-keys="selectedRowKeys"
       :height="300"
       :scroll="{ type: 'virtual', rowHeight: 49, bufferSize: 10 }"
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
+      @row-click="onRowClick"
     />
   </t-space>
 </template>
@@ -173,5 +175,9 @@ const scrollToElement = () => {
     // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
     time: 60,
   });
+};
+
+const onRowClick = (data) => {
+  console.log(data);
 };
 </script>
