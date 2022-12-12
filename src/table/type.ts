@@ -871,6 +871,10 @@ export interface TableTreeConfig {
    */
   defaultExpandAll?: boolean;
   /**
+   * 是否在点击行时展开树形结构节点
+   */
+  expandTreeNodeOnClick?: boolean;
+  /**
    * 树结点缩进距离，单位：px
    * @default 24
    */
@@ -1078,7 +1082,7 @@ export interface TableTreeExpandChangeContext<T> {
   row: T;
   rowIndex: number;
   rowState: TableRowState<T>;
-  trigger?: 'expand-fold-icon';
+  trigger?: 'expand-fold-icon' | 'row-click';
 }
 
 export type TableRowValue = string | number;
