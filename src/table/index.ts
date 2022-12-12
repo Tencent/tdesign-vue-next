@@ -3,12 +3,14 @@ import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
 import withInstall from '../utils/withInstall';
+import { InfinityScroll } from '../common';
 
 import './style';
 
 export * from './type';
 export * from './interface';
 
+export type TableScroll = InfinityScroll;
 export const BaseTable = withInstall(_BaseTable);
 export const PrimaryTable = withInstall(_PrimaryTable);
 export const EnhancedTable = withInstall(_EnhancedTable);

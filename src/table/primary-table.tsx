@@ -19,6 +19,7 @@ import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
+import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -136,6 +137,9 @@ export default defineComponent({
       clearValidateData,
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
+      },
+      scrollToElement: (data: ScrollToElementParams) => {
+        primaryTableRef.value.virtualConfig.scrollToElement(data);
       },
       // 暴露基础表格 ref 及相关方法
       baseTableRef: primaryTableRef,

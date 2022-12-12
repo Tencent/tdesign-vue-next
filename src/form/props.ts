@@ -77,7 +77,6 @@ export default {
   /** 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动 */
   scrollToFirstError: {
     type: String as PropType<TdFormProps['scrollToFirstError']>,
-    default: '' as TdFormProps['scrollToFirstError'],
     validator(val: TdFormProps['scrollToFirstError']): boolean {
       if (!val) return true;
       return ['', 'smooth', 'auto'].includes(val);
