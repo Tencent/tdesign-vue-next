@@ -1,22 +1,11 @@
-import {
-  computed,
-  defineComponent,
-  SetupContext,
-  toRefs,
-  ref,
-  provide,
-  nextTick,
-  PropType,
-  watch,
-  onMounted,
-} from 'vue';
+import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted } from 'vue';
 import pick from 'lodash/pick';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import useVirtualScroll from '../hooks/useVirtualScroll';
+import useVirtualScrollNew from '../hooks/useVirtualScrollNew';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';
@@ -32,6 +21,7 @@ import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
 import log from '../_common/js/log';
+import { getIEVersion } from '../_common/js/utils/helper';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -141,8 +131,6 @@ export default defineComponent({
       { [tableBaseClass.fullHeight]: props.height },
     ]);
 
-    const isVirtual = computed(() => type === 'virtual' && props.data?.length > (props.scroll?.threshold || 100));
-
     const showRightDivider = computed(
       () =>
         props.bordered &&
@@ -193,27 +181,12 @@ export default defineComponent({
       });
     };
 
-    const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
-    const { data } = toRefs<any>(props);
-    const {
-      trs = null,
-      scrollHeight = null,
-      visibleData = null,
-      translateY = null,
-      handleScroll: handleVirtualScroll = null,
-      handleRowMounted = null,
-    } = type === 'virtual'
-      ? useVirtualScroll({
-          container: tableContentRef,
-          data,
-          fixedHeight: isFixedRowHeight,
-          lineHeight: rowHeight,
-          bufferSize,
-          threshold: props.scroll?.threshold,
-        })
-      : {};
-    provide('tableContentRef', tableContentRef);
-    provide('rowHeightRef', ref(rowHeight));
+    // 虚拟滚动相关数据
+    const virtualScrollParams = computed(() => ({
+      data: props.data,
+      scroll: props.scroll,
+    }));
+    const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 
     let lastScrollY = 0;
     const onInnerVirtualScroll = (e: WheelEvent) => {
@@ -221,7 +194,7 @@ export default defineComponent({
       const top = target.scrollTop;
       // 排除横向滚动出发的纵向虚拟滚动计算
       if (lastScrollY !== top) {
-        isVirtual.value && handleVirtualScroll();
+        virtualConfig.isVirtualScroll.value && virtualConfig.handleScroll();
       } else {
         lastScrollY = 0;
         updateColumnFixedShadow(target);
@@ -255,7 +228,6 @@ export default defineComponent({
     return {
       thList,
       classPrefix,
-      isVirtual,
       innerPagination,
       globalConfig,
       tableFootHeight,
@@ -283,13 +255,6 @@ export default defineComponent({
       thWidthList,
       isPaginateData,
       dataSource,
-      scrollType: type,
-      rowHeight,
-      trs,
-      bufferSize,
-      scrollHeight,
-      visibleData,
-      translateY,
       affixHeaderRef,
       affixFooterRef,
       bottomContentRef,
@@ -304,10 +269,11 @@ export default defineComponent({
       columnResizeParams,
       horizontalScrollbarRef,
       tableBodyRef,
+      virtualConfig,
       showAffixPagination,
+      scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
-      handleRowMounted,
       onFixedChange,
       onHorizontalScroll,
       updateAffixHeaderOrFooter,
@@ -351,7 +317,7 @@ export default defineComponent({
     const renderAffixedHeader = () => {
       if (this.showHeader === false) return null;
       return (
-        !!(this.isVirtual || this.headerAffixedTop) &&
+        !!(this.virtualConfig.isVirtualScroll.value || this.headerAffixedTop) &&
         (this.headerAffixedTop ? (
           <Affix
             offsetTop={0}
@@ -406,30 +372,35 @@ export default defineComponent({
     /**
      * Affixed Header
      */
-    // onlyVirtualScrollBordered 用于浏览器兼容性处理，只有 chrome 需要调整 bordered，FireFox 和 Safari 不需要
-    const onlyVirtualScrollBordered =
-      !!(this.isVirtual && !this.headerAffixedTop && this.bordered) && /Chrome/.test(navigator?.userAgent);
-    const borderWidth = this.bordered && onlyVirtualScrollBordered ? 1 : 0;
-    const affixHeaderWrapHeight =
-      (this.affixHeaderRef?.getBoundingClientRect().height || 0) - this.scrollbarWidth - borderWidth;
+    // IE浏览器需要遮挡header吸顶滚动条，要减去getBoundingClientRect.height的滚动条高度4像素
+    const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
+    const barWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
+    const affixHeaderHeight = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+    const affixHeaderWrapHeight = affixHeaderHeight - barWidth;
     // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
     const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
     const affixHeaderWrapHeightStyle = {
       width: `${this.tableWidth}px`,
       height: `${affixHeaderWrapHeight}px`,
       opacity: headerOpacity,
-      marginTop: onlyVirtualScrollBordered ? `${borderWidth}px` : 0,
     };
     // 多级表头左边线缺失
     const affixedLeftBorder = this.bordered ? 1 : 0;
-    const affixedHeader = Boolean((this.headerAffixedTop || this.isVirtual) && this.tableWidth) && (
+    const affixedHeader = Boolean(
+      (this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value) && this.tableWidth,
+    ) && (
       <div
         ref="affixHeaderRef"
         style={{
           width: `${this.tableWidth - affixedLeftBorder}px`,
           opacity: Number(this.showAffixHeader),
         }}
-        class={['scrollbar', { [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }]}
+        class={[
+          'scrollbar',
+          {
+            [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value,
+          },
+        ]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
           {renderColGroup(true)}
@@ -489,34 +460,29 @@ export default defineComponent({
       </Affix>
     );
 
-    const translate = `translate(0, ${this.scrollHeight}px)`;
+    const translate = `translate(0, ${this.virtualConfig.scrollHeight.value}px)`;
     const virtualStyle = {
       transform: translate,
       '-ms-transform': translate,
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
+    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: this.isVirtual ? this.visibleData : data,
+      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,
       tableWidth: this.tableWidth,
       isWidthOverflow: this.isWidthOverflow,
-      // 虚拟滚动相关属性
-      isVirtual: this.isVirtual,
-      translateY: this.translateY,
-      scrollType: this.scrollType,
-      rowHeight: this.rowHeight,
-      trs: this.trs,
-      bufferSize: this.bufferSize,
       scroll: this.scroll,
       cellEmptyContent: this.cellEmptyContent,
       tableContentElm: this.tableContentRef,
-      handleRowMounted: this.handleRowMounted,
+      handleRowMounted: this.virtualConfig.handleRowMounted,
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),
       // 内部使用分页信息必须取 innerPagination
@@ -529,7 +495,9 @@ export default defineComponent({
         style={this.tableContentStyles}
         onScroll={this.onInnerVirtualScroll}
       >
-        {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
+        {this.virtualConfig.isVirtualScroll.value && (
+          <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />
+        )}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {renderColGroup(false)}

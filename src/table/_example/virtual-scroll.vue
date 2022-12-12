@@ -1,16 +1,26 @@
 <template>
-  <div class="demo-container">
-    <div class="item">
-      <t-table
-        row-key="id"
-        :columns="columns"
-        :data="data"
-        :height="200"
-        :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
-      >
-      </t-table>
-    </div>
-  </div>
+  <t-space direction="vertical">
+    <t-space align="center">
+      <t-button @click="scrollToElement">滚动到指定元素</t-button>
+      <t-checkbox v-model="bordered">是否显示边框</t-checkbox>
+    </t-space>
+    <!-- 
+        1. rowHeight 接近平均高度即可
+        2. bufferSize 别太大，5 ～ 30 之间合适
+        3. 如果是固定行高请设置 isFixedRowHeight: true。rowHeight 设置精确值
+        4. 当数据量小于 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，默认值 100
+      -->
+    <t-table
+      ref="tableRef"
+      row-key="id"
+      :columns="columns"
+      :data="data"
+      :height="300"
+      :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
+      :bordered="bordered"
+    >
+    </t-table>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
@@ -24,6 +34,7 @@ const statusNameListMap = {
 };
 
 const columns = [
+  { colKey: 'serial-number', width: 80, title: '序号' },
   { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',
@@ -44,7 +55,6 @@ const columns = [
   { colKey: 'createTime', title: '申请时间' },
 ];
 
-// 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
 const initialData = [];
 for (let i = 0; i < 10; i++) {
   initialData.push({
@@ -60,8 +70,7 @@ for (let i = 0; i < 10; i++) {
   });
 }
 
-// 为了使得表格滚动更加平稳，建议指定row-height参数值为接近表格的平均行高
-const times = Array.from(new Array(1000), () => ''); // 测试共计1k条数据
+const times = Array.from(new Array(1000), () => '');
 const testData = [];
 times.forEach((item, i) => {
   const k = i % 10;
@@ -69,4 +78,16 @@ times.forEach((item, i) => {
 });
 
 const data = ref([...testData]);
+const bordered = ref(true);
+const tableRef = ref(null);
+const scrollToElement = () => {
+  tableRef.value.scrollToElement({
+    // 跳转元素下标（第 256 个元素位置）
+    index: 255,
+    // 滚动元素距离顶部的距离（如表头高度）
+    top: 47,
+    // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
+    time: 60,
+  });
+};
 </script>

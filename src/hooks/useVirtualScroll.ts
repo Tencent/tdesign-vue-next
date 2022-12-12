@@ -1,4 +1,10 @@
 /* eslint-disable */
+/**
+ * 当前虚拟滚动存在的问题
+ * 1. 反复拖动滚动条，底部会出现奇怪的高度
+ * 2. 表格高度发生变化时，底部也会出现奇怪的高度
+ * 3. 无法直接定位滚动到某个元素，进而无法实现 Select 组件直接滚动到选中项
+ */
 import { ref, toRefs, reactive, onMounted, computed, watch, nextTick } from 'vue';
 
 // 虚拟滚动Hooks的完整实现，只所以封装成hooks，主要是为了方便跟其他组件搭配使用，比如说表格或者下拉框
@@ -71,19 +77,6 @@ const useVirtualScroll = ({
     return 0;
   });
 
-  /** 第二种实现，使用watch监听cachedScrollY也可 */
-  // const translateY = ref(0);
-  // watch(() => state.cachedScrollY, () => {
-  //   const { visibleData } = state;
-  //   const firstRow = visibleData[0];
-  //   if (firstRow) {
-  //     // 修复只有一个元素时存在偏移的问题
-  //     translateY.value = visibleData.length === 1 ? 0 : state.cachedScrollY[firstRow.$index];
-  //     return;
-  //   }
-  //   translateY.value = 0;
-  // });
-
   // 更新可视区域的节点数据
   const updateVisibleData = () => {
     last = Math.min(start + visibleCount + bufferSize * 2, data.value.length);
@@ -99,7 +92,7 @@ const useVirtualScroll = ({
     state.cachedScrollY[index] = container.value.scrollTop - offset; // 锚点元素scrollY= 容器滚动高度 - 锚点元素的offset
     state.cachedHeight[index] = anchorDomHeight;
 
-    for (let i = index + 1; i <= state.visibleData[state.visibleData.length - 1].$index; i++) {
+    for (let i = index + 1; i <= state.visibleData[state.visibleData.length - 1]?.$index; i++) {
       // 计算锚点后面的元素scrollY
       const tr = trs.get(i);
       const { height } = tr?.getBoundingClientRect() || {};
@@ -109,7 +102,7 @@ const useVirtualScroll = ({
       state.cachedScrollY.splice(i, 1, scrollY); // 兼容vue2的composition api
     }
 
-    for (let i = index - 1; i >= state.visibleData[0].$index; i--) {
+    for (let i = index - 1; i >= state.visibleData[0]?.$index; i--) {
       const tr = trs.get(i);
       const { height } = tr?.getBoundingClientRect() || {};
       state.cachedHeight[i] = height;
