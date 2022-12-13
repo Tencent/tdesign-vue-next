@@ -13,7 +13,7 @@ import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
 
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 
 import Button from '../button';
 import Popup from '../popup';
@@ -26,6 +26,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
+    const { globalConfig } = useConfig('guide');
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -60,7 +61,7 @@ export default defineComponent({
     const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
     // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
     const getCurrentCrossProps = <Key extends keyof GuideCrossProps>(propsName: Key) =>
-      currentStepInfo.value[propsName] ?? props[propsName];
+      currentStepInfo.value[propsName] ?? globalConfig.value[propsName] ?? props[propsName];
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
@@ -288,7 +289,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleFinish}
-                {...props.finishButtonProps}
+                {...(globalConfig.value.finishButtonProps ?? props.finishButtonProps)}
               />
             )}
           </div>
@@ -298,12 +299,6 @@ export default defineComponent({
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
         const { body: descBody } = currentStepInfo.value;
-        let renderDesc;
-        if (typeof descBody === 'string') {
-          renderDesc = descBody;
-        } else {
-          renderDesc = <descBody />;
-        }
         const desc = (
           <div class={`${COMPONENT_NAME.value}__desc`}>{typeof descBody === 'string' ? descBody : <descBody />}</div>
         );

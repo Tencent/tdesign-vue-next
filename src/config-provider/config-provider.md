@@ -49,9 +49,11 @@ datePicker | Object | - | 日期选择器全局配置。TS 类型：`DatePickerC
 dialog | Object | - | 对话框全局配置。TS 类型：`DialogConfig` | N
 drawer | Object | - | 抽屉全局配置。TS 类型：`DrawerConfig` | N
 form | Object | - | 表单组件全局配置。TS 类型：`FormConfig` | N
+guide | Object | - | 引导全局配置。TS 类型：`GuideConfig` | N
 icon | Object | - | 图标全局配置。TS 类型：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 input | Object | - | 输入框组件全局配置。TS 类型：`InputConfig` | N
 list | Object | - | 列表组件全局配置。TS 类型：`ListConfig` | N
+message | Object | - | 消息组件全局配置。TS 类型：`MessageConfig` | N
 pagination | Object | - | 分页组件全局配置。TS 类型：`PaginationConfig` | N
 popconfirm | Object | - | 气泡确认框全局配置。TS 类型：`PopconfirmConfig` | N
 select | Object | - | 选择器组件全局配置。TS 类型：`SelectConfig` | N
@@ -315,3 +317,12 @@ expandText | String | - | 语言配置，“展开更多”描述文本 | N
 -- | -- | -- | -- | --
 copySuccessText | String | - | 语言配置，“链接复制成功”描述文本 | N
 copyText | String | - | 语言配置，“复制链接” 描述文本 | N
+
+### GuideConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+finishButtonProps | Object | - | 最后一步中的完成按钮，示例：`{ content: '完成', theme: 'primary' }`。TS 类型：`ButtonProps` | N
+nextButtonProps | Object | - | 下一步按钮，示例：`{ content: '下一步', theme: 'primary' }`。TS 类型：`ButtonProps` | N
+prevButtonProps | Object | - | 上一步按钮，示例：`{ content: '上一步', theme: 'default' }`。TS 类型：`ButtonProps` | N
+skipButtonProps | Object | - | 跳过按钮，示例：`{ content: '跳过', theme: 'default' }`。TS 类型：`ButtonProps` | N
