@@ -285,6 +285,12 @@ name | type | default | description | required
 copySuccessText | String | - | \- | N
 copyText | String | - | \- | N
 
+### MessageConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+`MessageOptions` | \- | - | \- | N
+
 ### GuideConfig
 
 name | type | default | description | required

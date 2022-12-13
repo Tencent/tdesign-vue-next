@@ -318,6 +318,12 @@ expandText | String | - | 语言配置，“展开更多”描述文本 | N
 copySuccessText | String | - | 语言配置，“链接复制成功”描述文本 | N
 copyText | String | - | 语言配置，“复制链接” 描述文本 | N
 
+### MessageConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+`MessageOptions` | \- | - | 继承 `MessageOptions` 中的全部 API | N
+
 ### GuideConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传

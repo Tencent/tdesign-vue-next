@@ -3,9 +3,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
+
 import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
+import { MessageOptions } from '../message';
 import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
@@ -804,6 +806,8 @@ export interface AnchorConfig {
   copyText?: string;
 }
 
+export interface MessageConfig extends MessageOptions {}
+
 export interface GuideConfig {
   /**
    * 最后一步中的完成按钮，示例：`{ content: '完成', theme: 'primary' }`
@@ -824,6 +828,10 @@ export interface GuideConfig {
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';
+
+export type GlobalIconConfig = {
+  [name: string]: any;
+};
 
 export type IconConfig = GlobalIconConfig;
 
