@@ -38,7 +38,13 @@ export function initYearMonthTime({
   } else if (mode === 'month' || mode === 'quarter') {
     defaultYearMonthTime.year[1] += 1;
   } else if ((mode === 'date' || mode === 'week') && !enableTimePicker) {
-    defaultYearMonthTime.month[1] += 1;
+    // 切换至下一年
+    if (defaultYearMonthTime.month[0] === 11) {
+      defaultYearMonthTime.year[1] += 1;
+      defaultYearMonthTime.month[1] = 0;
+    } else {
+      defaultYearMonthTime.month[1] += 1;
+    }
   }
 
   if (!value || !Array.isArray(value) || !value.length) {
