@@ -123,7 +123,7 @@ const sortChange = (sortVal, options) => {
 const dataChange = (data) => {
   // 除了 sortChange，也可以在这里对 data.value 进行赋值
   // data.value = data;
-  console.log('data-change', data);
+  // console.log('data-change', data);
 };
 </script>
 
