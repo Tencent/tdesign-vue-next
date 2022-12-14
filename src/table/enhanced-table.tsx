@@ -3,9 +3,10 @@ import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
 import PrimaryTable from './primary-table';
-import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext } from './type';
+import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext, TdPrimaryTableProps } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
+import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 
 export default defineComponent({
   name: 'TEnhancedTable',
@@ -58,10 +59,24 @@ export default defineComponent({
       props.onDragSort?.(params);
     };
 
+    const onEnhancedTableRowClick: TdPrimaryTableProps['onRowClick'] = (p) => {
+      if (props.tree?.expandTreeNodeOnClick) {
+        treeInstanceFunctions.toggleExpandData(
+          {
+            row: p.row,
+            rowIndex: p.index,
+          },
+          'row-click',
+        );
+      }
+      props.onRowClick?.(p);
+    };
+
     context.expose({
       store: store.value,
       dataSource: dataSource.value,
       ...treeInstanceFunctions,
+      primaryTableRef,
       validateRowData: (rowValue: any) => {
         primaryTableRef.value.validateRowData(rowValue);
       },
@@ -74,12 +89,16 @@ export default defineComponent({
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },
+      scrollToElement: (data: ScrollToElementParams) => {
+        primaryTableRef.value.scrollToElement(data);
+      },
     });
 
     return () => {
       const { vnode } = getCurrentInstance();
-      const enhancedProps = {
+      const enhancedProps: TdPrimaryTableProps = {
         ...vnode.props,
+        rowKey: props.rowKey || 'id',
         data: dataSource.value,
         columns: tColumns.value,
         // 半选状态节点
@@ -89,7 +108,10 @@ export default defineComponent({
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
       };
-      // ref 顺序很重要，如果移动到 v-slots 前面，会让 EnhancedTable 所有实例方法失效，勿动
+      if (props.tree?.expandTreeNodeOnClick) {
+        enhancedProps.onRowClick = onEnhancedTableRowClick;
+      }
+      // @ts-ignore ref 顺序很重要，如果移动到 v-slots 前面，会让 EnhancedTable 所有实例方法失效，勿动
       return <PrimaryTable v-slots={context.slots} {...enhancedProps} ref={primaryTableRef} />;
     };
   },

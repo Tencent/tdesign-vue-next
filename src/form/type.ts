@@ -66,7 +66,6 @@ export interface TdFormProps<FormData extends Data = Data> {
   rules?: { [field in keyof FormData]: Array<FormRule> };
   /**
    * 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动
-   * @default ''
    */
   scrollToFirstError?: '' | 'smooth' | 'auto';
   /**
@@ -104,7 +103,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
    */
   clearValidate: (fields?: Array<keyof FormData>) => void;
   /**
-   * 重置表单，表单里面没有重置按钮`<button type="reset" />`时可以使用该方法，默认重置全部字段为空，该方法会触发 `reset` 事件。<br />如果表单属性 `resetType='empty'` 或者 `reset.type='empty'` 会重置为空；<br />如果表单属性 `resetType='initial'` 或者 `reset.type='initial'` 会重置为表单初始值。<br />`reset.fields` 用于设置具体重置哪些字段，示例：`reset({ type: 'initial', fields: ['name', 'age'] })`
+   * 重置表单，表单里面没有重置按钮`<button type=\"reset\" />`时可以使用该方法，默认重置全部字段为空，该方法会触发 `reset` 事件。<br />如果表单属性 `resetType='empty'` 或者 `reset.type='empty'` 会重置为空；<br />如果表单属性 `resetType='initial'` 或者 `reset.type='initial'` 会重置为表单初始值。<br />`reset.fields` 用于设置具体重置哪些字段，示例：`reset({ type: 'initial', fields: ['name', 'age'] })`
    */
   reset: (params?: FormResetParams<FormData>) => void;
   /**
@@ -112,7 +111,7 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
    */
   setValidateMessage: (message: FormValidateMessage<FormData>) => void;
   /**
-   * 提交表单，表单里面没有提交按钮`<button type="submit" />`时可以使用该方法。`showErrorMessage` 表示是否在提交校验不通过时显示校验不通过的原因，默认显示。该方法会触发 `submit` 事件
+   * 提交表单，表单里面没有提交按钮`<button type=\"submit\" />`时可以使用该方法。`showErrorMessage` 表示是否在提交校验不通过时显示校验不通过的原因，默认显示。该方法会触发 `submit` 事件
    */
   submit: (params?: { showErrorMessage?: boolean }) => void;
   /**
@@ -150,7 +149,6 @@ export interface TdFormItemProps {
   labelWidth?: string | number;
   /**
    * 表单字段名称
-   * @default ''
    */
   name?: string | number;
   /**
@@ -166,6 +164,11 @@ export interface TdFormItemProps {
    */
   showErrorMessage?: boolean;
   /**
+   * 校验状态，可在需要完全自主控制校验状态时使用
+   * @default ''
+   */
+  status?: 'error' | 'warning' | 'success' | 'validating';
+  /**
    * 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标。优先级高级 Form 的 statusIcon
    */
   statusIcon?: boolean | TNode;
@@ -174,6 +177,10 @@ export interface TdFormItemProps {
    * @default false
    */
   successBorder?: boolean;
+  /**
+   * 自定义提示内容，样式跟随 `status` 变动，可在需要完全自主控制校验规则时使用
+   */
+  tips?: string | TNode;
 }
 
 export interface FormRule {
@@ -182,7 +189,7 @@ export interface FormRule {
    */
   boolean?: boolean;
   /**
-   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)，示例：`{ date: { delimiters: ['-'] }, message: '日期分隔线必须是短横线（-）' }`
+   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)，示例：`{ date: { delimiters: '-' }, message: '日期分隔线必须是短横线（-）' }`
    */
   date?: boolean | IsDateOptions;
   /**
@@ -194,7 +201,7 @@ export interface FormRule {
    */
   enum?: Array<string>;
   /**
-   * 内置校验方法，校验值是否为身份证号码，组件校验正则为 `/^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i`，示例：`{ idcard: true, message: '请输入正确的身份证号码' }`
+   * 内置校验方法，校验值是否为身份证号码，组件校验正则为 `/^(\\d{18,18}|\\d{15,15}|\\d{17,17}x)$/i`，示例：`{ idcard: true, message: '请输入正确的身份证号码' }`
    */
   idcard?: boolean;
   /**
@@ -227,7 +234,7 @@ export interface FormRule {
    */
   required?: boolean;
   /**
-   * 内置校验方法，校验值是否为手机号码，校验正则为 `/^1[3-9]\d{9}$/`，示例：`{ telnumber: true, message: '请输入正确的手机号码' }`
+   * 内置校验方法，校验值是否为手机号码，校验正则为 `/^1[3-9]\\d{9}$/`，示例：`{ telnumber: true, message: '请输入正确的手机号码' }`
    */
   telnumber?: boolean;
   /**
@@ -248,6 +255,10 @@ export interface FormRule {
    * 自定义校验规则，示例：`{ validator: (val) => val.length > 0, message: '请输入内容'}`
    */
   validator?: CustomValidator;
+  /**
+   * 内置校验方法，校验值是否为空格。示例：`{ whitespace: true, message: '值不能为空' }`
+   */
+  whitespace?: boolean;
 }
 
 export interface FormErrorMessage {
@@ -340,7 +351,7 @@ export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
 
 export type ErrorList = Array<FormRule>;
 
-export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
+export type ValidateResultContext<T extends Data> = Omit<SubmitContext<T>, 'e'>;
 
 export interface FormResetParams<FormData> {
   type?: 'initial' | 'empty';
@@ -362,7 +373,7 @@ export interface FormValidateParams {
 
 export type ValidateTriggerType = 'blur' | 'change' | 'all';
 
-export type Data = Record<string, any>;
+export type Data = { [key: string]: any };
 
 export interface IsDateOptions {
   format: string;

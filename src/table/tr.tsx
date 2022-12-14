@@ -1,15 +1,4 @@
-import {
-  defineComponent,
-  PropType,
-  SetupContext,
-  h,
-  computed,
-  ref,
-  reactive,
-  onMounted,
-  onBeforeUnmount,
-  toRefs,
-} from 'vue';
+import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, onMounted, toRefs } from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
@@ -26,6 +15,7 @@ import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
 import { PaginationProps } from '..';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -73,15 +63,11 @@ export interface TrProps extends TrCommonProps {
   dataLength: number;
   rowAndColFixedPosition?: RowAndColFixedPosition;
   skipSpansMap?: Map<string, SkipSpansValue>;
-  scrollType?: string;
-  isVirtual?: boolean;
-  rowHeight?: number;
-  trs?: Map<number, object>;
-  bufferSize?: number;
   tableElm?: any;
   // HTMLDivElement
   tableContentElm?: any;
   cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
+  virtualConfig: VirtualScrollConfig;
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
@@ -141,12 +127,8 @@ export default defineComponent({
     rowAndColFixedPosition: Map as PropType<RowAndColFixedPosition>,
     // 合并单元格，是否跳过渲染
     skipSpansMap: Map as PropType<TrProps['skipSpansMap']>,
+    virtualConfig: Object as PropType<TrProps['virtualConfig']>,
     ...pick(baseTableProps, TABLE_PROPS),
-    scrollType: String,
-    rowHeight: Number,
-    trs: Map as PropType<TrProps['trs']>,
-    bufferSize: Number,
-    isVirtual: Boolean,
     // eslint-disable-next-line
     tableElm: {},
     // eslint-disable-next-line
@@ -209,21 +191,11 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      const { scrollType, isVirtual, row: rowData, trs } = props;
-      if (scrollType === 'virtual') {
-        if (isVirtual) {
-          const { $index } = rowData;
-          trs.set($index, trRef.value);
-          context.emit('row-mounted');
-        }
-      }
-    });
-
-    onBeforeUnmount(() => {
-      if (props.isVirtual) {
-        const { trs, row } = props;
-        const { $index } = row;
-        trs.delete($index);
+      if (props.virtualConfig?.isVirtualScroll.value) {
+        context.emit('row-mounted', {
+          ref: trRef,
+          data: props.row,
+        });
       }
     });
 

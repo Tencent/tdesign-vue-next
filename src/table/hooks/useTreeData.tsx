@@ -120,8 +120,12 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * 组件实例方法，展开或收起某一行
    * @param p 行数据
    */
-  function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon') {
-    dataSource.value = [...store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value)];
+  function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon' | 'row-click') {
+    const currentData = { ...p };
+    if (p.row.__VIRTUAL_SCROLL_INDEX !== undefined) {
+      currentData.rowIndex = p.row.__VIRTUAL_SCROLL_INDEX;
+    }
+    dataSource.value = [...store.value.toggleExpandData(currentData, dataSource.value, rowDataKeys.value)];
     const rowValue = get(p.row, rowDataKeys.value.rowKey);
     const rowState = store.value?.treeDataMap?.get(rowValue);
     props.onTreeExpandChange?.({
@@ -163,7 +167,13 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         return (
           <div class={[tableTreeClasses.col, classes]} style={colStyle}>
             {!!(childrenNodes.length || childrenNodes === true) && (
-              <span class={tableTreeClasses.icon} onClick={() => toggleExpandData(p, 'expand-fold-icon')}>
+              <span
+                class={tableTreeClasses.icon}
+                onClick={(e: MouseEvent) => {
+                  toggleExpandData(p, 'expand-fold-icon');
+                  e.stopPropagation();
+                }}
+              >
                 {iconNode}
               </span>
             )}

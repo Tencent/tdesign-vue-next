@@ -174,7 +174,6 @@ export default defineComponent({
     function emitVisible(visible: boolean, context: PopupVisibleChangeContext) {
       if (props.disabled || visible === innerVisible.value) return;
       if (!visible && visibleState.value > 1) return;
-      if (visible && mouseInRange.value) return;
       setInnerVisible(visible, context);
     }
 
