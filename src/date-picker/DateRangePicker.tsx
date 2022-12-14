@@ -26,7 +26,7 @@ export default defineComponent({
     ...props,
   },
 
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker');
 
     const {
@@ -395,7 +395,7 @@ export default defineComponent({
         <TRangeInputPopup
           disabled={disabled.value}
           status={props.status}
-          tips={props.tips}
+          tips={props.tips || slots.tips}
           inputValue={inputValue.value as string[]}
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}
