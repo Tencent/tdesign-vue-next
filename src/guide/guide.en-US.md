@@ -6,18 +6,18 @@
 name | type | default | description | required
 -- | -- | -- | -- | --
 counter | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-current | Number | 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景 | `v-model` and `v-model:current` is supported | N
-defaultCurrent | Number | 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景 | uncontrolled property | N
-finishButtonProps | Object | { content: '完成', theme: 'primary' } | Typescript：`ButtonProps` | N
+current | Number | - | `v-model` and `v-model:current` is supported | N
+defaultCurrent | Number | - | uncontrolled property | N
+finishButtonProps | Object | - | Typescript：`ButtonProps` | N
 hideCounter | Boolean | false | \- | N
 hidePrev | Boolean | false | \- | N
 hideSkip | Boolean | false | \- | N
 highlightPadding | Number | 8 | \- | N
 mode | String | popup | options：popup/dialog | N
-nextButtonProps | Object | { content: '下一步', theme: 'primary' } | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/guide/type.ts) | N
-prevButtonProps | Object | { content: '上一步', theme: 'default' } | Typescript：`ButtonProps` | N
+nextButtonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/guide/type.ts) | N
+prevButtonProps | Object | - | Typescript：`ButtonProps` | N
 showOverlay | Boolean | true | \- | N
-skipButtonProps | Object | { content: '跳过', theme: 'default' } | Typescript：`ButtonProps` | N
+skipButtonProps | Object | - | Typescript：`ButtonProps` | N
 steps | Array | - | Typescript：`Array<TdGuideStepProps>` | N
 zIndex | Number | 999999 | \- | N
 onChange | Function |  | Typescript：`(current: number, context?: { e: MouseEvent,  total: number }) => void`<br/> | N
