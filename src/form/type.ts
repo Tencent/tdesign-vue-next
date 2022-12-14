@@ -351,7 +351,7 @@ export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
 
 export type ErrorList = Array<FormRule>;
 
-export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
+export type ValidateResultContext<T extends Data> = Omit<SubmitContext<T>, 'e'>;
 
 export interface FormResetParams<FormData> {
   type?: 'initial' | 'empty';

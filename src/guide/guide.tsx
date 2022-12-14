@@ -139,7 +139,7 @@ export default defineComponent({
       const total = stepsTotal.value;
       actived.value = false;
       setInnerCurrent(-1, { e, total });
-      props.onSkip?.({ e, current: -1, total });
+      props.onSkip?.({ e, current: innerCurrent.value, total });
     };
 
     const handlePrev = (e: MouseEvent) => {
@@ -168,7 +168,7 @@ export default defineComponent({
       const total = stepsTotal.value;
       actived.value = false;
       setInnerCurrent(-1, { e, total });
-      props.onFinish?.({ e, current: -1, total });
+      props.onFinish?.({ e, current: innerCurrent.value, total });
     };
 
     const initGuide = () => {
