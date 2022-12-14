@@ -206,7 +206,6 @@ const fixedHeader = ref(true);
 const fixedLeftCol = ref(false);
 const fixedRightCol = ref(false);
 const headerAffixedTop = ref(false);
-const virtualScroll = ref(true);
 
 const columns = computed(() => getColumns(fixedLeftCol.value, fixedRightCol.value));
 

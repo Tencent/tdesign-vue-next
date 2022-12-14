@@ -143,7 +143,10 @@ export default defineComponent({
         e.stopPropagation();
       }
       children.value
-        .filter((child) => isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields))
+        .filter(
+          (child) =>
+            isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields as string[]),
+        )
         .forEach((child) => child.resetField(resetParams.value?.type));
       resetParams.value = undefined;
       props.onReset?.({ e });

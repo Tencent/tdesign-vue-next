@@ -11,6 +11,7 @@ import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { TdBaseTableProps } from './type';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
@@ -22,16 +23,11 @@ export interface TableBodyProps extends BaseTableProps {
   tableElm: any;
   tableWidth: number;
   isWidthOverflow: boolean;
-  translateY: number;
-  scrollType: string;
-  isVirtual: boolean;
-  rowHeight: number;
-  trs: Map<number, object>;
-  bufferSize: number;
+  virtualConfig: VirtualScrollConfig;
   // HTMLDivElement
   tableContentElm: any;
   cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
-  handleRowMounted: () => void;
+  handleRowMounted: (rowData: any) => void;
 }
 
 // table 到 body 的相同属性
@@ -76,13 +72,7 @@ export default defineComponent({
     tableElm: {},
     tableWidth: Number,
     isWidthOverflow: Boolean,
-    // 以下内容为虚拟滚动所需参数
-    translateY: Number,
-    scrollType: String,
-    isVirtual: Boolean,
-    rowHeight: Number,
-    trs: Map as PropType<TableBodyProps['trs']>,
-    bufferSize: Number,
+    virtualConfig: Object as PropType<VirtualScrollConfig>,
     // eslint-disable-next-line
     tableContentElm: {},
     handleRowMounted: Function as PropType<TableBodyProps['handleRowMounted']>,
@@ -161,11 +151,6 @@ export default defineComponent({
       'scroll',
       'tableElm',
       'tableContentElm',
-      'trs',
-      'bufferSize',
-      'isVirtual',
-      'rowHeight',
-      'scrollType',
       'pagination',
     ];
     this.data?.forEach((row, rowIndex) => {
@@ -174,9 +159,10 @@ export default defineComponent({
         rowKey: this.rowKey || 'id',
         row,
         columns: this.columns,
-        rowIndex,
+        rowIndex: row.__VIRTUAL_SCROLL_INDEX || rowIndex,
         dataLength,
         skipSpansMap: this.skipSpansMap,
+        virtualConfig: this.virtualConfig,
         ...pick(this.$props, properties),
         // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
       };
@@ -209,18 +195,22 @@ export default defineComponent({
     });
 
     const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
+
     const isEmpty = !this.data?.length && !this.loading && !this.firstFullRow && !this.lastFullRow;
 
-    const translate = `translate(0, ${this.translateY}px)`;
-    const posStyle = {
-      transform: translate,
-      '-ms-transform': translate,
-      '-moz-transform': translate,
-      '-webkit-transform': translate,
-    };
+    // 垫上隐藏的 tr 元素高度
+    const translate = `translateY(${this.virtualConfig?.translateY.value}px)`;
+    const posStyle = this.virtualConfig?.isVirtualScroll.value
+      ? {
+          transform: translate,
+          '-ms-transform': translate,
+          '-moz-transform': translate,
+          '-webkit-transform': translate,
+        }
+      : undefined;
 
     return (
-      <tbody class={this.tbodyClasses} style={this.isVirtual && { ...posStyle }}>
+      <tbody class={this.tbodyClasses} style={{ ...posStyle }}>
         {isEmpty ? renderEmpty(this.columns) : list}
       </tbody>
     );

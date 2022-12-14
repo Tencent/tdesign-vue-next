@@ -19,6 +19,7 @@ import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
+import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -137,6 +138,11 @@ export default defineComponent({
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },
+      scrollToElement: (data: ScrollToElementParams) => {
+        primaryTableRef.value.virtualConfig.scrollToElement(data);
+      },
+      // 暴露基础表格 ref 及相关方法
+      baseTableRef: primaryTableRef,
     });
 
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标

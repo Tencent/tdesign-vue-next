@@ -9,6 +9,7 @@
       <t-checkbox v-model="fixedLeftColumn" style="margin-left: 32px">固定左侧列</t-checkbox>
       <t-checkbox v-model="fixedRightColumn" style="margin-left: 32px">固定右侧列</t-checkbox>
     </div>
+
     <t-table
       row-key="index"
       :data="data"

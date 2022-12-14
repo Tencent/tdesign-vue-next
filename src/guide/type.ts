@@ -13,23 +13,19 @@ export interface TdGuideProps {
    */
   counter?: TNode;
   /**
-   * null
-   * @default 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
+   * 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
    */
   current?: number;
   /**
-   * null，非受控属性
-   * @default 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
+   * 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景，非受控属性
    */
   defaultCurrent?: number;
   /**
-   * null
-   * @default 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
+   * 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
    */
   modelValue?: number;
   /**
-   * 透传 完成 的全部属性
-   * @default { content: '完成', theme: 'primary' }
+   * 透传 完成 的全部属性，示例：`{ content: '完成', theme: 'primary' }`
    */
   finishButtonProps?: ButtonProps;
   /**
@@ -58,13 +54,11 @@ export interface TdGuideProps {
    */
   mode?: 'popup' | 'dialog';
   /**
-   * 透传 下一步按钮 的全部属性
-   * @default { content: '下一步', theme: 'primary' }
+   * 透传 下一步按钮 的全部属性，示例：{ content: '下一步', theme: 'primary' }
    */
   nextButtonProps?: ButtonProps;
   /**
-   * 透传 上一步按钮 的全部属性
-   * @default { content: '上一步', theme: 'primary' }
+   * 透传 上一步按钮 的全部属性，示例：{ content: '上一步', theme: 'default' }
    */
   prevButtonProps?: ButtonProps;
   /**
@@ -73,8 +67,7 @@ export interface TdGuideProps {
    */
   showOverlay?: boolean;
   /**
-   * 透传 跳过按钮 的全部属性
-   * @default { content: '跳过', theme: 'default' }
+   * 透传 跳过按钮 的全部属性，{ content: '跳过', theme: 'default' }
    */
   skipButtonProps?: ButtonProps;
   /**

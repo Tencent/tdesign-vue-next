@@ -8,7 +8,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
-import { PopconfirmVisibleChangeContext } from './type';
+import { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
 import { useAction } from '../dialog/hooks';
 import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
@@ -17,7 +17,11 @@ export default defineComponent({
   name: 'TPopconfirm',
   props,
 
-  setup(props) {
+  setup(
+    props: TdPopconfirmProps & {
+      modelValue: boolean;
+    },
+  ) {
     const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
     const { InfoCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
