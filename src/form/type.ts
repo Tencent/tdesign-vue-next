@@ -63,7 +63,7 @@ export interface TdFormProps<FormData extends Data = Data> {
   /**
    * 表单字段校验规则
    */
-  rules?: { [field in keyof FormData]: Array<FormRule> };
+  rules?: FormRulesType<FormData>;
   /**
    * 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动
    */
@@ -392,3 +392,7 @@ export interface CustomValidateObj {
 }
 
 export type ValueType = any;
+
+export type FormRulesType<T extends Data> = {
+  [field in keyof T]?: Array<FormRule>;
+};
