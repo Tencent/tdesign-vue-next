@@ -22,7 +22,7 @@ export default defineComponent({
   name: 'TGuide',
   directives: { TransferDom },
   props,
-  setup(props) {
+  setup(props: TdGuideProps) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
@@ -59,9 +59,9 @@ export default defineComponent({
     const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
     // 当前元素位置状态
     const currentElmIsFixed = computed(() => isFixed(currentHighlightLayerElm.value || document.body));
-    // 获取当前步骤的所有属性 用户当前步骤设置 > 用户全局设置的 > 默认值
+    // 获取当前步骤的属性值 用户当前步骤设置 > 用户组件设置的
     const getCurrentCrossProps = <Key extends keyof GuideCrossProps>(propsName: Key) =>
-      currentStepInfo.value[propsName] ?? globalConfig.value[propsName] ?? props[propsName];
+      currentStepInfo.value[propsName] ?? props[propsName];
 
     // 设置高亮层的位置
     const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
@@ -259,7 +259,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleSkip}
-                {...getCurrentCrossProps('skipButtonProps')}
+                {...(getCurrentCrossProps('skipButtonProps') ?? globalConfig.value.skipButtonProps)}
               />
             )}
             {!hidePrev.value && !isFirst && (
@@ -269,7 +269,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
-                {...getCurrentCrossProps('prevButtonProps')}
+                {...(getCurrentCrossProps('prevButtonProps') ?? globalConfig.value.prevButtonProps)}
               />
             )}
             {!isLast && (
@@ -279,7 +279,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleNext}
-                {...getCurrentCrossProps('nextButtonProps')}
+                {...(getCurrentCrossProps('nextButtonProps') ?? globalConfig.value.nextButtonProps)}
               />
             )}
             {isLast && (
@@ -289,7 +289,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handleFinish}
-                {...(globalConfig.value.finishButtonProps ?? props.finishButtonProps)}
+                {...(props.finishButtonProps ?? globalConfig.value.finishButtonProps)}
               />
             )}
           </div>
