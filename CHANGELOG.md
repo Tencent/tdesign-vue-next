@@ -4,6 +4,29 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 0.26.2 `2022-12-14` 
+### 🚀 Features
+- `Table`: 
+  - 树形结构，支持点击行展开树节点，[tdesign-vue#1847](https://github.com/Tencent/tdesign-vue/issues/1847) @chaishi ([#2147](https://github.com/Tencent/tdesign-vue-next/pull/2147))
+  - 树形结构，点击树节点展开图标时，不触发 `onRowClick` 行点击事件，[issue#1847](https://github.com/Tencent/tdesign-vue/issues/1847) @chaishi ([#2147](https://github.com/Tencent/tdesign-vue-next/pull/2147))
+  - 虚拟滚动支持滚动到具体的某一个元素，用于呈现选中行/选中项 @chaishi ([#2112](https://github.com/Tencent/tdesign-vue-next/pull/2112))
+  - 虚拟滚动支持数据变化时不重置，进而支持树形结构无限滚动 @chaishi ([#2112](https://github.com/Tencent/tdesign-vue-next/pull/2112))
+### 🐞 Bug Fixes
+- `Guide`: 
+  -  `skip` 和 `finish` 事件正确返回 `current` @zhangpaopao0609 ([#2160](https://github.com/Tencent/tdesign-vue-next/pull/2160))
+  - 默认属性通过全局配置获取 @zhangpaopao0609 ([#2161](https://github.com/Tencent/tdesign-vue-next/pull/2161))
+- `Form`: 
+  - 修复`ValidateResultContext ` 不满足类型约束 @ufec ([#2165](https://github.com/Tencent/tdesign-vue-next/pull/2165))
+  - 修复 `min` 为 `0` 时不校验问题 @yaogengzhu ([#2151](https://github.com/Tencent/tdesign-vue-next/pull/2151))
+  - 修复`ValidateResultContext ` 不满足类型约束 @ufec ([#2165](https://github.com/Tencent/tdesign-vue-next/pull/2165))
+  - 修复 `min` 为 `0` 时不校验问题 @yaogengzhu ([#2151](https://github.com/Tencent/tdesign-vue-next/pull/2151))
+- `Table`: 虚拟滚动支持表格高度变化，[issue#1374](https://github.com/Tencent/tdesign-vue-next/issues/1374) @chaishi ([#2112](https://github.com/Tencent/tdesign-vue-next/pull/2112))
+- `DatePicker`: 
+  - 修复右侧面板月份展示错误问题  @honkinglin ([#2157](https://github.com/Tencent/tdesign-vue-next/pull/2157))
+  - 修复 `tips` 样式问题 @honkinglin ([#2159](https://github.com/Tencent/tdesign-vue-next/pull/2159))
+- `Popconfirm`: 修复 `confirmBtn` 等属性存在类型错误 ([issue #1642](https://github.com/Tencent/tdesign-vue-next/issues/1642)) @pengYYYYY ([#2158](https://github.com/Tencent/tdesign-vue-next/pull/2158))
+- `Dropdown`: 修复 `hover` 有时候不能触发打开下拉菜单 ([issue #1642](https://github.com/Tencent/tdesign-vue-next/issues/1648)) @pengYYYYY ([#2158](https://github.com/Tencent/tdesign-vue-next/pull/2158))
+
 ## 🌈 0.26.1 `2022-12-09` 
 ### 🐞 Bug Fixes
 - `Guide`: 相对元素位置不正确 @zhangpaopao0609 ([#2130](https://github.com/Tencent/tdesign-vue-next/pull/2130))
