@@ -48,6 +48,7 @@ export default defineComponent({
     const prefixIconContent = renderTNodeJSX('prefixIcon');
     const suffixContent = renderTNodeJSX('suffix');
     const suffixIconContent = renderTNodeJSX('suffixIcon');
+    const tips = renderTNodeJSX('tips');
 
     const inputRefs = {
       firstInputRef: ref(),
@@ -207,7 +208,7 @@ export default defineComponent({
             </span>
           )}
         </div>
-        {props.tips && <div class={`${COMPONENT_NAME.value}__tips`}>{props.tips}</div>}
+        {tips && <div class={`${COMPONENT_NAME.value}__tips`}>{tips}</div>}
       </div>
     );
   },
