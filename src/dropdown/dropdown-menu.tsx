@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
@@ -14,6 +14,8 @@ export default defineComponent({
   setup(props) {
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
+    const scrollTop = ref(0);
+    const menuRef = ref<HTMLElement>();
 
     const { ChevronRightIcon, ChevronLeftIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
@@ -26,12 +28,16 @@ export default defineComponent({
       props.onClick?.(data, context);
     };
 
+    const handleScroll = () => {
+      scrollTop.value = menuRef.value?.scrollTop;
+    };
     // 处理options渲染的场景
     const renderOptions = (data: Array<DropdownOption>) => {
       const arr: Array<unknown> = [];
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };
+        const onViewIdx = Math.ceil(scrollTop.value / 30);
 
         if (optionItem.children) {
           optionItem.children = renderOptions(optionItem.children);
@@ -71,7 +77,7 @@ export default defineComponent({
                     },
                   ]}
                   style={{
-                    top: `${idx * 30}px`,
+                    top: `${(idx - onViewIdx) * 30}px`,
                   }}
                 >
                   <ul>{optionItem.children}</ul>
@@ -118,6 +124,8 @@ export default defineComponent({
           style={{
             maxHeight: `${props.maxHeight}px`,
           }}
+          ref={menuRef}
+          onScroll={handleScroll}
         >
           {renderOptions(props.options)}
         </div>
