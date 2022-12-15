@@ -2,7 +2,7 @@
   <div class="box" :style="{ width: '800px' }">
     <t-head-menu default-value="1-1" :default-expanded="expanded">
       <template #logo>
-        <img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo" />
+        <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-light.png" alt="logo" />
       </template>
       <t-submenu value="1">
         <template #title>
@@ -52,24 +52,24 @@
         <t-menu-item value="6-2">子菜单6-2</t-menu-item>
         <t-menu-item value="6-3">子菜单6-3</t-menu-item>
       </t-submenu>
-      <t-submenu value="7">
-        <template #title>
-          <span>菜单7</span>
-        </template>
-        <t-menu-item value="7-1">子菜单7-1</t-menu-item>
-        <t-menu-item value="7-2">子菜单7-2</t-menu-item>
-        <t-menu-item value="7-3">子菜单7-3</t-menu-item>
-      </t-submenu>
       <template #operations>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="search" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="mail" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="user" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="ellipsis" /></template>
+        </t-button>
       </template>
     </t-head-menu>
     <t-head-menu :default-expanded="expanded2" default-value="1-1" theme="dark" style="margin-top: 24px">
       <template #logo>
-        <img width="136" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo" />
+        <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-dark.png" alt="logo" />
       </template>
       <t-submenu value="1">
         <template #title>
@@ -119,19 +119,21 @@
         <t-menu-item value="6-2">子菜单6-2</t-menu-item>
         <t-menu-item value="6-3">子菜单6-3</t-menu-item>
       </t-submenu>
-      <t-submenu value="7">
-        <template #title>
-          <span>菜单7</span>
-        </template>
-        <t-menu-item value="7-1">子菜单7-1</t-menu-item>
-        <t-menu-item value="7-2">子菜单7-2</t-menu-item>
-        <t-menu-item value="7-3">子菜单7-3</t-menu-item>
-      </t-submenu>
       <template #operations>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
+        <div class="t-demo-menu--dark">
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="search" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="mail" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="user" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="ellipsis" /></template>
+          </t-button>
+        </div>
       </template>
     </t-head-menu>
   </div>
@@ -143,3 +145,20 @@ import { ref } from 'vue';
 const expanded = ref(['1']);
 const expanded2 = ref(['1']);
 </script>
+<style lang="less" scoped>
+.t-menu__operations {
+  .t-button {
+    margin-left: 8px;
+  }
+}
+.t-demo-menu--dark {
+  .t-button {
+    color: #fff;
+    &:hover {
+      background-color: #4b4b4b;
+      border-color: transparent;
+      --ripple-color: #383838;
+    }
+  }
+}
+</style>
