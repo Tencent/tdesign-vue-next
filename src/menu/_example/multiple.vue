@@ -2,7 +2,7 @@
   <div class="box">
     <t-head-menu default-value="2-1" expand-type="popup">
       <template #logo>
-        <img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo" />
+        <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-light.png" alt="logo" />
       </template>
       <t-submenu value="1">
         <template #title>
@@ -52,16 +52,24 @@
         <t-menu-item value="2-3"> 子菜单2-3 </t-menu-item>
       </t-submenu>
       <template #operations>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="search" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="mail" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="user" /></template>
+        </t-button>
+        <t-button variant="text" shape="square">
+          <template #icon><t-icon name="ellipsis" /></template>
+        </t-button>
       </template>
     </t-head-menu>
 
     <t-head-menu default-value="2-1" theme="dark" expand-type="popup" style="margin-top: 24px">
       <template #logo>
-        <img width="136" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo" />
+        <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-dark.png" alt="logo" />
       </template>
       <t-submenu value="1">
         <template #title>
@@ -102,11 +110,38 @@
         <t-menu-item value="2-3"> 子菜单2-3 </t-menu-item>
       </t-submenu>
       <template #operations>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user" /></a>
-        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
+        <div class="t-demo-menu--dark">
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="search" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="mail" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="user" /></template>
+          </t-button>
+          <t-button variant="text" shape="square">
+            <template #icon><t-icon name="ellipsis" /></template>
+          </t-button>
+        </div>
       </template>
     </t-head-menu>
   </div>
 </template>
+<style lang="less" scoped>
+.t-menu__operations {
+  .t-button {
+    margin-left: 8px;
+  }
+}
+.t-demo-menu--dark {
+  .t-button {
+    color: #fff;
+    &:hover {
+      background-color: #4b4b4b;
+      border-color: transparent;
+      --ripple-color: #383838;
+    }
+  }
+}
+</style>

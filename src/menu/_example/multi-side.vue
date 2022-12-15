@@ -53,7 +53,9 @@
         资源编辑
       </t-menu-item>
       <template #operations>
-        <t-icon class="t-menu__operations-icon" name="view-list" @click="changeCollapsed" />
+        <t-button variant="text" shape="square" @click="changeCollapsed">
+          <template #icon><t-icon name="view-list" /></template>
+        </t-button>
       </template>
     </t-menu>
 
@@ -135,7 +137,9 @@
         资源编辑
       </t-menu-item>
       <template #operations>
-        <t-icon class="t-menu__operations-icon" name="view-list" @click="changeCollapsed2" />
+        <t-button class="t-demo-collapse-btn" variant="text" shape="square" @click="changeCollapsed2">
+          <template #icon><t-icon name="view-list" /></template>
+        </t-button>
       </template>
     </t-menu>
   </div>
@@ -158,3 +162,13 @@ const changeCollapsed2 = () => {
 const expanded = ref(['2', '3']);
 const expanded2 = ref(['2']);
 </script>
+<style lang="less" scoped>
+.t-demo-collapse-btn {
+  color: #fff;
+  &:hover {
+    background-color: #4b4b4b;
+    border-color: transparent;
+    --ripple-color: #383838;
+  }
+}
+</style>
