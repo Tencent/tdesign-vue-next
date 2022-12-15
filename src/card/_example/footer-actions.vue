@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <t-space direction="vertical">
     <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
       <template #footer>
         <t-row :align="'middle'" justify="center" style="gap: 24px">
@@ -23,7 +23,6 @@
         </t-row>
       </template>
     </t-card>
-    <br />
     <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
       <template #footer>
         <t-button variant="text" shape="square" :style="{ 'margin-right': '8px' }">
@@ -44,7 +43,6 @@
         </t-dropdown>
       </template>
     </t-card>
-    <br />
     <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
       <template #footer>
         <t-avatar-group cascading="left-up" :max="2">
@@ -63,7 +61,7 @@
         </t-dropdown>
       </template>
     </t-card>
-  </div>
+  </t-space>
 </template>
 <script setup lang="jsx">
 import { ThumbUpIcon, ChatIcon, ShareIcon, HeartIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';

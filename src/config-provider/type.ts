@@ -7,6 +7,7 @@
 import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
+import { MessageOptions } from '../message';
 import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
@@ -56,7 +57,11 @@ export interface GlobalConfigProvider {
    */
   form?: FormConfig;
   /**
-   * icon 全局配置，用来覆盖内置 tdesign-icons
+   * 引导全局配置
+   */
+  guide?: GuideConfig;
+  /**
+   * 图标全局配置
    */
   icon?: IconConfig;
   /**
@@ -67,6 +72,10 @@ export interface GlobalConfigProvider {
    * 列表组件全局配置
    */
   list?: ListConfig;
+  /**
+   * 消息组件全局配置
+   */
+  message?: MessageConfig;
   /**
    * 分页组件全局配置
    */
@@ -459,7 +468,7 @@ export interface DrawerConfig {
   confirm?: string | ButtonProps;
   /**
    * 尺寸配置，配置Drawer尺寸
-   * @default small
+   * @default 'small'
    */
   size?: string;
 }
@@ -671,7 +680,7 @@ export interface UploadConfig {
    */
   sizeLimitMessage?: string;
   /**
-   * 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件',reupload: '重新上传',fileInput: '删除' }
+   * 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件', reupload: '重新上传', delete: '删除', continueUpload?: '继续选择' }
    */
   triggerUploadText?: UploadTriggerUploadText;
 }
@@ -797,7 +806,34 @@ export interface AnchorConfig {
   copyText?: string;
 }
 
+export interface MessageConfig extends MessageOptions {}
+
+export interface GuideConfig {
+  /**
+   * 最后一步中的完成按钮，示例：`{ content: '完成', theme: 'primary' }`
+   */
+  finishButtonProps?: ButtonProps;
+  /**
+   * 下一步按钮，示例：`{ content: '下一步', theme: 'primary' }`
+   */
+  nextButtonProps?: ButtonProps;
+  /**
+   * 上一步按钮，示例：`{ content: '上一步', theme: 'default' }`
+   */
+  prevButtonProps?: ButtonProps;
+  /**
+   * 跳过按钮，示例：`{ content: '跳过', theme: 'default' }`
+   */
+  skipButtonProps?: ButtonProps;
+}
+
 export type AnimationType = 'ripple' | 'expand' | 'fade';
+
+export type GlobalIconConfig = {
+  [name: string]: any;
+};
+
+export type IconConfig = GlobalIconConfig;
 
 export interface ConfigPresetDate {
   [name: string]: DateConfigValue | (() => DateConfigValue);
@@ -810,10 +846,6 @@ export interface UploadTriggerUploadText {
   normal?: string;
   fileInput?: string;
   reupload?: string;
-  continueUpload: string;
+  continueUpload?: string;
   delete?: string;
-}
-
-export interface IconConfig {
-  [name: string]: any;
 }

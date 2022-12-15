@@ -7,14 +7,12 @@
 import { TdGuideProps } from './type';
 import { PropType } from 'vue';
 
-import { ButtonProps } from '../button';
-
 export default {
   /** 用于自定义渲染计数部分 */
   counter: {
     type: Function as PropType<TdGuideProps['counter']>,
   },
-  /** null */
+  /** 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景 */
   current: {
     type: Number,
     default: undefined,
@@ -23,14 +21,13 @@ export default {
     type: Number,
     default: undefined,
   },
-  /** null，非受控属性 */
+  /** 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景，非受控属性 */
   defaultCurrent: {
     type: Number,
   },
-  /** 透传 完成 的全部属性 */
+  /** 透传 完成 的全部属性，示例：`{ content: '完成', theme: 'primary' }` */
   finishButtonProps: {
     type: Object as PropType<TdGuideProps['finishButtonProps']>,
-    default: { content: '完成', theme: 'primary' } as ButtonProps,
   },
   /** 是否隐藏计数 */
   hideCounter: Boolean,
@@ -52,25 +49,22 @@ export default {
       return ['popup', 'dialog'].includes(val);
     },
   },
-  /** 透传 下一步按钮 的全部属性 */
+  /** 透传 下一步按钮 的全部属性，示例：{ content: '下一步', theme: 'primary' } */
   nextButtonProps: {
     type: Object as PropType<TdGuideProps['nextButtonProps']>,
-    default: { content: '下一步', theme: 'primary' } as ButtonProps,
   },
-  /** 透传 上一步按钮 的全部属性 */
+  /** 透传 上一步按钮 的全部属性，示例：{ content: '上一步', theme: 'default' } */
   prevButtonProps: {
     type: Object as PropType<TdGuideProps['prevButtonProps']>,
-    default: { content: '上一步', theme: 'default' } as ButtonProps,
   },
   /** 是否出现遮罩层 */
   showOverlay: {
     type: Boolean,
     default: true,
   },
-  /** 透传 跳过按钮 的全部属性 */
+  /** 透传 跳过按钮 的全部属性，{ content: '跳过', theme: 'default' } */
   skipButtonProps: {
     type: Object as PropType<TdGuideProps['skipButtonProps']>,
-    default: { content: '跳过', theme: 'default' } as ButtonProps,
   },
   /** 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。 */
   steps: {
