@@ -126,10 +126,7 @@ export default defineComponent({
       },
     ]);
 
-    const tableElmClasses = computed(() => [
-      [tableLayoutClasses[props.tableLayout]],
-      { [tableBaseClass.fullHeight]: props.height },
-    ]);
+    const tableElmClasses = computed(() => [[tableLayoutClasses[props.tableLayout]]]);
 
     const showRightDivider = computed(
       () =>
@@ -277,8 +274,8 @@ export default defineComponent({
       onFixedChange,
       onHorizontalScroll,
       updateAffixHeaderOrFooter,
-      refreshTable,
       onInnerVirtualScroll,
+      refreshTable,
       paginationAffixRef,
       horizontalScrollAffixRef,
       headerTopAffixRef,
@@ -364,6 +361,8 @@ export default defineComponent({
       rowAndColFixedPosition: this.rowAndColFixedPosition,
       isMultipleHeader: this.isMultipleHeader,
       bordered: this.bordered,
+      maxHeight: this.maxHeight,
+      height: this.height,
       spansAndLeafNodes: this.spansAndLeafNodes,
       thList: this.thList,
       thWidthList: this.thWidthList,
@@ -376,7 +375,7 @@ export default defineComponent({
     /**
      * Affixed Header
      */
-    // IE浏览器需要遮挡header吸顶滚动条，要减去getBoundingClientRect.height的滚动条高度4像素
+    // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
     const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
     const barWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
     const affixHeaderHeight = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
