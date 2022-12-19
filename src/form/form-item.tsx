@@ -16,6 +16,7 @@ import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  GlobalIconType,
 } from 'tdesign-icons-vue-next';
 
 import cloneDeep from 'lodash/cloneDeep';
@@ -47,8 +48,6 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-
-type IconConstructor = typeof TdErrorCircleFilledIcon;
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -113,7 +112,7 @@ export default defineComponent({
 
     /** Suffix Icon */
     const getDefaultIcon = (): VNode => {
-      const resultIcon = (Icon: IconConstructor) => (
+      const resultIcon = (Icon: GlobalIconType) => (
         <span class={CLASS_NAMES.value.status}>
           <Icon />
         </span>
@@ -129,7 +128,7 @@ export default defineComponent({
             error: CloseCircleFilledIcon,
             warning: ErrorCircleFilledIcon,
           }[type] || CheckCircleFilledIcon;
-        return resultIcon(icon as IconConstructor);
+        return resultIcon(icon);
       }
       return null;
     };
