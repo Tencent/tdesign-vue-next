@@ -1,4 +1,4 @@
-import { Ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { Ref, onMounted, onBeforeUnmount } from 'vue';
 
 export default function useResizeObserver(
   container: Ref<HTMLElement>,
@@ -11,18 +11,13 @@ export default function useResizeObserver(
       containerObserver?.unobserve(container.value);
       containerObserver?.disconnect();
     } else {
+      containerObserver = new ResizeObserver(callback);
       containerObserver.observe(container.value);
     }
   };
 
-  watch([container], () => {
-    observeContainer();
-  });
-
   onMounted(() => {
-    if (window?.ResizeObserver !== undefined) {
-      containerObserver = new ResizeObserver(callback);
-    }
+    observeContainer();
   });
 
   onBeforeUnmount(() => {
