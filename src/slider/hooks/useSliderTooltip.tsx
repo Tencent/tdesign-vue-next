@@ -47,10 +47,13 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
   const validProps = computed(() => {
     const { vertical, tooltipProps, label, value } = tooltipConfig.value;
     const placement = vertical ? 'right' : 'top';
-    const content = formatLabel(label, value);
+    let content = formatLabel(label, value);
     if (tooltipProps instanceof Object) {
       if (!tooltipProps?.placement) {
         normalizeProps.value.placement = placement;
+      }
+      if (tooltipProps.content) {
+        content = tooltipProps.content;
       }
       // @ts-ignore
       return { ...normalizeProps.value, ...tooltipProps, content };
