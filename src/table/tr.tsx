@@ -268,6 +268,9 @@ export default defineComponent({
       ];
       const onClick = (e: MouseEvent) => {
         const p = { ...params, e };
+        if (col.stopPropagation) {
+          e.stopPropagation();
+        }
         this.onCellClick?.(p);
       };
       const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...params, type: 'td' }) : col.attrs;
