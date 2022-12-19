@@ -61,7 +61,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const getTrScrollTopHeightList = (trHeightList: number[], containerHeight: number) => {
     const list: number[] = [];
     const { data } = params.value;
-    // 大数据场景不建议使用 forEach 一类函数迭代
     // 当前行滚动高度 = 上一行滚动高度 + 当前行高度 + 容器高度
     for (let i = 0, len = data.length; i < len; i++) {
       list[i] = (list[i - 1] || containerHeight) + (trHeightList[i] || tScroll.value.rowHeight);
@@ -69,7 +68,6 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
     return list;
   };
 
-  const doubleBufferSize = computed(() => tScroll.value.bufferSize * 2);
   const tripleBufferSize = computed(() => tScroll.value.bufferSize * 3);
 
   const updateVisibleData = (trScrollTopHeightList: number[], scrollTop: number) => {
@@ -81,12 +79,14 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
         break;
       }
     }
-    const { bufferSize } = tScroll.value;
-    let startIndex = currentIndex > 0 && currentIndex <= doubleBufferSize.value ? currentIndex : 0;
-    startIndex = currentIndex > doubleBufferSize.value ? currentIndex - bufferSize : startIndex;
-    startIndex = Math.min(startIndex, trScrollTopHeightList.length - tripleBufferSize.value);
+    if (currentIndex < 0) return;
+    const startIndex = Math.min(currentIndex, trScrollTopHeightList.length - tripleBufferSize.value);
     const endIndex = startIndex + tripleBufferSize.value;
-    if (startAndEndIndex.value[0] !== startIndex) {
+    if (startAndEndIndex.value.join() !== [startIndex, endIndex].join() && startIndex >= 0) {
+      visibleData.value = params.value.data.slice(startIndex, endIndex);
+      const lastScrollTop = trScrollTopHeightList[startIndex - 1];
+      const top = lastScrollTop > 0 ? lastScrollTop - containerHeight.value : 0;
+      translateY.value = top;
       startAndEndIndex.value = [startIndex, endIndex];
     }
   };
@@ -94,13 +94,11 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
     if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) return;
-    const trHeight = rowData.ref.value.offsetHeight;
+    const trHeight = rowData.ref.value?.getBoundingClientRect().height;
     const rowIndex = rowData.data.__VIRTUAL_SCROLL_INDEX;
     const newTrHeightList = trHeightList.value;
     if (newTrHeightList[rowIndex] !== trHeight) {
       newTrHeightList[rowIndex] = trHeight;
-      trHeightList.value = newTrHeightList;
-
       const scrollTopHeightList = getTrScrollTopHeightList(newTrHeightList, containerHeight.value);
       trScrollTopHeightList.value = scrollTopHeightList;
 
@@ -116,19 +114,11 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   };
 
   const refreshVirtualScroll = ([{ contentRect }]: [ResizeObserverEntry]) => {
-    // 如果宽度发生变化，重置滚动位置
-    if (contentRect.width !== containerWidth.value) {
+    // 如果宽度发生变化，重置滚动位置（高度发生变化时，会触发 container 变化，下方的 watch 会计算）
+    const maxScrollbarWidth = 16;
+    if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth) {
       container.value.scrollTop = 0;
       translateY.value = 0;
-    } else if (contentRect.height !== containerHeight.value) {
-      // 如果高度发生变化
-      const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
-      trScrollTopHeightList.value = scrollTopHeightList;
-      translateY.value = 0;
-
-      if (scrollTopHeightList.length) {
-        updateVisibleData(scrollTopHeightList, 0);
-      }
     }
     containerWidth.value = contentRect.width;
     containerHeight.value = contentRect.height;
@@ -154,6 +144,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
    */
   const scrollToElement = (p: ScrollToElementParams) => {
     updateScrollTop(p);
+    // 不同行高的表格需要异步计算
     if (!tScroll.value.isFixedRowHeight) {
       const duration = p.time ?? 60;
       const timer = setTimeout(() => {
@@ -167,36 +158,23 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
 
   // 固定高度场景，可直接通过数据长度计算出最大滚动高度
   watch(
-    () => [[...params.value.data, tScroll, isVirtualScroll]],
+    () => [[...params.value.data, tScroll, isVirtualScroll, container]],
     () => {
       if (!isVirtualScroll.value) return;
       const { data } = params.value;
-      // 给数据添加下标
       addIndexToData(data);
-      scrollHeight.value = data.length * tScroll.value.rowHeight;
+      const startIndex = startAndEndIndex.value[0];
+      visibleData.value = data.slice(startIndex, startIndex + tripleBufferSize.value);
 
-      const scrollTopHeightList = getTrScrollTopHeightList([], containerHeight.value);
-      trScrollTopHeightList.value = scrollTopHeightList;
-
-      if (container.value) {
-        const startIndex = startAndEndIndex.value[0];
-        visibleData.value = data.slice(startIndex, startIndex + tripleBufferSize.value);
-      }
-    },
-    { immediate: true },
-  );
-
-  watch(
-    [startAndEndIndex, containerHeight],
-    ([startAndEndIndex, containerHeight]) => {
-      if (startAndEndIndex[0] < 0) return;
-      const { data } = params.value;
-      const [startIndex, endIndex] = startAndEndIndex;
-      visibleData.value = data.slice(startIndex, endIndex);
-      translateY.value =
-        trScrollTopHeightList.value[startIndex - 1] > 0
-          ? trScrollTopHeightList.value[startIndex - 1] - containerHeight
-          : 0;
+      // get container dom after one tick
+      const timer = setTimeout(() => {
+        if (container.value) {
+          containerHeight.value = container.value.getBoundingClientRect().height;
+          const scrollTopHeightList = getTrScrollTopHeightList(trHeightList.value || [], containerHeight.value);
+          trScrollTopHeightList.value = scrollTopHeightList;
+        }
+        clearTimeout(timer);
+      }, 0);
     },
     { immediate: true },
   );

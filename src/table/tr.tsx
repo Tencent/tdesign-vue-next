@@ -1,4 +1,4 @@
-import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, onMounted, toRefs } from 'vue';
+import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, onMounted, toRefs, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
@@ -190,7 +190,7 @@ export default defineComponent({
       return trListeners;
     };
 
-    onMounted(() => {
+    watch([trRef], () => {
       if (props.virtualConfig?.isVirtualScroll.value) {
         context.emit('row-mounted', {
           ref: trRef,
