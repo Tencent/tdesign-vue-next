@@ -20,7 +20,9 @@ export default function useResizeObserver(
   });
 
   onMounted(() => {
-    containerObserver = new ResizeObserver(callback);
+    if (window?.ResizeObserver !== undefined) {
+      containerObserver = new ResizeObserver(callback);
+    }
   });
 
   onBeforeUnmount(() => {
