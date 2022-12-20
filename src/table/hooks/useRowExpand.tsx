@@ -78,6 +78,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
       className: tableExpandClasses.iconCell,
       fixed: isFirstColumnFixed.value ? 'left' : undefined,
       cell: renderExpandIcon,
+      stopPropagation: true,
     };
     return expandCol;
   };
