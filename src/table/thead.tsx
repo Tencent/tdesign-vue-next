@@ -2,7 +2,7 @@ import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProp
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
-import { BaseTableCol, TableRowData } from './type';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
 import { formatClassNames } from './utils';
@@ -13,6 +13,8 @@ export interface TheadProps {
   ellipsisOverlayClassName: string;
   // 是否固定表头
   isFixedHeader: boolean;
+  maxHeight?: TdBaseTableProps['maxHeight'];
+  height?: TdBaseTableProps['height'];
   // 固定列 left/right 具体值
   rowAndColFixedPosition: RowAndColFixedPosition;
   // 虚拟滚动单独渲染表头；表头吸顶单独渲染表头
@@ -40,6 +42,8 @@ export default defineComponent({
     classPrefix: String,
     ellipsisOverlayClassName: String,
     isFixedHeader: Boolean,
+    maxHeight: [String, Number] as PropType<TheadProps['maxHeight']>,
+    height: [String, Number] as PropType<TheadProps['height']>,
     rowAndColFixedPosition: Map as PropType<TheadProps['rowAndColFixedPosition']>,
     thWidthList: Object as PropType<TheadProps['thWidthList']>,
     bordered: Boolean,
@@ -57,7 +61,7 @@ export default defineComponent({
     const theadClasses = computed(() => [
       tableHeaderClasses.header,
       {
-        [tableHeaderClasses.fixed]: props.isFixedHeader,
+        [tableHeaderClasses.fixed]: Boolean(props.maxHeight || props.height),
         [tableBaseClass.bordered]: props.bordered && props.isMultipleHeader,
         [tableHeaderClasses.multipleHeader]: props.isMultipleHeader,
       },
