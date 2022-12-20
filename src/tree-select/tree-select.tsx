@@ -10,6 +10,7 @@ import SelectInput from '../select-input';
 import { TagInputChangeContext } from '../tag-input';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
+import { PopupVisibleChangeContext } from '../popup';
 
 import { INodeOptions } from './interface';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
@@ -192,7 +193,7 @@ export default defineComponent({
       context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
     ) => {
       if (!props.multiple) {
-        setInnerVisible(false);
+        setInnerVisible(false, context);
       }
       // 多选模式屏蔽 Active 事件
       if (props.multiple) {
@@ -450,7 +451,7 @@ export default defineComponent({
         }}
         onInputChange={inputChange}
         onTagChange={tagChange}
-        onPopupVisibleChange={(state: boolean) => setInnerVisible(state)}
+        onPopupVisibleChange={(state: boolean, context: PopupVisibleChangeContext) => setInnerVisible(state, context)}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );
