@@ -53,5 +53,5 @@ export const formatLabel = (label: TNode | string, val: number) => {
     }
     return text;
   }
-  return () => label;
+  return label;
 };
