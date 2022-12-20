@@ -1,5 +1,12 @@
 <template>
-  <t-tree-select v-model="value" :data="options" clearable placeholder="请选择" />
+  <t-tree-select
+    v-model="value"
+    :data="options"
+    clearable
+    placeholder="请选择"
+    :popup-visible="popupVisible"
+    @popup-visible-change="onVisibleChange"
+  />
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -37,4 +44,12 @@ const options = [
 ];
 
 const value = ref('');
+const popupVisible = ref(false);
+
+const onVisibleChange = (visible, context) => {
+  console.log(visible, context);
+  if (context.trigger || context.node?.label !== '广州市') {
+    popupVisible.value = visible;
+  }
+};
 </script>
