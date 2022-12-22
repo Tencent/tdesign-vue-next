@@ -4,6 +4,21 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.0 `2022-12-22` 
+### 🚀 Features
+- `Table`: 
+  - 列配置支持 `stopPropagation: true`，用于设置某一列单元格阻止事件冒泡 @chaishi ([#2183](https://github.com/Tencent/tdesign-vue-next/pull/2183))
+  - 虚拟滚动支持行高动态变化 @chaishi ([#2183](https://github.com/Tencent/tdesign-vue-next/pull/2183))
+- `Menu`: 样式优化，https://github.com/Tencent/tdesign-common/pull/1073 @xiaosansiji ([#2172](https://github.com/Tencent/tdesign-vue-next/pull/2172))
+- `TreeSelect`: `onVisibleChange`事件增加回调参数 @uyarn ([#2184](https://github.com/Tencent/tdesign-vue-next/pull/2184))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复表格宽度过小时抖动问题 @chaishi ([#2183](https://github.com/Tencent/tdesign-vue-next/pull/2183))
+  - 固定表头背景色始终保持为灰色底，无论内容是否溢出 @chaishi ([#2183](https://github.com/Tencent/tdesign-vue-next/pull/2183))
+- `Dropdown`: 修复多级菜单长度超长时 无法选择子菜单及位置异常的问题 @uyarn ([#2171](https://github.com/Tencent/tdesign-vue-next/pull/2171))
+- `Slider`: 修复 `tooltip` 属性自定义 `content` 不生效问题 ([issue #2180](https://github.com/Tencent/tdesign-vue-next/issues/2180)) @ChrisLee0211 ([#2181](https://github.com/Tencent/tdesign-vue-next/pull/2181))
+- `Datepicker`: 兼容传入空字符串 @honkinglin ([#2169](https://github.com/Tencent/tdesign-vue-next/pull/2169))
+
 ## 🌈 0.26.2 `2022-12-14` 
 ### 🚀 Features
 - `Table`: 
