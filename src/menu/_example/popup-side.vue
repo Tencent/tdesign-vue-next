@@ -46,7 +46,9 @@
       资源列表
     </t-menu-item>
     <template #operations>
-      <t-icon class="t-menu__operations-icon" name="view-list" @click="changeCollapsed" />
+      <t-button variant="text" shape="square" @click="changeCollapsed">
+        <template #icon><t-icon name="view-list" /></template>
+      </t-button>
     </template>
   </t-menu>
 </template>
@@ -55,13 +57,13 @@
 import { ref } from 'vue';
 
 const collapsed = ref(false);
-const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
+const iconUrl = ref('https://tdesign.gtimg.com/site/baseLogo-light.png');
 
 const changeCollapsed = () => {
   collapsed.value = !collapsed.value;
   iconUrl.value = collapsed.value
     ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
-    : 'https://www.tencent.com/img/index/menu_logo_hover.png';
+    : 'https://tdesign.gtimg.com/site/baseLogo-light.png';
 };
 
 const handleExpand = (names) => {

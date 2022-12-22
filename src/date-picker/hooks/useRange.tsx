@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
@@ -133,26 +133,26 @@ export default function useRange(props: TdDateRangePickerProps) {
   }));
 
   // 输入框响应 value 变化
-  watchEffect(() => {
-    if (!value.value) {
+  watch(value, (value) => {
+    if (!value) {
       inputValue.value = [];
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+    if (!isValidDate(value, formatRef.value.format)) return;
 
-    inputValue.value = formatDate(value.value, {
+    inputValue.value = formatDate(value, {
       format: formatRef.value.format,
     });
   });
 
   // activeIndex 变化自动 focus 对应输入框
-  watchEffect(() => {
+  watch(activeIndex, (index) => {
     if (!isMountedRef.value) {
       isMountedRef.value = true;
       return;
     }
     const indexMap = { 0: 'first', 1: 'second' };
-    inputRef.value.focus({ position: indexMap[activeIndex.value] });
+    inputRef.value?.focus?.({ position: indexMap[index] });
   });
 
   return {

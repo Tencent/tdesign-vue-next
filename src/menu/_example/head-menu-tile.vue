@@ -1,7 +1,7 @@
 <template>
   <t-head-menu theme="dark" :value="active" @change="changeHandler">
     <template #logo>
-      <img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo" />
+      <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-dark.png" alt="logo" />
     </template>
     <t-menu-item v-for="(menu, index) in menus" :key="index" :value="`${index + 1}`">
       {{ menu.title }}
@@ -17,10 +17,18 @@
     </t-menu-item>
     <t-menu-item value="4" :disabled="true"> 菜单4 </t-menu-item>
     <template #operations>
-      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
-      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail" /></a>
-      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user" /></a>
-      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis" /></a>
+      <t-button variant="text" shape="square">
+        <template #icon><t-icon name="search" /></template>
+      </t-button>
+      <t-button variant="text" shape="square">
+        <template #icon><t-icon name="mail" /></template>
+      </t-button>
+      <t-button variant="text" shape="square">
+        <template #icon><t-icon name="user" /></template>
+      </t-button>
+      <t-button variant="text" shape="square">
+        <template #icon><t-icon name="ellipsis" /></template>
+      </t-button>
     </template>
   </t-head-menu>
 </template>

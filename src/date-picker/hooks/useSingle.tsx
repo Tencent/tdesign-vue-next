@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
@@ -128,14 +128,14 @@ export default function useSingle(props: TdDatePickerProps) {
     },
   }));
 
-  watchEffect(() => {
-    if (!value.value) {
+  watch(value, (value) => {
+    if (!value) {
       inputValue.value = '';
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+    if (!isValidDate(value, formatRef.value.format)) return;
 
-    inputValue.value = formatDate(value.value, {
+    inputValue.value = formatDate(value, {
       format: formatRef.value.format,
     });
   });
