@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue';
+import semver from 'semver';
 import siteConfig from '../../site.config';
 import packageJson from '@/package.json';
 
@@ -8,7 +9,7 @@ const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
 
 // 过滤小版本号
-function filterVersions(versions = [], deep = 1) {
+function getVersions(versions = [], deep = 1) {
   const versionMap = Object.create(null);
 
   versions.forEach((v) => {
@@ -16,7 +17,11 @@ function filterVersions(versions = [], deep = 1) {
     versionMap[nums[deep]] = v;
   });
 
-  return Object.values(versionMap);
+  return Object.values(versionMap)
+    .sort((a, b) => {
+      return semver.gt(b, a) ? -1 : 1;
+    })
+    .filter((v) => !v.includes('alpha') && !v.includes('patch'));
 }
 
 export default defineComponent({
@@ -54,9 +59,7 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          const versions = filterVersions(
-            Object.keys(res.versions).filter((v) => !v.includes('alpha') && !v.includes('patch')),
-          );
+          const versions = getVersions(Object.keys(res.versions));
           versions.forEach((v) => {
             const nums = v.split('.');
             if (nums[0] === '0' && nums[1] < 6) return false;
