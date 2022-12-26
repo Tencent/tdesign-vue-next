@@ -1,5 +1,4 @@
-import { reactive, h, computed, defineComponent, toRefs, PropType } from 'vue';
-import classNames from 'classnames';
+import { computed, defineComponent, toRefs, PropType } from 'vue';
 import {
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,
@@ -108,10 +107,10 @@ export default defineComponent({
       return (
         <li class={`${uploadPrefix}__card-item`} key={file.name + index + file.percent + file.status}>
           <div
-            class={classNames([
+            class={[
               `${uploadPrefix}__card-content`,
               { [`${classPrefix.value}-is-bordered`]: file.status !== 'waiting' },
-            ])}
+            ]}
           >
             {['fail', 'progress'].includes(file.status) && (
               <div class={`${uploadPrefix}__card-status-wrap`}>
