@@ -58,10 +58,7 @@ export default function usePagination(props: TdBaseTableProps) {
           onChange={(pageInfo: PageInfo) => {
             props.pagination?.onChange?.(pageInfo);
             innerPagination.value = pageInfo;
-            // 如果是非受控情况的分页变化，还需更新分页数据（data）
-            if (pagination && !pagination.value.current && pagination.value.defaultCurrent) {
-              updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
-            }
+            updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
             props.onPageChange?.(pageInfo, dataSource.value);
           }}
         />
