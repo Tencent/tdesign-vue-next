@@ -99,7 +99,7 @@ const getRowClassName = ({ row, rowIndex }) => {
 
 <style>
 .t-demo__style .t-table .custom-third-class-name > td {
-  color: green;
+  background-color: var(--td-brand-color-light);
   font-weight: bold;
 }
 
