@@ -106,7 +106,7 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props);
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);

@@ -30,7 +30,7 @@ const statusNameListMap = {
 };
 
 const data = [];
-const TOTAL = 60;
+const TOTAL = 59;
 for (let i = 0; i < TOTAL; i++) {
   data.push({
     index: i + 1,
@@ -50,6 +50,7 @@ const reserveSelectedRowOnPaginate = ref(true);
 const selectedRowKeys = ref([]);
 
 const columns = [
+  { colKey: 'serial-number', width: 80, title: '序号' },
   { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',
@@ -65,17 +66,22 @@ const columns = [
     },
   },
   { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
+  // { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
   { colKey: 'createTime', title: '申请时间' },
   { colKey: 'row-select', type: 'multiple', width: 46 },
 ];
 
-// 非受控用法
+/**
+ * 1. 本地分页方式一（非受控用法）：使用 defaultCurrent 和 defaultPageSize 设置默认分页信息，仅第一次有效。
+ *
+ * 2. 本地分页方式二（受控用法）：使用 current 和 pageSize 设置分页信息，任何时候有效，
+ *    此时，注意需要在 onPageChange 中对 pagination.current 和 pagination.pageSize 进行赋值
+ * */
 const pagination = reactive({
-  // current: 2,
-  // pageSize: 5,
-  defaultCurrent: 2,
-  defaultPageSize: 5,
+  current: 2,
+  pageSize: 5,
+  // defaultCurrent: 2,
+  // defaultPageSize: 5,
   total: TOTAL,
   showJumper: true,
 });
@@ -87,8 +93,8 @@ const onChange = (params, context) => {
 const onPageChange = (pageInfo, context) => {
   console.log('page-change', pageInfo, context);
   // 受控用法需要下面两行代码
-  // pagination.current = pageInfo.current;
-  // pagination.pageSize = pageInfo.pageSize;
+  pagination.current = pageInfo.current;
+  pagination.pageSize = pageInfo.pageSize;
 };
 
 const onSelectChange = (selectedRowKeys, context) => {
