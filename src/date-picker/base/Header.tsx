@@ -44,7 +44,7 @@ export default defineComponent({
         const maxYear = year - extraYear + 100;
 
         for (let i = minYear; i <= maxYear; i += 10) {
-          options.push({ label: `${i} - ${i + 9}`, value: i + extraYear });
+          options.push({ label: `${i} - ${i + 9}`, value: i + 9 });
         }
       } else {
         options.push({ label: `${year}`, value: year });

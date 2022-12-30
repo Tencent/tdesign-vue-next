@@ -4,6 +4,17 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.1 `2022-12-30` 
+### 🚀 Features
+- `Table`: 支持透传分页组件 Pagination 插槽 `totalContent`，[issue#2152](https://github.com/Tencent/tdesign-vue-next/issues/2152) @chaishi ([#2208](https://github.com/Tencent/tdesign-vue-next/pull/2208))
+### 🐞 Bug Fixes
+- `Avatar`: 修复超出最大配置数量时出现重复的省略图标 @pengYYYYY ([#2203](https://github.com/Tencent/tdesign-vue-next/pull/2203))
+- `DatePicker`: 修复年份选择器区间展示错误 @honkinglin ([#2204](https://github.com/Tencent/tdesign-vue-next/pull/2204))
+- `Table`: 修复本地数据分页功能中，onPageChange 参数 newData 数值不正确问题 @chaishi ([#2208](https://github.com/Tencent/tdesign-vue-next/pull/2208))
+- `Space`: 修复 `size` 参数缺少 `Array` 导致的告警 @pengYYYYY ([#2203](https://github.com/Tencent/tdesign-vue-next/pull/2203))
+### 🚧 Others
+- `Dialog`: 恢复插件类型的示例代码 @pengYYYYY ([#2203](https://github.com/Tencent/tdesign-vue-next/pull/2203))
+- `Link`: 修复后置 `icon` 示例代码 @pengYYYYY ([#2203](https://github.com/Tencent/tdesign-vue-next/pull/2203))
 ## 🌈 1.0.0 `2022-12-22` 
 ### 🚀 Features
 - `Table`: 

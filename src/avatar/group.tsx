@@ -29,11 +29,7 @@ export default defineComponent({
       if (children?.length > props.max) {
         const content = setEllipsisContent(children);
         const outAvatar = children.slice(0, props.max);
-        outAvatar.push(
-          <Avatar size={props.size} icon={renderIcon()}>
-            {content}
-          </Avatar>,
-        );
+        outAvatar.push(<Avatar size={props.size}>{content}</Avatar>);
         return [outAvatar];
       }
       return [children];
