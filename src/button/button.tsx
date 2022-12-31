@@ -28,10 +28,10 @@ export default defineComponent({
     });
     const buttonClass = computed(() => [
       `${COMPONENT_NAME.value}`,
-      SIZE.value[props.size],
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
+        [SIZE.value[props.size]]: props.size !== 'medium',
         [STATUS.value.disabled]: props.disabled || disabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
