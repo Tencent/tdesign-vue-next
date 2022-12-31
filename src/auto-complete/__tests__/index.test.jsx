@@ -35,16 +35,14 @@ describe('Anchor', () => {
   });
 
   describe(':disabled', () => {
-    it('render', async () => {
+    it('render', () => {
       const wrapper = mount({
         render() {
           return <AutoComplete disabled value={'默认联想词'} options={options}></AutoComplete>;
         },
       });
-
-      const inputDom = await wrapper.find('.t-input');
-
-      expect(inputDom.attributes().class).toBe('t-input t-is-disabled');
+      const inputDom = wrapper.find('.t-input');
+      expect(inputDom.classes('t-is-disabled')).toBeTruthy();
     });
   });
 
