@@ -7,7 +7,6 @@
       :filterable="false"
       placeholder="请输入关键词搜索"
       clearable
-      :filter="filterMethod"
       @change="onChange"
     />
 
@@ -49,11 +48,6 @@ function onChange(value) {
     options.value = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
     clearTimeout(timer.value);
   }, 200);
-}
-
-function filterMethod(value, option) {
-  console.log(option);
-  return option.label.includes('二个');
 }
 </script>
 
