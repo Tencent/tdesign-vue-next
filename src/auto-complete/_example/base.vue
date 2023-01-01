@@ -1,31 +1,37 @@
 <template>
-  <t-space direction="vertical" class="t-demo-auto-complete__base">
+  <t-space direction="vertical" class="t-demo-auto-complete__base" style="width: 100%">
     <t-auto-complete
       v-model="value"
       :options="options"
       highlight-keyword
       :filterable="false"
       placeholder="请输入关键词搜索"
+      clearable
       @change="onChange"
     />
 
+    <!-- 复杂 UI 需求，可参考当前示例完成 -->
     <t-auto-complete
       v-model="value2"
       :options="options"
       placeholder="请输入关键词搜索（右侧搜索按钮可以使用插槽自定义）"
       highlight-keyword
       filterable
+      class="t-demo-autocomplete__search"
     >
-      <template #suffix>
+      <template v-if="value2" #suffix>
+        <CloseCircleFilledIcon class="t-input__suffix-clear" @click="value2 = ''" />
+      </template>
+      <template #suffixIcon>
         <t-button shape="square"><SearchIcon /></t-button>
       </template>
     </t-auto-complete>
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
-import { SearchIcon } from 'tdesign-icons-vue-next';
+import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const value = ref('');
 const value2 = ref('');
@@ -46,7 +52,7 @@ function onChange(value) {
 </script>
 
 <style>
-.t-demo-auto-complete__base .t-input {
+.t-demo-autocomplete__search .t-input {
   padding-right: 0;
 }
 .t-demo-auto-complete__base .t-button svg {

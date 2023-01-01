@@ -69,6 +69,22 @@ export default defineComponent({
       props.onFocus?.({ ...context, value });
     };
 
+    const onInnerBlur: InputProps['onBlur'] = (value, context) => {
+      props.onBlur?.({ ...context, value });
+    };
+
+    const onInnerCompositionend: InputProps['onCompositionend'] = (value, context) => {
+      props.onCompositionend?.({ ...context, value });
+    };
+
+    const onInnerCompositionstart: InputProps['onCompositionstart'] = (value, context) => {
+      props.onCompositionstart?.({ ...context, value });
+    };
+
+    const onInnerEnter: InputProps['onEnter'] = (value, context) => {
+      props.onEnter?.({ ...context, value });
+    };
+
     const onInnerSelect: TdAutoCompleteProps['onSelect'] = (value, context) => {
       if (props.readonly || props.disabled) return;
       popupVisible.value = false;
@@ -91,8 +107,15 @@ export default defineComponent({
           status={props.status}
           readonly={props.readonly}
           disabled={props.disabled}
+          autofocus={props.autofocus}
+          clearable={props.clearable}
           onChange={onInputChange}
           onFocus={onInnerFocus}
+          onBlur={onInnerBlur}
+          onClear={props.onClear}
+          onCompositionend={onInnerCompositionend}
+          onCompositionstart={onInnerCompositionstart}
+          onEnter={onInnerEnter}
           {...innerInputProps.value}
           v-slots={slots}
         />

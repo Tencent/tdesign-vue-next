@@ -2,7 +2,8 @@
 
 exports[`Button > :props > :block 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
+  class="t-button t-button--variant-base t-button--theme-primary t-size-full-width"
+  href=""
   type="button"
 >
   <span
@@ -18,7 +19,8 @@ exports[`Button > :props > :block 1`] = `
 exports[`Button > :props > :content 1`] = `
 <div>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span
@@ -30,7 +32,8 @@ exports[`Button > :props > :content 1`] = `
     </span>
   </button>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span
@@ -42,7 +45,8 @@ exports[`Button > :props > :content 1`] = `
     </span>
   </button>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span
@@ -52,7 +56,8 @@ exports[`Button > :props > :content 1`] = `
     </span>
   </button>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span
@@ -62,7 +67,8 @@ exports[`Button > :props > :content 1`] = `
     </span>
   </button>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span
@@ -78,8 +84,9 @@ exports[`Button > :props > :content 1`] = `
 
 exports[`Button > :props > :disabled 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+  class="t-button t-button--variant-base t-button--theme-primary t-is-disabled"
   disabled=""
+  href=""
   type="button"
 >
   <span
@@ -94,7 +101,8 @@ exports[`Button > :props > :disabled 1`] = `
 
 exports[`Button > :props > :icon function 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only"
+  class="t-button t-button--variant-base t-button--theme-primary t-button--icon-only"
+  href=""
   type="button"
 >
   
@@ -108,8 +116,9 @@ exports[`Button > :props > :icon function 1`] = `
 
 exports[`Button > :props > :loading 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
+  class="t-button t-button--variant-base t-button--theme-primary t-is-loading"
   disabled=""
+  href=""
   type="button"
 >
   
@@ -151,7 +160,8 @@ exports[`Button > :props > :loading 1`] = `
 
 exports[`Button > :props > :shape 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-round"
+  href=""
   type="button"
 >
   <span
@@ -166,7 +176,8 @@ exports[`Button > :props > :shape 1`] = `
 
 exports[`Button > :props > :size 1`] = `
 <button
-  class="t-button t-size-l t-button--variant-base t-button--theme-primary"
+  class="t-button t-button--variant-base t-button--theme-primary t-size-l"
+  href=""
   type="button"
 >
   <span
@@ -181,7 +192,8 @@ exports[`Button > :props > :size 1`] = `
 
 exports[`Button > :props > :variant 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+  class="t-button t-button--variant-base t-button--theme-primary"
+  href=""
   type="button"
 >
   <span
@@ -196,7 +208,8 @@ exports[`Button > :props > :variant 1`] = `
 
 exports[`Button > <slot> > <icon> 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only"
+  class="t-button t-button--variant-base t-button--theme-primary t-button--icon-only"
+  href=""
   type="button"
 >
   

@@ -36,7 +36,7 @@ export default defineComponent({
 
     // 整理数据格式
     const tOptions = computed<AutoCompleteOptionObj[]>(() => {
-      let options = props.options.map((item) => {
+      let options = (props.options || []).map((item) => {
         let option: AutoCompleteOptionObj = {};
         if (typeof item === 'string') {
           option = { text: item, label: item };

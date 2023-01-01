@@ -5,6 +5,7 @@
       v-model="input1"
       :maxlength="5"
       show-limit-number
+      clearable
       placeholder="内置字数限制，最大文本长度，一个中文字等于一个长度"
     />
 
