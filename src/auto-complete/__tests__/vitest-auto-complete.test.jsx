@@ -17,7 +17,7 @@ describe('AutoComplete Component', () => {
   it(`props.autofocus is equal to true`, () => {
     const wrapper = mount(<AutoComplete autofocus={true}></AutoComplete>);
     const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('autofocus')).not.not.toBeUndefined();
+    expect(domWrapper.attributes('autofocus')).not.toBeUndefined();
   });
 
   it('props.clearable: show clear icon on mouse enter', async () => {
