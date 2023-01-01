@@ -106,6 +106,17 @@ describe('AutoComplete Component', () => {
     document.querySelectorAll('.t-popup').forEach((node) => node.remove());
   });
 
+  it('props.options works fine', async () => {
+    const wrapper = getNormalAutoCompleteMount(AutoComplete);
+    wrapper.find('input').trigger('focus');
+    await wrapper.vm.$nextTick();
+    const tSelectOptionDom = document.querySelectorAll('.t-select-option');
+    expect(tSelectOptionDom.length).toBe(3);
+    // remove nodes in document to avoid influencing following test cases
+    tSelectOptionDom.forEach((node) => node.remove());
+    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+  });
+
   it('props.panelBottomContent works fine', async () => {
     const wrapper = mount(
       <AutoComplete panelBottomContent={() => <span class="custom-node">TNode</span>}></AutoComplete>,
