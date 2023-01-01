@@ -318,6 +318,7 @@ describe('AutoComplete Component', () => {
     const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onFocus: onFocusFn });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-is-focused').exists()).toBeTruthy();
     expect(onFocusFn).toHaveBeenCalled();
     expect(onFocusFn.mock.calls[0][0].e.type).toBe('focus');
   });
