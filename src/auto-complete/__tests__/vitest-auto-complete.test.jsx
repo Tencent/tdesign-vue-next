@@ -43,6 +43,7 @@ describe('AutoComplete Component', () => {
     expect(onClearFn1.mock.calls[0][0].e.stopPropagation).toBeTruthy();
     expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
     expect(onChangeFn1).toHaveBeenCalled();
+    expect(onChangeFn1.mock.calls[0][0]).toBe('');
     expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
     expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
   });
