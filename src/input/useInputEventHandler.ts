@@ -5,7 +5,7 @@ export default function useInputEventHandler(props: TdInputProps, isHover: Ref<B
   const handleKeydown = (e: KeyboardEvent) => {
     if (props.disabled) return;
     const { code } = e;
-    if (code === 'Enter' || code === 'NumpadEnter') {
+    if (/enter/i.test(code) || /enter/i.test(e.key)) {
       props.onEnter?.((e.currentTarget as HTMLInputElement).value, { e });
     } else {
       props.onKeydown?.((e.currentTarget as HTMLInputElement).value, { e });

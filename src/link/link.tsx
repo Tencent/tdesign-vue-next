@@ -16,9 +16,9 @@ export default defineComponent({
 
     const linkClass = computed(() => [
       `${COMPONENT_NAME.value}`,
-      SIZE.value[props.size],
       `${COMPONENT_NAME.value}--theme-${props.theme}`,
       {
+        [SIZE.value[props.size]]: props.size !== 'medium',
         [STATUS.value.disabled]: props.disabled,
         [`${classPrefix.value}-is-underline`]: props.underline,
         [`${COMPONENT_NAME.value}--hover-${props.hover}`]: !props.disabled,

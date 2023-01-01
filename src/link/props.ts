@@ -39,6 +39,7 @@ export default {
   /** 尺寸 */
   size: {
     type: String as PropType<TdLinkProps['size']>,
+    default: 'medium' as TdLinkProps['size'],
     validator(val: TdLinkProps['size']): boolean {
       if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);

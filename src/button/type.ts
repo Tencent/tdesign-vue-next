@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, SizeEnum } from '../common';
@@ -22,7 +21,7 @@ export interface TdButtonProps {
    */
   default?: string | TNode;
   /**
-   * 是否禁用按钮
+   * 禁用状态
    * @default false
    */
   disabled?: boolean;

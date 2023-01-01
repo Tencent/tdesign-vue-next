@@ -35,6 +35,7 @@ export interface TdLinkProps {
   prefixIcon?: TNode;
   /**
    * 尺寸
+   * @default medium
    */
   size?: SizeEnum;
   /**
