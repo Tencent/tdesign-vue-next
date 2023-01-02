@@ -17,7 +17,7 @@ describe('AutoComplete Component', () => {
   it(`props.autofocus is equal to true`, () => {
     const wrapper = mount(<AutoComplete autofocus={true}></AutoComplete>);
     const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('autofocus')).not.not.toBeUndefined();
+    expect(domWrapper.attributes('autofocus')).toBeDefined();
   });
 
   it('props.clearable: show clear icon on mouse enter', async () => {
@@ -43,6 +43,7 @@ describe('AutoComplete Component', () => {
     expect(onClearFn1.mock.calls[0][0].e.stopPropagation).toBeTruthy();
     expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
     expect(onChangeFn1).toHaveBeenCalled();
+    expect(onChangeFn1.mock.calls[0][0]).toBe('');
     expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
     expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
   });
@@ -79,7 +80,7 @@ describe('AutoComplete Component', () => {
     await wrapper.vm.$nextTick();
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
-    // remove nodes in document to avoid influencing following test cases
+    // remove nodes from document to avoid influencing following test cases
     tSelectOptionDom.forEach((node) => node.remove());
     document.querySelectorAll('.t-popup').forEach((node) => node.remove());
   });
@@ -90,7 +91,7 @@ describe('AutoComplete Component', () => {
     await wrapper.vm.$nextTick();
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
-    // remove nodes in document to avoid influencing following test cases
+    // remove nodes from document to avoid influencing following test cases
     tSelectOptionDom.forEach((node) => node.remove());
     document.querySelectorAll('.t-popup').forEach((node) => node.remove());
   });
@@ -101,7 +102,28 @@ describe('AutoComplete Component', () => {
     await wrapper.vm.$nextTick();
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
-    // remove nodes in document to avoid influencing following test cases
+    // remove nodes from document to avoid influencing following test cases
+    tSelectOptionDom.forEach((node) => node.remove());
+    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+  });
+
+  it('props.options: option.label could be defined to any element', async () => {
+    const wrapper = getNormalAutoCompleteMount(AutoComplete);
+    wrapper.find('input').trigger('focus');
+    await wrapper.vm.$nextTick();
+    const customNodeDom = document.querySelector('.custom-node');
+    expect(customNodeDom).toBeDefined();
+    // remove node in document to avoid influencing following test cases
+    customNodeDom.remove();
+    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+  });
+  it('props.options: 3 options should exist', async () => {
+    const wrapper = getNormalAutoCompleteMount(AutoComplete);
+    wrapper.find('input').trigger('focus');
+    await wrapper.vm.$nextTick();
+    const tSelectOptionDom = document.querySelectorAll('.t-select-option');
+    expect(tSelectOptionDom.length).toBe(3);
+    // remove nodes from document to avoid influencing following test cases
     tSelectOptionDom.forEach((node) => node.remove());
     document.querySelectorAll('.t-popup').forEach((node) => node.remove());
   });
@@ -296,6 +318,7 @@ describe('AutoComplete Component', () => {
     const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onFocus: onFocusFn });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-is-focused').exists()).toBeTruthy();
     expect(onFocusFn).toHaveBeenCalled();
     expect(onFocusFn.mock.calls[0][0].e.type).toBe('focus');
   });
