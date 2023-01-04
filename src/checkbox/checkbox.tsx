@@ -44,7 +44,7 @@ export default defineComponent({
     });
 
     const disabled = computed<boolean>(() => {
-      if (formDisabled) return formDisabled.value;
+      if (formDisabled.value) return formDisabled.value;
       if (!props.checkAll && !selfChecked.value && checkboxGroup?.maxExceeded) {
         return true;
       }
