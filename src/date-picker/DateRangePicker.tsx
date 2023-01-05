@@ -353,7 +353,7 @@ export default defineComponent({
       const nextMonth = [...month.value];
       nextMonth[partialIndex] = nextVal;
       // 保证左侧时间不大于右侧
-      if (year[0] === year[1]) {
+      if (year.value[0] === year.value[1]) {
         if (partialIndex === 0) nextMonth[1] = Math.max(nextMonth[0], nextMonth[1]);
         if (partialIndex === 1) nextMonth[0] = Math.min(nextMonth[0], nextMonth[1]);
       }
