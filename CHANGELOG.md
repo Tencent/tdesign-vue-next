@@ -4,6 +4,29 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.2 `2023-01-05` 
+### 🚀 Features
+- `AutoComplete`:
+  -  新增清空功能 `clearable` @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+  - 新增自动聚焦功能 `autofocus` @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+  - 新增 `enter/blur/compositionend/compositionstart` 等事件，及相关参数和文档保持一致 @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Input`: 更新 API 之后，默认会给组件添加类名 `t-is-default` @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+### 🐞 Bug Fixes
+- `DatePicker`: 
+  - 修复默认值不显示问题 @Aicmortal ([#2229](https://github.com/Tencent/tdesign-vue-next/pull/2229))
+  - 修复 `datepicker` 输入框变化面板未响应问题 & 月份切换错误响应问题 @honkinglin ([#2238](https://github.com/Tencent/tdesign-vue-next/pull/2238))
+  - 修复默认值不显示问题 @Aicmortal ([#2229](https://github.com/Tencent/tdesign-vue-next/pull/2229))
+- `Input`: 
+  - 修复 `enter` 事件判断，支持 code 为 `Enter` 或 `enter` @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+  - 处理在 `clear` 事件中无法获取到最新 `value` 问题 @chaishi ([#2231](https://github.com/Tencent/tdesign-vue-next/pull/2231))
+- `AutoComplete`: 修复 `options` 不存在时，组件因缺少判空报错问题 @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Checkbox`: 修复 `max` 属性无效 [issue #2230](https://github.com/Tencent/tdesign-vue-next/issues/2230) @FliPPeDround ([#2233](https://github.com/Tencent/tdesign-vue-next/pull/2233))
+### 🚧 Others
+- `AutoComplete`: 补充完整的测试用例（35 个） @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Link`: 补充完整的测试用例（25 个） @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Link`: 去掉非必要的类名 t-size-m @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Button`: 去掉非必要的类名 t-size-m @chaishi ([#2219](https://github.com/Tencent/tdesign-vue-next/pull/2219))
+- `Divider`: 输出完整的测试用例 @chaishi ([#2225](https://github.com/Tencent/tdesign-vue-next/pull/2225))
 ## 🌈 1.0.1 `2022-12-30` 
 ### 🚀 Features
 - `Table`: 支持透传分页组件 Pagination 插槽 `totalContent`，[issue#2152](https://github.com/Tencent/tdesign-vue-next/issues/2152) @chaishi ([#2208](https://github.com/Tencent/tdesign-vue-next/pull/2208))
