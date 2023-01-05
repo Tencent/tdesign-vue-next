@@ -73,6 +73,7 @@ export default function useRange(props: TdDateRangePickerProps) {
 
       // 跳过不符合格式化的输入框内容
       if (!isValidDate(newVal, formatRef.value.format)) return;
+      cacheValue.value = newVal;
       const newYear: Array<number> = [];
       const newMonth: Array<number> = [];
       const newTime: Array<string> = [];
