@@ -9,7 +9,7 @@ import { PropType } from 'vue';
 
 export default {
   /** 自动获取焦点 */
-  autoFocus: Boolean,
+  autofocus: Boolean,
   /** 是否允许清空 */
   clearable: Boolean,
   /** 触发显示联想词下拉框的元素，同 `triggerElement` */
@@ -71,6 +71,7 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdAutoCompleteProps['status']>,
+    default: 'default' as TdAutoCompleteProps['status'],
     validator(val: TdAutoCompleteProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);

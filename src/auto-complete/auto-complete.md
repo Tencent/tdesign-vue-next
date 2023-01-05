@@ -5,7 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-autoFocus | Boolean | - | 自动获取焦点 | N
+autofocus | Boolean | - | 自动获取焦点 | N
 clearable | Boolean | - | 是否允许清空 | N
 default | String / Slot / Function | - | 触发显示联想词下拉框的元素，同 `triggerElement`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | 是否禁用 | N
@@ -20,7 +20,7 @@ placeholder | String | undefined | 输入框为空时的占位提示。组件本
 popupProps | Object | - | 透传 Popup 组件全部特性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N
 readonly | Boolean | - | 是否只读 | N
 size | String | medium | 组件尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | - | 输入框状态。可选项：default/success/warning/error | N
+status | String | default | 输入框状态。可选项：default/success/warning/error | N
 textareaProps | Object | - | 透传 Textarea 组件全部特性。TS 类型：`TextareaProps`，[Textarea API Documents](./textarea?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 triggerElement | String / Slot / Function | - | 触发显示联想词下拉框的元素，默认为 Input 组件，可以使用 `trigger` 自定义为 Textarea 组件或其他组件。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

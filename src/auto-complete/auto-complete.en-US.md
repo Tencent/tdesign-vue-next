@@ -5,7 +5,7 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-autoFocus | Boolean | - | \- | N
+autofocus | Boolean | - | \- | N
 clearable | Boolean | - | \- | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | \- | N
@@ -20,7 +20,7 @@ placeholder | String | undefined | \- | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N
 readonly | Boolean | - | \- | N
 size | String | medium | options：small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | - | options：default/success/warning/error | N
+status | String | default | options：default/success/warning/error | N
 textareaProps | Object | - | Typescript：`TextareaProps`，[Textarea API Documents](./textarea?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 triggerElement | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

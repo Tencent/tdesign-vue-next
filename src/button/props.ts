@@ -23,7 +23,10 @@ export default {
   /** 是否为幽灵按钮（镂空按钮） */
   ghost: Boolean,
   /** 跳转地址。href 存在时，按钮标签默认使用 `<a>` 渲染；如果指定了 `tag` 则使用指定的标签渲染 */
-  href: String,
+  href: {
+    type: String,
+    default: '',
+  },
   /** 按钮内部图标，可完全自定义 */
   icon: {
     type: Function as PropType<TdButtonProps['icon']>,

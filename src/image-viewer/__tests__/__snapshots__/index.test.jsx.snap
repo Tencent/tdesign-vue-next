@@ -648,7 +648,8 @@ exports[`Image-viewer > :props > trigger 1`] = `
 >
   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-button--variant-base t-button--theme-primary"
+    href=""
     type="button"
   >
     <span

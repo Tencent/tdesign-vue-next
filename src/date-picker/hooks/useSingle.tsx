@@ -73,8 +73,9 @@ export default function useSingle(props: TdDatePickerProps) {
 
       // 跳过不符合格式化的输入框内容
       if (!isValidDate(val, formatRef.value.format)) return;
-      const newMonth = dayjs(val).month();
-      const newYear = dayjs(val).year();
+      cacheValue.value = val;
+      const newMonth = parseToDayjs(val, formatRef.value.format).month();
+      const newYear = parseToDayjs(val, formatRef.value.format).year();
       const newTime = formatTime(val, formatRef.value.timeFormat);
       !Number.isNaN(newYear) && (year.value = newYear);
       !Number.isNaN(newMonth) && (month.value = newMonth);

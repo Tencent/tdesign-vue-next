@@ -73,6 +73,7 @@ export default function useRange(props: TdDateRangePickerProps) {
 
       // 跳过不符合格式化的输入框内容
       if (!isValidDate(newVal, formatRef.value.format)) return;
+      cacheValue.value = newVal;
       const newYear: Array<number> = [];
       const newMonth: Array<number> = [];
       const newTime: Array<string> = [];
@@ -133,27 +134,39 @@ export default function useRange(props: TdDateRangePickerProps) {
   }));
 
   // 输入框响应 value 变化
-  watch(value, (value) => {
-    if (!value) {
-      inputValue.value = [];
-      return;
-    }
-    if (!isValidDate(value, formatRef.value.format)) return;
+  watch(
+    value,
+    (value) => {
+      if (!value) {
+        inputValue.value = [];
+        return;
+      }
+      if (!isValidDate(value, formatRef.value.format)) return;
 
-    inputValue.value = formatDate(value, {
-      format: formatRef.value.format,
-    });
-  });
+      inputValue.value = formatDate(value, {
+        format: formatRef.value.format,
+      });
+    },
+    {
+      immediate: true,
+    },
+  );
 
   // activeIndex 变化自动 focus 对应输入框
-  watch(activeIndex, (index) => {
-    if (!isMountedRef.value) {
-      isMountedRef.value = true;
-      return;
-    }
-    const indexMap = { 0: 'first', 1: 'second' };
-    inputRef.value?.focus?.({ position: indexMap[index] });
-  });
+  watch(
+    activeIndex,
+    (index) => {
+      if (!isMountedRef.value) {
+        isMountedRef.value = true;
+        return;
+      }
+      const indexMap = { 0: 'first', 1: 'second' };
+      inputRef.value?.focus?.({ position: indexMap[index] });
+    },
+    {
+      immediate: true,
+    },
+  );
 
   return {
     year,
