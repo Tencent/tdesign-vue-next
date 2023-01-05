@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Radio Props
 
 name | type | default | description | required
@@ -13,7 +12,7 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | undefined | \- | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 name | String | - | \- | N
-value | String / Number / Boolean | false | Typescript：`T` | N
+value | String / Number / Boolean | undefined | Typescript：`T` | N
 onChange | Function |  | Typescript：`(checked: boolean, context: { e: Event }) => void`<br/> | N
 
 ### Radio Events
@@ -26,6 +25,7 @@ change | `(checked: boolean, context: { e: Event })` | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+allowUncheck | Boolean | false | \- | N
 disabled | Boolean | undefined | \- | N
 name | String | - | \- | N
 options | Array | - | Typescript：`Array<RadioOption>` `type RadioOption = string \| number \| RadioOptionObj` `interface RadioOptionObj { label?: string \| TNode; value?: string \| number; disabled?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/radio/type.ts) | N

@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdRadioProps } from './type';
@@ -47,6 +46,4 @@ export default {
   },
   /** 选中状态变化时触发 */
   onChange: Function as PropType<TdRadioProps['onChange']>,
-  /** 点击时触发 */
-  onClick: Function as PropType<TdRadioProps['onClick']>,
 };
