@@ -211,10 +211,14 @@ export default defineComponent({
       },
     );
 
+    function destroySelf() {
+      styleEl.value.parentNode?.removeChild?.(styleEl.value);
+    }
+
     function clearStyleFunc() {
       clearTimeout(timer.value);
       timer.value = setTimeout(() => {
-        styleEl.value.parentNode?.removeChild?.(styleEl.value);
+        destroySelf();
       }, 150);
     }
 
@@ -404,9 +408,10 @@ export default defineComponent({
         }
       `;
     });
+
     onBeforeUnmount(() => {
-      clearStyleFunc();
       addKeyboardEvent(false);
+      destroySelf();
     });
 
     return {
