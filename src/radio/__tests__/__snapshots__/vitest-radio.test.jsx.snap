@@ -307,6 +307,7 @@ exports[`RadioGroup Component > props.disabled is equal true 2`] = `
   >
     <input
       class="t-radio__former"
+      data-allow-uncheck="true"
       data-value="'2'"
       disabled=""
       name=""
@@ -516,6 +517,7 @@ exports[`RadioGroup Component > props.name is equal to 'custom-radio-name' 2`] =
   >
     <input
       class="t-radio__former"
+      data-allow-uncheck="true"
       data-value="'2'"
       name="custom-radio-name"
       tabindex="-1"

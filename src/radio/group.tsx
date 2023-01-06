@@ -6,11 +6,10 @@ import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';
-
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
-import { useKeyboard } from './useKeyboard';
+import useKeyboard from './useKeyboard';
 
 export default defineComponent({
   name: 'TRadioGroup',

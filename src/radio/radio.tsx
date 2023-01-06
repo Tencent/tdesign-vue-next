@@ -8,7 +8,6 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 import { useFormDisabled } from '../form/hooks';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
-import { useKeyboard } from './useKeyboard';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -120,6 +119,7 @@ export default defineComponent({
           onClick={handleClick}
           tabindex="-1"
           data-value={typeof props.value === 'string' ? `'${props.value}'` : props.value}
+          data-allow-uncheck={allowUncheck.value || undefined}
         />
         <span class={`${prefixCls.value}__input`}></span>
         <span class={`${prefixCls.value}__label`}>{renderContent('default', 'label')}</span>
