@@ -48,12 +48,8 @@ describe('Radio', () => {
           label
         </Radio>
       ));
-      const radio = wrapper.find('input');
-      await nextTick();
-      await radio.trigger('change');
-      await nextTick();
-      expect(fn).toBeCalled();
-      await radio.trigger('change');
+      const radio = wrapper.find('.t-radio');
+      await radio.trigger('click');
       await nextTick();
       expect(fn).toBeCalled();
     });
@@ -62,9 +58,8 @@ describe('Radio', () => {
     it(':onChange', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Radio onChange={fn}>label</Radio>);
-      const radio = wrapper.find('input');
-      await nextTick();
-      await radio.trigger('change');
+      const radio = wrapper.find('.t-radio');
+      await radio.trigger('click');
       await nextTick();
       expect(fn).toBeCalled();
     });
@@ -189,9 +184,8 @@ describe('RadioGroup', () => {
         </RadioGroup>
       ));
       const radioList = wrapper.findAll('.t-radio');
-      const inputList = wrapper.findAll('.t-radio input');
       expect(radioList[0].classes()).toContain('t-is-checked');
-      await inputList[1].trigger('change');
+      await radioList[1].trigger('click');
       expect(fn).toBeCalled();
       expect(radioList[1].classes()).toContain('t-is-checked');
       expect(defaultValue.value).toBe('2');

@@ -1,6 +1,6 @@
 <template>
   <t-space direction="vertical">
-    <t-radio-group v-model="value" name="city" :options="options" @change="onChange"></t-radio-group>
+    <t-radio-group v-model="value" allow-uncheck name="city" :options="options" @change="onChange"></t-radio-group>
 
     <t-radio-group default-value="选项一" name="city" :options="itemOptions" @change="onChange"></t-radio-group>
 
