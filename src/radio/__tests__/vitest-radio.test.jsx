@@ -181,21 +181,6 @@ describe('RadioGroup Component', () => {
     expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(1);
   });
 
-  it('props.options works fine. `{".t-radio":4}` should exist', () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup);
-    expect(wrapper.findAll('.t-radio').length).toBe(4);
-  });
-
-  it('props.options works fine. `".custom-node"` should exist', () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.options works fine. `{".t-radio.t-is-disabled":1}` should exist', () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup);
-    expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(1);
-  });
-
   it(`props.value is equal to '2'`, () => {
     const wrapper = getRadioGroupDefaultMount(RadioGroup, { value: '2' });
     const domWrapper = wrapper.find('.t-radio.t-is-checked input');

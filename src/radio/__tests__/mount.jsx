@@ -6,7 +6,7 @@ export function getRadioGroupDefaultMount(RadioGroup, props, events) {
   const options = [
     { label: 'Radio1', value: 1 },
     { label: 'Radio2', value: '2', allowUncheck: true },
-    { label: (h) => <span class="custom-node">Radio3</span>, value: 3 },
+    { label: () => <span class="custom-node">Radio3</span>, value: 3 },
     { label: 'Radio4', value: 4, disabled: true },
   ];
   return mount(<RadioGroup options={options} {...props} {...events} />);
