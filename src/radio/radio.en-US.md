@@ -14,12 +14,14 @@ label | String / Slot / Function | - | Typescript：`string \| TNode`。[see mor
 name | String | - | \- | N
 value | String / Number / Boolean | undefined | Typescript：`T` | N
 onChange | Function |  | Typescript：`(checked: boolean, context: { e: Event }) => void`<br/> | N
+onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on click | N
 
 ### Radio Events
 
 name | params | description
 -- | -- | --
 change | `(checked: boolean, context: { e: Event })` | \-
+click | `(context: { e: MouseEvent })` | trigger on click
 
 ### RadioGroup Props
 

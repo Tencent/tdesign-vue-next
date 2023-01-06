@@ -14,12 +14,14 @@ label | String / Slot / Function | - | 主文案。TS 类型：`string \| TNode`
 name | String | - | HTML 元素原生属性 | N
 value | String / Number / Boolean | undefined | 单选按钮的值。TS 类型：`T` | N
 onChange | Function |  | TS 类型：`(checked: boolean, context: { e: Event }) => void`<br/>选中状态变化时触发 | N
+onClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击时出发，一般用于外层阻止冒泡场景 | N
 
 ### Radio Events
 
 名称 | 参数 | 描述
 -- | -- | --
 change | `(checked: boolean, context: { e: Event })` | 选中状态变化时触发
+click | `(context: { e: MouseEvent })` | 点击时出发，一般用于外层阻止冒泡场景
 
 ### RadioGroup Props
 

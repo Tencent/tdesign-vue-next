@@ -52,6 +52,10 @@ export interface TdRadioProps<T = RadioValue> {
    * 选中状态变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
+  /**
+   * 点击时出发，一般用于外层阻止冒泡场景
+   */
+  onClick?: (context: { e: MouseEvent }) => void;
 }
 
 export interface TdRadioGroupProps<T = RadioValue> {

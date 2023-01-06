@@ -46,4 +46,6 @@ export default {
   },
   /** 选中状态变化时触发 */
   onChange: Function as PropType<TdRadioProps['onChange']>,
+  /** 点击时出发，一般用于外层阻止冒泡场景 */
+  onClick: Function as PropType<TdRadioProps['onClick']>,
 };
