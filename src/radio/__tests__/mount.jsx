@@ -12,8 +12,8 @@ export function getRadioGroupDefaultMount(RadioGroup, props, events) {
   return mount(<RadioGroup options={options} {...props} {...events} />);
 }
 
-// 插槽写法
-export function getRadioGroupSlotsMount(RadioGroup, props, events) {
+// 子组件写法
+export function getRadioGroupKidsMount(RadioGroup, props, events) {
   return mount(
     <RadioGroup {...props} {...events}>
       <Radio value={1}>Radio1</Radio>
