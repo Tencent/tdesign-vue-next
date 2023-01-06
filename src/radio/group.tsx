@@ -6,10 +6,10 @@ import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';
-
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
+import useKeyboard from './useKeyboard';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -22,6 +22,9 @@ export default defineComponent({
     const radioGroupRef = ref<HTMLElement>();
     const radioBtnName = usePrefixClass('radio-button');
     const { STATUS, SIZE } = useCommonClassName();
+
+    // 键盘操作
+    useKeyboard(radioGroupRef, setInnerValue);
 
     const checkedClassName = computed(() => `.${radioBtnName.value}.${STATUS.value.checked}`);
 
@@ -73,6 +76,7 @@ export default defineComponent({
         name,
         disabled,
         value: innerValue,
+        allowUncheck: props.allowUncheck,
         setValue: setInnerValue,
       }),
     );

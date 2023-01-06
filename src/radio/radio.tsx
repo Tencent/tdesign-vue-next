@@ -1,4 +1,4 @@
-import { defineComponent, inject, toRefs, computed } from 'vue';
+import { defineComponent, inject, toRefs, computed, ref } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { omit } from '../utils/helper';
 import props from './props';
@@ -25,6 +25,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { attrs }) {
+    const inputRef = ref();
     const { checked, modelValue } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
@@ -33,31 +34,27 @@ export default defineComponent({
       props.onChange,
       'checked',
     );
+
     const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
 
     const radioGroup = inject(RadioGroupInjectionKey, undefined);
 
-    /** Event */
-    const handleChange = (e: Event) => {
-      if (radioGroup?.setValue) {
-        radioGroup.setValue(props.value, { e });
-      } else {
-        const { checked } = e.target as HTMLInputElement;
-        setInnerChecked(checked, { e });
-      }
-    };
+    const allowUncheck = computed(() => Boolean(props.allowUncheck || radioGroup?.allowUncheck));
+
     const handleClick = (e: MouseEvent) => {
       e.stopPropagation();
-      if (!radioChecked.value || !props.allowUncheck) return;
-      if (radioGroup) {
-        radioGroup.setValue(undefined, { e });
-      } else {
-        setInnerChecked(false, { e });
-      }
     };
 
     const onLabelClick = (e: MouseEvent) => {
+      if (disabled.value) return;
       props.onClick?.({ e });
+      if (radioGroup) {
+        const value = radioChecked.value && allowUncheck.value ? undefined : props.value;
+        radioGroup.setValue(value, { e });
+      } else {
+        const value = allowUncheck.value ? !radioChecked.value : true;
+        setInnerChecked(value, { e });
+      }
     };
 
     const inputEvents = computed(() =>
@@ -107,14 +104,22 @@ export default defineComponent({
     const renderContent = useContent();
 
     return () => (
-      <label class={inputClass.value} {...wrapperAttrs.value} onClick={onLabelClick}>
+      <label
+        ref={inputRef}
+        class={inputClass.value}
+        {...wrapperAttrs.value}
+        tabindex={disabled.value ? undefined : '0'}
+        onClick={onLabelClick}
+      >
         <input
           type="radio"
           class={`${prefixCls.value}__former`}
           {...inputEvents.value}
           {...inputProps.value}
-          onChange={handleChange}
           onClick={handleClick}
+          tabindex="-1"
+          data-value={typeof props.value === 'string' ? `'${props.value}'` : props.value}
+          data-allow-uncheck={allowUncheck.value || undefined}
         />
         <span class={`${prefixCls.value}__input`}></span>
         <span class={`${prefixCls.value}__label`}>{renderContent('default', 'label')}</span>
