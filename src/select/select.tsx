@@ -104,12 +104,26 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      return props.multiple && isArray(innerValue.value)
-        ? (innerValue.value as SelectValue[]).map((value) => ({
-            value,
-            label: optionsMap.value.get(value)?.label,
-          }))
-        : innerValue.value;
+      const val =
+        props.multiple && isArray(innerValue.value)
+          ? (innerValue.value as SelectValue[]).map((value) => ({
+              value,
+              label: optionsMap.value.get(value)?.label,
+            }))
+          : innerValue.value;
+
+      const params = {
+        value: val,
+        onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
+      };
+
+      if (props.minCollapsedNum && props.multiple) {
+        return {
+          ...params,
+          displayValue: val?.slice?.(0, props.minCollapsedNum),
+        };
+      }
+      return params;
     });
 
     const isFilterable = computed(() => {
@@ -402,7 +416,7 @@ export default defineComponent({
             }
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
-                params: { value: valueDisplayParams.value, onClose: (index: number) => removeTag(index) },
+                params: valueDisplayParams.value,
               })
             }
             onPopupVisibleChange={(val: boolean, context) => {

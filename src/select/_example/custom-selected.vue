@@ -8,6 +8,7 @@
       placeholder="请选择"
       multiple
       clearable
+      :min-collapsed-num="2"
     />
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
@@ -53,9 +54,9 @@ const value1 = ref(['1', '2', '3']);
 const value2 = ref(['4', '5', '6', '7']);
 const value3 = ref('1');
 
-const valueDisplay = (h, { value, onClose }) => {
+const valueDisplay = (h, { value, onClose, displayValue }) => {
   if (!(value instanceof Array)) return;
-  return value.map((item, index) => (
+  return displayValue.map((item, index) => (
     <t-tag
       key={index}
       closable={true}
