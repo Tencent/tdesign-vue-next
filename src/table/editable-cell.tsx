@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
@@ -18,6 +18,11 @@ import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 
+export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
+  isEdit: boolean;
+  validateEdit: (trigger: 'self' | 'parent') => Promise<true | AllValidateResult[]>;
+}
+
 export interface EditableCellProps {
   row: TableRowData;
   rowIndex: number;
@@ -30,9 +35,14 @@ export interface EditableCellProps {
   readonly?: boolean;
   errors?: AllValidateResult[];
   cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
+  /** 编辑数据时触发 */
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
+  /** 校验结束后触发 */
   onValidate?: (context: PrimaryTableRowValidateContext<TableRowData>) => void;
+  /** 校验规则发生变化时触发 */
   onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
+  /** 进入或退出编辑态时触发 */
+  onEditableChange?: (context: OnEditableChangeContext<TableRowData>) => void;
 }
 
 export default defineComponent({
@@ -59,6 +69,7 @@ export default defineComponent({
     onChange: Function as PropType<EditableCellProps['onChange']>,
     onValidate: Function as PropType<EditableCellProps['onValidate']>,
     onRuleChange: Function as PropType<EditableCellProps['onRuleChange']>,
+    onEditableChange: Function as PropType<EditableCellProps['onEditableChange']>,
   },
 
   setup(props: EditableCellProps, context: SetupContext) {
@@ -121,7 +132,7 @@ export default defineComponent({
       return Boolean(edit.abortEditOnEvent?.includes('onChange'));
     });
 
-    const validateEdit = (trigger: 'self' | 'parent') => {
+    const validateEdit = (trigger: 'self' | 'parent'): Promise<true | AllValidateResult[]> => {
       return new Promise((resolve) => {
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
@@ -169,10 +180,17 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
-        // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清楚不及时引起的其他问题
+        // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
           isEdit.value = false;
           errorList.value = [];
+          props.onEditableChange?.({
+            ...cellParams.value,
+            value: editValue.value,
+            editedRow: { ...props.row, [props.col.colKey]: editValue.value },
+            validateEdit,
+            isEdit: false,
+          });
           clearTimeout(timer);
         }, 0);
       });
@@ -204,6 +222,7 @@ export default defineComponent({
       return tListeners;
     });
 
+    // 数据输入时触发
     const onEditChange = (val: any, ...args: any) => {
       editValue.value = val;
       const params = {
@@ -249,16 +268,38 @@ export default defineComponent({
       });
     };
 
+    const enterEdit = () => {
+      props.onEditableChange?.({
+        ...cellParams.value,
+        value: editValue.value,
+        editedRow: props.row,
+        isEdit: true,
+        validateEdit,
+      });
+    };
+
+    const onCellClick = (e: MouseEvent) => {
+      isEdit.value = true;
+      enterEdit();
+      e.stopPropagation();
+    };
+
+    onMounted(() => {
+      if (props.col.edit?.defaultEditable) {
+        enterEdit();
+      }
+    });
+
     const cellValue = computed(() => get(row.value, col.value.colKey));
 
     watch(
       cellValue,
       (cellValue) => {
-        let val = cellValue;
-        if (typeof val === 'object' && val !== null) {
-          val = val instanceof Array ? [...val] : { ...val };
-        }
-        editValue.value = val;
+        // let val = cellValue;
+        // if (typeof val === 'object' && val !== null) {
+        //   val = val instanceof Array ? [...val] : { ...val };
+        // }
+        editValue.value = cellValue;
       },
       { immediate: true },
     );
@@ -308,13 +349,7 @@ export default defineComponent({
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (
-          <div
-            class={props.tableBaseClass.cellEditable}
-            onClick={(e: MouseEvent) => {
-              isEdit.value = true;
-              e.stopPropagation();
-            }}
-          >
+          <div class={props.tableBaseClass.cellEditable} onClick={onCellClick}>
             {cellNode.value}
             {col.value.edit?.showEditIcon !== false && <Edit1Icon />}
           </div>
@@ -339,6 +374,7 @@ export default defineComponent({
             tips={errorMessage}
             {...componentProps.value}
             {...listeners.value}
+            {...col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value })}
             value={editValue.value}
             onChange={onEditChange}
           />

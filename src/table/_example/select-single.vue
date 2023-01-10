@@ -9,6 +9,7 @@
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
       @select-change="rehandleSelectChange"
+      @row-dblclick="onRowDblclick"
     >
     </t-table>
   </div>
@@ -85,6 +86,10 @@ const rehandleClickOp = ({ row }) => {
 const rehandleSelectChange = (value, { selectedRowData }) => {
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
+};
+
+const onRowDblclick = (context) => {
+  console.log('dbl', context);
 };
 </script>
 

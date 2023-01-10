@@ -7,6 +7,7 @@ import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
 import { formatClassNames } from './utils';
 import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
+import { AttachNode } from '../common';
 
 export interface TheadProps {
   classPrefix: string;
@@ -32,7 +33,8 @@ export interface TheadProps {
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
     onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
   };
-  resizable: Boolean;
+  resizable?: Boolean;
+  attach?: AttachNode;
 }
 
 export default defineComponent({
@@ -49,6 +51,7 @@ export default defineComponent({
     bordered: Boolean,
     isMultipleHeader: Boolean,
     resizable: Boolean,
+    attach: [String, Function] as PropType<TheadProps['attach']>,
     spansAndLeafNodes: Object as PropType<TheadProps['spansAndLeafNodes']>,
     thList: Array as PropType<TheadProps['thList']>,
     columnResizeParams: Object as PropType<TheadProps['columnResizeParams']>,
@@ -171,7 +174,7 @@ export default defineComponent({
                 {isEllipsis ? (
                   <TEllipsis
                     placement="bottom"
-                    attach={this.theadRef ? () => this.getTableNode(this.theadRef) : undefined}
+                    attach={this.attach || (this.theadRef ? () => this.getTableNode(this.theadRef) : undefined)}
                     tooltipContent={content && (() => content)}
                     tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
                     overlayClassName={this.ellipsisOverlayClassName}
