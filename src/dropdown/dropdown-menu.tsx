@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
@@ -16,7 +16,7 @@ export default defineComponent({
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
     const scrollTop = ref(0);
     const menuRef = ref<HTMLElement>();
-
+    const isOverMaxHeight = ref(false);
     const { ChevronRightIcon, ChevronLeftIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
       ChevronLeftIcon: TdChevronLeftIcon,
@@ -31,13 +31,22 @@ export default defineComponent({
     const handleScroll = () => {
       scrollTop.value = menuRef.value?.scrollTop;
     };
+
+    onMounted(() => {
+      if (menuRef.value) {
+        const menuHeight = parseInt(window?.getComputedStyle(menuRef.value).height, 10);
+        if (menuHeight >= props.maxHeight) isOverMaxHeight.value = true;
+      }
+    });
+
     // 处理options渲染的场景
     const renderOptions = (data: Array<DropdownOption>) => {
       const arr: Array<unknown> = [];
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };
-        const onViewIdx = Math.ceil(scrollTop.value / 30);
+        const onViewIdx = idx - Math.ceil(scrollTop.value / 30);
+        const renderIdx = onViewIdx >= 0 ? onViewIdx : idx;
 
         if (optionItem.children) {
           optionItem.children = renderOptions(optionItem.children);
@@ -77,7 +86,7 @@ export default defineComponent({
                     },
                   ]}
                   style={{
-                    top: `${(idx - onViewIdx) * 30}px`,
+                    top: `${renderIdx * 30}px`,
                   }}
                 >
                   <ul>{optionItem.children}</ul>
@@ -120,7 +129,13 @@ export default defineComponent({
     return () => {
       return (
         <div
-          class={[dropdownMenuClass.value, `${dropdownMenuClass.value}--${props.direction}`]}
+          class={[
+            dropdownMenuClass.value,
+            `${dropdownMenuClass.value}--${props.direction}`,
+            {
+              [`${dropdownMenuClass.value}--overflow`]: isOverMaxHeight.value,
+            },
+          ]}
           style={{
             maxHeight: `${props.maxHeight}px`,
           }}

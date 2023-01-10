@@ -1,6 +1,6 @@
 <template>
   <t-space class="tdesign-demo-dropdown">
-    <t-dropdown :options="options" :max-column-width="120" @click="clickHandler">
+    <t-dropdown :options="options" :max-column-width="120" :max-height="200" @click="clickHandler">
       <t-button variant="text">
         下拉菜单
         <template #suffix><chevron-down-icon size="16" /></template>
@@ -24,22 +24,12 @@ const options = [
     ],
   },
   {
-    content: '选项二选项二选项二选项二',
+    content: '选项二',
     value: 2,
     children: [
       {
         content: '选项五',
         value: 5,
-        children: [
-          {
-            content: '选项七',
-            value: 7,
-          },
-          {
-            content: '选项八',
-            value: 8,
-          },
-        ],
       },
       {
         content: '选项六',
@@ -64,6 +54,66 @@ const options = [
       {
         content: '选项十一',
         value: 11,
+      },
+    ],
+  },
+  {
+    content: '选项五',
+    value: 5,
+    children: [
+      {
+        content: '选项十二',
+        value: 12,
+      },
+    ],
+  },
+  {
+    content: '选项六',
+    value: 6,
+    children: [
+      {
+        content: '选项十三',
+        value: 13,
+      },
+    ],
+  },
+  {
+    content: '选项七',
+    value: 7,
+  },
+  {
+    content: '选项八',
+    value: 8,
+  },
+  {
+    content: '选项十八',
+    value: 18,
+    children: [
+      {
+        content: '选项十四',
+        value: 14,
+      },
+      {
+        content: '选项十五',
+        value: 15,
+      },
+      {
+        content: '选项十六',
+        value: 16,
+        children: [
+          {
+            content: '三级选项一',
+            value: 20,
+          },
+          {
+            content: '三级选项二',
+            value: 21,
+          },
+        ],
+      },
+      {
+        content: '选项十七',
+        value: 17,
       },
     ],
   },
