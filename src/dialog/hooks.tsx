@@ -6,7 +6,7 @@ import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import { ClassName, TNode } from '../common';
 
-export type MixinsFooterButton = string | ButtonProps | TNode;
+export type MixinsFooterButton = string | ButtonProps | TNode | null;
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
