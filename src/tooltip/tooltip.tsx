@@ -37,7 +37,7 @@ export default defineComponent({
     onMounted(() => {
       if (props.duration && innerTooltipVisible.value) {
         timer.value = setTimeout(() => {
-          innerTooltipVisible.value = false;
+          setInnerVisible(false);
           clearTimeout(timer.value);
           timer.value = null;
         }, props.duration);
