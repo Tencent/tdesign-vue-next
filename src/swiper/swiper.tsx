@@ -28,8 +28,8 @@ export default defineComponent({
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
-    const navActiveIndex = ref(0);
     const currentIndex = ref(props.current || props.defaultCurrent);
+    const navActiveIndex = ref(props.current || props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
     const showArrow = ref(false);
