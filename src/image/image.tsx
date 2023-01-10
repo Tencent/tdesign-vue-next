@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted } from 'vue';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
 import omit from 'lodash/omit';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
@@ -25,6 +25,16 @@ export default defineComponent({
     });
 
     const { classPrefix } = useConfig();
+
+    const imageSrc = ref(props.src);
+    watch(
+      () => props.src,
+      () => {
+        hasError.value = false;
+        isLoaded.value = false;
+        imageSrc.value = props.src;
+      },
+    );
 
     const shouldLoad = ref(!props.lazy);
     const handleLoadImage = () => {
@@ -115,7 +125,7 @@ export default defineComponent({
         {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
         {!(hasError.value || !shouldLoad.value) && (
           <img
-            src={props.src}
+            src={imageSrc.value}
             onError={handleError}
             onLoad={handleLoad}
             class={[
