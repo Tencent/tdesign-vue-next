@@ -151,6 +151,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         tableFilterClasses={tableFilterClasses}
         isFocusClass={isFocusClass}
         popupProps={col.filter.popupProps}
+        attach={props.attach}
         onReset={onReset}
         onConfirm={onConfirm}
         onInnerFilterChange={onInnerFilterChange}

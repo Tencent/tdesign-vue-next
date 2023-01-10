@@ -10,6 +10,7 @@ import { useTNodeDefault } from '../hooks/tnode';
 import { PrimaryTableCol, FilterValue } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { AttachNode } from '../common';
 
 export interface TableFilterControllerProps {
   tFilterValue: FilterValue;
@@ -30,6 +31,7 @@ export interface TableFilterControllerProps {
   // HTMLElement
   primaryTableElement: any;
   popupProps: PopupProps;
+  attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
 }
 
@@ -45,6 +47,7 @@ export default defineComponent({
     // eslint-disable-next-line
     primaryTableElement: {},
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
+    attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
   },
 
@@ -157,7 +160,7 @@ export default defineComponent({
     const isValueTrue = filterValue && typeof filterValue !== 'object';
     return (
       <Popup
-        attach={this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined}
+        attach={this.attach || (this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined)}
         visible={this.filterPopupVisible}
         destroyOnClose
         trigger="click"

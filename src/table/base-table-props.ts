@@ -13,6 +13,10 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素 */
+  attach: {
+    type: [String, Function] as PropType<TdBaseTableProps['attach']>,
+  },
   /** 是否显示表格边框 */
   bordered: Boolean,
   /** 表格底部内容，可以用于自定义列设置等 */
@@ -40,7 +44,7 @@ export default {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
     default: '',
   },
-  /** 首行内容 */
+  /** 首行内容，横跨所有列 */
   firstFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
   },
@@ -85,7 +89,7 @@ export default {
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
-  /** 尾行内容 */
+  /** 尾行内容，横跨所有列 */
   lastFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
   },

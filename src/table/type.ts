@@ -23,6 +23,7 @@ import {
   OptionData,
   SizeEnum,
   ClassName,
+  AttachNode,
   HTMLElementAttributes,
   ComponentType,
   InfinityScroll,
@@ -34,6 +35,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @deprecated
    */
   allowResizeColumnWidth?: boolean;
+  /**
+   * 超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素
+   */
+  attach?: AttachNode;
   /**
    * 是否显示表格边框
    * @default false
@@ -68,7 +73,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   empty?: string | TNode;
   /**
-   * 首行内容
+   * 首行内容，横跨所有列
    */
   firstFullRow?: string | TNode;
   /**
@@ -118,7 +123,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   hover?: boolean;
   /**
-   * 尾行内容
+   * 尾行内容，横跨所有列
    */
   lastFullRow?: string | TNode;
   /**
@@ -821,6 +826,10 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    * @default false
    */
   defaultEditable?: boolean;
+  /**
+   * 透传给编辑组件的事件
+   */
+  on?: (context: TableEditableCellPropsParams<T>) => { [eventName: string]: Function };
   /**
    * 编辑完成后，退出编辑模式时触发
    */
