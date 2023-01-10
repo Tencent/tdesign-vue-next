@@ -35,7 +35,7 @@ export default defineComponent({
     /** 浮层位置 */
     placement: String as PropType<EllipsisProps['placement']>,
     /** 挂载元素 */
-    attach: Function as PropType<EllipsisProps['attach']>,
+    attach: [String, Function] as PropType<EllipsisProps['attach']>,
     /** 透传 Tooltip 组件属性 */
     tooltipProps: Object as PropType<EllipsisProps['tooltipProps']>,
     zIndex: Number,
