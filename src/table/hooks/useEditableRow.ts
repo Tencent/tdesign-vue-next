@@ -6,6 +6,8 @@ import { getEditableKeysMap } from '../utils';
 import { AllValidateResult } from '../../form/type';
 import { validate } from '../../form/form-model';
 import { PrimaryTableRowEditContext, TableRowData, TableErrorListMap } from '../type';
+import { getCellKey } from './useRowspanAndColspan';
+import { OnEditableChangeContext } from '../editable-cell';
 
 export type ErrorListObjectType = PrimaryTableRowEditContext<TableRowData> & { errorList: AllValidateResult[] };
 
@@ -21,6 +23,8 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const errorListMap = ref<TableErrorListMap>({});
   // 处于编辑态的表格行
   const editableKeysMap = computed(() => getEditableKeysMap(props.editableRowKeys, props.data, props.rowKey || 'id'));
+  // 当前编辑的单元格
+  const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -79,10 +83,29 @@ export default function useRowEdit(props: PrimaryTableProps) {
       }, reject);
     });
 
+  // 校验可编辑单元格
+  const validateTableCellData = () => {
+    const cellKeys = Object.keys(editingCells.value);
+    const promiseList = cellKeys.map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
+    return new Promise((resolve, reject) => {
+      Promise.all(promiseList).then((arr) => {
+        const allErrorListMap: TableErrorListMap = {};
+        arr.forEach((result, index) => {
+          if (result === true) return;
+          allErrorListMap[cellKeys[index]] = result;
+        });
+        resolve({ result: allErrorListMap });
+      }, reject);
+    });
+  };
+
   /**
    * 校验整个表格数据（对外开放方法，修改时需慎重）
    */
   const validateTableData = () => {
+    if (Object.keys(editingCells.value).length) {
+      return validateTableCellData();
+    }
     const promiseList: Promise<TablePromiseErrorData>[] = [];
     const data = props.data || [];
     for (let i = 0, len = data.length; i < len; i++) {
@@ -125,6 +148,16 @@ export default function useRowEdit(props: PrimaryTableProps) {
     errorListMap.value = {};
   };
 
+  const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
+    const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
+    if (params.isEdit) {
+      // @ts-ignore
+      editingCells.value[cellKey] = params;
+    } else {
+      delete editingCells.value[cellKey];
+    }
+  };
+
   return {
     errorListMap,
     editableKeysMap,
@@ -132,5 +165,6 @@ export default function useRowEdit(props: PrimaryTableProps) {
     validateRowData,
     onRuleChange,
     clearValidateData,
+    onPrimaryTableCellEditChange,
   };
 }

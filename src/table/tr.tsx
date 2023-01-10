@@ -16,6 +16,7 @@ import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
 import { PaginationProps } from '..';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import { AttachNode } from '../common';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -42,6 +43,7 @@ export const TABLE_PROPS = [
   'scroll',
   'cellEmptyContent',
   'pagination',
+  'attach',
   'onCellClick',
   'onRowClick',
   'onRowDblclick',
@@ -68,6 +70,7 @@ export interface TrProps extends TrCommonProps {
   tableContentElm?: any;
   cellEmptyContent: TdBaseTableProps['cellEmptyContent'];
   virtualConfig: VirtualScrollConfig;
+  attach?: AttachNode;
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
@@ -202,7 +205,6 @@ export default defineComponent({
     return {
       trRef,
       tableColFixedClasses,
-      tSlots: context.slots,
       tdEllipsisClass,
       tableBaseClass,
       tdAlignClasses,
@@ -248,7 +250,7 @@ export default defineComponent({
     renderTd(params: BaseTableCellParams<TableRowData>, extra: RenderTdExtra) {
       const { col, colIndex, rowIndex } = params;
       const { cellSpans, dataLength, rowAndColFixedPosition } = extra;
-      const cellNode = renderCell(params, this.tSlots, {
+      const cellNode = renderCell(params, this.$slots, {
         cellEmptyContent: extra.cellEmptyContent,
         pagination: this.pagination,
       });

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- :attach="getAttach" 统一控制超出省略等元素浮层的挂载元素 -->
     <t-table row-key="id" :data="data" :columns="columns" />
   </div>
 </template>
@@ -19,6 +20,8 @@ const statusNameListMap = {
   1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
   2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
 };
+
+const getAttach = () => document.body;
 
 // thanks to https://www.zhangxinxu.com/wordpress/2021/10/js-copy-paste-clipboard/
 function copyToClipboard(text) {

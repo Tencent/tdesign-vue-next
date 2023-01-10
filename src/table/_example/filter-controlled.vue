@@ -29,6 +29,7 @@
     <!-- 1. v-model:filter-value 等同于 filter-value + filter-change -->
     <!-- 2. :filter-row="() => null" 用于隐藏过滤结果行 -->
     <!-- 3. <template #filterRow><p>这是自定义的过滤结果行</p></template> ，可使用插槽完全自定义结果行内容-->
+    <!-- 4. :attach="getAttach" 统一控制浮层挂载元素 -->
     <t-table
       row-key="key"
       :columns="columns"
@@ -83,7 +84,7 @@ const columns = computed(() => [
       ],
       // 支持透传全部 Popup 组件属性
       // popupProps: {
-      //   attach: document.body,
+      //   attach: () => document.body,
       // },
     },
     cell: (h, { row }) => {
@@ -190,6 +191,8 @@ const setFilters = () => {
   filterValue.value = {};
   data.value = [...initData];
 };
+
+const getAttach = () => document.body;
 </script>
 <style scoped>
 .table-operations {
