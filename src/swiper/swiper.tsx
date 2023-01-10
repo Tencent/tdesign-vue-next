@@ -28,6 +28,7 @@ export default defineComponent({
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
+    const navActiveIndex = ref(0);
     const currentIndex = ref(props.current || props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
@@ -125,6 +126,7 @@ export default defineComponent({
 
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
       let targetIndex = index % swiperItemLength.value;
+      navActiveIndex.value = targetIndex;
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
       if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {
@@ -273,7 +275,7 @@ export default defineComponent({
               class={[
                 `${prefix.value}-swiper__navigation-item`,
                 {
-                  [`${prefix.value}-is-active`]: i === currentIndex.value,
+                  [`${prefix.value}-is-active`]: i === navActiveIndex.value,
                 },
               ]}
               onMouseenter={() => onMouseEnterNavigationItem(i)}
