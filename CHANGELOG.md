@@ -4,6 +4,36 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.3 `2023-01-12` 
+### 🚀 Features
+- `Table`: 
+  - 可编辑单元格，支持使用  `col.edit.on` 透传组件事件 @chaishi ([#2256](https://github.com/Tencent/tdesign-vue-next/pull/2256))
+  - 可编辑单元格，支持使用 `validateTableData` 校验处于编辑态的单元格 @chaishi ([#2256](https://github.com/Tencent/tdesign-vue-next/pull/2256))
+  - 可编辑单元格，单元格的值 cellValue 不再进行解构处理，[#2236](https://github.com/Tencent/tdesign-vue-next/issues/2236) @chaishi ([#2256](https://github.com/Tencent/tdesign-vue-next/pull/2256))
+  - 新增 `attach`，用于统一设置超出省略浮层、筛选过滤下拉框等元素的挂载元素。如：`attach={() => document.body}` @chaishi ([#2256](https://github.com/Tencent/tdesign-vue-next/pull/2256))
+- `Radio`: 
+  - 支持键盘事件：tab 键切换选项，enter 键选中 @chaishi ([#2241](https://github.com/Tencent/tdesign-vue-next/pull/2241))
+  - : RadioGroup 支持 `allowUncheck`，[tdesign-vue#1693](https://github.com/Tencent/tdesign-vue/issues/1693) @chaishi ([#2241](https://github.com/Tencent/tdesign-vue-next/pull/2241))
+- `Select`:  `valueDisplay`回调新增`displayValue`参数，用于设置`minCollapsedNum`的场景 @uyarn ([#2243](https://github.com/Tencent/tdesign-vue-next/pull/2243))
+- `Local`: 增加阿拉伯语言包 @pengYYYYY ([#2240](https://github.com/Tencent/tdesign-vue-next/pull/2240))
+
+### 🐞 Bug Fixes
+- `Dialog`: 
+  - 组件销毁前立即移除当前节点，不需要 `setTimeout` 等待时间 @chaishi ([#2242](https://github.com/Tencent/tdesign-vue-next/pull/2242))
+  - 修复类型错误 ([issue #2227](https://github.com/Tencent/tdesign-vue-next/issues/2227)) @yaogengzhu ([#2247](https://github.com/Tencent/tdesign-vue-next/pull/2247))
+- `Dropdown`: 修复三级及以上子菜单超出问题计算部分场景异常的问题 @uyarn ([#2252](https://github.com/Tencent/tdesign-vue-next/pull/2252))
+- `TreeSelect`: 修复选项文案过程样式的异常 @uyarn ([#2252](https://github.com/Tencent/tdesign-vue-next/pull/2252))
+- `Tooltip`: 
+  - 修改触发元素传递方式 ([issue #2250](https://github.com/Tencent/tdesign-vue-next/issues/2250)) @Aicmortal ([#2253](https://github.com/Tencent/tdesign-vue-next/pull/2253))
+  - 修复tooltip在duration时间结束后无法自动关闭的问题 @FliPPeDround ([#2255](https://github.com/Tencent/tdesign-vue-next/pull/2255))
+- `Table`: 处理单击和双击事件冲突问题，避免双击的时候触发行选中或行展开，[#2218](https://github.com/Tencent/tdesign-vue-next/issues/2218) @chaishi ([#2256](https://github.com/Tencent/tdesign-vue-next/pull/2256))
+- `Image`: 修复首次设置图片显示错误后动态修改 `src` 值图片无法显示问题 @sechi747 ([#2259](https://github.com/Tencent/tdesign-vue-next/pull/2259))
+- `Swiper`: 循环播放导航指示标显示问题 ([issue #2245](https://github.com/Tencent/tdesign-vue-next/issues/2245)) @wenkeming ([#2257](https://github.com/Tencent/tdesign-vue-next/pull/2257))
+- `Volar`: 完善 `volar` 代码提示文件 @code2933 ([#2262](https://github.com/Tencent/tdesign-vue-next/pull/2262))
+- `Select`: 修复 `value` 不在 `options` 时不显示值 ([issue #2266](https://github.com/Tencent/tdesign-vue-next/issues/2266)) @Aicmortal ([#2267](https://github.com/Tencent/tdesign-vue-next/pull/2267))
+### 🚧 Others
+- `Radio`: 输出完整的测试用例 @chaishi ([#2241](https://github.com/Tencent/tdesign-vue-next/pull/2241))
+- `docs`: 优化最后更新日期展示 @honkinglin ([#2261](https://github.com/Tencent/tdesign-vue-next/pull/2261))
 ## 🌈 1.0.2 `2023-01-05` 
 ### 🚀 Features
 - `AutoComplete`:
