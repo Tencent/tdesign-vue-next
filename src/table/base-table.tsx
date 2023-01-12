@@ -370,6 +370,7 @@ export default defineComponent({
       columnResizeParams: this.columnResizeParams,
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+      attach: this.attach,
     };
 
     /**
@@ -490,6 +491,7 @@ export default defineComponent({
       ...pick(this.$props, extendTableProps),
       // 内部使用分页信息必须取 innerPagination
       pagination: this.innerPagination,
+      attach: this.attach,
     };
     const tableContent = (
       <div

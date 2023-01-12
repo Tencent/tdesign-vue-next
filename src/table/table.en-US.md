@@ -6,6 +6,7 @@
 name | type | default | description | required
 -- | -- | -- | -- | --
 allowResizeColumnWidth | Boolean | undefined | `deprecated`。allow to resize column width | N
+attach | String / Function | - | elements with popup would be attached to `attach`。Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 bordered | Boolean | false | show table bordered | N
 bottomContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 cellEmptyContent | String / Slot / Function | - | Typescript：`string \| TNode<BaseTableCellParams<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -277,6 +278,7 @@ name | type | default | description | required
 abortEditOnEvent | Array | - | Typescript：`string[]` | N
 component | \- | - | component definition。Typescript：`ComponentType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 defaultEditable | Boolean | false | set default editable once | N
+on | Function | - | Typescript：`(context: TableEditableCellPropsParams<T>) => { [eventName: string]: Function }` | N
 onEdited | Function | - | trigger on finishing editing。Typescript：`(context: PrimaryTableOnEditedContext<T>) => void` `type PrimaryTableOnEditedContext<T> = PrimaryTableCellParams<T> & { trigger: string; newRowData: T; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 props | Object | - | props of `edit.component`。Typescript：`TableEditableCellProps<T>` `type TableEditableCellProps<T> = TablePlainObject \| ((params: TableEditableCellPropsParams<T>) => TablePlainObject)` `interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> { editedRow: T }` `interface TablePlainObject{ [key: string]: any }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rules | Array | - | form rules。Typescript：`TableEditableCellRules<T>` `type TableEditableCellRules<T> = FormRule[] \| ((params: PrimaryTableCellParams<T>) => FormRule[])`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N

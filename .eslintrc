@@ -1,7 +1,6 @@
 {
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "eslint-config-airbnb-base",
     "plugin:vue/vue3-recommended",
     "plugin:prettier/recommended"
   ],

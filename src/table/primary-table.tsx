@@ -96,8 +96,15 @@ export default defineComponent({
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
 
-    const { errorListMap, editableKeysMap, validateRowData, validateTableData, onRuleChange, clearValidateData } =
-      useEditableRow(props);
+    const {
+      errorListMap,
+      editableKeysMap,
+      validateRowData,
+      validateTableData,
+      onRuleChange,
+      clearValidateData,
+      onPrimaryTableCellEditChange,
+    } = useEditableRow(props);
 
     const primaryTableClasses = computed(() => {
       return {
@@ -202,6 +209,7 @@ export default defineComponent({
               onChange: props.onRowEdit,
               onValidate: props.onRowValidate,
               onRuleChange,
+              onEditableChange: onPrimaryTableCellEditChange,
             };
             if (props.editableRowKeys) {
               const rowValue = get(p.row, props.rowKey || 'id');
@@ -253,9 +261,27 @@ export default defineComponent({
       }
     };
 
-    const onInnerRowClick: TdPrimaryTableProps['onRowClick'] = (context) => {
-      onInnerExpandRowClick(context);
-      onInnerSelectRowClick(context);
+    // handle click and dblclick exits at the same time
+    let timer: any;
+    const DURATION = 250;
+    const onInnerRowClick: TdPrimaryTableProps['onRowClick'] = (params) => {
+      // no dbl click conflict, no delay
+      if (!props.onRowDblclick) {
+        onInnerExpandRowClick(params);
+        onInnerSelectRowClick(params);
+        return;
+      }
+      if (timer) {
+        // dblclick
+        clearTimeout(timer);
+        timer = undefined;
+      } else {
+        timer = setTimeout(() => {
+          onInnerExpandRowClick(params);
+          onInnerSelectRowClick(params);
+          timer = undefined;
+        }, DURATION);
+      }
     };
 
     return () => {

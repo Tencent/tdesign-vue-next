@@ -5,6 +5,7 @@ export const RadioGroupInjectionKey: InjectionKey<{
   name: string;
   disabled: boolean;
   value: RadioValue;
+  allowUncheck: boolean;
   setValue: (value: RadioValue, context: { e: Event }) => void;
 }> = Symbol('RadioGroupProvide');
 

@@ -330,11 +330,11 @@ export default defineComponent({
       } else {
         const inner = <span style="position: relative">{labelNode}</span>;
         labelNode = node.isActivable() ? ( // 使用key是为了避免元素复用，从而顺利移除ripple指令
-          <span key="1" ref="label" class={labelClasses}>
+          <span key="1" ref="label" class={labelClasses} title={node.label}>
             {inner}
           </span>
         ) : (
-          <span key="2" class={labelClasses}>
+          <span key="2" class={labelClasses} title={node.label}>
             {inner}
           </span>
         );

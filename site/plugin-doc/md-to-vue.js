@@ -2,19 +2,19 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { compileUsage } from '../../src/_common/docs/compile';
+import { compileUsage, getGitTimestamp } from '../../src/_common/docs/compile';
 import camelCase from 'camelcase';
 
 import testCoverage from '../test-coverage';
 
-const DEAULT_TABS = [
+const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
   { tab: 'api', name: 'API' },
   { tab: 'design', name: '指南' },
 ];
 
-export default function mdToVue(options) {
-  const mdSegment = customRender(options);
+export default async function mdToVue(options) {
+  const mdSegment = await customRender(options);
   const { demoDefsStr, demoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
 
   let coverage = {};
@@ -72,7 +72,7 @@ export default function mdToVue(options) {
             : `<div name="DOC" class="${mdSegment.docClass}">${mdSegment.docMd}</div>`
         }
         <div style="margin-top: 48px;">
-          <td-doc-history time="${mdSegment.lastUpdated}"></td-doc-history>
+          <td-doc-history :time="lastUpdated"></td-doc-history>
         </div>
         <td-doc-footer slot="doc-footer"></td-doc-footer>
       </td-doc-content>
@@ -99,6 +99,10 @@ export default function mdToVue(options) {
         },
 
         computed: {
+          lastUpdated() {
+            if (this.tab === 'design') return ${mdSegment.designDocLastUpdated};
+            return ${mdSegment.lastUpdated};
+          },
           tab: {
             get() {
               return this.$route.query.tab || 'demo';
@@ -141,8 +145,9 @@ export default function mdToVue(options) {
 }
 
 // 解析 markdown 内容
-function customRender({ source, file, md }) {
+async function customRender({ source, file, md }) {
   const { content, data } = matter(source);
+  const lastUpdated = (await getGitTimestamp(file)) || Math.round(fs.statSync(file).mtimeMs);
   // console.log('data', data);
 
   // md top data
@@ -153,10 +158,11 @@ function customRender({ source, file, md }) {
     description: '',
     isComponent: false,
     tdDocHeader: true,
-    tdDocTabs: DEAULT_TABS,
+    tdDocTabs: DEFAULT_TABS,
     apiFlag: /#+\s*API/,
     docClass: '',
-    lastUpdated: Math.round(fs.statSync(file).mtimeMs),
+    lastUpdated,
+    designDocLastUpdated: lastUpdated,
     ...data,
   };
 
@@ -211,6 +217,10 @@ function customRender({ source, file, md }) {
     const designDocPath = path.resolve(__dirname, `../../src/_common/docs/web/design/${componentName}.md`);
 
     if (fs.existsSync(designDocPath)) {
+      const designDocLastUpdated =
+        (await getGitTimestamp(designDocPath)) || Math.round(fs.statSync(designDocPath).mtimeMs);
+      mdSegment.designDocLastUpdated = designDocLastUpdated;
+
       const designMd = fs.readFileSync(designDocPath, 'utf-8');
       mdSegment.designMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${designMd}`).html;
     } else {

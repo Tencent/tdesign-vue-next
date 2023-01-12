@@ -37,7 +37,7 @@ export default defineComponent({
     onMounted(() => {
       if (props.duration && innerTooltipVisible.value) {
         timer.value = setTimeout(() => {
-          innerTooltipVisible.value = false;
+          setInnerVisible(false);
           clearTimeout(timer.value);
           timer.value = null;
         }, props.duration);
@@ -65,8 +65,6 @@ export default defineComponent({
       ...(vm?.vnode.props || {}),
       placement: props.placement === 'mouse' ? 'bottom-left' : props.placement,
       showArrow: props.placement === 'mouse' ? false : props.showArrow,
-      content: () => renderTNodeJSX('content'),
-      default: () => renderContent('default', 'triggerElement'),
       overlayClassName: tooltipOverlayClassName.value,
       onVisibleChange: onTipVisibleChange,
       disabled: props.disabled,
@@ -116,7 +114,12 @@ export default defineComponent({
         {...popupProps.value}
         overlayInnerStyle={overlayInnerStyle.value}
         visible={innerVisible.value}
-      />
+        v-slots={{
+          content: () => renderTNodeJSX('content'),
+        }}
+      >
+        {renderContent('default', 'triggerElement')}
+      </Popup>
     );
   },
 });

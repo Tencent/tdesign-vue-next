@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const calcSize = (width: number) => {
   let size = 'xs';
   if (width < 768) {

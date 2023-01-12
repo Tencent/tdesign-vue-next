@@ -1,5 +1,5 @@
 <template>
-  <t-space direction="vertical">
+  <t-space>
     <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
       <template #valueDisplay="{ value: valueDisplay }"> {{ valueDisplay.label }}({{ valueDisplay.value }}) </template>
     </t-tree-select>
@@ -29,6 +29,12 @@ const options = [
       {
         label: '深圳市',
         value: 'shenzhen',
+        children: [
+          {
+            label: '深圳市南山区海天二路33号腾讯滨海大厦',
+            value: 'Tencent',
+          },
+        ],
       },
     ],
   },
