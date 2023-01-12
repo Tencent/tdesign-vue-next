@@ -14,7 +14,7 @@ export interface UseLengthLimitParams {
 
 export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>) {
   // 文本超出数量限制时，是否允许继续输入
-  const getValueByLimitNumber = (inputValue: string) => {
+  const getValueByLimit = (inputValue: string) => {
     const { allowInputOverMax, maxlength, maxcharacter } = params.value;
     if (!(maxlength || maxcharacter) || allowInputOverMax || !inputValue) return inputValue;
     if (maxlength) {
@@ -73,6 +73,6 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
   return {
     tStatus,
     limitNumber,
-    getValueByLimitNumber,
+    getValueByLimit,
   };
 }

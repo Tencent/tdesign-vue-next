@@ -39,10 +39,10 @@ describe('AutoComplete Component', () => {
     expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
     wrapper.find('.t-input__suffix-clear').trigger('click');
     await wrapper.vm.$nextTick();
-    expect(onClearFn1).toHaveBeenCalled();
+    expect(onClearFn1).toHaveBeenCalled(1);
     expect(onClearFn1.mock.calls[0][0].e.stopPropagation).toBeTruthy();
     expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
-    expect(onChangeFn1).toHaveBeenCalled();
+    expect(onChangeFn1).toHaveBeenCalled(1);
     expect(onChangeFn1.mock.calls[0][0]).toBe('');
     expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
     expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
@@ -221,7 +221,7 @@ describe('AutoComplete Component', () => {
   });
 
   it(`props.placeholder is equal to 'type keyword to search'`, () => {
-    const wrapper = mount(<AutoComplete placeholder={'type keyword to search'}></AutoComplete>);
+    const wrapper = mount(<AutoComplete placeholder="type keyword to search"></AutoComplete>);
     const domWrapper = wrapper.find('input');
     expect(domWrapper.attributes('placeholder')).toBe('type keyword to search');
   });
@@ -251,15 +251,21 @@ describe('AutoComplete Component', () => {
     });
   });
 
-  ['default', 'success', 'warning', 'error'].forEach((item) => {
+  const statusClassNameList = [{ 't-is-default': false }, 't-is-success', 't-is-warning', 't-is-error'];
+  ['default', 'success', 'warning', 'error'].forEach((item, index) => {
     it(`props.status is equal to ${item}`, () => {
       const wrapper = getNormalAutoCompleteMount(AutoComplete, { status: item }).find('.t-input');
-      expect(wrapper.classes(`t-is-${item}`)).toBeTruthy();
+      if (typeof statusClassNameList[index] === 'string') {
+        expect(wrapper.classes(statusClassNameList[index])).toBeTruthy();
+      } else if (typeof statusClassNameList[index] === 'object') {
+        const classNameKey = Object.keys(statusClassNameList[index])[0];
+        expect(wrapper.classes(classNameKey)).toBeFalsy();
+      }
     });
   });
 
   it('props.tips is equal this is a tip', () => {
-    const wrapper = mount(<AutoComplete tips={'this is a tip'}></AutoComplete>);
+    const wrapper = mount(<AutoComplete tips="this is a tip"></AutoComplete>);
     expect(wrapper.find('.t-input__tips').exists()).toBeTruthy();
   });
 
@@ -282,7 +288,7 @@ describe('AutoComplete Component', () => {
   });
 
   it(`props.value is equal to 'DefaultKeyword'`, () => {
-    const wrapper = mount(<AutoComplete value={'DefaultKeyword'}></AutoComplete>);
+    const wrapper = mount(<AutoComplete value="DefaultKeyword"></AutoComplete>);
     const domWrapper = wrapper.find('input');
     expect(domWrapper.element.value).toBe('DefaultKeyword');
   });
@@ -293,12 +299,30 @@ describe('AutoComplete Component', () => {
     const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onFocus: onFocusFn, onBlur: onBlurFn1 });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
-    expect(onFocusFn).toHaveBeenCalled();
+    expect(onFocusFn).toHaveBeenCalled(1);
     expect(onFocusFn.mock.calls[0][0].e.type).toBe('focus');
     wrapper.find('input').trigger('blur');
     await wrapper.vm.$nextTick();
-    expect(onBlurFn1).toHaveBeenCalled();
+    expect(onBlurFn1).toHaveBeenCalled(1);
     expect(onBlurFn1.mock.calls[0][0].e.type).toBe('blur');
+  });
+
+  it('events.compositionend works fine', async () => {
+    const onCompositionendFn = vi.fn();
+    const wrapper = mount(<AutoComplete onCompositionend={onCompositionendFn}></AutoComplete>);
+    wrapper.find('input').trigger('compositionend');
+    await wrapper.vm.$nextTick();
+    expect(onCompositionendFn).toHaveBeenCalled(1);
+    expect(onCompositionendFn.mock.calls[0][0].e.type).toBe('compositionend');
+  });
+
+  it('events.compositionstart works fine', async () => {
+    const onCompositionendFn = vi.fn();
+    const wrapper = mount(<AutoComplete onCompositionend={onCompositionendFn}></AutoComplete>);
+    wrapper.find('input').trigger('compositionstart');
+    await wrapper.vm.$nextTick();
+    expect(onCompositionendFn).toHaveBeenCalled(1);
+    expect(onCompositionendFn.mock.calls[0][0].e.type).toBe('compositionend');
   });
 
   it('events.enter works fine', async () => {
@@ -308,7 +332,7 @@ describe('AutoComplete Component', () => {
     await wrapper.vm.$nextTick();
     wrapper.find('input').trigger('keydown.enter');
     await wrapper.vm.$nextTick();
-    expect(onEnterFn1).toHaveBeenCalled();
+    expect(onEnterFn1).toHaveBeenCalled(1);
     expect(onEnterFn1.mock.calls[0][0].e.type).toBe('keydown');
     expect(/Enter/i.test(onEnterFn1.mock.calls[0][0].e.key)).toBeTruthy();
   });
@@ -319,7 +343,7 @@ describe('AutoComplete Component', () => {
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-is-focused').exists()).toBeTruthy();
-    expect(onFocusFn).toHaveBeenCalled();
+    expect(onFocusFn).toHaveBeenCalled(1);
     expect(onFocusFn.mock.calls[0][0].e.type).toBe('focus');
   });
 });

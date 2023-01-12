@@ -24,7 +24,7 @@ readonly | Boolean | false | \- | N
 showClearIconOnEmpty | Boolean | false | \- | N
 showLimitNumber | Boolean | false | show limit number text on the right | N
 size | String | medium | options：small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | - | options：default/success/warning/error | N
+status | String | default | options：default/success/warning/error | N
 suffix | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -32,7 +32,7 @@ type | String | text | options：text/number/url/tel/password/search/submit/hidd
 value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`InputValue` `type InputValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 defaultValue | String / Number | - | uncontrolled property。Typescript：`InputValue` `type InputValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 onBlur | Function |  | Typescript：`(value: InputValue, context: { e: FocusEvent }) => void`<br/> | N
-onChange | Function |  | Typescript：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent }) => void`<br/> | N
+onChange | Function |  | Typescript：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' }) => void`<br/> | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onCompositionend | Function |  | Typescript：`(value: InputValue, context: { e: CompositionEvent }) => void`<br/>trigger on compositionend | N
 onCompositionstart | Function |  | Typescript：`(value: InputValue, context: { e: CompositionEvent }) => void`<br/>trigger on compositionstart | N
@@ -52,7 +52,7 @@ onWheel | Function |  | Typescript：`(context: { e: WheelEvent }) => void`<br/>
 name | params | description
 -- | -- | --
 blur | `(value: InputValue, context: { e: FocusEvent })` | \-
-change | `(value: InputValue, context?: { e?: InputEvent \| MouseEvent })` | \-
+change | `(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' })` | \-
 clear | `(context: { e: MouseEvent })` | \-
 compositionend | `(value: InputValue, context: { e: CompositionEvent })` | trigger on compositionend
 compositionstart | `(value: InputValue, context: { e: CompositionEvent })` | trigger on compositionstart

@@ -41,7 +41,7 @@ export interface TdInputProps {
    */
   disabled?: boolean;
   /**
-   * 【开发中】指定输入框展示值的格式
+   * 指定输入框展示值的格式
    */
   format?: InputFormatType;
   /**
@@ -57,7 +57,7 @@ export interface TdInputProps {
    */
   maxcharacter?: number;
   /**
-   * 用户最多可以输入的文本长度，一个中文等于一个计数长度。值小于等于 0 的时候，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
+   * 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
    */
   maxlength?: number;
   /**
@@ -95,6 +95,7 @@ export interface TdInputProps {
   size?: SizeEnum;
   /**
    * 输入框状态
+   * @default default
    */
   status?: 'default' | 'success' | 'warning' | 'error';
   /**
@@ -131,9 +132,12 @@ export interface TdInputProps {
    */
   onBlur?: (value: InputValue, context: { e: FocusEvent }) => void;
   /**
-   * 输入框值发生变化时触发
+   * 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制
    */
-  onChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
+  onChange?: (
+    value: InputValue,
+    context?: { e?: InputEvent | MouseEvent; trigger: 'input' | 'initial' | 'clear' },
+  ) => void;
   /**
    * 清空按钮点击时触发
    */

@@ -32,7 +32,7 @@ export default {
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
-  /** 【开发中】指定输入框展示值的格式 */
+  /** 指定输入框展示值的格式 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
   },
@@ -48,7 +48,7 @@ export default {
   maxcharacter: {
     type: Number,
   },
-  /** 用户最多可以输入的文本长度，一个中文等于一个计数长度。值小于等于 0 的时候，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
+  /** 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxlength: {
     type: Number,
   },
@@ -84,6 +84,7 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
+    default: 'default' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
@@ -125,7 +126,7 @@ export default {
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdInputProps['onBlur']>,
-  /** 输入框值发生变化时触发 */
+  /** 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制 */
   onChange: Function as PropType<TdInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdInputProps['onClear']>,

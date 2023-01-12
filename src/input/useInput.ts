@@ -32,7 +32,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     allowInputOverMax: props.allowInputOverMax,
     onValidate: props.onValidate,
   }));
-  const { limitNumber, getValueByLimitNumber, tStatus } = useLengthLimit(limitParams);
+  const { limitNumber, getValueByLimit, tStatus } = useLengthLimit(limitParams);
 
   const showClear = computed(() => {
     return (
@@ -52,7 +52,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitClear = ({ e }: { e: MouseEvent }) => {
-    setInnerValue('', { e });
+    setInnerValue('', { e, trigger: 'clear' });
     props.onClear?.({ e });
   };
 
@@ -79,12 +79,13 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const inputValueChangeHandle = (e: InputEvent | CompositionEvent) => {
     const { target } = e;
     let val = (target as HTMLInputElement).value;
-    if (props.type !== 'number') {
-      val = getValueByLimitNumber(val);
+    // over length: allow delete; not add
+    if (props.type !== 'number' && val.length > innerValue.value?.length) {
+      val = getValueByLimit(val);
     }
-    setInnerValue(val, { e } as { e: InputEvent });
+    setInnerValue(val, { e } as { e: InputEvent; trigger: 'input' });
     // 受控
-    nextTick(() => setInputElValue(innerValue.value));
+    nextTick(() => setInputElValue(val));
   };
 
   const handleInput = (e: InputEvent) => {
@@ -144,15 +145,20 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   watch(
     innerValue,
-    (v) => {
+    (val) => {
+      const newVal = getValueByLimit(val);
       const { format } = props;
       if (format) {
-        const r = format(innerValue.value);
+        const r = format(newVal);
         if (inputValue.value !== r) {
           inputValue.value = r;
         }
       } else {
-        inputValue.value = v;
+        inputValue.value = newVal;
+      }
+      // limit props value
+      if (newVal !== val) {
+        setInnerValue(newVal, { trigger: 'initial' });
       }
     },
     { immediate: true },
