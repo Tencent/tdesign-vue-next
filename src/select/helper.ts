@@ -27,7 +27,7 @@ export const getSingleContent = (
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ): string => {
   const option = optionsMap.value.get(value);
-  return option?.label as string;
+  return option?.label || value?.toString();
 };
 
 export const getMultipleContent = (
