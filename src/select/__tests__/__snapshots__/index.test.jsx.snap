@@ -888,7 +888,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select-input--empty t-select"
+    class="t-select-input t-select"
   >
     
     <div
