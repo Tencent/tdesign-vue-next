@@ -44,6 +44,7 @@ export default ({ mode }) => {
         '@common': path.resolve(__dirname, '../src/_common'),
         'tdesign-vue-next/es': path.resolve(__dirname, '../src'),
         'tdesign-vue-next': path.resolve(__dirname, '../src'),
+        '@test/utils': path.resolve(__dirname, '../test/utils'),
       },
     },
     server: {

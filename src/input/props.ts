@@ -130,6 +130,8 @@ export default {
   onChange: Function as PropType<TdInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdInputProps['onClear']>,
+  /** 点击组件时触发 */
+  onClick: Function as PropType<TdInputProps['onClick']>,
   /** 中文输入结束时触发 */
   onCompositionend: Function as PropType<TdInputProps['onCompositionend']>,
   /** 中文输入开始时触发 */

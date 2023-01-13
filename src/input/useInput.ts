@@ -85,7 +85,9 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     }
     setInnerValue(val, { e } as { e: InputEvent; trigger: 'input' });
     // 受控
-    nextTick(() => setInputElValue(val));
+    nextTick(() => {
+      setInputElValue(innerValue.value);
+    });
   };
 
   const handleInput = (e: InputEvent) => {
@@ -129,6 +131,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const onRootClick = (e: MouseEvent) => {
     inputRef.value?.focus();
+    props.onClick?.({ e });
   };
 
   watch(

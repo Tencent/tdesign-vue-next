@@ -5,7 +5,9 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Input } from '..';
+import { simulateInputChange } from '@test/utils';
+import { Input, InputGroup } from '..';
+import { getInputGroupDefaultMount } from './mount';
 
 describe('Input Component', () => {
   const alignClassNameList = [{ 't-align-left': false }, 't-align-center', 't-align-right'];
@@ -22,15 +24,15 @@ describe('Input Component', () => {
     });
   });
 
-  it('props.allowInputOverMax works fine', async () => {
-    const onValidateFn = vi.fn();
-    const wrapper = mount(
-      <Input value="Hello World" maxlength={5} allowInputOverMax={true} onValidate={onValidateFn}></Input>,
-    );
-    wrapper.findComponent(Input).trigger('keydown');
-    await wrapper.vm.$nextTick();
-    expect(onValidateFn).toHaveBeenCalled(1);
-    expect(onValidateFn.mock.calls[0][0].error).toBe('exceed-maximum');
+  it(`props.allowInputOverMax is equal to true`, () => {
+    const wrapper = mount(<Input allowInputOverMax={true} value="Hello World" maxlength={5}></Input>);
+    const domWrapper = wrapper.find('input');
+    expect(domWrapper.element.value).toBe('Hello World');
+  });
+  it(`props.allowInputOverMax is equal to false`, () => {
+    const wrapper = mount(<Input allowInputOverMax={false} value="Hello World" maxlength={5}></Input>);
+    const domWrapper = wrapper.find('input');
+    expect(domWrapper.element.value).toBe('Hello');
   });
 
   it('props.autocomplete works fine', () => {
@@ -269,6 +271,25 @@ describe('Input Component', () => {
     });
   });
 
+  it('props.type is equal password', () => {
+    const wrapper = mount(<Input type="password"></Input>);
+    expect(wrapper.findAll('.t-icon-browse-off').length).toBe(1);
+  });
+
+  it('props.type: password could be visible by click browse icon', async () => {
+    const wrapper = mount(<Input type="password"></Input>);
+    wrapper.find('.t-icon-browse-off').trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-icon-browse').exists()).toBeTruthy();
+    const attrDom = wrapper.find('input');
+    expect(attrDom.attributes('type')).toBe('text');
+    wrapper.find('.t-icon-browse').trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-icon-browse-off').exists()).toBeTruthy();
+    const attrDom1 = wrapper.find('input');
+    expect(attrDom1.attributes('type')).toBe('password');
+  });
+
   it('events.blur works fine', async () => {
     const onFocusFn = vi.fn();
     const onBlurFn1 = vi.fn();
@@ -283,6 +304,48 @@ describe('Input Component', () => {
     expect(onBlurFn1).toHaveBeenCalled(1);
     expect(onBlurFn1.mock.calls[0][0]).toBe('initial-input-value');
     expect(onBlurFn1.mock.calls[0][1].e.type).toBe('blur');
+  });
+
+  it('events.change: empty value could trigger change event', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<Input onChange={onChangeFn}></Input>);
+    const inputDom = wrapper.find('input').element;
+    simulateInputChange(inputDom, 'initial value');
+    await wrapper.vm.$nextTick();
+    expect(onChangeFn).toHaveBeenCalled(1);
+    expect(onChangeFn.mock.calls[0][0]).toBe('initial value');
+    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
+  });
+  it('events.change: controlled value test', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<Input value="TDesign" onChange={onChangeFn}></Input>);
+    const inputDom = wrapper.find('input').element;
+    simulateInputChange(inputDom, 'Hello TDesign');
+    await wrapper.vm.$nextTick();
+    const attrDom = wrapper.find('input');
+    expect(attrDom.element.value).toBe('TDesign');
+    expect(onChangeFn).toHaveBeenCalled(1);
+    expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
+    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
+  });
+  it('events.change: uncontrolled value test', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<Input defaultValue="Hello" onChange={onChangeFn}></Input>);
+    const inputDom = wrapper.find('input').element;
+    simulateInputChange(inputDom, 'Hello TDesign');
+    await wrapper.vm.$nextTick();
+    expect(onChangeFn).toHaveBeenCalled(1);
+    expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
+    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
+  });
+
+  it('events.click works fine', async () => {
+    const fn = vi.fn();
+    const wrapper = mount(<Input onClick={fn}></Input>);
+    wrapper.find('.t-input').trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(fn).toHaveBeenCalled(1);
+    expect(fn.mock.calls[0][0].e.type).toBe('click');
   });
 
   it('events.compositionend works fine', async () => {
@@ -375,6 +438,23 @@ describe('Input Component', () => {
     expect(onMouseleaveFn.mock.calls[0][0].e.type).toBe('mouseleave');
   });
 
+  it('events.paste works fine', async () => {
+    const onPasteFn = vi.fn();
+    const wrapper = mount(<Input onPaste={onPasteFn}></Input>);
+    wrapper.find('input').trigger('paste');
+    await wrapper.vm.$nextTick();
+    expect(onPasteFn).toHaveBeenCalled(1);
+    expect(onPasteFn.mock.calls[0][0].e.type).toBe('paste');
+  });
+
+  it('events.validate works fine', async () => {
+    const onValidateFn = vi.fn();
+    const wrapper = mount(<Input value="Hello World" maxlength={5} onValidate={onValidateFn}></Input>);
+    await wrapper.vm.$nextTick();
+    expect(onValidateFn).toHaveBeenCalled(1);
+    expect(onValidateFn.mock.calls[0][0].error).toBe('exceed-maximum');
+  });
+
   it('events.wheel works fine', async () => {
     const onWheelFn = vi.fn();
     const wrapper = mount(<Input onWheel={onWheelFn}></Input>);
@@ -382,5 +462,19 @@ describe('Input Component', () => {
     await wrapper.vm.$nextTick();
     expect(onWheelFn).toHaveBeenCalled(1);
     expect(onWheelFn.mock.calls[0][0].e.type).toBe('wheel');
+  });
+});
+
+describe('InputGroup Component', () => {
+  it('props.separate works fine', () => {
+    // separate default value is
+    const wrapper1 = getInputGroupDefaultMount(InputGroup);
+    expect(wrapper1.classes('t-input-group--separate')).toBeFalsy();
+    // separate = true
+    const wrapper2 = getInputGroupDefaultMount(InputGroup, { separate: true });
+    expect(wrapper2.classes('t-input-group--separate')).toBeTruthy();
+    // separate = false
+    const wrapper3 = getInputGroupDefaultMount(InputGroup, { separate: false });
+    expect(wrapper3.classes('t-input-group--separate')).toBeFalsy();
   });
 });

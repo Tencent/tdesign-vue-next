@@ -28,6 +28,7 @@
       "@src/*": ["src/*"],
       "tdesign-vue-next": ["src/*"],
       "@common/*": ["src/_common/*"],
+      "@test/utils": ["test/utils"]
     }
   },
   "include": [

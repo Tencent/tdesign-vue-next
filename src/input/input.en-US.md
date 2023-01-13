@@ -34,6 +34,7 @@ defaultValue | String / Number | - | uncontrolled property。Typescript：`Input
 onBlur | Function |  | Typescript：`(value: InputValue, context: { e: FocusEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' }) => void`<br/> | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
+onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onCompositionend | Function |  | Typescript：`(value: InputValue, context: { e: CompositionEvent }) => void`<br/>trigger on compositionend | N
 onCompositionstart | Function |  | Typescript：`(value: InputValue, context: { e: CompositionEvent }) => void`<br/>trigger on compositionstart | N
 onEnter | Function |  | Typescript：`(value: InputValue, context: { e: KeyboardEvent }) => void`<br/> | N
@@ -54,6 +55,7 @@ name | params | description
 blur | `(value: InputValue, context: { e: FocusEvent })` | \-
 change | `(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' })` | \-
 clear | `(context: { e: MouseEvent })` | \-
+click | `(context: { e: MouseEvent })` | \-
 compositionend | `(value: InputValue, context: { e: CompositionEvent })` | trigger on compositionend
 compositionstart | `(value: InputValue, context: { e: CompositionEvent })` | trigger on compositionstart
 enter | `(value: InputValue, context: { e: KeyboardEvent })` | \-
@@ -66,3 +68,9 @@ mouseleave | `(context: { e: MouseEvent })` | trigger on mouseleave
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | \-
 validate | `(context: { error?: 'exceed-maximum' \| 'below-minimum' })` | trigger on text length being over max length or max character
 wheel | `(context: { e: WheelEvent })` | trigger on mouse wheel
+
+### InputGroup Props
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+separate | Boolean | - | need separate between multiple inputs | N
