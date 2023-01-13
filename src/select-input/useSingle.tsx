@@ -3,7 +3,7 @@ import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import { SelectInputCommonProperties } from './interface';
 import { TdSelectInputProps } from './type';
-import Input, { InputValue } from '../input';
+import Input, { InputValue, TdInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -59,9 +59,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     setInputValue('', { trigger: 'clear' });
   };
 
-  const onInnerInputChange = (value: InputValue, context: { e: InputEvent | MouseEvent }) => {
+  const onInnerInputChange: TdInputProps['onChange'] = (value, context) => {
     if (props.allowInput) {
-      setInputValue(value, { ...context, trigger: 'input' });
+      setInputValue(value, { ...context, trigger: context.trigger || 'input' });
     }
   };
 
