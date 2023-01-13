@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Input } from '../../input';
+import { Input } from '..';
 
 export function getInputGroupDefaultMount(InputGroup, props) {
   return mount(
