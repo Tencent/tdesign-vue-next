@@ -363,15 +363,15 @@ describe('Input Component', () => {
   });
 
   // TODO：排查当前测试用例通不过的原因
-  it.skip('events.compositionstart works fine', async () => {
-    const onCompositionstartFn = vi.fn();
-    const wrapper = mount(<Input value="输入开始" onCompositionstart={onCompositionstartFn}></Input>);
-    wrapper.find('input').trigger('compositionstart');
-    await wrapper.vm.$nextTick();
-    expect(onCompositionstartFn).toHaveBeenCalled(1);
-    expect(onCompositionstartFn.mock.calls[0][0]).toBe('输入开始');
-    expect(onCompositionstartFn.mock.calls[0][1].e.type).toBe('compositionstart');
-  });
+  // it.skip('events.compositionstart works fine', async () => {
+  //   const onCompositionstartFn = vi.fn();
+  //   const wrapper = mount(<Input value="输入开始" onCompositionstart={onCompositionstartFn}></Input>);
+  //   wrapper.find('input').trigger('compositionstart');
+  //   await wrapper.vm.$nextTick();
+  //   expect(onCompositionstartFn).toHaveBeenCalled(1);
+  //   expect(onCompositionstartFn.mock.calls[0][0]).toBe('输入开始');
+  //   expect(onCompositionstartFn.mock.calls[0][1].e.type).toBe('compositionstart');
+  // });
 
   it('events.enter works fine', async () => {
     const onEnterFn1 = vi.fn();
