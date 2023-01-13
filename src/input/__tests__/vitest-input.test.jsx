@@ -5,9 +5,9 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { simulateInputChange } from '@test/utils';
 import { Input, InputGroup } from '..';
 import { getInputGroupDefaultMount } from './mount';
+import { simulateInputChange } from '@test/utils';
 
 describe('Input Component', () => {
   const alignClassNameList = [{ 't-align-left': false }, 't-align-center', 't-align-right'];
@@ -24,15 +24,13 @@ describe('Input Component', () => {
     });
   });
 
-  it(`props.allowInputOverMax is equal to true`, () => {
-    const wrapper = mount(<Input allowInputOverMax={true} value="Hello World" maxlength={5}></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.value).toBe('Hello World');
-  });
-  it(`props.allowInputOverMax is equal to false`, () => {
-    const wrapper = mount(<Input allowInputOverMax={false} value="Hello World" maxlength={5}></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.value).toBe('Hello');
+  it('props.allowInputOverMax works fine', async () => {
+    const wrapper = mount(<Input value="Hello" maxlength={5} allowInputOverMax={true}></Input>);
+    const inputDom = wrapper.find('input').element;
+    simulateInputChange(inputDom, 'Hello TDesign');
+    await wrapper.vm.$nextTick();
+    const attrDom = wrapper.find('input');
+    expect(attrDom.element.value).toBe('Hello');
   });
 
   it('props.autocomplete works fine', () => {
@@ -134,16 +132,22 @@ describe('Input Component', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it(`props.maxcharacter is equal to 4`, () => {
-    const wrapper = mount(<Input maxcharacter={4} value="你好 TDesign"></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.value).toBe('你好');
+  it('props.maxcharacter: length of value is over than maxcharacter', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<Input value="你好 TDesign" maxcharacter={4} onChange={onChangeFn}></Input>);
+    await wrapper.vm.$nextTick();
+    expect(onChangeFn).toHaveBeenCalled(1);
+    expect(onChangeFn.mock.calls[0][0]).toBe('你好');
+    expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
   });
 
-  it(`props.maxlength is equal to 5`, () => {
-    const wrapper = mount(<Input maxlength={5} value="Hello TDesign"></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.value).toBe('Hello');
+  it('props.maxlength: length of value is over than maxlength', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<Input value="Hello TDesign" maxlength={5} onChange={onChangeFn}></Input>);
+    await wrapper.vm.$nextTick();
+    expect(onChangeFn).toHaveBeenCalled(1);
+    expect(onChangeFn.mock.calls[0][0]).toBe('Hello');
+    expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
   });
 
   it('props.name works fine', () => {

@@ -149,17 +149,17 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   watch(
     innerValue,
     (val) => {
-      const newVal = getValueByLimit(val);
       const { format } = props;
       if (format) {
-        const r = format(newVal);
+        const r = format(val);
         if (inputValue.value !== r) {
           inputValue.value = r;
         }
       } else {
-        inputValue.value = newVal;
+        inputValue.value = val;
       }
       // limit props value
+      const newVal = getValueByLimit(val);
       if (newVal !== val) {
         setInnerValue(newVal, { trigger: 'initial' });
       }
