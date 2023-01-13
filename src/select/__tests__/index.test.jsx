@@ -1,5 +1,8 @@
+import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import { vi, describe, it, expect } from 'vitest';
 import { Select, OptionGroup, Option } from '@/src/select/index.ts';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const options = [
   { label: '架构云', value: '1' },
@@ -136,6 +139,67 @@ describe('Select', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('@event', () => {
+    describe('onClear', () => {
+      const triggerClear = async (wrapper) => {
+        const input = wrapper.find('.t-input');
+        await input.trigger('mouseenter');
+        const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
+        await closeIcon.trigger('click');
+      };
+      it('[multiple=false][valueType="value"]', async () => {
+        const fn = vi.fn();
+        const value = ref('1');
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} clearable onClear={fn}></Select>;
+          },
+        });
+        await triggerClear(wrapper);
+        expect(fn).toBeCalled();
+        expect(value.value).toBe(undefined);
+      });
+      it('[multiple=false][valueType="object"]', async () => {
+        const fn = vi.fn();
+        const value = ref({ label: '架构云', value: '1' });
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} clearable valueType="object" onClear={fn}></Select>;
+          },
+        });
+        await triggerClear(wrapper);
+        expect(fn).toBeCalled();
+        expect(value.value).toBe(undefined);
+      });
+      // TODO: remove skip when multiple select clear icon class bug fixed
+      it.skip('[multiple=true][valueType="value"]', async () => {
+        const fn = vi.fn();
+        const value = ref(['1']);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} clearable valueType="object" onClear={fn}></Select>;
+          },
+        });
+        await triggerClear(wrapper);
+        expect(fn).toBeCalled();
+        expect(value.value).toBe([]);
+      });
+      // TODO: remove skip when multiple select clear icon class bug fixed
+      it.skip('[multiple=true][valueType="object"]', async () => {
+        const fn = vi.fn();
+        const value = ref([{ label: '架构云', value: '1' }]);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} clearable valueType="object" onClear={fn}></Select>;
+          },
+        });
+        await triggerClear(wrapper);
+        expect(fn).toBeCalled();
+        expect(value.value).toBe([]);
+      });
     });
   });
 });
