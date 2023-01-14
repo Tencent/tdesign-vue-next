@@ -75,6 +75,14 @@ describe('Input Component', () => {
     expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
     expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
   });
+  it('props.clearable: type=password, browseIcon and clearableIcon works fine', async () => {
+    const wrapper = mount(<Input type="password" value="this is my password" clearable={true}></Input>);
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-icon-browse-off').exists()).toBeTruthy();
+    wrapper.find('.t-input').trigger('mouseenter');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
+  });
 
   it('props.disabled works fine', () => {
     // disabled default value is

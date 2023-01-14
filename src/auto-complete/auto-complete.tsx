@@ -1,7 +1,7 @@
 import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
-import Input, { InputProps } from '../input';
+import Input, { InputProps, TdInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
 import useCommonClassName from '../hooks/useCommonClassName';
 import AutoCompleteOptionList from './option-list';
@@ -52,7 +52,7 @@ export default defineComponent({
       return classes;
     });
 
-    const onInputChange = (value: string, context: { e?: InputEvent | MouseEvent }) => {
+    const onInputChange: TdInputProps['onChange'] = (value, context) => {
       setTValue(value, context);
     };
 
