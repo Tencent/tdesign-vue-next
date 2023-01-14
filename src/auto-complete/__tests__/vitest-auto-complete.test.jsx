@@ -129,15 +129,17 @@ describe('AutoComplete Component', () => {
     tSelectOptionDom.forEach((node) => node.remove());
   });
   it('props.options: expect empty options with no panel', async () => {
-    const wrapper = mount(<AutoComplete></AutoComplete>);
+    const wrapper = mount(<AutoComplete popupProps={{ overlayClassName: 'empty-options-class-name' }}></AutoComplete>);
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
-    const tAutocompletePanelDom = document.querySelectorAll('.t-autocomplete__panel');
-    expect(tAutocompletePanelDom.length).toBe(0);
+    const emptyOptionsClassNameTAutocompletePanelDom = document.querySelectorAll(
+      '.empty-options-class-name .t-autocomplete__panel',
+    );
+    expect(emptyOptionsClassNameTAutocompletePanelDom.length).toBe(0);
     // remove nodes from document to avoid influencing following test cases
-    tAutocompletePanelDom.forEach((node) => node.remove());
+    emptyOptionsClassNameTAutocompletePanelDom.forEach((node) => node.remove());
   });
-  it('props.options: defined option list with slots.option', async () => {
+  it('props.options: define one option', async () => {
     const wrapper = getOptionSlotAutoCompleteMount(AutoComplete, {
       popupProps: { overlayClassName: 'option-slot-class-name' },
     });
