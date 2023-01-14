@@ -81,10 +81,10 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
-  /** 输入框状态 */
+  /** 输入框状态。默认情况会由组件内部根据实际情况呈现，如果文本过长引起的状态变化 */
   status: {
     type: String as PropType<TdInputProps['status']>,
-    default: 'default' as TdInputProps['status'],
+    default: undefined as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
