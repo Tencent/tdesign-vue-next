@@ -123,6 +123,7 @@ export default {
   /** 输入框的值，非受控属性 */
   defaultValue: {
     type: [String, Number] as PropType<TdInputProps['defaultValue']>,
+    default: '',
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdInputProps['onBlur']>,

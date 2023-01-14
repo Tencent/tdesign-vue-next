@@ -129,10 +129,11 @@ describe('AutoComplete Component', () => {
     tSelectOptionDom.forEach((node) => node.remove());
   });
   it('props.options: expect empty options with no panel', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete);
+    const wrapper = mount(<AutoComplete></AutoComplete>);
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const tAutocompletePanelDom = document.querySelectorAll('.t-autocomplete__panel');
+    expect(tAutocompletePanelDom.length).toBe(0);
     // remove nodes from document to avoid influencing following test cases
     tAutocompletePanelDom.forEach((node) => node.remove());
   });

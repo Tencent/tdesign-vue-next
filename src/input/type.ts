@@ -116,14 +116,17 @@ export interface TdInputProps {
   type?: 'text' | 'number' | 'url' | 'tel' | 'password' | 'search' | 'submit' | 'hidden';
   /**
    * 输入框的值
+   * @default ''
    */
   value?: InputValue;
   /**
    * 输入框的值，非受控属性
+   * @default ''
    */
   defaultValue?: InputValue;
   /**
    * 输入框的值
+   * @default ''
    */
   modelValue?: InputValue;
   /**
