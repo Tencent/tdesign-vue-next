@@ -1,4 +1,4 @@
-import { computed, ref, defineComponent, toRefs } from 'vue';
+import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
 import Input, { InputProps } from '../input';
@@ -24,6 +24,7 @@ export default defineComponent({
     const { globalConfig: global } = useConfig('input');
 
     const popupVisible = ref();
+    const optionListRef = ref();
 
     const getOverlayStyle = (trigger: HTMLElement, popupElement: HTMLElement) => {
       const triggerWidth = trigger.getBoundingClientRect().width || trigger.offsetWidth || trigger.clientWidth;
@@ -67,6 +68,9 @@ export default defineComponent({
     const onInnerFocus: InputProps['onFocus'] = (value, context) => {
       popupVisible.value = true;
       props.onFocus?.({ ...context, value });
+      nextTick(() => {
+        optionListRef.value?.addKeyboardListener();
+      });
     };
 
     const onInnerBlur: InputProps['onBlur'] = (value, context) => {
@@ -123,6 +127,7 @@ export default defineComponent({
       // 联想词列表
       const listContent = (
         <AutoCompleteOptionList
+          ref={optionListRef}
           value={tValue.value}
           options={props.options}
           size={props.size}
