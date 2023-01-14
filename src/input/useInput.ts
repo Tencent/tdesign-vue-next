@@ -32,7 +32,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     allowInputOverMax: props.allowInputOverMax,
     onValidate: props.onValidate,
   }));
-  const { limitNumber, getValueByLimit, tStatus } = useLengthLimit(limitParams);
+  const { limitNumber, getValueByLimitNumber, tStatus } = useLengthLimit(limitParams);
 
   const showClear = computed(() => {
     return (
@@ -81,7 +81,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     let val = (target as HTMLInputElement).value;
     // over length: allow delete; not add
     if (props.type !== 'number' && val.length > innerValue.value?.length) {
-      val = getValueByLimit(val);
+      val = getValueByLimitNumber(val);
     }
     setInnerValue(val, { e } as { e: InputEvent; trigger: 'input' });
     // 受控
@@ -159,8 +159,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
         inputValue.value = val;
       }
       // limit props value
-      const newVal = getValueByLimit(val);
-      if (newVal !== val) {
+      const newVal = getValueByLimitNumber(val);
+      if (newVal !== val && props.type !== 'number') {
         setInnerValue(newVal, { trigger: 'initial' });
       }
     },

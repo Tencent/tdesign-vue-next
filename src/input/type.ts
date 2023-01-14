@@ -136,7 +136,7 @@ export interface TdInputProps {
    */
   onChange?: (
     value: InputValue,
-    context?: { e?: InputEvent | MouseEvent; trigger: 'input' | 'initial' | 'clear' },
+    context?: { e?: InputEvent | MouseEvent | CompositionEvent; trigger: 'input' | 'initial' | 'clear' },
   ) => void;
   /**
    * 清空按钮点击时触发

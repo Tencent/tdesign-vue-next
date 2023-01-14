@@ -32,7 +32,7 @@ type | String | text | 输入框类型。可选项：text/number/url/tel/passwor
 value | String / Number | - | 输入框的值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`InputValue` `type InputValue = string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 defaultValue | String / Number | - | 输入框的值。非受控属性。TS 类型：`InputValue` `type InputValue = string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 onBlur | Function |  | TS 类型：`(value: InputValue, context: { e: FocusEvent }) => void`<br/>失去焦点时触发 | N
-onChange | Function |  | TS 类型：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' }) => void`<br/>输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制 | N
+onChange | Function |  | TS 类型：`(value: InputValue, context?: { e?: InputEvent \| MouseEvent \| CompositionEvent; trigger: 'input' \| 'initial' \| 'clear' }) => void`<br/>输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制 | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>清空按钮点击时触发 | N
 onClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击组件时触发 | N
 onCompositionend | Function |  | TS 类型：`(value: InputValue, context: { e: CompositionEvent }) => void`<br/>中文输入结束时触发 | N
@@ -53,7 +53,7 @@ onWheel | Function |  | TS 类型：`(context: { e: WheelEvent }) => void`<br/>�
 名称 | 参数 | 描述
 -- | -- | --
 blur | `(value: InputValue, context: { e: FocusEvent })` | 失去焦点时触发
-change | `(value: InputValue, context?: { e?: InputEvent \| MouseEvent; trigger: 'input' \| 'initial' \| 'clear' })` | 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制
+change | `(value: InputValue, context?: { e?: InputEvent \| MouseEvent \| CompositionEvent; trigger: 'input' \| 'initial' \| 'clear' })` | 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制
 clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 click | `(context: { e: MouseEvent })` | 点击组件时触发
 compositionend | `(value: InputValue, context: { e: CompositionEvent })` | 中文输入结束时触发
