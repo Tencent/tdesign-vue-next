@@ -1,5 +1,5 @@
 <template>
-  <t-card :title="title" :style="{ width: '400px' }" @actions="clickHandler">
+  <t-card :title="title" :style="{ width: '400px' }">
     {{ infoMessage }}
     <template #actions>
       <a href="javascript:void(0)" @click="clickHandler">操作</a>
