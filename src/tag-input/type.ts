@@ -3,6 +3,7 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
+
 import { InputProps } from '../input';
 import { InputValue } from '../input';
 import { TagProps } from '../tag';
@@ -25,7 +26,6 @@ export interface TdTagInputProps {
   collapsedItems?: TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>;
   /**
    * 是否禁用标签输入框
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -81,9 +81,8 @@ export interface TdTagInputProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
-   * @default default
    */
-  status?: 'success' | 'warning' | 'error' | 'default';
+  status?: 'default' | 'success' | 'warning' | 'error';
   /**
    * 后置图标前的后置内容
    */
@@ -106,14 +105,17 @@ export interface TdTagInputProps {
   tips?: string | TNode;
   /**
    * 值
+   * @default []
    */
   value?: TagInputValue;
   /**
    * 值，非受控属性
+   * @default []
    */
   defaultValue?: TagInputValue;
   /**
    * 值
+   * @default []
    */
   modelValue?: TagInputValue;
   /**
@@ -133,7 +135,7 @@ export interface TdTagInputProps {
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
-   * 拖拽排序时触发
+   * 【开发中】拖拽排序时触发
    */
   onDragSort?: (context: TagInputDragSortContext) => void;
   /**
@@ -186,7 +188,7 @@ export interface TagInputDragSortContext {
 }
 
 export interface InputValueChangeContext {
-  e?: InputEvent | MouseEvent | KeyboardEvent;
+  e?: InputEvent | MouseEvent | CompositionEvent | KeyboardEvent;
   trigger: 'input' | 'clear' | 'enter';
 }
 

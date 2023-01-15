@@ -189,7 +189,7 @@ export default defineComponent({
         }
         keepWrapperWidth={!this.autoWidth}
         onWheel={this.onWheel}
-        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
+        onChange={(val, context) => {
           this.setTInputValue(val, { ...context, trigger: 'input' });
         }}
         onPaste={this.onPaste}
