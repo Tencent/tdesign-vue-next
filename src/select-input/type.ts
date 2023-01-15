@@ -39,7 +39,6 @@ export interface TdSelectInputProps {
   collapsedItems?: TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>;
   /**
    * 是否禁用
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -194,7 +193,7 @@ export interface SelectInputFocusContext {
 
 export interface SelectInputValueChangeContext {
   e?: InputEvent | MouseEvent | FocusEvent | KeyboardEvent;
-  trigger: 'input' | 'clear' | 'blur';
+  trigger: 'input' | 'clear' | 'blur' | 'initial';
 }
 
 export type SelectInputChangeContext = TagInputChangeContext;

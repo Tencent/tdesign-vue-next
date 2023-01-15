@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### TagInput Props
 
 name | type | default | description | required
@@ -36,7 +35,7 @@ onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>
 onDragSort | Function |  | Typescript：`(context: TagInputDragSortContext) => void`<br/>trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface TagInputDragSortContext { newTags: TagInputValue; currentIndex: number; current: string \| number; targetIndex: number; target: string \| number }`<br/> | N
 onEnter | Function |  | Typescript：`(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void`<br/>trigger on focus | N
-onInputChange | Function |  | Typescript：`(value: InputValue, context?: InputValueChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface InputValueChangeContext { e?: InputEvent \| MouseEvent \| KeyboardEvent; trigger: 'input' \| 'clear' \| 'enter'  }`<br/> | N
+onInputChange | Function |  | Typescript：`(value: InputValue, context?: InputValueChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface InputValueChangeContext { e?: InputEvent \| MouseEvent \| CompositionEvent \| KeyboardEvent; trigger: 'input' \| 'clear' \| 'enter'  }`<br/> | N
 onMouseenter | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on mouseenter | N
 onMouseleave | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on mouseleave | N
 onPaste | Function |  | Typescript：`(context: { e: ClipboardEvent; pasteValue: string }) => void`<br/> | N
@@ -52,7 +51,7 @@ clear | `(context: { e: MouseEvent })` | \-
 drag-sort | `(context: TagInputDragSortContext)` | trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface TagInputDragSortContext { newTags: TagInputValue; currentIndex: number; current: string \| number; targetIndex: number; target: string \| number }`<br/>
 enter | `(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue })` | \-
 focus | `(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent })` | trigger on focus
-input-change | `(value: InputValue, context?: InputValueChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface InputValueChangeContext { e?: InputEvent \| MouseEvent \| KeyboardEvent; trigger: 'input' \| 'clear' \| 'enter'  }`<br/>
+input-change | `(value: InputValue, context?: InputValueChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。<br/>`interface InputValueChangeContext { e?: InputEvent \| MouseEvent \| CompositionEvent \| KeyboardEvent; trigger: 'input' \| 'clear' \| 'enter'  }`<br/>
 mouseenter | `(context: { e: MouseEvent })` | trigger on mouseenter
 mouseleave | `(context: { e: MouseEvent })` | trigger on mouseleave
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | \-

@@ -7,6 +7,7 @@
       show-limit-number
       clearable
       placeholder="内置字数限制，最大文本长度，一个中文字等于一个长度"
+      @compositionend="onCompositionend"
     />
 
     <t-input
@@ -46,5 +47,8 @@ const suffix = computed(() => {
 
 const onValidate = ({ error }) => {
   errorTips.value = error ? '输入内容长度不允许超过 5 个字' : '';
+};
+const onCompositionend = () => {
+  console.log('onCompositionend');
 };
 </script>

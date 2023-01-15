@@ -89,6 +89,24 @@ export default defineComponent({
       }),
     );
 
+    const wrapClasses = computed(() => [
+      INPUT_WRAP_CLASS.value,
+      {
+        [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
+      },
+    ]);
+
+    const inputEvents = getValidAttrs({
+      onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
+      onBlur: inputHandle.formatAndEmitBlur,
+      onKeydown: inputEventHandler.handleKeydown,
+      onKeyup: inputEventHandler.handleKeyUp,
+      onKeypress: inputEventHandler.handleKeypress,
+      onPaste: inputEventHandler.onHandlePaste,
+      onCompositionend: inputHandle.onHandleCompositionend,
+      onCompositionstart: inputHandle.onHandleCompositionstart,
+    });
+
     return () => {
       const prefixIcon = renderTNodeJSX('prefixIcon');
       let suffixIcon = renderTNodeJSX('suffixIcon');
@@ -144,46 +162,28 @@ export default defineComponent({
         }
       }
 
-      const wrapClasses = computed(() => [
-        INPUT_WRAP_CLASS.value,
-        {
-          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth && !props.keepWrapperWidth,
-        },
-      ]);
-
-      const classes = computed(() => [
+      const classes = [
         COMPONENT_NAME.value,
         props.inputClass,
         {
           [SIZE.value[props.size]]: props.size !== 'medium',
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
-          [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value,
+          [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
           [`${classPrefix.value}-is-readonly`]: props.readonly,
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
         },
-      ]);
-
-      const inputEvents = getValidAttrs({
-        onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
-        onBlur: inputHandle.formatAndEmitBlur,
-        onKeydown: inputEventHandler.handleKeydown,
-        onKeyup: inputEventHandler.handleKeyUp,
-        onKeypress: inputEventHandler.handleKeypress,
-        onPaste: inputEventHandler.onHandlePaste,
-        onCompositionend: inputHandle.onHandleCompositionend,
-        onCompositionstart: inputHandle.onHandleCompositionstart,
-      });
+      ];
 
       const tips = renderTNodeJSX('tips');
 
       return (
         <div class={wrapClasses.value}>
           <div
-            class={classes.value}
+            class={classes}
             onClick={inputHandle.onRootClick}
             onMouseenter={inputEventHandler.onInputMouseenter}
             onMouseleave={inputEventHandler.onInputMouseleave}
