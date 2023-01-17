@@ -1,27 +1,37 @@
-import { Ref, onMounted, onBeforeUnmount } from 'vue';
+import type { Ref } from 'vue';
+import { watch } from 'vue';
 
 export default function useResizeObserver(
   container: Ref<HTMLElement>,
-  callback: (data: [ResizeObserverEntry]) => void,
+  callback: (data: ResizeObserverEntry[]) => void,
 ) {
-  let containerObserver: ResizeObserver = null;
+  const isSupport = window && window.ResizeObserver;
+  if (!isSupport) {
+    console.warn('ResizeObserver is not supported in this browser');
+    return;
+  }
 
-  const observeContainer = () => {
-    if (!container || !container.value || !window || !window.ResizeObserver) {
-      containerObserver?.unobserve(container.value);
-      containerObserver?.disconnect();
-    } else {
-      containerObserver = new ResizeObserver(callback);
-      containerObserver.observe(container.value);
+  let ro: ResizeObserver = null;
+
+  const cleanupObserver = () => {
+    if (ro) {
+      ro.disconnect();
+      ro = null;
     }
   };
 
-  onMounted(() => {
-    observeContainer();
-  });
-
-  onBeforeUnmount(() => {
-    containerObserver?.unobserve(container.value);
-    containerObserver?.disconnect();
-  });
+  watch(
+    container,
+    (el) => {
+      cleanupObserver();
+      if (el) {
+        ro = new ResizeObserver(callback);
+        ro.observe(el);
+      }
+    },
+    {
+      immediate: true,
+      flush: 'post',
+    },
+  );
 }
