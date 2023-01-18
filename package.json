@@ -71,7 +71,7 @@
     "lint:tsc": "tsc --emitDeclarationOnly",
     "test": "npm run test:unit && npm run test:snap",
     "test:demo": "node src/_common/test/script/generate-demo-test.js",
-    "test:unit": "vitest run --config site/vite.config.js",
+    "test:unit": "cross-env NODE_ENV=test-unit vitest run --config site/vite.config.js",
     "test:update": "vitest run --config site/vite.config.js -u && npm run test:snap-update",
     "test:unit-dev": "vitest --config site/vite.config.js",
     "test:unit-gui": "vitest --config site/vite.config.js --ui",
