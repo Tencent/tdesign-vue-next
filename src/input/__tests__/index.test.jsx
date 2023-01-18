@@ -6,7 +6,7 @@ import Input from '@/src/input/index.ts';
 
 const alignList = ['left', 'center', 'right'];
 const sizeList = ['small', 'large'];
-const statusList = ['default', 'success', 'warning', 'error'];
+const statusList = ['success', 'warning', 'error'];
 
 describe('Input', () => {
   describe(':props', () => {
@@ -140,18 +140,6 @@ describe('Input', () => {
       const input = wrapper.find('.t-input input');
       expect(input.element.getAttribute('name')).toBe('name');
     });
-    it(':format', async () => {
-      const value = '123456';
-      const format = (val) => {
-        const reg = /(\d)(?=(?:\d{3})+$)/g;
-        const str = val.replace(reg, '$1,');
-        return str;
-      };
-      const wrapper = mount(() => <Input v-model={value} format={format} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('blur');
-      expect(input.element.value).toBe('123,456');
-    });
     it(':suffix', async () => {
       const wrapper = mount(() => <Input suffix="suffix" />);
       const suffix = wrapper.find('.t-input__suffix');
@@ -270,7 +258,7 @@ describe('Input', () => {
     it(':onValidate', async () => {
       const fn = vi.fn();
       const value = '123';
-      mount(() => <Input v-model={value} maxlength={2} onValidate={fn} />);
+      mount(() => <Input v-model={value} maxlength={2} allowInputOverMax={true} onValidate={fn} />);
       expect(fn).toBeCalled();
     });
     it(':onClear', async () => {

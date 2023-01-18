@@ -52,7 +52,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitClear = ({ e }: { e: MouseEvent }) => {
-    setInnerValue('', { e });
+    setInnerValue('', { e, trigger: 'clear' });
     props.onClear?.({ e });
   };
 
@@ -79,12 +79,15 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const inputValueChangeHandle = (e: InputEvent | CompositionEvent) => {
     const { target } = e;
     let val = (target as HTMLInputElement).value;
-    if (props.type !== 'number') {
+    // over length: allow delete; not add
+    if (props.type !== 'number' && val.length > innerValue.value?.length) {
       val = getValueByLimitNumber(val);
     }
-    setInnerValue(val, { e } as { e: InputEvent });
+    setInnerValue(val, { e } as { e: InputEvent; trigger: 'input' });
     // 受控
-    nextTick(() => setInputElValue(innerValue.value));
+    nextTick(() => {
+      setInputElValue(innerValue.value);
+    });
   };
 
   const handleInput = (e: InputEvent) => {
@@ -128,6 +131,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const onRootClick = (e: MouseEvent) => {
     inputRef.value?.focus();
+    props.onClick?.({ e });
   };
 
   watch(
@@ -144,15 +148,20 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   watch(
     innerValue,
-    (v) => {
+    (val) => {
       const { format } = props;
       if (format) {
-        const r = format(innerValue.value);
+        const r = format(val);
         if (inputValue.value !== r) {
           inputValue.value = r;
         }
       } else {
-        inputValue.value = v;
+        inputValue.value = val;
+      }
+      // limit props value
+      const newVal = getValueByLimitNumber(val);
+      if (newVal !== val && props.type !== 'number') {
+        setInnerValue(newVal, { trigger: 'initial' });
       }
     },
     { immediate: true },

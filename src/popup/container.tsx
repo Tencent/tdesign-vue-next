@@ -1,6 +1,23 @@
-import { defineComponent, onMounted, onUnmounted, ref, Fragment, Text, watch, PropType, VNode, Teleport } from 'vue';
+import {
+  defineComponent,
+  getCurrentInstance,
+  onMounted,
+  onUnmounted,
+  ref,
+  Ref,
+  Fragment,
+  Text,
+  watch,
+  PropType,
+  VNode,
+  Teleport,
+  onUpdated,
+  Component,
+  ComponentInternalInstance,
+} from 'vue';
 import { getAttach } from '../utils/dom';
 import props from './props';
+import useResizeObserver from '../hooks/useResizeObserver';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];
@@ -25,97 +42,91 @@ function filterEmpty(children: VNode[] = []) {
 }
 
 function isContentRectChanged(rect1: DOMRectReadOnly, rect2: DOMRectReadOnly) {
-  if (!rect1 || !rect2) return;
+  if (!rect1 && !rect2) return false;
+  if (!rect1 || !rect2) return true;
   if (['width', 'height', 'x', 'y'].some((k) => rect1[k] !== rect2[k])) {
     return true;
   }
   return false;
 }
 
-function observeResize(elm: HTMLElement, cb: (rect: DOMRectReadOnly) => void) {
-  if (!window?.ResizeObserver || !elm) return;
-  let prevContentRect = null as DOMRectReadOnly;
-  const ro = new ResizeObserver((entries = []) => {
-    const { contentRect } = entries[0] || {};
-    if (isContentRectChanged(contentRect, prevContentRect)) {
-      prevContentRect = contentRect;
-      cb(contentRect);
-      return;
-    }
-    // omit initial change
-    if (!prevContentRect) {
-      prevContentRect = contentRect;
-    }
-  });
+function useElement(elmFn: (instance: ComponentInternalInstance) => HTMLElement, cb?: (el: HTMLElement) => void) {
+  const el = ref<HTMLElement>(null);
 
-  if (elm.nodeType !== 1) return;
+  const instance = getCurrentInstance();
+  if (!instance) {
+    console.warn('useElement must be called in setup()');
+    return;
+  }
 
-  ro.observe(elm);
-  return function () {
-    ro.unobserve(elm);
-  };
-}
-
-function useObserveResize(elm: () => HTMLElement, cb: Parameters<typeof observeResize>[1]) {
-  let cleanOR: ReturnType<typeof observeResize>;
   onMounted(() => {
-    cleanOR = observeResize(elm(), cb);
+    el.value = elmFn(instance);
+    cb?.(el.value);
   });
-  onUnmounted(() => {
-    cleanOR?.();
+  onUpdated(() => {
+    const newEl = elmFn(instance);
+    if (el.value !== newEl) {
+      el.value = newEl;
+      cb?.(el.value);
+    }
   });
+
+  return el;
 }
 
 // eslint-disable-next-line vue/one-component-per-file
 const Trigger = defineComponent({
+  name: 'TPopupTrigger',
+  props: {
+    forwardRef: Function as PropType<(el: HTMLElement) => void>,
+  },
   emits: ['resize'],
-  data() {
-    return {
-      cleanOR: null,
-    };
-  },
-  mounted() {
-    // There is no better way to get the root element than `this.$el`
-    this.cleanOR = observeResize(this.$el, () => {
-      this.$emit('resize');
+  setup(props, { emit, slots }) {
+    const el = useElement((instance) => instance.vnode.el as HTMLElement);
+    const contentRect: Ref<DOMRectReadOnly> = ref(null);
+
+    watch(el, () => {
+      props.forwardRef?.(el.value);
     });
-  },
-  unmounted() {
-    this.cleanOR?.();
-  },
-  render() {
-    const children = filterEmpty(this.$slots.default());
-    if (children.length > 1 || children[0]?.type === Text) {
-      return <span>{children}</span>;
-    }
-    return children[0];
+
+    useResizeObserver(el, ([{ contentRect: newContentRect }]) => {
+      contentRect.value = newContentRect;
+    });
+
+    watch(contentRect, (newRect, oldRect) => {
+      if (isContentRectChanged(newRect, oldRect)) {
+        emit('resize');
+      }
+    });
+
+    return () => {
+      const children = filterEmpty(slots.default?.());
+      if (children.length > 1 || children[0]?.type === Text) {
+        return <span>{children}</span>;
+      }
+      return children[0];
+    };
   },
 });
 
 // eslint-disable-next-line vue/one-component-per-file
 const Content = defineComponent({
+  name: 'TPopupContent',
   emits: ['resize'],
   setup(props, { emit }) {
-    const el = ref(null);
-    useObserveResize(
-      () => el.value.children[0],
-      () => {
-        emit('resize');
-      },
-    );
-    return { el };
+    const contentEl = useElement((instance) => instance.vnode.el.children[0] as HTMLElement);
+    useResizeObserver(contentEl, () => {
+      emit('resize');
+    });
   },
   render() {
-    return (
-      <div ref="el" style="position: absolute; top: 0px; left: 0px; width: 100%">
-        {this.$slots.default()}
-      </div>
-    );
+    return <div style="position: absolute; top: 0px; left: 0px; width: 100%">{this.$slots.default()}</div>;
   },
 });
 
 // eslint-disable-next-line vue/one-component-per-file
 export default defineComponent({
+  name: 'TPopupContainer',
   inheritAttrs: false,
   props: {
     parent: Object,
@@ -125,14 +136,13 @@ export default defineComponent({
   },
   emits: ['resize', 'contentMounted'],
   setup(props, { emit }) {
-    const triggerRef = ref<VNode & { $el: HTMLElement }>(null);
+    const triggerEl = ref<HTMLElement>(null);
     const mountContent = ref(false);
 
     onMounted(() => {
       requestAnimationFrame(() => {
         mountContent.value = props.visible;
       });
-      props.forwardRef(triggerRef.value.$el);
     });
 
     watch(
@@ -146,7 +156,7 @@ export default defineComponent({
 
     return {
       mountContent,
-      triggerRef,
+      triggerEl,
       unmountContent() {
         mountContent.value = false;
       },
@@ -165,13 +175,16 @@ export default defineComponent({
           {...{
             class: this.$attrs.class,
           }}
-          ref="triggerRef"
+          forwardRef={(el: HTMLElement) => {
+            this.forwardRef(el);
+            this.triggerEl = el;
+          }}
           onResize={this.emitResize}
         >
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (
-          <Teleport to={getAttach(this.attach, this.triggerRef?.$el)}>
+          <Teleport to={getAttach(this.attach, this.triggerEl)}>
             <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
               {this.$slots.content && this.$slots.content()}
             </Content>

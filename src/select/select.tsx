@@ -45,14 +45,13 @@ export default defineComponent({
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
+      if (orgValue.value === undefined) {
+        return props.multiple ? [] : undefined;
+      }
       if (props.valueType === 'object') {
         return !props.multiple
           ? orgValue.value[keys.value.value]
           : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
-      }
-      // 处理多选情况下值为非迭代器的情况
-      if (props.multiple && !orgValue.value) {
-        return [];
       }
       return orgValue.value;
     });
@@ -60,6 +59,9 @@ export default defineComponent({
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
+          if (val === undefined) {
+            return undefined;
+          }
           const option = optionsMap.value.get(val);
           return {
             [value]: get(option, value),

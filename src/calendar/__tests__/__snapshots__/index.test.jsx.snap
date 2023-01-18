@@ -33,7 +33,7 @@ exports[`Calendar > :props > :cell 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -100,7 +100,7 @@ exports[`Calendar > :props > :cell 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -558,7 +558,7 @@ exports[`Calendar > :props > :cell 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -625,7 +625,7 @@ exports[`Calendar > :props > :cell 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -1162,7 +1162,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -1229,7 +1229,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -2072,7 +2072,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -2139,7 +2139,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -3729,7 +3729,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -3796,7 +3796,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -4649,7 +4649,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -4716,7 +4716,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -5559,7 +5559,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -5626,7 +5626,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -6474,7 +6474,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -6541,7 +6541,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -7505,7 +7505,7 @@ exports[`Calendar > :props > :format 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -7572,7 +7572,7 @@ exports[`Calendar > :props > :format 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -8422,7 +8422,7 @@ exports[`Calendar > :props > :head 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -8489,7 +8489,7 @@ exports[`Calendar > :props > :head 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -9334,7 +9334,7 @@ exports[`Calendar > :props > :head 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -9401,7 +9401,7 @@ exports[`Calendar > :props > :head 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -10253,7 +10253,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -10320,7 +10320,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -11163,7 +11163,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -11230,7 +11230,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -11920,7 +11920,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -11987,7 +11987,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -12830,7 +12830,7 @@ exports[`Calendar > :props > :mode 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -13240,7 +13240,7 @@ exports[`Calendar > :props > :multiple 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -13307,7 +13307,7 @@ exports[`Calendar > :props > :multiple 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -14157,7 +14157,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -14224,7 +14224,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -15067,7 +15067,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -15134,7 +15134,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -15982,7 +15982,7 @@ exports[`Calendar > :props > :range 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -16049,7 +16049,7 @@ exports[`Calendar > :props > :range 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -16899,7 +16899,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -16966,7 +16966,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-size-s t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -17782,7 +17782,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -17849,7 +17849,7 @@ exports[`Calendar > :props > :theme 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -18670,7 +18670,7 @@ exports[`Calendar > :props > :value 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -18737,7 +18737,7 @@ exports[`Calendar > :props > :value 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -19587,7 +19587,7 @@ exports[`Calendar > :props > :week 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -19654,7 +19654,7 @@ exports[`Calendar > :props > :week 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -20483,7 +20483,7 @@ exports[`Calendar > :props > :week 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -20550,7 +20550,7 @@ exports[`Calendar > :props > :week 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -21402,7 +21402,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -21469,7 +21469,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -22312,7 +22312,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -22379,7 +22379,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                 class="t-input__wrap t-input--auto-width"
               >
                 <div
-                  class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                  class="t-input t-is-readonly t-input--prefix t-input--suffix"
                 >
                   <!---->
                   <div
@@ -23227,7 +23227,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -23294,7 +23294,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -23895,7 +23895,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -23962,7 +23962,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -24953,7 +24953,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -25020,7 +25020,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -25866,7 +25866,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div
@@ -25933,7 +25933,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
               class="t-input__wrap t-input--auto-width"
             >
               <div
-                class="t-input t-is-default t-is-readonly t-input--prefix t-input--suffix"
+                class="t-input t-is-readonly t-input--prefix t-input--suffix"
               >
                 <!---->
                 <div

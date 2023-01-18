@@ -108,7 +108,7 @@ describe('TagInput', () => {
     });
 
     it(':status', () => {
-      const statusList = ['default', 'success', 'warning', 'error'];
+      const statusList = ['success', 'warning', 'error'];
       statusList.forEach((status) => {
         const wrapper = mount(() => <TagInput status={status} />);
         const input = wrapper.find('.t-input');

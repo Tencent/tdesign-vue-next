@@ -12,6 +12,7 @@ import {
   getStepValue,
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
+import { TdInputProps } from '../input';
 
 export const specialCode = ['-', '.', 'e', 'E'];
 
@@ -140,14 +141,14 @@ export default function useInputNumber(props: TdInputNumberProps) {
     setTValue(r.newValue, { type: 'add', e });
   };
 
-  const onInnerInputChange = (val: string, { e }: { e: InputEvent }) => {
+  const onInnerInputChange: TdInputProps['onChange'] = (val, { e }) => {
     if (!canInputNumber(val, props.largeNumber)) return;
     if (props.largeNumber) {
       setTValue(val, { type: 'input', e });
       return;
     }
     // specialCode 新增或删除这些字符时不触发 change 事件
-    const isDelete = e.inputType === 'deleteContentBackward';
+    const isDelete = (e as InputEvent).inputType === 'deleteContentBackward';
     const inputSpecialCode = specialCode.includes(val.slice(-1)) || val.slice(-2) === '.0';
     const deleteSpecialCode = isDelete && specialCode.includes(String(userInput.value).slice(-1));
     if ((!isNaN(Number(val)) && !inputSpecialCode) || deleteSpecialCode) {

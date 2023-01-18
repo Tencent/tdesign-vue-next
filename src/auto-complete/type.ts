@@ -112,7 +112,7 @@ export interface TdAutoCompleteProps<T extends AutoCompleteOption = AutoComplete
   /**
    * 输入框值发生变化时触发
    */
-  onChange?: (value: string, context?: { e?: InputEvent | MouseEvent | KeyboardEvent }) => void;
+  onChange?: (value: string, context?: { e?: InputEvent | MouseEvent | CompositionEvent | KeyboardEvent }) => void;
   /**
    * 清空按钮点击时触发
    */
