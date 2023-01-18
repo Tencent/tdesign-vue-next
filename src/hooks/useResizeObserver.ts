@@ -7,7 +7,8 @@ export default function useResizeObserver(
 ) {
   const isSupport = window && window.ResizeObserver;
   if (!isSupport) {
-    console.warn('ResizeObserver is not supported in this browser');
+    const env = process.env.NODE_ENV;
+    !['test-unit', 'test-snap'].includes(env) && console.warn('ResizeObserver is not supported in this browser');
     return;
   }
 

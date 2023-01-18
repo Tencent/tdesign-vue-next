@@ -298,7 +298,7 @@ export default defineComponent({
         if (typeof disableCheck === 'function') {
           checkboxDisabled = disableCheck(node as TreeNodeModel & TreeNode);
         } else {
-          checkboxDisabled = !!disableCheck;
+          checkboxDisabled = !!disableCheck || node.data?.checkable === false;
         }
         if (node.isDisabled()) {
           checkboxDisabled = true;
