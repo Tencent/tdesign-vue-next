@@ -149,6 +149,7 @@ export default defineComponent({
     function updatePopper() {
       if (!popperEl.value || !innerVisible.value) return;
       if (popper) {
+        popper.state.elements.reference = triggerEl.value;
         popper.update();
         return;
       }

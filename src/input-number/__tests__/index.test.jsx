@@ -108,7 +108,7 @@ describe('InputNumber', () => {
     });
 
     it(':status', () => {
-      const statusList = ['default', 'success', 'warning', 'error'];
+      const statusList = ['success', 'warning', 'error'];
       statusList.forEach((status) => {
         const wrapper = mount(() => <InputNumber status={status} />);
         const input = wrapper.find('.t-input');

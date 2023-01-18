@@ -11,7 +11,7 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  name: 'TimePickerPanel',
+  name: 'TTimePickerPanel',
 
   props: {
     ...panelProps(),

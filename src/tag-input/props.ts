@@ -75,7 +75,6 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdTagInputProps['status']>,
-    default: 'default' as TdTagInputProps['status'],
     validator(val: TdTagInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
@@ -113,6 +112,7 @@ export default {
   /** 值，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdTagInputProps['defaultValue']>,
+    default: (): TdTagInputProps['defaultValue'] => [],
   },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {

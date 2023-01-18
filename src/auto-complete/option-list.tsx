@@ -1,10 +1,11 @@
-import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
+import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount, onMounted } from 'vue';
 import isFunction from 'lodash/isFunction';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks/useConfig';
+import { on, off } from '../utils/dom';
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',
@@ -22,7 +23,7 @@ export default defineComponent({
 
   emits: ['select'],
 
-  setup(props, { emit, slots }) {
+  setup(props, { emit, slots, expose }) {
     const active = ref('');
     const classPrefix = usePrefixClass();
 
@@ -92,13 +93,26 @@ export default defineComponent({
       }
     };
 
+    const addKeyboardListener = () => {
+      on(document, 'keydown', onKeyInnerPress);
+    };
+
+    const removeKeyboardListener = () => {
+      off(document, 'keydown', onKeyInnerPress);
+    };
+
+    expose({
+      addKeyboardListener,
+      removeKeyboardListener,
+    });
+
     watch(
       () => props.popupVisible,
       () => {
         if (props.popupVisible) {
-          document.addEventListener('keydown', onKeyInnerPress);
+          addKeyboardListener();
         } else {
-          document.removeEventListener('keydown', onKeyInnerPress);
+          removeKeyboardListener();
         }
       },
       { immediate: true },
@@ -115,7 +129,7 @@ export default defineComponent({
     );
 
     onBeforeUnmount(() => {
-      document.removeEventListener('keydown', onKeyInnerPress);
+      removeKeyboardListener();
     });
 
     return () => {

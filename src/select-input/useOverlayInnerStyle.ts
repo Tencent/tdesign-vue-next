@@ -7,7 +7,7 @@ import { useFormDisabled } from '../form/hooks';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
-  'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'disabled' | 'allowInput'
+  'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'disabled' | 'allowInput' | 'popupVisible'
 >;
 
 // 单位：px
@@ -43,8 +43,11 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
     if (disable.value || props.readonly) return;
     // 如果点击触发元素（输入框）且为可输入状态，则继续显示下拉框
     const newVisible = context.trigger === 'trigger-element-click' && props.allowInput ? true : visible;
-    innerPopupVisible.value = newVisible;
-    props.onPopupVisibleChange?.(newVisible, context);
+    // 重复点击触发元素时，下拉框展示状态不变，不重复触发事件
+    if (props.popupVisible !== newVisible) {
+      innerPopupVisible.value = newVisible;
+      props.onPopupVisibleChange?.(newVisible, context);
+    }
   };
 
   const tOverlayInnerStyle = computed(() => {
