@@ -4,6 +4,31 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.4 `2023-01-18` 
+### 🚀 Features
+- `Input`: 
+  - `change` 事件新增 `trigger` 参数，用于表示触发本次数据变化的场景 @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+  - 去除非必要的类名 `t-is-default` @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+  -  新增 `click` 点击事件 @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+### 🐞 Bug Fixes
+- `Cascader`: 修复无法使用 `0` 作为 `value` ([issue #2278](https://github.com/Tencent/tdesign-vue-next/issues/2278)) @AuYuHui ([#2273](https://github.com/Tencent/tdesign-vue-next/pull/2273))
+- `Input`: 修复初始值长度超过 `maxlength` 时无法删除问题 @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+- `AutoComplete`: 修复初次聚焦，键盘事件无法上下选中问题 @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+- `Select`: `valueType` 或 `multiple` 动态切换导致组件失效 ([issue #2206](https://github.com/Tencent/tdesign-vue-next/issues/2206)) @zybzzc ([#2276](https://github.com/Tencent/tdesign-vue-next/pull/2276))
+- `Popup`: 修复 `trigger` 元素变化时 `popper` 位置错误 ([issue #2206](https://github.com/Tencent/tdesign-vue-next/issues/2206)) @zybzzc ([#2277](https://github.com/Tencent/tdesign-vue-next/pull/2277))
+- `TimePicker`: 修复`TimePickerPanel`没有自动注册的问题 @uyarn ([#2283](https://github.com/Tencent/tdesign-vue-next/pull/2283))
+- `Loading`: 修复部分浏览器下 `loading` 晃动问题 @yusongh ([#2244](https://github.com/Tencent/tdesign-vue-next/pull/2244))
+- `SelectInput`: 修复下拉弹窗状态未改变时，重复触发 `onPopupVisibleChange` 事件的问题 @xiaosansiji ([#2284](https://github.com/Tencent/tdesign-vue-next/pull/2284))
+- `Tree`: 修复节点的 `checkable: false` 不生效 ([issue #1987](https://github.com/Tencent/tdesign-vue-next/issues/1987)) @pengYYYYY ([#2286](https://github.com/Tencent/tdesign-vue-next/pull/2286))
+### 🚧 Others
+- `Input`: 
+  - 更新文档 @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+  -  输出完整的测试用例，覆盖率达到 `98.11%` @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+- `Card`: 修改示例部分带操作代码无法点击情况 @AuYuHui ([#2273](https://github.com/Tencent/tdesign-vue-next/pull/2273))
+- `AutoComplete`: 新增键盘事件测试用例检测，测试覆盖率达到 `98.47%` @chaishi ([#2275](https://github.com/Tencent/tdesign-vue-next/pull/2275))
+- `Select`: 补充单元测试 @zybzzc ([#2276](https://github.com/Tencent/tdesign-vue-next/pull/2276))
+- `Card`: 修改示例部分带操作代码无法点击情况 @AuYuHui ([#2273](https://github.com/Tencent/tdesign-vue-next/pull/2273))
+- `Select`: 补充单元测试 @zybzzc ([#2276](https://github.com/Tencent/tdesign-vue-next/pull/2276))
 ## 🌈 1.0.3 `2023-01-12` 
 ### 🚀 Features
 - `Table`: 
