@@ -21,18 +21,19 @@ export default function useResizeObserver(
     }
   };
 
-  watch(
-    container,
-    (el) => {
-      cleanupObserver();
-      if (el) {
-        ro = new ResizeObserver(callback);
-        ro.observe(el);
-      }
-    },
-    {
-      immediate: true,
-      flush: 'post',
-    },
-  );
+  container &&
+    watch(
+      container,
+      (el) => {
+        cleanupObserver();
+        if (el) {
+          ro = new ResizeObserver(callback);
+          ro.observe(el);
+        }
+      },
+      {
+        immediate: true,
+        flush: 'post',
+      },
+    );
 }

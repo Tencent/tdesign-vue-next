@@ -286,10 +286,6 @@ export default defineComponent({
     watch(
       cellValue,
       (cellValue) => {
-        // let val = cellValue;
-        // if (typeof val === 'object' && val !== null) {
-        //   val = val instanceof Array ? [...val] : { ...val };
-        // }
         editValue.value = cellValue;
       },
       { immediate: true },
