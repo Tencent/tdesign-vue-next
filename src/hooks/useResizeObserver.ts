@@ -1,5 +1,4 @@
-import type { Ref } from 'vue';
-import { watch } from 'vue';
+import { Ref, watch, onBeforeUnmount } from 'vue';
 
 export default function useResizeObserver(
   container: Ref<HTMLElement>,
@@ -12,28 +11,32 @@ export default function useResizeObserver(
     return;
   }
 
-  let ro: ResizeObserver = null;
+  let containerObserver: ResizeObserver = null;
 
   const cleanupObserver = () => {
-    if (ro) {
-      ro.disconnect();
-      ro = null;
-    }
+    if (!containerObserver) return;
+    containerObserver.unobserve(container.value);
+    containerObserver.disconnect();
+    containerObserver = null;
   };
 
-  container &&
+  const addObserver = (el: HTMLElement) => {
+    containerObserver = new ResizeObserver(callback);
+    containerObserver.observe(el);
+  };
+
+  if (container) {
     watch(
       container,
       (el) => {
         cleanupObserver();
-        if (el) {
-          ro = new ResizeObserver(callback);
-          ro.observe(el);
-        }
+        el && addObserver(el);
       },
-      {
-        immediate: true,
-        flush: 'post',
-      },
+      { immediate: true, flush: 'post' },
     );
+  }
+
+  onBeforeUnmount(() => {
+    cleanupObserver();
+  });
 }
