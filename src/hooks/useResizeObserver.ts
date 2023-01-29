@@ -5,7 +5,7 @@ export default function useResizeObserver(
   callback: (data: ResizeObserverEntry[]) => void,
 ) {
   const isSupport = window && window.ResizeObserver;
-  // unit tests do not need any warn console; to many warns influence focusing on more important log info
+  // unit tests do not need any warn console; too many warns influence focusing on more important log info
   if (!isSupport) return;
 
   let containerObserver: ResizeObserver = null;
