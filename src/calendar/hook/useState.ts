@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
-import { TdCalendarProps, CalendarValue } from '../type';
+import { TdCalendarProps } from '../type';
 import { CalendarState } from '../interface';
 
 export function useState(props: TdCalendarProps) {

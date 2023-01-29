@@ -105,7 +105,7 @@ const filterText = ref('');
 const handleFilterByText = ref(null);
 const expanded = ref(['1.1.1']);
 
-const onInput = (state) => {
+const onInput = (_state) => {
   handleFilterByText.value = (node) => node.data.label.indexOf(filterText.value) >= 0;
 };
 </script>

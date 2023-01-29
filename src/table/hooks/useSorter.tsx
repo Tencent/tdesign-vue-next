@@ -6,7 +6,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 
-export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: SetupContext) {
+export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupContext) {
   const { sort, data } = toRefs(props);
   const originalData = ref();
   const [tSortInfo, setTSortInfo] = useDefaultValue(sort, props.defaultSort, props.onSortChange, 'sort');

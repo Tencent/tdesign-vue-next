@@ -20,7 +20,6 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const options = [
   { label: 'tdesign-vue', value: 1 },
@@ -44,7 +43,7 @@ const onClear = () => {
   selectValue.value = undefined;
 };
 
-const onPopupVisibleChange = (val, context) => {
+const onPopupVisibleChange = (val, _context) => {
   popupVisible.value = val;
 };
 </script>

@@ -74,6 +74,7 @@ export default defineComponent({
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const tableEditableCellRef = ref(null);
     const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();

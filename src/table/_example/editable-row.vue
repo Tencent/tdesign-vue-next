@@ -22,7 +22,7 @@
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
-import { Input, Select, DatePicker, MessagePlugin, Button } from 'tdesign-vue-next';
+import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
 import dayjs from 'dayjs';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
@@ -115,7 +115,7 @@ function onValidate(params) {
 }
 
 const onRowEdit = (params) => {
-  const { row, rowIndex, col, value } = params;
+  const { row, col, value } = params;
   const oldRowData = editMap[row.key]?.editedRow || row;
   const editedRow = { ...oldRowData, [col.colKey]: value };
   editMap[row.key] = {
@@ -185,7 +185,7 @@ const columns = computed(() => [
       component: Select,
       // props, 透传全部属性到 Select 组件
       // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
-      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+      props: ({ _col, _row, _rowIndex, _colIndex, editedRow }) => {
         return {
           multiple: true,
           minCollapsedNum: 1,

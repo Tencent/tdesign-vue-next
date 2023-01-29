@@ -17,7 +17,7 @@
   </t-space>
 </template>
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 const theme = ref('normal');
 
@@ -41,7 +41,7 @@ const panelData = ref([
   },
 ]);
 
-const onDragend = ({ currentIndex, current, targetIndex, target }) => {
+const onDragend = ({ currentIndex, targetIndex }) => {
   [panelData.value[currentIndex], panelData.value[targetIndex]] = [
     panelData.value[targetIndex],
     panelData.value[currentIndex],

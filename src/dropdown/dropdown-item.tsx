@@ -21,7 +21,7 @@ export default defineComponent({
     },
     isSubmenu: Boolean,
   },
-  setup(props, { slots }) {
+  setup(props) {
     const renderTNodeJSX = useTNodeJSX();
 
     const itemRef = ref<HTMLElement>();

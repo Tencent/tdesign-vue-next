@@ -29,8 +29,6 @@ import { ref } from 'vue';
 const color = ref('#0052d9');
 const color2 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
 
-const mode = ref('monochrome');
-
 const handleChange = (value, context) => {
   console.log(value, context);
 };

@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ExtractPropTypes } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { GlobalConfigProvider } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { provideConfig } from './useConfig';

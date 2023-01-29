@@ -63,7 +63,7 @@ const columns = ref([
     width: '150',
     sortType: 'all',
     sorter: (a, b) => a.status - b.status,
-    cell: (h, { col, row }) => {
+    cell: (h, { _col, row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -120,6 +120,7 @@ const sortChange = (sortVal, options) => {
   data.value = options.currentDataSource;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const dataChange = (data) => {
   // 除了 sortChange，也可以在这里对 data.value 进行赋值
   // data.value = data;

@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'TCollapse',
   props,
 
-  setup(props: TdCollapseProps, context) {
+  setup(props: TdCollapseProps) {
     const componentName = usePrefixClass('collapse');
     const borderlessClass = usePrefixClass('-border-less');
     const renderTNodeJSX = useTNodeJSX();

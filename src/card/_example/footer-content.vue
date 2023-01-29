@@ -5,11 +5,6 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const clickHandler = (data) => {
-  MessagePlugin.success(`选中【${data.content}】`);
-};
+<script setup>
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

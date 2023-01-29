@@ -27,7 +27,7 @@
 import { ref, computed } from 'vue';
 
 const options1 = [
-  { value: '选项一', label: (h) => <div>选项一</div> },
+  { value: '选项一', label: (_h) => <div>选项一</div> },
   { value: '选项二', label: '选项二' },
   { value: '选项三', label: '选项三' },
 ];
@@ -35,7 +35,7 @@ const options1 = [
 const options2 = [
   { label: '全选', checkAll: true },
   { value: '选项一', label: '选项一' },
-  { value: '选项二', label: (h) => <div>选项二</div> },
+  { value: '选项二', label: (_h) => <div>选项二</div> },
   { value: '选项三', label: '选项三' },
 ];
 

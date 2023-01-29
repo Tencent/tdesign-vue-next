@@ -47,7 +47,7 @@ const data = [
   { type: 'Object', platform: 'Miniprogram', property: 'C' },
 ];
 
-const expandedRow = (h) => {
+const expandedRow = (_h) => {
   return <div>This is expanded row info</div>;
 };
 

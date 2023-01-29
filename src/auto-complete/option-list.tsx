@@ -1,4 +1,4 @@
-import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount, onMounted } from 'vue';
+import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
 import isFunction from 'lodash/isFunction';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';

@@ -6,7 +6,7 @@ import Loading from '../../loading';
 import useClassName from './useClassName';
 import { useConfig } from '../../hooks/useConfig';
 
-export default function useAsyncLoading(props: TdPrimaryTableProps, context: SetupContext) {
+export default function useAsyncLoading(props: TdPrimaryTableProps, _context: SetupContext) {
   const renderTNode = useTNodeJSX();
   const { globalConfig } = useConfig('table');
   const { isLoadingClass, isLoadMoreClass, asyncLoadingClass } = useClassName();

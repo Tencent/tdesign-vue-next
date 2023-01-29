@@ -78,14 +78,6 @@ export default defineComponent({
 
     const isFolded = computed(() => pageCount.value > props.maxPageBtn);
 
-    const pageCountOption = computed<Array<{ label: string; value: number }>>(() => {
-      const ans = [];
-      for (let i = 1; i <= pageCount.value; i++) {
-        ans.push({ value: i, label: `${i}/${pageCount.value}` });
-      }
-      return ans;
-    });
-
     const sizeOptions = computed<Array<{ label: string; value: number }>>(() => {
       const pageSizeOptions = props.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
       const options = pageSizeOptions.map((option) =>

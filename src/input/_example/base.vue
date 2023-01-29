@@ -16,8 +16,4 @@ const onEnter = () => {
 const onChange = (val) => {
   console.log(val);
 };
-
-const onPaste = (context) => {
-  console.log(context);
-};
 </script>

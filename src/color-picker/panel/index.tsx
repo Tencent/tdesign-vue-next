@@ -267,16 +267,8 @@ export default defineComponent({
     };
   },
   render() {
-    const {
-      t,
-      baseClassName,
-      statusClassNames,
-      globalConfig,
-      recentColors,
-      recentlyUsedColors,
-      swatchColors,
-      showPrimaryColorPreview,
-    } = this;
+    const { t, baseClassName, statusClassNames, globalConfig, recentColors, swatchColors, showPrimaryColorPreview } =
+      this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
