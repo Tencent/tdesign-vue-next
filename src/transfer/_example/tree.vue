@@ -1,7 +1,7 @@
 <template>
   <t-transfer
     v-model="targetValue"
-    v-model:checked="checked"
+    v-model:checked="checkedRef"
     :data="items"
     @change="onChange"
     @checked-change="handleCheckedChange"
@@ -67,9 +67,10 @@ const items = [
 ];
 
 const targetValue = ref([]);
-const checked = ref([]);
+const checkedRef = ref([]);
 
 const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) => {
+  checkedRef.value = checked;
   console.log('handleCheckedChange', {
     checked,
     sourceChecked,
