@@ -1,38 +1,39 @@
-import type { Ref } from 'vue';
-import { watch } from 'vue';
+import { Ref, watch, onBeforeUnmount } from 'vue';
 
 export default function useResizeObserver(
   container: Ref<HTMLElement>,
   callback: (data: ResizeObserverEntry[]) => void,
 ) {
   const isSupport = window && window.ResizeObserver;
-  if (!isSupport) {
-    const env = process.env.NODE_ENV;
-    !['test-unit', 'test-snap'].includes(env) && console.warn('ResizeObserver is not supported in this browser');
-    return;
-  }
+  // unit tests do not need any warn console; too many warns influence focusing on more important log info
+  if (!isSupport) return;
 
-  let ro: ResizeObserver = null;
+  let containerObserver: ResizeObserver = null;
 
   const cleanupObserver = () => {
-    if (ro) {
-      ro.disconnect();
-      ro = null;
-    }
+    if (!containerObserver) return;
+    containerObserver.unobserve(container.value);
+    containerObserver.disconnect();
+    containerObserver = null;
   };
 
-  watch(
-    container,
-    (el) => {
-      cleanupObserver();
-      if (el) {
-        ro = new ResizeObserver(callback);
-        ro.observe(el);
-      }
-    },
-    {
-      immediate: true,
-      flush: 'post',
-    },
-  );
+  const addObserver = (el: HTMLElement) => {
+    containerObserver = new ResizeObserver(callback);
+    containerObserver.observe(el);
+  };
+
+  if (container) {
+    watch(
+      container,
+      (el) => {
+        cleanupObserver();
+        el && addObserver(el);
+      },
+      { immediate: true, flush: 'post' },
+    );
+  }
+
+  onBeforeUnmount(() => {
+    cleanupObserver();
+  });
 }

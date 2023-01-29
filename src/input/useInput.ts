@@ -148,13 +148,10 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   watch(
     innerValue,
-    (val) => {
-      const { format } = props;
-      if (format) {
-        const r = format(val);
-        if (inputValue.value !== r) {
-          inputValue.value = r;
-        }
+    (val, oldVal) => {
+      // 初始化时，如果有 format 函数，需要对 value 进行格式化
+      if (oldVal === undefined && props.format) {
+        inputValue.value = props.format(val);
       } else {
         inputValue.value = val;
       }
