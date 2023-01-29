@@ -5,11 +5,8 @@ export default function useResizeObserver(
   callback: (data: ResizeObserverEntry[]) => void,
 ) {
   const isSupport = window && window.ResizeObserver;
-  if (!isSupport) {
-    const env = process.env.NODE_ENV;
-    !['test-unit', 'test-snap'].includes(env) && console.warn('ResizeObserver is not supported in this browser');
-    return;
-  }
+  // unit tests do not need any warn console; to many warns influence focusing on more important log info
+  if (!isSupport) return;
 
   let containerObserver: ResizeObserver = null;
 
