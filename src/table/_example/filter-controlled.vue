@@ -192,7 +192,7 @@ const setFilters = () => {
   data.value = [...initData];
 };
 
-const getAttach = () => document.body;
+// const getAttach = () => document.body;
 </script>
 <style scoped>
 .table-operations {

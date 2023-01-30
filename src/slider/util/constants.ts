@@ -1,4 +1,4 @@
-import { ComputedRef, InjectionKey, Ref } from 'vue';
+import { InjectionKey } from 'vue';
 
 type SliderPropsInjectKey = InjectionKey<{
   max: number;

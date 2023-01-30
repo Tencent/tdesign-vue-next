@@ -150,39 +150,6 @@ const allActived = computed(() => {
   }
   return arr.join(', ');
 });
-
-const getValueFromString = (val) => {
-  const arr = val.split(',');
-  const vals = [];
-  arr
-    .map((str) => str.trim())
-    .forEach((tag) => {
-      const match = /^\{([^{}]+)\}$/.exec(tag);
-      if (match && match[1]) {
-        vals.push(match[1]);
-      }
-    });
-  return vals;
-};
-
-const onAllCheckedInput = (val) => {
-  console.log('checked input on change', val);
-  const vals = getValueFromString(val);
-  console.log(vals);
-  checked.value = vals;
-};
-
-const onAllExpandedInput = (val) => {
-  console.log('expanded input on change', val);
-  const vals = getValueFromString(val);
-  expanded.value = vals;
-};
-
-const onAllActivedInput = (val) => {
-  console.log('actived input on change', val);
-  const vals = getValueFromString(val);
-  actived.value = vals;
-};
 </script>
 <style scoped>
 .demo-tree-base {

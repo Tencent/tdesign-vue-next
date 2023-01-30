@@ -72,11 +72,17 @@ const items = [
   },
 ];
 
-const handleDragStart = ({ node, e }) => {};
-const handleDragEnd = ({ node, e }) => {};
-const handleDragOver = ({ node, e }) => {};
-const handleDragLeave = ({ node, e }) => {};
+const handleDragStart = ({ node, e }) => {
+  console.log('handleDragStart', node.value, e);
+};
+const handleDragEnd = ({ node, e }) => {
+  console.log('handleDragEnd', node.value, e);
+};
+const handleDragOver = () => {};
+const handleDragLeave = ({ node, e }) => {
+  console.log('handleDragLeave', node.value, e);
+};
 const handleDrop = ({ node, dropPosition, e }) => {
-  console.log(node, dropPosition, e);
+  console.log('handleDrop', node.value, dropPosition, e);
 };
 </script>

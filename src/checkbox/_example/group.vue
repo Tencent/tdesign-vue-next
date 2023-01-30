@@ -27,6 +27,7 @@
 import { ref, computed } from 'vue';
 
 const options1 = [
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   { value: '选项一', label: (h) => <div>选项一</div> },
   { value: '选项二', label: '选项二' },
   { value: '选项三', label: '选项三' },
@@ -35,6 +36,7 @@ const options1 = [
 const options2 = [
   { label: '全选', checkAll: true },
   { value: '选项一', label: '选项一' },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   { value: '选项二', label: (h) => <div>选项二</div> },
   { value: '选项三', label: '选项三' },
 ];

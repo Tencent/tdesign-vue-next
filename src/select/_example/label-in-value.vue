@@ -22,7 +22,7 @@
   </t-space>
 </template>
 <script setup>
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 
 const options = [
   { label: '选项一', value: '1' },
