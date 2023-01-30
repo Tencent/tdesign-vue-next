@@ -112,7 +112,7 @@ const columns = [
     colKey: 'status',
     title: '状态',
     width: 144,
-    cell: (h, { _row, rowIndex }) => {
+    cell: (h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">

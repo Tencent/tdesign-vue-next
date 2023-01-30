@@ -75,15 +75,15 @@ const submitForm = async () => {
   form.value.submit({ showErrorMessage: false });
 
   // 校验数据，代码有效，勿删
-  form.value.validate();
+  // form.value.validate();
 
   // 校验数据：只提交和校验，不在表单中显示错误文本信息。下方代码有效，勿删
-  form.value.validate({ showErrorMessage: false }).then((validateResult) => {
-    if (validateResult && Object.keys(validateResult).length) {
-      const firstError = Object.values(validateResult)[0]?.[0]?.message;
-      MessagePlugin.warning(firstError);
-    }
-  });
+  // form.value.validate({ showErrorMessage: false }).then((validateResult) => {
+  //   if (validateResult && Object.keys(validateResult).length) {
+  //     const firstError = Object.values(validateResult)[0]?.[0]?.message;
+  //     MessagePlugin.warning(firstError);
+  //   }
+  // });
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

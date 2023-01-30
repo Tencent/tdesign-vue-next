@@ -87,7 +87,7 @@ const getColumns = (isFixedColumn) => [
   {
     colKey: 'status',
     title: '申请状态',
-    cell: (h, { _col, row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -163,7 +163,7 @@ watch(
       expandIcon.value = false;
     } else if (val === 'custom') {
       // 完全自由控制表格的每一行是否显示展开图标，以及显示什么内容
-      expandIcon.value = (h, { _row, index }) => {
+      expandIcon.value = (h, { index }) => {
         // 第一行不显示展开图标
         if (index === 0) return false;
         // 第三行，使用自定义展开图标

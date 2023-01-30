@@ -68,7 +68,8 @@ export default function useRange(props: TdDateRangePickerProps) {
       props.onFocus?.({ value: newVal, partial: PARTIAL_MAP[position], e });
       activeIndex.value = position === 'first' ? 0 : 1;
     },
-    onChange: (newVal: string[], { _e, _position }: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onChange: (newVal: string[], { e, position }: any) => {
       inputValue.value = newVal;
 
       // 跳过不符合格式化的输入框内容

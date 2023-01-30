@@ -63,7 +63,7 @@ const columns = ref([
     width: '150',
     sortType: 'all',
     sorter: (a, b) => a.status - b.status,
-    cell: (h, { _col, row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}

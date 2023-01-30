@@ -61,13 +61,13 @@ const columns = ref([
     width: 120,
     align: 'center',
     // 设置单元格类名
-    className: ({ _type, row }) => {
+    className: ({ row }) => {
       if (row.time >= 9) {
         return 'custom-cell-class-name';
       }
       return '';
     },
-    attrs: ({ _type, row }) => {
+    attrs: ({ row }) => {
       if (row.time >= 9) {
         return {
           style: {
@@ -83,7 +83,7 @@ const columns = ref([
     title: '签署方式',
     width: 120,
     align: 'right',
-    className: ({ _type, _row }) => {
+    className: () => {
       return 'custom-cell-class-name';
     },
   },
@@ -91,7 +91,7 @@ const columns = ref([
   { colKey: 'createTime', title: '申请时间' },
 ]);
 
-const getRowClassName = ({ _row, rowIndex }) => {
+const getRowClassName = ({ rowIndex }) => {
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };

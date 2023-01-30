@@ -43,7 +43,7 @@ const onClear = () => {
   selectValue.value = undefined;
 };
 
-const onPopupVisibleChange = (val, _context) => {
+const onPopupVisibleChange = (val) => {
   popupVisible.value = val;
 };
 </script>
