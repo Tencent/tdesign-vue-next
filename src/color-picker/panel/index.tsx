@@ -127,9 +127,11 @@ export default defineComponent({
         color.value.update(
           color.value.gradientColors.length > 0 ? color.value.linearGradient : DEFAULT_LINEAR_GRADIENT,
         );
-        return;
+      } else {
+        color.value.update(color.value.rgba);
       }
-      color.value.update(color.value.rgba);
+
+      emitColorChange();
     };
 
     /**
