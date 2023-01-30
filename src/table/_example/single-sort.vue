@@ -116,9 +116,9 @@ const onChange = (info, context) => {
 };
 
 // 非受控用法，不需要传递 sort 给 Table 组件，因而此处无需执行 this.sort = sort 进行赋值
-const defaultSortChange = (sort) => {
-  this.request(sort);
-};
+// const defaultSortChange = (sort) => {
+//   this.request(sort);
+// };
 </script>
 
 <style lang="less">

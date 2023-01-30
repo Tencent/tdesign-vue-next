@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
 import { SearchOption } from '../interface';

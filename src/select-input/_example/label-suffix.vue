@@ -85,6 +85,7 @@ const onPopupVisibleChange = (val, context) => {
 };
 
 const onPopupVisibleChange2 = (val, context) => {
+  console.log(context);
   popupVisible2.value = val;
 };
 </script>

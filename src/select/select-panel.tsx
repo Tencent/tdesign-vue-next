@@ -71,12 +71,11 @@ export default defineComponent({
       return res;
     });
 
-    const { trs, scrollHeight, translateY, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } =
-      usePanelVirtualScroll({
-        scroll: props.scroll,
-        popupContentRef,
-        options: displayOptions,
-      });
+    const { trs, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } = usePanelVirtualScroll({
+      scroll: props.scroll,
+      popupContentRef,
+      options: displayOptions,
+    });
 
     const isEmpty = computed(() => !displayOptions.value.length);
 

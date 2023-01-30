@@ -12,7 +12,7 @@ import useDropdownOptions from './hooks/useDropdownOptions';
 export default defineComponent({
   name: 'TDropdown',
   props,
-  setup(props: TdDropdownProps, { attrs, slots }) {
+  setup(props: TdDropdownProps, { attrs }) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
     const popupElem = ref(null);

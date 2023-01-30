@@ -27,7 +27,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 export default defineComponent({
   name: 'TSelect',
   props: { ...props },
-  setup(props: TdSelectProps, { slots, expose, ...res }) {
+  setup(props: TdSelectProps, { slots }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();

@@ -79,7 +79,7 @@ const columns = [
     colKey: 'status',
     width: '150',
     // 使用 cell 方法自定义单元格：
-    cell: (h, { col, row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -87,7 +87,8 @@ const columns = [
         </t-tag>
       );
     },
-    foot: (h, { rowIndex }) => <div style="width: 100%; ">表尾信息 </div>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    foot: (h) => <div style="width: 100%; ">表尾信息 </div>,
   },
   { colKey: 'channel', title: '签署方式', foot: 't-foot-required' },
   { colKey: 'detail.email', title: '邮箱地址', ellipsis: true, foot: () => <div>表尾信息</div> },

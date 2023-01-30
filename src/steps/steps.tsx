@@ -1,4 +1,4 @@
-import { computed, defineComponent, provide, reactive, ref, toRefs, VNode, watchEffect } from 'vue';
+import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
 import isObject from 'lodash/isObject';
 import props from './props';
 import stepItemProps from './step-item-props';

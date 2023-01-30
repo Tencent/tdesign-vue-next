@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { defineComponent, ref, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const items = [
   {

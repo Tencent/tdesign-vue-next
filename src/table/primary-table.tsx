@@ -94,7 +94,7 @@ export default defineComponent({
       useDragSort(props, context);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
-    const { renderAsyncLoading } = useAsyncLoading(props, context);
+    const { renderAsyncLoading } = useAsyncLoading(props);
 
     const {
       errorListMap,
