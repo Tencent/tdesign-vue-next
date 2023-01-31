@@ -66,6 +66,14 @@ export interface GlobalConfigProvider {
    */
   icon?: IconConfig;
   /**
+   * 图片全局配置
+   */
+  image?: ImageConfig;
+  /**
+   * 图片预览器全局配置
+   */
+  imageViewer?: ImageViewerConfig;
+  /**
    * 输入框组件全局配置
    */
   input?: InputConfig;
@@ -319,6 +327,11 @@ export interface DatePickerConfig {
    * @default ''
    */
   dayAriaLabel?: string;
+  /**
+   * dayjs 语言国际化配置
+   * @default ''
+   */
+  dayjsLocale?: string;
   /**
    * 日期方向，'ltr' 表示从左往右
    * @default 'ltr'
@@ -808,6 +821,42 @@ export interface AnchorConfig {
 }
 
 export interface MessageConfig extends MessageOptions {}
+
+export interface ImageConfig {
+  /**
+   * 图片加载失败显示的文本，中文默认为“图片无法显示”
+   * @default ''
+   */
+  errorText?: string;
+  /**
+   * 图片加载中显示的文本，中文默认为“图片加载中”
+   * @default ''
+   */
+  loadingText?: string;
+}
+
+export interface ImageViewerConfig {
+  /**
+   * 全局语言配置，默认为 “图片加载失败，可尝试重新加载”
+   * @default ''
+   */
+  errorText?: string;
+  /**
+   * 全局语言配置，默认为 “镜像”
+   * @default ''
+   */
+  mirrorTipText?: string;
+  /**
+   * 全局语言配置，默认为 “原始大小”
+   * @default ''
+   */
+  originalSizeTipText?: string;
+  /**
+   * 全局语言配置，默认为 “旋转”
+   * @default ''
+   */
+  rotateTipText?: string;
+}
 
 export interface GuideConfig {
   /**
