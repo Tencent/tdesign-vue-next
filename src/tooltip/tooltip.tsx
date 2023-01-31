@@ -1,5 +1,6 @@
 import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
+import omit from 'lodash/omit';
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
@@ -111,7 +112,7 @@ export default defineComponent({
     return () => (
       <Popup
         ref={popupRef}
-        {...popupProps.value}
+        {...omit(popupProps.value, ['content', 'default'])}
         overlayInnerStyle={overlayInnerStyle.value}
         visible={innerVisible.value}
         v-slots={{
