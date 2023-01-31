@@ -37,28 +37,16 @@ export interface UploadDisplayDragEvents {
   onDragover?: (event: DragEvent) => void;
   onDragleave?: (event: DragEvent) => void;
 }
-
-export type ImageEvent = Event;
-
-/**
- * 通用全局类型
- * */
-export type PlainObject = { [key: string]: any };
+/** 通用全局类型 */
 
 export type OptionData = {
   label?: string;
   value?: string | number;
-} & PlainObject;
+} & { [key: string]: any };
 
-export type TreeOptionData<T = string | number> = {
-  children?: Array<TreeOptionData<T>>;
-  /** option label content */
-  label?: TNode;
-  /** option search text */
-  text?: string;
-  /** option value */
-  value?: T;
-} & PlainObject;
+export type TreeOptionData = {
+  children?: Array<TreeOptionData>;
+} & OptionData;
 
 export type SizeEnum = 'small' | 'medium' | 'large';
 
