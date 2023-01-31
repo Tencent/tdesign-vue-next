@@ -155,9 +155,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       const newVal = val === '' ? undefined : Number(val);
       setTValue(newVal, { type: 'input', e });
     }
-    if (inputSpecialCode || deleteSpecialCode) {
-      userInput.value = val;
-    }
+    userInput.value = val;
   };
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
