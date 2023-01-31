@@ -249,7 +249,7 @@ export default defineComponent({
                       left,
                     }}
                     onClick={(e: MouseEvent) => e.stopPropagation()}
-                    onMousedown={(e: MouseEvent) => this.handleStart(t.id)}
+                    onMousedown={() => this.handleStart(t.id)}
                   >
                     <span class={['gradient-thumbs__item-inner', `${baseClassName}--bg-alpha`]}></span>
                   </li>

@@ -4,6 +4,20 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.5 `2023-01-31` 
+### 🚀 Features
+- `ColorPicker`: 切换单色-渐变模式时触发色值及onChange变化 @uyarn ([#2305](https://github.com/Tencent/tdesign-vue-next/pull/2305))
+### 🐞 Bug Fixes
+- `Input`: 修复使用 `format` 属性时，光标出现跳动 ([issue #2200](https://github.com/Tencent/tdesign-vue-next/issues/2200)) @Lmmmmmm-bb ([#2289](https://github.com/Tencent/tdesign-vue-next/pull/2289))
+- `Table`: 
+  - 可编辑单元格，修复无法退出编辑态问题，[issue#2302](https://github.com/Tencent/tdesign-vue-next/issues/2302) @chaishi ([#2303](https://github.com/Tencent/tdesign-vue-next/pull/2303))
+  - 修复因 `useResizeObserver` 被重写导致的全部场景出现告警的问题 @chaishi ([#2303](https://github.com/Tencent/tdesign-vue-next/pull/2303))
+- `Tooltip`: 修复 `Props` 覆盖插槽问题 ([issue #2250](https://github.com/Tencent/tdesign-vue-next/issues/2250)) @Aicmortal ([#2308](https://github.com/Tencent/tdesign-vue-next/pull/2308))
+- `DatePicker`:  修复 `dayjs` 国际化设置问题 @honkinglin ([#2314](https://github.com/Tencent/tdesign-vue-next/pull/2314))
+- `Notification`: 修复单独引入 `NotifyPlugin` 时没有带入 `css` 样式 ([issue #2312](https://github.com/Tencent/tdesign-vue-next/issues/2312)) @pengYYYYY ([#2316](https://github.com/Tencent/tdesign-vue-next/pull/2316))
+### 🚧 Others
+- `Transfer`:  修复 `tree` 的代码示例 @Lmmmmmm-bb ([#2300](https://github.com/Tencent/tdesign-vue-next/pull/2300))
+- `SelectInput`: 补充单元测试 @whitexie ([#2291](https://github.com/Tencent/tdesign-vue-next/pull/2291))
 ## 🌈 1.0.4 `2023-01-18` 
 ### 🚀 Features
 - `Input`: 

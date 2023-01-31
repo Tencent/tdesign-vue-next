@@ -17,6 +17,7 @@ import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
+import { on, off } from '../utils/dom';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -74,6 +75,7 @@ export default defineComponent({
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const tableEditableCellRef = ref(null);
     const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();
@@ -247,19 +249,9 @@ export default defineComponent({
       }
     };
 
-    const documentClickHandler = (e: PointerEvent) => {
+    const documentClickHandler = () => {
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
-      // @ts-ignore
-      if (e.path?.includes(tableEditableCellRef.value?.$el)) return;
-      // @ts-ignore 如果点击到 Popup 复层也直接返回
-      for (let i = 0, len = e.path.length; i < len; i++) {
-        // @ts-ignore
-        const node = e.path[i];
-        if (node.classList?.value?.includes('popup__content')) {
-          return;
-        }
-      }
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, {
         ...cellParams.value,
@@ -295,10 +287,6 @@ export default defineComponent({
     watch(
       cellValue,
       (cellValue) => {
-        // let val = cellValue;
-        // if (typeof val === 'object' && val !== null) {
-        //   val = val instanceof Array ? [...val] : { ...val };
-        // }
         editValue.value = cellValue;
       },
       { immediate: true },
@@ -310,9 +298,9 @@ export default defineComponent({
         const isCellEditable = props.editable === undefined;
         if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
         if (isEdit) {
-          document.addEventListener('click', documentClickHandler);
+          on(document, 'click', documentClickHandler);
         } else {
-          document.removeEventListener('click', documentClickHandler);
+          off(document, 'click', documentClickHandler);
         }
       },
       { immediate: true },

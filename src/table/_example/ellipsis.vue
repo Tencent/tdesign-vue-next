@@ -21,7 +21,7 @@ const statusNameListMap = {
   2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
 };
 
-const getAttach = () => document.body;
+// const getAttach = () => document.body;
 
 // thanks to https://www.zhangxinxu.com/wordpress/2021/10/js-copy-paste-clipboard/
 function copyToClipboard(text) {
@@ -71,7 +71,7 @@ const columns = ref([
     colKey: 'status',
     title: '审批状态',
     width: 120,
-    cell: (h, { col, row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}

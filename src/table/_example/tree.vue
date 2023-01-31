@@ -133,7 +133,6 @@ function getData(currentPage = 1) {
 const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
-const displayColumns = ref(['drag', 'id', 'key', 'platform', 'operate']);
 
 const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
 
@@ -304,11 +303,11 @@ const pagination = reactive({
   total: TOTAL,
 });
 
-const defaultPagination = {
-  defaultCurrent: 1,
-  defaultPageSize: TOTAL,
-  total: TOTAL,
-};
+// const defaultPagination = {
+//   defaultCurrent: 1,
+//   defaultPageSize: TOTAL,
+//   total: TOTAL,
+// };
 
 const onPageChange = (pageInfo) => {
   pagination.current = pageInfo.current;

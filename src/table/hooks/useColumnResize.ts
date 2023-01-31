@@ -1,4 +1,4 @@
-import { ref, Ref, reactive, CSSProperties } from 'vue';
+import { ref, Ref, reactive } from 'vue';
 import isNumber from 'lodash/isNumber';
 import { BaseTableCol, TableRowData } from '../type';
 import { RecalculateColumnWidthFunc } from '../interface';
