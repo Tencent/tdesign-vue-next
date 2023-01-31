@@ -1,6 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { extractTimeObj } from '../../_common/js/date-picker/utils';
+import { Dayjs } from 'dayjs';
 
 export default defineComponent({
   name: 'TDatePickerCell',
@@ -22,6 +23,7 @@ export default defineComponent({
     lastDayOfMonth: Boolean,
     onClick: Function,
     onMouseEnter: Function,
+    dayjsObj: Dayjs,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__cell');
