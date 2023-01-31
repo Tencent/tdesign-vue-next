@@ -51,6 +51,8 @@ drawer | Object | - | 抽屉全局配置。TS 类型：`DrawerConfig` | N
 form | Object | - | 表单组件全局配置。TS 类型：`FormConfig` | N
 guide | Object | - | 引导全局配置。TS 类型：`GuideConfig` | N
 icon | Object | - | 图标全局配置。TS 类型：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+image | Object | - | 图片全局配置。TS 类型：`ImageConfig` | N
+imageViewer | Object | - | 图片预览器全局配置。TS 类型：`ImageViewerConfig` | N
 input | Object | - | 输入框组件全局配置。TS 类型：`InputConfig` | N
 list | Object | - | 列表组件全局配置。TS 类型：`ListConfig` | N
 message | Object | - | 消息组件全局配置。TS 类型：`MessageConfig` | N
@@ -140,6 +142,7 @@ postMeridiem | String | - | 语言配置，“下午”描述文本 | N
 -- | -- | -- | -- | --
 confirm | String | - | 语言配置，“确定” 描述文本 | N
 dayAriaLabel | String | - | 语言配置，“日” 描述文本 | N
+dayjsLocale | String | - | dayjs 语言国际化配置 | N
 direction | String | 'ltr' | 日期方向，'ltr' 表示从左往右 | N
 firstDayOfWeek | Number | 7 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
 format | String | 'YYYY-MM-DD' | 日期格式化规则 | N
@@ -323,6 +326,22 @@ copyText | String | - | 语言配置，“复制链接” 描述文本 | N
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 `MessageOptions` | \- | - | 继承 `MessageOptions` 中的全部 API | N
+
+### ImageConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+errorText | String | - | 图片加载失败显示的文本，中文默认为“图片无法显示” | N
+loadingText | String | - | 图片加载中显示的文本，中文默认为“图片加载中” | N
+
+### ImageViewerConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+errorText | String | - | 全局语言配置，默认为 “图片加载失败，可尝试重新加载” | N
+mirrorTipText | String | - | 全局语言配置，默认为 “镜像” | N
+originalSizeTipText | String | - | 全局语言配置，默认为 “原始大小” | N
+rotateTipText | String | - | 全局语言配置，默认为 “旋转” | N
 
 ### GuideConfig
 
