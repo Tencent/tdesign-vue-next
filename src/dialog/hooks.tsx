@@ -1,6 +1,7 @@
 import { getCurrentInstance } from 'vue';
 import isString from 'lodash/isString';
 import isObject from 'lodash/isObject';
+import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
@@ -37,7 +38,7 @@ export function useAction(action: BtnAction) {
   // 全局配置属性综合
   const getDefaultConfirmBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
-    const defaultTheme = globalConfirmBtnTheme?.[theme] || 'primary';
+    const defaultTheme = omit(globalConfirmBtnTheme, ['info'])?.[theme] || 'primary';
     let props: ButtonProps = {
       theme: defaultTheme,
       size: options.size,

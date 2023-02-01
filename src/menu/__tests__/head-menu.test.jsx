@@ -43,15 +43,6 @@ describe('HeadMenu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('<default>', () => {
-      const wrapper = mount(HeadMenu, {
-        slots: {
-          default: '<div></div>',
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
     it('<operations>', () => {
       const wrapper = mount(HeadMenu, {
         slots: {

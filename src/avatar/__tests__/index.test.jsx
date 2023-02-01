@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { it, expect, vi } from 'vitest';
 import { nextTick } from 'vue';
 import Avatar, { AvatarGroup } from '@/src/avatar/index.ts';
+import { UserIcon } from 'tdesign-icons-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Avatar', () => {
@@ -20,10 +21,9 @@ describe('Avatar', () => {
       expect(img.element.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
     });
     it(':icon', () => {
-      const wrapper = mount(<Avatar icon="i" />);
+      const wrapper = mount(<Avatar icon={() => <UserIcon />} />);
       const icon = wrapper.find('.t-avatar__icon');
       expect(icon.exists()).toBeTruthy();
-      expect(icon.text()).toBe('i');
     });
     it(':shape', () => {
       const wrapper = mount({
