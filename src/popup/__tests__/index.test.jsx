@@ -26,6 +26,9 @@ describe('Popup', () => {
           content,
           attach: '#container',
         },
+        slots: {
+          default: <button id="btn">触发器</button>,
+        },
       });
       await wrapper.setProps({
         visible: true,
@@ -41,6 +44,9 @@ describe('Popup', () => {
           visible: false,
           content,
         },
+        slots: {
+          default: <button id="btn">触发器</button>,
+        },
       });
       await wrapper.setProps({
         visible,
@@ -54,7 +60,7 @@ describe('Popup', () => {
           visible: false,
         },
         slots: {
-          default: <button id="btn">btn</button>,
+          default: <button id="btn">触发器</button>,
         },
       });
       await wrapper.setProps({
@@ -97,6 +103,9 @@ describe('Popup', () => {
           visible: false,
           content,
         },
+        slots: {
+          default: <button>触发器</button>,
+        },
       });
       const overlayInnerClassName = 'a-custom-class';
       await wrapper.setProps({
@@ -111,6 +120,9 @@ describe('Popup', () => {
         props: {
           visible: false,
           content,
+        },
+        slots: {
+          default: <button>触发器</button>,
         },
       });
       const overlayInnerStyle = {
@@ -129,6 +141,9 @@ describe('Popup', () => {
         props: {
           visible: false,
           content,
+        },
+        slots: {
+          default: <button>触发器</button>,
         },
       });
       const overlayStyle = {
@@ -177,6 +192,9 @@ describe('Popup', () => {
       const wrapper = await mount(Popup, {
         props: {
           visible: false,
+        },
+        slots: {
+          default: <button>触发器</button>,
         },
       });
 
@@ -267,6 +285,9 @@ describe('Popup', () => {
         props: {
           visible: false,
           content,
+        },
+        slots: {
+          default: <button>触发器</button>,
         },
       });
       expect(document.body.textContent).toEqual('');

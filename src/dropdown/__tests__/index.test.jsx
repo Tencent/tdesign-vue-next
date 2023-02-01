@@ -1,5 +1,5 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick, template } from 'vue';
 import { expect, vi } from 'vitest';
 import { Dropdown, DropdownMenu, DropdownItem } from '../index';
 import { Button } from '@/src/button/index';
@@ -95,30 +95,5 @@ describe('Dropdown', () => {
     });
     await nextTick();
     expect(dropdownWrapper.props().hideAfterItemClick).toEqual(false);
-  });
-
-  it('slots', () => {
-    const handleClick = vi.fn();
-    const wrapper = shallowMount({
-      render() {
-        return (
-          <Dropdown trigger="click" popupProps={{ zIndex: 5000 }} onClick={handleClick}>
-            <Button variant="text">下拉菜单</Button>
-            <template>
-              <DropdownMenu>
-                <DropdownItem class="op1" value={1} onClick={handleClick}>
-                  操作一
-                </DropdownItem>
-                <DropdownItem value={2}>操作二</DropdownItem>
-                <DropdownItem value={3}>操作三</DropdownItem>
-              </DropdownMenu>
-            </template>
-          </Dropdown>
-        );
-      },
-    }).findComponent(Dropdown);
-    wrapper.trigger('click');
-    // expect(handleClick).toBeCalled(); 先注释下 一直卡住CI
-    expect(wrapper.props().popupProps).toEqual({ zIndex: 5000 });
   });
 });

@@ -7,7 +7,9 @@ describe('SelectInput', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(SelectInput, {
-        props: {},
+        props: {
+          value: 'tdesign',
+        },
       });
       expect(wrapper.exists()).toBe(true);
     });
@@ -15,6 +17,7 @@ describe('SelectInput', () => {
       [true, false].forEach((allowInput) => {
         const props = {
           allowInput,
+          value: 'tdesign',
         };
         const wrapper = mount(SelectInput, { props });
         expect(wrapper.vm.allowInput).toBe(allowInput);
@@ -23,6 +26,7 @@ describe('SelectInput', () => {
     it('autoWidth', async () => {
       const wrapper = mount(SelectInput, {
         props: {
+          value: 'tdesign',
           autoWidth: true,
         },
       });
@@ -33,6 +37,7 @@ describe('SelectInput', () => {
     it('borderless', async () => {
       const wrapper = mount(SelectInput, {
         props: {
+          value: 'tdesign',
           borderless: true,
         },
       });
@@ -42,9 +47,10 @@ describe('SelectInput', () => {
     it('clearable', async () => {
       const wrapper = mount(SelectInput, {
         props: {
-          inputValue: '12345',
+          inputValue: 'tdesign',
           allowInput: true,
           clearable: true,
+          value: 'tdesign',
         },
       });
       const el = wrapper.find('.t-input');
@@ -56,6 +62,7 @@ describe('SelectInput', () => {
       const wrapper = mount(SelectInput, {
         props: {
           placeholder: placeholder,
+          value: 'tdesign',
         },
       });
       const el = wrapper.find('.t-input__inner');
@@ -65,6 +72,7 @@ describe('SelectInput', () => {
       const disabled = true;
       const wrapper = mount(SelectInput, {
         props: {
+          value: 'tdesign',
           disabled,
         },
       });
@@ -77,6 +85,7 @@ describe('SelectInput', () => {
         props: {
           allowInput: true,
           inputValue: 'inputValue',
+          value: 'tdesign',
           'on-input-change': (e) => {
             wrapper.setProps({ inputValue: e });
           },
@@ -121,6 +130,7 @@ describe('SelectInput', () => {
       const wrapper = mount(SelectInput, {
         props: {
           allowInput: true,
+          value: 'tdesign',
           inputValue: 'inputValue',
           'on-input-change': (e) => {
             wrapper.setProps({ inputValue: e });
