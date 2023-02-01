@@ -172,6 +172,16 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     { immediate: true },
   );
 
+  // async data and default data is empty
+  watch(
+    () => props.data,
+    (val, previousVal) => {
+      if (val.length !== previousVal.length) {
+        originalData.value = props.data;
+      }
+    },
+  );
+
   return {
     renderSortIcon,
   };
