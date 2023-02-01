@@ -253,7 +253,7 @@ describe('Calendar', () => {
           return (
             <>
               <Calendar theme={'card'}></Calendar>
-              <Calendar theme={'full	'}></Calendar>
+              <Calendar theme={'full'}></Calendar>
             </>
           );
         },
