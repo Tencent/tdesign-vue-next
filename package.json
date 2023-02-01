@@ -152,7 +152,7 @@
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "ignore": "^5.1.9",
-    "jsdom": "^19.0.0",
+    "jsdom": "^21.1.0",
     "less": "^4.1.2",
     "lint-staged": "^13.0.1",
     "mockdate": "^3.0.5",
