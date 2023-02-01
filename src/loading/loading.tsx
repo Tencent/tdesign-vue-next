@@ -119,6 +119,8 @@ export default defineComponent({
     };
   },
   render() {
+    if (!this.loading) return null;
+
     const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = this.classes;
 
     const defaultIndicator = <GradientIcon size={this.size} />;

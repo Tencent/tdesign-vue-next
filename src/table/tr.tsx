@@ -114,6 +114,7 @@ export function renderCell(
     return isFunction(extra.cellEmptyContent) ? extra.cellEmptyContent(h, params) : extra.cellEmptyContent;
   }
   if (slots.cellEmptyContent) return slots.cellEmptyContent(params);
+  if (slots['cell-empty-content']) return slots['cell-empty-content'](params);
   return r;
 }
 
