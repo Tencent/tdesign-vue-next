@@ -34,7 +34,7 @@ export default function useAsyncLoading(props: TdPrimaryTableProps) {
       }[String(asyncLoading)];
       return (
         <div class={classes.value} onClick={onLoadClick}>
-          {<Loading loading={asyncLoading === 'loading'} size="small" text={loadingText} />}
+          {<Loading indicator={asyncLoading === 'loading'} loading={!!asyncLoading} size="small" text={loadingText} />}
         </div>
       );
     }
