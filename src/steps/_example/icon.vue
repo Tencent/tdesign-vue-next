@@ -23,8 +23,3 @@ const renderSuccessIcon = () => {
   return <CheckCircleIcon size="24" class="icon-margin" />;
 };
 </script>
-<style lang="less">
-.icon-margin {
-  margin-top: 3px;
-}
-</style>
