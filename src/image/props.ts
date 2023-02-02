@@ -17,7 +17,7 @@ export default {
   disabled: Boolean,
   /** 自定义图片加载失败状态下的显示内容 */
   error: {
-    type: Object as PropType<TdImageProps['error']>,
+    type: [String, Object] as PropType<TdImageProps['error']>,
   },
   /** 图片填充模式 */
   fit: {
@@ -38,7 +38,7 @@ export default {
   },
   /** 图片上方的浮层内容 */
   overlayContent: {
-    type: Object as PropType<TdImageProps['overlayContent']>,
+    type: [String, Object] as PropType<TdImageProps['overlayContent']>,
   },
   /** 浮层 `overlayContent` 出现的时机 */
   overlayTrigger: {
