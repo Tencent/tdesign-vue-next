@@ -165,13 +165,11 @@ export default defineComponent({
     }
 
     // Normal Loading without overlay or content
-    return (
-      this.loading && (
-        <div class={normalClasses} style={this.styles}>
-          {indicator}
-          {text}
-        </div>
-      )
-    );
+    return this.loading ? (
+      <div class={normalClasses} style={this.styles}>
+        {indicator}
+        {text}
+      </div>
+    ) : null;
   },
 });
