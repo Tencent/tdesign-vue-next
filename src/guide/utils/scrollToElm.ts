@@ -5,7 +5,7 @@ export default function scrollToElm(elm: HTMLElement) {
 
   if (!elementInViewport(elm)) {
     const winHeight = getWindowSize().height;
-    const top = rect.bottom - (rect.bottom - rect.top);
+    // const top = rect.bottom - (rect.bottom - rect.top);
     scrollTo(rect.top - (winHeight / 2 - rect.height / 2), {});
 
     // todo 先暂时保留这里的逻辑

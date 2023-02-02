@@ -8,7 +8,7 @@ describe('Popconfirm', () => {
     it('', () => {
       const wrapper = mount({
         render() {
-          return <Popconfirm></Popconfirm>;
+          return <Popconfirm>button</Popconfirm>;
         },
       });
       expect(wrapper.exists()).toBe(true);

@@ -80,7 +80,7 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
       colKey: 'status',
       title: '申请状态',
       width: '150',
-      cell: (h, { col, row }) => {
+      cell: (h, { row }) => {
         return (
           <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
             {statusNameListMap[row.status].icon}

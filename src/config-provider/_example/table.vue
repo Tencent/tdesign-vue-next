@@ -47,6 +47,7 @@ const data = [
   { type: 'Object', platform: 'Miniprogram', property: 'C' },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const expandedRow = (h) => {
   return <div>This is expanded row info</div>;
 };

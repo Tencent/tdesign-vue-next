@@ -1,4 +1,4 @@
-import { defineComponent, h, ref, toRefs, computed } from 'vue';
+import { defineComponent, ref, toRefs, computed } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import Input from '../input';
@@ -23,7 +23,7 @@ export default defineComponent({
   name: 'TRangeInput',
   props,
 
-  setup(props, { slots, expose }) {
+  setup(props, { expose }) {
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();

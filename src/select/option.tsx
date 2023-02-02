@@ -32,8 +32,6 @@ export default defineComponent({
     const selectProvider = inject(selectInjectKey);
     const formDisabled = useFormDisabled();
 
-    const optionNode = ref(null);
-
     const disabled = computed(
       () =>
         formDisabled.value ||

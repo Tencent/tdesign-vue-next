@@ -28,7 +28,7 @@ export default defineComponent({
         body: 'Plugin 方式创建新弹窗',
         className: 't-dialog-new-class1 t-dialog-new-class2',
         style: 'color: rgba(0, 0, 0, 0.6)',
-        onConfirm: ({ e }) => {
+        onConfirm: () => {
           this.myDialog.hide();
         },
       });

@@ -30,7 +30,7 @@ describe('Image', () => {
     });
 
     it(':error', async () => {
-      const wrapper = mount(() => <Image src={errorSrc} error="error" />);
+      const wrapper = mount(() => <Image src={errorSrc} error={<div>error</div>} />);
       wrapper.setProps({
         src,
       });
@@ -63,13 +63,13 @@ describe('Image', () => {
     });
 
     it(':overlayContent', () => {
-      const wrapper = mount(() => <Image src={src} overlayContent="悬浮内容" />);
+      const wrapper = mount(() => <Image src={src} overlayContent={<div>悬浮内容</div>} />);
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__overlay-content').text()).toBe('悬浮内容');
     });
 
     it(':overlayTrigger', async () => {
-      const wrapper = mount(() => <Image src={src} overlayContent="悬浮内容" overlayTrigger="hover" />);
+      const wrapper = mount(() => <Image src={src} overlayContent={<div>悬浮内容</div>} overlayTrigger="hover" />);
       await wrapper.trigger('mouseenter');
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__overlay-content').text()).toBe('悬浮内容');

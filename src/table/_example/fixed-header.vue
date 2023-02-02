@@ -65,7 +65,7 @@ const columns = ref([
     title: '审批状态',
     width: 120,
     foot: '-',
-    cell: (h, { row, rowIndex }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}

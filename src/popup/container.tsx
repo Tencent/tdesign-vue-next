@@ -2,7 +2,6 @@ import {
   defineComponent,
   getCurrentInstance,
   onMounted,
-  onUnmounted,
   ref,
   Ref,
   Fragment,
@@ -12,7 +11,6 @@ import {
   VNode,
   Teleport,
   onUpdated,
-  Component,
   ComponentInternalInstance,
 } from 'vue';
 import { getAttach } from '../utils/dom';

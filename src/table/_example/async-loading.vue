@@ -48,7 +48,7 @@ const columns = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { col, row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -64,6 +64,7 @@ const columns = [
 
 const asyncLoading = ref('loading');
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const customLoadingNode = (h) => <div class="t-table--loading-async">这是自定义加载状态和内容</div>;
 
 const loadingNode = computed(() => (asyncLoading.value === 'loading-custom' ? customLoadingNode : asyncLoading.value));

@@ -23,7 +23,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__table');
     const { globalConfig } = useConfig('datePicker');
-    const { weekdays, weekAbbreviation } = globalConfig.value;
+    const { weekdays, weekAbbreviation, dayjsLocale } = globalConfig.value;
 
     const weekArr = computed(() => {
       const _weekArr = [];
@@ -43,15 +43,15 @@ export default defineComponent({
 
     // 高亮周区间
     const weekRowClass = (value: any, format: string, targetValue: Date) => {
-      if (props.mode !== 'week') return {};
+      if (props.mode !== 'week' || !value) return {};
 
       if (Array.isArray(value)) {
         if (!value.length) return {};
         const [startObj, endObj] = value.map((v) => v && parseToDayjs(v, format));
         const startYear = startObj && startObj.year();
-        const startWeek = startObj && startObj.week();
+        const startWeek = startObj?.locale?.(dayjsLocale)?.week?.();
         const endYear = endObj && endObj.year();
-        const endWeek = endObj && endObj.week();
+        const endWeek = endObj?.locale?.(dayjsLocale)?.week?.();
 
         const targetObj = parseToDayjs(targetValue, format);
         const targetYear = targetObj.year();
@@ -69,7 +69,8 @@ export default defineComponent({
 
       return {
         [`${COMPONENT_NAME.value}-${props.mode}-row--active`]:
-          parseToDayjs(value, format).week() === parseToDayjs(targetValue, format).week(),
+          parseToDayjs(value, format).locale(dayjsLocale).week() ===
+          parseToDayjs(targetValue, format).locale(dayjsLocale).week(),
       };
     };
 

@@ -41,7 +41,7 @@ const columns = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { row, rowIndex }) => {
+    cell: (h, { _row, rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">

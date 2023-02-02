@@ -21,10 +21,6 @@ export default defineComponent({
       return content;
     };
 
-    const renderIcon = () => {
-      return isIcon() && typeof props.collapseAvatar !== 'string' ? props.collapseAvatar : null;
-    };
-
     const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
       if (children?.length > props.max) {
         const content = setEllipsisContent(children);
