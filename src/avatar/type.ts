@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { PopupProps } from '../popup';
@@ -43,7 +42,6 @@ export interface TdAvatarProps {
    */
   onError?: () => void;
 }
-
 export interface TdAvatarGroupProps {
   /**
    * 图片之间的层叠关系，可选值：左侧图片在上和右侧图片在上
@@ -59,16 +57,12 @@ export interface TdAvatarGroupProps {
    */
   max?: number;
   /**
-   * 超出的头像呈现位置
-   */
-  placement?: MaxOverPlacement;
-  /**
    * 头像右上角提示信息
    */
   popupProps?: PopupProps;
   /**
    * 尺寸，示例值：small/medium/large/24px/38px 等。优先级低于 Avatar.size
-   * @default medium
+   * @default ''
    */
   size?: string;
 }
@@ -76,5 +70,3 @@ export interface TdAvatarGroupProps {
 export type ShapeEnum = 'circle' | 'round';
 
 export type CascadingValue = 'left-up' | 'right-up';
-
-export type MaxOverPlacement = 'left' | 'top' | 'bottom' | 'right';
