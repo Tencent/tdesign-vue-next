@@ -327,15 +327,24 @@ export default defineComponent({
       initialValue.value = cloneDeep(value.value);
       form?.children.push(context);
     });
+
     onBeforeUnmount(() => {
       if (form) form.children = form?.children.filter((ctx) => ctx !== context);
     });
+
     watch(
       value,
       async () => {
         await validateHandler('change');
       },
       { deep: true },
+    );
+
+    watch(
+      () => [props.name, JSON.stringify(props.rules)].join(','),
+      () => {
+        validateHandler('change');
+      },
     );
 
     const freeShowErrorMessage = ref<boolean>(undefined);
