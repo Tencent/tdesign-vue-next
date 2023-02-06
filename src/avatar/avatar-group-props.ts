@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdAvatarGroupProps } from '../avatar/type';
@@ -14,6 +13,7 @@ export default {
     type: String as PropType<TdAvatarGroupProps['cascading']>,
     default: 'right-up' as TdAvatarGroupProps['cascading'],
     validator(val: TdAvatarGroupProps['cascading']): boolean {
+      if (!val) return true;
       return ['left-up', 'right-up'].includes(val);
     },
   },
@@ -24,13 +24,6 @@ export default {
   /** 能够同时显示的最多头像数量 */
   max: {
     type: Number,
-  },
-  /** 超出的头像呈现位置 */
-  placement: {
-    type: String as PropType<TdAvatarGroupProps['placement']>,
-    validator(val: TdAvatarGroupProps['placement']): boolean {
-      return ['left', 'top', 'bottom', 'right'].includes(val);
-    },
   },
   /** 头像右上角提示信息 */
   popupProps: {
