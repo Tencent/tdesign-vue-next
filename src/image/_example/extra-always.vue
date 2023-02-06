@@ -39,7 +39,7 @@
 import { PrintIcon } from 'tdesign-icons-vue-next';
 import { Tag } from 'tdesign-vue-next';
 
-const renderMask = (
+const renderMask = () => (
   <div
     style={{
       background: 'rgba(0,0,0,.4)',
@@ -65,7 +65,7 @@ const renderMask = (
   </div>
 );
 
-const renderButton = (
+const renderButton = () => (
   <Tag
     shape="mark"
     theme="primary"
