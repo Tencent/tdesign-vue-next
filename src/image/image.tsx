@@ -1,17 +1,23 @@
 import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
 import omit from 'lodash/omit';
+import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
-import { useTNodeDefault } from '../hooks/tnode';
+import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import { TdImageProps } from './type';
 import props from './props';
+import Space from '../space';
 
 export default defineComponent({
   name: 'TImage',
+
   props,
+
   setup(props: TdImageProps) {
     const imageRef = ref<HTMLElement>(null);
     let io: IntersectionObserver = null;
+
+    const renderTNodeJSX = useTNodeJSX();
 
     onMounted(() => {
       if (!props.lazy || !imageRef.value) return;
@@ -24,7 +30,7 @@ export default defineComponent({
       imageRef.value && io && io.unobserve(imageRef.value);
     });
 
-    const { classPrefix } = useConfig();
+    const { classPrefix, globalConfig } = useConfig('image');
 
     const imageSrc = ref(props.src);
     watch(
@@ -42,15 +48,15 @@ export default defineComponent({
     };
 
     const isLoaded = ref(false);
-    const handleLoad = () => {
+    const handleLoad = (e: Event) => {
       isLoaded.value = true;
-      props.onLoad?.();
+      props.onLoad?.({ e });
     };
 
     const hasError = ref(false);
-    const handleError = () => {
+    const handleError = (e: Event) => {
       hasError.value = true;
-      props.onError?.();
+      props.onError?.({ e });
     };
 
     const hasMouseEvent = computed(() => {
@@ -65,15 +71,16 @@ export default defineComponent({
     };
 
     const renderPlaceholder = () => {
-      if (!props.placeholder) {
-        return null;
-      }
-      return <div class={`${classPrefix.value}-image__placeholder`}>{props.placeholder}</div>;
+      const placeholder = renderTNodeJSX('placeholder');
+      if (!placeholder) return null;
+      return <div class={`${classPrefix.value}-image__placeholder`}>{placeholder}</div>;
     };
+
     const renderGalleryShadow = () => {
       if (!props.gallery) return null;
       return <div class={`${classPrefix.value}-image__gallery-shadow`} />;
     };
+
     const renderOverlay = () => {
       const overlayContent = renderTNodDefault('overlayContent');
       if (!overlayContent) return null;
@@ -138,22 +145,25 @@ export default defineComponent({
         )}
         {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
           <div class={`${classPrefix.value}-image__loading`}>
-            {props.loading || (
-              <div direction="vertical" size={8} align="center">
-                图片加载中
-              </div>
+            {renderTNodeJSX('loading') || (
+              <Space direction="vertical" size={8} align="center">
+                <ImageIcon size="24px" />
+                {globalConfig.value.loadingText}
+              </Space>
             )}
           </div>
         )}
 
         {hasError.value && (
           <div class={`${classPrefix.value}-image__error`}>
-            {renderTNodDefault(
-              'error',
-              <div direction="vertical" size={8} align="center">
-                图片无法显示
-              </div>,
-            )}
+            {renderTNodDefault('error', {
+              defaultNode: (
+                <Space direction="vertical" size={8} align="center">
+                  <ImageErrorIcon size="24px" />
+                  {globalConfig.value.errorText}
+                </Space>
+              ),
+            })}
           </div>
         )}
 

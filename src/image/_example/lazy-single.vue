@@ -20,8 +20,10 @@ import { RefreshIcon } from 'tdesign-icons-vue-next';
 import { Loading } from 'tdesign-vue-next';
 
 const loadingCount = ref(0);
-const renderPlaceholder = <img width="100%" height="100%" src="https://tdesign.gtimg.com/demo/demo-image-5.png" />;
-const renderLoading = (
+const renderPlaceholder = () => (
+  <img width="100%" height="100%" src="https://tdesign.gtimg.com/demo/demo-image-5.png" />
+);
+const renderLoading = () => (
   <div
     style={{
       display: 'flex',
