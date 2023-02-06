@@ -39,6 +39,6 @@ export default {
   /** 尺寸，示例值：small/medium/large/24px/38px 等。优先级低于 Avatar.size */
   size: {
     type: String,
-    default: 'medium',
+    default: '',
   },
 };
