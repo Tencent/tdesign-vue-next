@@ -3,7 +3,7 @@ import { TdDropdownProps } from '../dropdown/type';
 
 import dropdownItemProps from './dropdown-item-props';
 import useRipple from '../hooks/useRipple';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { pxCompat } from '../utils/helper';
 
@@ -23,6 +23,7 @@ export default defineComponent({
   },
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
 
     const itemRef = ref<HTMLElement>();
 
@@ -36,6 +37,7 @@ export default defineComponent({
     };
 
     return () => {
+      const content = renderContent('default', 'content');
       const classes = [
         dropdownItemClass.value,
         `${dropdownItemClass.value}--theme-${props.theme}`,
@@ -56,7 +58,7 @@ export default defineComponent({
           ref={itemRef}
         >
           {props.prefixIcon ? <div class={`${dropdownItemClass.value}-icon`}>{prefixIcon}</div> : null}
-          {renderTNodeJSX('default')}
+          {content}
         </li>
       );
     };
