@@ -15,11 +15,11 @@ export interface TdTagProps {
   /**
    * 组件子元素
    */
-  content?: string | number | TNode;
+  content?: string | TNode;
   /**
-   * 组件子元素（默认插槽），同 content
+   * 组件子元素，同 `content`
    */
-  default?: string | number | TNode;
+  default?: string | TNode;
   /**
    * 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态
    * @default false
@@ -66,22 +66,24 @@ export interface TdTagProps {
 export interface TdCheckTagProps {
   /**
    * 标签选中的状态，默认风格（theme=default）才有选中态
-   * @default false
    */
   checked?: boolean;
   /**
    * 标签选中的状态，默认风格（theme=default）才有选中态，非受控属性
-   * @default false
    */
   defaultChecked?: boolean;
   /**
-   * 组件子元素
+   * 标签选中的状态，默认风格（theme=default）才有选中态
    */
-  content?: string | number | TNode;
+  modelValue?: boolean;
   /**
-   * 组件子元素，同 content
+   * 组件子元素；传入数组时：[选中内容，非选中内容]
    */
-  default?: string | number | TNode;
+  content?: string | number | string[] | TNode;
+  /**
+   * 组件子元素，默认插槽
+   */
+  default?: string | TNode;
   /**
    * 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态
    * @default false
@@ -93,7 +95,7 @@ export interface TdCheckTagProps {
    */
   size?: SizeEnum;
   /**
-   * 组件子元素
+   * 状态切换时触发
    */
   onChange?: (checked: boolean) => void;
   /**
