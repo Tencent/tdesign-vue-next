@@ -64,7 +64,7 @@ export default {
   /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性 */
   footerAffixedBottom: {
     type: [Boolean, Object] as PropType<TdBaseTableProps['footerAffixedBottom']>,
-    default: false,
+    default: false as TdBaseTableProps['footerAffixedBottom'],
   },
   /** 表尾总结行 */
   footerSummary: {
@@ -77,7 +77,7 @@ export default {
   /** 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。 */
   headerAffixedTop: {
     type: [Boolean, Object] as PropType<TdBaseTableProps['headerAffixedTop']>,
-    default: false,
+    default: false as TdBaseTableProps['headerAffixedTop'],
   },
   /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` */
   height: {
