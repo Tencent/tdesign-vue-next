@@ -154,11 +154,11 @@ export default {
   /** 选中值 */
   value: {
     type: [String, Number, Object, Array] as PropType<TdSelectProps['value']>,
-    default: undefined,
+    default: undefined as TdSelectProps['value'],
   },
   modelValue: {
     type: [String, Number, Object, Array] as PropType<TdSelectProps['value']>,
-    default: undefined,
+    default: undefined as TdSelectProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {

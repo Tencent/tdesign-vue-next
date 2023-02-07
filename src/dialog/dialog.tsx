@@ -16,7 +16,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import { DialogCloseContext, TdDialogProps } from './type';
+import { DialogCloseContext } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -26,6 +26,8 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
 import { getScrollbarWidth } from '../utils/dom';
+
+import type { TdDialogProps } from './type';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -106,7 +108,7 @@ export default defineComponent({
   props,
 
   emits: ['update:visible'],
-  setup(props: TdDialogProps, context) {
+  setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
     const renderContent = useContent();
@@ -318,13 +320,13 @@ export default defineComponent({
       const defaultFooter = (
         <div>
           {getCancelBtn({
-            cancelBtn: props.cancelBtn,
+            cancelBtn: props.cancelBtn as TdDialogProps['cancelBtn'],
             globalCancel: globalConfig.value.cancel,
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
             theme: props.theme,
-            confirmBtn: props.confirmBtn,
+            confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
             globalConfirm: globalConfig.value.confirm,
             globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
             className: `${COMPONENT_NAME.value}__confirm`,

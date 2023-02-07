@@ -11,12 +11,12 @@ export default {
   /** 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件 */
   cancelBtn: {
     type: [String, Object, Function] as PropType<TdPopconfirmProps['cancelBtn']>,
-    default: '',
+    default: '' as TdPopconfirmProps['cancelBtn'],
   },
   /** 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdPopconfirmProps['confirmBtn']>,
-    default: '',
+    default: '' as TdPopconfirmProps['confirmBtn'],
   },
   /** 确认框内容 */
   content: {

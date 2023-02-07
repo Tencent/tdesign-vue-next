@@ -38,11 +38,11 @@ export default {
   /** 展开的面板集合 */
   value: {
     type: Array as PropType<TdCollapseProps['value']>,
-    default: undefined,
+    default: undefined as TdCollapseProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdCollapseProps['value']>,
-    default: undefined,
+    default: undefined as TdCollapseProps['value'],
   },
   /** 展开的面板集合，非受控属性 */
   defaultValue: {

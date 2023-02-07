@@ -63,7 +63,7 @@ export default {
   /** 已上传文件列表，同 `value` */
   files: {
     type: Array as PropType<TdUploadProps['files']>,
-    default: undefined,
+    default: undefined as TdUploadProps['files'],
   },
   /** 已上传文件列表，同 `value`，非受控属性 */
   defaultFiles: {
@@ -171,11 +171,11 @@ export default {
   /** 已上传文件列表，同 `files` */
   value: {
     type: Array as PropType<TdUploadProps['value']>,
-    default: undefined,
+    default: undefined as TdUploadProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdUploadProps['value']>,
-    default: undefined,
+    default: undefined as TdUploadProps['value'],
   },
   /** 已上传文件列表，同 `files`，非受控属性 */
   defaultValue: {

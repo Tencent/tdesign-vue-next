@@ -103,11 +103,11 @@ export default {
   /** 值 */
   value: {
     type: Array as PropType<TdTagInputProps['value']>,
-    default: undefined,
+    default: undefined as TdTagInputProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdTagInputProps['value']>,
-    default: undefined,
+    default: undefined as TdTagInputProps['value'],
   },
   /** 值，非受控属性 */
   defaultValue: {

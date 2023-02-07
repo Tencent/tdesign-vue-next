@@ -13,7 +13,7 @@ export default {
   /** 高度自动撑开。 autosize = true 表示组件高度自动撑开，同时，依旧允许手动拖高度。如果设置了 autosize.maxRows 或者 autosize.minRows 则不允许手动调整高度 */
   autosize: {
     type: [Boolean, Object] as PropType<TdTextareaProps['autosize']>,
-    default: false,
+    default: false as TdTextareaProps['autosize'],
   },
   /** 是否禁用文本框 */
   disabled: Boolean,

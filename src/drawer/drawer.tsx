@@ -10,6 +10,7 @@ import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
+import type { TdDrawerProps } from './type';
 
 let key = 1;
 
@@ -30,7 +31,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
-    const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props);
+    const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props as TdDrawerProps);
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -132,13 +133,13 @@ export default defineComponent({
     const getDefaultFooter = () => {
       // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
-        confirmBtn: props.confirmBtn,
+        confirmBtn: props.confirmBtn as TdDrawerProps['confirmBtn'],
         globalConfirm: globalConfig.value.confirm,
         className: `${COMPONENT_NAME.value}__confirm`,
       });
       // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
-        cancelBtn: props.cancelBtn,
+        cancelBtn: props.cancelBtn as TdDrawerProps['cancelBtn'],
         globalCancel: globalConfig.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
       });

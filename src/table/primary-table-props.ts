@@ -92,7 +92,7 @@ export default {
   /** 过滤数据的值 */
   filterValue: {
     type: Object as PropType<TdPrimaryTableProps['filterValue']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['filterValue'],
   },
   /** 过滤数据的值，非受控属性 */
   defaultFilterValue: {
@@ -128,7 +128,7 @@ export default {
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
   sort: {
     type: [Object, Array] as PropType<TdPrimaryTableProps['sort']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['sort'],
   },
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序，非受控属性 */
   defaultSort: {
