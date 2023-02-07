@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref, onMounted, h } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
@@ -7,6 +7,7 @@ import DropdownProps from './props';
 import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { TNode } from '../common';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -39,6 +40,13 @@ export default defineComponent({
       }
     });
 
+    const getContent = (content: string | TNode) => {
+      if (typeof content === 'function') {
+        return content(h);
+      }
+      return content;
+    };
+
     // 处理options渲染的场景
     const renderOptions = (data: Array<DropdownOption>) => {
       const arr: Array<unknown> = [];
@@ -67,13 +75,13 @@ export default defineComponent({
                 <div class={`${dropdownClass.value}__item-content`}>
                   {props.direction === 'right' ? (
                     <>
-                      <span class={`${dropdownClass.value}__item-text`}>{optionItem.content}</span>
+                      <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
                       <ChevronRightIcon class={`${dropdownClass.value}__item-direction`} size="16" />
                     </>
                   ) : (
                     <>
                       <ChevronLeftIcon class={`${dropdownClass.value}__item-direction`} size="16" />
-                      <span class={`${dropdownClass.value}__item-text`}>{optionItem.content}</span>
+                      <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
                     </>
                   )}
                 </div>
@@ -115,7 +123,7 @@ export default defineComponent({
                         handleItemClick({ data: optionItem, context })
                 }
               >
-                <span class={`${dropdownClass.value}__item-text`}>{optionItem.content}</span>
+                <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
               </DropdownItem>
               {optionItem.divider ? <TDivider /> : null}
             </div>
