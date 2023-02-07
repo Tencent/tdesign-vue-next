@@ -7,7 +7,7 @@ import DropdownProps from './props';
 import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { TNode } from '@src/common';
+import { TNode } from '../common';
 
 export default defineComponent({
   name: 'TDropdownMenu',
