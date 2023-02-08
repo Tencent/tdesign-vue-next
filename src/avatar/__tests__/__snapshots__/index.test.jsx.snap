@@ -4,6 +4,7 @@ exports[`AvatarGroup > :props > :placement 1`] = `
 <div>
   <div
     class="t-avatar-group t-avatar--offset-right"
+    placement="bottom"
   >
     
     

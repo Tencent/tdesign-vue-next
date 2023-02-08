@@ -16,7 +16,7 @@ export default {
   /** 数据列表选中项 */
   checked: {
     type: Array as PropType<TdTransferProps['checked']>,
-    default: undefined,
+    default: undefined as TdTransferProps['checked'],
   },
   /** 数据列表选中项，非受控属性 */
   defaultChecked: {
@@ -92,12 +92,12 @@ export default {
   /** 目标数据列表数据 */
   value: {
     type: Array as PropType<TdTransferProps['value']>,
-    default: undefined,
+    default: undefined as TdTransferProps['value'],
   },
   /** v-model*/
   modelValue: {
     type: Array as PropType<TdTransferProps['value']>,
-    default: undefined,
+    default: undefined as TdTransferProps['value'],
   },
   /** 目标数据列表数据，非受控属性 */
   defaultValue: {

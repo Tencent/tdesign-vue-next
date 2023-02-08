@@ -17969,8 +17969,35 @@ exports[`Calendar > :props > :theme 1`] = `
             />
           </div>
         </div>
-        <!---->
-        <!---->
+        <div
+          class="t-calendar__control-section-cell"
+        >
+          <span
+            class="t-tag t-tag--check t-tag--default t-size-l t-calendar__control-tag"
+            theme="default"
+          >
+            
+            隐藏周末
+            
+          </span>
+        </div>
+        <div
+          class="t-calendar__control-section-cell"
+        >
+          <button
+            class="t-button t-button--variant-base t-button--theme-primary"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              今天
+              
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div

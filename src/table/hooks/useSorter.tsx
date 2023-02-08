@@ -1,5 +1,6 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
+import get from 'lodash/get';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
@@ -170,6 +171,16 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       }
     },
     { immediate: true },
+  );
+
+  // async data and default data is empty
+  watch(
+    () => props.data,
+    (val = [], previousVal = []) => {
+      if (val.map((t) => get(t, props.rowKey)).join() !== previousVal.map((t) => get(t, props.rowKey)).join()) {
+        originalData.value = props.data;
+      }
+    },
   );
 
   return {

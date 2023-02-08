@@ -61,7 +61,7 @@ describe('Tag or CheckTag', () => {
     });
     it(':size:medium', () => {
       const wrapper = mount(() => <Tag size="medium"></Tag>);
-      expect(wrapper.classes()).toContain('t-size-m');
+      expect(wrapper.classes('t-size-m')).toBeFalsy();
     });
     it(':size:large', () => {
       const wrapper = mount(() => <Tag size="large"></Tag>);

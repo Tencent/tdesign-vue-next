@@ -112,11 +112,11 @@ export default {
   /** 选中值 */
   value: {
     type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
-    default: undefined,
+    default: undefined as TdTreeSelectProps['value'],
   },
   modelValue: {
     type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
-    default: undefined,
+    default: undefined as TdTreeSelectProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {

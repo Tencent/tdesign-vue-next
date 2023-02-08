@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode } from '../common';
+import { TNode, ImageEvent } from '../common';
 
 export interface TdImageProps {
   /**
@@ -12,11 +12,6 @@ export interface TdImageProps {
    * @default ''
    */
   alt?: string;
-  /**
-   * 禁用状态，图片不响应鼠标事件
-   * @default false
-   */
-  disabled?: boolean;
   /**
    * 自定义图片加载失败状态下的显示内容
    */
@@ -43,7 +38,7 @@ export interface TdImageProps {
   /**
    * 图片上方的浮层内容
    */
-  overlayContent?: TNode;
+  overlayContent?: string | TNode;
   /**
    * 浮层 `overlayContent` 出现的时机
    * @default always
@@ -71,9 +66,9 @@ export interface TdImageProps {
   /**
    * 图片加载失败时触发
    */
-  onError?: () => void;
+  onError?: (context: { e: ImageEvent }) => void;
   /**
    * 图片加载完成时触发
    */
-  onLoad?: () => void;
+  onLoad?: (context: { e: ImageEvent }) => void;
 }

@@ -12,11 +12,11 @@ export default {
   closable: Boolean,
   /** 组件子元素 */
   content: {
-    type: [String, Number, Function] as PropType<TdTagProps['content']>,
+    type: [String, Function] as PropType<TdTagProps['content']>,
   },
-  /** 组件子元素（默认插槽），同 content */
+  /** 组件子元素，同 `content` */
   default: {
-    type: [String, Number, Function] as PropType<TdTagProps['default']>,
+    type: [String, Function] as PropType<TdTagProps['default']>,
   },
   /** 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态 */
   disabled: Boolean,
@@ -34,6 +34,7 @@ export default {
     type: String as PropType<TdTagProps['shape']>,
     default: 'square' as TdTagProps['shape'],
     validator(val: TdTagProps['shape']): boolean {
+      if (!val) return true;
       return ['square', 'round', 'mark'].includes(val);
     },
   },
@@ -42,6 +43,7 @@ export default {
     type: String as PropType<TdTagProps['size']>,
     default: 'medium' as TdTagProps['size'],
     validator(val: TdTagProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -50,6 +52,7 @@ export default {
     type: String as PropType<TdTagProps['theme']>,
     default: 'default' as TdTagProps['theme'],
     validator(val: TdTagProps['theme']): boolean {
+      if (!val) return true;
       return ['default', 'primary', 'warning', 'danger', 'success'].includes(val);
     },
   },
@@ -58,6 +61,7 @@ export default {
     type: String as PropType<TdTagProps['variant']>,
     default: 'dark' as TdTagProps['variant'],
     validator(val: TdTagProps['variant']): boolean {
+      if (!val) return true;
       return ['dark', 'light', 'outline', 'light-outline'].includes(val);
     },
   },

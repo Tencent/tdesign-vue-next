@@ -1,17 +1,17 @@
 import { getCurrentInstance } from 'vue';
 import isString from 'lodash/isString';
 import isObject from 'lodash/isObject';
+import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
-import { ClassName, TNode } from '../common';
-
-export type MixinsFooterButton = string | ButtonProps | TNode | null;
+import type { ClassName } from '../common';
+import type { TdDialogProps } from './type';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
   className?: ClassName;
-  confirmBtn: MixinsFooterButton;
+  confirmBtn: TdDialogProps['confirmBtn'];
   globalConfirm: PopconfirmConfig['confirm'] | DrawerConfig['confirm'] | DialogConfig['confirm'];
   globalConfirmBtnTheme?: PopconfirmConfig['confirmBtnTheme'] | DialogConfig['confirmBtnTheme'];
   size?: ButtonProps['size'];
@@ -19,7 +19,7 @@ export interface MixinsConfirmBtn {
 
 export interface MixinsCancelBtn {
   className?: ClassName;
-  cancelBtn: MixinsFooterButton;
+  cancelBtn: TdDialogProps['cancelBtn'];
   globalCancel: PopconfirmConfig['cancel'] | DrawerConfig['cancel'] | DialogConfig['cancel'];
   size?: ButtonProps['size'];
 }
@@ -37,7 +37,7 @@ export function useAction(action: BtnAction) {
   // 全局配置属性综合
   const getDefaultConfirmBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
-    const defaultTheme = globalConfirmBtnTheme?.[theme] || 'primary';
+    const defaultTheme = omit(globalConfirmBtnTheme, ['info'])?.[theme] || 'primary';
     let props: ButtonProps = {
       theme: defaultTheme,
       size: options.size,

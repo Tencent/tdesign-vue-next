@@ -7,16 +7,18 @@
           <t-space direction="vertical">
             <span>默认占位</span>
             <t-image
-              v-model:key="loadingCount"
+              :key="loadingCount"
               src="https://tdesign.gtimg.com/demo/demo-image-1.png"
               :style="{ width: '284px', height: '160px' }"
             />
-            <t-button variant="outline" :icon="renderIcon" @click="loadCount = loadCount + 1"> 重演 loading </t-button>
+            <t-button variant="outline" :icon="renderIcon" @click="loadingCount = loadingCount + 1">
+              重演 loading
+            </t-button>
           </t-space>
           <t-space direction="vertical">
             <span>自定义占位</span>
             <t-image
-              v-model:key="loadingCount"
+              :key="loadingCount"
               src="https://tdesign.gtimg.com/demo/demo-image-1.png"
               :style="{ width: '284px', height: '160px' }"
               :loading="renderCustomIcon"
@@ -29,17 +31,12 @@
         <t-space>
           <t-space direction="vertical">
             <span>默认错误</span>
-            <t-image v-model:key="errorCount" src="" :style="{ width: '284px', height: '160px' }" />
+            <t-image :key="errorCount" src="" :style="{ width: '284px', height: '160px' }" />
             <t-button variant="outline" :icon="renderIcon" @click="errorCount = errorCount + 1"> 重演 error </t-button>
           </t-space>
           <t-space direction="vertical">
             <span>自定义错误</span>
-            <t-image
-              v-model:key="errorCount"
-              src=""
-              :style="{ width: '284px', height: '160px' }"
-              :error="renderCustomIcon"
-            />
+            <t-image :key="errorCount" src="" :style="{ width: '284px', height: '160px' }" :error="renderCustomIcon" />
           </t-space>
         </t-space>
       </div>
@@ -53,7 +50,7 @@ import { RefreshIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 
 const loadingCount = ref(0);
 const errorCount = ref(0);
-const renderCustomIcon = <ImageErrorIcon size="24" />;
+const renderCustomIcon = () => <ImageErrorIcon size="24" />;
 
 const renderIcon = () => {
   return <RefreshIcon />;

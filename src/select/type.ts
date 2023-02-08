@@ -12,7 +12,7 @@ import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
 import { SelectInputValueChangeContext } from '../select-input';
 import { PopupVisibleChangeContext } from '../popup';
-import { TNode, SizeEnum, TScroll } from '../common';
+import { PlainObject, TNode, SizeEnum, TScroll } from '../common';
 
 export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
@@ -307,7 +307,7 @@ export interface SelectRemoveContext<T> {
   e: MouseEvent | KeyboardEvent;
 }
 
-export type SelectOption = TdOptionProps | SelectOptionGroup;
+export type SelectOption = TdOptionProps | SelectOptionGroup | PlainObject;
 
 export interface SelectOptionGroup extends TdOptionGroupProps {
   group: string;
