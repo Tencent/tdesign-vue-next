@@ -152,8 +152,6 @@ export default defineComponent({
 
   render() {
     const { CloseCircleFilledIcon } = this;
-    const inputProps = this.inputProps as TdTagInputProps['inputProps'];
-
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
