@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs, ref, nextTick, reactive } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputValue } from '../input';
+import TInput, { InputValue, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -96,6 +96,7 @@ export default defineComponent({
       !isComposition.value && onInnerEnter(value, context);
       nextTick(() => {
         scrollToRight();
+        isComposition.value = false;
       });
     };
 
@@ -109,8 +110,9 @@ export default defineComponent({
       inputProps.value?.onCompositionend?.(value, context);
     };
 
-    const onClick = () => {
+    const onClick: TdInputProps['onClick'] = (ctx) => {
       tagInputRef.value.focus();
+      props.onClick?.(ctx);
     };
 
     const onClearClick = (context: { e: MouseEvent }) => {
@@ -150,7 +152,6 @@ export default defineComponent({
 
   render() {
     const { CloseCircleFilledIcon } = this;
-
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
@@ -172,6 +173,9 @@ export default defineComponent({
     return (
       <TInput
         ref="tagInputRef"
+        v-slots={{
+          suffix: this.$slots.suffix,
+        }}
         readonly={this.readonly}
         value={this.tInputValue}
         autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
@@ -194,7 +198,7 @@ export default defineComponent({
         }}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
-        onKeyup={this.onInputBackspaceKeyUp}
+        onKeydown={this.onInputBackspaceKeyUp}
         onMouseenter={(context: { e: MouseEvent }) => {
           this.addHover(context);
           this.scrollToRightOnEnter();
@@ -207,7 +211,8 @@ export default defineComponent({
           this.onFocus?.(this.tagValue, { e: context.e, inputValue });
         }}
         onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
-          this.onBlur?.(this.tagValue, { e: context.e, inputValue });
+          this.setTInputValue('', { e: context.e, trigger: 'blur' });
+          this.onBlur?.(this.tagValue, { e: context.e, inputValue: '' });
         }}
         onClick={this.onClick}
         onCompositionstart={this.onInputCompositionstart}
