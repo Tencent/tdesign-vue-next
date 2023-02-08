@@ -34,10 +34,9 @@ export default function useTagList(props: TagInputProps) {
   // 按下 Enter 键，新增标签
   const onInnerEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
     const valueStr = value ? String(value).trim() : '';
-    if (!valueStr) return;
     const isLimitExceeded = max && tagValue.value?.length >= max.value;
     let newValue: TagInputValue = tagValue.value;
-    if (!isLimitExceeded) {
+    if (!isLimitExceeded && valueStr) {
       newValue = tagValue.value instanceof Array ? tagValue.value.concat(String(valueStr)) : [valueStr];
       setTagValue(newValue, {
         trigger: 'enter',
@@ -54,7 +53,8 @@ export default function useTagList(props: TagInputProps) {
     const { e } = context;
     if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
-    if (!oldInputValue.value && ['Backspace', 'NumpadDelete'].includes(e.code)) {
+    const isDelete = /(Backspace|NumpadDelete)/i.test(e.code) || /(Backspace|NumpadDelete)/i.test(e.key);
+    if (!oldInputValue.value && isDelete) {
       const index = tagValue.value.length - 1;
       const item = tagValue.value[index];
       const trigger = 'backspace';
