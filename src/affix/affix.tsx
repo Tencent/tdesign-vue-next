@@ -16,7 +16,7 @@ export default defineComponent({
 
     const affixWrapRef = ref<HTMLElement>(null);
     const affixRef = ref<HTMLElement>(null);
-    const placeholderEL = ref(document.createElement('div')); // 占位节点
+    const placeholderEL = ref(document?.createElement('div')); // 占位节点
     const ticking = ref(false);
     const binded = ref(false);
 

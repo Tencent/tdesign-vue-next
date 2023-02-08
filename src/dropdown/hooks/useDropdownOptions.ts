@@ -33,8 +33,8 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
         );
 
         return {
-          ...item.props,
           content: contentCtx || groupChildren,
+          ...item.props,
           children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
         };
       })

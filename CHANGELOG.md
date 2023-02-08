@@ -4,6 +4,54 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.6 `2023-02-07` 
+### 🚀 Features
+- `Image`: 
+  - 组件内部的中文支持全局语言配置，可以配置为英文、日文、任意文字 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+  - `onLoad/onError` 等事件新增事件参数 `{ e: Event }` @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+  - 支持 `placeholder` 使用插槽或函数自定义图片占位内容 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+  - 支持 `loading`使用插槽或函数自定义图片加载中状态内容 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+  - 支持 `error` 使用插槽或函数自定义图片加载失败内容 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+### 🐞 Bug Fixes
+- `Tag`: 
+  - 修复禁用状态依然显示的关闭图标问题 @chaishi ([#2349](https://github.com/Tencent/tdesign-vue-next/pull/2349))
+  - 修复超出省略功能缺少 `title` 属性问题 @chaishi ([#2349](https://github.com/Tencent/tdesign-vue-next/pull/2349))
+  - 修复 `maxWidth` 不支持带单位的宽度问题 @chaishi ([#2349](https://github.com/Tencent/tdesign-vue-next/pull/2349))
+  - 去除 Tag 组件 `.t-tag--text` 元素的多余类名，以及非必要类名 `.t-size-m` @chaishi ([#2349](https://github.com/Tencent/tdesign-vue-next/pull/2349))
+- `Table`: 
+  - 修复插槽 `cell-empty-content` 无效问题（`cellEmptyContent` 一直有效） @chaishi ([#2319](https://github.com/Tencent/tdesign-vue-next/pull/2319))
+  - 修复`headerAffixedTop`、`footerAffixedBottom`、`filterValue`的类型错误 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+ - `Form`: 
+    - 修复 `FormItem.name` 和 `FormItem.rules` 变化时无法触发校验问题 @chaishi ([#2346](https://github.com/Tencent/tdesign-vue-next/pull/2346))
+    -  修复表单类组件value语法糖可能存在的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Image`: 
+  - 修复 `image` 组件 `error` ，`overlayContent ` 字段类型错误 @PengYYYYY ([#2328](https://github.com/Tencent/tdesign-vue-next/pull/2328))
+  - 修复图片加载中和图片加载失败缺少必要图标问题 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+- `Dialog`: 修复 dialog` 确认按钮 `theme` 取值问题，修复单元测试告警 @PengYYYYY ([#2320](https://github.com/Tencent/tdesign-vue-next/pull/2320))
+- `Watermark`: 修复`unplugin`方式使用`watermark`组件报错的问题 ([issue #2325]( https://github.com/Tencent/tdesign-vue-next/issues/2325)) @uyarn ([#2329](https://github.com/Tencent/tdesign-vue-next/pull/2329))
+- `Loading`: 当属性 `loading=false` 时，不允许存在任何加载组件相关元素 @chaishi ([#2319](https://github.com/Tencent/tdesign-vue-next/pull/2319))
+- `Steps`: 修复示例样式问题 @Wen1kang ([#2330](https://github.com/Tencent/tdesign-vue-next/pull/2330))
+- `Affix`: 修复在 `nuxt` 下运行报错的问题 ([issue #2279](https://github.com/Tencent/tdesign-vue-next/issues/2279)) @uyarn ([#2341](https://github.com/Tencent/tdesign-vue-next/pull/2341))
+- `Pagination`: 修复在 `nuxt` 下运行报错的问题 ([issue #2279](https://github.com/Tencent/tdesign-vue-next/issues/2280)) @uyarn ([#2341](https://github.com/Tencent/tdesign-vue-next/pull/2341))
+- `InputNumber`: 修复小数点后第二个数字若为 `0` 无法输入问题 ([issue #2304](https://github.com/Tencent/tdesign-vue-next/issues/2304)) @chaishi ([#2344](https://github.com/Tencent/tdesign-vue-next/pull/2344))
+- `Avatar`: 修复 `size` 动态变化无效问题 @PengYYYYY ([#2340](https://github.com/Tencent/tdesign-vue-next/pull/2340))
+- `Calendar`: 修复`controllerConfig`的产物类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Drawer`: 修复`cancelBtn`、`confirmBtn`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Popconfirm`: 修复`cancelBtn`、`confirmBtn`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Slider`: 修复`InputNumberProps`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Textarea`: 修复`autosize`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Select`: 修复`options`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `BreadCrumb`: 修复BreadCrumbItem的`to`的类型问题 @uyarn ([#2352](https://github.com/Tencent/tdesign-vue-next/pull/2352))
+- `Dropdown`: 修复 `dropdown content` 支持 `function` 类型 @hkaikai ([#2354](https://github.com/Tencent/tdesign-vue-next/pull/2354))
+### 🚧 Others
+- `Image`: 
+  - 修复单元测试告警 @PengYYYYY ([#2320](https://github.com/Tencent/tdesign-vue-next/pull/2320))
+  - 输出完整的测试用例 @chaishi ([#2342](https://github.com/Tencent/tdesign-vue-next/pull/2342))
+- `Calendar`: 修复单元测试告警 @PengYYYYY ([#2320](https://github.com/Tencent/tdesign-vue-next/pull/2320))
+- `SelectInput`: 修复单元测试告警 @PengYYYYY ([#2320](https://github.com/Tencent/tdesign-vue-next/pull/2320))
+- `Popup`: 修复单元测试告警 @PengYYYYY ([#2320](https://github.com/Tencent/tdesign-vue-next/pull/2320))
+- `Rate`: 补充 `rate` 单元测试 @whitexie ([#2336](https://github.com/Tencent/tdesign-vue-next/pull/2336))
+- `Tag`: 添加更多测试用例 @chaishi ([#2349](https://github.com/Tencent/tdesign-vue-next/pull/2349))
 ## 🌈 1.0.5 `2023-01-31` 
 ### 🚀 Features
 - `ColorPicker`: 切换单色-渐变模式时触发色值及onChange变化 @uyarn ([#2305](https://github.com/Tencent/tdesign-vue-next/pull/2305))

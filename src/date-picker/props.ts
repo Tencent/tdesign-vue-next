@@ -49,7 +49,7 @@ export default {
   /** 占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdDatePickerProps['placeholder']>,
-    default: undefined,
+    default: undefined as TdDatePickerProps['placeholder'],
   },
   /** 透传给 popup 组件的参数 */
   popupProps: {
@@ -95,16 +95,16 @@ export default {
   /** 选中值 */
   value: {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
-    default: undefined,
+    default: undefined as TdDatePickerProps['value'],
   },
   modelValue: {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
-    default: undefined,
+    default: undefined as TdDatePickerProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,
-    default: '',
+    default: '' as TdDatePickerProps['defaultValue'],
   },
   /** 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式 */
   valueType: {

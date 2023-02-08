@@ -19,7 +19,7 @@ export interface TdSliderProps {
    * 用于控制数字输入框组件，值为 false 表示不显示数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件
    * @default false
    */
-  inputNumberProps?: InputNumberProps;
+  inputNumberProps?: false | InputNumberProps;
   /**
    * 滑块当前值文本。不传则默认显示当前数值，值为 `${value}%` 则表示组件会根据占位符渲染文案
    * @default false

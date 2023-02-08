@@ -18,9 +18,9 @@ export default defineComponent({
     const isImgExist = ref(true);
     // 内容区在左右两边的间距保持为4
     const gap = ref(4);
-    const sizeValue = ref('');
     const scale = ref('');
 
+    const sizeValue = computed(() => props.size || avatarGroup?.size);
     const isCustomSize = computed(() => sizeValue.value && !SIZE.value[sizeValue.value]);
 
     const customAvatarSize = computed(() => {
@@ -66,7 +66,6 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      sizeValue.value = props.size || avatarGroup?.size;
       nextTick(() => {
         setScaleParams();
       });

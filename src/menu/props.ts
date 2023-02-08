@@ -51,11 +51,11 @@ export default {
   /** 激活菜单项 */
   value: {
     type: [String, Number] as PropType<TdMenuProps['value']>,
-    default: undefined,
+    default: undefined as TdMenuProps['value'],
   },
   modelValue: {
     type: [String, Number] as PropType<TdMenuProps['value']>,
-    default: undefined,
+    default: undefined as TdMenuProps['value'],
   },
   /** 激活菜单项，非受控属性 */
   defaultValue: {

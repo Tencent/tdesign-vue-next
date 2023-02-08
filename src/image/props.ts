@@ -13,11 +13,9 @@ export default {
     type: String,
     default: '',
   },
-  /** 禁用状态，图片不响应鼠标事件 */
-  disabled: Boolean,
   /** 自定义图片加载失败状态下的显示内容 */
   error: {
-    type: Object as PropType<TdImageProps['error']>,
+    type: [String, Function] as PropType<TdImageProps['error']>,
   },
   /** 图片填充模式 */
   fit: {
@@ -34,11 +32,11 @@ export default {
   lazy: Boolean,
   /** 自定义加载中状态的图片内容，如：“加载中” */
   loading: {
-    type: Object as PropType<TdImageProps['loading']>,
+    type: [String, Function] as PropType<TdImageProps['loading']>,
   },
   /** 图片上方的浮层内容 */
   overlayContent: {
-    type: Object as PropType<TdImageProps['overlayContent']>,
+    type: [String, Function] as PropType<TdImageProps['overlayContent']>,
   },
   /** 浮层 `overlayContent` 出现的时机 */
   overlayTrigger: {
@@ -51,7 +49,7 @@ export default {
   },
   /** 占位元素，展示层级低于 `loading` `error` 和图片本身，值类型为字符串时表示占位图片地址 */
   placeholder: {
-    type: [String, Object] as PropType<TdImageProps['placeholder']>,
+    type: [String, Function] as PropType<TdImageProps['placeholder']>,
   },
   /** 等同于原生的 object-position 属性，可选值为 top right bottom left 或 string，可以自定义任何单位，px 或者 百分比 */
   position: {

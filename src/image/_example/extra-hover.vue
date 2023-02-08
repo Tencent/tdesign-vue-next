@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="jsx">
-const renderMask = (
+const renderMask = () => (
   <div
     style={{
       background: 'rgba(0,0,0,.4)',

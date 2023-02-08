@@ -10,7 +10,7 @@
 <script setup lang="jsx">
 import { Tag } from 'tdesign-vue-next';
 
-const label = (
+const label = () => (
   <Tag
     shape="mark"
     theme="warning"

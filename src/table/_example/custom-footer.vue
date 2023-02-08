@@ -57,10 +57,8 @@ for (let i = 0; i < 5; i++) {
 // 表尾有一行数据
 const footData = [
   {
-    index: '123',
-    type: '全部类型',
-    default: '',
-    description: '-',
+    status: '审批状态汇总',
+    createTime: '-',
   },
 ];
 // 自定义表尾的方式
@@ -87,15 +85,12 @@ const columns = [
         </t-tag>
       );
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    foot: (h) => <div style="width: 100%; ">表尾信息 </div>,
   },
   { colKey: 'channel', title: '签署方式', foot: 't-foot-required' },
   { colKey: 'detail.email', title: '邮箱地址', ellipsis: true, foot: () => <div>表尾信息</div> },
   {
     colKey: 'createTime',
     title: '申请时间',
-    foot: () => <div style="text-align: left">表尾信息</div>,
   },
 ];
 

@@ -26,17 +26,23 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--ellipsis`]: props.maxWidth,
           [`${COMPONENT_NAME.value}--close`]: props.closable,
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
+          [SIZE.value[props.size]]: props.size !== 'medium',
         },
-        SIZE.value[props.size],
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
 
     const tagStyle = computed<Record<string, string>>(() => {
-      return props.maxWidth ? { maxWidth: `${props.maxWidth}px` } : {};
+      const { maxWidth } = props;
+      return props.maxWidth
+        ? {
+            maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
+          }
+        : {};
     });
 
     const handleClick = (e: MouseEvent) => {
+      if (props.disabled) return;
       props.onClick?.({ e });
     };
 
@@ -65,17 +71,20 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
+      const title = typeof tagContent === 'string' ? tagContent : '';
+      const titleAttribute = title && props.maxWidth ? title : undefined;
+
       return (
         <span class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
           {props.maxWidth ? (
-            <span style={tagStyle.value} class={`${COMPONENT_NAME.value}--text`}>
+            <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
               {tagContent}
             </span>
           ) : (
             tagContent
           )}
-          {closeIcon}
+          {!props.disabled && closeIcon}
         </span>
       );
     };

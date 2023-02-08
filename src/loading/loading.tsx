@@ -127,7 +127,7 @@ export default defineComponent({
 
     // full screen loading
     if (this.fullscreen) {
-      if (!this.showFullScreenLoading) return null;
+      if (!this.showFullScreenLoading || !this.loading) return null;
       return (
         <div class={fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
           <div class={baseClasses}>
@@ -155,7 +155,7 @@ export default defineComponent({
 
     // transfer parent node
     if (this.attach) {
-      if (!this.showAttachedLoading) return null;
+      if (!this.showAttachedLoading || !this.loading) return null;
       return (
         <div class={attachClasses} style={this.styles} v-transfer-dom={this.attach}>
           {indicator}
@@ -165,11 +165,11 @@ export default defineComponent({
     }
 
     // Normal Loading without overlay or content
-    return (
+    return this.loading ? (
       <div class={normalClasses} style={this.styles}>
         {indicator}
         {text}
       </div>
-    );
+    ) : null;
   },
 });

@@ -14,7 +14,7 @@ export default {
   /** 用于控制数字输入框组件，值为 false 表示不显示数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件 */
   inputNumberProps: {
     type: [Boolean, Object] as PropType<TdSliderProps['inputNumberProps']>,
-    default: false,
+    default: false as TdSliderProps['inputNumberProps'],
   },
   /** 滑块当前值文本。不传则默认显示当前数值，值为 `${value}%` 则表示组件会根据占位符渲染文案 */
   label: {
@@ -57,7 +57,7 @@ export default {
   },
   modelValue: {
     type: [Number, Array] as PropType<TdSliderProps['value']>,
-    default: undefined,
+    default: undefined as TdSliderProps['value'],
   },
   /** 透传提示组件属性 */
   tooltipProps: {
@@ -66,7 +66,7 @@ export default {
   /** 滑块值 */
   value: {
     type: [Number, Array] as PropType<TdSliderProps['value']>,
-    default: undefined,
+    default: undefined as TdSliderProps['value'],
   },
   /** 滑块值，非受控属性 */
   defaultValue: {

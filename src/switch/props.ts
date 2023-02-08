@@ -33,17 +33,17 @@ export default {
   /** v-model 开关值 */
   modelValue: {
     type: [String, Number, Boolean] as PropType<TdSwitchProps['value']>,
-    default: undefined,
+    default: undefined as TdSwitchProps['value'],
   },
   /** 开关值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdSwitchProps['value']>,
-    default: undefined,
+    default: undefined as TdSwitchProps['value'],
   },
   /** 开关值，非受控属性 */
   defaultValue: {
     type: [String, Number, Boolean] as PropType<TdSwitchProps['defaultValue']>,
-    default: false,
+    default: false as TdSwitchProps['defaultValue'],
   },
   /** 数据发生变化时触发 */
   onChange: Function as PropType<TdSwitchProps['onChange']>,

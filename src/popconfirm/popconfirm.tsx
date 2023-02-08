@@ -8,20 +8,17 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
-import { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
-import { useAction } from '../dialog/hooks';
 import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
+import { useAction } from '../dialog/hooks';
 
+import type { PopconfirmVisibleChangeContext } from './type';
+import type { TdDialogProps } from '../dialog/type';
 export default defineComponent({
   name: 'TPopconfirm',
   props,
 
-  setup(
-    props: TdPopconfirmProps & {
-      modelValue: boolean;
-    },
-  ) {
+  setup(props) {
     const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');
     const { InfoCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
@@ -65,7 +62,7 @@ export default defineComponent({
     const renderTNodeDefault = useTNodeDefault();
     const renderContent = () => {
       const cancelBtn = getCancelBtn({
-        cancelBtn: props.cancelBtn,
+        cancelBtn: props.cancelBtn as TdDialogProps['cancelBtn'],
         globalCancel: globalConfig.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
         size: 'small',
@@ -73,7 +70,7 @@ export default defineComponent({
 
       const confirmBtn = getConfirmBtn({
         theme: props.theme,
-        confirmBtn: props.confirmBtn,
+        confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
         globalConfirm: globalConfig.value.confirm,
         globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
         className: `${COMPONENT_NAME.value}__confirm`,

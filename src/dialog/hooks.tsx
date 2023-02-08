@@ -5,14 +5,13 @@ import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
-import { ClassName, TNode } from '../common';
-
-export type MixinsFooterButton = string | ButtonProps | TNode | null;
+import type { ClassName } from '../common';
+import type { TdDialogProps } from './type';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
   className?: ClassName;
-  confirmBtn: MixinsFooterButton;
+  confirmBtn: TdDialogProps['confirmBtn'];
   globalConfirm: PopconfirmConfig['confirm'] | DrawerConfig['confirm'] | DialogConfig['confirm'];
   globalConfirmBtnTheme?: PopconfirmConfig['confirmBtnTheme'] | DialogConfig['confirmBtnTheme'];
   size?: ButtonProps['size'];
@@ -20,7 +19,7 @@ export interface MixinsConfirmBtn {
 
 export interface MixinsCancelBtn {
   className?: ClassName;
-  cancelBtn: MixinsFooterButton;
+  cancelBtn: TdDialogProps['cancelBtn'];
   globalCancel: PopconfirmConfig['cancel'] | DrawerConfig['cancel'] | DialogConfig['cancel'];
   size?: ButtonProps['size'];
 }
