@@ -9,19 +9,18 @@ const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
 
 // 过滤小版本号
-function getVersions(versions = [], deep = 1) {
-  const versionMap = Object.create(null);
+function getVersions(versions = []) {
+  const versionMap = new Map();
 
   versions.forEach((v) => {
+    if (v.includes('alpha') || v.includes('patch')) return false;
     const nums = v.split('.');
-    versionMap[nums[deep]] = v;
+    versionMap.set(`${nums[0]}.${nums[1]}`, v);
   });
 
-  return Object.values(versionMap)
-    .sort((a, b) => {
-      return semver.gt(b, a) ? -1 : 1;
-    })
-    .filter((v) => !v.includes('alpha') && !v.includes('patch'));
+  return [...versionMap.values()].sort((a, b) => {
+    return semver.gt(b, a) ? -1 : 1;
+  });
 }
 
 export default defineComponent({
