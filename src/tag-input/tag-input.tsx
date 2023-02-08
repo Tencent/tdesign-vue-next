@@ -178,7 +178,7 @@ export default defineComponent({
         v-slots={{
           suffix: this.$slots.suffix,
         }}
-        readonly={this.readonly || inputProps?.readonly}
+        readonly={this.readonly}
         value={this.tInputValue}
         autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
         size={this.size}
