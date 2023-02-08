@@ -3,6 +3,7 @@
  * 如果标签过多时的处理方式，是标签省略，则不需要此功能
  */
 
+import isFunction from 'lodash/isFunction';
 import { onMounted, onUnmounted, ref, toRefs } from 'vue';
 import { TdTagInputProps } from '../type';
 
@@ -24,7 +25,8 @@ export default function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollTo = (distance: number) => {
-    scrollElement.value?.scroll({ left: distance, behavior: 'smooth' });
+    if (!isFunction(scrollElement.value?.scroll)) return;
+    scrollElement.value.scroll({ left: distance, behavior: 'smooth' });
   };
 
   const scrollToRight = () => {
