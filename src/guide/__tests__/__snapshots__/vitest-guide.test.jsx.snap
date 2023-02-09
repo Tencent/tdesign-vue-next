@@ -11992,7 +11992,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -17487,7 +17487,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -23568,7 +23568,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -29791,7 +29791,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -42389,7 +42389,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -46833,7 +46833,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div
@@ -53196,7 +53196,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              新手引导的说明文案
+              <body />
             </div>
             
             <div

@@ -50,8 +50,10 @@ const steps = [
     body: '新手引导的说明文案',
     placement: 'bottom-right',
     highlightPadding: 48,
+    // 示例代码有效
     // highlightContent: () => <div style={{ width: '500px', height: '150px' }}>自定义引导</div>
-    highlightContent: <div style={{ width: '500px', height: '150px' }}>自定义引导</div>,
+    // 示例代码有效
+    // highlightContent: <div style={{ width: '500px', height: '150px' }}>自定义引导</div>,
   },
   {
     element: '.label-field',

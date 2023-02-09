@@ -204,7 +204,7 @@ export default defineComponent({
         const params: any = h;
         params.currentStepInfo = currentStepInfo.value;
         const { highlightContent } = currentStepInfo.value;
-        // 支持组件/字符串等
+        // 支持组件
         let node: any = highlightContent;
         // 支持函数
         if (isFunction(highlightContent)) {
@@ -322,13 +322,14 @@ export default defineComponent({
 
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{renderTitle()}</div>;
-        let descBody: any = currentStepInfo.value.body;
-        if (isFunction(descBody)) {
-          descBody = descBody();
+        const body = currentStepInfo.value.body;
+        let descBody: any;
+        if (isFunction(body)) {
+          descBody = body(h);
+        } else if (context.slots.body) {
+          descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
         } else {
-          if (context.slots.body) {
-            descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
-          }
+          descBody = <body />;
         }
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{descBody}</div>;
 
