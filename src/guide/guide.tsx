@@ -204,6 +204,7 @@ export default defineComponent({
         const params: any = h;
         params.currentStepInfo = currentStepInfo.value;
         const { highlightContent } = currentStepInfo.value;
+        // 支持组件/字符串等
         let node: any = highlightContent;
         // 支持函数
         if (isFunction(highlightContent)) {
@@ -370,15 +371,14 @@ export default defineComponent({
         Object.assign(params, contentProps);
         let renderBody;
         if (isFunction(content)) {
-          renderBody = content(params);
+          renderBody = () => content(params);
         } else if (context.slots.content) {
-          renderBody = context.slots.content(params);
+          renderBody = () => context.slots.content(params);
         } else if (content) {
           renderBody = () => <content {...contentProps} />;
         } else {
           renderBody = renderPopupContent;
         }
-
         const classes = [
           `${COMPONENT_NAME.value}__reference`,
           `${COMPONENT_NAME.value}--${currentElmIsFixed.value ? 'fixed' : 'absolute'}`,
@@ -386,17 +386,17 @@ export default defineComponent({
 
         const innerClassName: PopupProps['overlayInnerClassName'] = [
           {
-            [`${classPrefix.value}__popup--content`]: !!content,
+            [`${classPrefix.value}-guide__popup--content`]: !!content,
           },
         ];
         return (
           <Popup
             visible={true}
-            v-slots={{ content: renderBody }}
             show-arrow={!content}
             zIndex={zIndex.value}
             placement={currentStepInfo.value.placement}
             {...currentStepInfo.value.popupProps}
+            content={renderBody}
             overlayClassName={currentStepInfo.value.stepOverlayClass}
             overlayInnerClassName={innerClassName.concat(currentStepInfo.value.popupProps?.overlayInnerClassName)}
           >

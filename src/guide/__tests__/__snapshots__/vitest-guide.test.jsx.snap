@@ -3690,7 +3690,6 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -3740,7 +3739,6 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -7718,15 +7716,13 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
-          class="t-popup__content t__popup--content"
+          class="t-popup__content t-guide__popup--content"
         >
-          
           <span
             class="custom-node"
           >
             TNode
           </span>
-          
           <!---->
         </div>
       </div>
@@ -11984,7 +11980,6 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -12030,7 +12025,6 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -17481,7 +17475,6 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -17527,7 +17520,6 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -23564,7 +23556,6 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -23610,7 +23601,6 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -29785,7 +29775,6 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -29835,7 +29824,6 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -33677,7 +33665,6 @@ exports[`Guide Component > slots.body works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -33729,7 +33716,6 @@ exports[`Guide Component > slots.body works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -42391,7 +42377,6 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -42437,7 +42422,6 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -46837,7 +46821,6 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -46883,7 +46866,6 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
@@ -53196,7 +53178,6 @@ exports[`Guide Component > slots.title works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow"
         >
-          
           <div
             class="t-guide__tooltip"
           >
@@ -53248,7 +53229,6 @@ exports[`Guide Component > slots.title works fine 1`] = `
               </div>
             </div>
           </div>
-          
           <div
             class="t-popup__arrow"
           />
