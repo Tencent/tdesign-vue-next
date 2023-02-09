@@ -1,32 +1,27 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch } from 'vue';
-
+import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h } from 'vue';
+import isFunction from 'lodash/isFunction';
 import props from './props';
-
-import { TdGuideProps, GuideCrossProps } from './type';
-
+import { GuideCrossProps } from './interface';
+import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
-
 import setStyle from '../_common/js/utils/set-style';
-
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-
 import Button from '../button';
-import Popup from '../popup';
+import Popup, { PopupProps } from '../popup';
 
 export default defineComponent({
   name: 'TGuide',
   directives: { TransferDom },
   props,
-  setup(props: TdGuideProps) {
+  setup(props: TdGuideProps, context) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
-    const { globalConfig } = useConfig('guide');
+    const { globalConfig, classPrefix } = useConfig('guide');
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -54,7 +49,7 @@ export default defineComponent({
     // 步骤总数
     const stepsTotal = computed(() => steps.value.length);
     // 当前步骤的信息
-    const currentStepInfo = computed(() => steps.value[innerCurrent.value]);
+    const currentStepInfo = computed<GuideStep>(() => steps.value[innerCurrent.value]);
     // 当前是否为 popup
     const isPopup = computed(() => getCurrentCrossProps('mode') === 'popup');
     // 当前元素位置状态
@@ -92,6 +87,7 @@ export default defineComponent({
     const showPopupGuide = () => {
       nextTick(() => {
         currentHighlightLayerElm.value = getTargetElm(currentStepInfo.value.element);
+        if (!currentHighlightLayerElm.value) return;
         scrollToParentVisibleArea(currentHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value);
@@ -204,6 +200,29 @@ export default defineComponent({
         />
       );
 
+      const getHighlightContent = () => {
+        const params: any = h;
+        params.currentStepInfo = currentStepInfo.value;
+        const { highlightContent } = currentStepInfo.value;
+        let node: any = highlightContent;
+        // 支持函数
+        if (isFunction(highlightContent)) {
+          node = highlightContent(params);
+        }
+        // 支持插槽
+        if (context.slots.highlightContent) {
+          node = context.slots.highlightContent(params);
+        }
+        if (context.slots['highlight-content']) {
+          node = context.slots['highlight-content'](params);
+        }
+        // 给自定义元素添加类名
+        if (node?.props) {
+          node.props.class = `t-guide__highlight t-guide__highlight--mask ${node.props.class || ''}`;
+        }
+        return node;
+      };
+
       const renderHighlightLayer = () => {
         const style = { zIndex: zIndex.value - 1 };
         const highlightClass = [
@@ -213,8 +232,8 @@ export default defineComponent({
         ];
         const showOverlay = getCurrentCrossProps('showOverlay');
         const maskClass = [`${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
-        const { highlightContent } = currentStepInfo.value;
-        const showHighlightContent = highlightContent && isPopup.value;
+        const innerHighlightContent = getHighlightContent();
+        const showHighlightContent = Boolean(innerHighlightContent && isPopup.value);
 
         return (
           <div
@@ -223,7 +242,7 @@ export default defineComponent({
             class={highlightClass.concat(showHighlightContent ? highlightClass : maskClass)}
             style={style}
           >
-            {showHighlightContent && <highlightContent class={highlightClass.concat(maskClass)} style={style} />}
+            {showHighlightContent && innerHighlightContent}
           </div>
         );
       };
@@ -235,11 +254,7 @@ export default defineComponent({
 
         const popupDefaultCounter = (
           <div class={`${COMPONENT_NAME.value}__counter`}>
-            {popupSlotCounter || (
-              <span>
-                {innerCurrent.value + 1}/{stepsTotal.value}
-              </span>
-            )}
+            {popupSlotCounter || `${innerCurrent.value + 1}/${stepsTotal.value}`}
           </div>
         );
         return <>{!hideCounter.value && popupDefaultCounter}</>;
@@ -296,12 +311,25 @@ export default defineComponent({
         );
       };
 
+      const renderTitle = () => {
+        const functionTitle = isFunction(currentStepInfo.value.title) ? currentStepInfo.value.title() : undefined;
+        const slotTitle = context.slots.title ? context.slots.title(h) : undefined;
+        const params: any = h;
+        params.currentStepInfo = currentStepInfo.value;
+        return functionTitle || slotTitle || currentStepInfo.value.title;
+      };
+
       const renderTooltipBody = () => {
-        const title = <div class={`${COMPONENT_NAME.value}__title`}>{currentStepInfo.value.title}</div>;
-        const { body: descBody } = currentStepInfo.value;
-        const desc = (
-          <div class={`${COMPONENT_NAME.value}__desc`}>{typeof descBody === 'string' ? descBody : <descBody />}</div>
-        );
+        const title = <div class={`${COMPONENT_NAME.value}__title`}>{renderTitle()}</div>;
+        let descBody: any = currentStepInfo.value.body;
+        if (isFunction(descBody)) {
+          descBody = descBody();
+        } else {
+          if (context.slots.body) {
+            descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
+          }
+        }
+        const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{descBody}</div>;
 
         return (
           <>
@@ -330,16 +358,22 @@ export default defineComponent({
 
       const renderPopupGuide = () => {
         const { content } = currentStepInfo.value;
+        const contentProps = {
+          handlePrev,
+          handleNext,
+          handleSkip,
+          handleFinish,
+          current: innerCurrent.value,
+          total: stepsTotal.value,
+        };
+        const params: any = h;
+        Object.assign(params, contentProps);
         let renderBody;
-        if (content) {
-          const contentProps = {
-            handlePrev,
-            handleNext,
-            handleSkip,
-            handleFinish,
-            current: innerCurrent.value,
-            total: stepsTotal.value,
-          };
+        if (isFunction(content)) {
+          renderBody = content(params);
+        } else if (context.slots.content) {
+          renderBody = context.slots.content(params);
+        } else if (content) {
           renderBody = () => <content {...contentProps} />;
         } else {
           renderBody = renderPopupContent;
@@ -350,15 +384,21 @@ export default defineComponent({
           `${COMPONENT_NAME.value}--${currentElmIsFixed.value ? 'fixed' : 'absolute'}`,
         ];
 
+        const innerClassName: PopupProps['overlayInnerClassName'] = [
+          {
+            [`${classPrefix.value}__popup--content`]: !!content,
+          },
+        ];
         return (
           <Popup
             visible={true}
             v-slots={{ content: renderBody }}
             show-arrow={!content}
             zIndex={zIndex.value}
-            overlayClassName={currentStepInfo.value.stepOverlayClass}
-            overlayInnerClassName={{ [`${COMPONENT_NAME.value}__popup--content`]: !!content }}
             placement={currentStepInfo.value.placement}
+            {...currentStepInfo.value.popupProps}
+            overlayClassName={currentStepInfo.value.stepOverlayClass}
+            overlayInnerClassName={innerClassName.concat(currentStepInfo.value.popupProps?.overlayInnerClassName)}
           >
             <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
           </Popup>

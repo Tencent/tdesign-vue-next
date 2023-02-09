@@ -37,7 +37,7 @@
   </t-row>
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue';
 
 const visible = ref(false);
@@ -49,6 +49,9 @@ const steps = [
     title: '新手引导标题',
     body: '新手引导的说明文案',
     placement: 'bottom-right',
+    highlightPadding: 48,
+    // highlightContent: () => <div style={{ width: '500px', height: '150px' }}>自定义引导</div>
+    highlightContent: <div style={{ width: '500px', height: '150px' }}>自定义引导</div>,
   },
   {
     element: '.label-field',
