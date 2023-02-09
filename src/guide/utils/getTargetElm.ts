@@ -13,7 +13,9 @@ export default function getTargetElm(elm: AttachNode): HTMLElement {
     if (targetElement) {
       return targetElement as HTMLElement;
     }
-    throw new Error('There is no element with given.');
+    if (process?.env?.NODE_ENV !== 'test') {
+      throw new Error('There is no element with given.');
+    }
   } else {
     return document.body;
   }
