@@ -36,7 +36,8 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
 }
 
 export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
-  const { value, keys, inputValue: propsInputValue } = toRefs(props);
+  const { value: propsValue, keys, inputValue: propsInputValue } = toRefs(props);
+  const value = ref(propsValue.value || props.defaultInputValue);
   const classPrefix = usePrefixClass();
   const inputRef = ref();
   const [inputValue, setInputValue] = useDefaultValue(
@@ -67,7 +68,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
 
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
-    const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
+    const pureValue = getInputValue(value.value, keys.value);
+    const displayedValue =
+      popupVisible && props.allowInput ? inputValue.value || pureValue : getInputValue(value.value, keys.value);
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
