@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue';
-import semver from 'semver';
 import siteConfig from '../../site.config';
 import packageJson from '@/package.json';
 
@@ -7,22 +6,6 @@ const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/comp
 
 const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
-
-// 过滤小版本号
-function getVersions(versions = [], deep = 1) {
-  const versionMap = Object.create(null);
-
-  versions.forEach((v) => {
-    const nums = v.split('.');
-    versionMap[nums[deep]] = v;
-  });
-
-  return Object.values(versionMap)
-    .sort((a, b) => {
-      return semver.gt(b, a) ? -1 : 1;
-    })
-    .filter((v) => !v.includes('alpha') && !v.includes('patch'));
-}
 
 export default defineComponent({
   data() {
@@ -59,12 +42,18 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          const versions = getVersions(Object.keys(res.versions));
-          versions.forEach((v) => {
+          Object.keys(res.versions).forEach((v) => {
             const nums = v.split('.');
-            if (nums[0] === '0' && nums[1] < 6) return false;
+            if (
+              (nums[0] === '0' && nums[1] < 6) ||
+              v.indexOf('alpha') > -1 ||
+              v.indexOf('patch') > -1 ||
+              v.indexOf('rc') > -1
+            )
+              return false;
             options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
+
           this.options.push(...options);
         });
     },
