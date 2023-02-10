@@ -36,8 +36,7 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
 }
 
 export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
-  const { value: propsValue, keys, inputValue: propsInputValue } = toRefs(props);
-  const value = ref(propsValue.value || props.defaultInputValue);
+  const { value, keys, inputValue: propsInputValue } = toRefs(props);
   const classPrefix = usePrefixClass();
   const inputRef = ref();
   const [inputValue, setInputValue] = useDefaultValue(
@@ -103,7 +102,8 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
           },
           onFocus: (val, context) => {
             props.onFocus?.(value.value, { ...context, inputValue: val });
-            !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
+            //删除，下面这行代码不允许恢复！不符合正常逻辑，也会造成 defaultInputValue 无效；树形结构搜索功能异常等问题
+            // !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
           },
           ...inputProps,
         }}
