@@ -21,7 +21,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
-    const { globalConfig, classPrefix } = useConfig('guide');
+    const { globalConfig } = useConfig('guide');
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -384,7 +384,7 @@ export default defineComponent({
 
         const innerClassName: PopupProps['overlayInnerClassName'] = [
           {
-            [`${classPrefix.value}-guide__popup--content`]: !!content,
+            [`${COMPONENT_NAME.value}__popup--content`]: !!content,
           },
         ];
         return (
@@ -395,7 +395,7 @@ export default defineComponent({
             placement={currentStepInfo.value.placement}
             {...currentStepInfo.value.popupProps}
             content={renderBody}
-            overlayClassName={currentStepInfo.value.stepOverlayClass}
+            overlayClassName={[`${COMPONENT_NAME.value}__popup`, currentStepInfo.value.stepOverlayClass]}
             overlayInnerClassName={innerClassName.concat(currentStepInfo.value.popupProps?.overlayInnerClassName)}
           >
             <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
