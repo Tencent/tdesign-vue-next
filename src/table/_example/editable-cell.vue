@@ -117,6 +117,11 @@ const columns = computed(() => [
         clearable: true,
         options: STATUS_OPTIONS,
       },
+      on: (editContext) => ({
+        onChange: (params) => {
+          console.log('status changed', editContext, params);
+        },
+      }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
       abortEditOnEvent: ['onChange'],
       // 编辑完成，退出编辑态后触发
