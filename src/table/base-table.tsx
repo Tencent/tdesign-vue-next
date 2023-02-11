@@ -222,6 +222,34 @@ export default defineComponent({
       addTableResizeObserver(tableRef.value);
     });
 
+    const innerColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
+    const isColumnResizable = computed(() => props.allowResizeColumnWidth ?? props.resizable);
+
+    const renderColGroup = (isAffixHeader = true) => {
+      // set default width to be 100px to avoid columns without col.width being missing
+      const defaultColWidth = props.tableLayout === 'fixed' && isWidthOverflow.value ? '100px' : undefined;
+      return (
+        <colgroup>
+          {innerColumns.value.map((col) => {
+            const style: Styles = {
+              width:
+                formatCSSUnit(
+                  (isAffixHeader || isColumnResizable.value ? thWidthList.value[col.colKey] : undefined) || col.width,
+                ) || defaultColWidth,
+            };
+            if (col.minWidth) {
+              style.minWidth = formatCSSUnit(col.minWidth);
+            }
+            // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
+            if (!style.width && !col.minWidth && props.tableLayout === 'fixed') {
+              style.minWidth = '80px';
+            }
+            return <col key={col.colKey} style={style}></col>;
+          })}
+        </colgroup>
+      );
+    };
+
     return {
       thList,
       classPrefix,
@@ -268,6 +296,7 @@ export default defineComponent({
       tableBodyRef,
       virtualConfig,
       showAffixPagination,
+      innerColumns,
       scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
@@ -275,6 +304,7 @@ export default defineComponent({
       onHorizontalScroll,
       updateAffixHeaderOrFooter,
       onInnerVirtualScroll,
+      renderColGroup,
       refreshTable,
       paginationAffixRef,
       horizontalScrollAffixRef,
@@ -286,34 +316,12 @@ export default defineComponent({
   render() {
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
-    const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
+    const columns = this.innerColumns;
 
-    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
+    const columnResizable = this.allowResizeColumnWidth ?? this.resizable;
     if (columnResizable && this.tableLayout === 'auto') {
       log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
     }
-    const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
-
-    const renderColGroup = (isAffixHeader = true) => (
-      <colgroup>
-        {columns.map((col) => {
-          const style: Styles = {
-            width:
-              formatCSSUnit(
-                (isAffixHeader || columnResizable ? this.thWidthList[col.colKey] : undefined) || col.width,
-              ) || defaultColWidth,
-          };
-          if (col.minWidth) {
-            style.minWidth = formatCSSUnit(col.minWidth);
-          }
-          // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
-          if (!style.width && !col.minWidth && this.tableLayout === 'fixed') {
-            style.minWidth = '80px';
-          }
-          return <col key={col.colKey} style={style}></col>;
-        })}
-      </colgroup>
-    );
 
     const renderAffixedHeader = () => {
       if (this.showHeader === false) return null;
@@ -407,7 +415,7 @@ export default defineComponent({
         ]}
       >
         <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-          {renderColGroup(true)}
+          {this.renderColGroup(true)}
           <THead v-slots={this.$slots} {...headProps} />
         </table>
       </div>
@@ -444,8 +452,7 @@ export default defineComponent({
           class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-            {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
-            {renderColGroup(true)}
+            {this.renderColGroup(true)}
             <TFoot
               rowKey={this.rowKey}
               v-slots={this.$slots}
@@ -505,7 +512,7 @@ export default defineComponent({
         )}
 
         <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
-          {renderColGroup(false)}
+          {this.renderColGroup(false)}
           {this.showHeader && (
             <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
           )}
