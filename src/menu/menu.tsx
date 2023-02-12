@@ -8,6 +8,8 @@ import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
+import isNumber from 'lodash/isNumber';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TMenu',
@@ -36,8 +38,8 @@ export default defineComponent({
     ]);
     const expandWidth = computed(() => {
       const { width } = props;
-      const format = (val: string | number) => (typeof val === 'number' ? `${val}px` : val);
-      if (Array.isArray(width)) return width.map((item) => format(item));
+      const format = (val: string | number) => (isNumber(val) ? `${val}px` : val);
+      if (isArray(width)) return width.map((item) => format(item));
 
       return [format(width), '64px'];
     });

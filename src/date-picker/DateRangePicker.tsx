@@ -2,6 +2,8 @@ import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 
 import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';
@@ -312,10 +314,10 @@ export default defineComponent({
     // 预设
     function onPresetClick(preset: any) {
       let presetValue = preset;
-      if (typeof preset === 'function') {
+      if (isFunction(preset)) {
         presetValue = preset();
       }
-      if (!Array.isArray(presetValue)) {
+      if (!isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
         onChange?.(

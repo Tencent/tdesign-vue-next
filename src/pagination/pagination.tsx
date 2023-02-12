@@ -21,6 +21,7 @@ import useMoreAction from './useMoreAction';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useTNodeJSX } from '../hooks/tnode';
+import isObject from 'lodash/isObject';
 
 const min = 1;
 
@@ -81,7 +82,7 @@ export default defineComponent({
     const sizeOptions = computed<Array<{ label: string; value: number }>>(() => {
       const pageSizeOptions = props.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
       const options = pageSizeOptions.map((option) =>
-        typeof option === 'object'
+        isObject(option)
           ? option
           : {
               label: t(globalConfig.value.itemsPerPage, { size: option }),

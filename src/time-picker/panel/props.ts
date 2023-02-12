@@ -1,3 +1,4 @@
+import isBoolean from 'lodash/isBoolean';
 import { PropType } from 'vue';
 import dayjs from 'dayjs';
 
@@ -9,7 +10,7 @@ const BooleanType = {
   type: Boolean,
   default: true,
   validator(v: boolean): boolean {
-    return typeof v === 'boolean';
+    return isBoolean(v);
   },
 };
 

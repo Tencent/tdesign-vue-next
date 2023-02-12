@@ -5,6 +5,7 @@ import props from './props';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TTag',
@@ -71,7 +72,7 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
-      const title = typeof tagContent === 'string' ? tagContent : '';
+      const title = isString(tagContent) ? tagContent : '';
       const titleAttribute = title && props.maxWidth ? title : undefined;
 
       return (

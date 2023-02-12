@@ -1,6 +1,7 @@
+import isFunction from 'lodash/isFunction';
 import { ComponentPublicInstance } from 'vue';
 import { getPropsApiByEvent } from './helper';
-
+import isString from 'lodash/isString';
 export type EmitEventName = { event: string; method: string } | string;
 
 /**
@@ -14,10 +15,10 @@ export type EmitEventName = { event: string; method: string } | string;
  */
 export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventName: string, ...args: T) {
   let emitEventMethodName: string;
-  if (typeof eventName === 'string') {
+  if (isString(eventName)) {
     emitEventMethodName = getPropsApiByEvent(eventName);
   }
-  if (typeof vm.$props[emitEventMethodName] === 'function') {
+  if (isFunction(vm.$props[emitEventMethodName])) {
     vm.$props[emitEventMethodName](...args);
   } else {
     vm.$emit(eventName, ...args);

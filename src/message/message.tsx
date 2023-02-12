@@ -14,6 +14,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animation';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TMessage',
@@ -85,7 +86,7 @@ export default defineComponent({
 
     const renderIcon = () => {
       if (props.icon === false) return;
-      if (typeof props.icon === 'function') return props.icon(h);
+      if (isFunction(props.icon)) return props.icon(h);
       if (slots.icon) {
         return slots.icon(null);
       }

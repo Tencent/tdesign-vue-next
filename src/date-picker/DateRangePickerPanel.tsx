@@ -15,6 +15,8 @@ import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
@@ -235,10 +237,10 @@ export default defineComponent({
     // 预设
     function onPresetClick(preset: any) {
       let presetValue = preset;
-      if (typeof preset === 'function') {
+      if (isFunction(preset)) {
         presetValue = preset();
       }
-      if (!Array.isArray(presetValue)) {
+      if (!isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
         onChange?.(

@@ -11,6 +11,7 @@ import { PrimaryTableCol, FilterValue } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';
+import isFunction from 'lodash/isFunction';
 
 export interface TableFilterControllerProps {
   tFilterValue: FilterValue;
@@ -110,7 +111,7 @@ export default defineComponent({
       const renderComponent = () => {
         if (!component) return null;
         const isVueComponent = !!component.setup;
-        if (typeof column.filter.component === 'function' && !isVueComponent) {
+        if (isFunction(column.filter.component) && !isVueComponent) {
           return column.filter.component((v: any, b: any) => {
             const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
             return h(v, {

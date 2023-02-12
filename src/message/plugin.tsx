@@ -40,6 +40,8 @@ import {
   MessageCloseAllMethod,
 } from './type';
 import { AttachNodeReturnValue } from '../common';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
@@ -90,9 +92,9 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
 
 const showThemeMessage: MessageMethod = (theme, params, duration) => {
   let options: MessageOptions = { theme };
-  if (typeof params === 'string') {
+  if (isString(params)) {
     options.content = params;
-  } else if (typeof params === 'object' && !(params instanceof Array)) {
+  } else if (isObject(params) && !(params instanceof Array)) {
     options = { ...options, ...params };
   }
   (duration || duration === 0) && (options.duration = duration);

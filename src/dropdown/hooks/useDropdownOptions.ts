@@ -1,6 +1,8 @@
+import isString from 'lodash/isString';
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
 import { DropdownOption, TdDropdownProps } from '../type';
 import { useChildComponentSlots } from '../../hooks/slot';
+import isArray from 'lodash/isArray';
 
 export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
   if (!menuGroup) return [];
@@ -8,15 +10,15 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
   // 处理内部嵌套场景
   if (menuGroup[0]?.type?.name === 'TDropdownMenu') {
     const groupChildren = menuGroup[0]?.children?.default?.();
-    if (Array.isArray(groupChildren)) {
+    if (isArray(groupChildren)) {
       return getOptionsFromChildren(groupChildren);
     }
   }
 
   // 处理v-if的场景
-  if (Array.isArray(menuGroup[0]?.children)) return getOptionsFromChildren(menuGroup[0]?.children);
+  if (isArray(menuGroup[0]?.children)) return getOptionsFromChildren(menuGroup[0]?.children);
 
-  if (Array.isArray(menuGroup)) {
+  if (isArray(menuGroup)) {
     return menuGroup
       .map((item) => {
         const groupChildren = item.children?.default?.();
@@ -28,8 +30,7 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
         // 嵌套菜单的节点
         const childrenCtx = groupChildren?.filter?.(
           (v: VNode) =>
-            typeof v.children !== 'string' &&
-            ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
+            !isString(v.children) && ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
         );
 
         return {

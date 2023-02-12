@@ -1,5 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'HighlightOption',
@@ -16,7 +17,7 @@ export default defineComponent({
     const words = computed<{ list: string[]; keyword?: string }>(() => {
       const { content, keyword } = props;
       if (!content) return { list: [] };
-      if (typeof content !== 'string' || !keyword) return { list: [content] };
+      if (!isString(content) || !keyword) return { list: [content] };
       const regExp = new RegExp(keyword, 'i');
       const splitKeyword = content.match(regExp)?.[0];
       return {

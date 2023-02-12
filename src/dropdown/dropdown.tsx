@@ -8,6 +8,7 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import useDropdownOptions from './hooks/useDropdownOptions';
+import isNumber from 'lodash/isNumber';
 
 export default defineComponent({
   name: 'TDropdown',
@@ -20,7 +21,7 @@ export default defineComponent({
 
     const manualCloseTimeout = computed(() => {
       const delay = props.popupProps?.delay;
-      if (typeof delay === 'number') return delay + 10;
+      if (isNumber(delay)) return delay + 10;
       if (isArray(delay)) return delay[1] + 10 ?? delay[0] + 10;
       return 160;
     });
