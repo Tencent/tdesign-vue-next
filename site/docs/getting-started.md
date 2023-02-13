@@ -122,6 +122,12 @@ module.exports = {
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/tdesign.ts#L4)。
 
+### 编辑器提示
+
+安装注册 TDesign 之后，在开发项目时，可以配合插件在VSCode等主流编辑器中达到提示组件名及API的效果。
+
+推荐安装 `volar`，并在项目的 tsconfig.json 的 `includes` 属性中增加`node_modules/tdesign-vue-next/global.d.ts`，即可实现该效果。
+
 ### 快速体验
 
 可以访问官方提供的 [tdesign-starter](https://tdesign.tencent.com/starter/vue-next/) 项目体验使用 TDesign 组件快速搭建业务系统。

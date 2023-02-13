@@ -2,11 +2,11 @@ import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
 import Popup from '../popup';
 import props from './props';
 import { TdSelectInputProps } from './type';
-
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks';
 
 const useComponentClassName = () => {
   return {
@@ -27,6 +27,7 @@ export default defineComponent({
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
       useComponentClassName();
     const classPrefix = usePrefixClass();
+    const renderTNodeJSX = useTNodeJSX();
 
     const selectInputRef = ref();
     const popupRef = ref();
@@ -55,6 +56,7 @@ export default defineComponent({
       popupRef,
       classes,
       onInnerClear,
+      renderTNodeJSX,
       renderSelectSingle,
       renderSelectMultiple,
       onInnerPopupVisibleChange,
@@ -90,12 +92,14 @@ export default defineComponent({
       </Popup>
     );
 
+    const tipsNode = this.renderTNodeJSX('tips');
+
     return (
       <div ref="selectInputRef" class={this.classes}>
         {mainContent}
-        {this.tips && (
+        {tipsNode && (
           <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
-            {this.tips}
+            {tipsNode}
           </div>
         )}
       </div>

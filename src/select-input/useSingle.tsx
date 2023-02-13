@@ -67,7 +67,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
 
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
-    const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
+    const pureValue = getInputValue(value.value, keys.value);
+    const displayedValue =
+      popupVisible && props.allowInput ? inputValue.value || pureValue : getInputValue(value.value, keys.value);
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
@@ -100,7 +102,8 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
           },
           onFocus: (val, context) => {
             props.onFocus?.(value.value, { ...context, inputValue: val });
-            !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
+            //删除，下面这行代码不允许恢复！不符合正常逻辑，也会造成 defaultInputValue 无效；树形结构搜索功能异常等问题
+            // !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
           },
           ...inputProps,
         }}
