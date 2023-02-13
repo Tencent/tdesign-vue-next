@@ -50,7 +50,7 @@ import {
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import isNumber from 'lodash/isNumber';
-import isString from 'lodash/props.label';
+import isString from 'lodash/isString';
 import isBoolean from 'lodash/isBoolean';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
