@@ -3681,7 +3681,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -7709,7 +7709,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -11971,7 +11971,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -17466,7 +17466,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-start"
         data-popper-reference-hidden=""
@@ -23547,7 +23547,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
       persisted="false"
     >
       <div
-        class="t-popup t-test-guide-step-overlay"
+        class="t-popup t-guide__popup t-test-guide-step-overlay"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -29766,7 +29766,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -33656,7 +33656,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -37824,7 +37824,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -42368,7 +42368,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -46812,7 +46812,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
@@ -53169,7 +53169,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
       persisted="false"
     >
       <div
-        class="t-popup"
+        class="t-popup t-guide__popup"
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""

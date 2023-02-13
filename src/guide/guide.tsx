@@ -21,7 +21,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('guide');
     const LOCK_CLASS = usePrefixClass('guide--lock');
-    const { globalConfig, classPrefix } = useConfig('guide');
+    const { globalConfig } = useConfig('guide');
 
     const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -200,22 +200,23 @@ export default defineComponent({
         />
       );
 
+      const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) =>
+        Object.assign({}, h, params);
+
       const getHighlightContent = () => {
-        const params: any = h;
-        params.currentStepInfo = currentStepInfo.value;
         const { highlightContent } = currentStepInfo.value;
         // 支持组件
         let node: any = highlightContent;
         // 支持函数
         if (isFunction(highlightContent)) {
-          node = highlightContent(params);
+          node = highlightContent(hWithParams());
         }
         // 支持插槽
         if (context.slots.highlightContent) {
-          node = context.slots.highlightContent(params);
+          node = context.slots.highlightContent(hWithParams());
         }
         if (context.slots['highlight-content']) {
-          node = context.slots['highlight-content'](params);
+          node = context.slots['highlight-content'](hWithParams());
         }
         // 给自定义元素添加类名
         if (node?.props) {
@@ -314,9 +315,7 @@ export default defineComponent({
 
       const renderTitle = () => {
         const functionTitle = isFunction(currentStepInfo.value.title) ? currentStepInfo.value.title() : undefined;
-        const slotTitle = context.slots.title ? context.slots.title(h) : undefined;
-        const params: any = h;
-        params.currentStepInfo = currentStepInfo.value;
+        const slotTitle = context.slots.title ? context.slots.title(hWithParams()) : undefined;
         return functionTitle || slotTitle || currentStepInfo.value.title;
       };
 
@@ -325,7 +324,7 @@ export default defineComponent({
         const body = currentStepInfo.value.body;
         let descBody: any;
         if (isFunction(body)) {
-          descBody = body(h);
+          descBody = body(hWithParams());
         } else if (context.slots.body) {
           descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
         } else {
@@ -368,13 +367,11 @@ export default defineComponent({
           current: innerCurrent.value,
           total: stepsTotal.value,
         };
-        const params: any = h;
-        Object.assign(params, contentProps);
         let renderBody;
         if (isFunction(content)) {
-          renderBody = () => content(params);
+          renderBody = () => content(hWithParams(contentProps));
         } else if (context.slots.content) {
-          renderBody = () => context.slots.content(params);
+          renderBody = () => context.slots.content(hWithParams(contentProps));
         } else if (content) {
           renderBody = () => <content {...contentProps} />;
         } else {
@@ -387,7 +384,7 @@ export default defineComponent({
 
         const innerClassName: PopupProps['overlayInnerClassName'] = [
           {
-            [`${classPrefix.value}-guide__popup--content`]: !!content,
+            [`${COMPONENT_NAME.value}__popup--content`]: !!content,
           },
         ];
         return (
@@ -398,7 +395,7 @@ export default defineComponent({
             placement={currentStepInfo.value.placement}
             {...currentStepInfo.value.popupProps}
             content={renderBody}
-            overlayClassName={currentStepInfo.value.stepOverlayClass}
+            overlayClassName={[`${COMPONENT_NAME.value}__popup`, currentStepInfo.value.stepOverlayClass]}
             overlayInnerClassName={innerClassName.concat(currentStepInfo.value.popupProps?.overlayInnerClassName)}
           >
             <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
