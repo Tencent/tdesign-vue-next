@@ -14,7 +14,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('input-adornment');
     const renderTNodeJSX = useTNodeJSX();
 
-    const renderAddon = (h: any, type: string, addon: string | Function | undefined): VNodeChild => {
+    const renderAddon = (h: any, type: string, addon: string | Function | VNodeChild | undefined): VNodeChild => {
       let addonNode: VNodeChild;
       const isContentNode = isString(addon) || isNumber(addon);
 
@@ -23,7 +23,11 @@ export default defineComponent({
       } else if (isFunction(addon)) {
         addonNode = addon(h);
       } else {
-        addonNode = isContentNode ? <span class={`${COMPONENT_NAME.value}__text`}>{addon}</span> : addon;
+        addonNode = isContentNode ? (
+          <span class={`${COMPONENT_NAME.value}__text`}>{addon}</span>
+        ) : (
+          (addon as VNodeChild)
+        );
       }
       return addonNode ? <span class={`${COMPONENT_NAME.value}__${type}`}>{addonNode}</span> : addonNode;
     };
