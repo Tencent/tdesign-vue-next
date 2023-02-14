@@ -1,12 +1,10 @@
-import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer, getScrollbarWidth } from '../utils/dom';
+import { isServer, getScrollbarWidth, getAttach } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
-import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
@@ -16,9 +14,6 @@ let key = 1;
 
 export default defineComponent({
   name: 'TDrawer',
-  directives: {
-    TransferDom,
-  },
   props,
   emits: ['update:visible'],
   setup(props, context) {
@@ -249,29 +244,30 @@ export default defineComponent({
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
       return (
-        <div
-          ref={drawerEle}
-          class={drawerClasses.value}
-          style={{ zIndex: props.zIndex }}
-          onKeydown={onKeyDown}
-          v-transfer-dom={props.attach}
-          tabindex={0}
-        >
-          {props.showOverlay && <div class={`${COMPONENT_NAME.value}__mask`} onClick={handleWrapperClick} />}
-          <div class={wrapperClasses.value} style={wrapperStyles.value}>
-            {headerContent && <div class={`${COMPONENT_NAME.value}__header`}>{headerContent}</div>}
-            {props.closeBtn && (
-              <div class={`${COMPONENT_NAME.value}__close-btn`} onClick={handleCloseBtnClick}>
-                {renderTNodeJSX('closeBtn', <CloseIcon />)}
-              </div>
-            )}
-            <div class={[`${COMPONENT_NAME.value}__body`, 'narrow-scrollbar']}>{body}</div>
-            {props.footer && (
-              <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
-            )}
-            {props.sizeDraggable && <div style={draggableLineStyles.value} onMousedown={enableDrag}></div>}
+        <Teleport disabled={!props.attach} to={getAttach(props.attach)}>
+          <div
+            ref={drawerEle}
+            class={drawerClasses.value}
+            style={{ zIndex: props.zIndex }}
+            onKeydown={onKeyDown}
+            tabindex={0}
+          >
+            {props.showOverlay && <div class={`${COMPONENT_NAME.value}__mask`} onClick={handleWrapperClick} />}
+            <div class={wrapperClasses.value} style={wrapperStyles.value}>
+              {headerContent && <div class={`${COMPONENT_NAME.value}__header`}>{headerContent}</div>}
+              {props.closeBtn && (
+                <div class={`${COMPONENT_NAME.value}__close-btn`} onClick={handleCloseBtnClick}>
+                  {renderTNodeJSX('closeBtn', <CloseIcon />)}
+                </div>
+              )}
+              <div class={[`${COMPONENT_NAME.value}__body`, 'narrow-scrollbar']}>{body}</div>
+              {props.footer && (
+                <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+              )}
+              {props.sizeDraggable && <div style={draggableLineStyles.value} onMousedown={enableDrag}></div>}
+            </div>
           </div>
-        </div>
+        </Teleport>
       );
     };
   },
