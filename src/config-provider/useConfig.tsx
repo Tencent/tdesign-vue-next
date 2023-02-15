@@ -1,10 +1,11 @@
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
+import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
 import isString from 'lodash/isString';
+
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
 import { GlobalConfigProvider } from './type';
 import type { ConfigProviderProps } from './config-provider';
-import isFunction from 'lodash/isFunction';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025

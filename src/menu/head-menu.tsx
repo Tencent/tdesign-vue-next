@@ -13,19 +13,19 @@ import {
   Component,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
+
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';
-import isArray from 'lodash/isArray';
-
 import Submenu from './submenu';
 import VMenu from './v-menu';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'THeadMenu',

@@ -1,12 +1,13 @@
+import { ref } from 'vue';
 import isUndefined from 'lodash/isUndefined';
 import isNumber from 'lodash/isNumber';
-import { ref } from 'vue';
 import isObject from 'lodash/isObject';
+import isArray from 'lodash/isArray';
+
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';
-import isArray from 'lodash/isArray';
 
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];

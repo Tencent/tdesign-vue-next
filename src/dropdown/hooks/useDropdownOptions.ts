@@ -1,8 +1,9 @@
-import isString from 'lodash/isString';
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
+
 import { DropdownOption, TdDropdownProps } from '../type';
 import { useChildComponentSlots } from '../../hooks/slot';
-import isArray from 'lodash/isArray';
 
 export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
   if (!menuGroup) return [];
