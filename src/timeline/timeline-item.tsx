@@ -52,6 +52,12 @@ export default defineComponent({
       const labelNode = renderTNodeJSX('label');
       const dotElement = renderTNodeJSX('dot');
 
+      const dotContentClass = `${COMPONENT_NAME.value}__dot-content`;
+      if (dotElement?.props) {
+        const classes = dotElement?.props?.class;
+        dotElement.props.class = classes ? [dotContentClass, classes].join(' ') : dotContentClass;
+      }
+
       return (
         <li class={[`${COMPONENT_NAME.value}`, `${getPositionClassName(props.index)}`]}>
           {mode === 'alternate' && labelNode && (
@@ -66,10 +72,8 @@ export default defineComponent({
               }}
               style={{ borderColor: !DEFAULT_THEME.includes(dotColor) && dotColor }}
             >
-              <div class={`${COMPONENT_NAME.value}__dot-content`}>
-                {!dotElement && loading && <Loading size="12px" />}
-                {dotElement}
-              </div>
+              {!dotElement && loading && <Loading size="12px" class={dotContentClass} />}
+              {dotElement}
             </div>
             <div
               class={{

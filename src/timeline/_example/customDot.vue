@@ -46,7 +46,7 @@ const options = [
   {
     label: '2022-04-01',
     content: '事件四',
-    dot: () => <HomeIcon size="medium" color={color} />,
+    dot: () => <HomeIcon class="sheep" size="medium" color={color} />,
   },
 ];
 </script>
