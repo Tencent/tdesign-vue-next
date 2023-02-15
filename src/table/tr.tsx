@@ -203,24 +203,7 @@ export default defineComponent({
       }
     });
 
-    return {
-      trRef,
-      tableColFixedClasses,
-      tdEllipsisClass,
-      tableBaseClass,
-      tdAlignClasses,
-      tableDraggableClasses,
-      trStyles,
-      classes,
-      trAttributes,
-      tRowHeight,
-      hasLazyLoadHolder,
-      getTrListeners,
-    };
-  },
-
-  methods: {
-    renderEllipsisCell(cellParams: BaseTableCellParams<TableRowData>, params: RenderEllipsisCellParams) {
+    function renderEllipsisCell(cellParams: BaseTableCellParams<TableRowData>, params: RenderEllipsisCellParams) {
       const { cellNode } = params;
       const { col, colIndex } = cellParams;
       let content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
@@ -231,42 +214,42 @@ export default defineComponent({
       if (typeof col.ellipsis === 'object') {
         tooltipProps = 'props' in col.ellipsis ? col.ellipsis.props : col.ellipsis || undefined;
       }
-      const tableElement = this.tableElm as HTMLDivElement;
+      const tableElement = props.tableElm as HTMLDivElement;
       let placement: TooltipProps['placement'] = colIndex === 0 ? 'top-left' : 'top';
-      placement = colIndex === this.columns.length - 1 ? 'top-right' : placement;
+      placement = colIndex === props.columns.length - 1 ? 'top-right' : placement;
       return (
         <TEllipsis
           placement={placement}
           attach={tableElement ? () => tableElement : undefined}
           tooltipContent={content && (() => content)}
           tooltipProps={tooltipProps}
-          overlayClassName={this.ellipsisOverlayClassName}
-          classPrefix={this.classPrefix}
+          overlayClassName={props.ellipsisOverlayClassName}
+          classPrefix={props.classPrefix}
         >
           {cellNode}
         </TEllipsis>
       );
-    },
+    }
 
-    renderTd(params: BaseTableCellParams<TableRowData>, extra: RenderTdExtra) {
+    function renderTd(params: BaseTableCellParams<TableRowData>, extra: RenderTdExtra) {
       const { col, colIndex, rowIndex } = params;
       const { cellSpans, dataLength, rowAndColFixedPosition } = extra;
-      const cellNode = renderCell(params, this.$slots, {
+      const cellNode = renderCell(params, context.slots, {
         cellEmptyContent: extra.cellEmptyContent,
-        pagination: this.pagination,
+        pagination: props.pagination,
       });
-      const tdStyles = getColumnFixedStyles(col, colIndex, rowAndColFixedPosition, this.tableColFixedClasses);
+      const tdStyles = getColumnFixedStyles(col, colIndex, rowAndColFixedPosition, tableColFixedClasses);
       const customClasses = formatClassNames(col.className, { ...params, type: 'td' });
       const classes = [
         tdStyles.classes,
         customClasses,
         {
-          [this.tdEllipsisClass]: col.ellipsis,
-          [this.tableBaseClass.tdLastRow]: rowIndex + cellSpans.rowspan === dataLength,
-          [this.tableBaseClass.tdFirstCol]: colIndex === 0 && this.rowspanAndColspan,
-          [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
+          [tdEllipsisClass]: col.ellipsis,
+          [tableBaseClass.tdLastRow]: rowIndex + cellSpans.rowspan === dataLength,
+          [tableBaseClass.tdFirstCol]: colIndex === 0 && props.rowspanAndColspan,
+          [tdAlignClasses[col.align]]: col.align && col.align !== 'left',
           // 标记可拖拽列
-          [this.tableDraggableClasses.handle]: col.colKey === 'drag',
+          [tableDraggableClasses.handle]: col.colKey === 'drag',
         },
       ];
       const onClick = (e: MouseEvent) => {
@@ -274,54 +257,56 @@ export default defineComponent({
         if (col.stopPropagation) {
           e.stopPropagation();
         }
-        this.onCellClick?.(p);
+        props.onCellClick?.(p);
       };
       const normalAttrs = isFunction(col.attrs) ? col.attrs({ ...params, type: 'td' }) : col.attrs;
       const attrs = { ...normalAttrs, ...cellSpans };
       return (
         <td key={col.colKey || colIndex} class={classes} style={tdStyles.style} {...attrs} onClick={onClick}>
-          {col.ellipsis ? this.renderEllipsisCell(params, { cellNode }) : cellNode}
+          {col.ellipsis ? renderEllipsisCell(params, { cellNode }) : cellNode}
         </td>
       );
-    },
-  },
+    }
 
-  render() {
-    const { row, rowIndex, dataLength, rowAndColFixedPosition } = this;
-    const columVNodeList = this.columns?.map((col, colIndex) => {
-      const cellSpans: RowspanColspan = {};
-      const params = {
-        row,
-        col,
-        rowIndex,
-        colIndex,
-      };
-      let spanState = null;
-      if (this.skipSpansMap.size) {
-        const cellKey = getCellKey(row, this.rowKey, col.colKey, colIndex);
-        spanState = this.skipSpansMap.get(cellKey) || {};
-        spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
-        spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
-        if (spanState.skipped) return null;
-      }
-      return this.renderTd(params, {
-        dataLength,
-        rowAndColFixedPosition,
-        columnLength: this.columns.length,
-        cellSpans,
-        cellEmptyContent: this.cellEmptyContent,
+    return () => {
+      const { columns, skipSpansMap, row, dataLength, rowAndColFixedPosition } = props;
+      const columVNodeList = columns?.map((col, colIndex) => {
+        const cellSpans: RowspanColspan = {};
+        const params = {
+          row,
+          col,
+          rowIndex: props.rowIndex,
+          colIndex,
+        };
+        let spanState = null;
+        if (props.skipSpansMap.size) {
+          const cellKey = getCellKey(row, props.rowKey, col.colKey, colIndex);
+          spanState = skipSpansMap.get(cellKey) || {};
+          spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
+          spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
+          if (spanState.skipped) return null;
+        }
+        return renderTd(params, {
+          dataLength,
+          rowAndColFixedPosition,
+          columnLength: columns.length,
+          cellSpans,
+          cellEmptyContent: props.cellEmptyContent,
+        });
       });
-    });
-    return (
-      <tr
-        ref="trRef"
-        {...this.trAttributes}
-        style={this.trStyles?.style}
-        class={this.classes}
-        {...this.getTrListeners(row, rowIndex)}
-      >
-        {this.hasLazyLoadHolder ? [<td style={{ height: `${this.tRowHeight}px`, border: 'none' }} />] : columVNodeList}
-      </tr>
-    );
+      return (
+        <tr
+          ref="trRef"
+          {...trAttributes.value}
+          style={trStyles.value?.style}
+          class={classes.value}
+          {...getTrListeners(row, props.rowIndex)}
+        >
+          {hasLazyLoadHolder.value
+            ? [<td style={{ height: `${tRowHeight.value}px`, border: 'none' }} />]
+            : columVNodeList}
+        </tr>
+      );
+    };
   },
 });

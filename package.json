@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -66,8 +66,8 @@
     "build:tsc-esm": "tsc --emitDeclarationOnly -d --outDir esm/",
     "build:tsc-lib": "tsc --emitDeclarationOnly -d --outDir lib/",
     "build:tsc-cjs": "tsc --emitDeclarationOnly -d --outDir cjs/",
-    "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./src --max-warnings 0 --fix",
-    "lint": "npm run lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./src --max-warnings 0",
+    "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./src --max-warnings 0 --fix --cache",
+    "lint": "npm run lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./src --max-warnings 0 --cache",
     "lint:tsc": "tsc --emitDeclarationOnly",
     "test": "npm run test:unit && npm run test:snap",
     "test:demo": "node src/_common/test/script/generate-demo-test.js",
@@ -196,8 +196,8 @@
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write --cache",
+      "eslint --fix --cache"
     ]
   },
   "vetur": {

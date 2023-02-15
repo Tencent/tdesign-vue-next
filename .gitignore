@@ -34,3 +34,4 @@ cypress.json
 Dockerfile
 robotMsg.json
 .gitlogmap
+.eslintcache

@@ -159,6 +159,7 @@ export default defineComponent({
         onFirstUpdate: () => {
           nextTick(updatePopper);
         },
+        ...props.popperOptions,
       });
     }
 
@@ -252,6 +253,14 @@ export default defineComponent({
       }
     }
 
+    function handleOnScroll(e: WheelEvent) {
+      const { scrollTop, clientHeight, scrollHeight } = e.target as HTMLDivElement;
+      if (scrollHeight - scrollTop === clientHeight) {
+        // touch bottom
+        props.onScrollToBottom?.({ e });
+      }
+      props.onScroll?.({ e });
+    }
     const trigger = attachListeners(triggerEl);
 
     watch(
@@ -382,10 +391,11 @@ export default defineComponent({
       emitVisible,
       onMouseEnter,
       onMouseLeave,
+      handleOnScroll,
     };
   },
   render() {
-    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, onScroll } = this;
+    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, handleOnScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
@@ -408,15 +418,7 @@ export default defineComponent({
             onMouseleave: this.onMouseLeave,
           })}
         >
-          <div
-            class={this.overlayCls}
-            ref="overlayEl"
-            {...(onScroll && {
-              onScroll(e: WheelEvent) {
-                onScroll({ e });
-              },
-            })}
-          >
+          <div class={this.overlayCls} ref="overlayEl" onScroll={handleOnScroll}>
             {content}
             {this.showArrow && <div class={`${prefixCls}__arrow`} />}
           </div>

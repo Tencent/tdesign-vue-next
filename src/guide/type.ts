@@ -5,13 +5,14 @@
  * */
 
 import { ButtonProps } from '../button';
+import { PopupProps } from '../popup';
 import { TNode, AttachNode } from '../common';
 
 export interface TdGuideProps {
   /**
    * 用于自定义渲染计数部分
    */
-  counter?: TNode;
+  counter?: TNode<{ current: number; total: number }>;
   /**
    * 当前步骤，即整个引导的进度。-1 则不展示，用于需要中断展示的场景
    */
@@ -73,7 +74,7 @@ export interface TdGuideProps {
   /**
    * 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。
    */
-  steps?: Array<TdGuideStepProps>;
+  steps?: Array<GuideStep>;
   /**
    * 提示框的层级
    * @default 999999
@@ -101,15 +102,11 @@ export interface TdGuideProps {
   onSkip?: (context: { e: MouseEvent; current: number; total: number }) => void;
 }
 
-export interface TdGuideStepProps {
+export interface GuideStep {
   /**
    * 当前步骤提示框的内容
    */
   body?: string | TNode;
-  /**
-   * 自定义内容，同 content
-   */
-  children?: string | TNode;
   /**
    * 用户自定义引导弹框的内容，一旦存在，此时除 `placement`、`offset`和`element` 外，其它属性全部失效）
    */
@@ -135,7 +132,7 @@ export interface TdGuideStepProps {
    */
   nextButtonProps?: ButtonProps;
   /**
-   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10px', '8px']
+   * 【讨论确认中】相对于 placement 的偏移量，示例：[-10, 20] 或 ['10px', '8px']
    */
   offset?: Array<string | number>;
   /**
@@ -143,6 +140,10 @@ export interface TdGuideStepProps {
    * @default 'top'
    */
   placement?: StepPopupPlacement | StepDialogPlacement;
+  /**
+   * 透传全部属性到 Popup 组件。`mode=popup` 时有效
+   */
+  popupProps?: PopupProps;
   /**
    * 用于自定义当前引导框的上一步按钮的内容
    */
@@ -183,8 +184,3 @@ export type StepPopupPlacement =
   | 'right-bottom';
 
 export type StepDialogPlacement = 'top' | 'center';
-
-export type GuideCrossProps = Pick<
-  TdGuideStepProps,
-  'mode' | 'skipButtonProps' | 'prevButtonProps' | 'nextButtonProps' | 'showOverlay' | 'highlightPadding'
->;

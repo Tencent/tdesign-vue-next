@@ -82,6 +82,7 @@ export default defineComponent({
       if (!node.isDraggable()) return;
       evt.stopPropagation();
       setDragStatus('dragStart', evt);
+      evt.dataTransfer.effectAllowed = 'move';
 
       try {
         // ie throw error firefox-need-it

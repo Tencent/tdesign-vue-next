@@ -1,11 +1,12 @@
 <template>
-  <t-space>
+  <t-space direction="vertical">
     <t-select
       v-model="value1"
       creatable
       filterable
       placeholder="单选支持自定义创建"
       :options="options"
+      style="width: 400px"
       @create="createOptions"
     />
     <t-select
@@ -15,6 +16,7 @@
       multiple
       placeholder="多选支持自定义创建"
       :options="options"
+      style="width: 400px"
       @create="createOptions"
     />
   </t-space>
