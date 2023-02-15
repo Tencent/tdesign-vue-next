@@ -21,7 +21,7 @@ export default {
   default: {
     type: [String, Function] as PropType<TdPopupProps['default']>,
   },
-  /** 延时显示或隐藏覆层，[延迟显示的时间，延迟隐藏的时间]，单位：毫秒。如果只有一个时间，则表示显示和隐藏的延迟时间相同。示例 `'300'` 或者 `[200, 200]`。默认为：[250, 150] */
+  /** 延时显示或隐藏浮层，[延迟显示的时间，延迟隐藏的时间]，单位：毫秒。如果只有一个时间，则表示显示和隐藏的延迟时间相同。示例 `'300'` 或者 `[200, 200]`。默认为：[250, 150] */
   delay: {
     type: [Number, Array] as PropType<TdPopupProps['delay']>,
   },
@@ -52,6 +52,10 @@ export default {
     type: String,
     default: 'top',
   },
+  /** popper 初始化配置，详情参考 https://popper.js.org/docs/ */
+  popperOptions: {
+    type: Object as PropType<TdPopupProps['popperOptions']>,
+  },
   /** 是否显示浮层箭头 */
   showArrow: Boolean,
   /** 触发浮层出现的方式 */
@@ -60,10 +64,10 @@ export default {
     default: 'hover' as TdPopupProps['trigger'],
     validator(val: TdPopupProps['trigger']): boolean {
       if (!val) return true;
-      return ['hover', 'click', 'focus', 'context-menu'].includes(val);
+      return ['hover', 'click', 'focus', 'mousedown', 'context-menu'].includes(val);
     },
   },
-  /** 触发元素 */
+  /** 触发元素。值类型为字符串表示元素选择器 */
   triggerElement: {
     type: [String, Function] as PropType<TdPopupProps['triggerElement']>,
   },
@@ -84,6 +88,8 @@ export default {
   },
   /** 下拉选项滚动事件 */
   onScroll: Function as PropType<TdPopupProps['onScroll']>,
+  /** 下拉滚动触底事件，常用于滚动到底执行具体业务逻辑 */
+  onScrollToBottom: Function as PropType<TdPopupProps['onScrollToBottom']>,
   /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发 */
   onVisibleChange: Function as PropType<TdPopupProps['onVisibleChange']>,
 };
