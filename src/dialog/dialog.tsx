@@ -28,6 +28,7 @@ import { stack } from './stack';
 import { getScrollbarWidth } from '../utils/dom';
 
 import type { TdDialogProps } from './type';
+import isUndefined from 'lodash/isUndefined';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -44,7 +45,7 @@ const getClickPosition = (e: MouseEvent) => {
   }, 100);
 };
 
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+if (!isUndefined(window) && window.document && window.document.documentElement) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 

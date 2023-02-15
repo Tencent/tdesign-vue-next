@@ -4,6 +4,7 @@ import TreeStore from '../../_common/js/tree/tree-store';
 import TreeNode from '../../_common/js/tree/tree-node';
 import { TreeOptionData } from '../../common';
 import { getNode } from '../util';
+import isArray from 'lodash/isArray';
 
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from '../interface';
 
@@ -33,7 +34,7 @@ export default function useExposeFunc(treeStore: Ref<TreeStore>, expose: (expose
 
   const appendTo = (para?: TreeNodeValue, item?: TreeOptionData | TreeOptionData[]) => {
     let list = [];
-    if (Array.isArray(item)) {
+    if (isArray(item)) {
       list = item;
     } else {
       list = [item];

@@ -1,3 +1,6 @@
+import isNumber from 'lodash/isNumber';
+import isObject from 'lodash/isObject';
+import isArray from 'lodash/isArray';
 import isEmpty from 'lodash/isEmpty';
 import {
   TreeNode,
@@ -18,7 +21,7 @@ export function getSingleContent(cascaderContext: CascaderContextType): string {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
   if (multiple || (value !== 0 && !value)) return '';
 
-  if (Array.isArray(value)) return '';
+  if (isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
     return value as string;
@@ -40,7 +43,7 @@ export function getMultipleContent(cascaderContext: CascaderContextType) {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
 
   if (!multiple) return [];
-  if (multiple && !Array.isArray(value)) return [];
+  if (multiple && !isArray(value)) return [];
 
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!node) return [];
@@ -89,14 +92,14 @@ export function getFullPathLabel(node: TreeNode, separator = '/') {
  */
 export const getTreeValue = (value: CascaderContextType['value']) => {
   let treeValue: TreeNodeValue[] = [];
-  if (Array.isArray(value)) {
-    if (value.length > 0 && typeof value[0] === 'object') {
+  if (isArray(value)) {
+    if (value.length > 0 && isObject(value[0])) {
       treeValue = (value as TreeOptionData[]).map((val) => val.value);
     } else if (value.length) {
       treeValue = value as TreeNodeValue[];
     }
   } else if (value) {
-    if (typeof value === 'object') {
+    if (isObject(value)) {
       treeValue = [(value as TreeOptionData).value];
     } else {
       treeValue = [value];
@@ -129,7 +132,7 @@ export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProp
  * @returns
  */
 export function isEmptyValues(value: unknown): boolean {
-  if (typeof value === 'number' && !isNaN(value)) return false;
+  if (isNumber(value) && !isNaN(value)) return false;
   return isEmpty(value);
 }
 
@@ -141,5 +144,5 @@ export function isEmptyValues(value: unknown): boolean {
  */
 export function isValueInvalid(value: CascaderValue, cascaderContext: CascaderContextType) {
   const { multiple, showAllLevels } = cascaderContext;
-  return (multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value) && !showAllLevels);
+  return (multiple && !isArray(value)) || (!multiple && isArray(value) && !showAllLevels);
 }

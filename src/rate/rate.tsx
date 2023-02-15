@@ -5,6 +5,7 @@ import props from './props';
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Tooltip from '../tooltip/index';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TRate',
@@ -12,8 +13,8 @@ export default defineComponent({
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
 
-    const activeColor = Array.isArray(props.color) ? props.color[0] : props.color;
-    const defaultColor = Array.isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
+    const activeColor = isArray(props.color) ? props.color[0] : props.color;
+    const defaultColor = isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
 
     const { value: inputValue, modelValue } = toRefs(props);
     const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);

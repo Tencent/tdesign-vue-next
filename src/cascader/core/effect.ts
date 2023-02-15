@@ -1,5 +1,6 @@
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 import cloneDeep from 'lodash/cloneDeep';
 import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
 import { getFullPathLabel, getTreeValue } from './helper';
@@ -205,7 +206,7 @@ export const treeStoreExpendEffect = (
 
   if (!treeStore) return;
   // init expanded, 无expend状态时设置
-  if (Array.isArray(treeValue) && expend.length === 0) {
+  if (isArray(treeValue) && expend.length === 0) {
     const expandedMap = new Map();
     const [val] = treeValue;
     if (val) {

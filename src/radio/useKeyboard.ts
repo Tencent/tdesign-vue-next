@@ -1,5 +1,6 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { off, on } from '../utils/dom';
+import isString from 'lodash/isString';
 
 /** 键盘操作 */
 export default function useKeyboard(
@@ -16,9 +17,9 @@ export default function useKeyboard(
         // Number
         let value: number | string | boolean = !isNaN(Number(data.value)) ? Number(data.value) : data.value;
         // Boolean
-        value = (typeof value === 'string' && { true: true, false: false }[value]) || value;
+        value = (isString(value) && { true: true, false: false }[value]) || value;
         // String
-        value = typeof value === 'string' && value[0] === "'" ? value.replace(/'/g, '') : value;
+        value = isString(value) && value[0] === "'" ? value.replace(/'/g, '') : value;
         setInnerValue(value, { e });
       }
     }

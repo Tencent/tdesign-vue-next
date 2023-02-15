@@ -1,5 +1,8 @@
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
+import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
+import isString from 'lodash/isString';
+
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
 import { GlobalConfigProvider } from './type';
 import type { ConfigProviderProps } from './config-provider';
@@ -28,7 +31,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
   // 处理正则表达式
   const t = function <T>(pattern: T, ...args: any[]) {
     const [data] = args;
-    if (typeof pattern === 'string') {
+    if (isString(pattern)) {
       if (!data) return pattern;
       const regular = /\{\s*([\w-]+)\s*\}/g;
       const translated = pattern.replace(regular, (match, key) => {
@@ -39,7 +42,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: 
       });
       return translated;
     }
-    if (typeof pattern === 'function') {
+    if (isFunction(pattern)) {
       // 重要：组件的渲染必须存在参数 h，不能移除
       if (!args.length) return pattern(h);
       return pattern(...args);

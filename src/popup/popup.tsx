@@ -22,6 +22,9 @@ import props from './props';
 import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
 import useVModel from '../hooks/useVModel';
+import isString from 'lodash/isString';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 
@@ -100,7 +103,7 @@ export default defineComponent({
     const overlayCls: any = computed(() => [
       `${prefixCls.value}__content`,
       {
-        [`${prefixCls.value}__content--text`]: typeof props.content === 'string',
+        [`${prefixCls.value}__content--text`]: isString(props.content),
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
@@ -127,10 +130,10 @@ export default defineComponent({
       const { overlayStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
-      if (typeof overlayStyle === 'function') {
+      if (isFunction(overlayStyle)) {
         return overlayStyle(triggerEl.value, overlayEl.value);
       }
-      if (typeof overlayStyle === 'object') {
+      if (isObject(overlayStyle)) {
         return overlayStyle;
       }
     }
@@ -139,9 +142,9 @@ export default defineComponent({
       const { overlayInnerStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
-      if (typeof overlayInnerStyle === 'function') {
+      if (isFunction(overlayInnerStyle)) {
         setStyle(overlayEl.value, overlayInnerStyle(triggerEl.value, overlayEl.value));
-      } else if (typeof overlayInnerStyle === 'object') {
+      } else if (isObject(overlayInnerStyle)) {
         setStyle(overlayEl.value, overlayInnerStyle);
       }
     }

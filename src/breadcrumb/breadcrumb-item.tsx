@@ -7,6 +7,7 @@ import { isNodeOverflow } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
+import isFunction from 'lodash/isFunction';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
@@ -115,7 +116,7 @@ export default defineComponent({
         <div class={itemClass} {...attrs}>
           {isCutOff.value ? <Tooltip content={() => slots?.default()}>{itemContent}</Tooltip> : itemContent}
           <span class={separatorClass.value}>
-            {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
+            {isFunction(separatorContent) ? separatorContent() : separatorContent}
           </span>
         </div>
       );

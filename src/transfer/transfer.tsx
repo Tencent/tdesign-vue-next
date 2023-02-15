@@ -14,6 +14,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
+import isFunction from 'lodash/isFunction';
 
 const SOURCE = 'source';
 const TARGET = 'target';
@@ -32,7 +33,7 @@ export default defineComponent({
 
     const isTreeMode = computed(() => {
       const treeSlot = slots.tree;
-      return typeof treeSlot === 'function';
+      return isFunction(treeSlot);
     });
 
     const leftButtonDisabled = computed(() => props.direction === 'right');

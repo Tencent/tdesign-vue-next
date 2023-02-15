@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
-
+import isFunction from 'lodash/isFunction';
 import useSingleValue from './hooks/useSingleValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
@@ -146,7 +146,7 @@ export default defineComponent({
 
     // 预设
     function onPresetClick(presetValue: DateValue | (() => DateValue), { e, preset }: any) {
-      const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
+      const presetVal = isFunction(presetValue) ? presetValue() : presetValue;
       onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
         dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
         trigger: 'preset',

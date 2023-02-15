@@ -2,6 +2,8 @@ import { defineComponent, computed, watch } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
 import remove from 'lodash/remove';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 
 import props from './props';
 import * as utils from './utils';
@@ -82,7 +84,7 @@ export default defineComponent({
         };
       },
       (v: { month: string; year: string }) => {
-        typeof props.onMonthChange === 'function' && props.onMonthChange({ ...v });
+        isFunction(props.onMonthChange) && props.onMonthChange({ ...v });
         controller.emitControllerChange();
       },
     );
@@ -280,7 +282,7 @@ export default defineComponent({
     };
 
     const cellClickEmit = (eventPropsName: string, e: MouseEvent, cellData: CalendarCell): void => {
-      if (typeof props[eventPropsName] === 'function') {
+      if (isFunction(props[eventPropsName])) {
         const options: CellEventOption = {
           cell: {
             ...cellData,
@@ -327,7 +329,7 @@ export default defineComponent({
                 (item, index) =>
                   checkDayVisibled(item.num) && (
                     <th class={cls.tableHeadCell.value}>
-                      {Array.isArray(props.week)
+                      {isArray(props.week)
                         ? props.week[index]
                         : renderContent('week', undefined, {
                             defaultNode: <span>{item.display}</span>,

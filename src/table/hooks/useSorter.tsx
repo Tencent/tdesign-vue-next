@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
+import isArray from 'lodash/isArray';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 
@@ -19,7 +20,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   const sortArray = computed<Array<SortInfo>>(() => {
     const sort = tSortInfo.value;
     if (!sort) return [];
-    return Array.isArray(sort) ? sort : [sort];
+    return isArray(sort) ? sort : [sort];
   });
 
   const sortMap = computed<SortMap>(() => {
@@ -145,8 +146,8 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   }
 
   const isSortInfoSame = (a: SortInfo | SortInfo[], b: SortInfo | SortInfo[]) => {
-    const tmpSortInfo = Array.isArray(a) ? a : [a];
-    const tmpInnerSortInfo = Array.isArray(b) ? b : [b];
+    const tmpSortInfo = isArray(a) ? a : [a];
+    const tmpInnerSortInfo = isArray(b) ? b : [b];
     if (tmpSortInfo.length && !b) return false;
     // eslint-disable-next-line
     for (let i = 0, len = tmpSortInfo.length; i < len; i++) {

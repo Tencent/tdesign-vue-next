@@ -5,6 +5,7 @@ import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
+import isArray from 'lodash/isArray';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],
@@ -68,7 +69,7 @@ export default defineComponent({
 
     const renderCols = (_cols: Number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
       let cols: Array<SkeletonRowColObj> = [];
-      if (Array.isArray(_cols)) {
+      if (isArray(_cols)) {
         cols = _cols;
       } else if (isNumber(_cols)) {
         cols = new Array(_cols).fill({ type: 'text' });

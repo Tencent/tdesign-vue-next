@@ -12,6 +12,7 @@ import useTagList from './useTagList';
 import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
+import isArray from 'lodash/isArray';
 
 const useComponentClassName = () => {
   return {
@@ -66,7 +67,7 @@ export default defineComponent({
     );
 
     const classes = computed(() => {
-      const isEmpty = !(Array.isArray(tagValue.value) && tagValue.value.length);
+      const isEmpty = !(isArray(tagValue.value) && tagValue.value.length);
       return [
         NAME_CLASS.value,
         {

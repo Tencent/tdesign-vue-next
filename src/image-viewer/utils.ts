@@ -1,3 +1,6 @@
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
+
 import { TdImageViewerProps, ImageInfo } from './type';
 
 export const downloadFile = function (imgSrc: string) {
@@ -27,11 +30,11 @@ export const downloadFile = function (imgSrc: string) {
 };
 
 const isImageInfo = (image: string | ImageInfo): image is ImageInfo => {
-  return typeof image !== 'string';
+  return !isString(image);
 };
 
 export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] => {
-  if (!Array.isArray(images)) return [];
+  if (!isArray(images)) return [];
   return images.map((item) => {
     if (isImageInfo(item)) {
       return {

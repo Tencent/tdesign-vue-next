@@ -4,6 +4,8 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Button from '../button';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TComment',
@@ -28,11 +30,7 @@ export default defineComponent({
 
       const avatarDom = avatar ? (
         <div class={`${COMPONENT_NAME.value}__avatar`}>
-          {typeof avatar === 'string' ? (
-            <img src={avatar} alt="" class={`${COMPONENT_NAME.value}__avatar-image`} />
-          ) : (
-            avatar
-          )}
+          {isString(avatar) ? <img src={avatar} alt="" class={`${COMPONENT_NAME.value}__avatar-image`} /> : avatar}
         </div>
       ) : null;
 
@@ -47,7 +45,7 @@ export default defineComponent({
         if (!actions || !actions.length) return null;
         return (
           <div class={`${COMPONENT_NAME.value}__actions`}>
-            {(Array.isArray(actions) ? actions : [actions]).map((action, index) => (
+            {(isArray(actions) ? actions : [actions]).map((action, index) => (
               <Button key={`action-${index}`} size="small" variant="text">
                 {action}
               </Button>

@@ -5,6 +5,7 @@ import { TNode } from '../../common';
 import log from '../../_common/js/log/log';
 import { getStopStyle } from '../util/common';
 import TSliderMark from '../slider-mark';
+import isArray from 'lodash/isArray';
 
 interface MarkItem {
   point: number;
@@ -31,7 +32,7 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
       return [];
     }
     const legalMarks: Array<MarkItem> = [];
-    if (Array.isArray(markProps.marks)) {
+    if (isArray(markProps.marks)) {
       const marksList = cloneDeep(markProps.marks).sort((a, b) => a - b);
       const maxLimit = Math.max(...marksList, markProps.max);
       const minLimit = Math.min(...marksList, markProps.min);

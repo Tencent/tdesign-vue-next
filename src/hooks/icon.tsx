@@ -1,3 +1,4 @@
+import isFunction from 'lodash/isFunction';
 import { getCurrentInstance, h } from 'vue';
 
 /**
@@ -12,7 +13,7 @@ export function useIcon() {
   return function renderIconTNode(iconType: string, defaultIcons?: Record<string, any>) {
     let iconContent;
     // 传入的是渲染函数
-    if (typeof instance.props[iconType] === 'function') {
+    if (isFunction(instance.props[iconType])) {
       iconContent = (instance.props as Object)[iconType](h);
     } else if (instance.slots[iconType]) {
       // 插槽slot

@@ -86,7 +86,7 @@ export default defineComponent({
     };
 
     const needValidate = (name: string | number, fields: string[] | undefined) => {
-      if (!fields || !Array.isArray(fields)) return true;
+      if (!fields || !isArray(fields)) return true;
       return fields.indexOf(`${name}`) !== -1;
     };
     const formatValidateResult = <T extends Data>(validateResultList: FormItemValidateResult<T>[]) => {

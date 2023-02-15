@@ -1,4 +1,5 @@
 import { ref, watch, toRefs, nextTick } from 'vue';
+import isArray from 'lodash/isArray';
 import { TdTreeProps } from './type';
 import TreeItem from './tree-item';
 
@@ -151,7 +152,7 @@ export default function useTree(props: TdTreeProps) {
     const { expandParent } = props;
     // 初始化展开状态
     // 校验是否自动展开父节点
-    if (Array.isArray(innerExpanded.value)) {
+    if (isArray(innerExpanded.value)) {
       const expandedMap = new Map();
       innerExpanded.value.forEach((val) => {
         expandedMap.set(val, true);
@@ -183,7 +184,7 @@ export default function useTree(props: TdTreeProps) {
     // 初始化数据
     treeStore.value = store;
 
-    if (!Array.isArray(options)) {
+    if (!isArray(options)) {
       options = [];
     }
     store.append(options);
@@ -193,14 +194,14 @@ export default function useTree(props: TdTreeProps) {
     store.refreshNodes();
 
     // 初始化选中状态
-    if (Array.isArray(innerChecked.value)) {
+    if (isArray(innerChecked.value)) {
       store.setChecked(innerChecked.value);
     }
 
     updateExpanded();
 
     // 初始化激活状态
-    if (Array.isArray(innerActived.value)) {
+    if (isArray(innerActived.value)) {
       store.setActived(innerActived.value);
     }
 
@@ -223,7 +224,7 @@ export default function useTree(props: TdTreeProps) {
       treeStore.value.refreshNodes();
       if (!list.length) return;
       // 初始化选中状态
-      if (Array.isArray(innerChecked.value)) {
+      if (isArray(innerChecked.value)) {
         treeStore.value.setChecked(innerChecked.value);
       }
 
@@ -231,7 +232,7 @@ export default function useTree(props: TdTreeProps) {
       updateExpanded();
 
       // 初始化激活状态
-      if (Array.isArray(innerActived.value)) {
+      if (isArray(innerActived.value)) {
         treeStore.value.setActived(innerActived.value);
       }
       // 刷新节点状态

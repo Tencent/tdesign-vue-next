@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined';
 import { onMounted, Ref, ref, watch, nextTick, onBeforeUnmount } from 'vue';
 import { InputValue, TdInputProps } from './type';
 
@@ -39,7 +40,7 @@ export default function useInputWidth(
   // 当元素默认为 display: none 状态，无法提前准确计算宽度，因此需要监听元素宽度变化。比如：Tabs 场景切换。
   const addTableResizeObserver = (element: Element) => {
     // IE 11 以下使用设置 minWidth 兼容；IE 11 以上使用 ResizeObserver
-    if (typeof window.ResizeObserver === 'undefined' || !element) return;
+    if (isUndefined(window.ResizeObserver) || !element) return;
     resizeObserver.value = new window.ResizeObserver(() => {
       updateInputWidth();
     });

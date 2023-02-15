@@ -10,6 +10,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -101,7 +102,7 @@ export default defineComponent({
             disabled={'disabled' in opt ? opt.disabled : props.disabled}
             value={opt.value}
           >
-            {typeof opt.label === 'function' ? opt.label(h) : opt.label}
+            {isFunction(opt.label) ? opt.label(h) : opt.label}
           </Radio>
         );
       });
