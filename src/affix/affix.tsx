@@ -67,7 +67,7 @@ export default defineComponent({
                 top: `${fixedTop}px`,
                 width: `${wrapWidth}px`,
                 height: `${wrapHeight}px`,
-                zIndex: props.zIndex || undefined,
+                zIndex: props.zIndex,
               };
 
               if (!placeholderStatus) {
