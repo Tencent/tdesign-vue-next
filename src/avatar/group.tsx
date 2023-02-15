@@ -16,10 +16,7 @@ export default defineComponent({
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
 
-    const isIcon = () => {
-      const content = renderTNodeJSX('collapseAvatar');
-      return content;
-    };
+    const isIcon = () => renderTNodeJSX('collapseAvatar');
 
     const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
       if (children?.length > props.max) {
@@ -32,17 +29,9 @@ export default defineComponent({
     };
 
     const setEllipsisContent = (children: Array<RendererNode>) => {
-      let content = '';
-      if (props.collapseAvatar) {
-        if (!isIcon()) {
-          content = renderContent('collapseAvatar', 'content');
-        } else {
-          content = isIcon();
-        }
-      } else {
-        content = `+${children.length - props.max}`;
-      }
-      return content;
+      if (!props.collapseAvatar) return `+${children.length - props.max}`;
+
+      return isIcon() || renderContent('collapseAvatar', 'content');
     };
 
     return () => {
@@ -55,11 +44,8 @@ export default defineComponent({
           [`${AVATAR_NAME.value}--offset-left`]: cascading === 'left-up',
         },
       ];
-      let content = [children];
+      const content = max && max >= 0 ? [renderEllipsisAvatar(children)] : [children];
 
-      if (max && max >= 0) {
-        content = [renderEllipsisAvatar(children)];
-      }
       return <div class={groupClass}>{content}</div>;
     };
   },
