@@ -63,7 +63,7 @@ export default defineComponent({
       register();
     });
     onUnmounted(() => {
-      register();
+      unregister();
     });
     return () => {
       const { href, target } = props;
