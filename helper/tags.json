@@ -62,7 +62,7 @@
   },
   "t-auto-complete": {
     "attributes": [
-      "auto-focus",
+      "autofocus",
       "clearable",
       "default",
       "disabled",
@@ -96,6 +96,8 @@
   "t-avatar": {
     "attributes": [
       "alt",
+      "content",
+      "default",
       "hide-on-load-failed",
       "icon",
       "image",
@@ -111,7 +113,6 @@
       "cascading",
       "collapse-avatar",
       "max",
-      "placement",
       "popup-props",
       "size"
     ],
@@ -148,6 +149,7 @@
   "t-base-table": {
     "attributes": [
       "allow-resize-column-width",
+      "attach",
       "bordered",
       "bottom-content",
       "cell-empty-content",
@@ -237,6 +239,7 @@
       "loading",
       "shape",
       "size",
+      "suffix",
       "tag",
       "theme",
       "type",
@@ -257,6 +260,7 @@
       "is-show-weekend-default",
       "mode",
       "month",
+      "multiple",
       "prevent-cell-contextmenu",
       "range",
       "theme",
@@ -296,6 +300,7 @@
   },
   "t-cascader": {
     "attributes": [
+      "autofocus",
       "check-props",
       "check-strictly",
       "clearable",
@@ -306,6 +311,7 @@
       "filterable",
       "input-props",
       "keys",
+      "label",
       "lazy",
       "load",
       "loading",
@@ -322,11 +328,14 @@
       "show-all-levels",
       "size",
       "status",
+      "suffix",
+      "suffix-icon",
       "tag-input-props",
       "tag-props",
       "tips",
       "trigger",
       "value",
+      "value-display",
       "value-mode",
       "value-type",
       "blur",
@@ -360,7 +369,8 @@
       "name",
       "readonly",
       "value",
-      "change"
+      "change",
+      "click"
     ],
     "description": "Checkbox\n\n多选框\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox)"
   },
@@ -422,6 +432,7 @@
   },
   "t-color-picker": {
     "attributes": [
+      "clearable",
       "close-btn",
       "color-modes",
       "disabled",
@@ -432,6 +443,7 @@
       "popup-props",
       "recent-colors",
       "select-input-props",
+      "show-primary-color-preview",
       "swatch-colors",
       "value",
       "change",
@@ -555,7 +567,6 @@
       "footer",
       "header",
       "mode",
-      "overlay-props",
       "placement",
       "prevent-scroll-through",
       "show-in-attached-element",
@@ -575,6 +586,10 @@
       "overlay-click"
     ],
     "description": "Dialog\n\n对话框\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog)"
+  },
+  "t-dialog-card": {
+    "attributes": [],
+    "description": "DialogCard\n\n对话框卡片\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog-card)"
   },
   "t-divider": {
     "attributes": [
@@ -729,26 +744,6 @@
     ],
     "description": "Guide\n\n引导\n\n[docs](https://tdesign.tencent.com/vue-next/components/guide)"
   },
-  "t-guide-step": {
-    "attributes": [
-      "body",
-      "children",
-      "content",
-      "element",
-      "highlight-content",
-      "highlight-padding",
-      "mode",
-      "next-button-props",
-      "offset",
-      "placement",
-      "prev-button-props",
-      "show-overlay",
-      "skip-button-props",
-      "step-overlay-class",
-      "title"
-    ],
-    "description": "GuideStep\n\n引导步骤\n\n[docs](https://tdesign.tencent.com/vue-next/components/guide-step)"
-  },
   "t-head-menu": {
     "attributes": [
       "expand-type",
@@ -794,7 +789,6 @@
   "t-image": {
     "attributes": [
       "alt",
-      "disabled",
       "error",
       "fit",
       "gallery",
@@ -862,6 +856,7 @@
       "blur",
       "change",
       "clear",
+      "click",
       "compositionend",
       "compositionstart",
       "enter",
@@ -884,9 +879,16 @@
     ],
     "description": "InputAdornment\n\n输入装饰器\n\n[docs](https://tdesign.tencent.com/vue-next/components/input-adornment)"
   },
+  "t-input-group": {
+    "attributes": [
+      "separate"
+    ],
+    "description": "InputGroup\n\n输入框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/input-group)"
+  },
   "t-input-number": {
     "attributes": [
       "align",
+      "allow-input-over-limit",
       "auto-width",
       "decimal-places",
       "disabled",
@@ -1061,6 +1063,7 @@
       "default",
       "disabled",
       "label",
+      "title",
       "value"
     ],
     "description": "Option\n\n选择器选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/option)"
@@ -1150,6 +1153,7 @@
       "visible",
       "z-index",
       "scroll",
+      "scroll-to-bottom",
       "visible-change"
     ],
     "description": "Popup\n\n气泡框\n\n[docs](https://tdesign.tencent.com/vue-next/components/popup)"
@@ -1175,6 +1179,8 @@
       "hide-sort-tips",
       "indeterminate-selected-row-keys",
       "multiple-sort",
+      "reserve-selected-row-on-paginate",
+      "select-on-row-click",
       "selected-row-keys",
       "show-sort-column-bg-color",
       "sort",
@@ -1220,12 +1226,14 @@
       "label",
       "name",
       "value",
-      "change"
+      "change",
+      "click"
     ],
     "description": "Radio\n\n单选框\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio)"
   },
   "t-radio-group": {
     "attributes": [
+      "allow-uncheck",
       "disabled",
       "name",
       "options",
@@ -1341,6 +1349,7 @@
   "t-select": {
     "attributes": [
       "auto-width",
+      "autofocus",
       "borderless",
       "clearable",
       "collapsed-items",
@@ -1352,6 +1361,7 @@
       "input-props",
       "input-value",
       "keys",
+      "label",
       "loading",
       "loading-text",
       "max",
@@ -1371,6 +1381,8 @@
       "show-arrow",
       "size",
       "status",
+      "suffix",
+      "suffix-icon",
       "tag-input-props",
       "tag-props",
       "tips",
@@ -1394,6 +1406,7 @@
     "attributes": [
       "allow-input",
       "auto-width",
+      "autofocus",
       "borderless",
       "clearable",
       "collapsed-items",
@@ -1435,6 +1448,8 @@
   "t-skeleton": {
     "attributes": [
       "animation",
+      "content",
+      "default",
       "delay",
       "loading",
       "row-col",
@@ -1636,6 +1651,7 @@
       "blur",
       "change",
       "clear",
+      "click",
       "drag-sort",
       "enter",
       "focus",
@@ -1671,27 +1687,6 @@
     ],
     "description": "Textarea\n\n文本输入框\n\n[docs](https://tdesign.tencent.com/vue-next/components/textarea)"
   },
-  "t-time-line": {
-    "attributes": [
-      "label-align",
-      "layout",
-      "mode",
-      "reverse",
-      "theme"
-    ],
-    "description": "TimeLine\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-line)"
-  },
-  "t-time-line-item": {
-    "attributes": [
-      "content",
-      "dot",
-      "dot-color",
-      "label",
-      "label-align",
-      "loading"
-    ],
-    "description": "TimeLineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-line-item)"
-  },
   "t-time-picker": {
     "attributes": [
       "allow-input",
@@ -1705,7 +1700,9 @@
       "popup-props",
       "presets",
       "size",
+      "status",
       "steps",
+      "tips",
       "value",
       "blur",
       "change",
@@ -1730,7 +1727,9 @@
       "presets",
       "range-input-props",
       "size",
+      "status",
       "steps",
+      "tips",
       "value",
       "blur",
       "change",
@@ -1739,6 +1738,27 @@
       "pick"
     ],
     "description": "TimeRangePicker\n\n时间范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-range-picker)"
+  },
+  "t-timeline": {
+    "attributes": [
+      "label-align",
+      "layout",
+      "mode",
+      "reverse",
+      "theme"
+    ],
+    "description": "Timeline\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline)"
+  },
+  "t-timeline-item": {
+    "attributes": [
+      "content",
+      "dot",
+      "dot-color",
+      "label",
+      "label-align",
+      "loading"
+    ],
+    "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline-item)"
   },
   "t-tooltip": {
     "attributes": [
@@ -1837,6 +1857,7 @@
   "t-tree-select": {
     "attributes": [
       "auto-width",
+      "autofocus",
       "borderless",
       "clearable",
       "collapsed-items",
@@ -1847,6 +1868,8 @@
       "filterable",
       "input-props",
       "input-value",
+      "keys",
+      "label",
       "loading",
       "loading-text",
       "max",
@@ -1860,6 +1883,8 @@
       "select-input-props",
       "size",
       "status",
+      "suffix",
+      "suffix-icon",
       "tag-props",
       "tips",
       "tree-props",
@@ -1869,6 +1894,7 @@
       "blur",
       "change",
       "clear",
+      "enter",
       "focus",
       "input-change",
       "popup-visible-change",
@@ -1901,6 +1927,7 @@
       "locale",
       "max",
       "method",
+      "mock-progress-duration",
       "multiple",
       "name",
       "placeholder",
