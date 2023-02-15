@@ -1,5 +1,5 @@
 <template>
-  <t-space direction="vertical">
+  <t-space>
     <t-select
       v-model="value"
       placeholder="-请选择-"
