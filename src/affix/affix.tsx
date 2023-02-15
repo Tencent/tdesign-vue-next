@@ -23,6 +23,7 @@ export default defineComponent({
     const binded = ref(false);
 
     const scrollContainer = ref<ScrollContainerElement>();
+    const affixStyle = ref<Record<string, any>>({});
 
     const handleScroll = () => {
       if (!ticking.value) {
@@ -62,13 +63,12 @@ export default defineComponent({
 
             if (affixed) {
               affixRef.value.className = COMPONENT_NAME.value;
-              affixRef.value.style.top = `${fixedTop}px`;
-              affixRef.value.style.width = `${wrapWidth}px`;
-              affixRef.value.style.height = `${wrapHeight}px`;
-
-              if (props.zIndex) {
-                affixRef.value.style.zIndex = `${props.zIndex}`;
-              }
+              affixStyle.value = {
+                top: `${fixedTop}px`,
+                width: `${wrapWidth}px`,
+                height: `${wrapHeight}px`,
+                zIndex: props.zIndex || undefined,
+              };
 
               if (!placeholderStatus) {
                 placeholderEL.value.style.width = `${wrapWidth}px`;
@@ -77,7 +77,7 @@ export default defineComponent({
               }
             } else {
               affixRef.value.removeAttribute('class');
-              affixRef.value.removeAttribute('style');
+              affixStyle.value = {};
               placeholderStatus && placeholderEL.value.remove();
             }
 
@@ -144,12 +144,15 @@ export default defineComponent({
       handleScroll,
       scrollContainer,
       renderTNodeJSX,
+      affixStyle,
     };
   },
   render() {
     return (
       <div ref="affixWrapRef">
-        <div ref="affixRef">{this.renderTNodeJSX('default')}</div>
+        <div ref="affixRef" style={this.affixStyle}>
+          {this.renderTNodeJSX('default')}
+        </div>
       </div>
     );
   },
