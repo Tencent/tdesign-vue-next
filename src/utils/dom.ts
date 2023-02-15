@@ -119,7 +119,8 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
+export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element | 'body' => {
+  if (process.env.NODE_ENV === 'test-snap') return 'body';
   const attachNode = isFunction(node) ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
