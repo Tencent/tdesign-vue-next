@@ -7,7 +7,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
   const visible = ref(false);
-  const { className } = options;
+  const { className, style } = options;
   const component = defineComponent({
     setup(props, { expose }) {
       const dialogOptions = ref<Record<string, any>>(options);
@@ -34,6 +34,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
             visible.value = false;
           };
         delete options.className;
+        delete options.style;
         return h(DialogComponent, {
           onClose,
           visible: visible.value,
@@ -44,14 +45,26 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   });
   const dialog = createApp(component).mount(wrapper);
 
-  if (className) {
-    className.split(' ').forEach((name) => {
-      dialog.$el.classList.add(name.trim());
-    });
-  }
-  if (options.style) {
-    (dialog.$el as HTMLElement).style.cssText += options.style;
-  }
+  let preClassName = className;
+
+  const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
+    if (className) {
+      if (preClassName !== className) {
+        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
+      }
+      className.split(' ').forEach((name) => {
+        wrapper.firstElementChild.classList.add(name.trim());
+      });
+    }
+
+    if (style) {
+      (wrapper.firstElementChild as HTMLElement).style.cssText += style;
+    }
+
+    preClassName = className;
+  };
+
+  updateClassNameStyle(className, style);
 
   const container = getAttach(options.attach);
   if (container) {
@@ -69,6 +82,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
     },
     update: (newOptions: DialogOptions) => {
       dialog.update(newOptions);
+      updateClassNameStyle(newOptions.className, newOptions.style);
     },
     destroy: () => {
       visible.value = false;
