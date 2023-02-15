@@ -251,6 +251,7 @@ export default defineComponent({
             style={{ zIndex: props.zIndex }}
             onKeydown={onKeyDown}
             tabindex={0}
+            {...context.attrs}
           >
             {props.showOverlay && <div class={`${COMPONENT_NAME.value}__mask`} onClick={handleWrapperClick} />}
             <div class={wrapperClasses.value} style={wrapperStyles.value}>

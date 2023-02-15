@@ -456,7 +456,7 @@ export default defineComponent({
           onAfterLeave={this.afterLeave}
         >
           {(!this.destroyOnClose || this.visible) && (
-            <div v-show={this.visible} class={ctxClass} style={ctxStyle}>
+            <div v-show={this.visible} class={ctxClass} style={ctxStyle} {...this.$attrs}>
               {view}
             </div>
           )}
