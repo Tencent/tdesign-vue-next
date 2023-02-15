@@ -1,5 +1,9 @@
 import { ref } from 'vue';
+import isUndefined from 'lodash/isUndefined';
+import isNumber from 'lodash/isNumber';
 import isObject from 'lodash/isObject';
+import isArray from 'lodash/isArray';
+
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
 import { useListener } from '../hooks/useListener';
@@ -63,30 +67,30 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
 
   const strategyMap = {
     isNumber: (gutter: TdRowProps['gutter']) => {
-      if (typeof gutter === 'number') {
+      if (isNumber(gutter)) {
         getMarginStyle(gutter);
       }
     },
     isArray: (gutter: TdRowProps['gutter']) => {
-      if (Array.isArray(gutter) && gutter.length) {
+      if (isArray(gutter) && gutter.length) {
         strategyMap.isNumber(gutter[0]);
 
-        if (typeof gutter[1] === 'number') {
+        if (isNumber(gutter[1])) {
           getRowGapStyle(gutter[1]);
         }
 
-        if (isObject(gutter[0]) && gutter[0][currentSize] !== undefined) {
+        if (isObject(gutter[0]) && !isUndefined(gutter[0][currentSize])) {
           getMarginStyle(gutter[0][currentSize]);
         }
 
-        if (isObject(gutter[1]) && gutter[1][currentSize] !== undefined) {
+        if (isObject(gutter[1]) && !isUndefined(gutter[1][currentSize])) {
           getRowGapStyle(gutter[1][currentSize]);
         }
       }
     },
     isObject: (gutter: TdRowProps['gutter']) => {
       if (isObject(gutter) && gutter[currentSize]) {
-        if (Array.isArray(gutter) && gutter.length) {
+        if (isArray(gutter) && gutter.length) {
           getMarginStyle(gutter[currentSize][0]);
           getRowGapStyle(gutter[currentSize][1]);
         } else {
@@ -109,7 +113,7 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
  * @returns
  */
 export function parseFlex(flex: TdColProps['flex']): string {
-  if (typeof flex === 'number') {
+  if (isNumber(flex)) {
     return `${flex} ${flex} 0`;
   }
   // 判断是否是flex
@@ -135,13 +139,13 @@ export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string
 
   const strategyMap = {
     isNumber: (gutter: TdRowProps['gutter']) => {
-      if (typeof gutter === 'number') {
+      if (isNumber(gutter)) {
         getPaddingStyle(gutter);
       }
     },
     isArray: (gutter: TdRowProps['gutter']) => {
-      if (Array.isArray(gutter) && gutter.length) {
-        if (typeof gutter[0] === 'number') {
+      if (isArray(gutter) && gutter.length) {
+        if (isNumber(gutter[0])) {
           getPaddingStyle(gutter[0]);
         }
         if (isObject(gutter[0]) && gutter[0][currentSize]) {
@@ -175,14 +179,14 @@ export function getColClasses(name: string, props: TdColProps) {
   const ColSizeClasses = allSizes.reduce((acc, currSize) => {
     const sizeProp = props[currSize];
     let sizeObject: any = {};
-    if (typeof sizeProp === 'number') {
+    if (isNumber(sizeProp)) {
       sizeObject.span = sizeProp;
     } else if (isObject(sizeProp)) {
       sizeObject = sizeProp || {};
     }
     return {
       ...acc,
-      [`${name}-${currSize}-${sizeObject.span}`]: sizeObject.span !== undefined,
+      [`${name}-${currSize}-${sizeObject.span}`]: !isUndefined(sizeObject.span),
       [`${name}-${currSize}-order-${sizeObject.order}`]: parseInt(sizeObject.order, 10) >= 0,
       [`${name}-${currSize}-offset-${sizeObject.offset}`]: parseInt(sizeObject.offset, 10) >= 0,
       [`${name}-${currSize}-push-${sizeObject.push}`]: parseInt(sizeObject.push, 10) >= 0,
@@ -192,7 +196,7 @@ export function getColClasses(name: string, props: TdColProps) {
 
   return {
     [`${name}`]: true,
-    [`${name}-${span}`]: span !== undefined,
+    [`${name}-${span}`]: !isUndefined(span),
     [`${name}-order-${order}`]: order,
     [`${name}-offset-${offset}`]: offset,
     [`${name}-push-${push}`]: push,

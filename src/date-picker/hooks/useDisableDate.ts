@@ -1,5 +1,8 @@
 import dayjs from 'dayjs';
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
+
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 
 export interface disableDateProps {
@@ -26,12 +29,12 @@ function isEnabled(props: any): boolean {
 
   let isEnabled = true;
   // 值类型为 Function 则表示返回值为 true 的日期会被禁用
-  if (typeof props.disableDate === 'function') {
+  if (isFunction(props.disableDate)) {
     return !props.disableDate(props.value);
   }
 
   // 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。
-  if (Array.isArray(props.disableDate)) {
+  if (isArray(props.disableDate)) {
     let isIncludes = false;
     const formatedDisabledDate = props.disableDate.map((item: string) => dayjs(item, props.format));
     formatedDisabledDate.forEach((item: any) => {

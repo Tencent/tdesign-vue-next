@@ -1,5 +1,6 @@
 import { ref, toRefs, watchEffect, computed } from 'vue';
 import useVModel from '../../hooks/useVModel';
+import isArray from 'lodash/isArray';
 
 import { TdDateRangePickerProps } from '../type';
 import {
@@ -32,7 +33,7 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
   }
 
   // warning invalid value
-  if (!Array.isArray(value.value)) {
+  if (!isArray(value.value)) {
     console.error(`typeof value: ${value.value} must be Array!`);
   } else if (!isValidDate(value.value, formatRef.value.format)) {
     console.error(

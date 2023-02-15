@@ -24,11 +24,12 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import setStyle from '../_common/js/utils/set-style';
+import isUndefined from 'lodash/isUndefined';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] !== 'undefined') {
+    if (!isUndefined(obj[key])) {
       newObj[key] = obj[key];
     }
   });

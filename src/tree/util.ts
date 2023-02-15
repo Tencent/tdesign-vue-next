@@ -1,5 +1,9 @@
 import { VNode, h } from 'vue';
 import pick from 'lodash/pick';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
+import isNumber from 'lodash/isNumber';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './interface';
@@ -44,12 +48,12 @@ export function getTNode(prop: TypeTNodeProp, options: TypeGetTNodeOption = {}):
   const conf = {
     ...options,
   };
-  if (typeof prop === 'function') {
+  if (isFunction(prop)) {
     item = prop(h, conf.node?.getModel());
-  } else if (typeof prop === 'string') {
+  } else if (isString(prop)) {
     item = prop;
   }
-  if (typeof item === 'string') {
+  if (isString(item)) {
     tnode = item;
   } else if (item) {
     tnode = item as VNode;
@@ -68,7 +72,7 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
   };
 
   let nodeChildren = [];
-  if (Array.isArray(node.children)) {
+  if (isArray(node.children)) {
     nodeChildren = node.children;
   }
   const childNode = nodes[index - 1] || null;
@@ -91,13 +95,13 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
 }
 
 export function isTreeNodeValue(item: unknown): boolean {
-  return typeof item === 'string' || typeof item === 'number';
+  return isString(item) || isNumber(item);
 }
 
 export function getNode(store: TreeStore, item: TypeTargetNode): TreeNode {
   let node = null;
   let val = null;
-  if (typeof item === 'string' || typeof item === 'number') {
+  if (isString(item) || isNumber(item)) {
     val = item;
   } else if (item && isTreeNodeValue(item.value)) {
     val = item.value;

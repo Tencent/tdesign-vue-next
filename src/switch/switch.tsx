@@ -7,6 +7,9 @@ import { TNodeReturnValue } from '../common';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useVModel from '../hooks/useVModel';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TSwitch',
@@ -89,19 +92,19 @@ export default defineComponent({
     );
 
     const content = computed<VNodeChild>(() => {
-      if (typeof props.label === 'function') {
+      if (isFunction(props.label)) {
         return props.label(h, { value: innerValue.value });
       }
-      if (typeof props.label === 'string') {
+      if (isString(props.label)) {
         return props.label;
       }
-      if (Array.isArray(props.label) && props.label.length) {
+      if (isArray(props.label) && props.label.length) {
         const label = innerValue.value === activeValue.value ? props.label[0] : props.label[1];
         if (!label) return;
-        if (typeof label === 'string') {
+        if (isString(label)) {
           return label;
         }
-        if (typeof label === 'function') {
+        if (isFunction(label)) {
           return label(h);
         }
       }

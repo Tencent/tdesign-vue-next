@@ -1,3 +1,4 @@
+import isBoolean from 'lodash/isBoolean';
 import { computed, ref, watch, onBeforeMount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
@@ -66,7 +67,7 @@ export default function useAffix(props: TdBaseTableProps) {
     tableRect.top + headerHeight < elementRect.top && elementRect.top > elementRect.height;
 
   const getOffsetTop = (props: boolean | AffixProps) => {
-    if (typeof props === 'boolean') return 0;
+    if (isBoolean(props)) return 0;
     return props.offsetTop || 0;
   };
 

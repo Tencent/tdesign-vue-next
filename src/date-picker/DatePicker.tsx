@@ -1,6 +1,7 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { usePrefixClass } from '../hooks/useConfig';
+import isFunction from 'lodash/isFunction';
 
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
@@ -184,7 +185,7 @@ export default defineComponent({
 
     // 预设
     function onPresetClick(presetValue: DateValue | (() => DateValue)) {
-      const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
+      const presetVal = isFunction(presetValue) ? presetValue() : presetValue;
       onChange?.(
         formatDate(presetVal, {
           format: formatRef.value.format,

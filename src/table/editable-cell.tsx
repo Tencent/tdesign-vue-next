@@ -18,6 +18,7 @@ import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
+import isObject from 'lodash/isObject';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -170,7 +171,7 @@ export default defineComponent({
     };
 
     const isSame = (a: any, b: any) => {
-      if (typeof a === 'object' && typeof b === 'object') {
+      if (isObject(a) && isObject(b)) {
         return JSON.stringify(a) === JSON.stringify(b);
       }
       return a === b;

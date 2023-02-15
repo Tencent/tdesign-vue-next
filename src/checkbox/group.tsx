@@ -10,6 +10,9 @@ import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -52,17 +55,17 @@ export default defineComponent({
       () => !isCheckAll.value && intersectionLen.value < optionList.value.length && intersectionLen.value !== 0,
     );
 
-    const maxExceeded = computed<boolean>(() => props.max !== undefined && innerValue.value.length === props.max);
+    const maxExceeded = computed<boolean>(() => !isUndefined(props.max) && innerValue.value.length === props.max);
 
     watchEffect(() => {
       if (!props.options) return [];
       optionList.value = props.options.map((item) => {
         let r: CheckboxOptionObj = {};
-        if (typeof item !== 'object') {
+        if (!isObject(item)) {
           r = { label: String(item), value: item };
         } else {
           r = { ...item };
-          r.disabled = r.disabled === undefined ? props.disabled : r.disabled;
+          r.disabled = isUndefined(r.disabled) ? props.disabled : r.disabled;
         }
         return r;
       });
@@ -136,7 +139,7 @@ export default defineComponent({
     };
 
     const renderLabel = (option: CheckboxOptionObj) => {
-      if (typeof option.label === 'function') {
+      if (isFunction(option.label)) {
         return option.label(h);
       }
       return option.label;

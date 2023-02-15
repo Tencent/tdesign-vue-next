@@ -19,6 +19,7 @@ import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useDragSort from '../hooks/useDragSort';
+import isFunction from 'lodash/isFunction';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;
@@ -197,7 +198,7 @@ export default defineComponent({
         let label;
         if (panel?.children?.label) {
           label = panel.children.label();
-        } else if (typeof panel.label === 'function') {
+        } else if (isFunction(panel.label)) {
           label = panel.label(h);
         } else {
           label = panel.label || `选项卡${index + 1}`;
