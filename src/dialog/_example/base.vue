@@ -5,6 +5,7 @@
       v-model:visible="visible"
       header="对话框标题"
       body="对话框内容"
+      attach="body"
       :confirm-on-enter="true"
       :on-cancel="onCancel"
       :on-esc-keydown="onEscKeydown"

@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
-import { addClass, removeClass, getAttach } from '../utils/dom';
+import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 
@@ -125,7 +125,7 @@ export default defineComponent({
     if (this.fullscreen) {
       if (!this.showFullScreenLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getAttach(this.attach)}>
+        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
           <div class={fullScreenClasses} style={this.styles}>
             <div class={baseClasses}>
               {indicator}
@@ -155,7 +155,7 @@ export default defineComponent({
     if (this.attach) {
       if (!this.showAttachedLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getAttach(this.attach)}>
+        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
           <div class={attachClasses} style={this.styles}>
             {indicator}
             {text}
