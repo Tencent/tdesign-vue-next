@@ -23,7 +23,7 @@ export default defineComponent({
     const binded = ref(false);
 
     const scrollContainer = ref<ScrollContainerElement>();
-    const affixStyle = ref<Record<string, any>>({});
+    const affixStyle = ref<Record<string, any>>();
 
     const handleScroll = () => {
       if (!ticking.value) {
@@ -77,7 +77,7 @@ export default defineComponent({
               }
             } else {
               affixRef.value.removeAttribute('class');
-              affixStyle.value = {};
+              affixStyle.value = undefined;
               placeholderStatus && placeholderEL.value.remove();
             }
 
