@@ -21,7 +21,7 @@ export interface TdPopupProps {
    */
   default?: string | TNode;
   /**
-   * 延时显示或隐藏覆层，[延迟显示的时间，延迟隐藏的时间]，单位：毫秒。如果只有一个时间，则表示显示和隐藏的延迟时间相同。示例 `'300'` 或者 `[200, 200]`。默认为：[250, 150]
+   * 延时显示或隐藏浮层，[延迟显示的时间，延迟隐藏的时间]，单位：毫秒。如果只有一个时间，则表示显示和隐藏的延迟时间相同。示例 `'300'` 或者 `[200, 200]`。默认为：[250, 150]
    */
   delay?: number | Array<number>;
   /**
@@ -31,7 +31,6 @@ export interface TdPopupProps {
   destroyOnClose?: boolean;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -61,6 +60,10 @@ export interface TdPopupProps {
    */
   placement?: PopupPlacement;
   /**
+   * popper 初始化配置，详情参考 https://popper.js.org/docs/
+   */
+  popperOptions?: object;
+  /**
    * 是否显示浮层箭头
    * @default false
    */
@@ -69,24 +72,21 @@ export interface TdPopupProps {
    * 触发浮层出现的方式
    * @default hover
    */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu';
+  trigger?: 'hover' | 'click' | 'focus' | 'mousedown' | 'context-menu';
   /**
-   * 触发元素
+   * 触发元素。值类型为字符串表示元素选择器
    */
   triggerElement?: string | TNode;
   /**
    * 是否显示浮层
-   * @default false
    */
   visible?: boolean;
   /**
    * 是否显示浮层，非受控属性
-   * @default false
    */
   defaultVisible?: boolean;
   /**
    * 是否显示浮层
-   * @default false
    */
   modelValue?: boolean;
   /**
@@ -97,6 +97,10 @@ export interface TdPopupProps {
    * 下拉选项滚动事件
    */
   onScroll?: (context: { e: WheelEvent }) => void;
+  /**
+   * 下拉滚动触底事件，常用于滚动到底执行具体业务逻辑
+   */
+  onScrollToBottom?: (context: { e: WheelEvent }) => void;
   /**
    * 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发
    */
@@ -130,5 +134,6 @@ export type PopupTriggerSource =
   | 'trigger-element-hover'
   | 'trigger-element-blur'
   | 'trigger-element-focus'
+  | 'trigger-element-mousedown'
   | 'context-menu'
   | 'keydown-esc';

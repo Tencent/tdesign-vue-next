@@ -25,6 +25,11 @@ export default {
     type: String,
     default: '',
   },
+  /** 选项标题，在选项过长时hover选项展示 */
+  title: {
+    type: String,
+    default: '',
+  },
   /** 选项值 */
   value: {
     type: [String, Number] as PropType<TdOptionProps['value']>,

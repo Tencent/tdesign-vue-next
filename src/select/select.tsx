@@ -285,8 +285,8 @@ export default defineComponent({
         setOrgValue([]);
       }
     };
-    const handleSearch = debounce((value: string) => {
-      props.onSearch?.(`${value}`);
+    const handleSearch = debounce((value: string, { e }: { e: KeyboardEvent }) => {
+      props.onSearch?.(`${value}`, { e });
     }, 300);
 
     const addCache = (val: SelectValue) => {
@@ -364,7 +364,6 @@ export default defineComponent({
       });
     };
     provide('updateScrollTop', updateScrollTop);
-
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
       return (
@@ -380,6 +379,8 @@ export default defineComponent({
               status: props.status,
               tips: props.tips,
               minCollapsedNum: props.minCollapsedNum,
+              autofocus: props.autofocus,
+              suffix: props.suffix,
             }}
             ref={selectInputRef}
             class={COMPONENT_NAME.value}
@@ -408,14 +409,20 @@ export default defineComponent({
               ...restPopupProps,
             }}
             label={() => renderTNodeJSX('prefixIcon')}
-            suffixIcon={() =>
-              props.showArrow && (
-                <FakeArrow
-                  overlayClassName={`${COMPONENT_NAME.value}__right-icon`}
-                  isActive={innerPopupVisible.value}
-                />
-              )
-            }
+            suffixIcon={() => {
+              if (props.suffixIcon || slots.suffixIcon) {
+                return renderTNodeJSX('suffixIcon');
+              }
+
+              return (
+                props.showArrow && (
+                  <FakeArrow
+                    overlayClassName={`${COMPONENT_NAME.value}__right-icon`}
+                    isActive={innerPopupVisible.value}
+                  />
+                )
+              );
+            }}
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
                 params: valueDisplayParams.value,
@@ -424,10 +431,10 @@ export default defineComponent({
             onPopupVisibleChange={(val: boolean, context) => {
               setInnerPopupVisible(val, context);
             }}
-            onInputChange={(value) => {
+            onInputChange={(value, context) => {
               if (!innerPopupVisible.value) return;
               setInputValue(value);
-              handleSearch(`${value}`);
+              handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
               setInnerValue(props.multiple ? [] : undefined, {
@@ -471,6 +478,7 @@ export default defineComponent({
                 />
               ),
               collapsedItems: slots.collapsedItems,
+              suffix: slots.suffix,
             }}
           />
         </div>
