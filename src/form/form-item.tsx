@@ -18,12 +18,16 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   GlobalIconType,
 } from 'tdesign-icons-vue-next';
-
+import isArray from 'lodash/isArray';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import isBoolean from 'lodash/isBoolean';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
 import isNil from 'lodash/isNil';
 import lodashTemplate from 'lodash/template';
+
 import { validate } from './form-model';
 import {
   AllValidateResult,
@@ -96,7 +100,7 @@ export default defineComponent({
 
       let labelStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
-        if (typeof labelWidth.value === 'number') {
+        if (isNumber(labelWidth.value)) {
           labelStyle = { width: `${labelWidth.value}px` };
         } else {
           labelStyle = { width: labelWidth.value };
@@ -161,7 +165,7 @@ export default defineComponent({
     const contentStyle = computed(() => {
       let contentStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
-        if (typeof labelWidth.value === 'number') {
+        if (isNumber(labelWidth.value)) {
           contentStyle = { marginLeft: `${labelWidth.value}px` };
         } else {
           contentStyle = { marginLeft: labelWidth.value };
@@ -244,7 +248,7 @@ export default defineComponent({
           Object.keys(item).forEach((key) => {
             if (!item.message && errorMessages.value[key]) {
               const compiled = lodashTemplate(errorMessages.value[key]);
-              const name = typeof props.label === 'string' ? props.label : props.name;
+              const name = isString(props.label) ? props.label : props.name;
               item.message = compiled({
                 name,
                 validate: item[key],
@@ -302,7 +306,7 @@ export default defineComponent({
     };
 
     const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
-      if (!validateMessage && !Array.isArray(validateMessage)) return;
+      if (!validateMessage && !isArray(validateMessage)) return;
       if (validateMessage.length === 0) {
         errorList.value = [];
         verifyStatus.value = ValidateStatus.SUCCESS;
@@ -349,8 +353,8 @@ export default defineComponent({
 
     const freeShowErrorMessage = ref<boolean>(undefined);
     const showErrorMessage = computed(() => {
-      if (typeof freeShowErrorMessage.value === 'boolean') return freeShowErrorMessage.value;
-      if (typeof props.showErrorMessage === 'boolean') return props.showErrorMessage;
+      if (isBoolean(freeShowErrorMessage.value)) return freeShowErrorMessage.value;
+      if (isBoolean(props.showErrorMessage)) return props.showErrorMessage;
       return form?.showErrorMessage;
     });
 

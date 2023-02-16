@@ -3,6 +3,8 @@ import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { AnchorInjectionKey } from './constants';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 
 const localProps = {
   ...props,
@@ -36,15 +38,15 @@ export default defineComponent({
     const handleClick = (e: MouseEvent) => {
       const { href, title } = props;
       anchor.handleScrollTo(href);
-      anchor.handleLinkClick({ href, title: typeof title === 'string' ? title : undefined, e });
+      anchor.handleLinkClick({ href, title: isString(title) ? title : undefined, e });
     };
     const renderTitle = () => {
       const { title } = props;
       const { title: titleSlot } = slots;
       let titleVal: VNodeChild;
-      if (typeof title === 'string') {
+      if (isString(title)) {
         titleVal = title;
-      } else if (typeof title === 'function') {
+      } else if (isFunction(title)) {
         titleVal = title(h);
       } else if (titleSlot) {
         titleVal = titleSlot(null);
@@ -63,13 +65,13 @@ export default defineComponent({
       register();
     });
     onUnmounted(() => {
-      register();
+      unregister();
     });
     return () => {
       const { href, target } = props;
       const { default: children, title: titleSlot } = slots;
       const title = renderTitle();
-      const titleAttr = typeof title === 'string' ? title : null;
+      const titleAttr = isString(title) ? title : null;
       const active = anchor.active === href;
       const wrapperClass = {
         [CLASSNAME_PREFIX.value]: true,

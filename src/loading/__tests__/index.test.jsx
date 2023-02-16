@@ -66,10 +66,9 @@ describe('Loading', () => {
     });
 
     it(':attach', () => {
-      const wrapper = mount(() => <Loading attach="body"></Loading>);
-      const loading = wrapper.find('.t-loading');
-      const body = document.querySelector('body');
-      expect(loading.element.parentNode).toEqual(body);
+      mount(() => <Loading attach="body"></Loading>);
+      // 组件的attach使用了Teleport，所以wrapper.find等方法拿不到
+      expect(document.querySelector('body > .t-loading') !== null).toEqual(true);
     });
   });
 });

@@ -1,6 +1,7 @@
 import { computed, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
+import isBoolean from 'lodash/isBoolean';
 
 const INPUT_NUMBER_PROPS_INITIAL_STATE: InputNumberProps = {
   decimalPlaces: 0,
@@ -29,7 +30,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   const sliderInputState = computed(() => {
     let initialState = { ...INPUT_NUMBER_PROPS_INITIAL_STATE };
     const inputProps = config.value;
-    if (typeof inputProps.inputNumberProps !== 'boolean') {
+    if (!isBoolean(inputProps.inputNumberProps)) {
       const inputTheme = inputProps.inputNumberProps?.theme;
       initialState = { ...initialState, ...inputProps.inputNumberProps };
       if (['column', 'row', 'normal'].includes(inputTheme)) {

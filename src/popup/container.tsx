@@ -13,14 +13,16 @@ import {
   onUpdated,
   ComponentInternalInstance,
 } from 'vue';
-import { getAttach } from '../utils/dom';
+import { getAttach, getSSRAttach } from '../utils/dom';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
+import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];
   children.forEach((child) => {
-    if (Array.isArray(child)) {
+    if (isArray(child)) {
       vnodes.push(...child);
     } else if (child.type === Fragment) {
       vnodes.push(...filterEmpty(child.children as VNode[]));
@@ -32,7 +34,7 @@ function filterEmpty(children: VNode[] = []) {
     (c) =>
       !(
         c &&
-        ((typeof Comment !== 'undefined' && c.type === Comment) ||
+        ((!isUndefined(Comment) && c.type === Comment) ||
           (c.type === Fragment && c.children.length === 0) ||
           (c.type === Text && (c.children as string).trim() === ''))
       ),
@@ -182,7 +184,7 @@ export default defineComponent({
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (
-          <Teleport to={getAttach(this.attach, this.triggerEl)}>
+          <Teleport to={getSSRAttach() || getAttach(this.attach, this.triggerEl)}>
             <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
               {this.$slots.content && this.$slots.content()}
             </Content>

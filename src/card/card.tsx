@@ -4,6 +4,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from './props';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TCard',
@@ -95,7 +96,7 @@ export default defineComponent({
 
     // 封面区域渲染逻辑
     const renderCover = () => {
-      const textCover = typeof props.cover === 'string';
+      const textCover = isString(props.cover);
       return <div class={coverCls.value}>{textCover ? <img src={props.cover}></img> : renderTNodeJSX('cover')}</div>;
     };
 

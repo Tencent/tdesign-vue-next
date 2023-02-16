@@ -11,9 +11,10 @@ import { useFormDisabled } from '../form/hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import isArray from 'lodash/isArray';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
-  if (Array.isArray(value)) {
+  if (isArray(value)) {
     return value;
   }
   return [value, value];
@@ -120,8 +121,8 @@ export default defineComponent({
         onMouseleave={handleMouseLeave}
       >
         <div class={`${COMPONENT_NAME.value}__inner`}>
-          {prefixIconContent}
-          {labelContent ? <div class={`${classPrefix.value}-input__prefix`}>{labelContent}</div> : null}
+          {prefixIconContent && <div class={`${COMPONENT_NAME.value}__prefix`}>{prefixIconContent}</div>}
+          {labelContent ? <div class={`${COMPONENT_NAME.value}__prefix`}>{labelContent}</div> : null}
           <Input
             ref={inputRefs.firstInputRef}
             class={`${COMPONENT_NAME.value}__inner-left`}

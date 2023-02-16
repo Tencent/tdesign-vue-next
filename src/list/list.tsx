@@ -5,6 +5,7 @@ import props from './props';
 import { TdListProps } from './type';
 import { LOAD_MORE, LOADING } from './const';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TList',
@@ -55,13 +56,13 @@ export default defineComponent({
 
     /** loading加载相关逻辑 start */
     const loadingClass = computed(() => {
-      return typeof props.asyncLoading === 'string' && ['loading', 'load-more'].includes(props.asyncLoading)
+      return isString(props.asyncLoading) && ['loading', 'load-more'].includes(props.asyncLoading)
         ? `${COMPONENT_NAME.value}__load ${COMPONENT_NAME.value}__load--${props.asyncLoading}`
         : `${COMPONENT_NAME.value}__load`;
     });
 
     const renderLoading = () => {
-      if (props.asyncLoading && typeof props.asyncLoading === 'string') {
+      if (props.asyncLoading && isString(props.asyncLoading)) {
         if (props.asyncLoading === LOADING) {
           return (
             <div>
@@ -78,7 +79,7 @@ export default defineComponent({
     };
 
     const handleLoadMore = (e: MouseEvent) => {
-      if (typeof props.asyncLoading === 'string' && props.asyncLoading !== LOAD_MORE) return;
+      if (isString(props.asyncLoading) && props.asyncLoading !== LOAD_MORE) return;
       props.onLoadMore?.({ e });
     };
     /** loading加载相关逻辑 end */

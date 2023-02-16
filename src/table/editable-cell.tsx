@@ -18,6 +18,7 @@ import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
+import isObject from 'lodash/isObject';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -82,6 +83,9 @@ export default defineComponent({
     const errorList = ref<AllValidateResult[]>();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+    const editOnListeners = computed(() => {
+      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value });
+    });
 
     const cellParams = computed(() => ({
       rowIndex: props.rowIndex,
@@ -167,7 +171,7 @@ export default defineComponent({
     };
 
     const isSame = (a: any, b: any) => {
-      if (typeof a === 'object' && typeof b === 'object') {
+      if (isObject(a) && isObject(b)) {
         return JSON.stringify(a) === JSON.stringify(b);
       }
       return a === b;
@@ -234,6 +238,7 @@ export default defineComponent({
       };
       props.onChange?.(params);
       props.onRuleChange?.(params);
+      editOnListeners.value?.onChange?.(params);
       const isCellEditable = props.editable === undefined;
       if (isCellEditable && isAbortEditOnChange.value) {
         const outsideAbortEvent = col.value.edit?.onEdited;
@@ -349,6 +354,8 @@ export default defineComponent({
         return null;
       }
       const errorMessage = errorList.value?.[0]?.message;
+      const tmpEditOnListeners = { ...editOnListeners.value };
+      delete tmpEditOnListeners.onChange;
       return (
         <div
           class={props.tableBaseClass.cellEditWrap}
@@ -362,7 +369,7 @@ export default defineComponent({
             tips={errorMessage}
             {...componentProps.value}
             {...listeners.value}
-            {...col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value })}
+            {...tmpEditOnListeners}
             value={editValue.value}
             onChange={onEditChange}
           />

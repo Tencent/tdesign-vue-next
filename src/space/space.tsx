@@ -3,6 +3,9 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildSlots } from '../hooks/slot';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TSpace',
@@ -18,17 +21,17 @@ export default defineComponent({
       const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 
       let renderGap = '';
-      if (Array.isArray(props.size)) {
+      if (isArray(props.size)) {
         renderGap = props.size
           .map((s) => {
-            if (typeof s === 'number') return `${s}px`;
-            if (typeof s === 'string') return sizeMap[s] || s;
+            if (isNumber(s)) return `${s}px`;
+            if (isString(s)) return sizeMap[s] || s;
             return s;
           })
           .join(' ');
-      } else if (typeof props.size === 'string') {
+      } else if (isString(props.size)) {
         renderGap = sizeMap[props.size] || props.size;
-      } else if (typeof props.size === 'number') {
+      } else if (isNumber(props.size)) {
         renderGap = `${props.size}px`;
       }
 

@@ -37,6 +37,7 @@ export default function useDraggable(props: { nodeRef: HTMLElement | undefined; 
         isDragging.value = true;
         dropPosition.value = 0;
         onDrag.onDragStart?.({ node: node.value, e });
+        e.dataTransfer.effectAllowed = 'move';
         break;
       case 'dragEnd':
         isDragging.value = false;

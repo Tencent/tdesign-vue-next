@@ -2,6 +2,8 @@ import { computed, ComputedRef, onMounted, watch } from 'vue';
 import { TdInputProps } from './type';
 import log from '../_common/js/log';
 import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';
+import isNumber from 'lodash/isNumber';
+import isObject from 'lodash/isObject';
 
 export interface UseLengthLimitParams {
   value: string;
@@ -23,7 +25,7 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
     }
     if (maxcharacter) {
       const r = getCharacterLength(inputValue, maxcharacter);
-      if (typeof r === 'object') {
+      if (isObject(r)) {
         return r.characters;
       }
     }
@@ -31,7 +33,7 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
 
   const limitNumber = computed(() => {
     const { maxlength, maxcharacter, value } = params.value;
-    if (typeof value === 'number') return String(value);
+    if (isNumber(value)) return String(value);
     if (maxlength && maxcharacter) {
       log.warn('Input', 'Pick one of maxlength and maxcharacter please.');
     }

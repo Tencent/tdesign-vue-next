@@ -19,6 +19,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -88,7 +89,7 @@ export default defineComponent({
     ]);
 
     const passSubPopupRefToParent = (val: HTMLElement) => {
-      if (typeof setSubPopup === 'function') {
+      if (isFunction(setSubPopup)) {
         setSubPopup(val);
       }
     };

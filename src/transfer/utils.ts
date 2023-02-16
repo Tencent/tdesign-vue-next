@@ -1,5 +1,7 @@
 import { ComponentPublicInstance } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
+import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
 
 import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from './interface';
 
@@ -23,7 +25,7 @@ function findTopNode(vm: ComponentPublicInstance): ComponentPublicInstance {
 }
 
 function getTransferListOption<T>(prop: T | Array<T>): TransferListOptionBase<T> {
-  if (Array.isArray(prop)) {
+  if (isArray(prop)) {
     return {
       source: prop[0],
       target: prop[1],
@@ -85,10 +87,10 @@ function getTransferData(
   const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
     const labelKey = keys?.label || 'label';
     const valueKey = keys?.value || 'value';
-    if (transferDataItem[labelKey] === undefined) {
+    if (isUndefined(transferDataItem[labelKey])) {
       throw new Error(`${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`);
     }
-    if (transferDataItem[valueKey] === undefined) {
+    if (isUndefined(transferDataItem[valueKey])) {
       throw new Error(`${valueKey} is not in DataOption ${JSON.stringify(transferDataItem)}`);
     }
     const result: TransferItemOption = {

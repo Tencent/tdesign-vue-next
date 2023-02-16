@@ -140,7 +140,7 @@ export default defineComponent({
         <li
           ref={liRef}
           class={classes.value}
-          title={`${labelText.value}`}
+          title={props.title || `${labelText.value}`}
           onMouseenter={() => (isHover.value = true)}
           onMouseleave={() => (isHover.value = false)}
           onClick={handleClick}

@@ -22,6 +22,9 @@ import props from './props';
 import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
 import useVModel from '../hooks/useVModel';
+import isString from 'lodash/isString';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 
@@ -100,7 +103,7 @@ export default defineComponent({
     const overlayCls: any = computed(() => [
       `${prefixCls.value}__content`,
       {
-        [`${prefixCls.value}__content--text`]: typeof props.content === 'string',
+        [`${prefixCls.value}__content--text`]: isString(props.content),
         [`${prefixCls.value}__content--arrow`]: props.showArrow,
         [commonCls.value.disabled]: props.disabled,
       },
@@ -127,10 +130,10 @@ export default defineComponent({
       const { overlayStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
-      if (typeof overlayStyle === 'function') {
+      if (isFunction(overlayStyle)) {
         return overlayStyle(triggerEl.value, overlayEl.value);
       }
-      if (typeof overlayStyle === 'object') {
+      if (isObject(overlayStyle)) {
         return overlayStyle;
       }
     }
@@ -139,9 +142,9 @@ export default defineComponent({
       const { overlayInnerStyle } = props;
 
       if (!triggerEl.value || !overlayEl.value) return;
-      if (typeof overlayInnerStyle === 'function') {
+      if (isFunction(overlayInnerStyle)) {
         setStyle(overlayEl.value, overlayInnerStyle(triggerEl.value, overlayEl.value));
-      } else if (typeof overlayInnerStyle === 'object') {
+      } else if (isObject(overlayInnerStyle)) {
         setStyle(overlayEl.value, overlayInnerStyle);
       }
     }
@@ -159,6 +162,7 @@ export default defineComponent({
         onFirstUpdate: () => {
           nextTick(updatePopper);
         },
+        ...props.popperOptions,
       });
     }
 
@@ -252,6 +256,14 @@ export default defineComponent({
       }
     }
 
+    function handleOnScroll(e: WheelEvent) {
+      const { scrollTop, clientHeight, scrollHeight } = e.target as HTMLDivElement;
+      if (scrollHeight - scrollTop === clientHeight) {
+        // touch bottom
+        props.onScrollToBottom?.({ e });
+      }
+      props.onScroll?.({ e });
+    }
     const trigger = attachListeners(triggerEl);
 
     watch(
@@ -382,10 +394,11 @@ export default defineComponent({
       emitVisible,
       onMouseEnter,
       onMouseLeave,
+      handleOnScroll,
     };
   },
   render() {
-    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, onScroll } = this;
+    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, getOverlayStyle, handleOnScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
@@ -408,15 +421,7 @@ export default defineComponent({
             onMouseleave: this.onMouseLeave,
           })}
         >
-          <div
-            class={this.overlayCls}
-            ref="overlayEl"
-            {...(onScroll && {
-              onScroll(e: WheelEvent) {
-                onScroll({ e });
-              },
-            })}
-          >
+          <div class={this.overlayCls} ref="overlayEl" onScroll={handleOnScroll}>
             {content}
             {this.showArrow && <div class={`${prefixCls}__arrow`} />}
           </div>

@@ -6,10 +6,13 @@
 import { ComponentPublicInstance, VNode } from 'vue';
 import raf from 'raf';
 import isString from 'lodash/isString';
+import isUndefined from 'lodash/isUndefined';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 import { easeInOutCubic, EasingFunction } from './easing';
 import { ScrollContainer, ScrollContainerElement } from '../common';
 
-export const isServer = typeof window === 'undefined';
+export const isServer = isUndefined(window);
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
 export const on = ((): any => {
@@ -58,7 +61,7 @@ export function once(
   handler: EventListenerOrEventListenerObject,
   options?: boolean | AddEventListenerOptions,
 ) {
-  const handlerFn = typeof handler === 'function' ? handler : handler.handleEvent;
+  const handlerFn = isFunction(handler) ? handler : handler.handleEvent;
   const callback = (evt: any) => {
     handlerFn(evt);
     off(element, event, callback, options);
@@ -116,8 +119,8 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
-  const attachNode = typeof node === 'function' ? node(triggerNode) : node;
+export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element => {
+  const attachNode = isFunction(node) ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
   }
@@ -128,6 +131,10 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
     return attachNode;
   }
   return document.body;
+};
+
+export const getSSRAttach = () => {
+  if (process.env.NODE_ENV === 'test-snap') return 'body';
 };
 
 /**
@@ -141,7 +148,7 @@ export const getScrollContainer = (container: ScrollContainer = 'body'): ScrollC
   if (isString(container)) {
     return document.querySelector(container) as HTMLElement;
   }
-  if (typeof container === 'function') {
+  if (isFunction(container)) {
     return container();
   }
   return container;
@@ -235,7 +242,7 @@ function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, 
 }
 export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: () => void): void => {
   on(document, 'click', (event: { target: Element }) => {
-    if (Array.isArray(els)) {
+    if (isArray(els)) {
       const isFlag = Array.from(els).every((item) => containerDom(item, event.target) === false);
       return isFlag && cb && cb();
     }

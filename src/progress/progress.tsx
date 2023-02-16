@@ -14,6 +14,8 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TProgress',
@@ -41,7 +43,7 @@ export default defineComponent({
     const trackBgStyle = computed(() => {
       const style: CSSProperties = {};
       if (props.strokeWidth) {
-        const height = typeof props.strokeWidth === 'string' ? props.strokeWidth : `${props.strokeWidth}px`;
+        const height = isString(props.strokeWidth) ? props.strokeWidth : `${props.strokeWidth}px`;
         style.height = height;
         style.borderRadius = height;
       }
@@ -59,7 +61,7 @@ export default defineComponent({
     });
 
     const circlePathStyle = computed(() => {
-      const strokeColor = typeof props.color === 'object' ? '' : props.color;
+      const strokeColor = isObject(props.color) ? '' : props.color;
       return {
         stroke: strokeColor,
       };

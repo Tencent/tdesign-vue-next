@@ -4,6 +4,35 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.7 `2023-02-15` 
+### 🚀 Features
+- `TagInput`: 
+  - 失去焦点时，清空没有成为标签的文本内容，且 `onBlur` 的事件参数 `inputValue` 更为 `` @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+  - 支持插槽 `suffix` @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+  - 删除标签时机变化，由 `onKeyup` 更为 `onKeydown`，以便更快速地响应 @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+  - 支持 onClick 事件 @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+- `Guide`: 
+  - 支持 `title/content/body/highlightContent` 等内容通过插槽自定义，同时支持属性函数 @chaishi ([#2363](https://github.com/Tencent/tdesign-vue-next/pull/2363))
+  - 支持 `popupProps.overlayInnerClassName` 定义步骤浮层内容 @chaishi ([#2363](https://github.com/Tencent/tdesign-vue-next/pull/2363))
+- `Select`: 
+  - 新增 `suffix`、`suffixIcon`、`autofocus` 等API @uyarn ([#2388](https://github.com/Tencent/tdesign-vue-next/pull/2388))
+  - `Option` 新增 `title` 支持自定义 `hover` 展示内容 @uyarn ([#2388](https://github.com/Tencent/tdesign-vue-next/pull/2388))
+- `Dropdown`: submenu层级结构调整，增加一层`t-dropdown__submenu-wrapper` @uyarn ([#2370](https://github.com/Tencent/tdesign-vue-next/pull/2370))
+- `Form`: 支持导出 `FormRules` 数据类型 @chaishi ([#2378](https://github.com/Tencent/tdesign-vue-next/pull/2378))
+- `Popup`: 新增 `popperOptions` 及 `onScrollToBottom` 事件 @uyarn ([#2388](https://github.com/Tencent/tdesign-vue-next/pull/2388))
+### 🐞 Bug Fixes
+- `TagInput`: 修复输入内容为空时，未能触发 onEnter 事件问题 @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+- `Dropdown`: 修复多层超长菜单的位置异常问题 @uyarn ([#2370](https://github.com/Tencent/tdesign-vue-next/pull/2370))
+- `SelectInput`: 修复 `defaultInputValue` 无效问题，[issue#2372](https://github.com/Tencent/tdesign-vue-next/issues/2372) @chaishi ([#2373](https://github.com/Tencent/tdesign-vue-next/pull/2373))
+- `Table`: 修复 `column.edit.on.onChange` 无效报错问题，[issue#2362](https://github.com/Tencent/tdesign-vue-next/issues/2362) @chaishi ([#2374](https://github.com/Tencent/tdesign-vue-next/pull/2374))
+- `Guide`: 优化自定义消息框时容器的样式 @zhangpaopao0609 ([#2371](https://github.com/Tencent/tdesign-vue-next/pull/2371))
+- `Anchor`: 修复在组件卸载时候的意外事件注册 @tjstyx ([#2387](https://github.com/Tencent/tdesign-vue-next/pull/2387))
+- `Tree`: 修复树拖拽时候鼠标预期行为样式([issue #1864](https://github.com/Tencent/tdesign-vue-next/issues/1864)) @PengYYYYY ([#2390](https://github.com/Tencent/tdesign-vue-next/pull/2390))
+### 🚧 Others
+- `TagInput`: 输出完整的测试用例 @chaishi ([#2357](https://github.com/Tencent/tdesign-vue-next/pull/2357))
+- `Guide`: 输出完整的测试用例 @chaishi ([#2363](https://github.com/Tencent/tdesign-vue-next/pull/2363))
+- `Select`: 新增滚动加载选项示例代码 @uyarn ([#2388](https://github.com/Tencent/tdesign-vue-next/pull/2388))
+- `Lint`: 增加 `lint` 缓存 @Simon-He95 ([#2376](https://github.com/Tencent/tdesign-vue-next/pull/2376))
 ## 🌈 1.0.6 `2023-02-07` 
 ### 🚀 Features
 - `Image`: 

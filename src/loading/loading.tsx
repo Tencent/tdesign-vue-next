@@ -1,8 +1,7 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
-import { addClass, removeClass } from '../utils/dom';
+import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import TransferDom from '../utils/transfer-dom';
 import props from './props';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -22,9 +21,6 @@ const useComponentClassName = () => {
 
 export default defineComponent({
   name: 'TLoading',
-  directives: {
-    TransferDom,
-  },
   props,
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
@@ -129,12 +125,14 @@ export default defineComponent({
     if (this.fullscreen) {
       if (!this.showFullScreenLoading || !this.loading) return null;
       return (
-        <div class={fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
-          <div class={baseClasses}>
-            {indicator}
-            {text}
+        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+          <div class={fullScreenClasses} style={this.styles}>
+            <div class={baseClasses}>
+              {indicator}
+              {text}
+            </div>
           </div>
-        </div>
+        </Teleport>
       );
     }
 
@@ -157,10 +155,12 @@ export default defineComponent({
     if (this.attach) {
       if (!this.showAttachedLoading || !this.loading) return null;
       return (
-        <div class={attachClasses} style={this.styles} v-transfer-dom={this.attach}>
-          {indicator}
-          {text}
-        </div>
+        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+          <div class={attachClasses} style={this.styles}>
+            {indicator}
+            {text}
+          </div>
+        </Teleport>
       );
     }
 

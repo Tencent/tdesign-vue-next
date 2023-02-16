@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, h } from 'vue';
+import { defineComponent, ref, onMounted, h, reactive } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
@@ -8,6 +8,7 @@ import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TNode } from '../common';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -15,7 +16,7 @@ export default defineComponent({
   setup(props) {
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
-    const scrollTop = ref(0);
+    const scrollTopMap = reactive({});
     const menuRef = ref<HTMLElement>();
     const isOverMaxHeight = ref(false);
     const { ChevronRightIcon, ChevronLeftIcon } = useGlobalIcon({
@@ -29,8 +30,9 @@ export default defineComponent({
       props.onClick?.(data, context);
     };
 
-    const handleScroll = () => {
-      scrollTop.value = menuRef.value?.scrollTop;
+    const handleScroll = (e: MouseEvent, deep: number) => {
+      const { scrollTop } = e.target as HTMLElement;
+      scrollTopMap[deep] = scrollTop;
     };
 
     onMounted(() => {
@@ -41,23 +43,23 @@ export default defineComponent({
     });
 
     const getContent = (content: string | TNode) => {
-      if (typeof content === 'function') {
+      if (isFunction(content)) {
         return content(h);
       }
       return content;
     };
 
     // 处理options渲染的场景
-    const renderOptions = (data: Array<DropdownOption>) => {
+    const renderOptions = (data: Array<DropdownOption>, deep: number) => {
       const arr: Array<unknown> = [];
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };
-        const onViewIdx = idx - Math.ceil(scrollTop.value / 30);
+        const onViewIdx = idx - Math.ceil(scrollTopMap[deep] / 30);
         const renderIdx = onViewIdx >= 0 ? onViewIdx : idx;
 
         if (optionItem.children) {
-          optionItem.children = renderOptions(optionItem.children);
+          optionItem.children = renderOptions(optionItem.children, deep + 1);
           renderContent = (
             <div key={idx}>
               <DropdownItem
@@ -87,17 +89,31 @@ export default defineComponent({
                 </div>
                 <div
                   class={[
-                    `${dropdownClass.value}__submenu`,
+                    `${dropdownClass.value}__submenu-wrapper`,
                     {
-                      [`${dropdownClass.value}__submenu--disabled`]: optionItem.disabled,
-                      [`${dropdownClass.value}__submenu--${props.direction}`]: props.direction,
+                      [`${dropdownClass.value}__submenu-wrapper--${props.direction}`]: props.direction,
                     },
                   ]}
                   style={{
+                    position: 'absolute',
                     top: `${renderIdx * 30}px`,
                   }}
                 >
-                  <ul>{optionItem.children}</ul>
+                  <div
+                    class={[
+                      `${dropdownClass.value}__submenu`,
+                      {
+                        [`${dropdownClass.value}__submenu--disabled`]: optionItem.disabled,
+                      },
+                    ]}
+                    style={{
+                      position: 'static',
+                      maxHeight: `${props.maxHeight}px`,
+                    }}
+                    onScroll={(e: MouseEvent) => handleScroll(e, deep + 1)}
+                  >
+                    <ul>{optionItem.children}</ul>
+                  </div>
                 </div>
               </DropdownItem>
               {optionItem.divider ? <TDivider /> : null}
@@ -148,9 +164,9 @@ export default defineComponent({
             maxHeight: `${props.maxHeight}px`,
           }}
           ref={menuRef}
-          onScroll={handleScroll}
+          onScroll={(e: MouseEvent) => handleScroll(e, 0)}
         >
-          {renderOptions(props.options)}
+          {renderOptions(props.options, 0)}
         </div>
       );
     };

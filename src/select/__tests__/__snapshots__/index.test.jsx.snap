@@ -5,6 +5,7 @@ exports[`Select > :props > :bordered 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -67,6 +68,7 @@ exports[`Select > :props > :clearable 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -129,6 +131,7 @@ exports[`Select > :props > :creatable 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -191,6 +194,7 @@ exports[`Select > :props > :disabled 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -255,6 +259,7 @@ exports[`Select > :props > :labelInValue 1`] = `
   labelinvalue="false"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -317,6 +322,7 @@ exports[`Select > :props > :loading 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -389,6 +395,7 @@ exports[`Select > :props > :multiple 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--multiple t-select-input--empty t-select"
   >
     
@@ -453,6 +460,7 @@ exports[`Select > :props > :placeholder 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -516,6 +524,7 @@ exports[`Select > :props > :remote 1`] = `
   remote="true"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -578,6 +587,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -640,6 +650,7 @@ exports[`Select > :props > :size 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select-input--empty t-select"
   >
     
@@ -702,6 +713,7 @@ exports[`Select Option > :props > :disabled 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select"
   >
     
@@ -764,6 +776,7 @@ exports[`Select Option > :props > :label 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select"
   >
     
@@ -826,6 +839,7 @@ exports[`Select Option > :props > :value 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select"
   >
     
@@ -888,6 +902,7 @@ exports[`Select OptionGroup > :props > :value 1`] = `
   class="t-select__wrap"
 >
   <div
+    autofocus="false"
     class="t-select-input t-select"
   >
     

@@ -1,19 +1,28 @@
-import { InjectionKey, ComputedRef } from 'vue';
-import { TdTimeLineProps } from './type';
+import { InjectionKey, ComputedRef, computed } from 'vue';
+import { TdTimelineProps } from './type';
 
 export const DefaultAlign = {
   vertical: ['left', 'right'],
   horizontal: ['top', 'bottom'],
 };
 
-export const TimelineInjectKey: InjectionKey<
-  ComputedRef<{
-    theme: TdTimeLineProps['theme'];
-    reverse: TdTimeLineProps['reverse'];
-    itemsStatus: string[];
-    layout: TdTimeLineProps['layout'];
-    globalAlign?: TdTimeLineProps['labelAlign'];
-    mode?: TdTimeLineProps['mode'];
-    renderAlign: string;
-  }>
-> = Symbol('timeLineProvide');
+export interface TimelineProvider {
+  theme: TdTimelineProps['theme'];
+  reverse: TdTimelineProps['reverse'];
+  itemsStatus: string[];
+  layout: TdTimelineProps['layout'];
+  globalAlign?: TdTimelineProps['labelAlign'];
+  mode?: TdTimelineProps['mode'];
+  renderAlign: string;
+}
+
+export const TimelineInjectKey: InjectionKey<ComputedRef<TimelineProvider>> = Symbol('timeLineProvide');
+
+export const DEFAULT_PROVIDER = computed<TimelineProvider>(() => ({
+  theme: 'default',
+  reverse: false,
+  itemsStatus: [],
+  layout: 'horizontal',
+  renderAlign: 'left',
+  mode: 'alternate',
+}));
