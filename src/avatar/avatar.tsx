@@ -3,6 +3,7 @@ import props from './props';
 import { TdAvatarProps } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
+import Image, { ImageProps } from '../image';
 
 export default defineComponent({
   name: 'TAvatar',
@@ -46,7 +47,7 @@ export default defineComponent({
       };
     });
 
-    const handleImgLoadError = (e: Event) => {
+    const handleImgLoadError: ImageProps['onError'] = ({ e }) => {
       const { hideOnLoadFailed } = props;
       isImgExist.value = !hideOnLoadFailed;
       props.onError?.({ e });
@@ -101,7 +102,15 @@ export default defineComponent({
       }
 
       if (image && isImgExist.value) {
-        content = <img style={{ ...customImageSize.value }} src={image} alt={alt} onError={handleImgLoadError}></img>;
+        content = (
+          <Image
+            style={{ ...customImageSize.value }}
+            src={image}
+            alt={alt}
+            onError={handleImgLoadError}
+            {...props.imageProps}
+          ></Image>
+        );
       }
       return (
         <div ref={avatar} class={avatarClass} style={{ ...customAvatarSize.value }}>
