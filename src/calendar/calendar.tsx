@@ -33,7 +33,7 @@ export default defineComponent({
     const renderContent = useContent();
     const { t, globalConfig } = useConfig(COMPONENT_NAME);
     // 组件内部状态管理
-    const { state, toToday, checkDayVisibled } = useState(props);
+    const { state, toToday, checkDayVisible } = useState(props);
 
     // 样式
     const cls = useCalendarClass(props, state);
@@ -61,7 +61,7 @@ export default defineComponent({
         to: v1,
       };
     });
-    function checkMonthAndYearSelecterDisabled(year: number, month: number): boolean {
+    function checkMonthAndYearSelectedDisabled(year: number, month: number): boolean {
       let disabled = false;
       if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
         const beginYear = dayjs(rangeFromTo.value.from).year();
@@ -106,7 +106,7 @@ export default defineComponent({
         }
 
         for (let i = begin; i <= end; i++) {
-          const disabled = checkMonthAndYearSelecterDisabled(i, state.curSelectedMonth);
+          const disabled = checkMonthAndYearSelectedDisabled(i, state.curSelectedMonth);
           re.push({
             value: i,
             label: t(globalConfig.value.yearSelection, { year: i }),
@@ -124,7 +124,7 @@ export default defineComponent({
       monthSelectOptionList: computed<YearMonthOption[]>(() => {
         const re: YearMonthOption[] = [];
         for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
-          const disabled = checkMonthAndYearSelecterDisabled(state.curSelectedYear, i);
+          const disabled = checkMonthAndYearSelectedDisabled(state.curSelectedYear, i);
           re.push({
             value: i,
             label: t(globalConfig.value.monthSelection, { month: i }),
@@ -327,7 +327,7 @@ export default defineComponent({
             <tr class={cls.tableHeadRow.value}>
               {cellColHeaders.value.map(
                 (item, index) =>
-                  checkDayVisibled(item.num) && (
+                  checkDayVisible(item.num) && (
                     <th class={cls.tableHeadCell.value}>
                       {isArray(props.week)
                         ? props.week[index]

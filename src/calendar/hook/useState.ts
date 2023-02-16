@@ -58,7 +58,7 @@ export function useState(props: TdCalendarProps) {
     }
   }
 
-  function checkDayVisibled(day: number) {
+  function checkDayVisible(day: number) {
     let re = true;
     if (!state.isShowWeekend) {
       re = day !== 6 && day !== 7;
@@ -120,10 +120,9 @@ export function useState(props: TdCalendarProps) {
     },
     { immediate: true },
   );
-
   return {
     state,
     toToday,
-    checkDayVisibled,
+    checkDayVisible,
   };
 }
