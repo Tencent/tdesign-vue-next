@@ -6,7 +6,7 @@ import isFunction from 'lodash/isFunction';
 import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
-import SelectInput from '../select-input';
+import SelectInput, { SelectInputValueChangeContext } from '../select-input';
 import { TagInputChangeContext } from '../tag-input';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
@@ -222,7 +222,8 @@ export default defineComponent({
       changeNodeInfo();
     };
 
-    const inputChange = (value: InputValue): boolean => {
+    const inputChange = (value: InputValue, ctx: SelectInputValueChangeContext): boolean => {
+      if (ctx.trigger === 'blur') return;
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
         props.onSearch?.(String(value));
