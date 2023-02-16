@@ -121,8 +121,8 @@ export default defineComponent({
         onMouseleave={handleMouseLeave}
       >
         <div class={`${COMPONENT_NAME.value}__inner`}>
-          {prefixIconContent}
-          {labelContent ? <div class={`${classPrefix.value}-input__prefix`}>{labelContent}</div> : null}
+          {prefixIconContent && <div class={`${COMPONENT_NAME.value}__prefix`}>{prefixIconContent}</div>}
+          {labelContent ? <div class={`${COMPONENT_NAME.value}__prefix`}>{labelContent}</div> : null}
           <Input
             ref={inputRefs.firstInputRef}
             class={`${COMPONENT_NAME.value}__inner-left`}
