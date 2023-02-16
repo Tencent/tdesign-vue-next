@@ -1,0 +1,425 @@
+// Vitest Snapshot v1
+
+exports[`Avatar Component > props.content works fine 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <span>
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Avatar Component > props.default works fine 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <span>
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Avatar Component > props.shape is equal to circle 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <span>
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`Avatar Component > props.shape is equal to round 1`] = `
+<div
+  class="t-avatar t-avatar--round"
+>
+  <span>
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`Avatar Component > slots.content works fine 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <span>
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`Avatar Component > slots.default works fine 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <span>
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`AvatarGroup Component > props.cascading is equal to left-up 1`] = `
+<div
+  class="t-avatar-group t-avatar--offset-left"
+>
+  
+  <!---->
+  
+</div>
+`;
+
+exports[`AvatarGroup Component > props.cascading is equal to right-up 1`] = `
+<div
+  class="t-avatar-group t-avatar--offset-right"
+>
+  
+  <!---->
+  
+</div>
+`;
+
+exports[`AvatarGroup Component > props.collapseAvatar works fine 1`] = `
+<div
+  class="t-avatar-group t-avatar--offset-right"
+>
+  
+  
+  
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <div
+      class="t-image__wrapper t-image__wrapper--shape-square"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <img
+        alt=""
+        class="t-image t-image--fit-fill t-image--position-center"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+      <div
+        class="t-image__loading"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical"
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <svg
+              class="t-icon t-icon-image"
+              fill="none"
+              height="1em"
+              style="font-size: 24px;"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                fill="currentColor"
+                fill-opacity="0.9"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            图片加载中
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <span>
+      
+      W
+      
+    </span>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__icon"
+  >
+    
+    <i
+      class="custom-node"
+    />
+    
+    
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__collapse"
+  >
+    <span>
+      
+      <span
+        class="custom-node"
+      >
+        TNode
+      </span>
+      
+    </span>
+  </div>
+  
+  
+  
+</div>
+`;
+
+exports[`AvatarGroup Component > slots.collapse-avatar works fine 1`] = `
+<div
+  class="t-avatar-group t-avatar--offset-right"
+  v-slots="[object Object]"
+>
+  
+  
+  
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <div
+      class="t-image__wrapper t-image__wrapper--shape-square"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <img
+        alt=""
+        class="t-image t-image--fit-fill t-image--position-center"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+      <div
+        class="t-image__loading"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical"
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <svg
+              class="t-icon t-icon-image"
+              fill="none"
+              height="1em"
+              style="font-size: 24px;"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                fill="currentColor"
+                fill-opacity="0.9"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            图片加载中
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <span>
+      
+      W
+      
+    </span>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__icon"
+  >
+    
+    <i
+      class="custom-node"
+    />
+    
+    
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__collapse"
+  >
+    <span>
+      
+      +2
+      
+    </span>
+  </div>
+  
+  
+  
+</div>
+`;
+
+exports[`AvatarGroup Component > slots.collapseAvatar works fine 1`] = `
+<div
+  class="t-avatar-group t-avatar--offset-right"
+  v-slots="[object Object]"
+>
+  
+  
+  
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <div
+      class="t-image__wrapper t-image__wrapper--shape-square"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <img
+        alt=""
+        class="t-image t-image--fit-fill t-image--position-center"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+      <div
+        class="t-image__loading"
+      >
+        <div
+          class="t-space t-space-align-center t-space-vertical"
+          style="gap: 8px;"
+        >
+          
+          
+          <div
+            class="t-space-item"
+          >
+            <svg
+              class="t-icon t-icon-image"
+              fill="none"
+              height="1em"
+              style="font-size: 24px;"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                fill="currentColor"
+                fill-opacity="0.9"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </div>
+          <!---->
+          
+          
+          <div
+            class="t-space-item"
+          >
+            图片加载中
+          </div>
+          <!---->
+          
+          
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <span>
+      
+      W
+      
+    </span>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__icon"
+  >
+    
+    <i
+      class="custom-node"
+    />
+    
+    
+  </div>
+  <div
+    class="t-avatar t-avatar--circle t-avatar__collapse"
+  >
+    <span>
+      
+      +2
+      
+    </span>
+  </div>
+  
+  
+  
+</div>
+`;
