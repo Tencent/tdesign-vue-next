@@ -2,7 +2,7 @@ import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpda
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer, getScrollbarWidth, getAttach } from '../utils/dom';
+import { isServer, getScrollbarWidth, getAttach, getSSRAttach } from '../utils/dom';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
@@ -244,7 +244,7 @@ export default defineComponent({
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
       return (
-        <Teleport disabled={!props.attach} to={getAttach(props.attach)}>
+        <Teleport disabled={!props.attach} to={getSSRAttach() || getAttach(props.attach)}>
           <div
             ref={drawerEle}
             class={drawerClasses.value}

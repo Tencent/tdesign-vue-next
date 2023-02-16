@@ -13,7 +13,7 @@ import {
   onUpdated,
   ComponentInternalInstance,
 } from 'vue';
-import { getAttach } from '../utils/dom';
+import { getAttach, getSSRAttach } from '../utils/dom';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
 import isUndefined from 'lodash/isUndefined';
@@ -184,7 +184,7 @@ export default defineComponent({
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (
-          <Teleport to={getAttach(this.attach, this.triggerEl)}>
+          <Teleport to={getSSRAttach() || getAttach(this.attach, this.triggerEl)}>
             <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
               {this.$slots.content && this.$slots.content()}
             </Content>

@@ -25,7 +25,7 @@ import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
-import { getAttach, getScrollbarWidth } from '../utils/dom';
+import { getAttach, getScrollbarWidth, getSSRAttach } from '../utils/dom';
 
 import type { TdDialogProps } from './type';
 import isUndefined from 'lodash/isUndefined';
@@ -449,7 +449,7 @@ export default defineComponent({
       },
     ];
     return (
-      <Teleport disabled={!this.attach} to={getAttach(this.attach)}>
+      <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
         <Transition
           duration={300}
           name={`${COMPONENT_NAME}-zoom__vue`}
