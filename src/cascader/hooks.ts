@@ -154,7 +154,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       updateExpend();
       updatedTreeNodes();
     },
-    { immediate: true },
+    { immediate: true, deep: true },
   );
 
   // tree插件配置变化
