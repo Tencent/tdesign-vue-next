@@ -119,7 +119,7 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
+export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element => {
   const attachNode = isFunction(node) ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
@@ -131,6 +131,10 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement => {
     return attachNode;
   }
   return document.body;
+};
+
+export const getSSRAttach = () => {
+  if (process.env.NODE_ENV === 'test-snap') return 'body';
 };
 
 /**
