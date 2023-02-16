@@ -1,7 +1,7 @@
 import { defineComponent, provide, RendererNode } from 'vue';
 import props from './avatar-group-props';
 import Avatar from './avatar';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
@@ -10,7 +10,6 @@ export default defineComponent({
 
   setup(props) {
     provide('avatarGroup', props);
-    const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
 
     const AVATAR_NAME = usePrefixClass('avatar');
