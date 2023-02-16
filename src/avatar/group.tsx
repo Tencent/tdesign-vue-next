@@ -16,22 +16,23 @@ export default defineComponent({
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
 
-    const isIcon = () => renderTNodeJSX('collapseAvatar');
-
     const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
       if (children?.length > props.max) {
-        const content = setEllipsisContent(children);
+        const content = getEllipsisContent(children);
         const outAvatar = children.slice(0, props.max);
-        outAvatar.push(<Avatar size={props.size}>{content}</Avatar>);
+        outAvatar.push(
+          <Avatar class={`${AVATAR_NAME.value}__collapse`} size={props.size}>
+            {content}
+          </Avatar>,
+        );
         return [outAvatar];
       }
       return [children];
     };
 
-    const setEllipsisContent = (children: Array<RendererNode>) => {
-      if (!props.collapseAvatar) return `+${children.length - props.max}`;
-
-      return isIcon() || renderContent('collapseAvatar', 'content');
+    // collapseAvatar
+    const getEllipsisContent = (children: Array<RendererNode>) => {
+      return renderTNodeJSX('collapseAvatar') || `+${children.length - props.max}`;
     };
 
     return () => {

@@ -46,10 +46,10 @@ export default defineComponent({
       };
     });
 
-    const handleImgLoadError = () => {
+    const handleImgLoadError = (e: Event) => {
       const { hideOnLoadFailed } = props;
       isImgExist.value = !hideOnLoadFailed;
-      props.onError?.();
+      props.onError?.({ e });
     };
     // 设置字符头像大小自适应
     const setScaleParams = () => {
