@@ -25,7 +25,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const inputRef = ref<HTMLInputElement>(null);
 
   const limitParams = computed(() => ({
-    value: innerValue.value === undefined ? undefined : String(innerValue.value),
+    value: [undefined, null].includes(innerValue.value) ? undefined : String(innerValue.value),
     status: props.status,
     maxlength: props.maxlength,
     maxcharacter: props.maxcharacter,
