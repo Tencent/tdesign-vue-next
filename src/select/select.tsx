@@ -432,7 +432,7 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value, context) => {
-              if (!innerPopupVisible.value) return;
+              if (!innerPopupVisible.value || context.trigger === 'blur') return;
               setInputValue(value);
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
