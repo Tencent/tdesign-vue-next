@@ -203,17 +203,18 @@ export default defineComponent({
         // 支持函数
         if (isFunction(highlightContent)) {
           node = highlightContent(hWithParams());
-        }
-        // 支持插槽
-        if (context.slots.highlightContent) {
+        } else if (context.slots.highlightContent) {
           node = context.slots.highlightContent(hWithParams());
-        }
-        if (context.slots['highlight-content']) {
+        } else if (context.slots['highlight-content']) {
           node = context.slots['highlight-content'](hWithParams());
+        } else if (!!highlightContent) {
+          node = <node />;
         }
+
         // 给自定义元素添加类名
-        if (node?.props) {
-          node.props.class = `t-guide__highlight t-guide__highlight--mask ${node.props.class || ''}`;
+        if (node) {
+          if (!node.props) node.props = {};
+          node.props.class = `${COMPONENT_NAME.value}__highlight--mask ${node.props.class || ''}`;
         }
         return node;
       };
@@ -313,14 +314,17 @@ export default defineComponent({
 
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{renderTitle()}</div>;
-        const body = currentStepInfo.value.body;
+        const bodyRender = currentStepInfo.value.body;
+
         let descBody: any;
-        if (isFunction(body)) {
-          descBody = body(hWithParams());
+        if (isFunction(bodyRender)) {
+          descBody = bodyRender(hWithParams());
         } else if (context.slots.body) {
           descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
+        } else if (typeof bodyRender === 'string') {
+          descBody = bodyRender;
         } else {
-          descBody = <body />;
+          descBody = <bodyRender />;
         }
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{descBody}</div>;
 
