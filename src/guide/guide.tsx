@@ -198,16 +198,19 @@ export default defineComponent({
 
       const getHighlightContent = () => {
         const { highlightContent } = currentStepInfo.value;
-        // 支持组件
+
         let node: any = highlightContent;
-        // 支持函数
         if (isFunction(highlightContent)) {
+          // 支持函数
           node = highlightContent(hWithParams());
         } else if (context.slots.highlightContent) {
+          // 支持插槽
           node = context.slots.highlightContent(hWithParams());
         } else if (context.slots['highlight-content']) {
+          // 支持插槽
           node = context.slots['highlight-content'](hWithParams());
         } else if (!!highlightContent) {
+          // 支持组件
           node = <node />;
         }
 
