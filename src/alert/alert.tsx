@@ -6,6 +6,8 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
 
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
@@ -61,7 +63,7 @@ export default defineComponent({
       let closeContent = null;
       if (close === true || close === '') {
         closeContent = <CloseIcon />;
-      } else if (typeof close === 'string') {
+      } else if (isString(close)) {
         closeContent = close;
       } else {
         closeContent = renderIconTNode('close');
@@ -95,7 +97,7 @@ export default defineComponent({
       if (!messageContent) {
         messageContent = renderTNodeJSX('message');
       }
-      const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
+      const contentLength = isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
       const height = (descriptionRef.value?.children[0] as HTMLElement)?.offsetHeight;
       if (hasCollapse && collapsed.value) {

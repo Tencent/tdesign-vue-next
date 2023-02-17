@@ -8,6 +8,7 @@ import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TNode } from '../common';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -42,7 +43,7 @@ export default defineComponent({
     });
 
     const getContent = (content: string | TNode) => {
-      if (typeof content === 'function') {
+      if (isFunction(content)) {
         return content(h);
       }
       return content;

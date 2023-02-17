@@ -1,4 +1,5 @@
 import { Slots, VNode, Component, getCurrentInstance, Fragment, Comment } from 'vue';
+import isArray from 'lodash/isArray';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景
@@ -20,9 +21,9 @@ export function useChildComponentSlots() {
     // 满足基于基础组件封装场景，递归找到子组件
     const childList: VNode[] = [];
     const getChildren = (content: VNode[]) => {
-      if (!Array.isArray(content)) return;
+      if (!isArray(content)) return;
       content.forEach((item: VNode) => {
-        if (item.children && Array.isArray(item.children)) {
+        if (item.children && isArray(item.children)) {
           if (item.type !== Fragment) return;
           getChildren(item.children as VNode[]);
         } else {
@@ -56,7 +57,7 @@ export function useChildSlots() {
         return item.type !== Comment;
       })
       .map((item) => {
-        if (item.children && Array.isArray(item.children) && item.type === Fragment) return item.children;
+        if (item.children && isArray(item.children) && item.type === Fragment) return item.children;
         return item;
       })
       .flat();

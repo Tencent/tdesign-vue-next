@@ -13,12 +13,14 @@ import {
   Component,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
+
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';
-
 import Submenu from './submenu';
 import VMenu from './v-menu';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -206,11 +208,11 @@ export default defineComponent({
         if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
           vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default });
         }
-        if (typeof (node.children as any)?.default === 'function') {
+        if (isFunction((node.children as any)?.default)) {
           initVMenu((node.children as any).default(), nodeValue);
           return;
         }
-        if (Array.isArray(node.children)) {
+        if (isArray(node.children)) {
           initVMenu(node.children as VNode[], nodeValue);
         }
       });

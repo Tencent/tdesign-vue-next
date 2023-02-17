@@ -3,7 +3,7 @@ import TimeLineProps from './props';
 import { TimelineInjectKey, DefaultAlign } from './hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks/slot';
-import TimelineItem from './TimelineItem';
+import TimelineItem from './timeline-item';
 import log from '../_common/js/log';
 
 export default defineComponent({

@@ -10,6 +10,9 @@ import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -52,19 +55,14 @@ export default defineComponent({
       () => !isCheckAll.value && intersectionLen.value < optionList.value.length && intersectionLen.value !== 0,
     );
 
-    const maxExceeded = computed<boolean>(() => props.max !== undefined && innerValue.value.length === props.max);
+    const maxExceeded = computed<boolean>(() => !isUndefined(props.max) && innerValue.value.length === props.max);
 
     watchEffect(() => {
       if (!props.options) return [];
       optionList.value = props.options.map((item) => {
-        let r: CheckboxOptionObj = {};
-        if (typeof item !== 'object') {
-          r = { label: String(item), value: item };
-        } else {
-          r = { ...item };
-          r.disabled = r.disabled === undefined ? props.disabled : r.disabled;
-        }
-        return r;
+        return isObject(item)
+          ? { ...item, disabled: item.disabled ?? props.disabled }
+          : { label: String(item), value: item };
       });
     });
 
@@ -92,23 +90,23 @@ export default defineComponent({
 
     const handleCheckboxChange = (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => {
       const currentValue = data.option.value;
-      if (isArray(innerValue.value)) {
-        const val = [...innerValue.value];
-        if (data.checked) {
-          val.push(currentValue);
-        } else {
-          const i = val.indexOf(currentValue);
-          val.splice(i, 1);
-        }
-        setInnerValue(val, {
-          e: data.e,
-          current: data.option.value,
-          option: data.option,
-          type: data.checked ? 'check' : 'uncheck',
-        });
-      } else {
+      if (!isArray(innerValue.value)) {
         console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof innerValue.value}`);
+        return;
       }
+      const val = [...innerValue.value];
+      if (data.checked) {
+        val.push(currentValue);
+      } else {
+        const i = val.indexOf(currentValue);
+        val.splice(i, 1);
+      }
+      setInnerValue(val, {
+        e: data.e,
+        current: data.option.value,
+        option: data.option,
+        type: data.checked ? 'check' : 'uncheck',
+      });
     };
 
     const onCheckedChange = (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => {
@@ -127,16 +125,17 @@ export default defineComponent({
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
-        if (option?.['check-all'] === '' || option?.['check-all'] === true) {
+        if (!option) return;
+        if (option['check-all'] === '' || option['check-all'] === true) {
           option.checkAll = true;
         }
-        option && arr.push(option);
+        arr.push(option);
       });
       return arr;
     };
 
     const renderLabel = (option: CheckboxOptionObj) => {
-      if (typeof option.label === 'function') {
+      if (isFunction(option.label)) {
         return option.label(h);
       }
       return option.label;

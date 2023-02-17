@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined';
 import {
   ref,
   reactive,
@@ -519,7 +520,7 @@ export default function useFixed(
   let resizeObserver: ResizeObserver = null;
   function addTableResizeObserver(tableElement: HTMLDivElement) {
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if (getIEVersion() < 11 || typeof window.ResizeObserver === 'undefined') return;
+    if (getIEVersion() < 11 || isUndefined(window.ResizeObserver)) return;
     off(window, 'resize', onResize);
     resizeObserver = new window.ResizeObserver(() => {
       refreshTable();
@@ -540,7 +541,7 @@ export default function useFixed(
     });
     const isWatchResize = isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value || !data.value.length;
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if ((isWatchResize && getIEVersion() < 11) || typeof window.ResizeObserver === 'undefined') {
+    if ((isWatchResize && getIEVersion() < 11) || isUndefined(window.ResizeObserver)) {
       on(window, 'resize', onResize);
     }
   });

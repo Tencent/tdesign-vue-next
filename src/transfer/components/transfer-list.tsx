@@ -15,6 +15,7 @@ import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import isString from 'lodash/isString';
 
 const props = {
   checkboxProps: {
@@ -185,7 +186,7 @@ export default defineComponent({
     };
     const renderTNodeJSX = useTNodeDefault();
     const renderTitle = () => {
-      const defaultNode = props.title && typeof props.title === 'string' ? <template>{props.title}</template> : null;
+      const defaultNode = props.title && isString(props.title) ? <template>{props.title}</template> : null;
       const titleNode = renderTNodeJSX('title', {
         defaultNode,
         params: {
@@ -232,7 +233,7 @@ export default defineComponent({
     };
     const renderEmpty = () => {
       const empty = props.empty || t(globalConfig.value.empty);
-      const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
+      const defaultNode: VNode = isString(empty) ? <span>{empty}</span> : null;
       return (
         <div class={`${classPrefix.value}-transfer__empty`}>
           {renderTNodeJSX('empty', {
@@ -245,10 +246,9 @@ export default defineComponent({
       );
     };
     const renderFooter = () => {
-      const defaultNode =
-        typeof props.footer === 'string' ? (
-          <div class={`${classPrefix.value}-transfer__footer`}>{props.footer}</div>
-        ) : null;
+      const defaultNode = isString(props.footer) ? (
+        <div class={`${classPrefix.value}-transfer__footer`}>{props.footer}</div>
+      ) : null;
       return renderTNodeJSX('footer', {
         defaultNode,
         params: {

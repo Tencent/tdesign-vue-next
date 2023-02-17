@@ -20,7 +20,7 @@ export default function useAsyncLoading(props: TdPrimaryTableProps) {
   ]);
 
   function onLoadClick() {
-    if (typeof props.asyncLoading !== 'string') return;
+    if (!isString(props.asyncLoading)) return;
     props.onAsyncLoadingClick?.({ status: props.asyncLoading });
   }
 

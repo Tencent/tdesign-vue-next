@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- @click-cancel 和 :onClickCancel 两种写法都支持； :onClickOverlay 和 @click-overlay 两种写法都支持-->
+    <!-- @cancel 和 :onCancel 两种写法都支持； :onOverlayClick 和 @overlay-click 两种写法都支持-->
     <t-drawer
       v-model:visible="visible"
       header="标题名称"
-      :on-click-overlay="() => (visible = false)"
+      :on-overlay-click="() => (visible = false)"
       :placement="placement"
-      @click-cancel="visible = false"
+      @cancel="visible = false"
     >
       <p>抽屉的内容</p>
     </t-drawer>

@@ -6,6 +6,7 @@ import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';
+import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',
@@ -39,14 +40,14 @@ export default defineComponent({
     const tOptions = computed<AutoCompleteOptionObj[]>(() => {
       let options = (props.options || []).map((item) => {
         let option: AutoCompleteOptionObj = {};
-        if (typeof item === 'string') {
+        if (isString(item)) {
           option = { text: item, label: item };
         } else {
-          if (item.text && typeof item.text !== 'string') {
+          if (item.text && !isString(item.text)) {
             log.warn('AutoComplete', '`text` must be a string.');
           }
           if (!item.text) {
-            if (typeof item.label === 'string') {
+            if (isString(item.label)) {
               option = { ...item, text: item.label };
             } else {
               log.warn('AutoComplete', 'one of `label` and `text` must be a existed string.');
@@ -150,7 +151,7 @@ export default defineComponent({
             const content = labelNode || item.text;
             return (
               <li key={item.text} class={cls} title={item.text} onClick={onOptionClick}>
-                {typeof content === 'string' && props.highlightKeyword ? (
+                {isString(content) && props.highlightKeyword ? (
                   <HighlightOption content={content} keyword={props.value} />
                 ) : (
                   content

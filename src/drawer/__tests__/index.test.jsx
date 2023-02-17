@@ -10,10 +10,10 @@ describe('Drawer', () => {
   describe(':props', () => {
     it(':attach', async () => {
       const visible = ref(true);
-      const wrapper = mount(() => <Drawer visible={visible.value} attach="body" />);
+      mount(() => <Drawer visible={visible.value} attach="body" />);
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBeTruthy();
-      expect(wrapper.find('.t-drawer').element.parentNode).toBe(document.body);
+      // 组件的attach使用了Teleport，所以wrapper.find等方法拿不到
+      expect(document.querySelector('body > .t-drawer') !== null).toEqual(true);
     });
 
     it(':body', async () => {

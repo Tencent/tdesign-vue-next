@@ -15,6 +15,7 @@ import { TdSliderProps } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -133,7 +134,7 @@ export default defineComponent({
         return;
       }
       slideButtonProps.isClick = false;
-      if (parentProps?.resetSize && typeof parentProps?.resetSize === 'function') {
+      if (parentProps?.resetSize && isFunction(parentProps?.resetSize)) {
         parentProps.resetSize();
       }
       let diff = 0;

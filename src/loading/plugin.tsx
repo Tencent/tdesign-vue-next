@@ -25,9 +25,9 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 
   const loading = createApp(component).mount(document.createElement('div'));
   const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
+  const prefixClass = usePrefixClass('loading');
 
   if (attach) {
-    attach.appendChild(loading.$el);
     addClass(attach, parentRelativeClass);
   } else {
     console.error('attach is not exist');
@@ -36,7 +36,9 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const loadingInstance: LoadingInstance = {
     hide: () => {
       loading.loading = false;
-      loading.$el.parentNode?.removeChild(loading.$el);
+      attach.querySelectorAll(`.${prefixClass.value}`)?.forEach((item) => {
+        item.remove();
+      });
       removeClass(attach, parentRelativeClass);
     },
   };

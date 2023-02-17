@@ -1,7 +1,7 @@
 :: BASE_DOC ::
 
 ## API
-### TimeLine Props
+### Timeline Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
@@ -11,13 +11,13 @@ mode | String | alternate | The position relationship between the label and the 
 reverse | Boolean | false | \- | N
 theme | String | default | options：default/dot | N
 
-### TimeLineItem Props
+### TimelineItem Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 dot | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-dotColor | String | default | options：primary/warning/error/default。Typescript：`string` | N
+dotColor | String | primary | Typescript：`string` | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 labelAlign | String | - | options：left/right/top/bottom | N
 loading | Boolean | - | Whether it is in the loading state | N

@@ -1,3 +1,5 @@
+import isFunction from 'lodash/isFunction';
+import isBoolean from 'lodash/isBoolean';
 import { computed, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../const';
@@ -52,7 +54,7 @@ export function userController(props: TdCalendarProps, state: CalendarState) {
   });
   const configData = computed<Record<string, any>>(() => {
     const controllerConfig = props.controllerConfig ?? globalConfig.value.controllerConfig ?? true;
-    if (typeof controllerConfig === 'boolean') {
+    if (isBoolean(controllerConfig)) {
       return getDefaultControllerConfigData(controllerConfig);
     }
     return {
@@ -92,7 +94,7 @@ export function userController(props: TdCalendarProps, state: CalendarState) {
   }
   function emitControllerChange() {
     nextTick(() => {
-      typeof props.onControllerChange === 'function' && props.onControllerChange({ ...options.value });
+      isFunction(props.onControllerChange) && props.onControllerChange({ ...options.value });
     });
   }
 

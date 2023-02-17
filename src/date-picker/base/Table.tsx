@@ -3,6 +3,7 @@ import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 import { parseToDayjs } from '../../_common/js/date-picker/format';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -45,7 +46,7 @@ export default defineComponent({
     const weekRowClass = (value: any, format: string, targetValue: Date) => {
       if (props.mode !== 'week' || !value) return {};
 
-      if (Array.isArray(value)) {
+      if (isArray(value)) {
         if (!value.length) return {};
         const [startObj, endObj] = value.map((v) => v && parseToDayjs(v, format));
         const startYear = startObj && startObj.year();

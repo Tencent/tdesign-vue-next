@@ -6,6 +6,7 @@ import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
 import { TdCalendarProps } from '../type';
 import { CalendarState } from '../interface';
+import isArray from 'lodash/isArray';
 
 export function useState(props: TdCalendarProps) {
   const { globalConfig } = useConfig(COMPONENT_NAME);
@@ -42,7 +43,7 @@ export function useState(props: TdCalendarProps) {
   }
 
   function setCurrentDate(value?: TdCalendarProps['value']): void {
-    if (Array.isArray(value)) {
+    if (isArray(value)) {
       state.curDate = value && value.length ? dayjs(value[0]) : createDefaultCurDate();
     } else {
       state.curDate = value ? dayjs(value) : createDefaultCurDate();
@@ -50,14 +51,14 @@ export function useState(props: TdCalendarProps) {
   }
 
   function setCurrentDateList(value?: TdCalendarProps['value']): void {
-    if (Array.isArray(value)) {
+    if (isArray(value)) {
       state.curDateList = value && value.length ? value.map((item) => dayjs(item)) : [createDefaultCurDate()];
     } else {
       state.curDateList = value ? [dayjs(value)] : [createDefaultCurDate()];
     }
   }
 
-  function checkDayVisibled(day: number) {
+  function checkDayVisible(day: number) {
     let re = true;
     if (!state.isShowWeekend) {
       re = day !== 6 && day !== 7;
@@ -119,10 +120,9 @@ export function useState(props: TdCalendarProps) {
     },
     { immediate: true },
   );
-
   return {
     state,
     toToday,
-    checkDayVisibled,
+    checkDayVisible,
   };
 }

@@ -230,7 +230,7 @@ export default defineComponent({
     const getSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
       return optionsList.value.filter((option) => {
         if (option.checkAll) return;
-        if (Array.isArray(selectValue)) return selectValue.includes(option.value);
+        if (isArray(selectValue)) return selectValue.includes(option.value);
         return selectValue === option.value;
       });
     };
@@ -432,7 +432,7 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value, context) => {
-              if (!innerPopupVisible.value) return;
+              if (!innerPopupVisible.value || context.trigger === 'blur') return;
               setInputValue(value);
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}

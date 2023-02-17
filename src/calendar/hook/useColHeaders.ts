@@ -5,6 +5,7 @@ import { TdCalendarProps, WeekDay } from '../type';
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import * as utils from '../utils';
+import isObject from 'lodash/isObject';
 
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   const { t, globalConfig } = useConfig(COMPONENT_NAME);
@@ -14,7 +15,7 @@ export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   });
   function getWeekDisplay(weekNum: number): string {
     const weekText = weekDipalyText.value;
-    return typeof weekText === 'object' && weekText[weekNum - 1] ? weekText[weekNum - 1] : utils.getDayCn(weekNum);
+    return isObject(weekText) && weekText[weekNum - 1] ? weekText[weekNum - 1] : utils.getDayCn(weekNum);
   }
   const cellColHeaders = computed<CellColHeader[]>(() => {
     const re: CellColHeader[] = [];

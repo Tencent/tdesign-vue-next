@@ -1,5 +1,7 @@
 import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
+
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
@@ -21,6 +23,7 @@ export default defineComponent({
     const binded = ref(false);
 
     const scrollContainer = ref<ScrollContainerElement>();
+    const affixStyle = ref<Record<string, any>>();
 
     const handleScroll = () => {
       if (!ticking.value) {
@@ -44,10 +47,10 @@ export default defineComponent({
             wrapHeight;
           const calcBottom = containerTop + containerHeight - props.offsetBottom; // 计算 bottom 相对应的 top 值
 
-          if (props.offsetTop !== undefined && calcTop <= props.offsetTop) {
+          if (!isUndefined(props.offsetTop) && calcTop <= props.offsetTop) {
             // top 的触发
             fixedTop = containerTop + props.offsetTop;
-          } else if (props.offsetBottom !== undefined && wrapToTop >= calcBottom) {
+          } else if (!isUndefined(props.offsetBottom) && wrapToTop >= calcBottom) {
             // bottom 的触发
             fixedTop = calcBottom;
           } else {
@@ -60,13 +63,12 @@ export default defineComponent({
 
             if (affixed) {
               affixRef.value.className = COMPONENT_NAME.value;
-              affixRef.value.style.top = `${fixedTop}px`;
-              affixRef.value.style.width = `${wrapWidth}px`;
-              affixRef.value.style.height = `${wrapHeight}px`;
-
-              if (props.zIndex) {
-                affixRef.value.style.zIndex = `${props.zIndex}`;
-              }
+              affixStyle.value = {
+                top: `${fixedTop}px`,
+                width: `${wrapWidth}px`,
+                height: `${wrapHeight}px`,
+                zIndex: props.zIndex,
+              };
 
               if (!placeholderStatus) {
                 placeholderEL.value.style.width = `${wrapWidth}px`;
@@ -75,7 +77,7 @@ export default defineComponent({
               }
             } else {
               affixRef.value.removeAttribute('class');
-              affixRef.value.removeAttribute('style');
+              affixStyle.value = undefined;
               placeholderStatus && placeholderEL.value.remove();
             }
 
@@ -142,12 +144,15 @@ export default defineComponent({
       handleScroll,
       scrollContainer,
       renderTNodeJSX,
+      affixStyle,
     };
   },
   render() {
     return (
       <div ref="affixWrapRef">
-        <div ref="affixRef">{this.renderTNodeJSX('default')}</div>
+        <div ref="affixRef" style={this.affixStyle}>
+          {this.renderTNodeJSX('default')}
+        </div>
       </div>
     );
   },

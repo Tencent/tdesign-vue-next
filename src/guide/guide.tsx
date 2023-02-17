@@ -1,11 +1,10 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h } from 'vue';
+import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
 import isFunction from 'lodash/isFunction';
 import props from './props';
 import { GuideCrossProps } from './interface';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '../_common/js/utils/set-style';
-import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -15,7 +14,6 @@ import Popup, { PopupProps } from '../popup';
 
 export default defineComponent({
   name: 'TGuide',
-  directives: { TransferDom },
   props,
   setup(props: TdGuideProps, context) {
     const renderTNodeJSX = useTNodeJSX();
@@ -192,12 +190,7 @@ export default defineComponent({
 
     return () => {
       const renderOverlayLayer = () => (
-        <div
-          ref={overlayLayerRef}
-          v-transfer-dom="body"
-          class={`${COMPONENT_NAME.value}__overlay`}
-          style={{ zIndex: zIndex.value - 2 }}
-        />
+        <div ref={overlayLayerRef} class={`${COMPONENT_NAME.value}__overlay`} style={{ zIndex: zIndex.value - 2 }} />
       );
 
       const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) =>
@@ -205,22 +198,26 @@ export default defineComponent({
 
       const getHighlightContent = () => {
         const { highlightContent } = currentStepInfo.value;
-        // 支持组件
+
         let node: any = highlightContent;
-        // 支持函数
         if (isFunction(highlightContent)) {
+          // 支持函数
           node = highlightContent(hWithParams());
-        }
-        // 支持插槽
-        if (context.slots.highlightContent) {
+        } else if (context.slots.highlightContent) {
+          // 支持插槽
           node = context.slots.highlightContent(hWithParams());
-        }
-        if (context.slots['highlight-content']) {
+        } else if (context.slots['highlight-content']) {
+          // 支持插槽
           node = context.slots['highlight-content'](hWithParams());
+        } else if (!!highlightContent) {
+          // 支持组件
+          node = <node />;
         }
+
         // 给自定义元素添加类名
-        if (node?.props) {
-          node.props.class = `t-guide__highlight t-guide__highlight--mask ${node.props.class || ''}`;
+        if (node) {
+          if (!node.props) node.props = {};
+          node.props.class = `${COMPONENT_NAME.value}__highlight--mask ${node.props.class || ''}`;
         }
         return node;
       };
@@ -240,7 +237,6 @@ export default defineComponent({
         return (
           <div
             ref={highlightLayerRef}
-            v-transfer-dom="body"
             class={highlightClass.concat(showHighlightContent ? highlightClass : maskClass)}
             style={style}
           >
@@ -321,14 +317,17 @@ export default defineComponent({
 
       const renderTooltipBody = () => {
         const title = <div class={`${COMPONENT_NAME.value}__title`}>{renderTitle()}</div>;
-        const body = currentStepInfo.value.body;
+        const bodyRender = currentStepInfo.value.body;
+
         let descBody: any;
-        if (isFunction(body)) {
-          descBody = body(hWithParams());
+        if (isFunction(bodyRender)) {
+          descBody = bodyRender(hWithParams());
         } else if (context.slots.body) {
           descBody = context.slots.body({ currentStepInfo: currentStepInfo.value });
+        } else if (typeof bodyRender === 'string') {
+          descBody = bodyRender;
         } else {
-          descBody = <body />;
+          descBody = <bodyRender />;
         }
         const desc = <div class={`${COMPONENT_NAME.value}__desc`}>{descBody}</div>;
 
@@ -398,7 +397,7 @@ export default defineComponent({
             overlayClassName={[`${COMPONENT_NAME.value}__popup`, currentStepInfo.value.stepOverlayClass]}
             overlayInnerClassName={innerClassName.concat(currentStepInfo.value.popupProps?.overlayInnerClassName)}
           >
-            <div ref={referenceLayerRef} v-transfer-dom="body" class={classes} />
+            <div ref={referenceLayerRef} class={classes} />
           </Popup>
         );
       };
@@ -421,7 +420,7 @@ export default defineComponent({
         const footerClasses = [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--popup`];
         return (
           <>
-            <div ref={dialogWrapperRef} v-transfer-dom="body" class={wrapperClasses} style={style}>
+            <div ref={dialogWrapperRef} class={wrapperClasses} style={style}>
               <div ref={dialogTooltipRef} class={dialogClasses}>
                 {renderTooltipBody()}
                 <div class={footerClasses}>
@@ -437,9 +436,11 @@ export default defineComponent({
       const renderGuide = () => {
         return (
           <>
-            {renderOverlayLayer()}
-            {renderHighlightLayer()}
-            {isPopup.value ? renderPopupGuide() : renderDialogGuide()}
+            <Teleport to="body">
+              {renderOverlayLayer()}
+              {renderHighlightLayer()}
+              {isPopup.value ? renderPopupGuide() : renderDialogGuide()}
+            </Teleport>
           </>
         );
       };

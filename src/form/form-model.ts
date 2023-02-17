@@ -1,3 +1,5 @@
+import isBoolean from 'lodash/isBoolean';
+import isObject from 'lodash/isObject';
 // https://github.com/validatorjs/validator.js
 
 import isDate from 'validator/lib/isDate';
@@ -24,7 +26,7 @@ export function isValueEmpty(val: ValueType): boolean {
   if (type === typeMap.Date) {
     return false;
   }
-  return typeof val === 'object' ? isEmpty(val) : ['', undefined, null].includes(val);
+  return isObject(val) ? isEmpty(val) : ['', undefined, null].includes(val);
 }
 
 const VALIDATE_MAP = {
@@ -33,7 +35,7 @@ const VALIDATE_MAP = {
   email: isEmail,
   required: (val: ValueType): boolean => !isValueEmpty(val),
   whitespace: (val: ValueType): boolean => !(/^\s+$/.test(val) || val === ''),
-  boolean: (val: ValueType): boolean => typeof val === 'boolean',
+  boolean: (val: ValueType): boolean => isBoolean(val),
   max: (val: ValueType, num: number): boolean => (isNumber(val) ? val <= num : getCharacterLength(val) <= num),
   min: (val: ValueType, num: number): boolean => (isNumber(val) ? val >= num : getCharacterLength(val) >= num),
   len: (val: ValueType, num: number): boolean => getCharacterLength(val) === num,
@@ -77,11 +79,11 @@ export async function validateOneRule(value: ValueType, rule: FormRule): Promise
   if (vValidateFun) {
     validateResult = await vValidateFun(value, vOptions);
     // 如果校验不通过，则返回校验不通过的规则
-    if (typeof validateResult === 'boolean') {
+    if (isBoolean(validateResult)) {
       return { ...rule, result: validateResult };
     }
     // 校验结果为 CustomValidateObj，只有自定义校验规则会存在这种情况
-    if (typeof validateResult === 'object') {
+    if (isObject(validateResult)) {
       return validateResult;
     }
   }

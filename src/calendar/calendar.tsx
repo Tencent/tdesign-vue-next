@@ -2,6 +2,8 @@ import { defineComponent, computed, watch } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
 import remove from 'lodash/remove';
+import isFunction from 'lodash/isFunction';
+import isArray from 'lodash/isArray';
 
 import props from './props';
 import * as utils from './utils';
@@ -31,7 +33,7 @@ export default defineComponent({
     const renderContent = useContent();
     const { t, globalConfig } = useConfig(COMPONENT_NAME);
     // 组件内部状态管理
-    const { state, toToday, checkDayVisibled } = useState(props);
+    const { state, toToday, checkDayVisible } = useState(props);
 
     // 样式
     const cls = useCalendarClass(props, state);
@@ -59,7 +61,7 @@ export default defineComponent({
         to: v1,
       };
     });
-    function checkMonthAndYearSelecterDisabled(year: number, month: number): boolean {
+    function checkMonthAndYearSelectedDisabled(year: number, month: number): boolean {
       let disabled = false;
       if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
         const beginYear = dayjs(rangeFromTo.value.from).year();
@@ -82,7 +84,7 @@ export default defineComponent({
         };
       },
       (v: { month: string; year: string }) => {
-        typeof props.onMonthChange === 'function' && props.onMonthChange({ ...v });
+        isFunction(props.onMonthChange) && props.onMonthChange({ ...v });
         controller.emitControllerChange();
       },
     );
@@ -104,7 +106,7 @@ export default defineComponent({
         }
 
         for (let i = begin; i <= end; i++) {
-          const disabled = checkMonthAndYearSelecterDisabled(i, state.curSelectedMonth);
+          const disabled = checkMonthAndYearSelectedDisabled(i, state.curSelectedMonth);
           re.push({
             value: i,
             label: t(globalConfig.value.yearSelection, { year: i }),
@@ -122,7 +124,7 @@ export default defineComponent({
       monthSelectOptionList: computed<YearMonthOption[]>(() => {
         const re: YearMonthOption[] = [];
         for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
-          const disabled = checkMonthAndYearSelecterDisabled(state.curSelectedYear, i);
+          const disabled = checkMonthAndYearSelectedDisabled(state.curSelectedYear, i);
           re.push({
             value: i,
             label: t(globalConfig.value.monthSelection, { month: i }),
@@ -280,7 +282,7 @@ export default defineComponent({
     };
 
     const cellClickEmit = (eventPropsName: string, e: MouseEvent, cellData: CalendarCell): void => {
-      if (typeof props[eventPropsName] === 'function') {
+      if (isFunction(props[eventPropsName])) {
         const options: CellEventOption = {
           cell: {
             ...cellData,
@@ -325,9 +327,9 @@ export default defineComponent({
             <tr class={cls.tableHeadRow.value}>
               {cellColHeaders.value.map(
                 (item, index) =>
-                  checkDayVisibled(item.num) && (
+                  checkDayVisible(item.num) && (
                     <th class={cls.tableHeadCell.value}>
-                      {Array.isArray(props.week)
+                      {isArray(props.week)
                         ? props.week[index]
                         : renderContent('week', undefined, {
                             defaultNode: <span>{item.display}</span>,

@@ -15,12 +15,15 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import isArray from 'lodash/isArray';
+
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
+import isNumber from 'lodash/isNumber';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -137,7 +140,7 @@ export default defineComponent({
         return;
       }
       // 双向滑块
-      if (props.range && Array.isArray(value)) {
+      if (props.range && isArray(value)) {
         let [maxLimit, minLimit] = [Math.min(...value), Math.max(...value)];
         if (maxLimit > max) {
           maxLimit = firstValue.value;
@@ -189,7 +192,7 @@ export default defineComponent({
     const init = () => {
       let valuetext: string | number;
       if (props.range) {
-        if (Array.isArray(sliderValue.value)) {
+        if (isArray(sliderValue.value)) {
           firstValue.value = Math.max(props.min || 0, sliderValue.value[0]);
           secondValue.value = Math.min(props.max || 100, sliderValue.value[1]);
         } else {
@@ -198,7 +201,7 @@ export default defineComponent({
         }
         valuetext = `${firstValue.value}-${secondValue.value}`;
       } else {
-        if (typeof sliderValue.value !== 'number') {
+        if (!isNumber(sliderValue.value)) {
           firstValue.value = props.min;
         } else {
           firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
@@ -268,7 +271,7 @@ export default defineComponent({
       () => sliderValue.value,
       (newVal) => {
         if (dragging.value === true) return;
-        if (Array.isArray(newVal) && props.range) {
+        if (isArray(newVal) && props.range) {
           [firstValue.value, secondValue.value] = newVal;
         } else {
           firstValue.value = newVal as number;

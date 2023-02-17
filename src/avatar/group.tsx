@@ -1,7 +1,7 @@
 import { defineComponent, provide, RendererNode } from 'vue';
 import props from './avatar-group-props';
 import Avatar from './avatar';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
@@ -10,39 +10,28 @@ export default defineComponent({
 
   setup(props) {
     provide('avatarGroup', props);
-    const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
 
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
 
-    const isIcon = () => {
-      const content = renderTNodeJSX('collapseAvatar');
-      return content;
-    };
-
     const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
       if (children?.length > props.max) {
-        const content = setEllipsisContent(children);
+        const content = getEllipsisContent(children);
         const outAvatar = children.slice(0, props.max);
-        outAvatar.push(<Avatar size={props.size}>{content}</Avatar>);
+        outAvatar.push(
+          <Avatar class={`${AVATAR_NAME.value}__collapse`} size={props.size}>
+            {content}
+          </Avatar>,
+        );
         return [outAvatar];
       }
       return [children];
     };
 
-    const setEllipsisContent = (children: Array<RendererNode>) => {
-      let content = '';
-      if (props.collapseAvatar) {
-        if (!isIcon()) {
-          content = renderContent('collapseAvatar', 'content');
-        } else {
-          content = isIcon();
-        }
-      } else {
-        content = `+${children.length - props.max}`;
-      }
-      return content;
+    // collapseAvatar
+    const getEllipsisContent = (children: Array<RendererNode>) => {
+      return renderTNodeJSX('collapseAvatar') || `+${children.length - props.max}`;
     };
 
     return () => {
@@ -55,11 +44,8 @@ export default defineComponent({
           [`${AVATAR_NAME.value}--offset-left`]: cascading === 'left-up',
         },
       ];
-      let content = [children];
+      const content = max && max >= 0 ? [renderEllipsisAvatar(children)] : [children];
 
-      if (max && max >= 0) {
-        content = [renderEllipsisAvatar(children)];
-      }
       return <div class={groupClass}>{content}</div>;
     };
   },

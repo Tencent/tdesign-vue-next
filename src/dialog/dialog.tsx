@@ -8,6 +8,7 @@ import {
   Transition,
   watch,
   getCurrentInstance,
+  Teleport,
 } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
@@ -18,16 +19,16 @@ import {
 
 import { DialogCloseContext } from './type';
 import props from './props';
-import TransferDom from '../utils/transfer-dom';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
-import { getScrollbarWidth } from '../utils/dom';
+import { getAttach, getScrollbarWidth, getSSRAttach } from '../utils/dom';
 
 import type { TdDialogProps } from './type';
+import isUndefined from 'lodash/isUndefined';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -44,7 +45,7 @@ const getClickPosition = (e: MouseEvent) => {
   }, 100);
 };
 
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+if (!isUndefined(window) && window.document && window.document.documentElement) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
@@ -96,7 +97,6 @@ export default defineComponent({
 
   // 注册v-draggable指令,传入true时候初始化拖拽事件
   directives: {
-    TransferDom,
     draggable(el, binding) {
       // el 指令绑定的元素
       if (el && binding && binding.value) {
@@ -449,18 +449,20 @@ export default defineComponent({
       },
     ];
     return (
-      <Transition
-        duration={300}
-        name={`${COMPONENT_NAME}-zoom__vue`}
-        onAfterEnter={this.afterEnter}
-        onAfterLeave={this.afterLeave}
-      >
-        {(!this.destroyOnClose || this.visible) && (
-          <div v-show={this.visible} class={ctxClass} style={ctxStyle} v-transfer-dom={this.attach}>
-            {view}
-          </div>
-        )}
-      </Transition>
+      <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+        <Transition
+          duration={300}
+          name={`${COMPONENT_NAME}-zoom__vue`}
+          onAfterEnter={this.afterEnter}
+          onAfterLeave={this.afterLeave}
+        >
+          {(!this.destroyOnClose || this.visible) && (
+            <div v-show={this.visible} class={ctxClass} style={ctxStyle} {...this.$attrs}>
+              {view}
+            </div>
+          )}
+        </Transition>
+      </Teleport>
     );
   },
 });

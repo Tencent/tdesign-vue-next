@@ -2,6 +2,7 @@ import { defineComponent, computed } from 'vue';
 import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig } from '../hooks/useConfig';
+import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TBadge',
@@ -14,7 +15,7 @@ export default defineComponent({
     /** 内容计算相关逻辑 start */
     const content = computed(() => {
       if (props.dot) return '';
-      if (typeof props.count === 'function') {
+      if (isFunction(props.count)) {
         return renderTNodeJSX('count');
       }
       if (Number.isNaN(Number(props.count))) {

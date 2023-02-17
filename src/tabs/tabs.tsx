@@ -7,6 +7,7 @@ import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
+import isArray from 'lodash/isArray';
 
 export interface InjectTabs {
   value: Ref<TabValue>;
@@ -44,7 +45,7 @@ export default defineComponent({
       if (!content) return [];
       content = content
         .map((item: ComponentPublicInstance) => {
-          if (item.children && Array.isArray(item.children)) return item.children;
+          if (item.children && isArray(item.children)) return item.children;
           return item;
         })
         .flat()

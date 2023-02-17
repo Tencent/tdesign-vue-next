@@ -1,6 +1,7 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
 import isEqual from 'lodash/isEqual';
 import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
@@ -128,7 +129,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         const store = new TreeStore({
           keys: {
             ...keys,
-            children: typeof keys.children === 'string' ? keys.children : 'children',
+            children: isString(keys.children) ? keys.children : 'children',
           },
           checkable: true,
           expandMutex: true,
@@ -153,7 +154,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       updateExpend();
       updatedTreeNodes();
     },
-    { immediate: true },
+    { immediate: true, deep: true },
   );
 
   // tree插件配置变化
