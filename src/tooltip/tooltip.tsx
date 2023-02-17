@@ -111,8 +111,8 @@ export default defineComponent({
     });
     return () => (
       <Popup
-        ref={popupRef}
         {...omit(popupProps.value, ['content', 'default'])}
+        ref={popupRef}
         overlayInnerStyle={overlayInnerStyle.value}
         visible={innerVisible.value}
         v-slots={{
