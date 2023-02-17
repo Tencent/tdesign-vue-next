@@ -60,14 +60,9 @@ export default defineComponent({
     watchEffect(() => {
       if (!props.options) return [];
       optionList.value = props.options.map((item) => {
-        let r: CheckboxOptionObj = {};
-        if (!isObject(item)) {
-          r = { label: String(item), value: item };
-        } else {
-          r = { ...item };
-          r.disabled = isUndefined(r.disabled) ? props.disabled : r.disabled;
-        }
-        return r;
+        return isObject(item)
+          ? { ...item, disabled: item.disabled ?? props.disabled }
+          : { label: String(item), value: item };
       });
     });
 
@@ -95,23 +90,23 @@ export default defineComponent({
 
     const handleCheckboxChange = (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => {
       const currentValue = data.option.value;
-      if (isArray(innerValue.value)) {
-        const val = [...innerValue.value];
-        if (data.checked) {
-          val.push(currentValue);
-        } else {
-          const i = val.indexOf(currentValue);
-          val.splice(i, 1);
-        }
-        setInnerValue(val, {
-          e: data.e,
-          current: data.option.value,
-          option: data.option,
-          type: data.checked ? 'check' : 'uncheck',
-        });
-      } else {
+      if (!isArray(innerValue.value)) {
         console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof innerValue.value}`);
+        return;
       }
+      const val = [...innerValue.value];
+      if (data.checked) {
+        val.push(currentValue);
+      } else {
+        const i = val.indexOf(currentValue);
+        val.splice(i, 1);
+      }
+      setInnerValue(val, {
+        e: data.e,
+        current: data.option.value,
+        option: data.option,
+        type: data.checked ? 'check' : 'uncheck',
+      });
     };
 
     const onCheckedChange = (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => {
@@ -130,10 +125,11 @@ export default defineComponent({
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
-        if (option?.['check-all'] === '' || option?.['check-all'] === true) {
+        if (!option) return;
+        if (option['check-all'] === '' || option['check-all'] === true) {
           option.checkAll = true;
         }
-        option && arr.push(option);
+        arr.push(option);
       });
       return arr;
     };
