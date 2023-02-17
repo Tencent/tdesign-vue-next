@@ -1,3 +1,4 @@
+import isNull from 'lodash/isNull';
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
 import { usePrefixClass } from './useConfig';
@@ -62,7 +63,7 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
     const width = dom.offsetWidth;
     const height = dom.offsetHeight;
 
-    if (rippleContainer.value.parentNode === null) {
+    if (isNull(rippleContainer.value.parentNode)) {
       setStyle(rippleContainer.value, {
         position: 'absolute',
         left: `${0 - border}px`,

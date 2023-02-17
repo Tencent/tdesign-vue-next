@@ -14,6 +14,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import useDraggable from './hooks/useDraggable';
+import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TTreeNode',
@@ -310,7 +311,7 @@ export default defineComponent({
         };
 
         // 当开启expandOnClickNode且为非叶子节点时 不选中选项
-        const stopLabelTrigger = props.expandOnClickNode && node.children instanceof Array && node.children?.length > 0;
+        const stopLabelTrigger = props.expandOnClickNode && isArray(node.children) && node.children?.length > 0;
 
         labelNode = (
           <TCheckBox

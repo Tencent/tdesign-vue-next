@@ -1,5 +1,6 @@
 import { computed, defineComponent, h, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './step-item-props';
@@ -25,7 +26,7 @@ export default defineComponent({
     // when props.value is undefined
     const onStepClick = (e: MouseEvent) => {
       if (!canClick.value) return;
-      const val = props.value === undefined ? props.index : props.value;
+      const val = isUndefined(props.value) ? props.index : props.value;
       stepsState.setCurrent(val, stepsState.current, { e });
     };
 

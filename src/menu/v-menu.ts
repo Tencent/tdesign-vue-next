@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil';
 import { ref, Slot } from 'vue';
 
 type MenuValue = string | number;
@@ -81,7 +82,7 @@ export default class VMenu {
         set.delete(data);
       }
     });
-    if (item.parent == null) {
+    if (isNil(item.parent)) {
       this.data.children.push(node);
       node.parent = this.data;
     } else if (this.data.children.length > 0) {

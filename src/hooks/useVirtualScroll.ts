@@ -168,7 +168,7 @@ const useVirtualScroll = ({
     beforeScrollTop = scrollTop;
     distance += offset;
     let lastIndex = index;
-    // !disatance 可能为横向滚动，不做任何计算
+    // !distance 可能为横向滚动，不做任何计算
     if (!distance) return;
     if (distance >= 0) {
       // 向下滚动

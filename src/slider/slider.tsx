@@ -16,6 +16,7 @@ import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
@@ -169,7 +170,7 @@ export default defineComponent({
     // 只要触发修改就要有这个方法抛出change事件
     const emitChange = (value: SliderValue) => {
       let changeValue = value;
-      if (changeValue === undefined) {
+      if (isUndefined(changeValue)) {
         if (props.range) {
           changeValue = [firstValue.value, secondValue.value];
         } else {

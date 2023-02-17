@@ -6,11 +6,12 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 
 function isFilterValueExist(value: any) {
-  const isArrayTrue = value instanceof Array && value.length;
-  const isObject = typeof value === 'object' && !(value instanceof Array);
-  const isObjectTrue = isObject && Object.keys(value).length;
+  const isArrayTrue = isArray(value) && value.length;
+  const isObjectTrue = isObject(value) && Object.keys(value).length;
   return isArrayTrue || isObjectTrue || !['null', '', 'undefined'].includes(String(value));
 }
 
@@ -84,7 +85,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       .forEach((col) => {
         let value = tFilterValue.value[col.colKey];
         if (col.filter.list && !['null', '', 'undefined'].includes(String(value))) {
-          const formattedValue = value instanceof Array ? value : [value];
+          const formattedValue = isArray(value) ? value : [value];
           const label: string[] = [];
           col.filter.list.forEach((option) => {
             if (formattedValue.includes(option.value)) {

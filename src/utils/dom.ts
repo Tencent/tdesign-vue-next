@@ -373,7 +373,7 @@ export function getWindowScroll(): { scrollTop: number; scrollLeft: number } {
  * @returns { width: number, height: number }
  */
 export function getWindowSize(): { width: number; height: number } {
-  if (window.innerWidth !== undefined) {
+  if (!isUndefined(window.innerWidth)) {
     return { width: window.innerWidth, height: window.innerHeight };
   }
   const doc = document.documentElement;

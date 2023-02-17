@@ -1,3 +1,4 @@
+import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
@@ -30,14 +31,13 @@ export interface FormatRowAttributesParams {
 // 行属性
 export function formatRowAttributes(attributes: TdBaseTableProps['rowAttributes'], params: FormatRowAttributesParams) {
   if (!attributes) return undefined;
-  const attrList = attributes instanceof Array ? attributes : [attributes];
+  const attrList = isArray(attributes) ? attributes : [attributes];
   let result: HTMLElementAttributes = {};
   for (let i = 0; i < attrList.length; i++) {
     const attrItem = attrList[i];
     if (!attrItem) continue;
     const attrProperty = isFunction(attrItem) ? attrItem(params) : attrItem;
-    result =
-      attrProperty instanceof Array ? formatRowAttributes(attrProperty, params) : Object.assign(result, attrProperty);
+    result = isArray(attrProperty) ? formatRowAttributes(attrProperty, params) : Object.assign(result, attrProperty);
   }
   return result;
 }
@@ -48,20 +48,20 @@ export function formatRowClassNames(
   params: RowClassNameParams<TableRowData>,
   rowKey: string,
 ) {
-  const rowClassList = rowClassNames instanceof Array ? rowClassNames : [rowClassNames];
+  const rowClassList = isArray(rowClassNames) ? rowClassNames : [rowClassNames];
   const { row, rowIndex } = params;
   // 自定义行类名
   let customClasses: ClassName = [];
   for (let i = 0, len = rowClassList.length; i < len; i++) {
     const rName = rowClassList[i];
     let tClass = isFunction(rName) ? rName(params) : rName;
-    if (isObject(tClass) && !(tClass instanceof Array)) {
+    if (isObject(tClass) && !isArray(tClass)) {
       // 根据下标设置行类名
       tClass[rowIndex] && (tClass = tClass[rowIndex]);
       // 根据行唯一标识设置行类名
       const rowId = get(row, rowKey || 'id');
       tClass[rowId] && (tClass = tClass[rowId]);
-    } else if (tClass instanceof Array) {
+    } else if (isArray(tClass)) {
       tClass = formatRowClassNames(tClass, params, rowKey);
     }
     customClasses = customClasses.concat(tClass);
@@ -73,7 +73,7 @@ export function formatClassNames(
   classNames: TableColumnClassName<TableRowData> | TableColumnClassName<TableRowData>[],
   params: CellData<TableRowData>,
 ) {
-  const classes = classNames instanceof Array ? classNames : [classNames];
+  const classes = isArray(classNames) ? classNames : [classNames];
   const arr: any[] = [];
   for (let i = 0, len = classes.length; i < len; i++) {
     const cls = classes[i];

@@ -47,12 +47,11 @@ function fadeOut(dom: HTMLElement, placement: string, onFinish: Function) {
 }
 
 function setDomStyleAfterAnimation(dom: HTMLElement, styleAfterAnimation: Keyframe) {
-  const keys = Object.keys(styleAfterAnimation);
-  for (let i = 0; i < keys.length; i += 1) {
-    const key = keys[i];
-    // eslint-disable-next-line no-param-reassign
-    dom.style[key] = styleAfterAnimation[key];
+  let cssText = dom.style.cssText;
+  for (const key in styleAfterAnimation) {
+    cssText += `${key}: ${styleAfterAnimation[key]};`;
   }
+  dom.style.cssText = cssText;
 }
 
 function getFadeInKeyframes(placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null {

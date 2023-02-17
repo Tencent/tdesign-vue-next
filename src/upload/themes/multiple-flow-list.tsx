@@ -17,6 +17,7 @@ import { abridgeName, returnFileSize } from '../../_common/js/upload/utils';
 import TLoading from '../../loading';
 import Link from '../../link';
 import { useTNodeJSX } from '../../hooks';
+import isUndefined from 'lodash/isUndefined';
 
 export interface ImageFlowListProps extends CommonDisplayFileProps {
   uploadFiles?: (toFiles?: UploadFile[]) => void;
@@ -65,7 +66,7 @@ export default defineComponent({
     });
 
     const innerDragEvents = computed(() => {
-      const draggable = props.draggable === undefined ? true : props.draggable;
+      const draggable = isUndefined(props.draggable) ? true : props.draggable;
       return draggable
         ? {
             onDrop: drag.handleDrop,

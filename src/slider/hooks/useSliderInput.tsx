@@ -2,6 +2,7 @@ import { computed, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
 import isBoolean from 'lodash/isBoolean';
+import isUndefined from 'lodash/isUndefined';
 
 const INPUT_NUMBER_PROPS_INITIAL_STATE: InputNumberProps = {
   decimalPlaces: 0,
@@ -52,7 +53,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
     // if exist min or max prop, onChange callback function will pass undefined value when decrease
     const normalizeChangeFn = (num: number | undefined) => {
-      if (num !== undefined && !isNaN(num)) {
+      if (!isUndefined(num) && !isNaN(num)) {
         changeFn(num);
       }
     };

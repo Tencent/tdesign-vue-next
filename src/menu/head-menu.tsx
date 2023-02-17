@@ -15,6 +15,7 @@ import {
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
 
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
@@ -75,7 +76,7 @@ export default defineComponent({
           } else if (type === 'remove') {
             expanded.splice(index, 1);
           }
-        } else if (mode.value === 'normal' && value !== undefined) {
+        } else if (mode.value === 'normal' && !isUndefined(value)) {
           expanded.splice(0, 1);
           if (index === -1) {
             expanded.push(value);

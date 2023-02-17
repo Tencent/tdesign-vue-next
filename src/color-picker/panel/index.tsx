@@ -20,6 +20,8 @@ import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';
 import useDefaultValue from '../../hooks/useDefaultValue';
+import isNull from 'lodash/isNull';
+import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -68,7 +70,7 @@ export default defineComponent({
      * @returns void
      */
     const addRecentlyUsedColor = () => {
-      if (recentlyUsedColors.value === null || recentlyUsedColors.value === false) {
+      if (isNull(recentlyUsedColors.value) || recentlyUsedColors.value === false) {
         return;
       }
       const colors = (recentlyUsedColors.value as string[]) || [];
@@ -275,10 +277,10 @@ export default defineComponent({
       color: this.color,
       disabled: this.disabled,
     };
-    const showUsedColors = recentColors !== null && recentColors !== false;
+    const showUsedColors = !isNull(recentColors) && recentColors !== false;
 
     let systemColors = swatchColors;
-    if (systemColors === undefined) {
+    if (isUndefined(systemColors)) {
       systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
     }
     const showSystemColors = systemColors?.length > 0;

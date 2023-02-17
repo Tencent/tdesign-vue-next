@@ -28,24 +28,21 @@ export const useDrag = (props: TdDrawerProps) => {
     const offsetHeight = 8;
     const offsetWidth = 8;
 
-    if (isSizeDragging.value && props.sizeDraggable) {
-      if (props.placement === 'right') {
-        const moveLeft = Math.min(Math.max(maxWidth - x + offsetWidth, offsetWidth), maxWidth);
-        draggedSizeValue.value = `${moveLeft}px`;
-      }
-      if (props.placement === 'left') {
-        const moveRight = Math.min(Math.max(x + offsetWidth, offsetWidth), maxWidth);
-        draggedSizeValue.value = `${moveRight}px`;
-      }
-      if (props.placement === 'top') {
-        const moveBottom = Math.min(Math.max(y + offsetHeight, offsetHeight), maxHeight);
-        draggedSizeValue.value = `${moveBottom}px`;
-      }
-      if (props.placement === 'bottom') {
-        const moveTop = Math.min(Math.max(maxHeight - y + offsetHeight, offsetHeight), maxHeight);
-        draggedSizeValue.value = `${moveTop}px`;
-      }
+    if (!isSizeDragging.value || !props.sizeDraggable) return;
+    let result;
+    if (props.placement === 'right') {
+      result = Math.min(Math.max(maxWidth - x + offsetWidth, offsetWidth), maxWidth);
     }
+    if (props.placement === 'left') {
+      result = Math.min(Math.max(x + offsetWidth, offsetWidth), maxWidth);
+    }
+    if (props.placement === 'top') {
+      result = Math.min(Math.max(y + offsetHeight, offsetHeight), maxHeight);
+    }
+    if (props.placement === 'bottom') {
+      result = Math.min(Math.max(maxHeight - y + offsetHeight, offsetHeight), maxHeight);
+    }
+    if (result) draggedSizeValue.value = `${result}px`;
   };
 
   const draggableLineStyles = computed(() => {

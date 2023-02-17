@@ -1,5 +1,6 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted } from 'vue';
 import pick from 'lodash/pick';
+import isUndefined from 'lodash/isUndefined';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
@@ -288,7 +289,7 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
-    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
+    const columnResizable = isUndefined(this.allowResizeColumnWidth) ? this.resizable : this.allowResizeColumnWidth;
     if (columnResizable && this.tableLayout === 'auto') {
       log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
     }
@@ -527,7 +528,7 @@ export default defineComponent({
     );
 
     const customLoadingText = this.renderTNode('loading');
-    const loadingContent = this.loading !== undefined && (
+    const loadingContent = !isUndefined(this.loading) && (
       <Loading
         loading={!!this.loading}
         text={customLoadingText ? () => customLoadingText : undefined}

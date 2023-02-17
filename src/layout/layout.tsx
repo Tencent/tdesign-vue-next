@@ -16,7 +16,7 @@ export default defineComponent({
     const classes = computed(() => [
       COMPONENT_NAME.value,
       {
-        [`${COMPONENT_NAME.value}--with-sider`]: hasSide.value,
+        [`${COMPONENT_NAME.value}--with-side`]: hasSide.value,
       },
     ]);
 

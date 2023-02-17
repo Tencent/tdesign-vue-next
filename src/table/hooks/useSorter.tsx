@@ -1,5 +1,6 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
 import get from 'lodash/get';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
@@ -53,13 +54,13 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     if (!originalData.value) {
       originalData.value = tData.value;
     }
-    const isEmptyArraySort = !sort || (sort instanceof Array && !sort.length);
-    const isEmptyObjectSort = !(sort instanceof Array) && !sort?.sortBy;
+    const isEmptyArraySort = !sort || (isArray(sort) && !sort.length);
+    const isEmptyObjectSort = !isArray(sort) && !sort?.sortBy;
     if (isEmptyArraySort || isEmptyObjectSort) {
       setTData(originalData.value, { trigger: 'sort' });
       return originalData.value;
     }
-    const formatedSort = sort instanceof Array ? sort : [sort];
+    const formatedSort = isArray(sort) ? sort : [sort];
     // data 为受控属性，data.slice() 浅拷贝，防止 sort 导致原数据变异
     const newData: TableRowData[] = tData.value.slice().sort((a: TableRowData, b: TableRowData) => {
       let sortResult = 0;
@@ -86,7 +87,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     if (props.multipleSort) {
       sortInfo = getMultipleNextSort(col, p);
     } else {
-      const sort = tSortInfo.value instanceof Array ? tSortInfo.value[0] : tSortInfo.value;
+      const sort = isArray(tSortInfo.value) ? tSortInfo.value[0] : tSortInfo.value;
       sortInfo = getSingleNextSort(col, sort, p);
     }
     // 本地数据 data 排序，需同时抛出 data-change
@@ -99,7 +100,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   }
 
   function getSortOrder(descending: boolean) {
-    if (descending === undefined) return;
+    if (isUndefined(descending)) return;
     return descending ? 'desc' : 'asc';
   }
 
@@ -114,7 +115,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
 
   function getMultipleNextSort(col: PrimaryTableCol<TableRowData>, p: { descending: boolean }): Array<SortInfo> {
     const sort = tSortInfo.value;
-    if (!(sort instanceof Array)) return;
+    if (!isArray(sort)) return;
     const { colKey } = col;
     const result = [...sort];
     for (let i = 0, len = sort.length; i < len; i++) {

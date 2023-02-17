@@ -1,3 +1,4 @@
+import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
 import { TNode } from '../../common';
 /**
@@ -18,12 +19,12 @@ export const getStopStyle = (position: number, isVertical: boolean) => {
  */
 export const formatSliderValue = (val: number | number[], type: 'first' | 'second') => {
   if (type === 'first') {
-    if (val instanceof Array) {
+    if (isArray(val)) {
       return val[0];
     }
     return val;
   }
-  if (val instanceof Array) {
+  if (isArray(val)) {
     return val[1];
   }
   return 0;

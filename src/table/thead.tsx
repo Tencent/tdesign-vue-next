@@ -1,5 +1,6 @@
 import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from './type';
@@ -76,11 +77,11 @@ export default defineComponent({
       const list = props.thList[0];
       for (let i = 0, len = list.length; i < len; i++) {
         const item = list[i];
-        if (item.colspan > 1) {
-          for (let j = i + 1; j < i + item.colspan; j++) {
-            if (list[j]) {
-              map[list[j].colKey] = true;
-            }
+        if (item.colspan <= 1) continue;
+
+        for (let j = i + 1; j < i + item.colspan; j++) {
+          if (list[j]) {
+            map[list[j].colKey] = true;
           }
         }
       }
@@ -155,7 +156,7 @@ export default defineComponent({
               }
             : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
-          const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
+          const isEllipsis = !isUndefined(col.ellipsisTitle) ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
           const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
           if (col.colspan > 1) {
             attrs.colspan = col.colspan;

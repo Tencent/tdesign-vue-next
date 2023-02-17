@@ -20,6 +20,7 @@ import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
 import isFunction from 'lodash/isFunction';
+import isNull from 'lodash/isNull';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -131,7 +132,7 @@ export default defineComponent({
       if (target === subPopupRef.value) return;
 
       const isSubmenu = (el: Element) => el === submenuRef.value;
-      while (target !== null && target !== document && !isSubmenu(target)) {
+      while (!isNull(target) && target !== document && !isSubmenu(target)) {
         target = target.parentNode;
       }
 

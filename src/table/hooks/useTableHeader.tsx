@@ -7,6 +7,7 @@ import useClassName from './useClassName';
 import { TNodeReturnValue } from '../../common';
 import { BaseTableColumns } from '../interface';
 import TEllipsis from '../ellipsis';
+import { isUndefined } from 'lodash';
 
 // 渲染表头的通用方法
 export function renderTitle(slots: SetupContext['slots'], col: BaseTableColumns[0], index: number) {
@@ -54,7 +55,7 @@ export default function useTableHeader(props: TdBaseTableProps) {
       [tableFilterClasses.filterable]: filterIcon,
     };
     const content = isFunction(ellipsisTitle) ? ellipsisTitle(h, { col, colIndex }) : undefined;
-    const isEllipsis = ellipsisTitle !== undefined ? Boolean(ellipsisTitle) : Boolean(col.ellipsis);
+    const isEllipsis = !isUndefined(ellipsisTitle) ? Boolean(ellipsisTitle) : Boolean(col.ellipsis);
     return (
       <div class={classes}>
         <div class={tableSortClasses.title}>

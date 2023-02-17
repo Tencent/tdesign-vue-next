@@ -6,6 +6,7 @@ import Tag from '../tag';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import isArray from 'lodash/isArray';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -37,7 +38,7 @@ export default function useTagList(props: TagInputProps) {
     const isLimitExceeded = max && tagValue.value?.length >= max.value;
     let newValue: TagInputValue = tagValue.value;
     if (!isLimitExceeded && valueStr) {
-      newValue = tagValue.value instanceof Array ? tagValue.value.concat(String(valueStr)) : [valueStr];
+      newValue = isArray(tagValue.value) ? tagValue.value.concat(String(valueStr)) : [valueStr];
       setTagValue(newValue, {
         trigger: 'enter',
         index: newValue.length - 1,

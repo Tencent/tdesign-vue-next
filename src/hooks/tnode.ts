@@ -1,4 +1,5 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
+import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
@@ -20,7 +21,7 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
  */
 function isEmptyNode(node: any) {
   if ([undefined, null, ''].includes(node)) return true;
-  const innerNodes = node instanceof Array ? node : [node];
+  const innerNodes = isArray(node) ? node : [node];
   const r = innerNodes.filter((node) => node?.type?.toString() !== 'Symbol(Comment)');
   return !r.length;
 }

@@ -20,6 +20,8 @@ import { renderCell } from '../tr';
 import { useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { useTNodeDefault } from '../../hooks';
+import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);
@@ -110,8 +112,8 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   }
 
   function getTreeNodeStyle(level: number) {
-    if (level === undefined) return;
-    const indent = props.tree?.indent === undefined ? 24 : props.tree?.indent;
+    if (isUndefined(level)) return;
+    const indent = isUndefined(props.tree?.indent) ? 24 : props.tree?.indent;
     // 默认 1px 是为了临界省略
     return indent ? { paddingLeft: `${level * indent || 1}px` } : {};
   }
@@ -122,7 +124,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    */
   function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon' | 'row-click') {
     const currentData = { ...p };
-    if (p.row.__VIRTUAL_SCROLL_INDEX !== undefined) {
+    if (!isUndefined(p.row.__VIRTUAL_SCROLL_INDEX)) {
       currentData.rowIndex = p.row.__VIRTUAL_SCROLL_INDEX;
     }
     dataSource.value = [...store.value.toggleExpandData(currentData, dataSource.value, rowDataKeys.value)];
@@ -160,7 +162,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
-      if ((childrenNodes && childrenNodes instanceof Array) || childrenNodes === true) {
+      if ((childrenNodes && isArray(childrenNodes)) || childrenNodes === true) {
         const iconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
           ? foldIcon(p)
           : expandIcon(p);

@@ -6,6 +6,7 @@ import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
+import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -48,7 +49,7 @@ export default defineComponent({
       if (!props.checkAll && !selfChecked.value && checkboxGroup?.maxExceeded) {
         return true;
       }
-      if (props.disabled !== undefined) return props.disabled;
+      if (!isUndefined(props.disabled)) return props.disabled;
       return !!checkboxGroup?.disabled;
     });
 

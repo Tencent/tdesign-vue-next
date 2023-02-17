@@ -1,6 +1,7 @@
 import { getCurrentInstance } from 'vue';
 import isString from 'lodash/isString';
 import isObject from 'lodash/isObject';
+import isNull from 'lodash/isNull';
 import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
@@ -80,7 +81,7 @@ export function useAction(action: BtnAction) {
   };
   const getConfirmBtn = (options: MixinsConfirmBtn) => {
     const { confirmBtn, className } = options;
-    if (confirmBtn === null) return null;
+    if (isNull(confirmBtn)) return null;
     if (confirmBtn && instance.slots.confirmBtn) {
       console.warn('Both $props.confirmBtn and $scopedSlots.confirmBtn exist, $props.confirmBtn is preferred.');
     }
@@ -98,7 +99,7 @@ export function useAction(action: BtnAction) {
   };
   const getCancelBtn = (options: MixinsCancelBtn) => {
     const { cancelBtn, className } = options;
-    if (cancelBtn === null) return null;
+    if (isNull(cancelBtn)) return null;
     if (cancelBtn && instance.slots.cancelBtn) {
       console.warn('Both $props.cancelBtn and $scopedSlots.cancelBtn exist, $props.cancelBtn is preferred.');
     }

@@ -1,5 +1,6 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
 import isObject from 'lodash/isObject';
+import isUndefined from 'lodash/isUndefined';
 import props from './props';
 import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
@@ -40,18 +41,18 @@ export default defineComponent({
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
+      if (isUndefined(itemProps.value) && index < innerCurrent.value) return 'finish';
       // value 存在，找匹配位置
-      if (itemProps.value !== undefined) {
+      if (!isUndefined(itemProps.value)) {
         const matchIndex = indexMap.value[innerCurrent.value];
-        if (matchIndex === undefined) {
+        if (isUndefined(matchIndex)) {
           console.warn('TDesign Steps Warn: The current `value` is not exist.');
           return 'default';
         }
         if (props.sequence === 'positive' && index < matchIndex) return 'finish';
         if (props.sequence === 'reverse' && index > matchIndex) return 'finish';
       }
-      const key = itemProps.value === undefined ? index : itemProps.value;
+      const key = isUndefined(itemProps.value) ? index : itemProps.value;
       if (key === innerCurrent.value) return 'process';
       return 'default';
     };
@@ -85,7 +86,7 @@ export default defineComponent({
       }
 
       (options || []).forEach((item, index) => {
-        if (item.value !== undefined) indexMap.value[item.value] = index;
+        if (!isUndefined(item.value)) indexMap.value[item.value] = index;
       });
       return options;
     };
@@ -95,7 +96,7 @@ export default defineComponent({
 
       return options.map((item, index) => {
         const stepIndex = props.sequence === 'reverse' ? options.length - index - 1 : index;
-        index = item.value !== undefined ? index : stepIndex;
+        index = !isUndefined(item.value) ? index : stepIndex;
 
         return <StepItem {...item} index={stepIndex} status={handleStatus(item, index)} key={item.value || index} />;
       });
@@ -106,7 +107,7 @@ export default defineComponent({
       let { theme } = props;
       const options = getOptions();
       options.forEach((item) => {
-        if (item?.icon !== undefined) {
+        if (!isUndefined(item?.icon)) {
           // icon > theme
           theme = 'default';
         }

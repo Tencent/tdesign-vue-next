@@ -96,7 +96,7 @@ export default defineComponent({
           delete result[key];
         }
       });
-      return isEmpty(result) ? true : result;
+      return isEmpty(result) || result;
     };
     const validate = async (param?: FormValidateParams): Promise<Result> => {
       const { fields, trigger = 'all', showErrorMessage } = param || {};

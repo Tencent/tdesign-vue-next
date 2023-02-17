@@ -6,6 +6,7 @@ import { useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Tooltip from '../tooltip/index';
 import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'TRate',
@@ -29,7 +30,7 @@ export default defineComponent({
 
     // 评分图标
     const RateIcon = (iconProps: any) => {
-      if (slots.icon !== undefined) {
+      if (!isUndefined(slots.icon)) {
         return renderTNodeJSX('icon', {
           params: iconProps,
         });

@@ -21,7 +21,6 @@ import {
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
-import isBoolean from 'lodash/isBoolean';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -98,13 +97,11 @@ export default defineComponent({
     const renderLabel = () => {
       if (Number(labelWidth.value) === 0) return;
 
-      let labelStyle = {};
+      let labelStyle = undefined;
       if (labelWidth.value && labelAlign.value !== 'top') {
-        if (isNumber(labelWidth.value)) {
-          labelStyle = { width: `${labelWidth.value}px` };
-        } else {
-          labelStyle = { width: labelWidth.value };
-        }
+        labelStyle = {
+          width: isNumber(labelWidth.value) ? `${labelWidth.value}px` : labelWidth.value,
+        };
       }
 
       return (
@@ -165,11 +162,9 @@ export default defineComponent({
     const contentStyle = computed(() => {
       let contentStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
-        if (isNumber(labelWidth.value)) {
-          contentStyle = { marginLeft: `${labelWidth.value}px` };
-        } else {
-          contentStyle = { marginLeft: labelWidth.value };
-        }
+        contentStyle = {
+          marginLeft: isNumber(labelWidth.value) ? `${labelWidth.value}px` : labelWidth.value,
+        };
       }
 
       return contentStyle;
@@ -353,9 +348,7 @@ export default defineComponent({
 
     const freeShowErrorMessage = ref<boolean>(undefined);
     const showErrorMessage = computed(() => {
-      if (isBoolean(freeShowErrorMessage.value)) return freeShowErrorMessage.value;
-      if (isBoolean(props.showErrorMessage)) return props.showErrorMessage;
-      return form?.showErrorMessage;
+      return freeShowErrorMessage.value ?? props.showErrorMessage ?? form?.showErrorMessage;
     });
 
     const classes = computed(() => [

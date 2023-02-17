@@ -1,4 +1,6 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import isUndefined from 'lodash/isUndefined';
+
 import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
@@ -150,7 +152,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     innerValue,
     (val, oldVal) => {
       // 初始化时，如果有 format 函数，需要对 value 进行格式化
-      if (oldVal === undefined && props.format) {
+      if (isUndefined(oldVal) && props.format) {
         inputValue.value = props.format(val);
       } else {
         inputValue.value = val;

@@ -1,4 +1,6 @@
 import { computed, onMounted, ref, toRefs, watch } from 'vue';
+import isUndefined from 'lodash/isUndefined';
+
 import useCommonClassName from '../hooks/useCommonClassName';
 import useVModel from '../hooks/useVModel';
 import { InputNumberValue, TdInputNumberProps } from './type';
@@ -197,7 +199,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       ArrowDown: handleReduce,
     };
     const code = e.code || e.key;
-    if (keyEvent[code] !== undefined) {
+    if (!isUndefined(keyEvent[code])) {
       keyEvent[code](e);
     }
     props.onKeydown?.(value, ctx);

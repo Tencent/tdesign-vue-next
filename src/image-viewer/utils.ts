@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
 
@@ -52,7 +53,7 @@ export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] 
 };
 
 export const getOverlay = (props: TdImageViewerProps) => {
-  if (props.showOverlay !== undefined) {
+  if (!isUndefined(props.showOverlay)) {
     return props.showOverlay;
   }
   return props.mode === 'modal';

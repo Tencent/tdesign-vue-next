@@ -16,6 +16,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
 import isFunction from 'lodash/isFunction';
+import isNull from 'lodash/isNull';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -80,7 +81,7 @@ export default defineComponent({
     /** 设置当前位置 */
     const setPosition = (pos: number) => {
       let newPos = pos;
-      if (newPos === null || Number.isNaN(newPos)) {
+      if (isNull(newPos) || Number.isNaN(newPos)) {
         return;
       }
 

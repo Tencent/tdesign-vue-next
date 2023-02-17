@@ -1,3 +1,4 @@
+import isNull from 'lodash/isNull';
 /**
  * Thanks to https://github.com/ElemeFE/element/blob/dev/packages/input/src/calcTextareaHeight.js
  */
@@ -90,7 +91,7 @@ export default function calcTextareaHeight(
   hiddenTextarea.value = '';
   const singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
 
-  if (minRows !== null) {
+  if (!isNull(minRows)) {
     let minHeight = singleRowHeight * minRows;
     if (boxSizing === 'border-box') {
       minHeight = minHeight + paddingSize + borderSize;
@@ -98,7 +99,7 @@ export default function calcTextareaHeight(
     height = Math.max(minHeight, height);
     result.minHeight = `${minHeight}px`;
   }
-  if (maxRows !== null) {
+  if (!isNull(maxRows)) {
     let maxHeight = singleRowHeight * maxRows;
     if (boxSizing === 'border-box') {
       maxHeight = maxHeight + paddingSize + borderSize;

@@ -1,4 +1,7 @@
 import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 'vue';
+import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
+
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue, TdCollapsePanelProps } from './type';
@@ -35,9 +38,7 @@ export default defineComponent({
     const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
-      collapseValue.value instanceof Array
-        ? collapseValue.value.includes(innerValue)
-        : collapseValue.value === innerValue,
+      isArray(collapseValue.value) ? collapseValue.value.includes(innerValue) : collapseValue.value === innerValue,
     );
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
@@ -54,7 +55,7 @@ export default defineComponent({
       return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
     };
     const renderIcon = () => {
-      const tNodeRender = panelExpandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
+      const tNodeRender = isUndefined(panelExpandIcon.value) ? renderParentTNode : renderTNodeJSX;
       return (
         <div
           ref={iconRef}

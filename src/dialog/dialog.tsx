@@ -162,7 +162,7 @@ export default defineComponent({
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
       let topStyle = {};
-      if (top !== undefined) {
+      if (!isUndefined(top)) {
         const topValue = GetCSSValue(top);
         topStyle = { paddingTop: topValue };
       }
@@ -398,17 +398,22 @@ export default defineComponent({
       );
     };
 
-    onMounted(() => {
+    const createStyleEl = () => {
       const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
-      styleEl.value = document.createElement('style');
-      styleEl.value.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
-      styleEl.value.innerHTML = `
-        html body {
-          overflow-y: hidden;
-          width: calc(100% - ${scrollWidth}px);
-        }
-      `;
+      const el = document.createElement('style');
+      el.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
+      el.innerHTML = `
+      html body {
+        overflow-y: hidden;
+        width: calc(100% - ${scrollWidth}px);
+      }
+    `;
+      return el;
+    };
+
+    onMounted(() => {
+      styleEl.value = createStyleEl();
     });
 
     onBeforeUnmount(() => {

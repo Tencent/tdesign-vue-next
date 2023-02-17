@@ -7,6 +7,7 @@ import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks';
+import isArray from 'lodash/isArray';
 
 const useComponentClassName = () => {
   return {
@@ -42,7 +43,7 @@ export default defineComponent({
         [BASE_CLASS_MULTIPLE.value]: multiple.value,
         [BASE_CLASS_BORDERLESS.value]: borderless.value,
         [BASE_CLASS_POPUP_VISIBLE.value]: popupVisible.value ?? innerPopupVisible.value,
-        [BASE_CLASS_EMPTY.value]: value.value instanceof Array ? !value.value.length : !value.value,
+        [BASE_CLASS_EMPTY.value]: isArray(value.value) ? !value.value.length : !value.value,
       },
     ]);
 

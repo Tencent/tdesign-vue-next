@@ -5,6 +5,7 @@ import { computed, ref, SetupContext, toRefs, watch } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 
 import intersection from 'lodash/intersection';
+import isUndefined from 'lodash/isUndefined';
 import Checkbox, {
   CheckboxGroup,
   CheckboxGroupValue,
@@ -148,7 +149,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       onConfirm: () => {
         setTDisplayColumns([...columnCheckboxKeys.value]);
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
-        if (columnControllerVisible.value === undefined) {
+        if (isUndefined(columnControllerVisible.value)) {
           dialogInstance.value.hide();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'cancel' });
@@ -157,7 +158,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       },
       onClose: () => {
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
-        if (columnControllerVisible.value === undefined) {
+        if (isUndefined(columnControllerVisible.value)) {
           dialogInstance.value.hide();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'confirm' });
@@ -172,7 +173,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   watch(
     [columnControllerVisible],
     ([visible]) => {
-      if (visible === undefined) return;
+      if (isUndefined(visible)) return;
       if (dialogInstance.value) {
         visible ? dialogInstance.value.show() : dialogInstance.value.hide();
       } else {

@@ -215,19 +215,23 @@ export default defineComponent({
       updatePushMode();
     });
 
-    onMounted(() => {
+    const createStyleEl = () => {
       const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
+      const el = document.createElement('style');
+      el.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
+      el.innerHTML = `
+      html body {
+        overflow-y: hidden;
+        transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
+        ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
+      }
+    `;
+      return el;
+    };
 
-      styleEl.value = document.createElement('style');
-      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
-      styleEl.value.innerHTML = `
-        html body {
-          overflow-y: hidden;
-          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
-          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
-        }
-      `;
+    onMounted(() => {
+      styleEl.value = createStyleEl();
 
       if (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough) {
         document.head.appendChild(styleEl.value);

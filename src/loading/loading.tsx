@@ -1,4 +1,6 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
+import isUndefined from 'lodash/isUndefined';
+
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -45,7 +47,7 @@ export default defineComponent({
     // loading style
     const styles = computed(() => {
       const styles: CSSProperties = {};
-      if (props.zIndex !== undefined) {
+      if (!isUndefined(props.zIndex)) {
         styles.zIndex = props.zIndex;
       }
       if (!['small', 'medium', 'large'].includes(props.size)) {

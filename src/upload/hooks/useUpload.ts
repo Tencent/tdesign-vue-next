@@ -1,5 +1,6 @@
 import { ref, computed, toRefs } from 'vue';
 import merge from 'lodash/merge';
+import isArray from 'lodash/isArray';
 import { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
 import {
   getFilesAndErrors,
@@ -176,7 +177,7 @@ export default function useUpload(props: TdUploadProps) {
         props.onValidate?.({ type: 'FILTER_FILE_SAME_NAME', files: args.files });
       }
       // 文件大小校验结果处理
-      if (args.fileValidateList instanceof Array) {
+      if (isArray(args.fileValidateList)) {
         const { sizeLimitErrors, toFiles } = getFilesAndErrors(args.fileValidateList, getSizeLimitError);
         const tmpWaitingFiles = autoUpload.value ? toFiles : toUploadFiles.value.concat(toFiles);
         toUploadFiles.value = tmpWaitingFiles;

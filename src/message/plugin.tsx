@@ -42,7 +42,7 @@ import {
 import { AttachNodeReturnValue } from '../common';
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
-
+import isArray from 'lodash/isArray';
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
 
@@ -94,7 +94,7 @@ const showThemeMessage: MessageMethod = (theme, params, duration) => {
   let options: MessageOptions = { theme };
   if (isString(params)) {
     options.content = params;
-  } else if (isObject(params) && !(params instanceof Array)) {
+  } else if (isObject(params) && !isArray(params)) {
     options = { ...options, ...params };
   }
   (duration || duration === 0) && (options.duration = duration);

@@ -2,6 +2,7 @@ import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
 import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
@@ -45,7 +46,7 @@ export default defineComponent({
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
-      if (orgValue.value === undefined) {
+      if (isUndefined(orgValue.value)) {
         return props.multiple ? [] : undefined;
       }
       if (props.valueType === 'object') {
@@ -59,7 +60,7 @@ export default defineComponent({
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
-          if (val === undefined) {
+          if (isUndefined(val)) {
             return undefined;
           }
           const option = optionsMap.value.get(val);

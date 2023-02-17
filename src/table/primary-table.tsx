@@ -1,6 +1,9 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
+import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
+
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -163,15 +166,14 @@ export default defineComponent({
         item = formatToRowSelectColumn(item);
         const { sort } = props;
         if (item.sorter && props.showSortColumnBgColor) {
-          const sorts = sort instanceof Array ? sort : [sort];
+          const sorts = isArray(sort) ? sort : [sort];
           const sortedColumn = sorts.find(
-            (sort) => sort && sort.sortBy === item.colKey && sort.descending !== undefined,
+            (sort) => sort && sort.sortBy === item.colKey && !isUndefined(sort.descending),
           );
           if (sortedColumn) {
-            item.className =
-              item.className instanceof Array
-                ? item.className.concat(tableSortClasses.sortColumn)
-                : [item.className, tableSortClasses.sortColumn];
+            item.className = isArray(item.className)
+              ? item.className.concat(tableSortClasses.sortColumn)
+              : [item.className, tableSortClasses.sortColumn];
           }
         }
         // 添加排序图标和过滤图标

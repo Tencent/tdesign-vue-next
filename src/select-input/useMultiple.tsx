@@ -1,5 +1,6 @@
 import { SetupContext, computed, ref, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
+import isArray from 'lodash/isArray';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import { SelectInputCommonProperties } from './interface';
 import { InputValue } from '../input';
@@ -35,7 +36,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
-    if (!(props.value instanceof Array)) {
+    if (!isArray(props.value)) {
       return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
     }
     return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));

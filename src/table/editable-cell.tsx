@@ -2,6 +2,7 @@ import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRe
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
+import isUndefined from 'lodash/isUndefined';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 
 import {
@@ -204,7 +205,7 @@ export default defineComponent({
 
     const listeners = computed<{ [key: string]: Function }>(() => {
       const { edit } = col.value;
-      const isCellEditable = props.editable === undefined;
+      const isCellEditable = isUndefined(props.editable);
       if (!isEdit.value || !isCellEditable) return;
       if (!edit?.abortEditOnEvent?.length) return {};
       // 自定义退出编辑态的事件
@@ -239,7 +240,7 @@ export default defineComponent({
       props.onChange?.(params);
       props.onRuleChange?.(params);
       editOnListeners.value?.onChange?.(params);
-      const isCellEditable = props.editable === undefined;
+      const isCellEditable = isUndefined(props.editable);
       if (isCellEditable && isAbortEditOnChange.value) {
         const outsideAbortEvent = col.value.edit?.onEdited;
         updateAndSaveAbort(
@@ -300,7 +301,7 @@ export default defineComponent({
     watch(
       isEdit,
       (isEdit) => {
-        const isCellEditable = props.editable === undefined;
+        const isCellEditable = isUndefined(props.editable);
         if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
         if (isEdit) {
           on(document, 'click', documentClickHandler);
@@ -340,7 +341,7 @@ export default defineComponent({
         return cellNode.value;
       }
       // props.editable = undefined 表示由组件内部控制编辑状态
-      if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
+      if ((isUndefined(props.editable) && !isEdit.value) || props.editable === false) {
         return (
           <div class={props.tableBaseClass.cellEditable} onClick={onCellClick}>
             {cellNode.value}
