@@ -12179,7 +12179,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
     style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
   >
     <span
-      class="t-guide__highlight t-guide__highlight--mask custom-node"
+      class="t-guide__highlight--mask custom-node"
     >
       TNode
     </span>
@@ -12226,7 +12226,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -17824,7 +17824,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -24028,7 +24028,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -30377,7 +30377,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -43221,7 +43221,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -47752,7 +47752,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
@@ -54244,7 +54244,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
             <div
               class="t-guide__desc"
             >
-              <body />
+              新手引导的说明文案
             </div>
             
             <div
