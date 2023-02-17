@@ -4,6 +4,33 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.8 `2023-02-17` 
+### 🚀 Features
+- `Timeline`: 
+  - 始终保持结构 `t-timeline-item__dot-content` 存在 @chaishi ([#2395](https://github.com/Tencent/tdesign-vue-next/pull/2395))
+  - 支持使用插槽和属性函数 `label` 自定义时间文本 @chaishi ([#2395](https://github.com/Tencent/tdesign-vue-next/pull/2395))
+- `Avatar`: 
+  - `Avatar` 头像加载失败事件新增参数 `({ e: Event })`，用于获取细节信息 @chaishi ([#2404](https://github.com/Tencent/tdesign-vue-next/pull/2404))
+  - `Avatar` 新增 `content/default`，以便通过 `JSX` 函数自定义内容 @chaishi ([#2404](https://github.com/Tencent/tdesign-vue-next/pull/2404))
+  - `Avatar` 新增 `imageProps`，用于透传全部 `Image` 组件属性 @chaishi ([#2404](https://github.com/Tencent/tdesign-vue-next/pull/2404))
+  -  `AvatarGroup` 超出省略的最后一个 `Avatar` 添加类名 `.t-avatar__collapse`，用于区分其他元素 @chaishi ([#2404](https://github.com/Tencent/tdesign-vue-next/pull/2404))
+
+### 🐞 Bug Fixes
+- `Drawer`: 修复 `Plugin` 方式调用 `Dialog` 时,更新 `className` 会删除组件自身类名 @Aicmortal ([#2386](https://github.com/Tencent/tdesign-vue-next/pull/2386))
+- `Timeline`: 修复 `TimelineItem.labelAlign` 优先级没有高于 `Timeline.labelAlign` 问题 @chaishi ([#2395](https://github.com/Tencent/tdesign-vue-next/pull/2395))
+- `Cascader`: 修复 `options` 变化时未重新渲染 ([issue #2248](https://github.com/Tencent/tdesign-vue-next/issues/2248))([issue #2063](https://github.com/Tencent/tdesign-vue-next/issues/2063)) @PengYYYYY ([#2399](https://github.com/Tencent/tdesign-vue-next/pull/2399))
+- `Input`: 修复值为 `null` 时，长度计算不正确问题，[issue#2401](https://github.com/Tencent/tdesign-vue-next/issues/2401) @chaishi ([#2402](https://github.com/Tencent/tdesign-vue-next/pull/2402))
+- `RangeInput`: 修复图标大小展示问题 ([issue #2186](https://github.com/Tencent/tdesign-vue-next/issues/2186)) @honkinglin ([#2406](https://github.com/Tencent/tdesign-vue-next/pull/2406))
+- `TagInput`: 修复 `TagInput` 增加 `blur` 行为导致 `Select/Cascader/TreeSelect` 无法过滤多选的问题 @uyarn ([#2407](https://github.com/Tencent/tdesign-vue-next/pull/2407))
+- `Slider`: 修复快速滑动滑块时 `tooltip` 不跟手 ([issue #2369](https://github.com/Tencent/tdesign-vue-next/issues/2369)) @AuYuHui ([#2408](https://github.com/Tencent/tdesign-vue-next/pull/2408))
+- `Guide`: 引导框内容支持字符串 @zhangpaopao0609 ([#2414](https://github.com/Tencent/tdesign-vue-next/pull/2414))
+### 🚧 Others
+- `Code`: 使用 `lodash` 工具函数替换原生方法 @Simon-He95 ([#2380](https://github.com/Tencent/tdesign-vue-next/pull/2380))
+- `Drawer`: 修复 `drawer` 示例中的事件错误 @Aicmortal ([#2386](https://github.com/Tencent/tdesign-vue-next/pull/2386))
+- `Affix`: 优化样式设置性能 @Simon-He95 ([#2394](https://github.com/Tencent/tdesign-vue-next/pull/2394))
+- `Timeline`: 输出完整的测试用例 @chaishi ([#2395](https://github.com/Tencent/tdesign-vue-next/pull/2395))
+- `Calendar`: 优化命名规范 @Simon-He95 ([#2398](https://github.com/Tencent/tdesign-vue-next/pull/2398))
+- `Checkbox`: 代码结构优化 @Simon-He95 ([#2403](https://github.com/Tencent/tdesign-vue-next/pull/2403))
 ## 🌈 1.0.7 `2023-02-15` 
 ### 🚀 Features
 - `TagInput`: 
