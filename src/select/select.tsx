@@ -433,7 +433,16 @@ export default defineComponent({
             }}
             onInputChange={(value, context) => {
               if (!innerPopupVisible.value || context.trigger === 'blur') return;
-              setInputValue(value);
+              if (value) {
+                setInputValue(value);
+              } else {
+                setInputValue('');
+                setInnerValue(value, {
+                  selectedOptions: getSelectedOptions(value),
+                  trigger: 'backspace',
+                  e: context.e as KeyboardEvent,
+                });
+              }
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
