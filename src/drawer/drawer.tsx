@@ -14,6 +14,7 @@ let key = 1;
 
 export default defineComponent({
   name: 'TDrawer',
+  inheritAttrs: false,
   props,
   emits: ['update:visible'],
   setup(props, context) {
