@@ -4,8 +4,7 @@
 import { computed, ref, SetupContext, toRefs, watch } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 
-import intersection from 'lodash/intersection';
-import isUndefined from 'lodash/isUndefined';
+import { intersection, isUndefined } from 'lodash-es';
 import Checkbox, {
   CheckboxGroup,
   CheckboxGroupValue,

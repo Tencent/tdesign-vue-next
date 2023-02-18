@@ -5,8 +5,7 @@ import props from './props';
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Tooltip from '../tooltip/index';
-import isArray from 'lodash/isArray';
-import isUndefined from 'lodash/isUndefined';
+import { isArray, isUndefined } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRate',

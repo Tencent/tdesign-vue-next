@@ -1,5 +1,5 @@
 import { h, defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
-import debounce from 'lodash/debounce';
+import { debounce, isFunction } from 'lodash-es';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
@@ -19,7 +19,6 @@ import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useDragSort from '../hooks/useDragSort';
-import isFunction from 'lodash/isFunction';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;

@@ -1,5 +1,5 @@
 import { defineComponent, computed, ref, watch, toRefs } from 'vue';
-import isNaN from 'lodash/isNaN';
+import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
   PageLastIcon as TdPageLastIcon,
@@ -21,7 +21,6 @@ import useMoreAction from './useMoreAction';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useTNodeJSX } from '../hooks/tnode';
-import isObject from 'lodash/isObject';
 
 const min = 1;
 

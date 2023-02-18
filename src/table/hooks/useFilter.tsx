@@ -6,8 +6,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
-import isArray from 'lodash/isArray';
-import isObject from 'lodash/isObject';
+import { isArray, isObject } from 'lodash-es';
 
 function isFilterValueExist(value: any) {
   const isArrayTrue = isArray(value) && value.length;

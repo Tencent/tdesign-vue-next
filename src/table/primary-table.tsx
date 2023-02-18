@@ -1,8 +1,5 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
-import get from 'lodash/get';
-import omit from 'lodash/omit';
-import isArray from 'lodash/isArray';
-import isUndefined from 'lodash/isUndefined';
+import { get, omit, isArray, isUndefined } from 'lodash-es';
 
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';

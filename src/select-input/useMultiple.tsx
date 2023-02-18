@@ -1,6 +1,5 @@
 import { SetupContext, computed, ref, toRefs } from 'vue';
-import isObject from 'lodash/isObject';
-import isArray from 'lodash/isArray';
+import { isObject, isArray } from 'lodash-es';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import { SelectInputCommonProperties } from './interface';
 import { InputValue } from '../input';

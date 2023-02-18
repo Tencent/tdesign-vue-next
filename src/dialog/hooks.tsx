@@ -1,8 +1,5 @@
 import { getCurrentInstance } from 'vue';
-import isString from 'lodash/isString';
-import isObject from 'lodash/isObject';
-import isNull from 'lodash/isNull';
-import omit from 'lodash/omit';
+import { isString, isObject, isNull, omit } from 'lodash-es';
 import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';

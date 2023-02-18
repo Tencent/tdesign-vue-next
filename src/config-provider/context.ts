@@ -1,10 +1,8 @@
 import { InjectionKey, ComputedRef } from 'vue';
-import _mergeWith from 'lodash/mergeWith';
-import merge from 'lodash/merge';
+import { isArray, mergeWith as _mergeWith, merge } from 'lodash-es';
 import defaultConfig from '../_common/js/global-config/default-config';
 import defaultZhLocale from '../_common/js/global-config/locale/zh_CN';
 import { GlobalConfigProvider } from './type';
-import isArray from 'lodash/isArray';
 
 export enum EAnimationType {
   ripple = 'ripple',

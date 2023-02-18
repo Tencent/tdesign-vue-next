@@ -1,5 +1,4 @@
-import isFunction from 'lodash/isFunction';
-import isBoolean from 'lodash/isBoolean';
+import { isBoolean, isFunction } from 'lodash-es';
 import { computed, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../const';

@@ -1,7 +1,5 @@
 import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
-import get from 'lodash/get';
+import { isString, isFunction, get } from 'lodash-es';
 import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';

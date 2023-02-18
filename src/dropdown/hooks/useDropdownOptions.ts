@@ -1,6 +1,5 @@
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isString, isArray } from 'lodash-es';
 
 import { DropdownOption, TdDropdownProps } from '../type';
 import { useChildComponentSlots } from '../../hooks/slot';

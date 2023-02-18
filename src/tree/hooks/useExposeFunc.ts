@@ -1,10 +1,9 @@
 import { Ref } from 'vue';
-import upperFirst from 'lodash/upperFirst';
+import { upperFirst, isArray } from 'lodash-es';
 import TreeStore from '../../_common/js/tree/tree-store';
 import TreeNode from '../../_common/js/tree/tree-node';
 import { TreeOptionData } from '../../common';
 import { getNode } from '../util';
-import isArray from 'lodash/isArray';
 
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from '../interface';
 

@@ -1,4 +1,4 @@
-import isBoolean from 'lodash/isBoolean';
+import { isBoolean } from 'lodash-es';
 import { PropType } from 'vue';
 import dayjs from 'dayjs';
 

@@ -1,5 +1,5 @@
 import { defineComponent, provide, computed, h, reactive, watchEffect, ref, toRefs } from 'vue';
-import intersection from 'lodash/intersection';
+import { intersection, isFunction, isObject, isUndefined } from 'lodash-es';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
@@ -10,9 +10,6 @@ import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-import isUndefined from 'lodash/isUndefined';
 
 export default defineComponent({
   name: 'TCheckboxGroup',

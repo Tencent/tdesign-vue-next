@@ -1,5 +1,5 @@
 import { ref, Ref, reactive } from 'vue';
-import isNumber from 'lodash/isNumber';
+import { isNumber } from 'lodash-es';
 import { BaseTableCol, TableRowData } from '../type';
 import { RecalculateColumnWidthFunc } from '../interface';
 import setThWidthListByColumnDrag from '../../_common/js/table/set-column-width-by-drag';

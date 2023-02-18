@@ -1,5 +1,5 @@
 import { computed, onMounted, ref, toRefs, watch } from 'vue';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 import useCommonClassName from '../hooks/useCommonClassName';
 import useVModel from '../hooks/useVModel';

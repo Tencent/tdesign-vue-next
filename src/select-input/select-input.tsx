@@ -7,7 +7,7 @@ import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 const useComponentClassName = () => {
   return {

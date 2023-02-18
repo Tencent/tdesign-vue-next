@@ -1,4 +1,4 @@
-import isNull from 'lodash/isNull';
+import { isNull } from 'lodash-es';
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
 import { usePrefixClass } from './useConfig';

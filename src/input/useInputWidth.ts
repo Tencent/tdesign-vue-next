@@ -1,4 +1,4 @@
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 import { onMounted, Ref, ref, watch, nextTick, onBeforeUnmount } from 'vue';
 import { InputValue, TdInputProps } from './type';
 

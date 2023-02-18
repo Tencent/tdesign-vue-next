@@ -3,8 +3,7 @@ import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
-import cloneDeep from 'lodash/cloneDeep';
-import get from 'lodash/get';
+import { cloneDeep, get, isArray, isUndefined } from 'lodash-es';
 
 import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
 import {
@@ -20,8 +19,6 @@ import { renderCell } from '../tr';
 import { useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { useTNodeDefault } from '../../hooks';
-import isArray from 'lodash/isArray';
-import isUndefined from 'lodash/isUndefined';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
   const { data, columns } = toRefs(props);

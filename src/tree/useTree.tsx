@@ -1,5 +1,5 @@
 import { ref, watch, toRefs, nextTick } from 'vue';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 import { TdTreeProps } from './type';
 import TreeItem from './tree-item';
 

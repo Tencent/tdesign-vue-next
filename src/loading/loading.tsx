@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';

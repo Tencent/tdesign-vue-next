@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'HighlightOption',

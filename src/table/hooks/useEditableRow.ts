@@ -1,6 +1,5 @@
 import { ref, computed } from 'vue';
-import get from 'lodash/get';
-import isFunction from 'lodash/isFunction';
+import { get, isFunction } from 'lodash-es';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../utils';
 import { AllValidateResult } from '../../form/type';

@@ -14,8 +14,7 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
+import { isObject, isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TProgress',

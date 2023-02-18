@@ -2,7 +2,7 @@ import { defineComponent, computed } from 'vue';
 import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TBadge',

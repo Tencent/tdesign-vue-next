@@ -1,5 +1,5 @@
 import { ref, toRefs, inject } from 'vue';
-import throttle from 'lodash/throttle';
+import { throttle } from 'lodash-es';
 import { TreeNode } from '../../_common/js/tree/tree-node';
 import { DropPosition } from '../interface';
 import { dragInjectKey } from '../constants';

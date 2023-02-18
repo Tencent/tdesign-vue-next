@@ -1,6 +1,4 @@
-import isUndefined from 'lodash/isUndefined';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isUndefined, isString, isArray } from 'lodash-es';
 
 import { TdImageViewerProps, ImageInfo } from './type';
 

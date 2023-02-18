@@ -22,9 +22,7 @@ import props from './props';
 import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
 import useVModel from '../hooks/useVModel';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
+import { isString, isFunction, isObject } from 'lodash-es';
 
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 

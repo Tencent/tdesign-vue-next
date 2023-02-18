@@ -6,9 +6,7 @@ import { TNode } from '../../common';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import props from '../props';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isFunction, isString, isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TTransferOperations',

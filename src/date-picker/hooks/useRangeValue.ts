@@ -1,6 +1,6 @@
 import { ref, toRefs, watchEffect, computed } from 'vue';
 import useVModel from '../../hooks/useVModel';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 import { TdDateRangePickerProps } from '../type';
 import {

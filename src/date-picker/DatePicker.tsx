@@ -1,7 +1,7 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';

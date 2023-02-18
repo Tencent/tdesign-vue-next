@@ -1,6 +1,5 @@
 import { computed, defineComponent, inject, PropType, Slots, ref, ComputedRef } from 'vue';
-import isFunction from 'lodash/isFunction';
-import omit from 'lodash/omit';
+import { isFunction, omit } from 'lodash-es';
 import { Styles } from '../common';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';

@@ -1,6 +1,5 @@
 import { defineComponent, ref, computed } from 'vue';
-import omit from 'lodash/omit';
-import isArray from 'lodash/isArray';
+import { omit, isArray, isNumber } from 'lodash-es';
 import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
@@ -8,7 +7,6 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import useDropdownOptions from './hooks/useDropdownOptions';
-import isNumber from 'lodash/isNumber';
 
 export default defineComponent({
   name: 'TDropdown',

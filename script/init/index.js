@@ -27,7 +27,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
+const { template } = require('lodash-es');
 const utils = require('../utils');
 const config = require('./config');
 
@@ -75,7 +75,7 @@ function deleteComponent(toBeCreatedFiles, component) {
 function outputFileWithTemplate(item, component, desc, _d) {
   const tplPath = path.resolve(__dirname, `./tpl/${item.template}`);
   let data = fs.readFileSync(tplPath).toString();
-  const compiled = _.template(data);
+  const compiled = template(data);
   data = compiled({
     component,
     upperComponent: getFirstLetterUpper(component),

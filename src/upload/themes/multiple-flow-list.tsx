@@ -17,7 +17,7 @@ import { abridgeName, returnFileSize } from '../../_common/js/upload/utils';
 import TLoading from '../../loading';
 import Link from '../../link';
 import { useTNodeJSX } from '../../hooks';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 export interface ImageFlowListProps extends CommonDisplayFileProps {
   uploadFiles?: (toFiles?: UploadFile[]) => void;

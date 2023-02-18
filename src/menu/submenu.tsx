@@ -19,8 +19,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
-import isFunction from 'lodash/isFunction';
-import isNull from 'lodash/isNull';
+import { isFunction, isNull } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSubmenu',

@@ -15,8 +15,7 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import isArray from 'lodash/isArray';
-import isUndefined from 'lodash/isUndefined';
+import { isArray, isUndefined, isNumber } from 'lodash-es';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
@@ -24,7 +23,6 @@ import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
-import isNumber from 'lodash/isNumber';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};

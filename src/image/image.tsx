@@ -1,5 +1,5 @@
 import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';

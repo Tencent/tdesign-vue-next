@@ -1,6 +1,6 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { off, on } from '../utils/dom';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 
 /** 键盘操作 */
 export default function useKeyboard(

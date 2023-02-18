@@ -1,5 +1,5 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';

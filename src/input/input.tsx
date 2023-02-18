@@ -12,7 +12,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};

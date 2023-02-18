@@ -1,6 +1,6 @@
 /** 超出省略显示 */
 import { defineComponent, PropType, ref, computed } from 'vue';
-import debounce from 'lodash/debounce';
+import { debounce } from 'lodash-es';
 import { AttachNode, TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';

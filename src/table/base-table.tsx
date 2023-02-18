@@ -1,6 +1,5 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted } from 'vue';
-import pick from 'lodash/pick';
-import isUndefined from 'lodash/isUndefined';
+import { pick, isUndefined } from 'lodash-es';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';

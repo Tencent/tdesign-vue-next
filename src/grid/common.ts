@@ -1,8 +1,5 @@
 import { ref } from 'vue';
-import isUndefined from 'lodash/isUndefined';
-import isNumber from 'lodash/isNumber';
-import isObject from 'lodash/isObject';
-import isArray from 'lodash/isArray';
+import { isUndefined, isNumber, isObject, isArray } from 'lodash-es';
 
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';

@@ -16,8 +16,7 @@ import {
 import { getAttach, getSSRAttach } from '../utils/dom';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
-import isUndefined from 'lodash/isUndefined';
-import isArray from 'lodash/isArray';
+import { isUndefined, isArray } from 'lodash-es';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];

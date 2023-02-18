@@ -10,7 +10,7 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import merge from 'lodash/merge';
+import { merge, isUndefined } from 'lodash-es';
 import props from './props';
 import { TextareaValue, TdTextareaProps } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
@@ -24,7 +24,6 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import setStyle from '../_common/js/utils/set-style';
-import isUndefined from 'lodash/isUndefined';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};

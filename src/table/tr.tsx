@@ -1,9 +1,5 @@
 import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, toRefs, watch } from 'vue';
-import isFunction from 'lodash/isFunction';
-import upperFirst from 'lodash/upperFirst';
-import isString from 'lodash/isString';
-import pick from 'lodash/pick';
-import get from 'lodash/get';
+import { isFunction, upperFirst, isString, pick, get } from 'lodash-es';
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
 import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';

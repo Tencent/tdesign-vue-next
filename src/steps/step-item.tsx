@@ -1,6 +1,5 @@
 import { computed, defineComponent, h, inject } from 'vue';
-import isFunction from 'lodash/isFunction';
-import isUndefined from 'lodash/isUndefined';
+import { isFunction, isUndefined } from 'lodash-es';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './step-item-props';

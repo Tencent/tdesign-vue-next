@@ -15,7 +15,7 @@ import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 
 const props = {
   checkboxProps: {

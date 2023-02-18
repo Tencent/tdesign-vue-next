@@ -1,6 +1,5 @@
 import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
-import isFunction from 'lodash/isFunction';
-import omit from 'lodash/omit';
+import { isFunction, omit } from 'lodash-es';
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';

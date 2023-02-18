@@ -1,4 +1,4 @@
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined, get, debounce } from 'lodash-es';
 import {
   ref,
   reactive,
@@ -11,8 +11,6 @@ import {
   onBeforeUnmount,
   Ref,
 } from 'vue';
-import get from 'lodash/get';
-import debounce from 'lodash/debounce';
 import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';

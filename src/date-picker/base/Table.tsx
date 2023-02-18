@@ -3,7 +3,7 @@ import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 import { parseToDayjs } from '../../_common/js/date-picker/format';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDatePickerTable',

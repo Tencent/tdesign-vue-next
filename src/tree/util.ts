@@ -1,9 +1,5 @@
 import { VNode, h } from 'vue';
-import pick from 'lodash/pick';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
-import isNumber from 'lodash/isNumber';
+import { pick, isFunction, isString, isArray, isNumber } from 'lodash-es';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './interface';

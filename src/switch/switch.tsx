@@ -7,9 +7,7 @@ import { TNodeReturnValue } from '../common';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useVModel from '../hooks/useVModel';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isFunction, isArray, isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSwitch',

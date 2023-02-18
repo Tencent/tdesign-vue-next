@@ -11,7 +11,7 @@ import { useFormDisabled } from '../form/hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {

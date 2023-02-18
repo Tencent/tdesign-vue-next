@@ -1,5 +1,5 @@
 import { computed, h, defineComponent, ref, PropType, inject, reactive } from 'vue';
-import isFunction from 'lodash/isFunction';
+import { isFunction, isArray } from 'lodash-es';
 import { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import TCheckBox from '../checkbox';
 import TLoading from '../loading';
@@ -14,7 +14,6 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import useDraggable from './hooks/useDraggable';
-import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TTreeNode',

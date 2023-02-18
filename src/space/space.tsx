@@ -3,9 +3,7 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildSlots } from '../hooks/slot';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isNumber, isString, isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSpace',

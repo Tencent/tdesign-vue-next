@@ -1,11 +1,8 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
-import isFunction from 'lodash/isFunction';
-import isUndefined from 'lodash/isUndefined';
-import get from 'lodash/get';
+import { isFunction, isUndefined, get, isArray } from 'lodash-es';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
-import isArray from 'lodash/isArray';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 

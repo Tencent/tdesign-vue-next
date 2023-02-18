@@ -1,8 +1,7 @@
 import { computed, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
-import isBoolean from 'lodash/isBoolean';
-import isUndefined from 'lodash/isUndefined';
+import { isBoolean, isUndefined } from 'lodash-es';
 
 const INPUT_NUMBER_PROPS_INITIAL_STATE: InputNumberProps = {
   decimalPlaces: 0,

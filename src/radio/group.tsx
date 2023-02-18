@@ -1,7 +1,5 @@
 import { VNode, defineComponent, h, provide, reactive, ref, computed, onMounted, watch, nextTick, toRefs } from 'vue';
-import isString from 'lodash/isString';
-import isNumber from 'lodash/isNumber';
-import isNil from 'lodash/isNil';
+import { isString, isNumber, isNil, isFunction } from 'lodash-es';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
@@ -10,7 +8,6 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TRadioGroup',

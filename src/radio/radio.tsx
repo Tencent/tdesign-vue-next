@@ -8,8 +8,7 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 import { useFormDisabled } from '../form/hooks';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
-import isUndefined from 'lodash/isUndefined';
-import isString from 'lodash/isString';
+import { isUndefined, isString } from 'lodash-es';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};

@@ -6,7 +6,7 @@ import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 export default defineComponent({
   name: 'TCheckbox',

@@ -28,7 +28,7 @@ import { stack } from './stack';
 import { getAttach, getScrollbarWidth, getSSRAttach } from '../utils/dom';
 
 import type { TdDialogProps } from './type';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;

@@ -6,7 +6,7 @@ import Tag from '../tag';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 export type ChangeParams = [TagInputChangeContext];
 

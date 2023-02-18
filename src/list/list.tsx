@@ -5,7 +5,7 @@ import props from './props';
 import { TdListProps } from './type';
 import { LOAD_MORE, LOADING } from './const';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TList',

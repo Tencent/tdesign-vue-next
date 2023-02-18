@@ -1,4 +1,4 @@
-import isNull from 'lodash/isNull';
+import { isNull } from 'lodash-es';
 /**
  * Thanks to https://github.com/ElemeFE/element/blob/dev/packages/input/src/calcTextareaHeight.js
  */

@@ -1,5 +1,4 @@
-import isArray from 'lodash/isArray';
-import isString from 'lodash/isString';
+import { isArray, isString } from 'lodash-es';
 import { TNode } from '../../common';
 /**
  * 计算刻度区间值停止坐标

@@ -1,12 +1,11 @@
 import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
-import isFunction from 'lodash/isFunction';
+import { isFunction, isString } from 'lodash-es';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';
-import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',

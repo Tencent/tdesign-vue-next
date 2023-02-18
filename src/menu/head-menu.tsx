@@ -13,9 +13,7 @@ import {
   Component,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
-import isUndefined from 'lodash/isUndefined';
+import { isFunction, isArray, isUndefined } from 'lodash-es';
 
 import log from '../_common/js/log/log';
 import props from './head-menu-props';

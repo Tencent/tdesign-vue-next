@@ -7,7 +7,7 @@ import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 export interface InjectTabs {
   value: Ref<TabValue>;

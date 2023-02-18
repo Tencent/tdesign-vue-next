@@ -1,7 +1,4 @@
-import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
-import get from 'lodash/get';
-import isObject from 'lodash/isObject';
+import { isArray, isFunction, get, isObject } from 'lodash-es';
 import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from './type';
 import { ClassName, HTMLElementAttributes } from '../common';
 import { AffixProps } from '../affix';

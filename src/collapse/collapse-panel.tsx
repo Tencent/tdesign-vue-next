@@ -1,6 +1,5 @@
 import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 'vue';
-import isUndefined from 'lodash/isUndefined';
-import isArray from 'lodash/isArray';
+import { isUndefined, isArray } from 'lodash-es';
 
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';

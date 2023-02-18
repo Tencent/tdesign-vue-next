@@ -1,4 +1,4 @@
-import isBoolean from 'lodash/isBoolean';
+import { isBoolean } from 'lodash-es';
 import { computed, ref, watch, onBeforeMount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
