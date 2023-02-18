@@ -13,6 +13,7 @@ export default function useDraggable(props: { nodeRef: HTMLElement | undefined; 
   const dropPosition = ref<DropPosition>(0);
 
   const updateDropPosition = throttle((e: DragEvent) => {
+    if (typeof window === 'undefined') return;
     if (!nodeRef.value) return;
 
     const rect = nodeRef.value.getBoundingClientRect();

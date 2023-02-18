@@ -45,7 +45,7 @@ const getClickPosition = (e: MouseEvent) => {
   }, 100);
 };
 
-if (!isUndefined(window) && window.document && window.document.documentElement) {
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
@@ -173,6 +173,7 @@ export default defineComponent({
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
+        
       ];
 
       if (isFullScreen.value) {

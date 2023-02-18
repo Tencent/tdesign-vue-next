@@ -41,6 +41,8 @@ const SIZING_PROPS = [
 ];
 
 function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
+  if (typeof window === 'undefined') return;
+
   const style = window.getComputedStyle(targetElement);
 
   const boxSizing =
