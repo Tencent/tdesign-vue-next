@@ -12,7 +12,7 @@
 
 <script setup>
 import { computed, getCurrentInstance } from 'vue';
-import get from 'lodash/get';
+import { get } from 'lodash-es';
 
 const { ctx } = getCurrentInstance();
 const path = computed(() => get(ctx, '$route.path', ''));

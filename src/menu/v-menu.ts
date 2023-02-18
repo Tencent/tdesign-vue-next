@@ -1,4 +1,4 @@
-import isNil from 'lodash/isNil';
+import { isNil } from 'lodash-es';
 import { ref, Slot } from 'vue';
 
 type MenuValue = string | number;
