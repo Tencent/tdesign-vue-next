@@ -163,6 +163,12 @@ export default {
           path: '/vue-next/components/tabs',
           component: () => import('tdesign-vue-next/tabs/tabs.md'),
         },
+        {
+          title: 'BackTop 返回顶部',
+          name: 'back-top',
+          path: '/vue-next/components/back-top',
+          component: () => import('tdesign-vue-next/back-top/back-top.md'),
+        },
       ],
     },
     {

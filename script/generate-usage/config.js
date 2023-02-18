@@ -689,4 +689,12 @@ module.exports = {
       `,
     },
   },
+  'back-top': {
+    panelStr: `const panelList = [{label: 'backTop', value: 'backTop'}];`,
+    render: {
+      backTop: `
+      <t-back-top></t-back-top>
+      `,
+    },
+  },
 };
