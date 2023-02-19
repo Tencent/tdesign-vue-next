@@ -6,9 +6,8 @@ import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TBadge',
-
+  inheritAttrs: false,
   props: { ...props },
-
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
 

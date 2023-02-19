@@ -27,6 +27,7 @@ export interface Anchor extends ComponentPublicInstance {
 
 export default defineComponent({
   name: 'TAnchor',
+  inheritAttrs: false,
   props,
   setup(props: TdAnchorProps, { attrs }) {
     const anchorRef = ref<HTMLElement | null>(null);

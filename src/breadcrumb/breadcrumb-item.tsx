@@ -27,6 +27,7 @@ const localTBreadcrumbOrigin: LocalTBreadcrumb = {
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
+  inheritAttrs: false,
   props: {
     ...props,
   },

@@ -5,6 +5,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TColorPickerPanel',
+  inheritAttrs: false,
   props: {
     ...props,
   },
