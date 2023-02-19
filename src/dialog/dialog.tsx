@@ -93,7 +93,6 @@ let key = 1;
 
 export default defineComponent({
   name: 'TDialog',
-
   // 注册v-draggable指令,传入true时候初始化拖拽事件
   directives: {
     draggable(el, binding) {
@@ -103,9 +102,8 @@ export default defineComponent({
       }
     },
   },
-
+  inheritAttrs: false,
   props,
-
   emits: ['update:visible'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
