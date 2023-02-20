@@ -6,7 +6,7 @@ import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../uti
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
-  // 每个 slots 需要单独的 h 函数 否则直接assign会重复把不同 slots 的 params 都注入 
+  // 每个 slots 需要单独的 h 函数 否则直接assign会重复把不同 slots 的 params 都注入
   const finalParams = new Function('return ' + h.toString())();
   if (params) {
     Object.assign(finalParams, params);
