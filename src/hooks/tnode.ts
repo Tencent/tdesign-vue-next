@@ -6,7 +6,7 @@ import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../uti
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
-  const finaleParams = h;
+  const finaleParams = new Function('return ' + h.toString())();
   if (params) {
     Object.assign(finaleParams, params);
   }
