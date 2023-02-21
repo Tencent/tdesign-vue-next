@@ -6,8 +6,8 @@ import isFunction from 'lodash/isFunction';
 import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
-import SelectInput from '../select-input';
-import { TagInputChangeContext } from '../tag-input';
+import SelectInput, { TdSelectInputProps } from '../select-input';
+import { TagInputChangeContext, TagInputValue } from '../tag-input';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
@@ -245,7 +245,7 @@ export default defineComponent({
       props.onSearch?.(String(value));
     };
 
-    const tagChange = (value: string | number, context: TagInputChangeContext) => {
+    const tagChange: TdSelectInputProps['onTagChange'] = (value, context) => {
       const { trigger, index } = context;
       if (['tag-remove', 'backspace'].includes(trigger)) {
         isArray(treeSelectValue.value) && (treeSelectValue.value as Array<TreeSelectValue>).splice(index, 1);
@@ -408,18 +408,18 @@ export default defineComponent({
         label={() => renderTNodeJSX('prefixIcon')}
         suffixIcon={() => renderSuffixIcon()}
         onClear={clear}
-        onBlur={(value: InputValue, context: { e: FocusEvent }) => {
-          props.onBlur?.({ value, e: context.e });
+        onBlur={(_: any, context) => {
+          props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
         }}
-        onFocus={(value: InputValue, context: { e: FocusEvent }) => {
-          props.onFocus?.({ value, e: context.e });
+        onFocus={(_: any, context: { e: FocusEvent }) => {
+          props.onFocus?.({ value: treeSelectValue.value, e: context.e });
         }}
         valueDisplay={() =>
           renderTNodeJSX('valueDisplay', {
             params: props.multiple
               ? {
                   value: nodeInfo.value,
-                  onClose: (value: string | number, context: TagInputChangeContext) => {
+                  onClose: (value: TagInputValue, context: TagInputChangeContext) => {
                     tagChange(value, context);
                   },
                 }
