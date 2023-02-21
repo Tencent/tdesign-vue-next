@@ -2,7 +2,8 @@ import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpda
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer, getScrollbarWidth, getAttach, getSSRAttach } from '../utils/dom';
+import { isServer, getAttach, getSSRAttach } from '../utils/dom';
+import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
@@ -217,7 +218,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
+      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
 
       styleEl.value = document.createElement('style');
