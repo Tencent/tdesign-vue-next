@@ -90,7 +90,7 @@ export default defineComponent({
           }}
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
           onInputChange={(value, ctx) => {
-            if (!isFilterable.value || ctx.trigger === 'blur') return;
+            if (!isFilterable.value) return;
             setInputVal(`${value}`);
             (props?.selectInputProps as TdSelectInputProps)?.onInputChange?.(value, ctx);
           }}
