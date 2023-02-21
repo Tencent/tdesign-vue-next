@@ -12,6 +12,7 @@ import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import { TdUploadProps, UploadFile } from '../type';
 import { abridgeName } from '../../_common/js/upload/utils';
+import { UploadConfig } from '../../config-provider';
 
 export interface ImageCardUploadProps extends CommonDisplayFileProps {
   multiple: TdUploadProps['multiple'];
@@ -39,8 +40,9 @@ export default defineComponent({
     onPreview: Function as PropType<ImageCardUploadProps['onPreview']>,
   },
 
-  setup(props: ImageCardUploadProps) {
-    const { displayFiles, locale, classPrefix, multiple, max } = toRefs(props);
+  setup(props) {
+    const { displayFiles, classPrefix, multiple, max } = toRefs(props);
+    const locale = computed(() => props.locale as UploadConfig);
     const { BrowseIcon, DeleteIcon, AddIcon, ErrorCircleFilledIcon } = useGlobalIcon({
       AddIcon: TdAddIcon,
       BrowseIcon: TdBrowseIcon,
@@ -91,7 +93,7 @@ export default defineComponent({
 
     const renderProgressFile = (file: UploadFile, loadCard: string) => {
       return (
-        <div class={loadCard}>
+        <div class={[loadCard, `${classPrefix.value}-upload__${props.theme}-${file.status}`]}>
           <Loading loading={true} size="medium" />
           <p>
             {locale.value?.progress?.uploadingText}
@@ -135,7 +137,13 @@ export default defineComponent({
 
             {showTrigger.value && (
               <li class={cardItemClasses} onClick={props.triggerUpload}>
-                <div class={`${classPrefix.value}-upload__card-container ${classPrefix.value}-upload__card-box`}>
+                <div
+                  class={[
+                    `${classPrefix.value}-upload__image-add`,
+                    `${classPrefix.value}-upload__card-container`,
+                    `${classPrefix.value}-upload__card-box`,
+                  ]}
+                >
                   <AddIcon />
                   <p class={`${classPrefix.value}-size-s`}>{locale.value?.triggerUploadText?.image}</p>
                 </div>

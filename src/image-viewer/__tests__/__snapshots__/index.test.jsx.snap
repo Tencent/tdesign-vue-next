@@ -2,7 +2,7 @@
 
 exports[`Image-viewer > :props > defaultVisible 1`] = `
 <div
-  class="t-image-viewer-preview-image"
+  class="t-image-viewer t-image-viewer-preview-image"
   style="z-index: 2600;"
 >
   <div
@@ -323,7 +323,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
 
 exports[`Image-viewer > :props > images, index, visible 1`] = `
 <div
-  class="t-image-viewer-preview-image"
+  class="t-image-viewer t-image-viewer-preview-image"
   style="z-index: 2600;"
 >
   <div

@@ -25,6 +25,7 @@ export function simulateImageEvent(dom, event) {
   fireEvent(dom, createEvent(event, dom));
 }
 
+// document keydown
 export function simulateKeydownEvent(dom, type) {
   let event;
   switch (type) {
