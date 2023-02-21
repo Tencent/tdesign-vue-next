@@ -322,7 +322,6 @@ export default defineComponent({
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
-            theme: props.theme,
             confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
             globalConfirm: globalConfig.value.confirm,
             globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
