@@ -57,6 +57,15 @@ Dialog 组件在 1.0.8 之后使用 Vue3 的 [Teleport](https://cn.vuejs.org/gui
 }
 </style>
 ```
+
+### 为什么在 attach 属性会挂载失败？
+
+`attach` 属性使用属性使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 实现,因此attach遵守[Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)的使用规则。
+
+> Teleport 挂载时，传送的 to 目标必须已经存在于 DOM 中。理想情况下，这应该是整个 Vue 应用 DOM 树外部的一个元素。如果目标元素也是由 Vue 渲染的，你需要确保在挂载 Teleport 之前先挂载该元素。
+
+如果你不确定是否是该规则的原因或确定不是该规则的原因可以提出issue,请在提出issue时提供复现问题的代码,以便我们更好的帮助你。
+
 ## API
 ### Dialog Props
 
