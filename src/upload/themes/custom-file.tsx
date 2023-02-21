@@ -29,7 +29,7 @@ export default defineComponent({
     childrenNode: [String, Function] as PropType<CustomFileProps['childrenNode']>,
   },
 
-  setup(props: CustomFileProps, { slots }) {
+  setup(props, { slots }) {
     const { classPrefix, displayFiles } = toRefs(props);
     const drag = useDrag(props.dragEvents);
     const { dragActive } = drag;
@@ -37,7 +37,7 @@ export default defineComponent({
     const renderContent = useContent();
 
     const renderDragContent = () => {
-      const params = { dragActive: dragActive.value, files: displayFiles.value };
+      const params = { dragActive: dragActive.value || false, files: displayFiles.value };
       return (
         <div
           class={`${classPrefix.value}-upload__dragger ${classPrefix.value}-upload__dragger-center`}

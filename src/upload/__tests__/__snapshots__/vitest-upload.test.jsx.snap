@@ -1,0 +1,1317 @@
+// Vitest Snapshot v1
+
+exports[`Upload Component > props.draggable: theme=image & draggable=true, fail file render fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <div
+    class="t-upload__dragger t-upload__dragger-error"
+  >
+    <div
+      class="t-upload__dragger-progress"
+    >
+      <div
+        class="t-upload__dragger-img-wrap"
+      >
+        
+        <img
+          src="https://image4.png"
+        />
+        <!--teleport start-->
+        <!--teleport end-->
+        
+      </div>
+      <div
+        class="t-upload__dragger-progress-info"
+      >
+        
+        <div
+          class="t-upload__dragger-text"
+        >
+          <span
+            class="t-upload__single-name"
+          >
+            image4.png
+          </span>
+          <!---->
+          <!---->
+          <svg
+            class="t-icon t-icon-error-circle-filled"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </div>
+        <small
+          class="t-size-s"
+        >
+          文件大小
+          ：
+          
+        </small>
+        <small
+          class="t-size-s"
+        >
+          上传日期
+          ：
+          -
+        </small>
+        
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <button
+            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              重新选择
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.draggable: theme=image & draggable=true, progress file render fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <div
+    class="t-upload__dragger"
+  >
+    <div
+      class="t-upload__dragger-progress"
+    >
+      <div
+        class="t-upload__dragger-img-wrap"
+      >
+        
+        <img
+          src="https://image2.png"
+        />
+        <!--teleport start-->
+        <!--teleport end-->
+        
+      </div>
+      <div
+        class="t-upload__dragger-progress-info"
+      >
+        
+        <div
+          class="t-upload__dragger-text"
+        >
+          <span
+            class="t-upload__single-name"
+          >
+            image2.png
+          </span>
+          <div
+            class="t-upload__single-progress"
+          >
+            <div
+              class="t-loading--center t-size-m t-loading"
+            >
+              <svg
+                class="t-loading__gradient t-icon-loading"
+                height="1em"
+                size="medium"
+                version="1.1"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <foreignobject
+                  height="12"
+                  width="12"
+                  x="0"
+                  y="0"
+                >
+                  <div
+                    class="t-loading__gradient-conic"
+                  />
+                </foreignobject>
+              </svg>
+              <!---->
+            </div>
+            <span
+              class="t-upload__single-percent"
+            >
+              80
+              %
+            </span>
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <small
+          class="t-size-s"
+        >
+          文件大小
+          ：
+          
+        </small>
+        <small
+          class="t-size-s"
+        >
+          上传日期
+          ：
+          -
+        </small>
+        
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <button
+            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消上传
+              
+            </span>
+          </button>
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.draggable: theme=image & draggable=true, success file render fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <div
+    class="t-upload__dragger"
+  >
+    <div
+      class="t-upload__dragger-progress"
+    >
+      <div
+        class="t-upload__dragger-img-wrap"
+      >
+        
+        <img
+          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+        />
+        <!--teleport start-->
+        <!--teleport end-->
+        
+      </div>
+      <div
+        class="t-upload__dragger-progress-info"
+      >
+        
+        <div
+          class="t-upload__dragger-text"
+        >
+          <span
+            class="t-upload__single-name"
+          >
+            image1.png
+          </span>
+          <!---->
+          <svg
+            class="t-icon t-icon-check-circle-filled"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <!---->
+        </div>
+        <small
+          class="t-size-s"
+        >
+          文件大小
+          ：
+          
+        </small>
+        <small
+          class="t-size-s"
+        >
+          上传日期
+          ：
+          -
+        </small>
+        
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <button
+            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              重新选择
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.draggable: theme=image & draggable=true, success file render fine with file.response.url 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <div
+    class="t-upload__dragger"
+  >
+    <div
+      class="t-upload__dragger-progress"
+    >
+      <div
+        class="t-upload__dragger-img-wrap"
+      >
+        
+        <img
+          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+        />
+        <!--teleport start-->
+        <!--teleport end-->
+        
+      </div>
+      <div
+        class="t-upload__dragger-progress-info"
+      >
+        
+        <div
+          class="t-upload__dragger-text"
+        >
+          <span
+            class="t-upload__single-name"
+          >
+            image1.png
+          </span>
+          <!---->
+          <svg
+            class="t-icon t-icon-check-circle-filled"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <!---->
+        </div>
+        <small
+          class="t-size-s"
+        >
+          文件大小
+          ：
+          
+        </small>
+        <small
+          class="t-size-s"
+        >
+          上传日期
+          ：
+          -
+        </small>
+        
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <button
+            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              重新选择
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.draggable: theme=image & draggable=true, waiting file render fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <div
+    class="t-upload__dragger"
+  >
+    <div
+      class="t-upload__dragger-progress"
+    >
+      <div
+        class="t-upload__dragger-img-wrap"
+      >
+        
+        <img
+          src="https://image3.png"
+        />
+        <!--teleport start-->
+        <!--teleport end-->
+        
+      </div>
+      <div
+        class="t-upload__dragger-progress-info"
+      >
+        
+        <div
+          class="t-upload__dragger-text"
+        >
+          <span
+            class="t-upload__single-name"
+          >
+            image3.png
+          </span>
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <small
+          class="t-size-s"
+        >
+          文件大小
+          ：
+          
+        </small>
+        <small
+          class="t-size-s"
+        >
+          上传日期
+          ：
+          -
+        </small>
+        
+        <div
+          class="t-upload__dragger-btns"
+        >
+          <button
+            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            href=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消上传
+              
+            </span>
+          </button>
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <!---->
+  <!---->
+  <div
+    class="t-upload__flow t-upload__flow-file-flow"
+  >
+    <div
+      class="t-upload__flow-op"
+    >
+      
+      <div
+        class="t-upload__trigger"
+      >
+        <button
+          class="t-button t-button--variant-outline t-button--theme-default"
+          href=""
+          type="button"
+        >
+          
+          <svg
+            class="t-icon t-icon-upload"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <span
+            class="t-button__text"
+          >
+            
+            重新选择
+            
+          </span>
+          
+        </button>
+      </div>
+      
+      
+    </div>
+    <!---->
+    <table
+      class="t-upload__flow-table"
+    >
+      <thead>
+        <tr>
+          <th>
+            文件名
+          </th>
+          <th
+            style="min-width: 120px;"
+          >
+            文件大小
+          </th>
+          <th
+            style="min-width: 120px;"
+          >
+            状态
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!---->
+        
+        <tr>
+          <td
+            class="t-upload__file-name"
+          >
+            file1.txt
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            <div
+              class="t-upload__flow-status"
+            >
+              <svg
+                class="t-icon t-icon-check-circle-filled"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <span
+                class="t-upload__file-flow-success"
+              >
+                上传成功
+                
+              </span>
+            </div>
+          </td>
+          <td>
+            <button
+              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              href=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                删除
+              </span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="t-upload__file-name"
+          >
+            file2.txt
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            <div
+              class="t-upload__flow-status"
+            >
+              <svg
+                class="t-icon t-icon-time-filled"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.5 5h1v2.97l2.85 2.86-.7.7L7.5 8.4V5z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <span
+                class="t-upload__file-flow-waiting"
+              >
+                待上传
+                
+              </span>
+            </div>
+          </td>
+          <td>
+            <button
+              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              href=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                删除
+              </span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="t-upload__file-name"
+          >
+            file3.txt
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            <div
+              class="t-upload__flow-status"
+            >
+              <svg
+                class="t-icon t-icon-error-circle-filled"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <span
+                class="t-upload__file-flow-fail"
+              >
+                上传失败
+                
+              </span>
+            </div>
+          </td>
+          <td>
+            <button
+              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              href=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                删除
+              </span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="t-upload__file-name"
+          >
+            file4.txt
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            <div
+              class="t-upload__flow-status"
+            >
+              <div
+                class="t-loading--center t-size-m t-loading"
+              >
+                <svg
+                  class="t-loading__gradient t-icon-loading"
+                  height="1em"
+                  size="medium"
+                  version="1.1"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <foreignobject
+                    height="12"
+                    width="12"
+                    x="0"
+                    y="0"
+                  >
+                    <div
+                      class="t-loading__gradient-conic"
+                    />
+                  </foreignobject>
+                </svg>
+                <!---->
+              </div>
+              <span
+                class="t-upload__file-flow-progress"
+              >
+                上传中
+                 90%
+              </span>
+            </div>
+          </td>
+          <td>
+            <button
+              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              href=""
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                删除
+              </span>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    <!---->
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
+<div
+  class="t-upload"
+>
+  <input
+    accept=""
+    hidden=""
+    type="file"
+  />
+  <!---->
+  <!---->
+  <!---->
+  <div
+    class="t-upload__flow t-upload__flow-image-flow"
+  >
+    <div
+      class="t-upload__flow-op"
+    >
+      
+      <div
+        class="t-upload__trigger"
+      >
+        <button
+          class="t-button t-button--variant-outline t-button--theme-default"
+          href=""
+          type="button"
+        >
+          
+          <svg
+            class="t-icon t-icon-upload"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          <span
+            class="t-button__text"
+          >
+            
+            重新选择
+            
+          </span>
+          
+        </button>
+      </div>
+      
+      
+    </div>
+    <div
+      class="t-upload__flow-card-area"
+    >
+      <ul
+        class="t-upload__card clearfix"
+      >
+        
+        <li
+          class="t-upload__card-item"
+        >
+          <div
+            class="t-upload__card-content t-is-bordered"
+          >
+            <!---->
+            <img
+              class="t-upload__card-image"
+              src="//tdesign.gtimg.com/tdesign-default-img.png"
+            />
+            <div
+              class="t-upload__card-mask"
+            >
+              
+              <span
+                class="t-upload__card-mask-item t-upload__delete"
+              >
+                <svg
+                  class="t-icon t-icon-delete"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <p
+            class="t-upload__card-name"
+          >
+            img.txt
+          </p>
+        </li>
+        <li
+          class="t-upload__card-item"
+        >
+          <div
+            class="t-upload__card-content t-is-bordered"
+          >
+            <!---->
+            <img
+              class="t-upload__card-image"
+              src="https://img1.txt"
+            />
+            <div
+              class="t-upload__card-mask"
+            >
+              <span
+                class="t-upload__card-mask-item"
+              >
+                
+                <svg
+                  class="t-icon t-icon-browse"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                <!--teleport start-->
+                <!--teleport end-->
+                
+                <span
+                  class="t-upload__card-mask-item-divider"
+                />
+              </span>
+              <span
+                class="t-upload__card-mask-item t-upload__delete"
+              >
+                <svg
+                  class="t-icon t-icon-delete"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <p
+            class="t-upload__card-name"
+          >
+            img1.txt
+          </p>
+        </li>
+        <li
+          class="t-upload__card-item"
+        >
+          <div
+            class="t-upload__card-content"
+          >
+            <!---->
+            <img
+              class="t-upload__card-image"
+              src="https://img2.txt"
+            />
+            <div
+              class="t-upload__card-mask"
+            >
+              <span
+                class="t-upload__card-mask-item"
+              >
+                
+                <svg
+                  class="t-icon t-icon-browse"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                <!--teleport start-->
+                <!--teleport end-->
+                
+                <span
+                  class="t-upload__card-mask-item-divider"
+                />
+              </span>
+              <span
+                class="t-upload__card-mask-item t-upload__delete"
+              >
+                <svg
+                  class="t-icon t-icon-delete"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <p
+            class="t-upload__card-name"
+          >
+            img2.txt
+          </p>
+        </li>
+        <li
+          class="t-upload__card-item"
+        >
+          <div
+            class="t-upload__card-content t-is-bordered"
+          >
+            <div
+              class="t-upload__card-status-wrap t-upload__image-flow-fail"
+            >
+              <svg
+                class="t-icon t-icon-error-circle-filled"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <p>
+                上传失败
+                
+              </p>
+            </div>
+            <!---->
+            <div
+              class="t-upload__card-mask"
+            >
+              <span
+                class="t-upload__card-mask-item"
+              >
+                
+                <svg
+                  class="t-icon t-icon-browse"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                <!--teleport start-->
+                <!--teleport end-->
+                
+                <span
+                  class="t-upload__card-mask-item-divider"
+                />
+              </span>
+              <span
+                class="t-upload__card-mask-item t-upload__delete"
+              >
+                <svg
+                  class="t-icon t-icon-delete"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <p
+            class="t-upload__card-name"
+          >
+            img3.txt
+          </p>
+        </li>
+        <li
+          class="t-upload__card-item"
+        >
+          <div
+            class="t-upload__card-content t-is-bordered"
+          >
+            <div
+              class="t-upload__card-status-wrap t-upload__image-flow-progress"
+            >
+              <div
+                class="t-loading--center t-size-m t-loading"
+              >
+                <svg
+                  class="t-loading__gradient t-icon-loading"
+                  height="1em"
+                  size="medium"
+                  version="1.1"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <foreignobject
+                    height="12"
+                    width="12"
+                    x="0"
+                    y="0"
+                  >
+                    <div
+                      class="t-loading__gradient-conic"
+                    />
+                  </foreignobject>
+                </svg>
+                <!---->
+              </div>
+              <p>
+                上传中
+                 90%
+              </p>
+            </div>
+            <!---->
+            <div
+              class="t-upload__card-mask"
+            >
+              <span
+                class="t-upload__card-mask-item"
+              >
+                
+                <svg
+                  class="t-icon t-icon-browse"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                <!--teleport start-->
+                <!--teleport end-->
+                
+                <span
+                  class="t-upload__card-mask-item-divider"
+                />
+              </span>
+              <span
+                class="t-upload__card-mask-item t-upload__delete"
+              >
+                <svg
+                  class="t-icon t-icon-delete"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <p
+            class="t-upload__card-name"
+          >
+            img4.txt
+          </p>
+        </li>
+        
+      </ul>
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  <!---->
+</div>
+`;

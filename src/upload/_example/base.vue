@@ -171,16 +171,17 @@ const onOneFileSuccess = (params) => {
 // 有文件数量超出时会触发，文件大小超出限制、文件同名时会触发等场景。注意如果设置允许上传同名文件，则此事件不会触发
 const onValidate = (params) => {
   const { files, type } = params;
-  console.log('onValidate', params);
-  if (type === 'FILE_OVER_SIZE_LIMIT') {
-    files.map((t) => t.name).join('、');
-    MessagePlugin.warning(`${files.map((t) => t.name).join('、')} 等文件大小超出限制，已自动过滤`, 5000);
-  } else if (type === 'FILES_OVER_LENGTH_LIMIT') {
-    MessagePlugin.warning('文件数量超出限制，仅上传未超出数量的文件');
-  } else if (type === 'FILTER_FILE_SAME_NAME') {
-    // 如果希望支持上传同名文件，请设置 allowUploadDuplicateFile={true}
-    MessagePlugin.warning('不允许上传同名文件');
-  }
+  console.log('onValidate', type, files);
+  const messageMap = {
+    FILE_OVER_SIZE_LIMIT: '文件大小超出限制，已自动过滤',
+    FILES_OVER_LENGTH_LIMIT: '文件数量超出限制，仅上传未超出数量的文件',
+    // if you need same name files, setting allowUploadDuplicateFile={true} please
+    FILTER_FILE_SAME_NAME: '不允许上传同名文件',
+    BEFORE_ALL_FILES_UPLOAD: 'beforeAllFilesUpload 方法拦截了文件',
+    CUSTOM_BEFORE_UPLOAD: 'beforeUpload 方法拦截了文件',
+  };
+  // you can also set Upload.tips and Upload.status to show warning message.
+  messageMap[type] && MessagePlugin.warning(messageMap[type]);
 };
 
 // 仅自定义文件列表所需
