@@ -27,7 +27,7 @@ export interface TdSpaceProps {
   separator?: string | TNode;
   /**
    * 间距大小
-   * @default medium
+   * @default 'medium'
    */
   size?: SpaceSize | SpaceSize[];
 }
