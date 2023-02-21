@@ -1,5 +1,32 @@
 :: BASE_DOC ::
 
+## FAQ
+
+### 为什么在 Popup 中无法使用样式穿透？
+
+Popup 组件及其衍生组件（例如 Popconfirm、Tooltip）的 `attach` 属性使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 实现，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的节点。如果您需要使用样式穿透来自定义组件样式，我们建议您使用替换 CSS Variables 的方式进行个性化主题配置。具体实现方法请参见 `自定义主题配置` 菜单。
+
+如果必须要进行样式替换,可以采用以下几种方案。
+
+方案一: 单独创建一个不使用scoped的style标签
+```html
+<style>
+.test .t-radio-button__label {
+  color: red;
+}
+</style>
+```
+方案二：使用 :global 伪类来实现相同效果，比起单独创建一个 style，更简洁明了。
+```html
+<style scoped>
+.abc{
+  color: red;
+}
+:global(.test .t-radio-button__label) {
+  color: red;
+}
+</style>
+```
 ## API
 ### Popup Props
 

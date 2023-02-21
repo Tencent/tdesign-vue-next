@@ -1,5 +1,32 @@
 :: BASE_DOC ::
 
+## FAQ
+
+### 为什么在 Drawer 中无法使用样式穿透？
+
+Drawer 组件在 1.0.8 之后使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 重构了 `attach` 属性的实现，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)。如果您想自定义主题，我们更推荐使用替换 CSS Variables 的方式来进行个性化的主题配置。具体请参见 `自定义主题配置` 菜单。
+
+如果必须要进行样式替换,可以采用以下几种方案。
+
+方案一: 单独创建一个不使用scoped的style标签
+```html
+<style>
+.test .t-radio-button__label {
+  color: red;
+}
+</style>
+```
+方案二：使用 :global 伪类来实现相同效果，比起单独创建一个 style，更简洁明了。
+```html
+<style scoped>
+.abc{
+  color: red;
+}
+:global(.test .t-radio-button__label) {
+  color: red;
+}
+</style>
+```
 ## API
 ### Drawer Props
 
