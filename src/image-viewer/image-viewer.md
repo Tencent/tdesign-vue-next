@@ -4,11 +4,11 @@
 
 ### 为什么在 ImageViewer 中无法使用样式穿透？
 
-ImageViewer 组件使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 来挂载元素，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
+`ImageViewer` 组件使用 `Vue3` 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 来挂载元素，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
 
 如果必须要进行样式替换，可以采用以下几种方案。
 
-方案一: 单独创建一个不使用scoped的style标签
+方案一：单独创建一个不使用`scoped`的`style`标签
 ```html
 <style>
 .test .t-radio-button__label {
@@ -16,7 +16,7 @@ ImageViewer 组件使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-in
 }
 </style>
 ```
-方案二：使用 :global 伪类来实现相同效果，比起单独创建一个 style 更加简洁明了。
+方案二：使用 `:global` 伪类来实现相同效果，比起单独创建一个`style`更加简洁明了。
 ```html
 <style scoped>
 .abc{

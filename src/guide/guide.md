@@ -4,11 +4,11 @@
 
 ### 为什么在 Guide 中无法使用样式穿透？
 
-Guide 组件在 1.0.8 之后使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 重构了元素挂载方式，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
+`Guide` 组件在 `1.0.8` 之后使用 `Vue3` 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 重构了元素挂载方式，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
 
 如果必须要进行样式替换，可以采用以下几种方案。
 
-方案一: 单独创建一个不使用scoped的style标签
+方案一：单独创建一个不使用`scoped`的`style`标签
 ```html
 <style>
 .test .t-radio-button__label {
@@ -16,7 +16,7 @@ Guide 组件在 1.0.8 之后使用 Vue3 的 [Teleport](https://cn.vuejs.org/guid
 }
 </style>
 ```
-方案二：使用 :global 伪类来实现相同效果，比起单独创建一个 style 更加简洁明了。
+方案二：使用 `:global` 伪类来实现相同效果，比起单独创建一个`style`更加简洁明了。
 ```html
 <style scoped>
 .abc{
