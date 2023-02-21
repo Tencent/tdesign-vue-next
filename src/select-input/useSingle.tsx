@@ -28,10 +28,11 @@ const COMMON_PROPERTIES = [
 const DEFAULT_KEYS = {
   label: 'label',
   value: 'value',
+  children: 'children',
 };
 
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
-  const iKeys = keys || DEFAULT_KEYS;
+  const iKeys = { ...DEFAULT_KEYS, ...keys };
   return isObject(value) ? value[iKeys.label] : value;
 }
 

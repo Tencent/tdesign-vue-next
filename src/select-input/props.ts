@@ -12,11 +12,13 @@ export default {
   allowInput: Boolean,
   /** 宽度随内容自适应 */
   autoWidth: Boolean,
+  /** 自动聚焦 */
+  autofocus: Boolean,
   /** 无边框模式 */
   borderless: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
-  /** 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量 */
+  /** 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量 */
   collapsedItems: {
     type: Function as PropType<TdSelectInputProps['collapsedItems']>,
   },
@@ -29,7 +31,7 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: [String, Number] as PropType<TdSelectInputProps['inputValue']>,
-    default: undefined,
+    default: undefined as TdSelectInputProps['inputValue'],
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
@@ -70,6 +72,8 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否显示下拉框，非受控属性 */
+  defaultPopupVisible: Boolean,
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 输入框状态 */
@@ -89,7 +93,7 @@ export default {
   suffixIcon: {
     type: Function as PropType<TdSelectInputProps['suffixIcon']>,
   },
-  /** 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签 */
+  /** 多选场景下，自定义选中标签的内部内容。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签 */
   tag: {
     type: [String, Function] as PropType<TdSelectInputProps['tag']>,
   },
