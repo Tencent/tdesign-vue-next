@@ -1,8 +1,7 @@
-import isUndefined from 'lodash/isUndefined';
 import type { ComponentPublicInstance, Ref } from 'vue';
 import { unref, watch, getCurrentScope, onScopeDispose } from 'vue';
 
-export const defaultWindow = !isUndefined(window) ? window : undefined;
+export const defaultWindow = typeof window !== 'undefined' ? window : undefined;
 export interface ConfigurableWindow {
   window?: Window;
 }

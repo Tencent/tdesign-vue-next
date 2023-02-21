@@ -12,6 +12,10 @@
 
     <!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
     <!-- abridgeName 表示省略文件名中间文本，保留两侧。左侧保留的文本数量，右侧保留的文本数量] -->
+    <!--
+       use fileListDisplay to define any file info
+       fileListDisplay={(h, { files }) => <div>{JSON.stringify(files)}</div>}
+     -->
     <t-space>
       <t-upload
         v-model="files"
