@@ -28,7 +28,7 @@ Popup 组件及其衍生组件（例如 Popconfirm、Tooltip）的 `attach` 属�
 </style>
 ```
 
-### 为什么在 attach 属性会挂载失败？
+### 为什么使用 attach 属性挂载元素时会失败？
 
 `attach` 属性使用属性使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 实现,因此attach遵守[Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)的使用规则。
 
