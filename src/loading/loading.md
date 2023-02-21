@@ -8,6 +8,41 @@
 
 {{ attach }}
 
+## FAQ
+
+### 为什么在 Loading 中无法使用样式穿透？
+
+Loading 组件在 1.0.8 之后使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 重构了 `attach` 属性的实现，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
+
+如果必须要进行样式替换，可以采用以下几种方案。
+
+方案一: 单独创建一个不使用scoped的style标签
+```html
+<style>
+.test .t-radio-button__label {
+  color: red;
+}
+</style>
+```
+方案二：使用 :global 伪类来实现相同效果，比起单独创建一个 style 更加简洁明了。
+```html
+<style scoped>
+.abc{
+  color: red;
+}
+:global(.test .t-radio-button__label) {
+  color: red;
+}
+</style>
+```
+
+### 为什么使用 attach 属性挂载元素时会失败？
+
+`attach` 属性使用属性使用 Vue3 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 实现，因此attach遵守[Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)的使用规则。
+
+> Teleport 挂载时，传送的 to 目标必须已经存在于 DOM 中。理想情况下，这应该是整个 Vue 应用 DOM 树外部的一个元素。如果目标元素也是由 Vue 渲染的，你需要确保在挂载 Teleport 之前先挂载该元素。
+
+如果你不确定是否是该规则的原因或确定不是该规则的原因可以提出issue，请在提出issue时提供复现问题的代码，以便我们更好的帮助你。
 ## API
 ### Loading Props
 
