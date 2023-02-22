@@ -1,7 +1,6 @@
 <template>
   <!-- :popup-props="{ trigger: 'hover' }" -->
-  <t-select-input :panel="panelRender"></t-select-input>
-  <!-- <t-select-input
+  <t-select-input
     :value="selectValue"
     :popup-visible="popupVisible"
     :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
@@ -23,13 +22,11 @@
     <template #suffixIcon>
       <chevron-down-icon />
     </template>
-  </t-select-input> -->
+  </t-select-input>
 </template>
-<script setup lang="jsx">
+<script setup>
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
-
-const panelRender = () => <span class="custom-node">TNode</span>;
 
 const options = [
   { label: 'tdesign-vue', value: 1 },
