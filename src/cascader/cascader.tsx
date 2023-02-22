@@ -98,6 +98,7 @@ export default defineComponent({
             // 按 enter 键不处理
             if (ctx.trigger === 'enter') return;
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
+            // @ts-ignore TODO: fix bug
             (props?.selectInputProps as TdSelectInputProps)?.onTagChange?.(val, ctx);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
@@ -108,7 +109,7 @@ export default defineComponent({
           onBlur={(val, context) => {
             props.onBlur?.({
               value: cascaderContext.value.value,
-              e: context.e,
+              e: context.e as FocusEvent,
             });
             (props?.selectInputProps as TdSelectInputProps)?.onBlur?.(val, context);
           }}

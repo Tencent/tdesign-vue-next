@@ -21,6 +21,7 @@ const useComponentClassName = () => {
 
 export default defineComponent({
   name: 'TLoading',
+  inheritAttrs: false,
   props,
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
@@ -126,7 +127,7 @@ export default defineComponent({
       if (!this.showFullScreenLoading || !this.loading) return null;
       return (
         <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
-          <div class={fullScreenClasses} style={this.styles}>
+          <div class={fullScreenClasses} style={this.styles} {...this.$attrs}>
             <div class={baseClasses}>
               {indicator}
               {text}
@@ -139,7 +140,7 @@ export default defineComponent({
     // Loading is wrapping a HTMLElement.
     if (this.hasContent) {
       return (
-        <div class={this.relativeClass}>
+        <div class={this.relativeClass} {...this.$attrs}>
           {renderContent(this, 'default', 'content')}
           {this.showWrapLoading && (
             <div class={withContentClasses} style={this.styles}>
@@ -156,7 +157,7 @@ export default defineComponent({
       if (!this.showAttachedLoading || !this.loading) return null;
       return (
         <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
-          <div class={attachClasses} style={this.styles}>
+          <div class={attachClasses} style={this.styles} {...this.$attrs}>
             {indicator}
             {text}
           </div>
@@ -166,7 +167,7 @@ export default defineComponent({
 
     // Normal Loading without overlay or content
     return this.loading ? (
-      <div class={normalClasses} style={this.styles}>
+      <div class={normalClasses} style={this.styles} {...this.$attrs}>
         {indicator}
         {text}
       </div>
