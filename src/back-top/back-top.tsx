@@ -1,83 +1,101 @@
 import { defineComponent, ref, SetupContext, computed, shallowRef, onMounted } from 'vue';
 import { TdBackTopProps } from './type';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useConfig } from '../hooks/useConfig';
 import { BacktopIcon as TIconBackTop } from 'tdesign-icons-vue-next';
 import throttle from 'lodash/throttle';
-import { useIcon } from '../hooks/icon';
+import isString from 'lodash/isString';
+import { getScrollContainer, scrollTo } from '../utils/dom';
+import type { ScrollContainer, AttachNode } from '@src/common';
+import { usePrefixClass, useConfig, useContent } from '../hooks';
 
 export default defineComponent({
   name: 'TBackTop',
   components: { TIconBackTop },
   props,
-  emits: ['to-top'],
-  setup(props: TdBackTopProps, { emit, slots }: SetupContext) {
+  setup(props: TdBackTopProps) {
     const { classPrefix } = useConfig();
 
     const componentName = usePrefixClass('back-top');
 
     const visible = ref(false);
 
-    const el = shallowRef<HTMLElement>();
+    const containerEl = shallowRef<HTMLElement>();
 
-    const containerEl = shallowRef<HTMLElement | Document>();
+    const visibleHeight = isString(props.visibleHeight)
+      ? +props.visibleHeight.match(/\d+/g).toString()
+      : props.visibleHeight;
 
     const handleScroll = throttle(() => {
-      visible.value = el.value.scrollTop >= props.visibilityHeight;
+      visible.value = containerEl.value.scrollTop >= visibleHeight;
     }, 300);
 
     onMounted(() => {
-      if (props.target) {
-        containerEl.value = el.value = props.target();
-      } else {
-        containerEl.value = document;
-        el.value = document.documentElement;
+      let container: AttachNode | string = 'body';
+
+      if (props.container && props.container !== 'body') {
+        container = props.container;
+      } else if (props.target && props.target !== 'body') {
+        container = props.target;
       }
-      containerEl.value.addEventListener('scroll', handleScroll);
+
+      containerEl.value = getScrollContainer(container as ScrollContainer) as HTMLElement;
+
+      if (containerEl.value) {
+        containerEl.value.addEventListener('scroll', handleScroll);
+
+        visible.value = containerEl.value.scrollTop >= visibleHeight;
+      } else {
+        console.error(`[${componentName.value}] container does not exist: ${container}`);
+      }
     });
 
     const classes = computed(() => {
       return {
+        [`${classPrefix.value}-is-fixed`]: true,
         [`${componentName.value}`]: true,
-        [`${classPrefix.value}-is-fixed`]: props.fixed,
         [`${componentName.value}--${props.shape}`]: true,
       };
     });
 
-    function handleClick(e: MouseEvent) {
-      el.value.scrollTo({ top: 0, behavior: 'smooth' });
-      emit('to-top', e);
+    function handleOffset() {
+      let [right, bottom] = props.offset;
+
+      right = isString(right) ? right : `${right}px`;
+
+      bottom = isString(bottom) ? bottom : `${bottom}px`;
+
+      return { right, bottom };
     }
 
-    const renderIconTNode = useIcon();
+    const styles = handleOffset();
 
-    const renderIcon = () => {
-      const iconNode = renderIconTNode('icon');
-      return iconNode ? <div>{iconNode}</div> : <TIconBackTop size="18"></TIconBackTop>;
-    };
+    const scrollToOptions = computed(() => ({
+      container: containerEl.value,
+      duration: props.duration,
+    }));
 
-    const renderText = () => {
-      if (props.text || slots.text) {
-        return <div class={`${componentName.value}__text`}>{props.text || slots.text()}</div>;
-      } else {
-        return null;
-      }
-    };
+    function click(e: MouseEvent) {
+      scrollTo(0, scrollToOptions.value);
+
+      props.onClick?.({ e });
+    }
+
+    const renderContent = useContent();
 
     return {
-      classes,
       visible,
-      handleClick,
-      renderIcon,
-      renderText,
+      classes,
+      styles,
+      click,
+      componentName,
+      renderContent,
     };
   },
   render() {
     return (
-      <div class={this.classes} onClick={this.handleClick} v-show={this.visible}>
-        {this.renderIcon()}
-        {this.renderText()}
+      <div class={this.classes} style={this.styles} onClick={this.click} v-show={this.visible}>
+        <TIconBackTop size="20"></TIconBackTop>
+        <div class={`${this.componentName}__text`}>{this.renderContent('content', 'default')}</div>
       </div>
     );
   },
