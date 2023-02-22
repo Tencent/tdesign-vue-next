@@ -1,10 +1,11 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
-import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';
+import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useTeleport from '../hooks/useTeleport';
 
 const useComponentClassName = () => {
   return {
@@ -39,7 +40,8 @@ export default defineComponent({
         clearTimeout(timer);
       }, props.delay);
     };
-
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
     // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
     const delayCounted = computed(() => Boolean(!props.delay || (props.delay && delayShowLoading.value)));
 
@@ -113,6 +115,7 @@ export default defineComponent({
       showNormalLoading,
       showFullScreenLoading,
       showAttachedLoading,
+      teleportElement,
     };
   },
   render() {
@@ -126,7 +129,7 @@ export default defineComponent({
     if (this.fullscreen) {
       if (!this.showFullScreenLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
           <div class={fullScreenClasses} style={this.styles} {...this.$attrs}>
             <div class={baseClasses}>
               {indicator}
@@ -156,7 +159,7 @@ export default defineComponent({
     if (this.attach) {
       if (!this.showAttachedLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
           <div class={attachClasses} style={this.styles} {...this.$attrs}>
             {indicator}
             {text}

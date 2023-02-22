@@ -13,11 +13,11 @@ import {
   onUpdated,
   ComponentInternalInstance,
 } from 'vue';
-import { getAttach, getSSRAttach } from '../utils/dom';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
+import useTeleport from '../hooks/useTeleport';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];
@@ -138,7 +138,8 @@ export default defineComponent({
   setup(props, { emit }) {
     const triggerEl = ref<HTMLElement>(null);
     const mountContent = ref(false);
-
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach, triggerEl);
     onMounted(() => {
       requestAnimationFrame(() => {
         mountContent.value = props.visible;
@@ -157,6 +158,7 @@ export default defineComponent({
     return {
       mountContent,
       triggerEl,
+      teleportElement,
       unmountContent() {
         mountContent.value = false;
       },
@@ -184,7 +186,7 @@ export default defineComponent({
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (
-          <Teleport to={getSSRAttach() || getAttach(this.attach, this.triggerEl)}>
+          <Teleport disabled={!this.teleportElement} to={this.teleportElement}>
             <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
               {this.$slots.content && this.$slots.content()}
             </Content>
