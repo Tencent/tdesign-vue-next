@@ -1,4 +1,4 @@
-import { defineComponent, ref, SetupContext, computed, shallowRef, onMounted } from 'vue';
+import { defineComponent, ref, computed, shallowRef, onMounted } from 'vue';
 import { TdBackTopProps } from './type';
 import props from './props';
 import { BacktopIcon as TIconBackTop } from 'tdesign-icons-vue-next';
