@@ -19,8 +19,11 @@ export default {
   },
   /** 是否禁用当前选项卡 */
   disabled: Boolean,
-  /** 是否可拖拽，`Tab.dragSort`开启时有效 */
-  draggable: Boolean,
+  /** 选项卡组件开启允许拖动排序时，当前选项卡是否允许拖动 */
+  draggable: {
+    type: Boolean,
+    default: true,
+  },
   /** 选项卡名称，可自定义选项卡导航内容 */
   label: {
     type: [String, Function] as PropType<TdTabPanelProps['label']>,

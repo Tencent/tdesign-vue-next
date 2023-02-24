@@ -4,9 +4,14 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TabValue } from '../tabs';
 import { TNode } from '../common';
 
 export interface TdTabsProps {
+  /**
+   * 【开发中】选项卡右侧的操作区域
+   */
+  action?: string | TNode;
   /**
    * 选项卡是否可增加
    * @default false
@@ -60,7 +65,7 @@ export interface TdTabsProps {
   /**
    * 激活的选项卡发生变化时触发
    */
-  onChange?: (value: TabValue) => void;
+  onChange?: (value: TabValue, label: string) => void;
   /**
    * 拖拽排序时触发
    */
@@ -87,7 +92,8 @@ export interface TdTabPanelProps {
    */
   disabled?: boolean;
   /**
-   * 是否可拖拽，`Tab.dragSort`开启时有效
+   * 选项卡组件开启允许拖动排序时，当前选项卡是否允许拖动
+   * @default true
    */
   draggable?: boolean;
   /**
