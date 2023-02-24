@@ -36,6 +36,7 @@ remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | 删除
 default | Slot / Function | - | 用于自定义选项卡导航，同 panel。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnHide | Boolean | true | 选项卡内容隐藏时是否销毁 | N
 disabled | Boolean | false | 是否禁用当前选项卡 | N
+draggable | Boolean | - | 是否可拖拽，`Tab.dragSort`开启时有效 | N
 label | String / Slot / Function | - | 选项卡名称，可自定义选项卡导航内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 panel | String / Slot / Function | - | 用于自定义选项卡面板内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 removable | Boolean | false | 当前选项卡是否允许移除 | N

@@ -87,6 +87,10 @@ export interface TdTabPanelProps {
    */
   disabled?: boolean;
   /**
+   * 是否可拖拽，`Tab.dragSort`开启时有效
+   */
+  draggable?: boolean;
+  /**
    * 选项卡名称，可自定义选项卡导航内容
    */
   label?: string | TNode;

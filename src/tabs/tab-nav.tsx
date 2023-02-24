@@ -203,11 +203,14 @@ export default defineComponent({
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }
-
+        let draggable = props.dragSort;
+        if (draggable && panel.draggable === false) {
+          draggable = panel.draggable;
+        }
         return (
           <TTabNavItem
             ref={setActiveTab}
-            draggable={props.dragSort}
+            draggable={draggable}
             key={panel.value}
             index={index}
             theme={props.theme}
