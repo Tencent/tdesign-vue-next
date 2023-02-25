@@ -4,6 +4,38 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.0.9 `2023-02-21` 
+### 🚀 Features
+- `Upload`: 
+  - 可拖拽的单图片/单文件上传，支持使用 `fileListDisplay` 自定义文件信息内容 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 一个请求上传多个文件时，去除重复参数 `file`，保留 `file[0]` `file[1]` 即可，同时新增参数 `length` 表示本次上传文件的数量 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - `onError/onSuccess/onProgress` 添加关键事件参数 `XMLHttpRequest`，用于获取上传请求更详细的信息 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - `tips` 支持插槽，支持函数 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 新增上传请求超时也会执行 `onError` @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 支持事件 `onCancelUpload` @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 支持 `mockProgressDuration`，用于设置模拟上传进度间隔时间，大文件大一点，小文件小一点 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+- `Dialog`: 确认按钮主题不再跟随 `Dialog` 主题变动 @xiaosansiji ([#2434](https://github.com/Tencent/tdesign-vue-next/pull/2434))
+
+### 🐞 Bug Fixes
+- `Upload`: 
+  - 修复 `onSelectChange` 事件第二个参数 `currentSelectedFiles` 不正确问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复 `autoUpload=false` 场景下，即使 `beforeUpload` 函数全部返回 `false` 依然会触发 `onChange` 事件问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复 `data` 为函数时，参数为空问题，补充参数 `files` @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复 `theme=image-flow` 时，无法使用 `fileListDisplay` 自定义图片列表问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复文件数量超出 `max` 时，且没有可继续上传的文件，依然触发 change 事件问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复 `theme=file` 或者 `theme=image-flow` 时，`abridgeName` 无效问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复 `theme=image-flow` 且 `autoUpload=false` 时，change 事件第一个参数丢失 file.url 问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复非自动上传场景 `change` 事件第二个参数 `file` 值并非当前文件问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+  - 修复各类插槽无效和事件无效问题 @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
+- `Nuxt`: 修复 `nuxt` 下的编译报错 @PengYYYYY ([#2417](https://github.com/Tencent/tdesign-vue-next/pull/2417))
+- `Dialog`:  修复 `class` 属性出现警告 @Aicmortal ([#2424](https://github.com/Tencent/tdesign-vue-next/pull/2424))
+- `Swiper`: 修复 `swiper` 组件 `v-model:current`, `current` 的值不随着轮播变化。([issue #2416](https://github.com/Tencent/tdesign-vue-next/issues/2416)) @Zzongke ([#2427](https://github.com/Tencent/tdesign-vue-next/pull/2427))
+- `SelectInput`: 修复 `SelectInput` 及基于 `SelectInput` 的输入类组件( `Select/Cascader/TreeSelect` ) 单选可输入模式下回删无法完全清空及其导致的一系列问题 @uyarn ([#2429](https://github.com/Tencent/tdesign-vue-next/pull/2429))
+- `Drawer`: 修复 `drawer` 滚动条检测问题 @honkinglin ([#2438](https://github.com/Tencent/tdesign-vue-next/pull/2438))
+- `Dialog`: 修复 `dialog` 滚动条检测问题 @honkinglin ([#2438](https://github.com/Tencent/tdesign-vue-next/pull/2438))
+
+### 🚧 Others
+- `Upload`: 输出完整的测试用例（135 个），平均覆盖率达 `95%+` @chaishi ([#2418](https://github.com/Tencent/tdesign-vue-next/pull/2418))
 ## 🌈 1.0.8 `2023-02-17` 
 ### 🚀 Features
 - `Timeline`: 

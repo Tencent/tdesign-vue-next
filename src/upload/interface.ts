@@ -19,6 +19,8 @@ export interface CommonDisplayFileProps {
   uploading?: boolean;
   tipsClasses?: string;
   errorClasses?: string[];
+  placeholderClass?: string;
+  showUploadProgress?: boolean;
   xhrReq?: XMLHttpRequest;
   default?: TNode;
   fileListDisplay?: TdUploadProps['fileListDisplay'];

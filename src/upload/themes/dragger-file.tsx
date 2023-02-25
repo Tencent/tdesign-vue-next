@@ -5,7 +5,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
-import TLink from '../../link';
+import Button from '../../button';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import useCommonClassName from '../../hooks/useCommonClassName';
@@ -13,6 +13,8 @@ import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer from '../../image-viewer';
+import { useTNodeJSX } from '../../hooks';
+import { UploadConfig } from '../../config-provider';
 
 export interface DraggerProps extends CommonDisplayFileProps {
   trigger?: TdUploadProps['trigger'];
@@ -34,8 +36,11 @@ export default defineComponent({
     dragEvents: Object as PropType<DraggerProps['dragEvents']>,
   },
 
-  setup(props: DraggerProps, { slots }) {
-    const { displayFiles, locale, disabled } = toRefs(props);
+  setup(props, { slots }) {
+    const { displayFiles, disabled } = toRefs(props);
+    const locale = computed(() => props.locale as UploadConfig);
+
+    const renderTNodeJSX = useTNodeJSX();
 
     const { sizeClassNames } = useCommonClassName();
     const uploadPrefix = `${props.classPrefix}-upload`;
@@ -57,9 +62,10 @@ export default defineComponent({
     });
 
     const renderImage = () => {
+      if (!props.displayFiles.length) return;
       const file = displayFiles.value[0];
       if (!file) return null;
-      const url = file.url || file.response?.url;
+      const url = file?.url || file?.response?.url;
       return (
         <div class={`${uploadPrefix}__dragger-img-wrap`}>
           {url && (
@@ -70,9 +76,10 @@ export default defineComponent({
     };
 
     const renderUploading = () => {
+      if (!props.displayFiles.length) return;
       const file = displayFiles.value[0];
       if (!file) return null;
-      if (file.status === 'progress') {
+      if (file?.status === 'progress') {
         return (
           <div class={`${uploadPrefix}__single-progress`}>
             <TLoading />
@@ -84,29 +91,33 @@ export default defineComponent({
 
     const renderMainPreview = () => {
       const file = displayFiles.value[0];
-      if (!file) return null;
       const fileName = props.abridgeName ? abridgeName(file.name, ...props.abridgeName) : file.name;
+
+      const fileInfo = [
+        <div class={`${uploadPrefix}__dragger-text`} key="info">
+          <span class={`${uploadPrefix}__single-name`}>{fileName}</span>
+          {file.status === 'progress' && renderUploading()}
+          {file.status === 'success' && <CheckCircleFilledIcon />}
+          {file.status === 'fail' && <ErrorCircleFilledIcon />}
+        </div>,
+        <small class={`${sizeClassNames.small}`} key="size">
+          {locale.value.file.fileSizeText}：{getFileSizeText(file.size)}
+        </small>,
+        <small class={`${sizeClassNames.small}`} key="time">
+          {locale.value.file.fileOperationDateText}：{file.uploadTime || '-'}
+        </small>,
+      ];
       return (
         <div class={`${uploadPrefix}__dragger-progress`}>
           {props.theme === 'image' && renderImage()}
           <div class={`${uploadPrefix}__dragger-progress-info`}>
-            <div class={`${uploadPrefix}__dragger-text`}>
-              <span class={`${uploadPrefix}__single-name`}>{fileName}</span>
-              {file.status === 'progress' && renderUploading()}
-              {file.status === 'success' && <CheckCircleFilledIcon />}
-              {file.status === 'fail' && <ErrorCircleFilledIcon />}
-            </div>
-            <small class={`${sizeClassNames.small}`}>
-              {locale.value.file.fileSizeText}：{getFileSizeText(file.size)}
-            </small>
-            <small class={`${sizeClassNames.small}`}>
-              {locale.value.file.fileOperationDateText}：{file.uploadTime || '-'}
-            </small>
+            {renderTNodeJSX('fileListDisplay', { params: { files: props.displayFiles } }) || fileInfo}
+
             <div class={`${uploadPrefix}__dragger-btns`}>
-              {['progress', 'waiting'].includes(file.status) && !disabled && (
-                <TLink
+              {['progress', 'waiting'].includes(file.status) && !disabled.value && (
+                <Button
                   theme="primary"
-                  hover="color"
+                  variant="text"
                   class={`${uploadPrefix}__dragger-progress-cancel`}
                   onClick={(e: MouseEvent) =>
                     props.cancelUpload?.({
@@ -116,40 +127,40 @@ export default defineComponent({
                   }
                 >
                   {locale.value?.cancelUploadText}
-                </TLink>
+                </Button>
               )}
               {!props.autoUpload && file.status === 'waiting' && (
-                <TLink
+                <Button
                   theme="primary"
-                  hover="color"
+                  variant="text"
                   disabled={disabled.value}
                   onClick={() => props.uploadFiles?.()}
                   class={`${uploadPrefix}__dragger-upload-btn`}
                 >
                   {locale.value.triggerUploadText.normal}
-                </TLink>
+                </Button>
               )}
             </div>
             {['fail', 'success'].includes(file?.status) && !disabled.value && (
               <div class={`${uploadPrefix}__dragger-btns`}>
-                <TLink
+                <Button
                   theme="primary"
-                  hover="color"
+                  variant="text"
                   disabled={disabled.value}
                   class={`${uploadPrefix}__dragger-progress-cancel`}
                   onClick={props.triggerUpload}
                 >
                   {locale.value.triggerUploadText.reupload}
-                </TLink>
-                <TLink
+                </Button>
+                <Button
                   theme="danger"
-                  hover="color"
+                  variant="text"
                   disabled={disabled.value}
                   class={`${uploadPrefix}__dragger-delete-btn`}
                   onClick={(e: MouseEvent) => props.onRemove({ e, index: 0, file })}
                 >
                   {locale.value.triggerUploadText.delete}
-                </TLink>
+                </Button>
               </div>
             )}
           </div>
@@ -170,7 +181,7 @@ export default defineComponent({
 
     const getContent = () => {
       const file = displayFiles.value[0];
-      if (file && ['progress', 'success', 'fail', 'waiting'].includes(file.status)) {
+      if (file && (['progress', 'success', 'fail', 'waiting'].includes(file.status) || !file.status)) {
         return renderMainPreview();
       }
       return (

@@ -18,7 +18,8 @@ const defaultNavigation: SwiperNavigation = {
 export default defineComponent({
   name: 'TSwiper',
   props: { ...props },
-  setup(props) {
+  emits: ['update:current'],
+  setup(props, { emit }) {
     const prefix = usePrefixClass();
     const { ChevronLeftIcon, ChevronRightIcon } = useGlobalIcon({
       ChevronLeftIcon: TdChevronLeftIcon,
@@ -127,6 +128,7 @@ export default defineComponent({
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
       let targetIndex = index % swiperItemLength.value;
       navActiveIndex.value = targetIndex;
+      emit('update:current', targetIndex);
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
       if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {

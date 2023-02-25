@@ -8,6 +8,7 @@
       header="提示"
       body="对话框内容"
       :on-close="close1"
+      :cancel-btn="null"
       @confirm="onClickConfirm"
     />
 
@@ -18,6 +19,7 @@
       header="恭喜"
       body="对话框内容"
       :on-close="close2"
+      :cancel-btn="null"
       @confirm="onClickConfirm"
     />
 
@@ -49,6 +51,7 @@
       body="对话框内容"
       :close-btn="false"
       :on-close="close5"
+      :cancel-btn="null"
       @confirm="onClickConfirm"
     >
       <template #header>

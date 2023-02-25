@@ -25,9 +25,10 @@ import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
-import { getAttach, getScrollbarWidth, getSSRAttach } from '../utils/dom';
+import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
+import useTeleport from '../hooks/useTeleport';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -93,7 +94,6 @@ let key = 1;
 
 export default defineComponent({
   name: 'TDialog',
-
   // 注册v-draggable指令,传入true时候初始化拖拽事件
   directives: {
     draggable(el, binding) {
@@ -103,9 +103,8 @@ export default defineComponent({
       }
     },
   },
-
+  inheritAttrs: false,
   props,
-
   emits: ['update:visible'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
@@ -128,7 +127,8 @@ export default defineComponent({
       emitCloseEvent({ e, trigger: 'cancel' });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
-
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -324,7 +324,6 @@ export default defineComponent({
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
-            theme: props.theme,
             confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
             globalConfirm: globalConfig.value.confirm,
             globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
@@ -398,7 +397,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
+      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
       styleEl.value = document.createElement('style');
       styleEl.value.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
@@ -428,6 +427,7 @@ export default defineComponent({
       afterLeave,
       hasEventOn,
       renderDialog,
+      teleportElement,
     };
   },
   render() {
@@ -448,7 +448,7 @@ export default defineComponent({
       },
     ];
     return (
-      <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+      <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
         <Transition
           duration={300}
           name={`${COMPONENT_NAME}-zoom__vue`}

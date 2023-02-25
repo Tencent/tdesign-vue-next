@@ -1,10 +1,11 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
-import { addClass, removeClass, getAttach, getSSRAttach } from '../utils/dom';
+import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useTeleport from '../hooks/useTeleport';
 
 const useComponentClassName = () => {
   return {
@@ -21,6 +22,7 @@ const useComponentClassName = () => {
 
 export default defineComponent({
   name: 'TLoading',
+  inheritAttrs: false,
   props,
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
@@ -38,7 +40,8 @@ export default defineComponent({
         clearTimeout(timer);
       }, props.delay);
     };
-
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
     // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
     const delayCounted = computed(() => Boolean(!props.delay || (props.delay && delayShowLoading.value)));
 
@@ -112,6 +115,7 @@ export default defineComponent({
       showNormalLoading,
       showFullScreenLoading,
       showAttachedLoading,
+      teleportElement,
     };
   },
   render() {
@@ -125,8 +129,8 @@ export default defineComponent({
     if (this.fullscreen) {
       if (!this.showFullScreenLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
-          <div class={fullScreenClasses} style={this.styles}>
+        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
+          <div class={fullScreenClasses} style={this.styles} {...this.$attrs}>
             <div class={baseClasses}>
               {indicator}
               {text}
@@ -139,7 +143,7 @@ export default defineComponent({
     // Loading is wrapping a HTMLElement.
     if (this.hasContent) {
       return (
-        <div class={this.relativeClass}>
+        <div class={this.relativeClass} {...this.$attrs}>
           {renderContent(this, 'default', 'content')}
           {this.showWrapLoading && (
             <div class={withContentClasses} style={this.styles}>
@@ -155,8 +159,8 @@ export default defineComponent({
     if (this.attach) {
       if (!this.showAttachedLoading || !this.loading) return null;
       return (
-        <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
-          <div class={attachClasses} style={this.styles}>
+        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
+          <div class={attachClasses} style={this.styles} {...this.$attrs}>
             {indicator}
             {text}
           </div>
@@ -166,7 +170,7 @@ export default defineComponent({
 
     // Normal Loading without overlay or content
     return this.loading ? (
-      <div class={normalClasses} style={this.styles}>
+      <div class={normalClasses} style={this.styles} {...this.$attrs}>
         {indicator}
         {text}
       </div>

@@ -10,7 +10,7 @@ import Button from '../button';
 import { CommonDisplayFileProps, UploadProps } from './interface';
 import { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
-import { useContent } from '../hooks/tnode';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TUpload',
@@ -19,6 +19,7 @@ export default defineComponent({
 
   setup(props: UploadProps, { slots, expose }) {
     const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
     const {
       locale,
       classPrefix,
@@ -30,6 +31,7 @@ export default defineComponent({
       uploading,
       tipsClasses,
       errorClasses,
+      placeholderClass,
       inputRef,
       disabled,
       onInnerRemove,
@@ -63,7 +65,11 @@ export default defineComponent({
           </Button>
         );
       };
-      return renderContent('default', 'trigger') || getDefaultTrigger();
+      return (
+        renderContent('default', 'trigger', {
+          params: { dragActive: false, files: uploadValue.value },
+        }) || getDefaultTrigger()
+      );
     };
 
     const commonDisplayFileProps = computed<CommonDisplayFileProps>(() => ({
@@ -80,9 +86,11 @@ export default defineComponent({
       classPrefix: classPrefix.value,
       tipsClasses,
       errorClasses,
+      placeholderClass,
       locale: locale.value,
       autoUpload: props.autoUpload,
       abridgeName: props.abridgeName,
+      showUploadProgress: props.showUploadProgress,
       fileListDisplay: props.fileListDisplay,
       onRemove: onInnerRemove,
     }));
@@ -98,7 +106,10 @@ export default defineComponent({
       <NormalFile
         {...commonDisplayFileProps.value}
         multiple={props.multiple}
-        v-slots={{ fileListDisplay: slots.fileListDisplay }}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
           {renderTrigger()}
@@ -114,6 +125,11 @@ export default defineComponent({
         cancelUpload={cancelUpload}
         triggerUpload={triggerUpload}
         uploadFiles={uploadFiles}
+        onCancelUpload={props.onCancelUpload}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       />
     );
 
@@ -139,10 +155,13 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
-        slots={Object.keys(slots).length ? slots : undefined}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
-          {renderTrigger()}
+          {!props.draggable && renderTrigger()}
         </div>
       </MultipleFlowList>
     );
@@ -158,6 +177,7 @@ export default defineComponent({
         childrenNode={slots.default}
         v-slots={{
           dragContent: slots.dragContent,
+          'drag-content': slots['drag-content'],
           trigger: slots.trigger,
         }}
       >
@@ -182,9 +202,9 @@ export default defineComponent({
         {['image-flow', 'file-flow'].includes(props.theme) && getFlowListNode()}
         {props.theme === 'custom' && getCustomFile()}
 
-        {props.tips && (
+        {Boolean(props.tips || slots.tips) && (
           <small class={[tipsClasses, { [`${classPrefix.value}-upload__tips-${props.status}`]: props.status }]}>
-            {props.tips}
+            {renderTNodeJSX('tips')}
           </small>
         )}
       </div>

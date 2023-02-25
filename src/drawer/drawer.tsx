@@ -2,18 +2,21 @@ import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpda
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer, getScrollbarWidth, getAttach, getSSRAttach } from '../utils/dom';
+import { isServer } from '../utils/dom';
+import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
+import useTeleport from '../hooks/useTeleport';
 
 let key = 1;
 
 export default defineComponent({
   name: 'TDrawer',
+  inheritAttrs: false,
   props,
   emits: ['update:visible'],
   setup(props, context) {
@@ -27,6 +30,9 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props as TdDrawerProps);
+
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -216,7 +222,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      const hasScrollBar = document.body.scrollHeight > document.body.clientHeight;
+      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
 
       styleEl.value = document.createElement('style');
@@ -244,7 +250,7 @@ export default defineComponent({
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
       return (
-        <Teleport disabled={!props.attach} to={getSSRAttach() || getAttach(props.attach)}>
+        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <div
             ref={drawerEle}
             class={drawerClasses.value}

@@ -33,6 +33,7 @@ export default defineComponent({
     const animationTimer = ref();
 
     const wrapClass = computed(() => [
+      COMPONENT_NAME.value,
       `${COMPONENT_NAME.value}-preview-image`,
       {
         [`${classPrefix.value}-is-hide`]: !visibleValue.value,

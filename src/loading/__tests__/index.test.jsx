@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
 import { expect } from 'vitest';
 import Loading from '@/src/loading/index.ts';
 
@@ -65,8 +64,8 @@ describe('Loading', () => {
       expect(getComputedStyle(loading.element, null).fontSize).toBe('50px');
     });
 
-    it(':attach', () => {
-      mount(() => <Loading attach="body"></Loading>);
+    it(':attach', async () => {
+      await mount(() => <Loading attach="body"></Loading>);
       // 组件的attach使用了Teleport，所以wrapper.find等方法拿不到
       expect(document.querySelector('body > .t-loading') !== null).toEqual(true);
     });

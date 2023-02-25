@@ -28,10 +28,11 @@ const COMMON_PROPERTIES = [
 const DEFAULT_KEYS = {
   label: 'label',
   value: 'value',
+  children: 'children',
 };
 
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
-  const iKeys = keys || DEFAULT_KEYS;
+  const iKeys = { ...DEFAULT_KEYS, ...keys };
   return isObject(value) ? value[iKeys.label] : value;
 }
 
@@ -67,9 +68,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
 
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
-    const pureValue = getInputValue(value.value, keys.value);
-    const displayedValue =
-      popupVisible && props.allowInput ? inputValue.value || pureValue : getInputValue(value.value, keys.value);
+    const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
