@@ -25,7 +25,7 @@ import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
-import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
+import getScrollbarWidth from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';

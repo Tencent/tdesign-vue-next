@@ -16,7 +16,7 @@ import debounce from 'lodash/debounce';
 import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
-import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
+import getScrollbarWidth from '../../_common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
 import {
   FixedColumnInfo,
@@ -530,7 +530,7 @@ export default function useFixed(
   }
 
   onMounted(() => {
-    const scrollWidth = getScrollbarWidthWithCSS();
+    const scrollWidth = getScrollbarWidth();
     scrollbarWidth.value = scrollWidth;
     const timer = setTimeout(() => {
       updateTableWidth();
