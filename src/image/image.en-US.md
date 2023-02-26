@@ -17,6 +17,7 @@ placeholder | String / Slot / Function | - | Typescript：`string \| TNode`。[s
 position | String | center | \- | N
 shape | String | square | options：circle/round/square | N
 src | String | - | \- | N
+srcset | Object | - | for `.avif` and `.webp` image url。Typescript：`ImageSrcset` `interface ImageSrcset { 'image/avif': string; 'image/webp': string; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image/type.ts) | N
 onError | Function |  | Typescript：`(context: { e: ImageEvent }) => void`<br/>trigger on image load failed | N
 onLoad | Function |  | Typescript：`(context: { e: ImageEvent }) => void`<br/>trigger on image loaded | N
 
