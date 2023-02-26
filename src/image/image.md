@@ -17,6 +17,7 @@ placeholder | String / Slot / Function | - | 占位元素，展示层级低于 `
 position | String | center | 等同于原生的 object-position 属性，可选值为 top right bottom left 或 string，可以自定义任何单位，px 或者 百分比 | N
 shape | String | square | 图片圆角类型。可选项：circle/round/square | N
 src | String | - | 图片链接 | N
+srcset | Object | - | 图片地址，支持特殊格式的图片，如 `.avif` 和 `.webp`。TS 类型：`ImageSrcset` `interface ImageSrcset { 'image/avif': string; 'image/webp': string; }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image/type.ts) | N
 onError | Function |  | TS 类型：`(context: { e: ImageEvent }) => void`<br/>图片加载失败时触发 | N
 onLoad | Function |  | TS 类型：`(context: { e: ImageEvent }) => void`<br/>图片加载完成时触发 | N
 
