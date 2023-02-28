@@ -11,6 +11,7 @@ import { CommonDisplayFileProps, UploadProps } from './interface';
 import { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useFormDisabled } from '../form/hooks';
 
 export default defineComponent({
   name: 'TUpload',
@@ -33,7 +34,6 @@ export default defineComponent({
       errorClasses,
       placeholderClass,
       inputRef,
-      disabled,
       onInnerRemove,
       uploadFiles,
       onNormalFileChange,
@@ -41,6 +41,7 @@ export default defineComponent({
       triggerUpload,
       cancelUpload,
     } = useUpload(props);
+    const disabled = useFormDisabled();
 
     expose({
       upload: inputRef.value,
