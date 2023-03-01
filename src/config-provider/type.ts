@@ -9,6 +9,7 @@ import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { MessageOptions } from '../message';
+import { ImageProps } from '../image';
 import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
@@ -833,6 +834,10 @@ export interface ImageConfig {
    * @default ''
    */
   loadingText?: string;
+  /**
+   * 统一替换图片 `src` 地址，参数为组件的全部属性，返回值为新的图片地址
+   */
+  replaceImageSrc?: (params: ImageProps) => string;
 }
 
 export interface ImageViewerConfig {
