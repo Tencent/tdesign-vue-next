@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, PropType, Slots, ref, ComputedRef } from 'vue';
+import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
 import { Styles } from '../common';
@@ -138,7 +138,7 @@ export default defineComponent({
       innerRef,
     });
 
-    const renderPanel = (options: ComputedRef<SelectOption[]>, extraStyle?: ComputedRef<Styles>) => (
+    const renderPanel = (options: SelectOption[], extraStyle?: Styles) => (
       <div
         ref={innerRef}
         class={[
@@ -146,7 +146,7 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
         onClick={(e) => e.stopPropagation()}
-        style={extraStyle?.value}
+        style={extraStyle}
       >
         {renderTNodeJSX('panelTopContent')}
         {/* create option */}
@@ -163,20 +163,27 @@ export default defineComponent({
           renderDefaultTNode('empty', {
             defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
           })}
-        {!isEmpty.value && !props.loading && renderOptionsContent(options.value)}
+        {!isEmpty.value && !props.loading && renderOptionsContent(options)}
         {renderTNodeJSX('panelBottomContent')}
       </div>
     );
-
-    if (isVirtual.value) {
-      return () => (
-        <div>
-          <div style={cursorStyle.value}></div>
-          {renderPanel(visibleData as ComputedRef<SelectOption[]>, panelStyle)}
-        </div>
-      );
-    }
-
-    return () => renderPanel(displayOptions);
+    return {
+      renderPanel,
+      panelStyle,
+      cursorStyle,
+      isVirtual,
+      displayOptions,
+      visibleData,
+    };
+  },
+  render() {
+    return this.isVirtual ? (
+      <div>
+        <div style={this.cursorStyle}></div>
+        {this.renderPanel(this.visibleData, this.panelStyle)}
+      </div>
+    ) : (
+      this.renderPanel(this.displayOptions)
+    );
   },
 });
