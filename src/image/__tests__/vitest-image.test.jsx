@@ -147,6 +147,21 @@ describe('Image Component', () => {
     });
   });
 
+  it(`props.srcset is equal to {'image/avif': 'https://tdesign.gtimg.com/img/tdesign-image.avif','image/webp': 'https://tdesign.gtimg.com/img/tdesign-image.webp'}`, () => {
+    const wrapper = mount(
+      <Image
+        srcset={{
+          'image/avif': 'https://tdesign.gtimg.com/img/tdesign-image.avif',
+          'image/webp': 'https://tdesign.gtimg.com/img/tdesign-image.webp',
+        }}
+      ></Image>,
+    );
+    const domWrapper = wrapper.find('picture > source');
+    expect(domWrapper.attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.avif');
+    const domWrapper1 = wrapper.find('picture > source:nth-child(2)');
+    expect(domWrapper1.attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.webp');
+  });
+
   it('events.error works fine', async () => {
     const onErrorFn = vi.fn();
     const wrapper = mount(<Image src={'https://load-failed-img.png'} onError={onErrorFn}></Image>);

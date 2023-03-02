@@ -70,6 +70,10 @@ export default {
     type: String,
     default: '',
   },
+  /** 图片地址，支持特殊格式的图片，如 `.avif` 和 `.webp` */
+  srcset: {
+    type: Object as PropType<TdImageProps['srcset']>,
+  },
   /** 图片加载失败时触发 */
   onError: Function as PropType<TdImageProps['onError']>,
   /** 图片加载完成时触发 */

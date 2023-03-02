@@ -1,5 +1,6 @@
 import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
 import omit from 'lodash/omit';
+import isFunction from 'lodash/isFunction';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
@@ -32,13 +33,16 @@ export default defineComponent({
 
     const { classPrefix, globalConfig } = useConfig('image');
 
-    const imageSrc = ref(props.src);
+    // replace image url
+    const imageSrc = computed(() =>
+      isFunction(globalConfig.value.replaceImageSrc) ? globalConfig.value.replaceImageSrc(props) : props.src,
+    );
+
     watch(
       () => props.src,
       () => {
         hasError.value = false;
         isLoaded.value = false;
-        imageSrc.value = props.src;
       },
     );
 
@@ -62,6 +66,12 @@ export default defineComponent({
     const hasMouseEvent = computed(() => {
       return props.overlayTrigger === 'hover';
     });
+
+    const imageClasses = computed(() => [
+      `${classPrefix.value}-image`,
+      `${classPrefix.value}-image--fit-${props.fit}`,
+      `${classPrefix.value}-image--position-${props.position}`,
+    ]);
 
     const shouldShowOverlay = ref(!hasMouseEvent.value);
     const handleToggleOverlay = () => {
@@ -95,6 +105,21 @@ export default defineComponent({
         </div>
       );
     };
+
+    function renderImageSrcset() {
+      return (
+        <picture>
+          {Object.entries(props.srcset).map(([type, url]) => (
+            <source type={type} srcset={url} />
+          ))}
+          {props.src && renderImage(props.src)}
+        </picture>
+      );
+    }
+
+    function renderImage(url: string) {
+      return <img src={url} onError={handleError} onLoad={handleLoad} class={imageClasses.value} alt={props.alt} />;
+    }
 
     const renderTNodDefault = useTNodeDefault();
 
@@ -130,19 +155,8 @@ export default defineComponent({
         {renderGalleryShadow()}
 
         {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
-        {!(hasError.value || !shouldLoad.value) && (
-          <img
-            src={imageSrc.value}
-            onError={handleError}
-            onLoad={handleLoad}
-            class={[
-              `${classPrefix.value}-image`,
-              `${classPrefix.value}-image--fit-${props.fit}`,
-              `${classPrefix.value}-image--position-${props.position}`,
-            ]}
-            alt={props.alt}
-          />
-        )}
+        {!(hasError.value || !shouldLoad.value) &&
+          (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage(imageSrc.value))}
         {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
           <div class={`${classPrefix.value}-image__loading`}>
             {renderTNodeJSX('loading') || (

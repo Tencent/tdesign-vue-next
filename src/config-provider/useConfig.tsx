@@ -21,7 +21,7 @@ export * from './type';
  */
 export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
   const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
-  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
+  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || (defaultGlobalConfig as GlobalConfigProvider));
   const globalConfig = computed(() => mergedGlobalConfig.value[componentName]);
 
   const classPrefix = computed(() => {

@@ -25,10 +25,10 @@ import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { stack } from './stack';
-import { getAttach, getSSRAttach } from '../utils/dom';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
+import useTeleport from '../hooks/useTeleport';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -127,7 +127,8 @@ export default defineComponent({
       emitCloseEvent({ e, trigger: 'cancel' });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
-
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -199,10 +200,10 @@ export default defineComponent({
                   mousePosition.y - dialogEle.value.offsetTop
                 }px`;
               }
-              // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
-              (document.activeElement as HTMLElement).blur();
             });
           }
+          // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
+          (document.activeElement as HTMLElement)?.blur();
         } else {
           clearStyleFunc();
         }
@@ -323,6 +324,7 @@ export default defineComponent({
             className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
+            theme: props.theme,
             confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
             globalConfirm: globalConfig.value.confirm,
             globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
@@ -426,6 +428,7 @@ export default defineComponent({
       afterLeave,
       hasEventOn,
       renderDialog,
+      teleportElement,
     };
   },
   render() {
@@ -446,7 +449,7 @@ export default defineComponent({
       },
     ];
     return (
-      <Teleport disabled={!this.attach} to={getSSRAttach() || getAttach(this.attach)}>
+      <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
         <Transition
           duration={300}
           name={`${COMPONENT_NAME}-zoom__vue`}

@@ -8,6 +8,7 @@ export function install(app: App, config?: Record<string, unknown>): void {
 }
 
 export * from './components';
+export * from './common';
 export default {
   install,
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION, // eslint-disable-line
