@@ -4,6 +4,11 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.1.1 `2023-03-02` 
+### 🐞 Bug Fixes
+- `Popup`: 修复 `popup` 的 `trigger` 为空错误 @Aicmortal ([#2499](https://github.com/Tencent/tdesign-vue-next/pull/2499))
+- `Select`: 修复远程搜索切换正常渲染与虚拟滚动的问题 @uyarn ([#2496](https://github.com/Tencent/tdesign-vue-next/pull/2496))
+- `Textarea`: 修复 `1.1.0` 版本的 `textarea` 样式问题 @uyarn ([#2496](https://github.com/Tencent/tdesign-vue-next/pull/2496))
 ## 🌈 1.1.0 `2023-03-02` 
 ### 🚀 Features
 - `Image`: 
