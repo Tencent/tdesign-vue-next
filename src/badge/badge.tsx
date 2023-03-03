@@ -13,7 +13,6 @@ export default defineComponent({
 
     /** 内容计算相关逻辑 start */
     const content = computed(() => {
-      if (props.dot) return '';
       if (isFunction(props.count)) {
         return renderTNodeJSX('count');
       }
@@ -78,7 +77,7 @@ export default defineComponent({
         {this.renderChildren()}
         {this.isHidden ? null : (
           <sup class={this.badgeClassNames} style={this.inlineStyle}>
-            {this.content}
+            {this.dot ? null : this.content}
           </sup>
         )}
       </div>
