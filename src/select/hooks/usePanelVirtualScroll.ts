@@ -48,16 +48,12 @@ export const usePanelVirtualScroll = (props: {
 
   // 监听popup滚动 处理虚拟滚动时的virtualData变化
   onMounted(() => {
-    if (isVirtual.value) {
-      props.popupContentRef.value?.addEventListener('scroll', onInnerVirtualScroll);
-    }
+    props.popupContentRef.value?.addEventListener('scroll', onInnerVirtualScroll);
   });
 
   // 卸载时取消监听
   onBeforeUnmount(() => {
-    if (isVirtual.value) {
-      props.popupContentRef.value?.removeEventListener('scroll', onInnerVirtualScroll);
-    }
+    props.popupContentRef.value?.removeEventListener('scroll', onInnerVirtualScroll);
   });
 
   const cursorStyle = computed(
