@@ -77,7 +77,7 @@ export default function useRange(props: TdDateRangePickerProps) {
       const newYear: Array<number> = [];
       const newMonth: Array<number> = [];
       const newTime: Array<string> = [];
-      newVal.forEach((v, i) => {
+      newVal.forEach((v) => {
         newYear.push(parseToDayjs(v, formatRef.value.format).year());
         newMonth.push(parseToDayjs(v, formatRef.value.format).month());
         newTime.push(parseToDayjs(v, formatRef.value.format).format(formatRef.value.timeFormat));
