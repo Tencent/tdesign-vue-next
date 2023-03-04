@@ -78,13 +78,14 @@ export default defineComponent({
       rowAndColFixedPosition,
       setData,
       refreshTable,
+      setTableElmWidth,
       emitScrollEvent,
       setUseFixedTableElmRef,
       updateColumnFixedShadow,
       getThWidthList,
       updateThWidthList,
-      setRecalculateColWidthFuncRef,
       addTableResizeObserver,
+      updateTableAfterColumnResize,
     } = useFixed(props, context, finalColumns, {
       paginationAffixRef,
       horizontalScrollAffixRef,
@@ -109,9 +110,16 @@ export default defineComponent({
     const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
 
     // 列宽拖拽逻辑
-    const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);
-    const { resizeLineRef, resizeLineStyle, recalculateColWidth, setEffectColMap } = columnResizeParams;
-    setRecalculateColWidthFuncRef(recalculateColWidth);
+    const columnResizeParams = useColumnResize({
+      isWidthOverflow,
+      tableContentRef,
+      showColumnShadow,
+      getThWidthList,
+      updateThWidthList,
+      setTableElmWidth,
+      updateTableAfterColumnResize,
+    });
+    const { resizeLineRef, resizeLineStyle, setEffectColMap } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -157,18 +165,9 @@ export default defineComponent({
       spansAndLeafNodes,
       () => {
         props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
+        setEffectColMap(spansAndLeafNodes.value.leafColumns, null);
       },
       { immediate: true },
-    );
-
-    watch(
-      thList,
-      () => {
-        setEffectColMap(thList.value[0], null);
-      },
-      {
-        immediate: true,
-      },
     );
 
     const onFixedChange = () => {
@@ -288,8 +287,9 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
-    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
-    if (columnResizable && this.tableLayout === 'auto') {
+    const columnResizable = computed(() => props.allowResizeColumnWidth ?? props.resizable);
+
+    if (columnResizable.value && this.tableLayout === 'auto') {
       log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
     }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
@@ -504,10 +504,23 @@ export default defineComponent({
           <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />
         )}
 
-        <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
+        <table
+          ref="tableElmRef"
+          class={this.tableElmClasses}
+          style={{
+            ...this.tableElementStyles,
+            width:
+              this.resizable && this.isWidthOverflow && this.tableElmWidth
+                ? `${this.tableElmWidth}px`
+                : this.tableElementStyles.width,
+          }}
+        >
           {renderColGroup(false)}
           {this.showHeader && (
-            <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
+            <THead
+              v-slots={this.$slots}
+              {...{ ...headProps, thWidthList: columnResizable.value ? this.thWidthList : {} }}
+            />
           )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot

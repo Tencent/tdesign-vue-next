@@ -79,7 +79,7 @@ export interface HTMLElementAttributes {
   [css: string]: string;
 }
 
-export interface InfinityScroll {
+export interface TScroll {
   /**
    * 表示除可视区域外，额外渲染的行数，避免快速滚动过程中，新出现的内容来不及渲染从而出现空白
    * @default 20
@@ -105,4 +105,7 @@ export interface InfinityScroll {
   type: 'lazy' | 'virtual';
 }
 
-export type TScroll = InfinityScroll;
+/**
+ * @deprecated use TScroll instead
+ */
+export type InfinityScroll = TScroll;

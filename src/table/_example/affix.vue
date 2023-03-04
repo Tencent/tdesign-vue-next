@@ -172,7 +172,7 @@ watch(
  * 如果不设置，列多了之后会挤在一起
  * **/
 .tdesign-demo__table-affix table {
-  width: 1200px;
+  min-width: 1200px;
 }
 
 /* .tdesign-demo__table-affix .t-table {
