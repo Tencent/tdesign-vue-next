@@ -18,13 +18,7 @@ import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
-import {
-  FixedColumnInfo,
-  TableRowFixedClasses,
-  RowAndColFixedPosition,
-  TableColFixedClasses,
-  RecalculateColumnWidthFunc,
-} from '../interface';
+import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
 import { getIEVersion } from '../../_common/js/utils/helper';
 
 // 固定列相关类名处理

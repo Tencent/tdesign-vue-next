@@ -1,5 +1,5 @@
 <template>
-  <t-space direction="vertical" style="width: 500px">
+  <t-space direction="vertical">
     <!-- 按钮操作区域 -->
     <t-radio-group v-model="size" variant="default-filled">
       <t-radio-button value="small">小尺寸</t-radio-button>
@@ -17,7 +17,6 @@
 
     <!-- 当数据为空需要占位时，会显示 cellEmptyContent -->
     <t-table
-      resizable
       row-key="index"
       :data="data"
       :columns="columns"
@@ -29,6 +28,7 @@
       :pagination="pagination"
       :show-header="showHeader"
       cell-empty-content="-"
+      resizable
       @row-click="handleRowClick"
     >
     </t-table>
@@ -81,11 +81,10 @@ const columns = ref([
         </t-tag>
       );
     },
-    width: 200,
   },
-  { colKey: 'channel', title: '签署方式', width: 200 },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true, width: 200 },
-  { colKey: 'createTime', title: '申请时间', width: 200 },
+  { colKey: 'channel', title: '签署方式' },
+  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
+  { colKey: 'createTime', title: '申请时间' },
 ]);
 
 const handleRowClick = (e) => {
