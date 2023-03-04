@@ -1,6 +1,11 @@
 import { toRefs, watchEffect, ref, computed } from 'vue';
-import dayjs from 'dayjs';
-import { formatDate, formatTime, isValidDate, getDefaultFormat } from '../../_common/js/date-picker/format';
+import {
+  formatDate,
+  formatTime,
+  isValidDate,
+  getDefaultFormat,
+  parseToDayjs,
+} from '../../_common/js/date-picker/format';
 import useVModel from '../../hooks/useVModel';
 import { TdDatePickerProps } from '../type';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
@@ -23,8 +28,8 @@ export default function useSingleValue(props: TdDatePickerProps) {
   }
 
   const time = ref(formatTime(value.value, formatRef.value.timeFormat));
-  const month = ref<number>(dayjs(value.value).month() || new Date().getMonth());
-  const year = ref<number>(dayjs(value.value).year() || new Date().getFullYear());
+  const month = ref<number>(parseToDayjs(value.value, formatRef.value.format).month());
+  const year = ref<number>(parseToDayjs(value.value, formatRef.value.format).year());
   const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 缓存选中值，panel 点击时更改
 
   // 输入框响应 value 变化
