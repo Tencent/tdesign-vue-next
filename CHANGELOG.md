@@ -4,6 +4,31 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.1.1 `2023-03-02` 
+### 🐞 Bug Fixes
+- `Popup`: 修复 `popup` 的 `trigger` 为空错误 @Aicmortal ([#2499](https://github.com/Tencent/tdesign-vue-next/pull/2499))
+- `Select`: 修复远程搜索切换正常渲染与虚拟滚动的问题 @uyarn ([#2496](https://github.com/Tencent/tdesign-vue-next/pull/2496))
+- `Textarea`: 修复 `1.1.0` 版本的 `textarea` 样式问题 @uyarn ([#2496](https://github.com/Tencent/tdesign-vue-next/pull/2496))
+## 🌈 1.1.0 `2023-03-02` 
+### 🚀 Features
+- `Image`: 
+  - 图片组件支持特殊格式的地址 `.avif` 和 `.webp` @chaishi ([#2463](https://github.com/Tencent/tdesign-vue-next/pull/2463))
+  - 新增图片全局配置 `globalConfig.image.replaceImageSrc`，用于统一替换图片地址 @chaishi ([#2463](https://github.com/Tencent/tdesign-vue-next/pull/2463))
+- `SelectInput`: `collapsedItems.count`  含义修正为折叠的标签数量 @chaishi ([#2447](https://github.com/Tencent/tdesign-vue-next/pull/2447))
+- `Types`: 新增公共 `types` 文件的导出 @PengYYYYY ([#2490](https://github.com/Tencent/tdesign-vue-next/pull/2490))
+### 🐞 Bug Fixes
+- `Dialog`: 
+  - 修复 `config-provider` 下配置的 `confirmBtnTheme` 失效的问题 @uyarn ([#2474](https://github.com/Tencent/tdesign-vue-next/pull/2474))
+  - 修复 `dialog` 打开后的焦点获取问题([issue #2466](https://github.com/Tencent/tdesign-vue-next/issues/2466)) @PengYYYYY ([#2491](https://github.com/Tencent/tdesign-vue-next/pull/2491))
+- `Loading`: 修复属性透传问题 @Aicmortal ([#2442](https://github.com/Tencent/tdesign-vue-next/pull/2442))
+- `Upload`: 修复禁用态的表单对 `upload` 组件无效问题 @yusongh ([#2472](https://github.com/Tencent/tdesign-vue-next/pull/2472))
+- `Textarea`: 解决 `textarea` 字符限制文案遮挡文本内容的问题 @duanbaosheng ([#2462](https://github.com/Tencent/tdesign-vue-next/pull/2462))
+- `Menu`: `menu-item` 设置href属性后的样式问题 @tiny-dust ([#2458](https://github.com/Tencent/tdesign-vue-next/pull/2458))
+- `Teleport`: 修复使用了 `Teleport` 的组件无法挂载到当前组件内元素节点
+
+### 🚧 Others
+- `Space`: 输出完整的测试用例 @chaishi ([#2446](https://github.com/Tencent/tdesign-vue-next/pull/2446))
+- `Site`: 修复测试徽章无数据展示 @PengYYYYY ([#2490](https://github.com/Tencent/tdesign-vue-next/pull/2490))
 ## 🌈 1.0.9 `2023-02-21` 
 ### 🚀 Features
 - `Upload`: 

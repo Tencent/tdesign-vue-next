@@ -36,12 +36,12 @@ const options = [
 
 const value = ref('1');
 const popupProps = {
-  overlayStyle: {
-    width: '300px',
+  overlayInnerStyle: {
+    width: '200px',
   },
 };
 
 const popupProps2 = {
-  overlayStyle: (trigger) => ({ width: `${trigger.offsetWidth}px` }),
+  overlayInnerStyle: (trigger) => ({ width: `${trigger.offsetWidth}px` }),
 };
 </script>

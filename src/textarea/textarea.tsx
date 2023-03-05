@@ -226,6 +226,20 @@ export default defineComponent({
 
       const tips = renderTNodeJSX('tips');
 
+      const textTips = tips && (
+        <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
+      );
+
+      const limitText =
+        (props.maxcharacter && (
+          <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
+        )) ||
+        (!props.maxcharacter && props.maxlength && (
+          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+            props.maxlength
+          }`}</span>
+        ));
+
       return (
         <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
           <textarea
@@ -238,17 +252,19 @@ export default defineComponent({
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
-          {props.maxcharacter && (
-            <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
-          )}
-          {!props.maxcharacter && props.maxlength ? (
-            <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
-              props.maxlength
-            }`}</span>
+          {textTips || limitText ? (
+            <div
+              class={[
+                `${name.value}__info_wrapper`,
+                {
+                  [`${name.value}__info_wrapper_align`]: !textTips,
+                },
+              ]}
+            >
+              {textTips}
+              {limitText}
+            </div>
           ) : null}
-          {tips && (
-            <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
-          )}
         </div>
       );
     };
