@@ -163,6 +163,13 @@ export default {
           path: '/vue-next/components/tabs',
           component: () => import('tdesign-vue-next/tabs/tabs.md'),
         },
+        {
+          title: 'StickyTool 侧边栏',
+          titleEn: 'StickyTool',
+          name: 'StickyTool',
+          path: '/vue/components/sticky-tool',
+          component: () => import('tdesign-vue-next/sticky-tool/sticky-tool.md'),
+        },
       ],
     },
     {
