@@ -34,7 +34,7 @@ exports[`BaseTable Component > props.showHeader: BaseTable contains element \`th
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -44,7 +44,7 @@ exports[`BaseTable Component > props.showHeader: BaseTable contains element \`th
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -54,7 +54,7 @@ exports[`BaseTable Component > props.showHeader: BaseTable contains element \`th
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -232,7 +232,7 @@ exports[`BaseTable Component > props.showHeader: BaseTable contains element \`th
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;
@@ -271,7 +271,7 @@ exports[`BaseTable Component > props.size is equal to large 1`] = `
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -281,7 +281,7 @@ exports[`BaseTable Component > props.size is equal to large 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -291,7 +291,7 @@ exports[`BaseTable Component > props.size is equal to large 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -469,7 +469,7 @@ exports[`BaseTable Component > props.size is equal to large 1`] = `
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;
@@ -508,7 +508,7 @@ exports[`BaseTable Component > props.size is equal to medium 1`] = `
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -518,7 +518,7 @@ exports[`BaseTable Component > props.size is equal to medium 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -528,7 +528,7 @@ exports[`BaseTable Component > props.size is equal to medium 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -706,7 +706,7 @@ exports[`BaseTable Component > props.size is equal to medium 1`] = `
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;
@@ -745,7 +745,7 @@ exports[`BaseTable Component > props.size is equal to small 1`] = `
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -755,7 +755,7 @@ exports[`BaseTable Component > props.size is equal to small 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -765,7 +765,7 @@ exports[`BaseTable Component > props.size is equal to small 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -943,7 +943,7 @@ exports[`BaseTable Component > props.size is equal to small 1`] = `
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;
@@ -976,7 +976,7 @@ exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -986,7 +986,7 @@ exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -996,7 +996,7 @@ exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -1174,7 +1174,7 @@ exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;
@@ -1213,7 +1213,7 @@ exports[`BaseTable Component > props.tableLayout is equal to fixed 1`] = `
         <tr>
           
           <th
-            class="t-table__th-index"
+            class="t-table__th-index t-table__th--drag-sort"
             data-colkey="index"
           >
             <div
@@ -1223,7 +1223,7 @@ exports[`BaseTable Component > props.tableLayout is equal to fixed 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-applicant"
+            class="t-table__th-applicant t-table__th--drag-sort"
             data-colkey="applicant"
           >
             <div
@@ -1233,7 +1233,7 @@ exports[`BaseTable Component > props.tableLayout is equal to fixed 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-createTime"
+            class="t-table__th-createTime t-table__th--drag-sort"
             data-colkey="createTime"
           >
             <div
@@ -1411,7 +1411,7 @@ exports[`BaseTable Component > props.tableLayout is equal to fixed 1`] = `
   </div>
   <div
     class="t-table__resize-line"
-    style="display: none; left: 10px; height: 10px; bottom: 0px;"
+    style="display: none; height: 10px; left: 10px; bottom: 0px;"
   />
 </div>
 `;

@@ -32,6 +32,7 @@ const files = ref([
 ]);
 
 // 示例代码：自定义上传方法，一个请求上传一个文件
+// eslint-disable-next-line
 const requestMethod1 = () => {
   return new Promise((resolve) => {
     resolve({

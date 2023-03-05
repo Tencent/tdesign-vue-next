@@ -1,7 +1,7 @@
 <template>
-  <div class="demo-container t-table-demo-sort" style="width: 300px">
+  <div class="demo-container t-table-demo-sort">
     <div class="item">
-      <!-- 拖拽排序涉及到 columns 的变更，相对比较慎重，因此仅支持受控用法 -->
+      <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
       <t-table row-key="index" :columns="columns" :data="data" drag-sort="col" @drag-sort="onDragSort"> </t-table>
     </div>
   </div>
@@ -34,7 +34,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 const initialColumns = [
-  { colKey: 'applicant', title: '申请人', width: '100', fixed: 'left' },
+  { colKey: 'applicant', title: '申请人', width: '100' },
   {
     colKey: 'status',
     title: '申请状态',

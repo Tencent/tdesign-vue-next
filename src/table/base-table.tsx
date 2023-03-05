@@ -20,7 +20,6 @@ import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
-import log from '../_common/js/log';
 import { getIEVersion } from '../_common/js/utils/helper';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
