@@ -186,6 +186,7 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
+        editOnListeners.value.onEnter?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
           isEdit.value = false;
@@ -356,6 +357,9 @@ export default defineComponent({
       const errorMessage = errorList.value?.[0]?.message;
       const tmpEditOnListeners = { ...editOnListeners.value };
       delete tmpEditOnListeners.onChange;
+      if (col.value.edit?.abortEditOnEvent?.includes('onEnter') && tmpEditOnListeners.onEnter) {
+        delete tmpEditOnListeners.onEnter;
+      }
       return (
         <div
           class={props.tableBaseClass.cellEditWrap}

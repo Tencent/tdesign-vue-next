@@ -87,6 +87,10 @@ const columns = computed(() => [
         onBlur: () => {
           console.log('失去焦点', editContext);
         },
+        onEnter: (ctx) => {
+          ctx.e?.preventDefault();
+          console.log('onEnter', ctx);
+        },
       }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
       abortEditOnEvent: ['onEnter'],
