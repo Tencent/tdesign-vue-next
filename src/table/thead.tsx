@@ -35,6 +35,7 @@ export interface TheadProps {
   };
   resizable?: Boolean;
   attach?: AttachNode;
+  showColumnShadow?: { left: boolean; right: boolean };
 }
 
 export default defineComponent({
@@ -55,6 +56,7 @@ export default defineComponent({
     spansAndLeafNodes: Object as PropType<TheadProps['spansAndLeafNodes']>,
     thList: Array as PropType<TheadProps['thList']>,
     columnResizeParams: Object as PropType<TheadProps['columnResizeParams']>,
+    showColumnShadow: Object as PropType<TheadProps['showColumnShadow']>,
   },
 
   setup(props: TheadProps, { slots }: SetupContext) {
@@ -134,6 +136,8 @@ export default defineComponent({
             rowIndex: -1,
           };
           const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
+          const isLeftFixedActive = this.showColumnShadow.left && col.fixed === 'left';
+          const isRightFixedActive = this.showColumnShadow.right && col.fixed === 'right';
           const thClasses = [
             thStyles.classes,
             customClasses,
@@ -142,6 +146,8 @@ export default defineComponent({
               [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),
               [`${this.classPrefix}-table__th-${col.colKey}`]: col.colKey,
               [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
+              // 允许拖拽的列类名
+              [this.tableDraggableClasses.dragSortTh]: !(isLeftFixedActive || isRightFixedActive),
             },
           ];
           const withoutChildren = !col.children?.length;

@@ -306,8 +306,8 @@ export default function useFixed(
     const isShowRight = target.clientWidth + scrollLeft < target.scrollWidth;
     const isShowLeft = scrollLeft > 0;
     if (showColumnShadow.left === isShowLeft && showColumnShadow.right === isShowRight) return;
-    showColumnShadow.left = isShowLeft;
-    showColumnShadow.right = isShowRight;
+    showColumnShadow.left = isShowLeft && isFixedLeftColumn.value;
+    showColumnShadow.right = isShowRight && isFixedRightColumn.value;
   };
 
   // 多级表头场景较为复杂：为了滚动的阴影效果，需要知道哪些列是边界列，左侧固定列的最后一列，右侧固定列的第一列，每一层表头都需要兼顾

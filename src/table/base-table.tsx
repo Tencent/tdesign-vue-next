@@ -289,9 +289,6 @@ export default defineComponent({
 
     const columnResizable = computed(() => props.allowResizeColumnWidth ?? props.resizable);
 
-    if (columnResizable.value && this.tableLayout === 'auto') {
-      log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
-    }
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     const renderColGroup = (isAffixHeader = true) => (
@@ -371,6 +368,7 @@ export default defineComponent({
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       attach: this.attach,
+      showColumnShadow: this.showColumnShadow,
     };
 
     /**

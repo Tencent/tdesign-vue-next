@@ -136,13 +136,14 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   const registerOneLevelColDragEvent = (container: HTMLElement, recover: boolean) => {
     const options: SortableOptions = {
       animation: 150,
-      ...props.dragSortOptions,
       dataIdAttr: 'data-colkey',
       direction: 'vertical',
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
       handle: `.${tableBaseClass.thCellInner}`,
+      // 存在类名：t-table__th--drag-sort 的列才允许拖拽调整顺序
+      draggable: `th.${tableDraggableClasses.dragSortTh}`,
       onEnd: (evt: SortableEvent) => {
         if (recover) {
           // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
@@ -178,6 +179,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
         params.currentData = params.newData;
         props.onDragSort?.(params);
       },
+      ...props.dragSortOptions,
     };
     if (!container) return;
     dragColInstanceTmp = new Sortable(container, options);
