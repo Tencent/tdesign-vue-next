@@ -29,11 +29,17 @@ module.exports = {
     functions: '100%',
     lines: '98.23%',
   },
-  badge: {
-    statements: '98.73%',
-    branches: '85.18%',
+  backTop: {
+    statements: '95.32%',
+    branches: '56.25%',
     functions: '85.71%',
-    lines: '98.73%',
+    lines: '95.32%',
+  },
+  badge: {
+    statements: '98.72%',
+    branches: '84.61%',
+    functions: '85.71%',
+    lines: '98.72%',
   },
   breadcrumb: {
     statements: '93.96%',
@@ -228,10 +234,10 @@ module.exports = {
     lines: '65.03%',
   },
   notification: {
-    statements: '89.86%',
-    branches: '86.9%',
-    functions: '82.5%',
-    lines: '89.86%',
+    statements: '95.32%',
+    branches: '88.54%',
+    functions: '87.5%',
+    lines: '95.32%',
   },
   pagination: {
     statements: '87.23%',
@@ -246,10 +252,10 @@ module.exports = {
     lines: '96.61%',
   },
   popup: {
-    statements: '87.79%',
-    branches: '86.57%',
-    functions: '78.72%',
-    lines: '87.79%',
+    statements: '88.02%',
+    branches: '86.66%',
+    functions: '81.25%',
+    lines: '88.02%',
   },
   progress: {
     statements: '96.65%',
@@ -276,10 +282,10 @@ module.exports = {
     lines: '90.72%',
   },
   select: {
-    statements: '76.13%',
-    branches: '69.01%',
-    functions: '57.14%',
-    lines: '76.13%',
+    statements: '76.67%',
+    branches: '69.93%',
+    functions: '57.89%',
+    lines: '76.67%',
   },
   selectInput: {
     statements: '97.34%',
