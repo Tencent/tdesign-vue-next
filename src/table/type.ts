@@ -147,7 +147,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   paginationAffixedBottom?: boolean | Partial<AffixProps>;
   /**
-   * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度
+   * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化
    * @default false
    */
   resizable?: boolean;
@@ -847,6 +847,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    * @default true
    */
   showEditIcon?: boolean;
+  /**
+   * 触发校验的时机，有 2 种：退出编辑时和数据变化时
+   * @default 'exit'
+   */
+  validateTrigger?: 'exit' | 'change';
 }
 
 export interface TableTreeConfig {

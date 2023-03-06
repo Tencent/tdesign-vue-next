@@ -82,13 +82,15 @@ const columns = computed(() => [
         clearable: true,
         autofocus: true,
       },
+      // 触发校验的时机（when to validate)
+      validateTrigger: 'change',
       // 透传给 component: Input 的事件（也可以在 edit.props 中添加）
       on: (editContext) => ({
         onBlur: () => {
           console.log('失去焦点', editContext);
         },
         onEnter: (ctx) => {
-          ctx.e?.preventDefault();
+          ctx?.e?.preventDefault();
           console.log('onEnter', ctx);
         },
       }),
