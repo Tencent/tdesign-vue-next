@@ -1,6 +1,5 @@
 import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
-import dayjs from 'dayjs';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
@@ -78,10 +77,10 @@ export default function useRange(props: TdDateRangePickerProps) {
       const newYear: Array<number> = [];
       const newMonth: Array<number> = [];
       const newTime: Array<string> = [];
-      newVal.forEach((v, i) => {
-        newYear.push(dayjs(v).year() || year.value[i]);
-        newMonth.push(dayjs(v).month() || month.value[i]);
-        newTime.push(dayjs(v).format(formatRef.value.timeFormat) || time.value[i]);
+      newVal.forEach((v) => {
+        newYear.push(parseToDayjs(v, formatRef.value.format).year());
+        newMonth.push(parseToDayjs(v, formatRef.value.format).month());
+        newTime.push(parseToDayjs(v, formatRef.value.format).format(formatRef.value.timeFormat));
       });
       year.value = newYear;
       month.value = newMonth;
