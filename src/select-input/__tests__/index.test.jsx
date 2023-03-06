@@ -195,6 +195,7 @@ describe('SelectInput', () => {
       const input = wrapper.find('.t-input__wrap');
       await input.trigger('mouseenter');
       await input.trigger('click');
+      await new Promise(setTimeout);
       expect(onChange).toBeCalled();
     });
   });
@@ -212,6 +213,7 @@ describe('SelectInput', () => {
       const wrapper = mount(() => (
         <SelectInput value={{ label: 'tdesign-vue', value: 1 }} v-slots={slots} popupVisible={true} />
       ));
+      await new Promise(setTimeout);
       expect(document.querySelector('.red_panel').textContent).toEqual(text);
     });
   });
