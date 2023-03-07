@@ -580,8 +580,9 @@ module.exports = {
     panelStr: `const panelList = [{label: 'watermark', value: 'watermark'}];`,
     render: {
       watermark: `
-        <t-watermark v-bind="configProps" content="文字水印" :y="120" :x="80">
-          <div style="width: 100%; height: 100%" />
+        <t-watermark v-bind="configProps" :watermark-content="{ text: '文字水印' }" :y="120" :x="80" :width="120"
+        :height="60">
+          <div style="width: 100%; height: 300px" />
         </t-watermark>
       `,
     },
