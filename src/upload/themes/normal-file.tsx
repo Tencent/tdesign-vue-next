@@ -109,7 +109,12 @@ const NormalFile = defineComponent({
       return (
         <div class={`${uploadPrefix}__single-input-preview ${classPrefix.value}-input ${disabledClass}`}>
           <div class={inputTextClass}>
-            <span class={[`${uploadPrefix}__single-input-text`, { [props.placeholderClass]: props.placeholder }]}>
+            <span
+              class={[
+                `${uploadPrefix}__single-input-text`,
+                { [props.placeholderClass]: props.placeholder && !file?.name },
+              ]}
+            >
               {file?.name ? fileName : props.placeholder}
             </span>
             {file?.status === 'progress' && renderProgress(file.percent)}
