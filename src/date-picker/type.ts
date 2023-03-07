@@ -111,10 +111,10 @@ export interface TdDatePickerProps {
    */
   modelValue?: DateValue;
   /**
-   * 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式
+   * 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式。`ValueTypeEnum` 即将废弃，请更为使用 `DatePickerValueType`
    * @default ''
    */
-  valueType?: ValueTypeEnum;
+  valueType?: DatePickerValueType;
   /**
    * 当输入框失去焦点时触发
    */
@@ -434,7 +434,7 @@ export interface PresetDate {
 
 export type DateValue = string | number | Date;
 
-export type ValueTypeEnum =
+export type DatePickerValueType =
   | 'time-stamp'
   | 'Date'
   | 'YYYY'
@@ -444,6 +444,8 @@ export type ValueTypeEnum =
   | 'YYYY-MM-DD HH:mm'
   | 'YYYY-MM-DD HH:mm:ss'
   | 'YYYY-MM-DD HH:mm:ss:SSS';
+
+export type ValueTypeEnum = DatePickerValueType;
 
 export type DatePickerTriggerSource = 'confirm' | 'pick' | 'enter' | 'preset' | 'clear';
 
