@@ -8,6 +8,11 @@ import { TdDatePickerPanelProps } from '../date-picker/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
+  defaultTime: {
+    type: String,
+    default: '00:00:00',
+  },
   /** 点击日期单元格时触发 */
   onCellClick: Function as PropType<TdDatePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */
