@@ -120,7 +120,7 @@ const NormalFile = defineComponent({
             {file?.name && file.status === 'fail' && (
               <ErrorCircleFilledIcon class={`${uploadPrefix}__status-icon ${uploadPrefix}__file-fail`} />
             )}
-            {!disabled.value && (
+            {Boolean(!disabled.value && file.name) && (
               <CloseCircleFilledIcon
                 class={`${uploadPrefix}__single-input-clear`}
                 onClick={({ e }: { e: MouseEvent }) => props.onRemove({ e, file, index: 0 })}
