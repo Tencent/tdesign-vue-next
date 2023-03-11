@@ -191,7 +191,9 @@ export default function useFixed(
       // 多级表头，使用父元素作为初始基本位置
       const defaultWidth = i === 0 ? parent?.left || 0 : 0;
       const lastColInfo = initialColumnMap.get(lastCol?.colKey || i - 1);
-      colInfo.left = (lastColInfo?.left || defaultWidth) + (lastColInfo?.width || 0);
+      if (colInfo) {
+        colInfo.left = (lastColInfo?.left || defaultWidth) + (lastColInfo?.width || 0);
+      }
       // 多级表头
       if (col.children?.length) {
         setFixedLeftPos(col.children, initialColumnMap, colInfo);
@@ -216,7 +218,9 @@ export default function useFixed(
       // 多级表头，使用父元素作为初始基本位置
       const defaultWidth = i === columns.length - 1 ? parent?.right || 0 : 0;
       const lastColInfo = initialColumnMap.get(lastCol?.colKey || i + 1);
-      colInfo.right = (lastColInfo?.right || defaultWidth) + (lastColInfo?.width || 0);
+      if (colInfo) {
+        colInfo.right = (lastColInfo?.right || defaultWidth) + (lastColInfo?.width || 0);
+      }
       // 多级表头
       if (col.children?.length) {
         setFixedRightPos(col.children, initialColumnMap, colInfo);
@@ -365,7 +369,7 @@ export default function useFixed(
     if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
-    tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
+    tableWidth.value = Math.floor(rect.width - reduceWidth - (props.bordered ? 1 : 0));
     const elmRect = tableElmRef?.value?.getBoundingClientRect();
     tableElmWidth.value = elmRect?.width;
   };
@@ -374,7 +378,8 @@ export default function useFixed(
     // 在表格高度变化的时候 需要手动调整affix的位置 因为affix本身无法监听到这些变化触发重新计算
     affixRef.paginationAffixRef.value?.handleScroll?.();
     affixRef.horizontalScrollAffixRef.value?.handleScroll?.();
-    affixRef.headerTopAffixRef?.value?.handleScroll?.();
+    affixRef.headerTopAffixRef.value?.handleScroll?.();
+    affixRef.footerBottomAffixRef.value?.handleScroll?.();
   };
 
   const calculateThWidthList = (trList: HTMLCollection) => {
@@ -509,7 +514,7 @@ export default function useFixed(
   let resizeObserver: ResizeObserver = null;
   function addTableResizeObserver(tableElement: HTMLDivElement) {
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if (getIEVersion() < 11 || isUndefined(window.ResizeObserver)) return;
+    if (getIEVersion() < 11 || typeof window.ResizeObserver === 'undefined') return;
     off(window, 'resize', onResize);
     resizeObserver = new window.ResizeObserver(() => {
       refreshTable();

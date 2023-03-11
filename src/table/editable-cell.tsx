@@ -84,7 +84,7 @@ export default defineComponent({
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
     const editOnListeners = computed(() => {
-      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value });
+      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value }) || {};
     });
 
     const cellParams = computed(() => ({
@@ -178,7 +178,7 @@ export default defineComponent({
       return a === b;
     };
 
-    const updateAndSaveAbort = (outsideAbortEvent: Function, ...args: any) => {
+    const updateAndSaveAbort = (outsideAbortEvent: Function, eventName: string, ...args: any) => {
       validateEdit('self').then((result) => {
         if (result !== true) return;
         const oldValue = get(row.value, col.value.colKey);
@@ -187,7 +187,7 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
-        editOnListeners.value.onEnter?.(args[2]);
+        editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
           isEdit.value = false;
@@ -217,6 +217,7 @@ export default defineComponent({
         tListeners[itemEvent] = (...args: any) => {
           updateAndSaveAbort(
             outsideAbortEvent,
+            itemEvent,
             {
               ...cellParams.value,
               trigger: itemEvent,
@@ -246,6 +247,7 @@ export default defineComponent({
         const outsideAbortEvent = col.value.edit?.onEdited;
         updateAndSaveAbort(
           outsideAbortEvent,
+          'change',
           {
             ...cellParams.value,
             trigger: 'onChange',
@@ -263,7 +265,7 @@ export default defineComponent({
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
       const outsideAbortEvent = col.value.edit.onEdited;
-      updateAndSaveAbort(outsideAbortEvent, {
+      updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
         trigger: 'document',
         newRowData: currentRow.value,
@@ -361,8 +363,13 @@ export default defineComponent({
       const errorMessage = errorList.value?.[0]?.message;
       const tmpEditOnListeners = { ...editOnListeners.value };
       delete tmpEditOnListeners.onChange;
-      if (col.value.edit?.abortEditOnEvent?.includes('onEnter') && tmpEditOnListeners.onEnter) {
-        delete tmpEditOnListeners.onEnter;
+      // remove conflict events
+      if (col.value.edit?.abortEditOnEvent?.length) {
+        col.value.edit.abortEditOnEvent.forEach((onEventName) => {
+          if (tmpEditOnListeners[onEventName]) {
+            delete tmpEditOnListeners[onEventName];
+          }
+        });
       }
       return (
         <div
