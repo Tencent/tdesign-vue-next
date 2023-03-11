@@ -17,7 +17,6 @@
       :foot-data="footData"
       :row-class-name="rowClassName"
       :pagination="{ defaultCurrent: 1, defaultPageSize: 5, total: TOTAL }"
-      :header-affixed-top="headerAffixedTop ? { offsetTop: 87, zIndex: 1000 } : undefined"
       :footer-affixed-bottom="
         footerAffixedBottom ? { offsetBottom: paginationAffixedBottom ? 60 : 0, zIndex: 1000 } : false
       "
@@ -169,13 +168,13 @@ watch(
 <style>
 /*
  * table-layout: auto 模式下，table 元素的宽度设置很重要很重要。
- * 如果不设置，列多了之后会挤在一起
+ * 如果不设置，列多了之后会挤在一起（如果使用了列宽调整调整功能，切勿设置 min-width 一类模糊宽度）
  * **/
 .tdesign-demo__table-affix table {
-  min-width: 1200px;
+  width: 1200px;
 }
 
-/* .tdesign-demo__table-affix .t-table {
+.tdesign-demo__table-affix .t-table {
   max-width: 800px;
-} */
+}
 </style>

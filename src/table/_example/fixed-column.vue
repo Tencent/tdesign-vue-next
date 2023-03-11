@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column" style="width: 100%">
+  <div class="tdesign-demo-block-column" style="width: 100%; max-width: 800px">
     <div>
       <t-radio-group v-model="leftFixedColumn" variant="default-filled">
         <t-radio-button :value="1"> 左侧固定一列 </t-radio-button>
@@ -29,6 +29,7 @@
       :columns="columns"
       :table-layout="tableLayout"
       :table-content-width="tableLayout === 'fixed' ? undefined : '1200px'"
+      drag-sort="col"
       bordered
       resizable
     >
