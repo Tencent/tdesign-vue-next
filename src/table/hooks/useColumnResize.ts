@@ -222,8 +222,8 @@ export default function useColumnResize(params: {
        *  - 操作边框左侧，改变当前列和下一列；若下一列禁用宽度调整，则改变下一列的下一列，依次往后寻找
        */
       const thWidthList = getThWidthList('calculate');
+      // console.log('last thWidthList', thWidthList);
       const currentCol = effectColMap.value[col.colKey]?.current;
-      if (!currentCol) return;
       const currentSibling = resizeLineParams.effectCol === 'next' ? currentCol.prevSibling : currentCol.nextSibling;
       // 多行表头，列宽为最后一层的宽度，即叶子结点宽度
       const newThWidthList = { ...thWidthList };
@@ -231,30 +231,39 @@ export default function useColumnResize(params: {
       const tmpCurrentCol = col.resizable !== false ? col : currentSibling;
       // 是否允许调整相邻列宽：列宽未超出时，且并非是最后一列（最后一列的右侧拉伸会认为是表格整体宽度调整）
       const canResizeSiblingColWidth = !(isWidthOverflow.value || index === leafColumns.value.length - 1);
+
       if (resizeLineParams.effectCol === 'next') {
+        // console.log(1);
         // 右侧激活态的固定列，需特殊调整
         if (isColRightFixActive(col)) {
           // 如果不相同，则表示改变相临的右侧列宽
           if (target.dataset.colkey !== col.colKey) {
+            // console.log(2, effectNextCol.colKey);
             newThWidthList[effectNextCol.colKey] += moveDistance;
           } else {
+            // console.log(3, tmpCurrentCol.colKey);
             newThWidthList[tmpCurrentCol.colKey] += moveDistance;
           }
         } else {
+          // console.log(4, tmpCurrentCol.colKey);
           // 非右侧激活态的固定列
           newThWidthList[tmpCurrentCol.colKey] -= moveDistance;
           if (canResizeSiblingColWidth) {
+            // console.log(5, effectNextCol.colKey);
             newThWidthList[effectNextCol.colKey] += moveDistance;
           }
         }
       } else if (resizeLineParams.effectCol === 'prev') {
         if (canResizeSiblingColWidth) {
+          // console.log(6, tmpCurrentCol.colKey);
           newThWidthList[tmpCurrentCol.colKey] += moveDistance;
         }
+        // console.log(7, effectNextCol.colKey);
         newThWidthList[effectPrevCol.colKey] -= moveDistance;
       }
       updateThWidthList(newThWidthList);
       const tableWidth = getTotalTableWidth(newThWidthList);
+      // console.log(newThWidthList, tableWidth);
       setTableElmWidth(Math.round(tableWidth));
       updateTableAfterColumnResize();
 

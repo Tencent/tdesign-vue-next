@@ -18,6 +18,10 @@ export interface BaseTableProps extends TdBaseTableProps {
    * 多级表头场景，叶子结点变化时执行。非公开属性，请勿在业务中使用
    */
   onLeafColumnsChange?: (columns: BaseTableColumns) => void;
+  /**
+   * 表头是否可拖拽。非公开属性，请勿在业务中使用
+   */
+  thDraggable?: boolean;
 }
 
 export type PrimaryTableProps = TdPrimaryTableProps;

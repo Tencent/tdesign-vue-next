@@ -39,6 +39,7 @@ export default defineComponent({
      */
     renderExpandedRow: Function as PropType<BaseTableProps['renderExpandedRow']>,
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
+    thDraggable: Boolean,
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
@@ -368,6 +369,7 @@ export default defineComponent({
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       attach: this.attach,
       showColumnShadow: this.showColumnShadow,
+      thDraggable: this.thDraggable,
     };
 
     /**

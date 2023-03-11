@@ -22,6 +22,7 @@ export interface TheadProps {
   thWidthList?: { [colKey: string]: number };
   bordered: boolean;
   isMultipleHeader: boolean;
+  thDraggable: boolean;
   spansAndLeafNodes: {
     rowspanAndColspanMap: ThRowspanAndColspan;
     leafColumns: BaseTableCol<TableRowData>[];
@@ -45,6 +46,7 @@ export default defineComponent({
     classPrefix: String,
     ellipsisOverlayClassName: String,
     isFixedHeader: Boolean,
+    thDraggable: Boolean,
     maxHeight: [String, Number] as PropType<TheadProps['maxHeight']>,
     height: [String, Number] as PropType<TheadProps['height']>,
     rowAndColFixedPosition: Map as PropType<TheadProps['rowAndColFixedPosition']>,
@@ -147,7 +149,7 @@ export default defineComponent({
               [`${this.classPrefix}-table__th-${col.colKey}`]: col.colKey,
               [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
               // 允许拖拽的列类名
-              [this.tableDraggableClasses.dragSortTh]: !(isLeftFixedActive || isRightFixedActive),
+              [this.tableDraggableClasses.dragSortTh]: this.thDraggable && !(isLeftFixedActive || isRightFixedActive),
             },
           ];
           const withoutChildren = !col.children?.length;

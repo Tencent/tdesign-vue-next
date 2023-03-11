@@ -62,6 +62,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
     columns,
     (columns) => {
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
+      // console.log('~~~~~~~~~', lastColList.value);
       // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
       const timer = setTimeout(() => {
         dragColInstanceTmp?.sort(lastColList.value);
