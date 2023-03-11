@@ -19,6 +19,7 @@ import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
 import isObject from 'lodash/isObject';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -81,6 +82,7 @@ export default defineComponent({
     const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
+    const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
     const editOnListeners = computed(() => {
@@ -261,9 +263,13 @@ export default defineComponent({
       }
     };
 
-    const documentClickHandler = () => {
+    const documentClickHandler = (e: MouseEvent) => {
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
+      // @ts-ignore some browser is also only support e.path
+      const path = e.composedPath?.() || e.path || [];
+      const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
+      if (node) return;
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
@@ -377,9 +383,9 @@ export default defineComponent({
           onClick={(e: MouseEvent) => {
             e.stopPropagation();
           }}
+          ref="tableEditableCellRef"
         >
           <Component
-            ref="tableEditableCellRef"
             status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
             tips={errorMessage}
             {...componentProps.value}

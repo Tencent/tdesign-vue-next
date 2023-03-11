@@ -64,7 +64,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
       // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
       const timer = setTimeout(() => {
-        if (!dragColInstanceTmp.el) return;
+        if (!dragColInstanceTmp?.el) return;
         dragColInstanceTmp?.sort(lastColList.value);
         clearTimeout(timer);
       }, 0);
