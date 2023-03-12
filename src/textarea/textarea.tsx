@@ -219,7 +219,7 @@ export default defineComponent({
           [`${prefix.value}-is-${props.status}`]: props.status,
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
-          // [`${prefix.value}-resize-none`]: props.maxlength,
+          [`${prefix.value}-resize-none`]: typeof props.autosize === 'object',
         },
         'narrow-scrollbar',
       ]);
