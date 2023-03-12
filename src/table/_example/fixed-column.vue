@@ -29,7 +29,6 @@
       :columns="columns"
       :table-layout="tableLayout"
       :table-content-width="tableLayout === 'fixed' ? undefined : '1200px'"
-      drag-sort="col"
       bordered
       resizable
     >
