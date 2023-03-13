@@ -18,6 +18,10 @@ export interface BaseTableProps extends TdBaseTableProps {
    * 多级表头场景，叶子结点变化时执行。非公开属性，请勿在业务中使用
    */
   onLeafColumnsChange?: (columns: BaseTableColumns) => void;
+  /**
+   * 表头是否可拖拽。非公开属性，请勿在业务中使用
+   */
+  thDraggable?: boolean;
 }
 
 export type PrimaryTableProps = TdPrimaryTableProps;
@@ -68,13 +72,3 @@ export interface FixedColumnInfo {
 
 // 固定表头和固定列 具体的固定位置（left/top/right/bottom）
 export type RowAndColFixedPosition = Map<string | number, FixedColumnInfo>;
-
-// 允许修改列宽时，重新计算各列宽度的函数声明
-export interface RecalculateColumnWidthFunc {
-  (
-    columns: BaseTableCol<TableRowData>[],
-    thWidthList: { [colKey: string]: number },
-    tableLayout: string,
-    tableElmWidth: number,
-  ): void;
-}

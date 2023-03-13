@@ -28,6 +28,7 @@
       :pagination="pagination"
       :show-header="showHeader"
       cell-empty-content="-"
+      resizable
       @row-click="handleRowClick"
     >
     </t-table>

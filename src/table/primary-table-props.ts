@@ -63,7 +63,7 @@ export default {
   /** 用于控制是否显示「展开图标列」，值为 `false` 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容。`expandedRow` 存在时，该参数有效。支持全局配置 `GlobalConfigProvider` */
   expandIcon: {
     type: [Boolean, Function] as PropType<TdPrimaryTableProps['expandIcon']>,
-    default: true,
+    default: true as TdPrimaryTableProps['expandIcon'],
   },
   /** 是否允许点击行展开 */
   expandOnRowClick: Boolean,
@@ -92,7 +92,7 @@ export default {
   /** 过滤数据的值 */
   filterValue: {
     type: Object as PropType<TdPrimaryTableProps['filterValue']>,
-    default: undefined as TdPrimaryTableProps['filterValue'],
+    default: undefined,
   },
   /** 过滤数据的值，非受控属性 */
   defaultFilterValue: {

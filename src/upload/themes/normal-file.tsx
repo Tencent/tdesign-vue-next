@@ -109,7 +109,12 @@ const NormalFile = defineComponent({
       return (
         <div class={`${uploadPrefix}__single-input-preview ${classPrefix.value}-input ${disabledClass}`}>
           <div class={inputTextClass}>
-            <span class={[`${uploadPrefix}__single-input-text`, { [props.placeholderClass]: props.placeholder }]}>
+            <span
+              class={[
+                `${uploadPrefix}__single-input-text`,
+                { [props.placeholderClass]: props.placeholder && !file?.name },
+              ]}
+            >
               {file?.name ? fileName : props.placeholder}
             </span>
             {file?.status === 'progress' && renderProgress(file.percent)}
@@ -120,7 +125,7 @@ const NormalFile = defineComponent({
             {file?.name && file.status === 'fail' && (
               <ErrorCircleFilledIcon class={`${uploadPrefix}__status-icon ${uploadPrefix}__file-fail`} />
             )}
-            {!disabled.value && (
+            {Boolean(!disabled.value && file.name) && (
               <CloseCircleFilledIcon
                 class={`${uploadPrefix}__single-input-clear`}
                 onClick={({ e }: { e: MouseEvent }) => props.onRemove({ e, file, index: 0 })}

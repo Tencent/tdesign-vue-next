@@ -20,9 +20,10 @@ export interface TheadProps {
   rowAndColFixedPosition: RowAndColFixedPosition;
   // 虚拟滚动单独渲染表头；表头吸顶单独渲染表头
   thWidthList?: { [colKey: string]: number };
-  bordered: boolean;
-  isMultipleHeader: boolean;
-  spansAndLeafNodes: {
+  bordered?: boolean;
+  isMultipleHeader?: boolean;
+  thDraggable?: boolean;
+  spansAndLeafNodes?: {
     rowspanAndColspanMap: ThRowspanAndColspan;
     leafColumns: BaseTableCol<TableRowData>[];
   };
@@ -31,10 +32,11 @@ export interface TheadProps {
     resizeLineRef: Ref<HTMLDivElement>;
     resizeLineStyle: CSSProperties;
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
-    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
+    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => void;
   };
   resizable?: Boolean;
   attach?: AttachNode;
+  showColumnShadow?: { left: boolean; right: boolean };
 }
 
 export default defineComponent({
@@ -44,6 +46,7 @@ export default defineComponent({
     classPrefix: String,
     ellipsisOverlayClassName: String,
     isFixedHeader: Boolean,
+    thDraggable: Boolean,
     maxHeight: [String, Number] as PropType<TheadProps['maxHeight']>,
     height: [String, Number] as PropType<TheadProps['height']>,
     rowAndColFixedPosition: Map as PropType<TheadProps['rowAndColFixedPosition']>,
@@ -55,6 +58,7 @@ export default defineComponent({
     spansAndLeafNodes: Object as PropType<TheadProps['spansAndLeafNodes']>,
     thList: Array as PropType<TheadProps['thList']>,
     columnResizeParams: Object as PropType<TheadProps['columnResizeParams']>,
+    showColumnShadow: Object as PropType<TheadProps['showColumnShadow']>,
   },
 
   setup(props: TheadProps, { slots }: SetupContext) {
@@ -134,6 +138,9 @@ export default defineComponent({
             rowIndex: -1,
           };
           const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
+          const isLeftFixedActive = this.showColumnShadow.left && col.fixed === 'left';
+          const isRightFixedActive = this.showColumnShadow.right && col.fixed === 'right';
+          const canDragSort = this.thDraggable && !(isLeftFixedActive || isRightFixedActive);
           const thClasses = [
             thStyles.classes,
             customClasses,
@@ -142,18 +149,30 @@ export default defineComponent({
               [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),
               [`${this.classPrefix}-table__th-${col.colKey}`]: col.colKey,
               [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
+              // 允许拖拽的列类名
+              [this.tableDraggableClasses.dragSortTh]: canDragSort,
             },
           ];
           const withoutChildren = !col.children?.length;
           const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
-          const resizeColumnListener = this.resizable
-            ? {
-                onMousedown: (e: MouseEvent) => this.columnResizeParams?.onColumnMousedown?.(e, col),
-                onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e, col),
-              }
-            : {};
+          const resizeColumnListener =
+            this.resizable || !canDragSort
+              ? {
+                  onMousedown: (e: MouseEvent) => {
+                    this.columnResizeParams?.onColumnMousedown?.(e, col, index);
+                    if (!canDragSort) {
+                      const timer = setTimeout(() => {
+                        const thList = this.theadRef.querySelectorAll('th');
+                        thList[index]?.removeAttribute('draggable');
+                        clearTimeout(timer);
+                      }, 10);
+                    }
+                  },
+                  onMousemove: (e: MouseEvent) => this.columnResizeParams?.onColumnMouseover?.(e, col),
+                }
+              : {};
           const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
           const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
