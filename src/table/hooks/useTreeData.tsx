@@ -1,11 +1,10 @@
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h } from 'vue';
+import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
 import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-
 import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
 import {
   TdEnhancedTableProps,
@@ -30,7 +29,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   });
 
   const store = ref(new TableTreeStore());
-  const treeNodeCol = ref<PrimaryTableCol>();
+  const treeNodeCol = shallowRef<PrimaryTableCol>();
   const dataSource = ref<TdEnhancedTableProps['data']>([]);
   const { tableTreeClasses } = useClassName();
   const renderTNode = useTNodeDefault();

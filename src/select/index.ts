@@ -2,12 +2,12 @@ import _Select from './select';
 import _Option from './option';
 import _OptionGroup from './optionGroup';
 import withInstall from '../utils/withInstall';
-import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from './type';
+import { TdSelectProps, TdOptionProps, TdOptionGroupProps, SelectOption } from './type';
 
 import './style';
 
 export * from './type';
-export type SelectProps = TdSelectProps;
+export type SelectProps<T = SelectOption> = TdSelectProps<T>;
 export type OptionProps = TdOptionProps;
 export type OptionGroupProps = TdOptionGroupProps;
 
