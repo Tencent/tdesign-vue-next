@@ -67,6 +67,13 @@ export default defineComponent({
       };
     });
 
+    const circleOuterStyle = computed(() => {
+      const strokeColor = isObject(props.trackColor) ? '' : props.trackColor;
+      return {
+        stroke: strokeColor,
+      };
+    });
+
     // theme=circle 获取直径
     const diameter = computed(() => {
       let diameter = CIRCLE_SIZE_PX.MEDIUM;
@@ -202,9 +209,9 @@ export default defineComponent({
                   cy={rPoints.value}
                   r={radius.value}
                   stroke-width={circleStrokeWidth.value}
-                  stroke={props.trackColor}
                   fill="none"
                   class={[`${COMPONENT_NAME.value}__circle-outer`]}
+                  style={circleOuterStyle.value}
                 />
                 {props.percentage > 0 && (
                   <circle
