@@ -92,6 +92,10 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   headers?: { [key: string]: string };
   /**
+   * 用于添加属性到 HTML 元素 `input`
+   */
+  inputAttributes?: object;
+  /**
    * 多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效
    * @default false
    */
@@ -130,7 +134,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   placeholder?: string;
   /**
-   * 自定义上传方法。返回值 `status` 表示上传成功或失败，`error` 或 `response.error` 表示上传失败的原因，`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片地址。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`
+   * 自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}`
    */
   requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
   /**
@@ -328,7 +332,7 @@ export interface FormatResponseContext {
 export interface RequestMethodResponse {
   status: 'success' | 'fail';
   error?: string;
-  response: { url?: string; [key: string]: any };
+  response: { url?: string; files?: UploadFile[]; [key: string]: any };
 }
 
 export interface SizeLimitObj {
