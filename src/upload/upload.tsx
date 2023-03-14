@@ -196,6 +196,7 @@ export default defineComponent({
           multiple={props.multiple}
           accept={props.accept}
           hidden
+          {...(props.inputAttributes ? { ...props.inputAttributes } : {})}
         />
         {['file', 'file-input'].includes(props.theme) && !props.draggable && getNormalFileNode()}
         {['file', 'image'].includes(props.theme) && props.draggable && getSingleFileDraggerUploadNode()}
