@@ -77,6 +77,15 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
+  /** 输入框尺寸 */
+  size: {
+    type: String as PropType<TdDatePickerProps['size']>,
+    default: 'medium' as TdDatePickerProps['size'],
+    validator(val: TdDatePickerProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 输入框状态 */
   status: {
     type: String as PropType<TdDatePickerProps['status']>,

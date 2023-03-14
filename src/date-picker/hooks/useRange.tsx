@@ -39,6 +39,7 @@ export default function useRange(props: TdDateRangePickerProps) {
   // input 设置
   const rangeInputProps = computed(() => ({
     ...props.rangeInputProps,
+    size: props.size,
     ref: inputRef,
     clearable: props.clearable,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
