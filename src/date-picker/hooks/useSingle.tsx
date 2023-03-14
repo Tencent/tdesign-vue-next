@@ -44,6 +44,7 @@ export default function useSingle(props: TdDatePickerProps) {
   // input 设置
   const inputProps = computed(() => ({
     ...props.inputProps,
+    size: props.size,
     ref: inputRef,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,

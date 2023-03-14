@@ -86,6 +86,15 @@ export default {
     type: String,
     default: '',
   },
+  /** 输入框尺寸 */
+  size: {
+    type: String as PropType<TdDateRangePickerProps['size']>,
+    default: 'medium' as TdDateRangePickerProps['size'],
+    validator(val: TdDateRangePickerProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 输入框状态 */
   status: {
     type: String as PropType<TdDateRangePickerProps['status']>,
