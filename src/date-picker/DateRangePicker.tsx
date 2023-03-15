@@ -71,6 +71,7 @@ export default defineComponent({
         time.value = formatTime(
           value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
           formatRef.value.timeFormat,
+          props.defaultTime,
         ) as string[];
 
         // 空数据重置为当前年月

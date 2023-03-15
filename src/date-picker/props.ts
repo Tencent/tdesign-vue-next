@@ -12,6 +12,11 @@ export default {
   allowInput: Boolean,
   /** 是否显示清除按钮 */
   clearable: Boolean,
+  /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
+  defaultTime: {
+    type: String,
+    default: '00:00:00',
+  },
   /** 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。`{ from: 'A', to: 'B' }` 表示在 A 到 B 之间的日期会被禁用。`{ before: 'A', after: 'B' }` 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用 */
   disableDate: {
     type: [Object, Array, Function] as PropType<TdDatePickerProps['disableDate']>,
@@ -72,9 +77,19 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
+  /** 输入框尺寸 */
+  size: {
+    type: String as PropType<TdDatePickerProps['size']>,
+    default: 'medium' as TdDatePickerProps['size'],
+    validator(val: TdDatePickerProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 输入框状态 */
   status: {
     type: String as PropType<TdDatePickerProps['status']>,
+    default: 'default' as TdDatePickerProps['status'],
     validator(val: TdDatePickerProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
@@ -106,23 +121,10 @@ export default {
     type: [String, Number, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,
     default: '' as TdDatePickerProps['defaultValue'],
   },
-  /** 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式 */
+  /** 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式。`ValueTypeEnum` 即将废弃，请更为使用 `DatePickerValueType` */
   valueType: {
     type: String as PropType<TdDatePickerProps['valueType']>,
-    validator(val: TdDatePickerProps['valueType']): boolean {
-      if (!val) return true;
-      return [
-        'time-stamp',
-        'Date',
-        'YYYY',
-        'YYYY-MM',
-        'YYYY-MM-DD',
-        'YYYY-MM-DD HH',
-        'YYYY-MM-DD HH:mm',
-        'YYYY-MM-DD HH:mm:ss',
-        'YYYY-MM-DD HH:mm:ss:SSS',
-      ].includes(val);
-    },
+    default: '',
   },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDatePickerProps['onBlur']>,

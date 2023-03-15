@@ -82,10 +82,16 @@ const columns = computed(() => [
         clearable: true,
         autofocus: true,
       },
+      // 触发校验的时机（when to validate)
+      validateTrigger: 'change',
       // 透传给 component: Input 的事件（也可以在 edit.props 中添加）
       on: (editContext) => ({
         onBlur: () => {
           console.log('失去焦点', editContext);
+        },
+        onEnter: (ctx) => {
+          ctx?.e?.preventDefault();
+          console.log('onEnter', ctx);
         },
       }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
@@ -123,7 +129,7 @@ const columns = computed(() => [
         },
       }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
-      abortEditOnEvent: ['onChange'],
+      // abortEditOnEvent: ['onChange'],
       // 编辑完成，退出编辑态后触发
       onEdited: (context) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);

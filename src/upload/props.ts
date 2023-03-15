@@ -86,6 +86,10 @@ export default {
   headers: {
     type: Object as PropType<TdUploadProps['headers']>,
   },
+  /** 用于添加属性到 HTML 元素 `input` */
+  inputAttributes: {
+    type: Object as PropType<TdUploadProps['inputAttributes']>,
+  },
   /** 多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效 */
   isBatchUpload: Boolean,
   /** 上传组件文本语言配置，支持自定义配置组件中的全部文本。优先级高于全局配置中语言 */
@@ -122,7 +126,7 @@ export default {
     type: String,
     default: '',
   },
-  /** 自定义上传方法。返回值 `status` 表示上传成功或失败，`error` 或 `response.error` 表示上传失败的原因，`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片地址。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }` */
+  /** 自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}` */
   requestMethod: {
     type: Function as PropType<TdUploadProps['requestMethod']>,
   },
