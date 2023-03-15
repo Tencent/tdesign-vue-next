@@ -1,9 +1,64 @@
 <template>
   <t-sticky-tool
+    shape="round"
     :offset="[10, 10]"
     placement="right-center"
     :popup-props="{ placement: 'right' }"
     :width="60"
+    :on-click="handleClick"
+    @hover="handleHover"
+  >
+    <t-sticky-item label="添加" popup="666">
+      <template #icon><add-icon /></template>
+    </t-sticky-item>
+    <t-sticky-item
+      :label="renderLabel"
+      :icon="renderIcon"
+      trigger="click"
+      :popup="renderPopup"
+      :popup-props="{ placement: 'bottom' }"
+    ></t-sticky-item>
+    <t-sticky-item :icon="renderIcon">
+      <template #label>
+        <div>搜索</div>
+      </template>
+      <template #popup>
+        <img alt="TDesign Logo" width="200" src="https://tdesign.gtimg.com/site/TDesign.png" />
+      </template>
+    </t-sticky-item>
+  </t-sticky-tool>
+  <t-sticky-tool
+    :offset="[90, 10]"
+    placement="right-center"
+    :popup-props="{ placement: 'right' }"
+    :width="90"
+    :on-click="handleClick"
+    @hover="handleHover"
+  >
+    <t-sticky-item label="添加" popup="666">
+      <template #icon><add-icon /></template>
+    </t-sticky-item>
+    <t-sticky-item
+      :label="renderLabel"
+      :icon="renderIcon"
+      trigger="click"
+      :popup="renderPopup"
+      :popup-props="{ placement: 'bottom' }"
+    ></t-sticky-item>
+    <t-sticky-item :icon="renderIcon">
+      <template #label>
+        <div>搜索</div>
+      </template>
+      <template #popup>
+        <img alt="TDesign Logo" width="200" src="https://tdesign.gtimg.com/site/TDesign.png" />
+      </template>
+    </t-sticky-item>
+  </t-sticky-tool>
+  <t-sticky-tool
+    type="compact"
+    :offset="[200, 10]"
+    placement="right-center"
+    :popup-props="{ placement: 'right' }"
     :on-click="handleClick"
     @hover="handleHover"
   >

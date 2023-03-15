@@ -36,9 +36,8 @@ export default defineComponent({
     const styles = computed(() => {
       const styles: Styles = {};
       if (props.baseWidth) {
-        const size = `calc(${props.baseWidth} - 8px)`;
-        styles.width = size;
-        styles.height = size;
+        const selfWidth = props.type === 'normal' ? '56px' : '40px';
+        styles.margin = `calc((${props.baseWidth} - ${selfWidth})/2)`;
       }
       return styles;
     });
