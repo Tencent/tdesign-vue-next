@@ -37,7 +37,7 @@ rowClassName | String / Object / Array / Function | - | table `th` classname。T
 rowKey | String | 'id' | required。unique key for each row data | Y
 rowspanAndColspan | Function | - | rowspan and colspan。Typescript：`TableRowspanAndColspanFunc<T>` `type TableRowspanAndColspanFunc<T> = (params: BaseTableCellParams<T>) => RowspanColspan` `interface RowspanColspan { colspan?: number; rowspan?: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowspanAndColspanInFooter | Function | - | rowspan and colspan for footer。Typescript：`TableRowspanAndColspanFunc<T>` | N
-scroll | Object | - | lazy load and virtual scroll。Typescript：`InfinityScroll`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+scroll | Object | - | lazy load and virtual scroll。Typescript：`TScroll`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 showHeader | Boolean | true | show table header | N
 size | String | medium | options：small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 stripe | Boolean | false | show stripe style | N
@@ -95,6 +95,7 @@ render | Function | - | render function can be used to render cell or head。Typ
 resizable | Boolean | true | resize current column width | N
 resize | Object | - | Typescript：`TableColumnResizeConfig` `interface TableColumnResizeConfig { minWidth: number; maxWidth: number }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 stopPropagation | Boolean | - | stop cells of current col to propagation | N
+thClassName | String / Object / Array / Function | - | th classnames。Typescript：`TableColumnClassName<T> \| TableColumnClassName<T>[]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 title | String / Function | - | th content。Typescript：`string \| TNode<{ col: BaseTableCol; colIndex: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 width | String / Number | - | column width | N
 
@@ -283,6 +284,7 @@ onEdited | Function | - | trigger on finishing editing。Typescript：`(context:
 props | Object | - | props of `edit.component`。Typescript：`TableEditableCellProps<T>` `type TableEditableCellProps<T> = TablePlainObject \| ((params: TableEditableCellPropsParams<T>) => TablePlainObject)` `interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> { editedRow: T }` `interface TablePlainObject{ [key: string]: any }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rules | Array | - | form rules。Typescript：`TableEditableCellRules<T>` `type TableEditableCellRules<T> = FormRule[] \| ((params: PrimaryTableCellParams<T>) => FormRule[])`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 showEditIcon | Boolean | true | show edit icon | N
+validateTrigger | String | 'exit' | when to trigger validate。Typescript：`'exit' \| 'change'` | N
 
 ### TableTreeConfig
 
@@ -295,7 +297,7 @@ expandTreeNodeOnClick | Boolean | false | \- | N
 indent | Number | 24 | \- | N
 treeNodeColumnIndex | Number | 0 | \- | N
 
-### InfinityScroll
+### TScroll
 
 name | type | default | description | required
 -- | -- | -- | -- | --

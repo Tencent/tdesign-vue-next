@@ -34,7 +34,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 const initialColumns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
+  { colKey: 'applicant', title: '申请人', width: '100', fixed: 'left' },
   {
     colKey: 'status',
     title: '申请状态',

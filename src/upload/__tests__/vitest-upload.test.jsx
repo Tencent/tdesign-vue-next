@@ -1027,6 +1027,14 @@ describe('Upload Component', () => {
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestHeaders['XML-HTTP-REQUEST']).toBe('tdesign_token');
   });
 
+  it(`props.inputAttributes is equal to { webkitdirectory: 'webkitdirectory' }`, () => {
+    const wrapper = mount(
+      <Upload inputAttributes={{ webkitdirectory: 'webkitdirectory' }} theme={'file-input'}></Upload>,
+    );
+    const domWrapper = wrapper.find('input');
+    expect(domWrapper.attributes('webkitdirectory')).toBe('webkitdirectory');
+  });
+
   it('props.isBatchUpload works fine', async () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(

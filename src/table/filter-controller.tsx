@@ -54,7 +54,7 @@ export default defineComponent({
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
 
-  setup(props: TableFilterControllerProps) {
+  setup(props: TableFilterControllerProps, context) {
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
     const { t, globalConfig } = useConfig('table');
@@ -66,18 +66,20 @@ export default defineComponent({
       props.onVisibleChange?.(visible);
     };
 
-    return {
-      t,
-      globalConfig,
-      FilterIcon,
-      filterPopupVisible,
-      triggerElementRef,
-      renderTNode,
-      onFilterPopupVisibleChange,
+    const renderComponent = (column: PrimaryTableCol, filterComponentProps: any, component: any) => {
+      if (!component) return null;
+      const isVueComponent = !!component.setup;
+      if (isFunction(column.filter.component) && !isVueComponent) {
+        return column.filter.component((v: any, b: any) => {
+          const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
+          return h(v, {
+            props: { ...filterComponentProps, ...tProps },
+          });
+        });
+      }
+      return <component value={props.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>;
     };
-  },
 
-  render() {
     const getFilterContent = (column: PrimaryTableCol) => {
       const types = ['single', 'multiple', 'input'];
       if (column.type && !types.includes(column.filter.type)) {
@@ -94,64 +96,75 @@ export default defineComponent({
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
-        value: this.innerFilterValue?.[column.colKey],
+        value: props.innerFilterValue?.[column.colKey],
         onChange: (val: any) => {
-          this.$emit('inner-filter-change', val, column);
+          context.emit('inner-filter-change', val, column);
         },
       };
       // 允许自定义触发确认搜索的事件
       if (column.filter.confirmEvents) {
         column.filter.confirmEvents.forEach((event) => {
           filterComponentProps[event] = () => {
-            this.$emit('confirm', column);
-            this.filterPopupVisible = false;
+            context.emit('confirm', column);
+            filterPopupVisible.value = false;
           };
         });
       }
-      const renderComponent = () => {
-        if (!component) return null;
-        const isVueComponent = !!component.setup;
-        if (isFunction(column.filter.component) && !isVueComponent) {
-          return column.filter.component((v: any, b: any) => {
-            const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
-            return h(v, {
-              props: { ...filterComponentProps, ...tProps },
-            });
-          });
-        }
-        return <component value={this.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>;
-      };
-      return <div class={this.tableFilterClasses.contentInner}>{renderComponent()}</div>;
+      return (
+        <div class={props.tableFilterClasses.contentInner}>
+          {renderComponent(column, filterComponentProps, component)}
+        </div>
+      );
     };
 
     const getBottomButtons = (column: PrimaryTableCol) => {
       if (!column.filter.showConfirmAndReset) return;
       return (
-        <div class={this.tableFilterClasses.bottomButtons}>
+        <div class={props.tableFilterClasses.bottomButtons}>
           <TButton
             theme="default"
             size="small"
             onClick={() => {
-              this.$emit('reset', column);
-              this.filterPopupVisible = false;
+              context.emit('reset', column);
+              filterPopupVisible.value = false;
             }}
           >
-            {this.globalConfig.resetText}
+            {globalConfig.value.resetText}
           </TButton>
           <TButton
             theme="primary"
             size="small"
             onClick={() => {
-              this.$emit('confirm', column);
-              this.filterPopupVisible = false;
+              context.emit('confirm', column);
+              filterPopupVisible.value = false;
             }}
           >
-            {this.globalConfig.confirmText}
+            {globalConfig.value.confirmText}
           </TButton>
         </div>
       );
     };
 
+    const getContent = () => (
+      <div class={props.tableFilterClasses.popupContent}>
+        {getFilterContent(props.column)}
+        {getBottomButtons(props.column)}
+      </div>
+    );
+
+    return {
+      t,
+      globalConfig,
+      FilterIcon,
+      filterPopupVisible,
+      triggerElementRef,
+      renderTNode,
+      getContent,
+      onFilterPopupVisibleChange,
+    };
+  },
+
+  render() {
     const { column, popupProps, FilterIcon } = this as any;
 
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
@@ -175,12 +188,7 @@ export default defineComponent({
             [this.isFocusClass]: isObjectTrue || isValueTrue,
           },
         ]}
-        content={() => (
-          <div class={this.tableFilterClasses.popupContent}>
-            {getFilterContent(column)}
-            {getBottomButtons(column)}
-          </div>
-        )}
+        content={this.getContent}
         {...popupProps}
       >
         <div ref="triggerElementRef">{this.renderTNode('filterIcon', defaultFilterIcon)}</div>

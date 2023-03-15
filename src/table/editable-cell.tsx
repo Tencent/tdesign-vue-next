@@ -19,6 +19,7 @@ import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
 import isObject from 'lodash/isObject';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -81,10 +82,11 @@ export default defineComponent({
     const isEdit = ref(props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
+    const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
     const editOnListeners = computed(() => {
-      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value });
+      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value }) || {};
     });
 
     const cellParams = computed(() => ({
@@ -161,6 +163,7 @@ export default defineComponent({
           params.result[0].errorList = list;
           props.onValidate?.(params);
           if (!list || !list.length) {
+            errorList.value = [];
             resolve(true);
           } else {
             errorList.value = list;
@@ -177,7 +180,7 @@ export default defineComponent({
       return a === b;
     };
 
-    const updateAndSaveAbort = (outsideAbortEvent: Function, ...args: any) => {
+    const updateAndSaveAbort = (outsideAbortEvent: Function, eventName: string, ...args: any) => {
       validateEdit('self').then((result) => {
         if (result !== true) return;
         const oldValue = get(row.value, col.value.colKey);
@@ -186,6 +189,7 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
+        editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
           isEdit.value = false;
@@ -215,6 +219,7 @@ export default defineComponent({
         tListeners[itemEvent] = (...args: any) => {
           updateAndSaveAbort(
             outsideAbortEvent,
+            itemEvent,
             {
               ...cellParams.value,
               trigger: itemEvent,
@@ -244,6 +249,7 @@ export default defineComponent({
         const outsideAbortEvent = col.value.edit?.onEdited;
         updateAndSaveAbort(
           outsideAbortEvent,
+          'change',
           {
             ...cellParams.value,
             trigger: 'onChange',
@@ -252,13 +258,20 @@ export default defineComponent({
           ...args,
         );
       }
+      if (col.value.edit?.validateTrigger === 'change') {
+        validateEdit('self');
+      }
     };
 
-    const documentClickHandler = () => {
+    const documentClickHandler = (e: MouseEvent) => {
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
+      // @ts-ignore some browser is also only support e.path
+      const path = e.composedPath?.() || e.path || [];
+      const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
+      if (node) return;
       const outsideAbortEvent = col.value.edit.onEdited;
-      updateAndSaveAbort(outsideAbortEvent, {
+      updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
         trigger: 'document',
         newRowData: currentRow.value,
@@ -356,15 +369,23 @@ export default defineComponent({
       const errorMessage = errorList.value?.[0]?.message;
       const tmpEditOnListeners = { ...editOnListeners.value };
       delete tmpEditOnListeners.onChange;
+      // remove conflict events
+      if (col.value.edit?.abortEditOnEvent?.length) {
+        col.value.edit.abortEditOnEvent.forEach((onEventName) => {
+          if (tmpEditOnListeners[onEventName]) {
+            delete tmpEditOnListeners[onEventName];
+          }
+        });
+      }
       return (
         <div
           class={props.tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
             e.stopPropagation();
           }}
+          ref="tableEditableCellRef"
         >
           <Component
-            ref="tableEditableCellRef"
             status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}
             tips={errorMessage}
             {...componentProps.value}

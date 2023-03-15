@@ -278,7 +278,7 @@ export default defineComponent({
     };
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      if (isModeLess.value && props.draggable) {
+      if (isModeLess.value && props.draggable && dialogEle.value) {
         // 关闭弹窗 清空拖拽设置的相关css
         dialogEle.value.style.position = 'relative';
         dialogEle.value.style.left = 'unset';

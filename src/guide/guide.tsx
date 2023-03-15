@@ -193,8 +193,10 @@ export default defineComponent({
         <div ref={overlayLayerRef} class={`${COMPONENT_NAME.value}__overlay`} style={{ zIndex: zIndex.value - 2 }} />
       );
 
-      const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) =>
-        Object.assign({}, h, params);
+      const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) => {
+        const newH = new Function('return ' + h.toString())();
+        return Object.assign({}, newH, params);
+      };
 
       const getHighlightContent = () => {
         const { highlightContent } = currentStepInfo.value;
