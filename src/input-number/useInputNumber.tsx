@@ -10,6 +10,7 @@ import {
   formatToNumber,
   getMaxOrMinValidateResult,
   getStepValue,
+  formatThousandths,
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
 import { TdInputProps } from '../input';
@@ -142,6 +143,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const onInnerInputChange: TdInputProps['onChange'] = (val, { e }) => {
+    val = formatThousandths(val); // 千分位处理
     if (!canInputNumber(val, props.largeNumber)) return;
     if (props.largeNumber) {
       setTValue(val, { type: 'input', e });
