@@ -49,7 +49,7 @@ export default {
   },
   /** 浮层出现位置 */
   placement: {
-    type: String,
+    type: String as PropType<TdPopupProps['placement']>,
     default: 'top',
   },
   /** popper 初始化配置，详情参考 https://popper.js.org/docs/ */

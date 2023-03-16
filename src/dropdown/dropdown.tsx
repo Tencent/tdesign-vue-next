@@ -30,7 +30,7 @@ export default defineComponent({
       if (props.hideAfterItemClick) {
         setTimeout(() => (isPopupVisible.value = false), manualCloseTimeout.value);
         props.popupProps?.onVisibleChange?.(false, context);
-        props.popupProps['on-visible-change']?.(false, context);
+        props.popupProps?.['on-visible-change']?.(false, context);
       }
 
       props?.onClick?.(data, context);
