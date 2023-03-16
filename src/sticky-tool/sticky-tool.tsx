@@ -13,12 +13,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('sticky-tool');
     const classes = computed(() => {
-      return [
-        COMPONENT_NAME.value,
-        `${COMPONENT_NAME.value}--${props.shape}`,
-        `${COMPONENT_NAME.value}--${props.shape}--${props.type}`,
-        `${COMPONENT_NAME.value}--${props.placement}`,
-      ];
+      return [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.shape}`];
     });
     const styles = computed(() => {
       const styles = getOffset();
