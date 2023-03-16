@@ -1,4 +1,3 @@
-import isUndefined from 'lodash/isUndefined';
 import {
   ref,
   reactive,
@@ -536,7 +535,7 @@ export default function useFixed(
     });
     const isWatchResize = isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value || !data.value.length;
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if ((isWatchResize && getIEVersion() < 11) || isUndefined(window.ResizeObserver)) {
+    if ((isWatchResize && getIEVersion() < 11) || typeof window.ResizeObserver === 'undefined') {
       on(window, 'resize', onResize);
     }
   });
