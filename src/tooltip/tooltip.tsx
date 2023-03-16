@@ -100,7 +100,7 @@ export default defineComponent({
     );
 
     const onPopupUpdate = () => {
-      popupRef.value?.updatePopper?.();
+      popupRef.value?.update?.();
     };
 
     /**
