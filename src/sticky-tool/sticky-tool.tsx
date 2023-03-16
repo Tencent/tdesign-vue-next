@@ -30,7 +30,7 @@ export default defineComponent({
 
     const getList = () => {
       let list: Array<TdStickyItemProps>;
-      if (props.list && props.list.length) {
+      if (props.list?.length) {
         list = props.list;
       } else {
         const nodes: VNode[] = getChildComponentByName('StickyItem') as VNode[];
