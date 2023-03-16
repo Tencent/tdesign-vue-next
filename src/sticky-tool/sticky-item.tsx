@@ -1,5 +1,5 @@
 import { computed, defineComponent } from 'vue';
-import props from './sticky-item-props';
+import baseProps from './sticky-item-props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { TdStickyItemProps } from './type';
 import { Styles } from '../common';
@@ -9,7 +9,7 @@ import { useTNodeJSX } from '../hooks';
 export default defineComponent({
   name: 'TStickyItem',
   props: {
-    ...props,
+    ...baseProps,
     type: String,
     shape: String,
     placement: String,
@@ -43,12 +43,12 @@ export default defineComponent({
     });
     const handleClickItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(props).forEach((i) => (item[i] = props[i]));
+      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
       props.onClick(e, item);
     };
     const handleHoverItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(props).forEach((i) => (item[i] = props[i]));
+      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
       props.onHover(e, item);
     };
     const renderTNodeJSX = useTNodeJSX();
