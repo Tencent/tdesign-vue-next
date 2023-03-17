@@ -19,9 +19,3 @@ const globalConfig = {
   },
 };
 </script>
-
-<style scoped>
-/* .tdesign-demo-item--locale-provider-base {
-  margin: 24px -120px 0 0;
-} */
-</style>
