@@ -15,7 +15,6 @@ import {
 } from 'vue';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
-import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
 import { getSSRAttach, getAttach } from '../utils/dom';
 
@@ -34,7 +33,7 @@ function filterEmpty(children: VNode[] = []) {
     (c) =>
       !(
         c &&
-        ((!isUndefined(Comment) && c.type === Comment) ||
+        ((typeof Comment !== 'undefined' && c.type === Comment) ||
           (c.type === Fragment && c.children.length === 0) ||
           (c.type === Text && (c.children as string).trim() === ''))
       ),

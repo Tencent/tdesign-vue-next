@@ -393,7 +393,7 @@ export default defineComponent({
             visible={true}
             show-arrow={!content}
             zIndex={zIndex.value}
-            placement={currentStepInfo.value.placement}
+            placement={currentStepInfo.value.placement as any}
             {...currentStepInfo.value.popupProps}
             content={renderBody}
             overlayClassName={[`${COMPONENT_NAME.value}__popup`, currentStepInfo.value.stepOverlayClass]}
