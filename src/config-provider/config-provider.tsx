@@ -21,6 +21,6 @@ export default defineComponent({
 
     const renderTNodeJSX = useTNodeJSX();
 
-    return () => <div>{renderTNodeJSX('default')}</div>;
+    return () => <>{renderTNodeJSX('default')}</>;
   },
 });
