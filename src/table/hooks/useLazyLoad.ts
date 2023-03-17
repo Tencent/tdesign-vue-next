@@ -15,7 +15,7 @@ export default function useLazyLoad(
   params: UseLazyLoadParams,
 ) {
   const tRowHeight = computed(() => Math.max(params.rowHeight || 48, 48));
-  const isInit = ref(params.rowIndex === 0);
+  const isInit = ref(params.rowIndex === -1);
   const hasLazyLoadHolder = computed(() => params?.type === 'lazy' && !isInit.value);
 
   const requestAnimationFrame = (!isServer && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16.6));
