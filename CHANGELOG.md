@@ -4,6 +4,13 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.2.1 `2023-03-17` 
+### 🐞 Bug Fixes
+- `Form`: 修复复杂数据结构中使用 `scrollToFirstError` 属性无法提交问题([issue #2562](https://github.com/Tencent/tdesign-vue-next/issues/2562)) @k1nz ([#2572](https://github.com/Tencent/tdesign-vue-next/pull/2572))
+- `Dropdown`: 修复事件回调未定义导致控制台报错的问题 @uyarn ([#2570](https://github.com/Tencent/tdesign-vue-next/pull/2570))
+- `Nuxt`: 修复在 `tooltip` 和 `pagination` 组件在 `Nuxt3` 报错([issue #2568](https://github.com/Tencent/tdesign-vue-next/issues/2568)) @PengYYYYY ([#2575](https://github.com/Tencent/tdesign-vue-next/pull/2575))
+- `ConfigProvider`:  修复组件会在最外层增加一的空的 `div` 标签([issue #2558](https://github.com/Tencent/tdesign-vue-next/issues/2558)) ([#2573](https://github.com/Tencent/tdesign-vue-next/pull/2573))
+- `Popup`: 优化 `popup` 嵌套逻辑 @ikeq ([#2514](https://github.com/Tencent/tdesign-vue-next/pull/2514))
 ## 🌈 1.2.0 `2023-03-15` 
 ### 🚀 Features
 - `Table`: 
