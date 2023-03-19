@@ -95,6 +95,16 @@ export default defineComponent({
         vMenu.expandValues = new Set(value);
       },
     );
+    watch(
+      () => props.collapsed,
+      (newValue, oldValue) => {
+        if (!newValue && oldValue) {
+          // 如果重新打开菜单，就将原本已经展开的子菜单重新展开
+          setExpand([...vMenu.expandValues]);
+        }
+      },
+    );
+
     const updateActiveValues = (value: MenuValue) => {
       activeValues.value = vMenu.select(value);
     };
