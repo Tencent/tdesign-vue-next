@@ -85,11 +85,13 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       ...props.inputProps,
     };
 
+    const { tips, ...slots } = context.slots;
+
     return (
       <Input
         ref="inputRef"
         style={context.attrs?.style}
-        v-slots={context.slots}
+        v-slots={slots}
         {...{
           onChange: onInnerInputChange,
           onClear: onInnerClear,

@@ -205,6 +205,21 @@ export default defineComponent({
       tableFootHeight.value = tableElmRef.value.querySelector('tfoot')?.getBoundingClientRect().height;
     };
 
+    // 对外暴露方法，修改时需谨慎（expose）
+    const scrollColumnIntoView = (colKey: string) => {
+      if (!tableContentRef.value) return;
+      const thDom = tableContentRef.value.querySelector(`th[data-colkey="${colKey}"]`);
+      const fixedThDom = tableContentRef.value.querySelectorAll('th.t-table__cell--fixed-left');
+      let totalWidth = 0;
+      for (let i = 0, len = fixedThDom.length; i < len; i++) {
+        totalWidth += fixedThDom[i].getBoundingClientRect().width;
+      }
+      const domRect = thDom.getBoundingClientRect();
+      const contentRect = tableContentRef.value.getBoundingClientRect();
+      const distance = domRect.left - contentRect.left - totalWidth;
+      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+    };
+
     watch(tableContentRef, () => {
       setTableContentRef(tableContentRef.value);
     });
@@ -275,6 +290,7 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
       onInnerVirtualScroll,
       refreshTable,
+      scrollColumnIntoView,
       paginationAffixRef,
       horizontalScrollAffixRef,
       headerTopAffixRef,

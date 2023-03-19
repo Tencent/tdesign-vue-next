@@ -427,7 +427,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 自定义过滤图标，支持全局配置 `GlobalConfigProvider`
    */
-  filterIcon?: TNode;
+  filterIcon?: TNode<{ col: PrimaryTableCol<T>; colIndex: number }>;
   /**
    * 自定义过滤状态行及清空筛选等
    */
