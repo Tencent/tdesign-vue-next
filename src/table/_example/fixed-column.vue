@@ -24,6 +24,7 @@
 
     <!-- 如果希望表格列宽自适应，设置 `table-layout: auto` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
     <t-table
+      ref="tableRef"
       row-key="index"
       :data="emptyData ? [] : data"
       :columns="columns"
@@ -94,6 +95,13 @@ const columns = computed(() => {
     { colKey: 'operation', title: '操作', width: 100, fixed: 'right' },
   ];
 });
+
+const tableRef = ref(null);
+// eslint-disable-next-line
+const scrollToCreateTime = () => {
+  // 横向滚动到指定列
+  tableRef.value.scrollColumnIntoView('matters');
+};
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block-column {
