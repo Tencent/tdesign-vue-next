@@ -148,6 +148,9 @@ export default defineComponent({
       scrollToElement: (data: ScrollToElementParams) => {
         primaryTableRef.value.virtualConfig.scrollToElement(data);
       },
+      scrollColumnIntoView: (colKey: string) => {
+        primaryTableRef.value.scrollColumnIntoView(colKey);
+      },
       // 暴露基础表格 ref 及相关方法
       baseTableRef: primaryTableRef,
     });

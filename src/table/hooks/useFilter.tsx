@@ -140,11 +140,12 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   }
 
   // 图标：内置图标，组件自定义图标，全局配置图标
-  function renderFilterIcon({ col }: { col: PrimaryTableCol<TableRowData>; colIndex: number }) {
+  function renderFilterIcon({ col, colIndex }: { col: PrimaryTableCol<TableRowData>; colIndex: number }) {
     return (
       <TableFilterController
         v-slots={{ filterIcon: context.slots.filterIcon }}
         column={col}
+        colIndex={colIndex}
         filterIcon={props.filterIcon}
         tFilterValue={tFilterValue.value}
         innerFilterValue={innerFilterValue.value}
