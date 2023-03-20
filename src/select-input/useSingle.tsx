@@ -85,6 +85,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       ...props.inputProps,
     };
 
+    // eslint-disable-next-line
     const { tips, ...slots } = context.slots;
 
     return (
