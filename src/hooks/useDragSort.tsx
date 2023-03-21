@@ -46,7 +46,7 @@ export default function useDragSort(props: any) {
   const dragenter = (event: DragEvent) => {
     // 高亮目标节点
     const target = handleTarget(event.target, navsWrap.children);
-    if (target && target !== dragged) {
+    if (target && target !== dragged && target.draggable) {
       target.firstChild.style.outline = '1px dashed #0052d9';
       // 进入的节点全部记录下来
       if (!enterTargets.includes(target)) {
@@ -76,7 +76,7 @@ export default function useDragSort(props: any) {
     });
     // 将拖动的元素到所选择的放置目标节点中
     let target = handleTarget(event.target, navsWrap.children);
-    if (target && target.parentNode !== dragged) {
+    if (target && target.parentNode !== dragged && target.draggable) {
       // 获取拖拽元素index
       const dragIndex = [].indexOf.call(navsWrap.children, dragged);
       // 获取放入元素index
