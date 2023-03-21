@@ -5,8 +5,9 @@ import props from './props';
 import Popup from '../popup';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
-import { TdColorContext } from './interfaces';
 import { useBaseClassName } from './hooks';
+
+import type { TdColorContext } from './interfaces';
 
 export default defineComponent({
   name: 'TColorPicker',
