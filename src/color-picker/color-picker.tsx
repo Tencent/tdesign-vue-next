@@ -2,7 +2,7 @@ import { defineComponent, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
-import { Popup as TPopup } from '../popup';
+import Popup from '../popup';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
 import { TdColorContext } from './interfaces';
@@ -74,7 +74,7 @@ export default defineComponent({
       },
     };
     return (
-      <TPopup {...popProps} content={this.renderPopupContent}>
+      <Popup {...popProps} content={this.renderPopupContent}>
         <div class={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
           {renderTNodeJSXDefault(
             this,
@@ -88,7 +88,7 @@ export default defineComponent({
             />,
           )}
         </div>
-      </TPopup>
+      </Popup>
     );
   },
 });

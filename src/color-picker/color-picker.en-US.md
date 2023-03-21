@@ -10,6 +10,7 @@ closeBtn | String / Boolean / Slot / Function | true | Typescript：`string \| b
 colorModes | Array | ()=> ['monochrome', 'linear-gradient'] | Typescript：`Array<'monochrome' \| 'linear-gradient'>` | N
 disabled | Boolean | - | \- | N
 enableAlpha | Boolean | false | \- | N
+enableMultipleGradient | Boolean | true | \- | N
 format | String | RGB | options：RGB/RGBA/HSL/HSLA/HSB/HSV/HSVA/HEX/CMYK/CSS | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/color-picker/type.ts) | N
 multiple | Boolean | false | \- | N

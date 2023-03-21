@@ -1,5 +1,5 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import TInput from '../input';
+import Input from '../input';
 import { Color } from './utils';
 import { TdColorPickerProps } from './type';
 import { useBaseClassName } from './hooks';
@@ -44,7 +44,7 @@ export default defineComponent({
       () => (value.value = props.color),
     );
 
-    const handleChange = (input: string) => {
+    const handleBlur = (input: string) => {
       if (input === props.color) {
         return;
       }
@@ -56,9 +56,14 @@ export default defineComponent({
       props.onTriggerChange(value.value);
     };
 
+    const handleChange = (input: string) => {
+      props.onTriggerChange(input);
+    };
+
     return {
       baseClassName,
       value,
+      handleBlur,
       handleChange,
     };
   },
@@ -80,13 +85,14 @@ export default defineComponent({
       },
     };
     return (
-      <TInput
+      <Input
         clearable={this.clearable}
         {...this.inputProps}
         v-slots={inputSlots}
         v-model={this.value}
         disabled={this.disabled}
-        onBlur={this.handleChange}
+        onChange={this.handleChange}
+        onBlur={this.handleBlur}
       />
     );
   },
