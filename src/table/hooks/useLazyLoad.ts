@@ -4,7 +4,6 @@ import { isServer } from '../../utils/dom';
 
 export type UseLazyLoadParams = UnwrapRef<{
   type: 'lazy' | 'virtual';
-  rowIndex: number;
   rowHeight?: number;
   bufferSize?: number;
 }>;
@@ -15,7 +14,7 @@ export default function useLazyLoad(
   params: UseLazyLoadParams,
 ) {
   const tRowHeight = computed(() => Math.max(params.rowHeight || 48, 48));
-  const isInit = ref(params.rowIndex === 0);
+  const isInit = ref(false);
   const hasLazyLoadHolder = computed(() => params?.type === 'lazy' && !isInit.value);
 
   const requestAnimationFrame = (!isServer && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16.6));

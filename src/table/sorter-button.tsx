@@ -1,6 +1,5 @@
 import { computed, defineComponent, PropType } from 'vue';
 import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
-
 import useClassName from './hooks/useClassName';
 import { SortType } from './type';
 import Tooltip, { TooltipProps } from '../tooltip';
@@ -44,35 +43,30 @@ export default defineComponent({
       context.emit('sort-icon-click', e, { descending: direction === 'desc' });
     };
 
-    return {
-      t,
-      globalConfig,
-      ChevronDownIcon,
-      tableSortClasses,
-      negativeRotate180,
-      allowSortTypes,
-      onSortIconClick,
-      renderTNode,
-    };
-  },
-
-  methods: {
-    getSortIcon(direction: string, activeClass: string) {
-      const { ChevronDownIcon } = this;
-      const defaultIcon = this.t(this.globalConfig.sortIcon) || <ChevronDownIcon />;
-      const icon = this.renderTNode('sortIcon', defaultIcon);
+    const getSortIcon = (direction: string, activeClass: string) => {
+      const defaultIcon = t(globalConfig.value.sortIcon) || <ChevronDownIcon />;
+      const icon = renderTNode('sortIcon', defaultIcon);
       const sortClassName = [
         activeClass,
-        this.tableSortClasses.sortIcon,
-        this.tableSortClasses.iconDirection[direction],
-        { [this.negativeRotate180]: direction === 'asc' },
+        tableSortClasses.sortIcon,
+        tableSortClasses.iconDirection[direction],
+        { [negativeRotate180]: direction === 'asc' },
       ];
       return (
-        <span class={sortClassName} onClick={(e) => this.onSortIconClick(e, direction)}>
+        <span class={sortClassName} onClick={(e) => onSortIconClick(e, direction)}>
           {icon}
         </span>
       );
-    },
+    };
+
+    return {
+      t,
+      globalConfig,
+      tableSortClasses,
+      negativeRotate180,
+      allowSortTypes,
+      getSortIcon,
+    };
   },
 
   render() {
