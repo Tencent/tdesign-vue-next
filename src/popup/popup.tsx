@@ -50,7 +50,7 @@ function getPopperTree(id: number | string, upwards?: boolean): Element[] {
     children.forEach((el) => {
       list.push(el);
       const childId = el.getAttribute(selectors[1]);
-      if (childId) {
+      if (childId && childId !== id) {
         recurse(childId);
       }
     });
@@ -115,7 +115,7 @@ export default defineComponent({
     const popperEl = ref<HTMLElement>(null);
     const containerRef = ref<typeof Container>(null);
 
-    const id = typeof process !== 'undefined' && process.env.TEST ? '' : Date.now().toString(36);
+    const id = typeof process !== 'undefined' && process.env?.TEST ? '' : Date.now().toString(36);
     const parent = inject(parentKey, undefined);
 
     provide(parentKey, {
@@ -201,7 +201,7 @@ export default defineComponent({
           on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
-              const code = typeof process !== 'undefined' && process.env.TEST ? '27' : 'Escape';
+              const code = typeof process !== 'undefined' && process.env?.TEST ? '27' : 'Escape';
               if (ev.code === code) {
                 hide(ev);
               }
@@ -221,6 +221,7 @@ export default defineComponent({
 
     expose({
       update: updatePopper,
+      close: hide,
       getOverlay() {
         return overlayEl.value;
       },

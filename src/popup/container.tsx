@@ -3,7 +3,6 @@ import {
   getCurrentInstance,
   onMounted,
   ref,
-  Ref,
   Fragment,
   Text,
   watch,
@@ -12,6 +11,7 @@ import {
   Teleport,
   onUpdated,
   ComponentInternalInstance,
+  Comment,
 } from 'vue';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
@@ -33,14 +33,14 @@ function filterEmpty(children: VNode[] = []) {
     (c) =>
       !(
         c &&
-        ((typeof Comment !== 'undefined' && c.type === Comment) ||
+        (c.type === Comment ||
           (c.type === Fragment && c.children.length === 0) ||
           (c.type === Text && (c.children as string).trim() === ''))
       ),
   );
 }
 
-function isContentRectChanged(rect1: DOMRectReadOnly, rect2: DOMRectReadOnly) {
+function isRectChanged(rect1: DOMRectReadOnly, rect2: DOMRectReadOnly) {
   if (!rect1 && !rect2) return false;
   if (!rect1 || !rect2) return true;
   if (['width', 'height', 'x', 'y'].some((k) => rect1[k] !== rect2[k])) {
@@ -49,24 +49,17 @@ function isContentRectChanged(rect1: DOMRectReadOnly, rect2: DOMRectReadOnly) {
   return false;
 }
 
-function useElement(elmFn: (instance: ComponentInternalInstance) => HTMLElement, cb?: (el: HTMLElement) => void) {
-  const el = ref<HTMLElement>(null);
-
+function useElement<T = HTMLElement>(getter: (instance: ComponentInternalInstance) => T) {
   const instance = getCurrentInstance();
-  if (!instance) {
-    console.warn('useElement must be called in setup()');
-    return;
-  }
+  const el = ref<T>();
 
   onMounted(() => {
-    el.value = elmFn(instance);
-    cb?.(el.value);
+    el.value = getter(instance);
   });
   onUpdated(() => {
-    const newEl = elmFn(instance);
+    const newEl = getter(instance);
     if (el.value !== newEl) {
       el.value = newEl;
-      cb?.(el.value);
     }
   });
 
@@ -81,8 +74,12 @@ const Trigger = defineComponent({
   },
   emits: ['resize'],
   setup(props, { emit, slots }) {
-    const el = useElement((instance) => instance.vnode.el as HTMLElement);
-    const contentRect: Ref<DOMRectReadOnly> = ref(null);
+    const el = useElement((vm) => {
+      const containerNode = vm.parent.vnode;
+      // skip the first text node due to `Fragment`
+      return containerNode.el.nextElementSibling;
+    });
+    const contentRect = ref<DOMRectReadOnly>();
 
     watch(el, () => {
       props.forwardRef?.(el.value);
@@ -93,7 +90,7 @@ const Trigger = defineComponent({
     });
 
     watch(contentRect, (newRect, oldRect) => {
-      if (isContentRectChanged(newRect, oldRect)) {
+      if (isRectChanged(newRect, oldRect)) {
         emit('resize');
       }
     });
@@ -112,14 +109,15 @@ const Trigger = defineComponent({
 const Content = defineComponent({
   name: 'TPopupContent',
   emits: ['resize'],
-  setup(props, { emit }) {
-    const contentEl = useElement((instance) => instance.vnode.el.children[0] as HTMLElement);
+  setup(props, { emit, slots }) {
+    const contentEl = useElement((vm) => vm.vnode.el.children[0]);
     useResizeObserver(contentEl, () => {
       emit('resize');
     });
-  },
-  render() {
-    return <div style="position: absolute; top: 0px; left: 0px; width: 100%">{this.$slots.default()}</div>;
+
+    return () => {
+      return <div style="position: absolute; top: 0px; left: 0px; width: 100%">{slots.default()}</div>;
+    };
   },
 });
 
@@ -134,9 +132,14 @@ export default defineComponent({
     forwardRef: Function as PropType<(el: HTMLElement) => void>,
   },
   emits: ['resize', 'contentMounted'],
-  setup(props, { emit }) {
-    const triggerEl = ref<HTMLElement>(null);
+  setup(props, { emit, attrs, slots, expose }) {
+    const triggerEl = ref<HTMLElement>();
     const mountContent = ref(false);
+
+    function emitResize() {
+      emit('resize');
+    }
+
     onMounted(() => {
       requestAnimationFrame(() => {
         mountContent.value = props.visible;
@@ -152,44 +155,35 @@ export default defineComponent({
       },
     );
 
-    return {
-      mountContent,
-      triggerEl,
+    expose({
       unmountContent() {
         mountContent.value = false;
       },
-      emitResize: () => {
-        emit('resize');
-      },
-      emitContentMounted: () => {
-        emit('contentMounted');
-      },
+    });
+
+    return () => {
+      const getElement = () => getSSRAttach() || getAttach(props.attach, triggerEl.value);
+      return (
+        <Fragment>
+          <Trigger
+            class={attrs.class}
+            forwardRef={(el: HTMLElement) => {
+              props.forwardRef(el);
+              triggerEl.value = el;
+            }}
+            onResize={emitResize}
+          >
+            {slots.default()}
+          </Trigger>
+          {mountContent.value && (
+            <Teleport disabled={!getElement()} to={getElement()}>
+              <Content onResize={emitResize} onVnodeMounted={() => emit('contentMounted')}>
+                {slots.content && slots.content()}
+              </Content>
+            </Teleport>
+          )}
+        </Fragment>
+      );
     };
-  },
-  render() {
-    const getElement = () => getSSRAttach() || getAttach(this.attach, this.triggerEl);
-    return (
-      <Fragment>
-        <Trigger
-          {...{
-            class: this.$attrs.class,
-          }}
-          forwardRef={(el: HTMLElement) => {
-            this.forwardRef(el);
-            this.triggerEl = el;
-          }}
-          onResize={this.emitResize}
-        >
-          {this.$slots.default()}
-        </Trigger>
-        {this.mountContent && (
-          <Teleport disabled={!getElement()} to={getElement()}>
-            <Content onResize={this.emitResize} onVnodeMounted={this.emitContentMounted}>
-              {this.$slots.content && this.$slots.content()}
-            </Content>
-          </Teleport>
-        )}
-      </Fragment>
-    );
   },
 });
