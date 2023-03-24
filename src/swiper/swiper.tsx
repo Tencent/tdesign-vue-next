@@ -126,32 +126,15 @@ export default defineComponent({
     };
 
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
-      let targetIndex = index % swiperItemLength.value;
+      // 循环链表逻辑
+      const targetIndex = (index + swiperItemLength.value) % swiperItemLength.value;
       navActiveIndex.value = targetIndex;
       emit('update:current', targetIndex);
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
       if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {
-        targetIndex = index;
         isBeginToEnd = false;
         isEndToBegin = false;
-        if (index >= swiperItemLength.value) {
-          clearTimer();
-          setTimeout(() => {
-            isEndToBegin = true;
-            currentIndex.value = 0;
-          }, props.duration);
-        }
-        if (currentIndex.value === 0) {
-          if ((swiperItemLength.value > 2 && index !== 1) || (swiperItemLength.value === 2 && index === 0)) {
-            targetIndex = -1;
-            clearTimer();
-            setTimeout(() => {
-              isBeginToEnd = true;
-              currentIndex.value = swiperItemLength.value - 1;
-            }, props.duration);
-          }
-        }
       }
       currentIndex.value = targetIndex;
     };
@@ -203,20 +186,15 @@ export default defineComponent({
     };
     const goNext = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
-      if (props.type === 'card') {
-        return swiperTo(currentIndex.value + 1 >= swiperItemLength.value ? 0 : currentIndex.value + 1, context);
+      if (swiperItemLength.value != 0) {
+        return swiperTo(currentIndex.value + 1, context);
       }
-      return swiperTo(currentIndex.value + 1, context);
     };
     const goPrevious = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
-      if (currentIndex.value - 1 < 0) {
-        if (props.animation === 'slide' && swiperItemLength.value === 2) {
-          return swiperTo(0, context);
-        }
-        return swiperTo(swiperItemLength.value - 1, context);
+      if (swiperItemLength.value != 0) {
+        return swiperTo(currentIndex.value - 1, context);
       }
-      return swiperTo(currentIndex.value - 1, context);
     };
     const getWrapAttribute = (attr: string) => {
       return swiperWrap.value?.parentNode?.[attr];
