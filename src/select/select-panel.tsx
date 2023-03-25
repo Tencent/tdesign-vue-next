@@ -115,7 +115,7 @@ export default defineComponent({
                       key: `${item.$index || ''}_${index}`,
                     }
                   : {
-                      key: index,
+                      key: `${index}_${item.value}`,
                     })}
                 multiple={props.multiple}
                 v-slots={item.slots}
