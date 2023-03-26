@@ -75,6 +75,14 @@ scroll | `(params: { e: WheelEvent })` | trigger on table content scroll
 scroll-x | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll horizontal
 scroll-y | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll vertical
 
+### BaseTableInstanceFunctions 组件实例方法
+
+name | params | return | description
+-- | -- | -- | --
+refreshTable | \- | \- | required
+scrollColumnIntoView | `(colKey: string)` | \- | required
+scrollToElement | `(params: ScrollToElementParams)` | \- | required
+
 ### BaseTableCol
 
 name | type | default | description | required

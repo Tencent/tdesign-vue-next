@@ -27,7 +27,7 @@
     </t-table> -->
 
     <!-- 1. v-model:filter-value 等同于 filter-value + filter-change -->
-    <!-- 2. :filter-row="() => null" 用于隐藏过滤结果行 -->
+    <!-- 2. :filter-row="null" 用于隐藏过滤结果行 -->
     <!-- 3. <template #filterRow><p>这是自定义的过滤结果行</p></template> ，可使用插槽完全自定义结果行内容-->
     <!-- 4. :attach="getAttach" 统一控制浮层挂载元素 -->
     <!-- 5. 每一列自定义不同筛选图标：

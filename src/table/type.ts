@@ -262,6 +262,22 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   onScrollY?: (params: { e: WheelEvent }) => void;
 }
 
+/** 组件实例方法 */
+export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 全部重新渲染表格
+   */
+  refreshTable: () => void;
+  /**
+   * 横向滚动到指定列，呈现在可视范围内
+   */
+  scrollColumnIntoView: (colKey: string) => void;
+  /**
+   * 虚拟滚动场景，纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
+   */
+  scrollToElement: (params: ScrollToElementParams) => void;
+}
+
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
   /**
    * 列横向对齐方式
