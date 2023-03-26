@@ -73,6 +73,10 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 
 const align = ref('left');
 
+const onEmailChange = (val, ctx) => {
+  console.log(val, ctx);
+};
+
 const columns = computed(() => [
   { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
   {
@@ -130,7 +134,10 @@ const columns = computed(() => [
       resetValue: '',
       // 按下 Enter 键时也触发确认搜索
       confirmEvents: ['onEnter'],
-      props: { placeholder: '输入关键词过滤' },
+      props: {
+        placeholder: '输入关键词过滤',
+        onChange: onEmailChange,
+      },
       // 是否显示重置取消按钮，一般情况不需要显示
       showConfirmAndReset: true,
     },
