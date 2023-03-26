@@ -27,6 +27,7 @@ import {
   HTMLElementAttributes,
   ComponentType,
   TScroll,
+  ScrollToElementParams,
 } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
