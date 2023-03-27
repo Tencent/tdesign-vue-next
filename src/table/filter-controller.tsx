@@ -99,8 +99,11 @@ export default defineComponent({
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
         value: props.innerFilterValue?.[column.colKey],
-        onChange: (val: any) => {
+        onChange: (val: any, ctx: any) => {
           context.emit('inner-filter-change', val, column);
+          if (column.filter.props?.onChange) {
+            column.filter.props.onChange?.(val, ctx);
+          }
         },
       };
       // 允许自定义触发确认搜索的事件

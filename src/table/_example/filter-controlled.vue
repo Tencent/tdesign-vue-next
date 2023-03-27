@@ -27,7 +27,7 @@
     </t-table> -->
 
     <!-- 1. v-model:filter-value 等同于 filter-value + filter-change -->
-    <!-- 2. :filter-row="() => null" 用于隐藏过滤结果行 -->
+    <!-- 2. :filter-row="null" 用于隐藏过滤结果行 -->
     <!-- 3. <template #filterRow><p>这是自定义的过滤结果行</p></template> ，可使用插槽完全自定义结果行内容-->
     <!-- 4. :attach="getAttach" 统一控制浮层挂载元素 -->
     <!-- 5. 每一列自定义不同筛选图标：
@@ -72,6 +72,10 @@ const initData = new Array(5).fill(null).map((_, i) => ({
 }));
 
 const align = ref('left');
+
+const onEmailChange = (val, ctx) => {
+  console.log(val, ctx);
+};
 
 const columns = computed(() => [
   { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
@@ -130,7 +134,10 @@ const columns = computed(() => [
       resetValue: '',
       // 按下 Enter 键时也触发确认搜索
       confirmEvents: ['onEnter'],
-      props: { placeholder: '输入关键词过滤' },
+      props: {
+        placeholder: '输入关键词过滤',
+        onChange: onEmailChange,
+      },
       // 是否显示重置取消按钮，一般情况不需要显示
       showConfirmAndReset: true,
     },
