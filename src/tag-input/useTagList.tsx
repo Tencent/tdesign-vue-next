@@ -49,7 +49,12 @@ export default function useTagList(props: TagInputProps) {
   };
 
   // 按下回退键，删除标签
-  const onInputBackspaceKeyUp = (value: InputValue, context: { e: KeyboardEvent }) => {
+  const onInputBackspaceKeyUp = (value: InputValue) => {
+    if (!tagValue.value || !tagValue.value.length) return;
+    oldInputValue.value = value;
+  };
+  // 按下回退键，删除标签
+  const onInputBackspaceKeyDown = (value: InputValue, context: { e: KeyboardEvent }) => {
     const { e } = context;
     if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
@@ -114,6 +119,7 @@ export default function useTagList(props: TagInputProps) {
     onClose,
     onInnerEnter,
     onInputBackspaceKeyUp,
+    onInputBackspaceKeyDown,
     renderLabel,
   };
 }
