@@ -66,6 +66,8 @@ export default defineComponent({
       showClear,
       focused,
       inputValue,
+      isComposition,
+      compositionValue,
       innerValue,
       limitNumber,
       ...inputHandle
@@ -202,7 +204,7 @@ export default defineComponent({
                 {...inputAttrs.value}
                 {...inputEvents}
                 ref={inputRef}
-                value={inputValue.value ?? ''}
+                value={isComposition.value ? compositionValue.value ?? '' : inputValue.value ?? ''}
                 onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
               />
             )}
