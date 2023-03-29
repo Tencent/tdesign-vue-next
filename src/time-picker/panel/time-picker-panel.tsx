@@ -30,13 +30,15 @@ export default defineComponent({
 
     const defaultValue = computed(() => {
       const isStepsSet = showNowTimeBtn.value;
-      if (props.value) {
-        return dayjs(props.value, props.format);
+      const formattedValue = dayjs(props.value, props.format);
+      if (props.value && formattedValue.isValid()) {
+        return formattedValue.format(props.format);
       }
+
       if (isStepsSet) {
-        return dayjs().hour(0).minute(0).second(0);
+        return dayjs().hour(0).minute(0).second(0).format(props.format);
       }
-      return dayjs();
+      return dayjs().hour(0).minute(0).second(0).format(props.format);
     });
 
     const panelColUpdate = () => {
@@ -69,7 +71,7 @@ export default defineComponent({
             ref={panelRef}
             format={props.format || DEFAULT_FORMAT}
             steps={props.steps || DEFAULT_STEPS}
-            value={props.value}
+            value={dayjs(props.value, props.format).isValid() ? props.value : defaultValue.value}
             triggerScroll={triggerScroll.value}
             onChange={props.onChange}
             resetTriggerScroll={resetTriggerScroll}
