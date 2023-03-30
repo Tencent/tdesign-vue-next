@@ -4,6 +4,32 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.2.3 `2023-03-30` 
+### 🚀 Features
+- `Table`: 
+  - 过滤功能，支持透传属性 `column.filter.props.onChange` @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+  - 支持设置 `filterRow=null` 隐藏过滤结果行 @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+- `Popup`: 增加 `close()` 实例方法 @ikeq ([#2617](https://github.com/Tencent/tdesign-vue-next/pull/2617))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复 `SSR` 环境 `document` 报错问题 @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+  - 修复组件实例方法类型问题 @chaishi ([#2636](https://github.com/Tencent/tdesign-vue-next/pull/2636))
+- `Guide`:  解决 `guide popup` 提示在重叠情形下不更新 ([issue #2536 ](https://github.com/Tencent/tdesign-vue-next/issues/2536)) @zhangpaopao0609 ([#2605](https://github.com/Tencent/tdesign-vue-next/pull/2605))
+- `Swiper`: 修改轮播切换问题 @btea ([#2614](https://github.com/Tencent/tdesign-vue-next/pull/2614))
+- `Popup`: 修复叠加使用报错 @ikeq ([#2617](https://github.com/Tencent/tdesign-vue-next/pull/2617))
+- `Select`: 修复使用 `filterable` 和自定义下拉选项时，下拉列表展示异常 ([issue #2593](https://github.com/Tencent/tdesign-vue-next/issues/2593)) @Lmmmmmm-bb ([#2619](https://github.com/Tencent/tdesign-vue-next/pull/2619))
+- `TimePicker`: 修复使用`px to rem`插件时滚动逐渐错位的问题 @SadWood ([#2627](https://github.com/Tencent/tdesign-vue-next/pull/2627))
+- `Loading`:  修复使用 `loadingplugin`，会没有 `loading` 效果的问题 @beerui ([#2628](https://github.com/Tencent/tdesign-vue-next/pull/2628))
+- `TagInput`: 修复删除事件和中文输入事件问题 @chiyu1996 ([#2631](https://github.com/Tencent/tdesign-vue-next/pull/2631))
+- `DatePicker`: 修复format为12小时制时功能异常的问题 @uyarn ([#2632](https://github.com/Tencent/tdesign-vue-next/pull/2632))
+- `Alert`: 修复关闭按钮为文字时的居中和字体大小问题 @Wen1kang  @uyarn ([#2632](https://github.com/Tencent/tdesign-vue-next/pull/2632))
+- `InputNumber`: 修复有 `max` 值时，清空数值，`blur` 会自动填充 `max` 的值 @Lmmmmmm-bb ([#2620](https://github.com/Tencent/tdesign-vue-next/pull/2620))
+- `Menu`: 修复多级菜单折叠菜单后，第一次顺着展开悬浮多级子菜单时会全部消失  @Ericleungs ([#2634](https://github.com/Tencent/tdesign-vue-next/pull/2634))
+
+### 🚧 Others
+- `Form`: 更新 `Form` 文档，修正 ` telnumber rule`  描述 @xiaosansiji ([#2606](https://github.com/Tencent/tdesign-vue-next/pull/2606))
+- `Table`: 更新组件实例方法文档 @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+
 ## 🌈 1.2.2 `2023-03-22` 
 ### 🚀 Features
 - `Table`: 
