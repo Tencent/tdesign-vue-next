@@ -78,10 +78,10 @@ export default defineComponent({
       ...treeInstanceFunctions,
       primaryTableRef,
       validateRowData: (rowValue: any) => {
-        primaryTableRef.value.validateRowData(rowValue);
+        return primaryTableRef.value.validateRowData(rowValue);
       },
       validateTableData: () => {
-        primaryTableRef.value.validateTableData();
+        return primaryTableRef.value.validateTableData();
       },
       clearValidateData: () => {
         primaryTableRef.value.clearValidateData();

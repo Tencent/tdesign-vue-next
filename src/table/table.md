@@ -184,8 +184,8 @@ validate | `(context: PrimaryTableValidateContext)` | 可编辑行表格，全�
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
-validateRowData | `(rowValue: any)` | \- | 必需。校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
-validateTableData | \- | \- | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`
+validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | 必需。校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
+validateTableData | \- | `Promise<TableErrorListMap>` | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`
 
 ### PrimaryTableCol
 

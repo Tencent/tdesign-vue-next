@@ -184,8 +184,8 @@ validate | `(context: PrimaryTableValidateContext)` | trigger after row data val
 
 name | params | return | description
 -- | -- | -- | --
-validateRowData | `(rowValue: any)` | \- | required
-validateTableData | \- | \- | required
+validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
+validateTableData | \- | `Promise<TableErrorListMap>` | required
 
 ### PrimaryTableCol
 
