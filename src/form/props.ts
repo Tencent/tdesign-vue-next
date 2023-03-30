@@ -40,7 +40,7 @@ export default {
   /** 可以整体设置label标签宽度，默认为100px */
   labelWidth: {
     type: [String, Number] as PropType<TdFormProps['labelWidth']>,
-    default: '100px',
+    default: '100px' as TdFormProps['labelWidth'],
   },
   /** 表单布局，有两种方式：纵向布局 和 行内布局 */
   layout: {
@@ -90,7 +90,7 @@ export default {
   /** 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标 */
   statusIcon: {
     type: [Boolean, Function] as PropType<TdFormProps['statusIcon']>,
-    default: undefined,
+    default: undefined as TdFormProps['statusIcon'],
   },
   /** 【讨论中】当校验结果只有告警信息时，是否触发 `submit` 提交事件 */
   submitWithWarningMessage: Boolean,

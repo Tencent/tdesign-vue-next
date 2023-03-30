@@ -27,7 +27,7 @@ export default function useSingleValue(props: TdDatePickerProps) {
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
   }
 
-  const time = ref(formatTime(value.value, formatRef.value.timeFormat, props.defaultTime));
+  const time = ref(formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime));
   const month = ref<number>(parseToDayjs(value.value, formatRef.value.format).month());
   const year = ref<number>(parseToDayjs(value.value, formatRef.value.format).year());
   const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 缓存选中值，panel 点击时更改
@@ -43,7 +43,7 @@ export default function useSingleValue(props: TdDatePickerProps) {
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,
     });
-    time.value = formatTime(value.value, formatRef.value.timeFormat, props.defaultTime);
+    time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
   });
 
   return {

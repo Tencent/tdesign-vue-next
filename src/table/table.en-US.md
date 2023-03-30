@@ -75,6 +75,14 @@ scroll | `(params: { e: WheelEvent })` | trigger on table content scroll
 scroll-x | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll horizontal
 scroll-y | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll vertical
 
+### BaseTableInstanceFunctions 组件实例方法
+
+name | params | return | description
+-- | -- | -- | --
+refreshTable | \- | \- | required
+scrollColumnIntoView | `(colKey: string)` | \- | required
+scrollToElement | `(params: ScrollToElementParams)` | \- | required
+
 ### BaseTableCol
 
 name | type | default | description | required
@@ -176,8 +184,8 @@ validate | `(context: PrimaryTableValidateContext)` | trigger after row data val
 
 name | params | return | description
 -- | -- | -- | --
-validateRowData | `(rowValue: any)` | \- | required
-validateTableData | \- | \- | required
+validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
+validateTableData | \- | `Promise<TableErrorListMap>` | required
 
 ### PrimaryTableCol
 

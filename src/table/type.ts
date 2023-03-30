@@ -27,6 +27,7 @@ import {
   HTMLElementAttributes,
   ComponentType,
   TScroll,
+  ScrollToElementParams,
 } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -260,6 +261,22 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @deprecated
    */
   onScrollY?: (params: { e: WheelEvent }) => void;
+}
+
+/** 组件实例方法 */
+export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 全部重新渲染表格
+   */
+  refreshTable: () => void;
+  /**
+   * 横向滚动到指定列，呈现在可视范围内
+   */
+  scrollColumnIntoView: (colKey: string) => void;
+  /**
+   * 虚拟滚动场景，纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
+   */
+  scrollToElement: (params: ScrollToElementParams) => void;
 }
 
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
@@ -562,11 +579,11 @@ export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRow
   /**
    * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
-  validateRowData: (rowValue: any) => void;
+  validateRowData: (rowValue: any) => Promise<{ trigger: TableValidateTrigger; result: ErrorListObjectType<T>[] }>;
   /**
    * 校验表格全部数据，校验完成后，会触发事件 `onValidate`
    */
-  validateTableData: () => void;
+  validateTableData: () => Promise<{ result: TableErrorListMap }>;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
@@ -1057,6 +1074,8 @@ export interface PrimaryTableValidateContext {
 }
 
 export type TableErrorListMap = { [key: string]: AllValidateResult[] };
+
+export type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] };
 
 export interface PrimaryTableCellParams<T> {
   row: T;

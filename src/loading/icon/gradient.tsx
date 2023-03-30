@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, getCurrentInstance } from 'vue';
+import { defineComponent, onMounted, getCurrentInstance, nextTick } from 'vue';
 import circleAdapter from '../../_common/js/loading/circle-adapter';
 import { usePrefixClass } from '../../hooks/useConfig';
 
@@ -9,7 +9,9 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     onMounted(() => {
       const circleElem = getCurrentInstance().refs.circle as HTMLElement;
-      circleAdapter(circleElem);
+      nextTick(() => {
+        circleAdapter(circleElem);
+      });
     });
     return {
       classPrefix,
