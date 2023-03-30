@@ -579,11 +579,11 @@ export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRow
   /**
    * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
-  validateRowData: (rowValue: any) => void;
+  validateRowData: (rowValue: any) => Promise<{ trigger: TableValidateTrigger; result: ErrorListObjectType<T>[] }>;
   /**
    * 校验表格全部数据，校验完成后，会触发事件 `onValidate`
    */
-  validateTableData: () => void;
+  validateTableData: () => Promise<{ result: TableErrorListMap }>;
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
@@ -1074,6 +1074,8 @@ export interface PrimaryTableValidateContext {
 }
 
 export type TableErrorListMap = { [key: string]: AllValidateResult[] };
+
+export type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] };
 
 export interface PrimaryTableCellParams<T> {
   row: T;
