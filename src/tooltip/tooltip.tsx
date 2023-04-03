@@ -109,18 +109,24 @@ export default defineComponent({
     ctx.expose({
       updatePopper: onPopupUpdate,
     });
-    return () => (
-      <Popup
-        {...omit(popupProps.value, ['content', 'default'])}
-        ref={popupRef}
-        overlayInnerStyle={overlayInnerStyle.value}
-        visible={innerVisible.value}
-        v-slots={{
-          content: () => renderTNodeJSX('content'),
-        }}
-      >
-        {renderContent('default', 'triggerElement')}
-      </Popup>
-    );
+    return () => {
+      const content = renderTNodeJSX('content');
+      if (!content && !props.content) {
+        return renderContent('default', 'triggerElement');
+      }
+      return (
+        <Popup
+          {...omit(popupProps.value, ['content', 'default'])}
+          ref={popupRef}
+          overlayInnerStyle={overlayInnerStyle.value}
+          visible={innerVisible.value}
+          v-slots={{
+            content: () => content,
+          }}
+        >
+          {renderContent('default', 'triggerElement')}
+        </Popup>
+      );
+    };
   },
 });
