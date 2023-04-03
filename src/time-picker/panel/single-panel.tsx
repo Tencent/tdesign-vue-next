@@ -229,12 +229,31 @@ export default defineComponent({
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
 
         if (!scrollCtrl || scrollCtrl.scrollTop === distance) return;
-
         scrollCtrl.scrollTo?.({
           top: distance,
           behavior: 'smooth',
         });
       }
+    };
+
+    const handleMouseDown = (col: EPickerCols, idx: number, e: MouseEvent) => {
+      let startY = 0;
+      const clearListener = () => {
+        scrollCtrl.onmousemove = null;
+        scrollCtrl.onmouseup = null;
+        scrollCtrl.onmouseleave = null;
+      };
+      const moveCallback = (e: MouseEvent) => {
+        scrollCtrl.scrollTo?.({
+          top: (scrollCtrl.scrollTop += (startY - e.clientY) / 30),
+          behavior: 'smooth',
+        });
+      };
+      startY = e.clientY;
+      const scrollCtrl = colsRef[cols.value.indexOf(col)];
+      scrollCtrl.onmousemove = moveCallback;
+      scrollCtrl.onmouseleave = clearListener;
+      scrollCtrl.onmouseup = clearListener;
     };
 
     const scrollToTime = (
@@ -327,6 +346,7 @@ export default defineComponent({
             ref={(el) => (colsRef[idx] = el)}
             class={`${panelClassName.value}-body-scroll`}
             onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
+            onMousedown={(e) => handleMouseDown(col, idx, e)}
           >
             {getColList(col).map((el) => (
               <li
