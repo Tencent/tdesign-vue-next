@@ -55,16 +55,8 @@ export default defineComponent({
       };
     });
     return () => {
-      const { theme, shape, size, content, default: cusContent, target, duration, offset, container } = props;
+      const { theme, shape, size, target, duration, offset, container } = props;
       const getChild = useChildSlots();
-      const getPropRender = (content: string | Function) => {
-        if (typeof content === 'string') {
-          return content;
-        }
-        if (typeof content === 'function') {
-          return content();
-        }
-      };
       let children = getChild();
       if (children.length < 1) children = null;
       const cls = classNames(
@@ -96,17 +88,16 @@ export default defineComponent({
       const handleClick = (e: MouseEvent) => {
         const y = getBackTo();
         scrollTo(y, { container: containerRef.value, duration });
-        // props.onClick?.({ e });
         props.onClick({ e });
       };
-      const postionStyle = computed(() => {
+      const positionStyle = computed(() => {
         return {
           insetInlineEnd: offset[0],
           insetBlockEnd: offset[1],
         };
       });
       return (
-        <button type="button" className={cls} style={postionStyle.value} onClick={handleClick}>
+        <button type="button" className={cls} style={positionStyle.value} onClick={handleClick}>
           {renderContent('content', 'default', defaultContent)}
         </button>
       );
