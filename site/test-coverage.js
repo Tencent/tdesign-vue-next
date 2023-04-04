@@ -18,10 +18,10 @@ module.exports = {
     lines: '84.61%',
   },
   autoComplete: {
-    statements: '98.86%',
+    statements: '98.1%',
     branches: '89.9%',
-    functions: '96.15%',
-    lines: '98.86%',
+    functions: '92.3%',
+    lines: '98.1%',
   },
   avatar: {
     statements: '98.23%',
@@ -29,11 +29,17 @@ module.exports = {
     functions: '100%',
     lines: '98.23%',
   },
+  backTop: {
+    statements: '85.14%',
+    branches: '61.9%',
+    functions: '81.81%',
+    lines: '85.14%',
+  },
   badge: {
-    statements: '98.73%',
-    branches: '85.18%',
+    statements: '98.72%',
+    branches: '84.61%',
     functions: '85.71%',
-    lines: '98.73%',
+    lines: '98.72%',
   },
   breadcrumb: {
     statements: '93.96%',
@@ -102,10 +108,10 @@ module.exports = {
     lines: '80.29%',
   },
   datePicker: {
-    statements: '41.58%',
-    branches: '77.77%',
-    functions: '15.38%',
-    lines: '41.58%',
+    statements: '43.34%',
+    branches: '69.23%',
+    functions: '22.22%',
+    lines: '43.34%',
   },
   dialog: {
     statements: '75.85%',
@@ -126,10 +132,10 @@ module.exports = {
     lines: '84.16%',
   },
   dropdown: {
-    statements: '53.14%',
+    statements: '52.91%',
     branches: '64.28%',
     functions: '53.33%',
-    lines: '53.14%',
+    lines: '52.91%',
   },
   form: {
     statements: '96.65%',
@@ -144,14 +150,14 @@ module.exports = {
     lines: '89.83%',
   },
   guide: {
-    statements: '97.31%',
+    statements: '97.34%',
     branches: '90.47%',
     functions: '93.93%',
-    lines: '97.31%',
+    lines: '97.34%',
   },
   hooks: {
     statements: '55.29%',
-    branches: '85.41%',
+    branches: '86.89%',
     functions: '58.18%',
     lines: '55.29%',
   },
@@ -174,10 +180,10 @@ module.exports = {
     lines: '70.65%',
   },
   input: {
-    statements: '97.89%',
-    branches: '85.48%',
+    statements: '97.6%',
+    branches: '85.18%',
     functions: '97.67%',
-    lines: '97.89%',
+    lines: '97.6%',
   },
   inputAdornment: {
     statements: '93.25%',
@@ -186,10 +192,10 @@ module.exports = {
     lines: '93.25%',
   },
   inputNumber: {
-    statements: '94.7%',
-    branches: '75.28%',
+    statements: '94.72%',
+    branches: '74.44%',
     functions: '87.5%',
-    lines: '94.7%',
+    lines: '94.72%',
   },
   layout: {
     statements: '98.88%',
@@ -216,10 +222,10 @@ module.exports = {
     lines: '71.61%',
   },
   menu: {
-    statements: '68.07%',
-    branches: '64.76%',
+    statements: '67.89%',
+    branches: '65.09%',
     functions: '43.54%',
-    lines: '68.07%',
+    lines: '67.89%',
   },
   message: {
     statements: '65.03%',
@@ -228,10 +234,10 @@ module.exports = {
     lines: '65.03%',
   },
   notification: {
-    statements: '89.86%',
-    branches: '86.9%',
-    functions: '82.5%',
-    lines: '89.86%',
+    statements: '95.32%',
+    branches: '88.54%',
+    functions: '87.5%',
+    lines: '95.32%',
   },
   pagination: {
     statements: '87.23%',
@@ -246,16 +252,16 @@ module.exports = {
     lines: '96.61%',
   },
   popup: {
-    statements: '87.79%',
-    branches: '86.57%',
-    functions: '78.72%',
-    lines: '87.79%',
+    statements: '86.34%',
+    branches: '86.2%',
+    functions: '82.97%',
+    lines: '86.34%',
   },
   progress: {
-    statements: '96.65%',
-    branches: '81.63%',
+    statements: '96.72%',
+    branches: '80.39%',
     functions: '91.66%',
-    lines: '96.65%',
+    lines: '96.72%',
   },
   radio: {
     statements: '95.08%',
@@ -264,10 +270,10 @@ module.exports = {
     lines: '95.08%',
   },
   rangeInput: {
-    statements: '45.77%',
+    statements: '46.01%',
     branches: '100%',
     functions: '0%',
-    lines: '45.77%',
+    lines: '46.01%',
   },
   rate: {
     statements: '90.72%',
@@ -276,16 +282,16 @@ module.exports = {
     lines: '90.72%',
   },
   select: {
-    statements: '76.13%',
-    branches: '69.01%',
-    functions: '57.14%',
-    lines: '76.13%',
+    statements: '76.75%',
+    branches: '70.71%',
+    functions: '57.89%',
+    lines: '76.75%',
   },
   selectInput: {
-    statements: '97.34%',
+    statements: '97.36%',
     branches: '83.11%',
     functions: '79.16%',
-    lines: '97.34%',
+    lines: '97.36%',
   },
   skeleton: {
     statements: '97.87%',
@@ -312,10 +318,10 @@ module.exports = {
     lines: '98.23%',
   },
   swiper: {
-    statements: '83.13%',
-    branches: '69.6%',
+    statements: '82.22%',
+    branches: '70.83%',
     functions: '67.74%',
-    lines: '83.13%',
+    lines: '82.22%',
   },
   switch: {
     statements: '97.94%',
@@ -324,16 +330,16 @@ module.exports = {
     lines: '97.94%',
   },
   table: {
-    statements: '66.36%',
-    branches: '64.31%',
-    functions: '40.67%',
-    lines: '66.36%',
+    statements: '65.45%',
+    branches: '60.99%',
+    functions: '39.83%',
+    lines: '65.45%',
   },
   tabs: {
-    statements: '96.46%',
-    branches: '81.3%',
+    statements: '96.1%',
+    branches: '79.81%',
     functions: '89.74%',
-    lines: '96.46%',
+    lines: '96.1%',
   },
   tag: {
     statements: '98.93%',
@@ -342,10 +348,10 @@ module.exports = {
     lines: '98.93%',
   },
   tagInput: {
-    statements: '98.4%',
+    statements: '97.84%',
     branches: '90%',
-    functions: '89.65%',
-    lines: '98.4%',
+    functions: '86.66%',
+    lines: '97.84%',
   },
   textarea: {
     statements: '88.58%',
@@ -354,10 +360,10 @@ module.exports = {
     lines: '88.58%',
   },
   timePicker: {
-    statements: '64.71%',
+    statements: '64.84%',
     branches: '62.5%',
     functions: '35%',
-    lines: '64.71%',
+    lines: '64.84%',
   },
   timeline: {
     statements: '98.73%',
@@ -366,10 +372,10 @@ module.exports = {
     lines: '98.73%',
   },
   tooltip: {
-    statements: '82.6%',
-    branches: '61.9%',
+    statements: '81.69%',
+    branches: '56.52%',
     functions: '54.54%',
-    lines: '82.6%',
+    lines: '81.69%',
   },
   transfer: {
     statements: '95.26%',
@@ -391,7 +397,7 @@ module.exports = {
   },
   upload: {
     statements: '100%',
-    branches: '92.5%',
+    branches: '92.85%',
     functions: '100%',
     lines: '100%',
   },
