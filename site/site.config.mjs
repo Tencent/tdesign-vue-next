@@ -128,6 +128,12 @@ export default {
           component: () => import('tdesign-vue-next/anchor/anchor.md'),
         },
         {
+          title: 'BackTop 回到顶部',
+          name: 'back-top',
+          path: '/vue-next/components/back-top',
+          component: () => import('tdesign-vue-next/back-top/back-top.md'),
+        },
+        {
           title: 'Breadcrumb 面包屑',
           name: 'breadcrumb',
           path: '/vue-next/components/breadcrumb',
@@ -162,12 +168,6 @@ export default {
           name: 'tabs',
           path: '/vue-next/components/tabs',
           component: () => import('tdesign-vue-next/tabs/tabs.md'),
-        },
-        {
-          title: 'BackTop 回到顶部',
-          name: 'back-top',
-          path: '/vue-next/components/back-top',
-          component: () => import('tdesign-vue-next/back-top/back-top.md'),
         },
       ],
     },
