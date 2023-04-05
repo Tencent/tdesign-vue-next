@@ -1,22 +1,20 @@
-import classNames from 'classnames';
 import { computed, defineComponent, onMounted, ref } from 'vue';
 import { TdBackTopProps } from './type';
 import props from './props';
-import { BacktopIcon, BacktopIcon as TIconBackTop } from 'tdesign-icons-vue-next';
+import { BacktopIcon as TIconBackTop } from 'tdesign-icons-vue-next';
 import { scrollTo } from '../utils/dom';
 import { useChildSlots, useConfig, useContent } from '../hooks';
-import { AttachNode } from '..';
 
 export default defineComponent({
   name: 'TBackTop',
   components: { TIconBackTop },
   props,
-  setup(props: TdBackTopProps, { attrs }) {
+  setup(props: TdBackTopProps) {
     const visible = ref(false);
     const containerRef = ref(null);
     const { classPrefix } = useConfig('classPrefix');
     const renderContent = useContent();
-    const getContainer = (container: AttachNode | string) => {
+    const getContainer = (container: TdBackTopProps['container']) => {
       if (typeof container === 'string') {
         if (container === 'body') {
           return document;
@@ -59,20 +57,19 @@ export default defineComponent({
       const getChild = useChildSlots();
       let children = getChild();
       if (children.length < 1) children = null;
-      const cls = classNames(
-        `${classPrefix.value}-back-top`,
-        `${classPrefix.value}-back-top--theme-${theme}`,
-        `${classPrefix.value}-back-top--${shape}`,
-        {
+      const cls = computed(() => {
+        return {
+          [`${classPrefix.value}-back-top`]: true,
+          [`${classPrefix.value}-back-top--theme-${theme}`]: true,
+          [`${classPrefix.value}-back-top--${shape}`]: true,
           [`${classPrefix.value}-back-top--show`]: visible.value,
           [`${classPrefix.value}-size-s`]: size === 'small',
           [`${classPrefix.value}-size-m`]: size === 'medium',
-        },
-        attrs.class as string,
-      );
+        };
+      });
       const defaultContent = (
         <>
-          <BacktopIcon className={`${classPrefix.value}-back-top__icon`} size={'24'} />
+          <TIconBackTop className={`${classPrefix.value}-back-top__icon`} size={'24'} />
           <span className={`${classPrefix.value}-back-top__text`}>TOP</span>
         </>
       );
@@ -88,7 +85,7 @@ export default defineComponent({
       const handleClick = (e: MouseEvent) => {
         const y = getBackTo();
         scrollTo(y, { container: containerRef.value, duration });
-        props.onClick({ e });
+        props.onClick?.({ e });
       };
       const positionStyle = computed(() => {
         return {
@@ -97,7 +94,7 @@ export default defineComponent({
         };
       });
       return (
-        <button type="button" className={cls} style={positionStyle.value} onClick={handleClick}>
+        <button type="button" class={cls.value} style={positionStyle.value} onClick={handleClick}>
           {renderContent('content', 'default', defaultContent)}
         </button>
       );
