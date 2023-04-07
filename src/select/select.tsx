@@ -437,8 +437,8 @@ export default defineComponent({
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : undefined, {
-                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
+              setInnerValue(props.multiple ? [] : '', {
+                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
                 trigger: 'clear',
                 e,
               });
