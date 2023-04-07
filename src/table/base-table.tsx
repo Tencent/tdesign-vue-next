@@ -444,20 +444,55 @@ export default defineComponent({
     if (this.bordered) {
       marginScrollbarWidth += 1;
     }
+
+    // 虚拟滚动时，tableContent里的Foot接在tbody的高度而不是最底部的元素后面
+    // 所以也采用AffixedFooter，以保证固定表尾在滚动超出tbody的高度时仍然有效
+    const needAffixedFooter = Boolean(
+      (this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom) &&
+        this.footData?.length &&
+        this.tableWidth,
+    );
+
     // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
-    const affixedFooter = Boolean(this.footerAffixedBottom && this.footData?.length && this.tableWidth) && (
-      <Affix
-        class={this.tableBaseClass.affixedFooterWrap}
-        onFixedChange={this.onFixedChange}
-        offsetBottom={marginScrollbarWidth || 0}
-        {...getAffixProps(this.footerAffixedBottom)}
-        style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
-        ref="footerBottomAffixRef"
-      >
+    const affixedFooterStyle = needAffixedFooter
+      ? { marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }
+      : {};
+    const renderAffixedFooter = () => {
+      if (!needAffixedFooter) {
+        return null;
+      }
+      return this.footerAffixedBottom ? (
+        <Affix
+          class={this.tableBaseClass.affixedFooterWrap}
+          onFixedChange={this.onFixedChange}
+          offsetBottom={marginScrollbarWidth || 0}
+          {...getAffixProps(this.footerAffixedBottom)}
+          style={affixedFooterStyle}
+          ref="footerBottomAffixRef"
+        >
+          {affixedFooter()}
+        </Affix>
+      ) : (
+        affixedFooter()
+      );
+    };
+
+    const affixedFooter = () =>
+      needAffixedFooter && (
         <div
           ref="affixFooterRef"
-          style={{ width: `${this.tableWidth - affixedLeftBorder}px`, opacity: Number(this.showAffixFooter) }}
-          class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
+          style={{
+            width: `${this.tableWidth - affixedLeftBorder}px`,
+            opacity: Number(this.showAffixFooter),
+            ...(this.footerAffixedBottom ? {} : affixedFooterStyle),
+          }}
+          class={[
+            'scrollbar',
+            {
+              [this.tableBaseClass.affixedFooterElm]:
+                this.footerAffixedBottom || this.virtualConfig.isVirtualScroll.value,
+            },
+          ]}
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
@@ -477,8 +512,7 @@ export default defineComponent({
             ></TFoot>
           </table>
         </div>
-      </Affix>
-    );
+      );
 
     const translate = `translate(0, ${this.virtualConfig.scrollHeight.value}px)`;
     const virtualStyle = {
@@ -487,6 +521,38 @@ export default defineComponent({
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
+
+    const tableInnerFoot = () => {
+      // 虚拟滚动时，使用AffixedFooter，它margin上来挡住的空间，需靠translateY移到底部补上
+      const translateY = `translate(0, ${this.virtualConfig.translateY.value}px)`;
+      const posStyle = this.virtualConfig.isVirtualScroll.value
+        ? {
+            transform: translateY,
+            '-ms-transform': translateY,
+            '-moz-transform': translateY,
+            '-webkit-transform': translateY,
+            // 这里直接隐藏+关闭事件，使tableContent的Foot只用作空间填补
+            visibility: 'hidden',
+            'pointer-events': 'none',
+          }
+        : {};
+      return (
+        <TFoot
+          v-slots={this.$slots}
+          style={posStyle}
+          rowKey={this.rowKey}
+          isFixedHeader={this.isFixedHeader}
+          rowAndColFixedPosition={rowAndColFixedPosition}
+          footData={this.footData}
+          columns={columns}
+          rowAttributes={this.rowAttributes}
+          rowClassName={this.rowClassName}
+          footerSummary={this.footerSummary}
+          rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
+        ></TFoot>
+      );
+    };
+
     const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
@@ -539,18 +605,7 @@ export default defineComponent({
             />
           )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
-          <TFoot
-            v-slots={this.$slots}
-            rowKey={this.rowKey}
-            isFixedHeader={this.isFixedHeader}
-            rowAndColFixedPosition={rowAndColFixedPosition}
-            footData={this.footData}
-            columns={columns}
-            rowAttributes={this.rowAttributes}
-            rowClassName={this.rowClassName}
-            footerSummary={this.footerSummary}
-            rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
-          ></TFoot>
+          {tableInnerFoot()}
         </table>
       </div>
     );
@@ -592,7 +647,7 @@ export default defineComponent({
 
         {tableContent}
 
-        {affixedFooter}
+        {renderAffixedFooter()}
 
         {loadingContent}
 

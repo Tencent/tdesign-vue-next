@@ -20,6 +20,8 @@
       :height="height"
       :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
       :bordered="bordered"
+      :footer-affixed-bottom="{ offsetBottom: 0 }"
+      :foot-data="[{}]"
     >
     </t-table>
   </t-space>
@@ -36,8 +38,8 @@ const statusNameListMap = {
 };
 
 const columns = [
-  { colKey: 'serial-number', width: 80, title: '序号' },
-  { colKey: 'applicant', title: '申请人', width: '100' },
+  { colKey: 'serial-number', width: 80, title: '序号', foot: '总计' },
+  { colKey: 'applicant', title: '申请人', width: '100', foot: '-' },
   {
     colKey: 'status',
     title: '申请状态',
@@ -51,10 +53,11 @@ const columns = [
         </t-tag>
       );
     },
+    foot: '-',
   },
-  { colKey: 'matters', title: '申请事项', width: '140' },
-  { colKey: 'detail.email', title: '邮箱地址' },
-  { colKey: 'createTime', title: '申请时间' },
+  { colKey: 'matters', title: '申请事项', width: '140', foot: '-' },
+  { colKey: 'detail.email', title: '邮箱地址', foot: '-' },
+  { colKey: 'createTime', title: '申请时间', foot: '-' },
 ];
 
 const initialData = [];
