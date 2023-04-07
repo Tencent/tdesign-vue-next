@@ -19,7 +19,7 @@ export default defineComponent({
       const isContentNode = isString(addon) || isNumber(addon);
 
       if (slots[type]) {
-        if (slots[type](null).length === 1 && typeof slots[type](null)[0].type === 'symbol') {
+        if (slots[type](null).length === 1 && typeof slots[type](null)[0].children === 'string') {
           addonNode = <span class={`${COMPONENT_NAME.value}__text`}>{slots[type](null)}</span>;
         } else {
           addonNode = slots[type](null);
