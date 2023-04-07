@@ -25,7 +25,7 @@ export default {
   default: {
     type: [String, Function] as PropType<TdRadioProps['default']>,
   },
-  /** 是否为禁用态 */
+  /** 是否为禁用态。如果存在父组件 RadioGroup，默认值由 RadioGroup.disabled 控制。Radio.disabled 优先级高于 RadioGroup.disabled */
   disabled: {
     type: Boolean,
     default: undefined,
