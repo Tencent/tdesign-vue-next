@@ -42,7 +42,7 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
         );
 
         // 将item.props的属性名都转成驼峰，再进行传递
-        const itemProps = Object.keys(item.props).reduce((props, propName) => {
+        const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
           props[camelCase(propName)] = item.props[propName];
           return props;
         }, {});
