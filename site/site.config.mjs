@@ -173,7 +173,7 @@ export default {
           title: 'StickyTool 侧边栏',
           titleEn: 'StickyTool',
           name: 'StickyTool',
-          path: '/vue/components/sticky-tool',
+          path: '/vue-next/components/sticky-tool',
           component: () => import('tdesign-vue-next/sticky-tool/sticky-tool.md'),
         },
       ],
