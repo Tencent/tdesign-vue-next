@@ -60,7 +60,7 @@ export default defineComponent({
     const popupProps = Object.assign({ hideEmptyPopup: true }, props.basePopupProps, props.popupProps);
     return () => (
       <Popup
-        overlayInnerClassName={`${usePrefixClass('sticky-tool')}-popup-content`}
+        overlayInnerClassName={`${usePrefixClass('sticky-tool').value}-popup-content`}
         trigger={props.trigger}
         placement={popupPlacement.value}
         content={() => popup}
