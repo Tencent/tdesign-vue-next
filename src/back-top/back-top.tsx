@@ -1,21 +1,28 @@
 import { computed, defineComponent, onMounted, ref } from 'vue';
-import { TdBackTopProps } from './type';
-import props from './props';
-import { BacktopIcon as TIconBackTop } from 'tdesign-icons-vue-next';
+import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
+
 import { scrollTo } from '../utils/dom';
-import { useChildSlots, useConfig, useContent } from '../hooks';
+import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import props from './props';
+
+import type { TdBackTopProps } from './type';
 
 export default defineComponent({
   name: 'TBackTop',
-  components: { TIconBackTop },
   props,
   setup(props: TdBackTopProps) {
     const visible = ref(false);
     const containerRef = ref(null);
-    const { classPrefix } = useConfig('classPrefix');
+    const componentName = usePrefixClass('back-top');
+    const { classPrefix } = useConfig('alert');
+
+    const { BacktopIcon } = useGlobalIcon({
+      BacktopIcon: TdBackTopIcon,
+    });
     const renderContent = useContent();
     const getContainer = (container: TdBackTopProps['container']) => {
-      if (typeof container === 'string') {
+      if (typeof container === 'string' && typeof document !== undefined) {
         if (container === 'body') {
           return document;
         }
@@ -59,18 +66,18 @@ export default defineComponent({
       if (children.length < 1) children = null;
       const cls = computed(() => {
         return {
-          [`${classPrefix.value}-back-top`]: true,
-          [`${classPrefix.value}-back-top--theme-${theme}`]: true,
-          [`${classPrefix.value}-back-top--${shape}`]: true,
-          [`${classPrefix.value}-back-top--show`]: visible.value,
+          [componentName.value]: true,
+          [`${componentName.value}--theme-${theme}`]: true,
+          [`${componentName.value}--${shape}`]: true,
+          [`${componentName.value}--show`]: visible.value,
           [`${classPrefix.value}-size-s`]: size === 'small',
           [`${classPrefix.value}-size-m`]: size === 'medium',
         };
       });
       const defaultContent = (
         <>
-          <TIconBackTop className={`${classPrefix.value}-back-top__icon`} size={'24'} />
-          <span className={`${classPrefix.value}-back-top__text`}>TOP</span>
+          <BacktopIcon class={`${componentName.value}__icon`} size={'24'} />
+          <span class={`${componentName.value}__text`}>TOP</span>
         </>
       );
       const getBackTo = () => {
