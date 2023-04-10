@@ -85,10 +85,12 @@ export default defineComponent({
     onMounted(() => {
       calcBarStyle();
 
-      const checkedRadio: HTMLElement = radioGroupRef.value.querySelector(checkedClassName.value);
-      if (checkedRadio) {
+      const checkedRadioLabel: HTMLElement = radioGroupRef.value.querySelector(
+        `${checkedClassName.value} .${radioBtnName.value}__label`,
+      );
+      if (checkedRadioLabel) {
         observerReturn = useMutationObserver(
-          checkedRadio,
+          checkedRadioLabel,
           (mutations) => {
             mutations.forEach((mutation) => {
               if (mutation.type === 'characterData') {
