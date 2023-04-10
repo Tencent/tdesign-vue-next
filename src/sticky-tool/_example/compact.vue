@@ -2,14 +2,14 @@
   <t-space>
     <t-sticky-tool
       :style="{ position: 'relative', overflow: 'hidden' }"
+      type="compact"
       :offset="[-500, -24]"
       @click="handleClick"
       @hover="handleHover"
     >
-      <t-sticky-item label="chat" :icon="renderChatIcon"> </t-sticky-item>
-      <t-sticky-item label="add" :icon="renderAddIcon"> </t-sticky-item>
+      <t-sticky-item :icon="renderChatIcon" popup="chat"> </t-sticky-item>
+      <t-sticky-item :icon="renderAddIcon" popup="add"> </t-sticky-item>
       <t-sticky-item
-        label="aqcode"
         :icon="renderQrIcon"
         :popup="renderPopup"
         :popup-props="{ overlayInnerStyle: { padding: '4px', height: '128px' } }"

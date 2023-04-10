@@ -1,11 +1,11 @@
 import { computed, defineComponent, VNode } from 'vue';
 import props from './props';
 import isObject from 'lodash/isObject';
-import { Styles } from '../common';
+import type { Styles } from '../common';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks';
 import stickyItemProps from './sticky-item-props';
-import { TdStickyItemProps } from './type';
+import type { TdStickyItemProps } from './type';
 
 export default defineComponent({
   name: 'TStickyTool',
@@ -69,11 +69,11 @@ export default defineComponent({
       });
       return offsetStyle;
     };
-    const handleClick = (e: MouseEvent, item: TdStickyItemProps) => {
-      props.onClick?.({ e, item });
+    const handleClick = (context: { e: MouseEvent; item: TdStickyItemProps }) => {
+      props.onClick?.(context);
     };
-    const handleHover = (e: MouseEvent, item: TdStickyItemProps) => {
-      props.onHover?.({ e, item });
+    const handleHover = (context: { e: MouseEvent; item: TdStickyItemProps }) => {
+      props.onHover?.(context);
     };
     const renderContent = () => {
       const list = getList();
