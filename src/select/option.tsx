@@ -74,7 +74,11 @@ export default defineComponent({
     const labelText = computed(() => props.label || props.value);
 
     const handleClick = (e: MouseEvent | KeyboardEvent) => {
-      if (props.multiple || props.disabled) return;
+      if (props.disabled) return;
+      if (props.multiple) {
+        handleCheckboxClick(!isSelected.value, { e });
+        return;
+      }
       e.stopPropagation();
 
       if (props.createAble) {
