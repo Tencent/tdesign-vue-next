@@ -66,6 +66,10 @@ export default {
     type: Boolean,
     default: true,
   },
+  showIcon: {
+    type: Boolean,
+    default: true,
+  },
   /** 文字提示风格 */
   theme: {
     type: String as PropType<TdPopconfirmProps['theme']>,

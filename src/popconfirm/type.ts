@@ -63,6 +63,11 @@ export interface TdPopconfirmProps {
    */
   showArrow?: boolean;
   /**
+   * 是否显示Icon
+   * @default true
+   */
+  showIcon?: boolean;
+  /**
    * 文字提示风格
    * @default default
    */

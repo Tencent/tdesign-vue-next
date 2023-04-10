@@ -14,6 +14,7 @@ icon | Slot / Function | - | 确认框图标。TS 类型：`TNode`。[通用类�
 placement | String | top | 浮层出现位置。可选项：top/left/right/bottom/top-left/top-right/bottom-left/bottom-right/left-top/left-bottom/right-top/right-bottom | N
 popupProps | Object | - | 透传 Popup 组件属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popconfirm/type.ts) | N
 showArrow | Boolean | true | 是否显示浮层箭头 | N
+showIcon | Boolean | true | 是否显示左上角图标 | N
 theme | String | default | 文字提示风格。可选项：default/warning/danger | N
 triggerElement | String / Slot / Function | - | 触发元素。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 visible | Boolean | - | 是否显示气泡确认框。支持语法糖 `v-model:visible` | N

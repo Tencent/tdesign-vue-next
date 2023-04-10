@@ -51,6 +51,7 @@ export default defineComponent({
     const innerPopupProps = computed(() => {
       return {
         showArrow: props.showArrow,
+        showIcon: props.showIcon,
         overlayClassName: COMPONENT_NAME.value,
         trigger: 'click' as PopupProps['trigger'],
         destroyOnClose: props.destroyOnClose,
@@ -90,7 +91,7 @@ export default defineComponent({
       return (
         <div class={`${COMPONENT_NAME.value}__content`}>
           <div class={`${COMPONENT_NAME.value}__body`}>
-            {renderIcon()}
+            {props.showIcon && renderIcon()}
             <div class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('content')}</div>
           </div>
           {Boolean(cancelBtn || confirmBtn) && (
