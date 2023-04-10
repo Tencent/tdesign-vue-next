@@ -37,12 +37,12 @@ export default defineComponent({
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
-      setInnerVisible(false, { e });
+      setInnerVisible(false, { e, trigger: 'confirm' });
     };
 
     const cancelBtnAction = (e: MouseEvent) => {
       props.onCancel?.({ e });
-      setInnerVisible(false, { e });
+      setInnerVisible(false, { e, trigger: 'cancel' });
     };
 
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });

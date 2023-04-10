@@ -122,10 +122,13 @@
     "attributes": [
       "container",
       "content",
+      "default",
       "duration",
       "offset",
       "shape",
+      "size",
       "target",
+      "theme",
       "visible-height",
       "click"
     ],
@@ -202,6 +205,52 @@
       "scroll-y"
     ],
     "description": "BaseTable\n\n基础表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table)"
+  },
+  "t-table": {
+    "attributes": [
+      "async-loading",
+      "column-controller",
+      "column-controller-visible",
+      "columns",
+      "display-columns",
+      "drag-sort",
+      "drag-sort-options",
+      "editable-cell-state",
+      "editable-row-keys",
+      "expand-icon",
+      "expand-on-row-click",
+      "expanded-row",
+      "expanded-row-keys",
+      "filter-icon",
+      "filter-row",
+      "filter-value",
+      "hide-sort-tips",
+      "indeterminate-selected-row-keys",
+      "multiple-sort",
+      "reserve-selected-row-on-paginate",
+      "select-on-row-click",
+      "selected-row-keys",
+      "show-sort-column-bg-color",
+      "sort",
+      "sort-icon",
+      "sort-on-row-draggable",
+      "async-loading-click",
+      "cell-click",
+      "change",
+      "column-change",
+      "column-controller-visible-change",
+      "data-change",
+      "display-columns-change",
+      "drag-sort",
+      "expand-change",
+      "filter-change",
+      "row-edit",
+      "row-validate",
+      "select-change",
+      "sort-change",
+      "validate"
+    ],
+    "description": "PrimaryTable\n\n主表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/primary-table)"
   },
   "t-breadcrumb": {
     "attributes": [
@@ -324,6 +373,7 @@
       "popup-props",
       "popup-visible",
       "readonly",
+      "reserve-keyword",
       "select-input-props",
       "show-all-levels",
       "size",
@@ -437,6 +487,7 @@
       "color-modes",
       "disabled",
       "enable-alpha",
+      "enable-multiple-gradient",
       "format",
       "input-props",
       "multiple",
@@ -468,6 +519,7 @@
     "attributes": [
       "allow-input",
       "clearable",
+      "default-time",
       "disable-date",
       "disabled",
       "enable-time-picker",
@@ -495,6 +547,7 @@
   },
   "t-date-picker-panel": {
     "attributes": [
+      "default-time",
       "cell-click",
       "change",
       "confirm",
@@ -510,6 +563,7 @@
     "attributes": [
       "allow-input",
       "clearable",
+      "default-time",
       "disable-date",
       "disabled",
       "enable-time-picker",
@@ -540,6 +594,7 @@
   },
   "t-date-range-picker-panel": {
     "attributes": [
+      "default-time",
       "cell-click",
       "change",
       "confirm",
@@ -800,6 +855,7 @@
       "position",
       "shape",
       "src",
+      "srcset",
       "error",
       "load"
     ],
@@ -1231,6 +1287,20 @@
     ],
     "description": "Radio\n\n单选框\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio)"
   },
+  "t-radio-button": {
+    "attributes": [
+      "allow-uncheck",
+      "checked",
+      "default",
+      "disabled",
+      "label",
+      "name",
+      "value",
+      "change",
+      "click"
+    ],
+    "description": "Radio\n\n单选框\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio)"
+  },
   "t-radio-group": {
     "attributes": [
       "allow-uncheck",
@@ -1297,6 +1367,7 @@
       "color",
       "count",
       "disabled",
+      "external-classes",
       "gap",
       "icon",
       "show-text",
@@ -1423,6 +1494,7 @@
       "popup-props",
       "popup-visible",
       "readonly",
+      "reserve-keyword",
       "status",
       "suffix",
       "suffix-icon",
@@ -1522,12 +1594,12 @@
   },
   "t-sticky-tool": {
     "attributes": [
-      "collapsed",
-      "draggable",
-      "entrance",
       "list",
       "offset",
       "placement",
+      "popup-props",
+      "shape",
+      "type",
       "width",
       "click",
       "hover"
@@ -1581,6 +1653,7 @@
       "default",
       "destroy-on-hide",
       "disabled",
+      "draggable",
       "label",
       "panel",
       "removable",
@@ -1830,6 +1903,7 @@
       "expand-parent",
       "expanded",
       "filter",
+      "height",
       "hover",
       "icon",
       "keys",
@@ -1837,7 +1911,9 @@
       "lazy",
       "line",
       "load",
+      "max-height",
       "operations",
+      "scroll",
       "transition",
       "value",
       "value-mode",
@@ -1850,7 +1926,8 @@
       "drag-start",
       "drop",
       "expand",
-      "load"
+      "load",
+      "scroll"
     ],
     "description": "Tree\n\n树\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree)"
   },
@@ -1880,6 +1957,7 @@
       "popup-visible",
       "prefix-icon",
       "readonly",
+      "reserve-keyword",
       "select-input-props",
       "size",
       "status",
@@ -1923,6 +2001,7 @@
       "format-request",
       "format-response",
       "headers",
+      "input-attributes",
       "is-batch-upload",
       "locale",
       "max",

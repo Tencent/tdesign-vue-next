@@ -1,4 +1,3 @@
-import isUndefined from 'lodash/isUndefined';
 import {
   ref,
   reactive,
@@ -15,7 +14,7 @@ import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
-import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
+import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
 import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
@@ -495,7 +494,7 @@ export default function useFixed(
     { immediate: true },
   );
 
-  const refreshTable = () => {
+  const refreshTable: BaseTableInstanceFunctions['refreshTable'] = () => {
     updateTableWidth();
     updateFixedHeader();
     updateThWidthListHandler();
@@ -536,7 +535,7 @@ export default function useFixed(
     });
     const isWatchResize = isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value || !data.value.length;
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if ((isWatchResize && getIEVersion() < 11) || isUndefined(window.ResizeObserver)) {
+    if ((isWatchResize && getIEVersion() < 11) || typeof window.ResizeObserver === 'undefined') {
       on(window, 'resize', onResize);
     }
   });

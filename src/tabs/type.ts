@@ -8,6 +8,10 @@ import { TNode } from '../common';
 
 export interface TdTabsProps {
   /**
+   * 【开发中】选项卡右侧的操作区域
+   */
+  action?: string | TNode;
+  /**
    * 选项卡是否可增加
    * @default false
    */
@@ -86,6 +90,11 @@ export interface TdTabPanelProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 选项卡组件开启允许拖动排序时，当前选项卡是否允许拖动
+   * @default true
+   */
+  draggable?: boolean;
   /**
    * 选项卡名称，可自定义选项卡导航内容
    */

@@ -8,6 +8,10 @@ import { TdTabsProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 【开发中】选项卡右侧的操作区域 */
+  action: {
+    type: [String, Function] as PropType<TdTabsProps['action']>,
+  },
   /** 选项卡是否可增加 */
   addable: Boolean,
   /** 是否禁用选项卡 */
@@ -48,11 +52,11 @@ export default {
   /** 激活的选项卡值 */
   value: {
     type: [String, Number] as PropType<TdTabsProps['value']>,
-    default: undefined,
+    default: undefined as TdTabsProps['value'],
   },
   modelValue: {
     type: [String, Number] as PropType<TdTabsProps['value']>,
-    default: undefined,
+    default: undefined as TdTabsProps['value'],
   },
   /** 激活的选项卡值，非受控属性 */
   defaultValue: {

@@ -21,6 +21,7 @@ import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
+import { BaseTableInstanceFunctions } from './type';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -205,6 +206,21 @@ export default defineComponent({
       tableFootHeight.value = tableElmRef.value.querySelector('tfoot')?.getBoundingClientRect().height;
     };
 
+    // 对外暴露方法，修改时需谨慎（expose）
+    const scrollColumnIntoView: BaseTableInstanceFunctions['scrollColumnIntoView'] = (colKey: string) => {
+      if (!tableContentRef.value) return;
+      const thDom = tableContentRef.value.querySelector(`th[data-colkey="${colKey}"]`);
+      const fixedThDom = tableContentRef.value.querySelectorAll('th.t-table__cell--fixed-left');
+      let totalWidth = 0;
+      for (let i = 0, len = fixedThDom.length; i < len; i++) {
+        totalWidth += fixedThDom[i].getBoundingClientRect().width;
+      }
+      const domRect = thDom.getBoundingClientRect();
+      const contentRect = tableContentRef.value.getBoundingClientRect();
+      const distance = domRect.left - contentRect.left - totalWidth;
+      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+    };
+
     watch(tableContentRef, () => {
       setTableContentRef(tableContentRef.value);
     });
@@ -275,6 +291,7 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
       onInnerVirtualScroll,
       refreshTable,
+      scrollColumnIntoView,
       paginationAffixRef,
       horizontalScrollAffixRef,
       headerTopAffixRef,

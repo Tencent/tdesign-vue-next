@@ -59,12 +59,13 @@ export default defineComponent({
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
     // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
-      reactive({
-        ...toRefs(props),
-        getDragProps,
-      }),
-    );
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose } =
+      useTagList(
+        reactive({
+          ...toRefs(props),
+          getDragProps,
+        }),
+      );
 
     const classes = computed(() => {
       const isEmpty = !(isArray(tagValue.value) && tagValue.value.length);
@@ -138,6 +139,7 @@ export default defineComponent({
       onInputEnter,
       onInnerEnter,
       onInputBackspaceKeyUp,
+      onInputBackspaceKeyDown,
       renderLabel,
       onWheel,
       scrollToRightOnEnter,
@@ -199,7 +201,8 @@ export default defineComponent({
         }}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
-        onKeydown={this.onInputBackspaceKeyUp}
+        onKeyup={this.onInputBackspaceKeyUp}
+        onKeydown={this.onInputBackspaceKeyDown}
         onMouseenter={(context: { e: MouseEvent }) => {
           this.addHover(context);
           this.scrollToRightOnEnter();

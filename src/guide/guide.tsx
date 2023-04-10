@@ -42,6 +42,8 @@ export default defineComponent({
     const dialogWrapperRef = ref<HTMLElement>();
     // dialog ref
     const dialogTooltipRef = ref<HTMLElement>();
+    // ! popup ref 不确定这里的类型是否完全正确
+    const popupTooltipRef = ref<InstanceType<typeof Popup>>();
     // 是否开始展示
     const actived = ref<boolean>(false);
     // 步骤总数
@@ -90,6 +92,9 @@ export default defineComponent({
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value);
         scrollToElm(currentHighlightLayerElm.value);
+        // fix: https://github.com/Tencent/tdesign-vue-next/issues/2536
+        // 这里其实是一个临时解决方案，最合理的是 popup 内部处理
+        popupTooltipRef.value?.update();
       });
     };
 
@@ -390,10 +395,11 @@ export default defineComponent({
         ];
         return (
           <Popup
+            ref={popupTooltipRef}
             visible={true}
             show-arrow={!content}
             zIndex={zIndex.value}
-            placement={currentStepInfo.value.placement}
+            placement={currentStepInfo.value.placement as any}
             {...currentStepInfo.value.popupProps}
             content={renderBody}
             overlayClassName={[`${COMPONENT_NAME.value}__popup`, currentStepInfo.value.stepOverlayClass]}

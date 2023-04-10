@@ -8,7 +8,13 @@
     </t-space>
 
     <t-tabs drag-sort :value="value" :theme="theme" @drag-sort="onDragend" @change="(newValue) => (value = newValue)">
-      <t-tab-panel v-for="data in panelData" :key="data.value" :value="data.value" :label="data.label">
+      <t-tab-panel
+        v-for="data in panelData"
+        :key="data.value"
+        :value="data.value"
+        :label="data.label"
+        :draggable="data.draggable"
+      >
         <p style="padding: 25px">
           {{ data.content }}
         </p>
@@ -26,17 +32,18 @@ const value = ref('first');
 const panelData = ref([
   {
     value: 'first',
-    label: '选项卡1',
+    label: '固定的选项卡1',
     content: '选项卡1内容',
+    draggable: false,
   },
   {
     value: 'second',
-    label: '选项卡2',
+    label: '可拖拽选项卡2',
     content: '选项卡2内容',
   },
   {
     value: 'third',
-    label: '选项卡3',
+    label: '可拖拽的选项卡3',
     content: '选项卡2内容',
   },
 ]);

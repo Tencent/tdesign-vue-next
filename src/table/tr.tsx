@@ -296,7 +296,7 @@ export default defineComponent({
       });
       return (
         <tr
-          ref="trRef"
+          ref={trRef}
           {...trAttributes.value}
           style={trStyles.value?.style}
           class={classes.value}

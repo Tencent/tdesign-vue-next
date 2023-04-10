@@ -14,6 +14,8 @@ export interface ExtendsTdInputProps extends TdInputProps {
 export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
+  const isComposition = ref(false);
+  const compositionValue = ref<InputValue>();
   const clearIconRef = ref(null);
   const innerClickElement = ref();
   const disabled = useFormDisabled();
@@ -92,7 +94,13 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const handleInput = (e: InputEvent) => {
     const checkInputType = e.inputType && e.inputType === 'insertCompositionText';
-    if (e.isComposing || checkInputType) return;
+    const {
+      currentTarget: { value: val },
+    }: any = e;
+    if (checkInputType || isComposition.value) {
+      compositionValue.value = val;
+      return;
+    }
     inputValueChangeHandle(e);
   };
 
@@ -122,10 +130,17 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const onHandleCompositionend = (e: CompositionEvent) => {
+    isComposition.value = false;
+    compositionValue.value = '';
     inputValueChangeHandle(e);
     props.onCompositionend?.(innerValue.value, { e });
   };
   const onHandleCompositionstart = (e: CompositionEvent) => {
+    isComposition.value = true;
+    const {
+      currentTarget: { value },
+    }: any = e;
+    compositionValue.value = value;
     props.onCompositionstart?.(innerValue.value, { e });
   };
 
@@ -186,6 +201,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     inputRef,
     clearIconRef,
     inputValue,
+    isComposition,
+    compositionValue,
     limitNumber,
     tStatus,
     emitFocus,

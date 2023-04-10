@@ -3757,6 +3757,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -7863,6 +7864,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -12209,6 +12211,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -17807,6 +17810,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-start"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -24011,6 +24015,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -30356,6 +30361,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -34321,6 +34327,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -38570,6 +38577,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -43204,6 +43212,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -47735,6 +47744,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
@@ -54221,6 +54231,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
         data-popper-escaped=""
         data-popper-placement="bottom-end"
         data-popper-reference-hidden=""
+        data-td-popup=""
         style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
       >
         <div
