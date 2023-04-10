@@ -74,7 +74,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
         dynamicIndex++;
       }
     }
-
     return innerOptions;
   });
 
@@ -95,7 +94,8 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
 
   const optionsMap = computed(() => {
     const res = new Map<SelectValue, TdOptionProps>();
-    optionsList.value.concat(optionsCache.value).forEach((option: TdOptionProps) => {
+    // map以最新的为主 避免存在重复value更新的场景 https://github.com/Tencent/tdesign-vue-next/issues/2646
+    optionsCache.value.concat(optionsList.value).forEach((option: TdOptionProps) => {
       res.set(option.value, option);
     });
     return res;
