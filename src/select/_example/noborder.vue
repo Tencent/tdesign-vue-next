@@ -1,7 +1,7 @@
 <template>
   <t-select
     v-model="value"
-    :bordered="false"
+    :borderless="false"
     style="width: 200px"
     placeholder="-请选择-"
     clearable
