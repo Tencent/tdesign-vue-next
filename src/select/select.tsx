@@ -85,7 +85,6 @@ export default defineComponent({
       false,
       (visible: boolean, context: PopupVisibleChangeContext) => {
         props.onPopupVisibleChange?.(visible, context);
-        props.onVisibleChange?.(visible);
       },
       'popupVisible',
     );
@@ -372,7 +371,7 @@ export default defineComponent({
             {...{
               autoWidth: props.autoWidth,
               readonly: props.readonly,
-              borderless: props.borderless || !props.bordered,
+              borderless: props.borderless,
               multiple: props.multiple,
               clearable: props.clearable,
               loading: props.loading,

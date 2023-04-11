@@ -73,6 +73,9 @@ export default defineComponent({
         await changeNodeInfo();
         treeRerender();
       },
+      {
+        deep: true,
+      },
     );
 
     // computed
