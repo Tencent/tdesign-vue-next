@@ -335,7 +335,7 @@ export default defineComponent({
         bottomContent,
         firstFullRow,
         lastFullRow,
-        thDraggable: props.dragSort === 'col',
+        thDraggable: props.dragSort ? props.dragSort === 'col' : undefined,
         onPageChange: onInnerPageChange,
         renderExpandedRow: showExpandedRow.value ? renderExpandedRow : undefined,
       };

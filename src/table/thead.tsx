@@ -158,7 +158,7 @@ export default defineComponent({
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
           const resizeColumnListener =
-            this.resizable || !canDragSort
+            this.resizable || (!canDragSort && this.thDraggable !== undefined)
               ? {
                   onMousedown: (e: MouseEvent) => {
                     this.columnResizeParams?.onColumnMousedown?.(e, col, index);

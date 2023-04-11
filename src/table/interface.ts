@@ -21,7 +21,7 @@ export interface BaseTableProps extends TdBaseTableProps {
   /**
    * 表头是否可拖拽。非公开属性，请勿在业务中使用
    */
-  thDraggable?: boolean;
+  thDraggable?: boolean | undefined;
 }
 
 export type PrimaryTableProps = TdPrimaryTableProps;

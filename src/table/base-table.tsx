@@ -40,7 +40,7 @@ export default defineComponent({
      */
     renderExpandedRow: Function as PropType<BaseTableProps['renderExpandedRow']>,
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
-    thDraggable: Boolean,
+    thDraggable: [Boolean, undefined],
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
