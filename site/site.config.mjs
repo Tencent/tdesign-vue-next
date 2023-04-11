@@ -164,6 +164,13 @@ export default {
           component: () => import('tdesign-vue-next/steps/steps.md'),
         },
         {
+          title: 'StickyTool 侧边栏',
+          titleEn: 'StickyTool',
+          name: 'StickyTool',
+          path: '/vue-next/components/sticky-tool',
+          component: () => import('tdesign-vue-next/sticky-tool/sticky-tool.md'),
+        },
+        {
           title: 'Tabs 选项卡',
           name: 'tabs',
           path: '/vue-next/components/tabs',
