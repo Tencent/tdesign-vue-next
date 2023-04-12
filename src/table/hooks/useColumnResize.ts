@@ -193,8 +193,8 @@ export default function useColumnResize(params: {
   };
 
   // 调整表格列宽
-  const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => {
-    if (!resizeLineParams.draggingCol) return;
+  const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number, resizable: Boolean) => {
+    if (!resizeLineParams.draggingCol || !resizable) return;
     const target = resizeLineParams.draggingCol;
     const targetBoundRect = target.getBoundingClientRect();
     const tableBoundRect = tableContentRef.value?.getBoundingClientRect();

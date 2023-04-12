@@ -32,7 +32,7 @@ export interface TheadProps {
     resizeLineRef: Ref<HTMLDivElement>;
     resizeLineStyle: CSSProperties;
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
-    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => void;
+    onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number, resizable: Boolean) => void;
   };
   resizable?: Boolean;
   attach?: AttachNode;
@@ -158,10 +158,10 @@ export default defineComponent({
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
           const resizeColumnListener =
-            this.resizable || !canDragSort
+            this.resizable || canDragSort
               ? {
                   onMousedown: (e: MouseEvent) => {
-                    this.columnResizeParams?.onColumnMousedown?.(e, col, index);
+                    this.columnResizeParams?.onColumnMousedown?.(e, col, index, col.resizable ?? this.resizable);
                     if (!canDragSort) {
                       const timer = setTimeout(() => {
                         const thList = this.theadRef.querySelectorAll('th');
