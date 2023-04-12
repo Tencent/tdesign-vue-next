@@ -63,18 +63,13 @@ npm run start
 
 ### demo 调试
 
-当一个 md 文件插入了很多个 demo 之后，一些组件生命周期方法调试起来会变得困难，若想对某个 demo 单独调试，可以访问路由：/demos/组件名/demo名，
+当一个 md 文件插入了很多个 demo 之后，一些组件生命周期方法调试起来会变得困难，若想对某个 demo 单独调试，可以访问路由：/demos/组件名/demo 名，
 
 例如：<http://127.0.0.1:17000/vue-next/demos/button/base>
 
-### 实现组件的受控与非受控用法
-
-参考 [map-props 说明](./map-props.md)
-
 ### 单元测试 & e2e 测试文档
 
-[组件测试文档](./test.md)
-
+[组件测试文档](./test/README.md)
 
 ## git
 
@@ -84,7 +79,7 @@ npm run start
 
 如果是贡献组件，则从 `develop checkout` 分支如：`feature/button`，记得如果同时要在子仓库开发 UI，子仓库也要 `checkout` 同名分支
 
-> 关于fork
+> 关于 fork
 
 以下内容处理 `fork` 仓库后，远端仓库的更新如何同步到 `fork` 仓库
 
@@ -92,7 +87,7 @@ npm run start
 # 建立 upstream remote
 git remote add upstream git@github.com:Tencent/tdesign-vue-next.git
 
-# 更新 upstream 
+# 更新 upstream
 git fetch upstream develop
 
 # 合并 upstream develop 到本地
