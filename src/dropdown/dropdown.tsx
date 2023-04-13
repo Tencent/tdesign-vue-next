@@ -30,6 +30,7 @@ export default defineComponent({
       if (props.hideAfterItemClick) {
         setTimeout(() => (isPopupVisible.value = false), manualCloseTimeout.value);
         props.popupProps?.onVisibleChange?.(false, context);
+        props.popupProps?.['on-visible-change']?.(false, context);
       }
 
       props?.onClick?.(data, context);
@@ -39,6 +40,7 @@ export default defineComponent({
       isPopupVisible.value = visible;
 
       props.popupProps?.onVisibleChange?.(visible, context);
+      props.popupProps?.['on-visible-change']?.(visible, context);
     };
 
     return () => {
@@ -50,7 +52,7 @@ export default defineComponent({
         disabled: props.disabled,
         placement: props.placement,
         trigger: props.trigger,
-        ...omit(props.popupProps, 'onVisibleChange'),
+        ...omit(props.popupProps, ['onVisibleChange', 'on-visible-change']),
         overlayInnerClassName: [
           COMPONENT_NAME.value,
           (props.popupProps as TdDropdownProps['popupProps'])?.overlayInnerClassName,

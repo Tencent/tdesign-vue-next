@@ -1,4 +1,17 @@
-import { VNode, defineComponent, h, provide, reactive, ref, computed, onMounted, watch, nextTick, toRefs } from 'vue';
+import {
+  VNode,
+  defineComponent,
+  h,
+  provide,
+  reactive,
+  ref,
+  computed,
+  onMounted,
+  watch,
+  nextTick,
+  toRefs,
+  onUnmounted,
+} from 'vue';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import isNil from 'lodash/isNil';
@@ -11,6 +24,8 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
 import isFunction from 'lodash/isFunction';
+import { useMutationObserver } from '../watermark/hooks';
+import type { UseMutationObserverReturn } from '../watermark/hooks';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -61,12 +76,39 @@ export default defineComponent({
       }
     };
 
+    let observerReturn: UseMutationObserverReturn;
+
     watch(innerValue, async () => {
       await nextTick();
       calcBarStyle();
     });
     onMounted(() => {
       calcBarStyle();
+
+      const checkedRadioLabel: HTMLElement = radioGroupRef.value.querySelector(
+        `${checkedClassName.value} .${radioBtnName.value}__label`,
+      );
+      if (checkedRadioLabel) {
+        observerReturn = useMutationObserver(
+          checkedRadioLabel,
+          (mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.type === 'characterData') {
+                calcBarStyle();
+              }
+            });
+          },
+          {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: true,
+          },
+        );
+      }
+    });
+    onUnmounted(() => {
+      observerReturn?.stop();
     });
     /** calculate bar style end */
 

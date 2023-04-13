@@ -61,7 +61,7 @@ export default defineComponent({
       if (visible) {
         year.value = parseToDayjs(value.value, formatRef.value.format).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
-        time.value = formatTime(value.value, formatRef.value.timeFormat, props.defaultTime);
+        time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
         isHoverCell.value = false;
       }

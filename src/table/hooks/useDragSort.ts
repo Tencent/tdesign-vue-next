@@ -64,11 +64,12 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
       // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
       const timer = setTimeout(() => {
+        if (!dragColInstanceTmp || !dragColInstanceTmp.el) return;
         dragColInstanceTmp?.sort(lastColList.value);
         clearTimeout(timer);
       }, 0);
     },
-    { immediate: true },
+    // { immediate: true },
   );
 
   // 本地分页的表格，index 不同，需加上分页计数
@@ -97,6 +98,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
       filter: `.${tableFullRowClasses.base}`, // 过滤首行尾行固定
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
+        if (evt.newIndex === evt.oldIndex) return;
         // 处理受控：拖拽列表恢复原始排序
         dragRowInstanceTmp?.sort(lastRowList.value);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
@@ -136,14 +138,16 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   const registerOneLevelColDragEvent = (container: HTMLElement, recover: boolean) => {
     const options: SortableOptions = {
       animation: 150,
-      ...props.dragSortOptions,
       dataIdAttr: 'data-colkey',
       direction: 'vertical',
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
       handle: `.${tableBaseClass.thCellInner}`,
+      // 存在类名：t-table__th--drag-sort 的列才允许拖拽调整顺序（注意：添加 draggable 之后，固定列的表头 和 吸顶表头 位置顺序会错位，暂时注释）
+      // draggable: `th.${tableDraggableClasses.dragSortTh}`,
       onEnd: (evt: SortableEvent) => {
+        if (evt.newIndex === evt.oldIndex) return;
         if (recover) {
           // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
           dragColInstanceTmp?.sort([...lastColList.value]);
@@ -178,6 +182,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
         params.currentData = params.newData;
         props.onDragSort?.(params);
       },
+      ...props.dragSortOptions,
     };
     if (!container) return;
     dragColInstanceTmp = new Sortable(container, options);

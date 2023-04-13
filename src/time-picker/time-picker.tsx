@@ -7,6 +7,8 @@ import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput, { TdSelectInputProps } from '../select-input';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
+import type { InputProps } from '../input';
+
 import props from './props';
 
 // hooks
@@ -104,7 +106,7 @@ export default defineComponent({
           placeholder={!innerValue.value ? props.placeholder || globalConfig.value.placeholder : undefined}
           value={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
-          inputProps={props.inputProps}
+          inputProps={{ ...(props.inputProps as InputProps), size: props.size }}
           popupProps={{ overlayInnerStyle: { width: 'auto', padding: 0 }, ...(props.popupProps as object) }}
           status={props.status}
           tips={props.tips}

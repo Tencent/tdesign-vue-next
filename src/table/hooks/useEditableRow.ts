@@ -3,16 +3,19 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../utils';
-import { AllValidateResult } from '../../form/type';
 import { validate } from '../../form/form-model';
-import { PrimaryTableRowEditContext, TableRowData, TableErrorListMap } from '../type';
+import {
+  PrimaryTableRowEditContext,
+  TableRowData,
+  TableErrorListMap,
+  PrimaryTableInstanceFunctions,
+  ErrorListObjectType,
+} from '../type';
 import { getCellKey } from './useRowspanAndColspan';
 import { OnEditableChangeContext } from '../editable-cell';
 
-export type ErrorListObjectType = PrimaryTableRowEditContext<TableRowData> & { errorList: AllValidateResult[] };
-
 export interface TablePromiseErrorData {
-  errors: ErrorListObjectType[];
+  errors: ErrorListObjectType<TableRowData>[];
   errorMap: TableErrorListMap;
 }
 
@@ -26,7 +29,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   // 当前编辑的单元格
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
 
-  const getErrorListMapByErrors = (errors: ErrorListObjectType[]): TableErrorListMap => {
+  const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
     errors.forEach(({ row, col, errorList }) => {
       const rowValue = get(row, props.rowKey || 'id');
@@ -46,7 +49,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     if (!rowRules) return;
     const list = rowRules.map(
       (item) =>
-        new Promise<ErrorListObjectType>((resolve) => {
+        new Promise<ErrorListObjectType<TableRowData>>((resolve) => {
           const { editedRow, col } = item;
           const rules = isFunction(col.edit.rules) ? col.edit.rules(item) : col.edit.rules;
           if (!col.edit || !rules || !rules.length) {
@@ -72,7 +75,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
    * 校验表格单行数据（对外开放方法，修改时需慎重）
    * @param rowValue 行唯一标识
    */
-  const validateRowData = (rowValue: any) =>
+  const validateRowData: PrimaryTableInstanceFunctions['validateRowData'] = (rowValue: any) =>
     new Promise((resolve, reject) => {
       validateOneRowData(rowValue).then(({ errors, errorMap }) => {
         errorListMap.value = errorMap;
@@ -84,7 +87,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     });
 
   // 校验可编辑单元格
-  const validateTableCellData = () => {
+  const validateTableCellData = (): Promise<{ result: TableErrorListMap }> => {
     const cellKeys = Object.keys(editingCells.value);
     const promiseList = cellKeys.map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
     return new Promise((resolve, reject) => {
@@ -102,7 +105,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   /**
    * 校验整个表格数据（对外开放方法，修改时需慎重）
    */
-  const validateTableData = () => {
+  const validateTableData: PrimaryTableInstanceFunctions['validateTableData'] = () => {
     if (Object.keys(editingCells.value).length) {
       return validateTableCellData();
     }

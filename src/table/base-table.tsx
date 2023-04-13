@@ -20,8 +20,8 @@ import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles } from '../common';
-import log from '../_common/js/log';
 import { getIEVersion } from '../_common/js/utils/helper';
+import { BaseTableInstanceFunctions } from './type';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -40,6 +40,7 @@ export default defineComponent({
      */
     renderExpandedRow: Function as PropType<BaseTableProps['renderExpandedRow']>,
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
+    thDraggable: Boolean,
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
@@ -78,13 +79,14 @@ export default defineComponent({
       rowAndColFixedPosition,
       setData,
       refreshTable,
+      setTableElmWidth,
       emitScrollEvent,
       setUseFixedTableElmRef,
       updateColumnFixedShadow,
       getThWidthList,
       updateThWidthList,
-      setRecalculateColWidthFuncRef,
       addTableResizeObserver,
+      updateTableAfterColumnResize,
     } = useFixed(props, context, finalColumns, {
       paginationAffixRef,
       horizontalScrollAffixRef,
@@ -109,9 +111,16 @@ export default defineComponent({
     const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
 
     // 列宽拖拽逻辑
-    const columnResizeParams = useColumnResize(tableContentRef, refreshTable, getThWidthList, updateThWidthList);
-    const { resizeLineRef, resizeLineStyle, recalculateColWidth, setEffectColMap } = columnResizeParams;
-    setRecalculateColWidthFuncRef(recalculateColWidth);
+    const columnResizeParams = useColumnResize({
+      isWidthOverflow,
+      tableContentRef,
+      showColumnShadow,
+      getThWidthList,
+      updateThWidthList,
+      setTableElmWidth,
+      updateTableAfterColumnResize,
+    });
+    const { resizeLineRef, resizeLineStyle, setEffectColMap } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -157,18 +166,9 @@ export default defineComponent({
       spansAndLeafNodes,
       () => {
         props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
+        setEffectColMap(spansAndLeafNodes.value.leafColumns, null);
       },
       { immediate: true },
-    );
-
-    watch(
-      thList,
-      () => {
-        setEffectColMap(thList.value[0], null);
-      },
-      {
-        immediate: true,
-      },
     );
 
     const onFixedChange = () => {
@@ -204,6 +204,21 @@ export default defineComponent({
     const getTFootHeight = () => {
       if (!tableElmRef.value) return;
       tableFootHeight.value = tableElmRef.value.querySelector('tfoot')?.getBoundingClientRect().height;
+    };
+
+    // 对外暴露方法，修改时需谨慎（expose）
+    const scrollColumnIntoView: BaseTableInstanceFunctions['scrollColumnIntoView'] = (colKey: string) => {
+      if (!tableContentRef.value) return;
+      const thDom = tableContentRef.value.querySelector(`th[data-colkey="${colKey}"]`);
+      const fixedThDom = tableContentRef.value.querySelectorAll('th.t-table__cell--fixed-left');
+      let totalWidth = 0;
+      for (let i = 0, len = fixedThDom.length; i < len; i++) {
+        totalWidth += fixedThDom[i].getBoundingClientRect().width;
+      }
+      const domRect = thDom.getBoundingClientRect();
+      const contentRect = tableContentRef.value.getBoundingClientRect();
+      const distance = domRect.left - contentRect.left - totalWidth;
+      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
     };
 
     watch(tableContentRef, () => {
@@ -276,6 +291,7 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
       onInnerVirtualScroll,
       refreshTable,
+      scrollColumnIntoView,
       paginationAffixRef,
       horizontalScrollAffixRef,
       headerTopAffixRef,
@@ -288,10 +304,8 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
-    const columnResizable = this.allowResizeColumnWidth === undefined ? this.resizable : this.allowResizeColumnWidth;
-    if (columnResizable && this.tableLayout === 'auto') {
-      log.warn('Table', 'table-layout can not be `auto` for resizable column table, set `table-layout: fixed` please.');
-    }
+    const columnResizable = computed(() => props.allowResizeColumnWidth ?? props.resizable);
+
     const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     const renderColGroup = (isAffixHeader = true) => (
@@ -371,6 +385,8 @@ export default defineComponent({
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
       attach: this.attach,
+      showColumnShadow: this.showColumnShadow,
+      thDraggable: this.thDraggable,
     };
 
     /**
@@ -504,10 +520,23 @@ export default defineComponent({
           <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />
         )}
 
-        <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
+        <table
+          ref="tableElmRef"
+          class={this.tableElmClasses}
+          style={{
+            ...this.tableElementStyles,
+            width:
+              this.resizable && this.isWidthOverflow && this.tableElmWidth
+                ? `${this.tableElmWidth}px`
+                : this.tableElementStyles.width,
+          }}
+        >
           {renderColGroup(false)}
           {this.showHeader && (
-            <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
+            <THead
+              v-slots={this.$slots}
+              {...{ ...headProps, thWidthList: columnResizable.value ? this.thWidthList : {} }}
+            />
           )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot

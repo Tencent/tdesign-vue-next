@@ -25,7 +25,7 @@ export default defineComponent({
       ChevronLeftIcon: TdChevronLeftIcon,
       ChevronRightIcon: TdChevronRightIcon,
     });
-    let swiperTimer = 0;
+    let swiperTimer: ReturnType<typeof setTimeout> | null = null;
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
@@ -143,8 +143,12 @@ export default defineComponent({
           }, props.duration);
         }
         if (currentIndex.value === 0) {
-          if ((swiperItemLength.value > 2 && index !== 1) || (swiperItemLength.value === 2 && index === 0)) {
+          if (
+            (swiperItemLength.value > 2 && index === swiperItemLength.value - 1) ||
+            (swiperItemLength.value === 2 && index === 0)
+          ) {
             targetIndex = -1;
+            navActiveIndex.value = swiperItemLength.value - 1;
             clearTimer();
             setTimeout(() => {
               isBeginToEnd = true;
@@ -158,7 +162,7 @@ export default defineComponent({
     const clearTimer = () => {
       if (swiperTimer) {
         clearTimeout(swiperTimer);
-        swiperTimer = 0;
+        swiperTimer = null;
       }
     };
     const setTimer = () => {
@@ -169,7 +173,7 @@ export default defineComponent({
             swiperTo(currentIndex.value + 1, { source: 'autoplay' });
           },
           currentIndex.value === 0 ? props.interval - (props.duration + 50) : props.interval, // 当 index 为 0 的时候，表明刚从克隆的最后一项跳转过来，已经经历了duration + 50 的间隔时间，减去即可
-        ) as unknown as number;
+        );
       }
     };
 

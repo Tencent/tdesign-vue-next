@@ -69,7 +69,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
-    const prefixContent = [singleValueDisplay, renderTNode('label')];
+    const prefixContent = [renderTNode('label'), singleValueDisplay];
     const inputProps = {
       ...commonInputProps.value,
       value: singleValueDisplay ? undefined : displayedValue,
@@ -85,11 +85,14 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       ...props.inputProps,
     };
 
+    // eslint-disable-next-line
+    const { tips, ...slots } = context.slots;
+
     return (
       <Input
         ref="inputRef"
         style={context.attrs?.style}
-        v-slots={context.slots}
+        v-slots={slots}
         {...{
           onChange: onInnerInputChange,
           onClear: onInnerClear,

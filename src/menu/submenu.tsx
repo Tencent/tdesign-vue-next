@@ -179,6 +179,11 @@ export default defineComponent({
       }),
     );
 
+    watch(popupWrapperRef, () => {
+      // 第一次触发nextTick会取空值，导致subPopupRef拿不到对应的DOM
+      passSubPopupRefToParent(popupWrapperRef.value);
+    });
+
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
       const instance = getCurrentInstance();

@@ -70,7 +70,7 @@ export default defineComponent({
       if (isBoolean(result)) return '';
       const [firstKey] = Object.keys(result);
       if (props.scrollToFirstError) {
-        scrollTo(`.${FORM_ITEM_CLASS_PREFIX.value + firstKey}`);
+        scrollTo(`${FORM_ITEM_CLASS_PREFIX.value + firstKey}`);
       }
       const resArr = result[firstKey] as ValidateResultList;
       if (!isArray(resArr)) return '';
@@ -78,7 +78,7 @@ export default defineComponent({
     };
     // 校验不通过时，滚动到第一个错误表单
     const scrollTo = (selector: string) => {
-      const dom = formRef.value?.querySelector(selector);
+      const [dom] = formRef.value.getElementsByClassName(selector);
       const behavior = props.scrollToFirstError;
       if (behavior) {
         dom && dom.scrollIntoView({ behavior });

@@ -333,7 +333,6 @@ describe('Popup', () => {
           stubs: { teleport: false },
         },
       });
-      const emitVisibleSpy = vi.spyOn(wrapper.vm, 'emitVisible');
       await wrapper.setProps({
         content,
         visible,
@@ -341,10 +340,8 @@ describe('Popup', () => {
       });
       const btn = wrapper.find('#btn');
       await btn.trigger('keydown.esc');
-      await new Promise((resolve) => {
-        setTimeout(resolve, 100);
-      });
-      expect(emitVisibleSpy.getMockName()).toEqual('emitVisible');
+      await new Promise(setTimeout);
+      expect(wrapper.emitted()['update:visible'][0]).toEqual([false]);
     });
   });
 });

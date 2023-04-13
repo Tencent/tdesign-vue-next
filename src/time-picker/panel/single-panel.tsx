@@ -108,8 +108,8 @@ export default defineComponent({
         };
       }
       return {
-        offsetHeight: maskDom.offsetHeight,
-        margin: parseInt(getComputedStyle(maskDom).marginTop, 10),
+        offsetHeight: parseFloat(getComputedStyle(maskDom).height),
+        margin: parseFloat(getComputedStyle(maskDom).marginTop),
       };
     };
 

@@ -10,6 +10,7 @@ import {
   formatToNumber,
   getMaxOrMinValidateResult,
   getStepValue,
+  formatThousandths,
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
 import { TdInputProps } from '../input';
@@ -142,6 +143,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const onInnerInputChange: TdInputProps['onChange'] = (val, { e }) => {
+    val = formatThousandths(val); // 千分位处理
     if (!canInputNumber(val, props.largeNumber)) return;
     if (props.largeNumber) {
       setTValue(val, { type: 'input', e });
@@ -149,7 +151,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
     }
     // specialCode 新增或删除这些字符时不触发 change 事件
     const isDelete = (e as InputEvent).inputType === 'deleteContentBackward';
-    const inputSpecialCode = specialCode.includes(val.slice(-1)) || /\.0+$/.test(val);
+    const inputSpecialCode = specialCode.includes(val.slice(-1)) || /\.\d*0+$/.test(val); // 输入特殊字符不改变当前值
     const deleteSpecialCode = isDelete && specialCode.includes(String(userInput.value).slice(-1));
     if ((!isNaN(Number(val)) && !inputSpecialCode) || deleteSpecialCode) {
       const newVal = val === '' ? undefined : Number(val);
@@ -162,7 +164,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit) {
+    if (!props.allowInputOverLimit && value) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
@@ -178,7 +180,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       decimalPlaces,
       largeNumber,
     });
-    if (newValue !== value && String(newValue) !== value) {
+    if ((newValue !== value && String(newValue) !== value) || Number(newValue) !== Number(tValue.value)) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
     }
     props.onBlur?.(newValue, ctx);

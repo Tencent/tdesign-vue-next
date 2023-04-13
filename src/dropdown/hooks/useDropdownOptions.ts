@@ -1,28 +1,35 @@
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
+import camelCase from 'lodash/camelCase';
 
-import { DropdownOption, TdDropdownProps } from '../type';
 import { useChildComponentSlots } from '../../hooks/slot';
+import type { DropdownOption, TdDropdownProps } from '../type';
 
-export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
-  if (!menuGroup) return [];
+export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOption[] => {
+  if (!menuNode) return [];
 
   // 处理内部嵌套场景
-  if (menuGroup[0]?.type?.name === 'TDropdownMenu') {
-    const groupChildren = menuGroup[0]?.children?.default?.();
+  if (menuNode[0]?.type?.name === 'TDropdownMenu') {
+    const groupChildren = menuNode[0]?.children?.default?.() as VNode;
     if (isArray(groupChildren)) {
       return getOptionsFromChildren(groupChildren);
     }
   }
 
   // 处理v-if的场景
-  if (isArray(menuGroup[0]?.children)) return getOptionsFromChildren(menuGroup[0]?.children);
+  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
 
-  if (isArray(menuGroup)) {
-    return menuGroup
+  if (isArray(menuNode)) {
+    menuNode = menuNode.reduce((acc, item) => {
+      acc = acc.concat(isArray(item.children) ? item.children : item);
+      return acc;
+    }, []);
+    return menuNode
       .map((item) => {
-        const groupChildren = item.children?.default?.();
+        const slotContent = (item.children as any)?.content?.();
+        const slotPrefixIcon = (item.children as any)?.prefixIcon?.() || (item.children as any)?.['prefix-icon']?.();
+        const groupChildren = (item.children as any)?.default?.();
 
         // 当前节点的渲染内容
         const contentCtx = groupChildren?.filter?.(
@@ -34,9 +41,16 @@ export const getOptionsFromChildren = (menuGroup: any): DropdownOption[] => {
             !isString(v.children) && ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
         );
 
+        // 将item.props的属性名都转成驼峰，再进行传递
+        const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
+          props[camelCase(propName)] = item.props[propName];
+          return props;
+        }, {});
+
         return {
-          content: contentCtx || groupChildren,
-          ...item.props,
+          content: slotContent || contentCtx || groupChildren,
+          ...itemProps,
+          ...(slotPrefixIcon ? { prefixIcon: () => slotPrefixIcon } : {}),
           children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
         };
       })

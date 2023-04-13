@@ -132,10 +132,10 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':bordered', () => {
+    it(':borderless', () => {
       const wrapper = mount({
         render() {
-          return <Select bordered={true}></Select>;
+          return <Select borderless={true}></Select>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

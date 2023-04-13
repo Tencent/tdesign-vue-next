@@ -234,7 +234,7 @@ export interface FormRule {
    */
   required?: boolean;
   /**
-   * 内置校验方法，校验值是否为手机号码，校验正则为 `/^1[3-9]\\d{9}$/`，示例：`{ telnumber: true, message: '请输入正确的手机号码' }`
+   * 内置校验方法，校验值是否为手机号码，校验正则为 `/^1[3-9]\d{9}$/`，示例：`{ telnumber: true, message: '请输入正确的手机号码' }`
    */
   telnumber?: boolean;
   /**

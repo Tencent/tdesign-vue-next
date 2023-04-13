@@ -70,6 +70,7 @@ export default defineComponent({
         }) as string[];
         time.value = formatTime(
           value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
+          formatRef.value.format,
           formatRef.value.timeFormat,
           props.defaultTime,
         ) as string[];
