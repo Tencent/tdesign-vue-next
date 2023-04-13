@@ -26,11 +26,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   autofocus?: boolean;
   /**
-   * 是否有边框
-   * @default true
-   */
-  bordered?: boolean;
-  /**
    * 无边框模式
    * @default false
    */
@@ -258,10 +253,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string, context: { e: KeyboardEvent }) => void;
-  /**
-   * 下拉框隐藏/显示时触发
-   */
-  onVisibleChange?: (visible: boolean) => void;
 }
 
 export interface TdOptionProps {
@@ -317,7 +308,7 @@ export interface SelectKeysType {
   label?: string;
 }
 
-export type SelectValue<T extends SelectOption = SelectOption> = string | number | T | Array<SelectValue<T>>;
+export type SelectValue<T extends SelectOption = SelectOption> = string | number | boolean | T | Array<SelectValue<T>>;
 
 export type SelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck';
 

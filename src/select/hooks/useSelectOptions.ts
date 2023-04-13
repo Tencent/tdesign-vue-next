@@ -18,26 +18,27 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     let dynamicIndex = 0;
 
     // 统一处理 keys,处理通用数据
-    const innerOptions: UniOption[] = props.options.map((option) => {
-      const getFormatOption = (option: TdOptionProps) => {
-        const { value, label } = keys.value;
-        const res = {
-          ...option,
-          index: dynamicIndex,
-          label: get(option, label),
-          value: get(option, value),
+    const innerOptions: UniOption[] =
+      props.options?.map((option) => {
+        const getFormatOption = (option: TdOptionProps) => {
+          const { value, label } = keys.value;
+          const res = {
+            ...option,
+            index: dynamicIndex,
+            label: get(option, label),
+            value: get(option, value),
+          };
+          dynamicIndex++;
+          return res;
         };
-        dynamicIndex++;
-        return res;
-      };
-      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
-        return {
-          ...option,
-          children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
-        };
-      }
-      return getFormatOption(option);
-    });
+        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+          return {
+            ...option,
+            children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
+          };
+        }
+        return getFormatOption(option);
+      }) || [];
 
     // 处理 slots
     const optionsSlots = getChildComponentSlots('Option');
@@ -74,7 +75,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
         dynamicIndex++;
       }
     }
-
     return innerOptions;
   });
 
@@ -95,7 +95,8 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
 
   const optionsMap = computed(() => {
     const res = new Map<SelectValue, TdOptionProps>();
-    optionsList.value.concat(optionsCache.value).forEach((option: TdOptionProps) => {
+    // map以最新的为主 避免存在重复value更新的场景 https://github.com/Tencent/tdesign-vue-next/issues/2646
+    optionsCache.value.concat(optionsList.value).forEach((option: TdOptionProps) => {
       res.set(option.value, option);
     });
     return res;
