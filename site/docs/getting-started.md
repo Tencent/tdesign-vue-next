@@ -136,7 +136,6 @@ module.exports = {
 
 ### Nuxt3使用
 ```js
-// nuxt.config.js
 export default defineNuxtConfig({
   // ... 其他配置
   modules: [
