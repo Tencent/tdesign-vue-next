@@ -20,7 +20,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
   // 行拖拽判断条件
   const isRowDraggable = computed(
-    () => sortOnRowDraggable.value || ['row', 'row-handler', 'row-handler-col'].includes(dragSort.value),
+    () => sortOnRowDraggable.value || ['row', 'row-handler-col'].includes(dragSort.value),
   );
   // 行拖拽判断条件-手柄列
   const isRowHandlerDraggable = computed(
