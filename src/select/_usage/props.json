@@ -6,12 +6,6 @@
     "options": []
   },
   {
-    "name": "bordered",
-    "type": "Boolean",
-    "defaultValue": true,
-    "options": []
-  },
-  {
     "name": "borderless",
     "type": "Boolean",
     "defaultValue": false,
