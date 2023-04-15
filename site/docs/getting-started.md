@@ -134,6 +134,17 @@ module.exports = {
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/tdesign.ts#L4)。
 
+### Nuxt3使用
+```js
+export default defineNuxtConfig({
+  // ... 其他配置
+  modules: [
+    // ...
+    'tdesign-vue-next/es/nuxt',
+  ],
+})
+```
+
 ## 编辑器提示
 
 安装注册 TDesign 之后，在开发项目时，可以配合插件在VSCode等主流编辑器中达到提示组件名及API的效果。
