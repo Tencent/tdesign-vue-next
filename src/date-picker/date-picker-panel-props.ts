@@ -23,7 +23,7 @@ export default {
   onMonthChange: Function as PropType<TdDatePickerPanelProps['onMonthChange']>,
   /** 点击面板时触发 */
   onPanelClick: Function as PropType<TdDatePickerPanelProps['onPanelClick']>,
-  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  /** 点击预设按钮后触发 */
   onPresetClick: Function as PropType<TdDatePickerPanelProps['onPresetClick']>,
   /** 时间切换发生变化时触发 */
   onTimeChange: Function as PropType<TdDatePickerPanelProps['onTimeChange']>,

@@ -314,7 +314,7 @@ export default defineComponent({
     }
 
     // 预设
-    function onPresetClick(preset: any) {
+    function onPresetClick(preset: any, context: any) {
       let presetValue = preset;
       if (isFunction(preset)) {
         presetValue = preset();
@@ -334,6 +334,7 @@ export default defineComponent({
           },
         );
         popupVisible.value = false;
+        props.onPresetClick?.(context);
       }
     }
 
