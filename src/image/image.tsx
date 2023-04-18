@@ -8,6 +8,7 @@ import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import { TdImageProps } from './type';
 import props from './props';
 import Space from '../space';
+import { isServer } from '../utils/dom';
 
 export default defineComponent({
   name: 'TImage',
@@ -157,7 +158,7 @@ export default defineComponent({
         {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
         {!(hasError.value || !shouldLoad.value) &&
           (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage(imageSrc.value))}
-        {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
+        {!(hasError.value || !shouldLoad.value || isServer) && !isLoaded.value && (
           <div class={`${classPrefix.value}-image__loading`}>
             {renderTNodeJSX('loading') || (
               <Space direction="vertical" size={8} align="center">
