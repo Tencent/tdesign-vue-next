@@ -32,6 +32,7 @@ onBlur | Function |  | Typescript：`(context: { value: DateValue; e: FocusEvent
 onChange | Function |  | Typescript：`(value: DateValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: DateValue; e: FocusEvent }) => void`<br/> | N
 onPick | Function |  | Typescript：`(value: DateValue) => void`<br/> | N
+onPresetClick | Function |  | Typescript：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
 
 ### DatePicker Events
 
@@ -41,6 +42,7 @@ blur | `(context: { value: DateValue; e: FocusEvent })` | \-
 change | `(value: DateValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/>
 focus | `(context: { value: DateValue; e: FocusEvent })` | \-
 pick | `(value: DateValue)` | \-
+preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
 
 ### DateRangePicker Props
 
@@ -76,6 +78,7 @@ onChange | Function |  | Typescript：`(value: DateRangeValue, context: { dayjsV
 onFocus | Function |  | Typescript：`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/> | N
 onInput | Function |  | Typescript：`(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => void`<br/> | N
 onPick | Function |  | Typescript：`(value: DateValue, context: PickContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/> | N
+onPresetClick | Function |  | Typescript：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
 
 ### DateRangePicker Events
 
@@ -86,6 +89,7 @@ change | `(value: DateRangeValue, context: { dayjsValue?: Dayjs[], trigger?: Dat
 focus | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent })` | \-
 input | `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent })` | \-
 pick | `(value: DateValue, context: PickContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/>
+preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
 
 ### DatePickerPanel Props
 
