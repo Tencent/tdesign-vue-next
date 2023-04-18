@@ -145,13 +145,13 @@ export default defineComponent({
     }
 
     // 预设
-    function onPresetClick(preset: any, { e, label }: any) {
+    function onPresetClick(preset: any, context: any) {
       const presetVal = isFunction(preset) ? preset() : preset;
       onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
         dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
         trigger: 'preset',
       });
-      props.onPresetClick?.({ e, preset, label });
+      props.onPresetClick?.(context);
     }
 
     function onYearChange(nextYear: number) {

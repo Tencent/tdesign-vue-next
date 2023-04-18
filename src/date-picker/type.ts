@@ -139,7 +139,7 @@ export interface TdDatePickerProps {
   /**
    * 点击预设按钮后触发
    */
-  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent; label: string }) => void;
+  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
 }
 
 export interface TdDateRangePickerProps {
@@ -293,7 +293,7 @@ export interface TdDateRangePickerProps {
   /**
    * 点击预设按钮后触发
    */
-  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent; label: string }) => void;
+  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
 }
 
 export interface TdDatePickerPanelProps
@@ -346,7 +346,7 @@ export interface TdDatePickerPanelProps
   /**
    * 点击预设按钮后触发
    */
-  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent; label: string }) => void;
+  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
   /**
    * 时间切换发生变化时触发
    */
@@ -414,7 +414,7 @@ export interface TdDateRangePickerPanelProps
   /**
    * 点击预设按钮后触发
    */
-  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent; label: string }) => void;
+  onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
   /**
    * 时间切换发生变化时触发
    */
