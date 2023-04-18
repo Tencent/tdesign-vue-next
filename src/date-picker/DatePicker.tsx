@@ -196,6 +196,7 @@ export default defineComponent({
           trigger: 'preset',
         },
       );
+
       popupVisible.value = false;
     }
 
