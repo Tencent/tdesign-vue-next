@@ -5,7 +5,6 @@ import { usePrefixClass } from '../hooks/useConfig';
 import type { TdStickyItemProps } from './type';
 import type { Styles } from '../common';
 import Popup from '../popup';
-import PopupProps from '../popup/props';
 import { useTNodeJSX } from '../hooks';
 
 export default defineComponent({
@@ -15,7 +14,7 @@ export default defineComponent({
     type: TdStickyToolProps.type,
     shape: TdStickyToolProps.shape,
     placement: TdStickyToolProps.placement,
-    basePopupProps: PopupProps,
+    basePopupProps: Object,
     baseWidth: TdStickyToolProps.width,
     onClick: TdStickyToolProps.onClick,
     onHover: TdStickyToolProps.onHover,
