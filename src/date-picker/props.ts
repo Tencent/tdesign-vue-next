@@ -134,4 +134,6 @@ export default {
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
   /** 面板选中值后触发 */
   onPick: Function as PropType<TdDatePickerProps['onPick']>,
+  /** 点击预设按钮后触发 */
+  onPresetClick: Function as PropType<TdDatePickerProps['onPresetClick']>,
 };
