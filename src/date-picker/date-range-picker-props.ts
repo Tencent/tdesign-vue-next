@@ -136,15 +136,15 @@ export default {
     validator(val: TdDateRangePickerProps['valueType']): boolean {
       if (!val) return true;
       return [
-        'time-stamp' ||
-          'Date' ||
-          'YYYY' ||
-          'YYYY-MM' ||
-          'YYYY-MM-DD' ||
-          'YYYY-MM-DD HH' ||
-          'YYYY-MM-DD HH:mm' ||
-          'YYYY-MM-DD HH:mm:ss' ||
-          'YYYY-MM-DD HH:mm:ss:SSS',
+        'time-stamp',
+        'Date',
+        'YYYY',
+        'YYYY-MM',
+        'YYYY-MM-DD',
+        'YYYY-MM-DD HH',
+        'YYYY-MM-DD HH:mm',
+        'YYYY-MM-DD HH:mm:ss',
+        'YYYY-MM-DD HH:mm:ss:SSS',
       ].includes(val);
     },
   },
