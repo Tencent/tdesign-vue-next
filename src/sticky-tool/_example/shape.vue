@@ -6,7 +6,7 @@
       @click="handleClick"
       @hover="handleHover"
     >
-      <t-sticky-item label="chat" :icon="renderChatIcon"> </t-sticky-item>
+      <t-sticky-item label="chat" :icon="renderChatIcon"></t-sticky-item>
       <t-sticky-item label="add" :icon="renderAddIcon"> </t-sticky-item>
       <t-sticky-item
         label="aqcode"
@@ -36,29 +36,25 @@
   </t-space>
 </template>
 
-<script lang="jsx">
+<script setup lang="jsx">
 import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
 
-export default {
-  methods: {
-    renderChatIcon() {
-      return <ChatIcon />;
-    },
-    renderAddIcon() {
-      return <AddIcon />;
-    },
-    renderQrIcon() {
-      return <QrcodeIcon />;
-    },
-    renderPopup() {
-      return <img alt="TDesign Logo" width="120" height="120" src="https://tdesign.gtimg.com/site/site.jpg" />;
-    },
-    handleClick(context) {
-      console.log('click', context);
-    },
-    handleHover(context) {
-      console.log('hover', context);
-    },
-  },
+const renderChatIcon = () => {
+  return <ChatIcon />;
+};
+const renderAddIcon = () => {
+  return <AddIcon />;
+};
+const renderQrIcon = () => {
+  return <QrcodeIcon />;
+};
+const renderPopup = () => {
+  return <img alt="TDesign Logo" width="120" height="120" src="https://tdesign.gtimg.com/site/site.jpg" />;
+};
+const handleClick = (context) => {
+  console.log('click', context);
+};
+const handleHover = (context) => {
+  console.log('hover', context);
 };
 </script>

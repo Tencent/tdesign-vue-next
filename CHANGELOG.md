@@ -4,6 +4,27 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.1 `2023-04-21` 
+
+### 🚀 Features
+
+- `Theme`:  主题生成器升级到 `v1` 版本 @uyarn ([#2747](https://github.com/Tencent/tdesign-vue-next/pull/2747))
+
+### 🐞 Bug Fixes
+- `Popup`: 修复触发元素隐藏时，`popper` 仍显示到页面左上角的问题([#2697](https://github.com/Tencent/tdesign-vue-next/issues/2697)) @nined9 ([#2713](https://github.com/Tencent/tdesign-vue-next/pull/2713))
+- `Select`: 修复多选选项点击触发多次导致虚拟滚动切换普通模式时无法选中的问题 @uyarn ([#2734](https://github.com/Tencent/tdesign-vue-next/pull/2734))
+- `image`: 修复 `SSR` 环境下的 `loading` 问题 @liweijie0812 ([#2738](https://github.com/Tencent/tdesign-vue-next/pull/2738))
+- `Datepicker`: 支持 `onPresetClick` 事件 @honkinglin ([#2743](https://github.com/Tencent/tdesign-vue-next/pull/2743))
+- `StickyTool`: 修复单独引入 `StickyItem` 没有正常渲染的问题 @uyarn ([#2751](https://github.com/Tencent/tdesign-vue-next/pull/2751))
+- `ColorPicker`: 修复渐变模式下 `hex` 和 `rgb` 模式下输入无法修改渐变点颜色的缺陷 @uyarn ([#2751](https://github.com/Tencent/tdesign-vue-next/pull/2751))
+- `DatePicker`: 修复 `valueType` 参数校验错误([issue #2719](https://github.com/Tencent/tdesign-vue-next/issues/2719))
+- `icon`: 修复 `manifest` 统一入口导出 `esm` 模块，文档为及时更新的问题 @Layouwen ([#2739](https://github.com/Tencent/tdesign-vue-next/pull/2739))
+
+### 🚧 Others
+- `Select`:  `usage  bordered` 属性废弃移除 @liweijie0812 ([#2723](https://github.com/Tencent/tdesign-vue-next/pull/2723))
+- `Readme`: 修复贡献文档链接 @wangyang0210 ([#2729](https://github.com/Tencent/tdesign-vue-next/pull/2729))
+- `Nuxt3`: 增加 `nuxt3` 使用文档 @liweijie0812 ([#2726](https://github.com/Tencent/tdesign-vue-next/pull/2726))
+
 ## 🌈 1.3.0 `2023-04-13` 
 ### 🚀 Features
 - `BackTop`: 新增 `BackTop` 组件 @shinyina ([#2665](https://github.com/Tencent/tdesign-vue-next/pull/2665))

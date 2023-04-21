@@ -1,11 +1,15 @@
 import { computed, defineComponent, VNode } from 'vue';
 import props from './props';
 import isObject from 'lodash/isObject';
-import type { Styles } from '../common';
+import StickyItem from './sticky-item';
+
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks';
+
 import stickyItemProps from './sticky-item-props';
+
 import type { TdStickyItemProps } from './type';
+import type { Styles } from '../common';
 
 export default defineComponent({
   name: 'TStickyTool',
@@ -89,7 +93,7 @@ export default defineComponent({
           onClick: handleClick,
           onHover: handleHover,
         };
-        return <t-sticky-item {...itemProps} key={index}></t-sticky-item>;
+        return <StickyItem {...itemProps} key={index} />;
       });
       return content;
     };

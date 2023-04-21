@@ -253,8 +253,18 @@ export default defineComponent({
     function updatePopper() {
       if (!popperEl.value || !visible.value) return;
       if (popper) {
-        popper.state.elements.reference = triggerEl.value;
-        popper.update();
+        const rect = triggerEl.value.getBoundingClientRect();
+        let parent = triggerEl.value;
+        while (parent && parent !== document.body) {
+          parent = parent.parentElement;
+        }
+        const isHidden = parent !== document.body || (rect.width === 0 && rect.height === 0);
+        if (!isHidden) {
+          popper.state.elements.reference = triggerEl.value;
+          popper.update();
+        } else {
+          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as Event) });
+        }
         return;
       }
 
