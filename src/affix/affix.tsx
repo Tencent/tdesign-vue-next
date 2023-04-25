@@ -24,10 +24,12 @@ export default defineComponent({
 
     const scrollContainer = ref<ScrollContainerElement>();
     const affixStyle = ref<Record<string, any>>();
+    let rAFId = 0;
 
     const handleScroll = () => {
       if (!ticking.value) {
-        window.requestAnimationFrame(() => {
+        rAFId = window.requestAnimationFrame(() => {
+          rAFId = 0;
           const {
             top: wrapToTop,
             width: wrapWidth,
@@ -104,6 +106,9 @@ export default defineComponent({
       if (!scrollContainer.value || !binded.value) return;
       off(scrollContainer.value, 'scroll', handleScroll);
       off(window, 'resize', handleScroll);
+      if (rAFId) {
+        window.cancelAnimationFrame(rAFId);
+      }
       binded.value = false;
     };
 
