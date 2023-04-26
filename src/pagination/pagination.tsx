@@ -240,7 +240,6 @@ export default defineComponent({
             'totalContent',
             <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
           )}
-
           {/* 分页器 */}
           {showPageSize && pageSizeOptions.length > 0 && (
             <Select
@@ -250,12 +249,9 @@ export default defineComponent({
               class={CLASS_MAP.sizerClass.value}
               autoWidth={true}
               onChange={onSelectorChange}
+              options={sizeOptions.value}
               {...props.selectProps}
-            >
-              {sizeOptions.value.map((item, index) => (
-                <Option value={item.value} label={item.label} key={index} />
-              ))}
-            </Select>
+            />
           )}
           {/* 首页按钮 */}
           {props.showFirstAndLastPageBtn ? (
