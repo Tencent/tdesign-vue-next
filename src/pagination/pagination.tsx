@@ -13,7 +13,7 @@ import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
-import { Option, Select } from '../select';
+import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
