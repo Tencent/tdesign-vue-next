@@ -88,6 +88,10 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     // eslint-disable-next-line
     const { tips, ...slots } = context.slots;
 
+    const inputClassProps = popupVisible
+      ? [`${classPrefix.value}-input--focused`, `${classPrefix.value}-is-focused`, inputProps?.inputClass]
+      : inputProps?.inputClass;
+
     return (
       <Input
         ref="inputRef"
@@ -109,10 +113,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
           },
           ...inputProps,
         }}
-        inputClass={{
-          [`${classPrefix.value}-input--focused`]: popupVisible,
-          [`${classPrefix.value}-is-focused`]: popupVisible,
-        }}
+        inputClass={inputClassProps}
       />
     );
   };
