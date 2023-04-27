@@ -5,7 +5,7 @@ exports[`Select > :props > :borderless 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select-input--borderless t-select"
+    class="t-select-input t-select-input--borderless t-select-input--empty t-select"
   >
     
     <div
@@ -67,7 +67,7 @@ exports[`Select > :props > :clearable 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -129,7 +129,7 @@ exports[`Select > :props > :creatable 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -191,7 +191,7 @@ exports[`Select > :props > :disabled 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -255,7 +255,7 @@ exports[`Select > :props > :labelInValue 1`] = `
   labelinvalue="false"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -317,7 +317,7 @@ exports[`Select > :props > :loading 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -453,7 +453,7 @@ exports[`Select > :props > :placeholder 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -516,7 +516,7 @@ exports[`Select > :props > :remote 1`] = `
   remote="true"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -578,7 +578,7 @@ exports[`Select > :props > :reserveKeyword 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
@@ -640,7 +640,7 @@ exports[`Select > :props > :size 1`] = `
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select"
+    class="t-select-input t-select-input--empty t-select"
   >
     
     <div
