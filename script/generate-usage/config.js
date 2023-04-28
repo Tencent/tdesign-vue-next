@@ -694,8 +694,56 @@ module.exports = {
     panelStr: `const panelList = [{label: 'backTop', value: 'backTop'}];`,
     render: {
       backTop: `
-      <t-back-top></t-back-top>
+        <div style="position: relative; height: 100%; width: 100%">
+          <t-list class="container" style="position: relative; height: 100%; overflow-y: scroll">
+            <t-list-item v-for="index in 15" :key="index">列表内容{{ index }}</t-list-item>
+          </t-list>
+          <t-back-top
+            container=".container"
+            v-bind="configProps"
+            :visible-height="0"
+            :offset="[20, 0]"
+            style="position: absolute; right: 20px; bottom: 0"
+          ></t-back-top>
+        </div>
     `,
+    },
+  },
+  'sticky-tool': {
+    panelStr: `const panelList = [{label: 'stickyTool', value: 'stickyTool'}];`,
+    script: `
+      import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
+      const renderQrIcon = () => {
+        return <QrcodeIcon />;
+      };
+      const renderPopup = () => {
+        return <img alt="TDesign Logo" width="120" height="120" src="https://tdesign.gtimg.com/site/site.jpg" />;
+      };
+    `,
+    render: {
+      stickyTool: `
+        <t-space>
+          <t-sticky-tool
+            :style="{ position: 'relative', overflow: 'hidden' }"
+            :offset="[-300, -80]"
+            v-bind="configProps"
+          >
+            <t-sticky-item label="chat">
+              <template #icon><chat-icon /></template>
+            </t-sticky-item>
+            <t-sticky-item label="add">
+              <template #icon><add-icon /></template>
+            </t-sticky-item>
+            <t-sticky-item
+              label="aqcode"
+              :icon="renderQrIcon"
+              :popup="renderPopup"
+              :popup-props="{ overlayInnerStyle: { padding: '4px', height: '128px' } }"
+            >
+            </t-sticky-item>
+          </t-sticky-tool>
+        </t-space>
+      `,
     },
   },
 };
