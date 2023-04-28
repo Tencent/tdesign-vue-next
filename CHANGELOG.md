@@ -4,6 +4,26 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.2 `2023-04-28` 
+### 🚀 Features
+- `Select`: 支持`panelTopContent`在虚拟滚动等需要滚动下拉框场景的使用 具体使用方式请看示例 @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
+### 🐞 Bug Fixes
+
+- `DatePicker`: 
+  - 修复第二次点击面板关闭异常问题 @honkinglin ([#2781](https://github.com/Tencent/tdesign-vue-next/pull/2781))
+  - 修复 `valueType` 的 `validator` 校验错误([issue #2755](https://github.com/Tencent/tdesign-vue-next/issues/2755)) @nined9 ([#2757](https://github.com/Tencent/tdesign-vue-next/pull/2757))
+- `Select`:
+  -  修复 `defaultValue` 默认值异常的问题 @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
+  - 修复单选模式 `inputClass` 未生效的问题 @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
+- `Table`: 
+  - 修复取消表尾吸底时requestAnimationFrame在Unmounted之后仍执行了一次导致的异常问题([issue #2744](https://github.com/Tencent/tdesign-vue-next/issues/2744)) @nined9 ([#2745](https://github.com/Tencent/tdesign-vue-next/pull/2745))
+  -  修复设置固定行位置信息时出现tr不存在情况时导致的异常报错([issue #2759](https://github.com/Tencent/tdesign-vue-next/issues/2759)) @nined9 ([#2760](https://github.com/Tencent/tdesign-vue-next/pull/2760))
+- `Pagination`: 修复切换语言时未重新渲染内容的缺陷 @uyarn ([#2775](https://github.com/Tencent/tdesign-vue-next/pull/2775))
+- `Link`: 表单设置禁用不生效 @liweijie0812 ([#2783](https://github.com/Tencent/tdesign-vue-next/pull/2783))
+- `Input`: 修复 `input` 组件 `type = hidden` 时，组件边框依然被显示的问题  @PengYYYYY ([#2776](https://github.com/Tencent/tdesign-vue-next/pull/2776))
+
+### 🚧 Others
+- `Datepicker`: 修复示例代码报错 @honkinglin ([#2761](https://github.com/Tencent/tdesign-vue-next/pull/2761))
 ## 🌈 1.3.1 `2023-04-21` 
 
 ### 🚀 Features
