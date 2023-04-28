@@ -184,7 +184,7 @@ export default defineComponent({
       const tips = renderTNodeJSX('tips');
 
       return (
-        <div class={wrapClasses.value}>
+        <div class={wrapClasses.value} v-show={props.type !== 'hidden'}>
           <div
             class={classes}
             onClick={inputHandle.onRootClick}

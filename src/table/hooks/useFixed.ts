@@ -268,7 +268,7 @@ export default function useFixed(
         defaultBottom = thead?.getBoundingClientRect().height || 0;
       }
       thisRowInfo.top = (lastRowInfo.top || defaultBottom) + (lastRowInfo.height || 0);
-      initialColumnMap.set(rowId, { ...thisRowInfo, height: tr.getBoundingClientRect().height });
+      initialColumnMap.set(rowId, { ...thisRowInfo, height: tr?.getBoundingClientRect().height || 0 });
     }
     for (let i = data.length - 1; i >= data.length - fixedBottomRows; i--) {
       const tr = trList[i] as HTMLElement;
@@ -281,7 +281,7 @@ export default function useFixed(
         defaultBottom = tfoot?.getBoundingClientRect().height || 0;
       }
       thisRowInfo.bottom = (lastRowInfo.bottom || defaultBottom) + (lastRowInfo.height || 0);
-      initialColumnMap.set(rowId, { ...thisRowInfo, height: tr.getBoundingClientRect().height });
+      initialColumnMap.set(rowId, { ...thisRowInfo, height: tr?.getBoundingClientRect().height || 0 });
     }
   };
 
