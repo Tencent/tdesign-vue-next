@@ -163,7 +163,7 @@
     "prettier": "2.8.1",
     "prismjs": "^1.25.0",
     "raf": "^3.4.1",
-    "rimraf": "^4.1.2",
+    "rimraf": "^5.0.0",
     "rollup": "^2.55.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.4.0",
