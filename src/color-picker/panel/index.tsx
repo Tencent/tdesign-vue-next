@@ -320,7 +320,13 @@ export default defineComponent({
       <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {isGradient ? <LinearGradient {...baseProps} onChange={this.handleGradientChange} /> : null}
+          {isGradient ? (
+            <LinearGradient
+              {...baseProps}
+              onChange={this.handleGradientChange}
+              enableMultipleGradient={this.enableMultipleGradient}
+            />
+          ) : null}
 
           <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
 

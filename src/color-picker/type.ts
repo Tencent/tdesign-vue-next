@@ -7,7 +7,7 @@
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdColorPickerProps {
   /**
@@ -34,6 +34,11 @@ export interface TdColorPickerProps {
    * @default false
    */
   enableAlpha?: boolean;
+  /**
+   * 是否允许开启通过点击渐变轴增加渐变梯度，默认开启，关闭时只会存在起始和结束两个颜色
+   * @default true
+   */
+  enableMultipleGradient?: boolean;
   /**
    * 格式化色值。`enableAlpha` 为真时，`RGBA/HSLA/HSVA` 等值有效
    * @default RGB
@@ -71,6 +76,11 @@ export interface TdColorPickerProps {
    * @default true
    */
   showPrimaryColorPreview?: boolean;
+  /**
+   * 组件尺寸
+   * @default medium
+   */
+  size?: SizeEnum;
   /**
    * 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色
    */

@@ -3,6 +3,7 @@ import TInput from '../input';
 import { Color } from './utils';
 import { TdColorPickerProps } from './type';
 import { useBaseClassName } from './hooks';
+import { useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -34,11 +35,15 @@ export default defineComponent({
         return () => {};
       },
     },
+    size: {
+      type: String as PropType<TdColorPickerProps['size']>,
+      default: 'medium',
+    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
     const value = ref(props.color);
-
+    const { SIZE: sizeClassNames } = useCommonClassName();
     watch(
       () => [props.color],
       () => (value.value = props.color),
@@ -60,17 +65,24 @@ export default defineComponent({
       baseClassName,
       value,
       handleChange,
+      sizeClassNames,
     };
   },
 
   render() {
-    const { baseClassName } = this;
+    const { baseClassName, sizeClassNames } = this;
+
     const inputSlots = {
       label: () => {
         return (
           <div class={[`${baseClassName}__trigger--default__color`, `${baseClassName}--bg-alpha`]}>
             <span
-              class={['color-inner']}
+              class={[
+                'color-inner',
+                {
+                  [sizeClassNames[this.size]]: this.size !== 'medium',
+                },
+              ]}
               style={{
                 background: this.value,
               }}
@@ -82,11 +94,12 @@ export default defineComponent({
     return (
       <TInput
         clearable={this.clearable}
-        {...this.inputProps}
+        size={this.size}
         v-slots={inputSlots}
         v-model={this.value}
         disabled={this.disabled}
         onBlur={this.handleChange}
+        {...this.inputProps}
       />
     );
   },
