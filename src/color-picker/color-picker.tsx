@@ -85,6 +85,7 @@ export default defineComponent({
               clearable={this.clearable}
               input-props={this.inputProps}
               onTriggerChange={this.setInnerValue}
+              size={this.size}
             />,
           )}
         </div>

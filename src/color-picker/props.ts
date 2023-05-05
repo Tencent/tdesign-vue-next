@@ -13,7 +13,7 @@ export default {
   /** 关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 或 `undefined` 则不显示关闭按钮；值类型为函数，则表示自定义关闭按钮 */
   closeBtn: {
     type: [String, Boolean, Function] as PropType<TdColorPickerProps['closeBtn']>,
-    default: true,
+    default: true as TdColorPickerProps['closeBtn'],
   },
   /** 颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色 */
   colorModes: {
@@ -24,6 +24,11 @@ export default {
   disabled: Boolean,
   /** 是否开启透明通道 */
   enableAlpha: Boolean,
+  /** 是否允许开启通过点击渐变轴增加渐变梯度，默认开启，关闭时只会存在起始和结束两个颜色 */
+  enableMultipleGradient: {
+    type: Boolean,
+    default: true,
+  },
   /** 格式化色值。`enableAlpha` 为真时，`RGBA/HSLA/HSVA` 等值有效 */
   format: {
     type: String as PropType<TdColorPickerProps['format']>,
@@ -46,7 +51,7 @@ export default {
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色” */
   recentColors: {
     type: Array as PropType<TdColorPickerProps['recentColors']>,
-    default: undefined as TdColorPickerProps['recentColors'],
+    default: undefined,
   },
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”，非受控属性 */
   defaultRecentColors: {
@@ -61,6 +66,15 @@ export default {
   showPrimaryColorPreview: {
     type: Boolean,
     default: true,
+  },
+  /** 组件尺寸 */
+  size: {
+    type: String as PropType<TdColorPickerProps['size']>,
+    default: 'medium' as TdColorPickerProps['size'],
+    validator(val: TdColorPickerProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
   },
   /** 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色 */
   swatchColors: {
