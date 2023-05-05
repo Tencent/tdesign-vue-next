@@ -127,13 +127,14 @@ export default defineComponent({
           v-slots={{
             panel: () => (
               <Panel
+                option={props.option}
                 empty={props.empty}
                 visible={visible}
                 trigger={props.trigger}
                 loading={props.loading}
                 loadingText={props.loadingText}
                 cascaderContext={cascaderContext.value}
-                v-slots={{ empty: slots.empty, loadingText: slots.loadingText }}
+                v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
               />
             ),
             collapsedItems: slots.collapsedItems,
