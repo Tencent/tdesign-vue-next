@@ -45,7 +45,7 @@ export default defineComponent({
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
-      if (orgValue.value === undefined) {
+      if (orgValue.value === undefined || orgValue.value === '') {
         return props.multiple ? [] : undefined;
       }
       if (props.valueType === 'object') {
@@ -59,8 +59,8 @@ export default defineComponent({
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
-          if (val === undefined) {
-            return undefined;
+          if (val === undefined || val === '') {
+            return '';
           }
           const option = optionsMap.value.get(val);
           return {
@@ -436,8 +436,8 @@ export default defineComponent({
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : undefined, {
-                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
+              setInnerValue(props.multiple ? [] : '', {
+                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
                 trigger: 'clear',
                 e,
               });
