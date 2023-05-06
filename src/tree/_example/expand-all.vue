@@ -79,7 +79,7 @@ const data2 = [
 const items = ref(data1);
 const transition = ref(true);
 
-const toggleData = () => {
-  items.value = items.value === data1 ? data2 : data1;
+const toggleData = (value) => {
+  items.value = value ? data2 : data1;
 };
 </script>
