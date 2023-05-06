@@ -303,18 +303,18 @@ export default defineComponent({
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value) {
+      if (!isFirstValueSelected.value || nextValue.length === 1) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
-      } else {
+      } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }
     }
 
     // 预设
-    function onPresetClick(preset: any) {
+    function onPresetClick(preset: any, context: any) {
       let presetValue = preset;
       if (isFunction(preset)) {
         presetValue = preset();
@@ -334,6 +334,7 @@ export default defineComponent({
           },
         );
         popupVisible.value = false;
+        props.onPresetClick?.(context);
       }
     }
 

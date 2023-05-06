@@ -24,7 +24,7 @@
       enable-time-picker
       :disable-date="{ before: dayjs().subtract(1, 'day').format() }"
       :time-picker-props="timePickerProps"
-      @pick="(date) => (pickDate.value = dayjs(date).format('YYYY-MM-DD'))"
+      @pick="onPick"
     />
     <t-date-range-picker
       placeholder="禁用最近 5 天外的日期"
@@ -54,4 +54,8 @@ const timePickerProps = computed(() => {
     },
   };
 });
+
+const onPick = (date) => {
+  pickDate.value = dayjs(date).format('YYYY-MM-DD');
+};
 </script>

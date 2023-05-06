@@ -67,6 +67,7 @@ export default defineComponent({
     };
 
     const onTriggerMouseleave = () => {
+      if (!root.value) return;
       isOverflow.value = isNodeOverflow(root.value);
     };
 

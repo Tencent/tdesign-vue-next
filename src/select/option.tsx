@@ -77,6 +77,7 @@ export default defineComponent({
       if (props.disabled) return;
       if (props.multiple) {
         handleCheckboxClick(!isSelected.value, { e });
+        e.preventDefault();
         return;
       }
       e.stopPropagation();

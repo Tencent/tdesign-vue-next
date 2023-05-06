@@ -6,6 +6,7 @@ import { TdStickyToolProps, TdStickyItemProps } from './type';
 import './style';
 
 export * from './type';
+
 export type StickyToolProps = TdStickyToolProps;
 export type StickyItemProps = TdStickyItemProps;
 

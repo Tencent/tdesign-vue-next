@@ -29,7 +29,9 @@ export default defineComponent({
                   key={key}
                   size="small"
                   variant="text"
-                  onClick={(e: MouseEvent) => props.onPresetClick?.(props.presets[key], { e })}
+                  onClick={(e: MouseEvent) =>
+                    props.onPresetClick?.(props.presets[key], { e, preset: { [key]: props.presets[key] } })
+                  }
                 >
                   {key}
                 </TButton>
