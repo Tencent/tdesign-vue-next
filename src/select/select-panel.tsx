@@ -31,6 +31,7 @@ export default defineComponent({
       default: (): SelectOption[] => [],
     },
     scroll: TdSelectProps.scroll,
+    size: TdSelectProps.size,
   },
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
