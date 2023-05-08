@@ -121,6 +121,8 @@ export default {
     type: String,
     default: 'file',
   },
+  /** 是否启用粘贴上传 */
+  pasteable: Boolean,
   /** 占位符 */
   placeholder: {
     type: String,
@@ -209,7 +211,7 @@ export default {
   onOneFileSuccess: Function as PropType<TdUploadProps['onOneFileSuccess']>,
   /** 点击图片预览时触发，文件没有预览 */
   onPreview: Function as PropType<TdUploadProps['onPreview']>,
-  /** 上传进度变化时触发，真实进度和模拟进度都会触发。`type=real` 表示真实上传进度，`type=mock` 表示模拟上传进度 */
+  /** 上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度 */
   onProgress: Function as PropType<TdUploadProps['onProgress']>,
   /** 移除文件时触发 */
   onRemove: Function as PropType<TdUploadProps['onRemove']>,

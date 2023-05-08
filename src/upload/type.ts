@@ -129,6 +129,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   name?: string;
   /**
+   * 是否启用粘贴上传
+   * @default false
+   */
+  pasteable?: boolean;
+  /**
    * 占位符
    * @default ''
    */
@@ -234,7 +239,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   onPreview?: (options: { file: UploadFile; index: number; e: MouseEvent }) => void;
   /**
-   * 上传进度变化时触发，真实进度和模拟进度都会触发。`type=real` 表示真实上传进度，`type=mock` 表示模拟上传进度
+   * 上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度
    */
   onProgress?: (options: ProgressContext) => void;
   /**

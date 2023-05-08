@@ -32,6 +32,7 @@ method | String | POST | options：POST/GET/PUT/OPTION/PATCH/post/get/put/option
 mockProgressDuration | Number | - | \- | N
 multiple | Boolean | false | \- | N
 name | String | file | \- | N
+pasteable | Boolean | false | \- | N
 placeholder | String | - | \- | N
 requestMethod | Function | - | Typescript：`(files: UploadFile \| UploadFile[]) => Promise<RequestMethodResponse>` `interface RequestMethodResponse { status: 'success' \| 'fail'; error?: string; response: { url?: string; files?: UploadFile[]; [key: string]: any } }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 showUploadProgress | Boolean | true | \- | N

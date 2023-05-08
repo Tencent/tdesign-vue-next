@@ -25,6 +25,7 @@ export interface CommonDisplayFileProps {
   default?: TNode;
   fileListDisplay?: TdUploadProps['fileListDisplay'];
   onRemove?: (p: UploadRemoveContext) => void;
+  onPasteFileChange?: (payload: ClipboardEvent) => void;
 }
 
 export type UploadProps = TdUploadProps;
