@@ -121,8 +121,6 @@ export default {
     type: String,
     default: 'file',
   },
-  /** 是否启用粘贴上传 */
-  pasteable: Boolean,
   /** 占位符 */
   placeholder: {
     type: String,
@@ -172,6 +170,8 @@ export default {
   },
   /** 是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效 */
   uploadAllFilesInOneRequest: Boolean,
+  /** 是否允许粘贴上传剪贴板中的文件 */
+  uploadPastedFiles: Boolean,
   /** 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。 */
   useMockProgress: {
     type: Boolean,

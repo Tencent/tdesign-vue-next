@@ -95,7 +95,7 @@ export default defineComponent({
       showUploadProgress: props.showUploadProgress,
       fileListDisplay: props.fileListDisplay,
       onRemove: onInnerRemove,
-      pasteable: props.pasteable,
+      uploadPastedFiles: props.uploadPastedFiles,
       onPasteFileChange: onPasteFileChange,
     }));
 
@@ -190,7 +190,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-upload`} onPaste={props.pasteable && onPasteFileChange}>
+      <div class={`${classPrefix.value}-upload`} onPaste={props.uploadPastedFiles && onPasteFileChange}>
         <input
           ref={inputRef}
           type="file"
