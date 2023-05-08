@@ -86,6 +86,7 @@ label | String | - | 节点标签文案 | N
 loading | Boolean | false | 子节点数据是否在加载中 | N
 value | String / Number | - | 节点值 | N
 visible | Boolean | false | 节点是否可视 | N
+draggable | Boolean | false | 节点是否可拖拽 | N
 
 ### TreeNodeModel
 
