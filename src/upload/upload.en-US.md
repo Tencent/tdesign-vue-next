@@ -42,6 +42,7 @@ tips | String / Slot / Function | - | tips text below upload component, define i
 trigger | Slot / Function | - | Typescript：`TNode<TriggerContext>` `interface TriggerContext { dragActive?: boolean;  files: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 triggerButtonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 uploadAllFilesInOneRequest | Boolean | false | \- | N
+uploadPastedFiles | Boolean | false | allow to upload files in clipboard after pasting | N
 useMockProgress | Boolean | true | \- | N
 value | Array | [] | file list, `UploadFile`。`v-model` and `v-model:value` is supported。Typescript：`Array<T>` | N
 defaultValue | Array | [] | file list, `UploadFile`。uncontrolled property。Typescript：`Array<T>` | N

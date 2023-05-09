@@ -38,6 +38,7 @@ export default defineComponent({
       uploadFiles,
       onNormalFileChange,
       onDragFileChange,
+      onPasteFileChange,
       triggerUpload,
       cancelUpload,
     } = useUpload(props);
@@ -94,6 +95,8 @@ export default defineComponent({
       showUploadProgress: props.showUploadProgress,
       fileListDisplay: props.fileListDisplay,
       onRemove: onInnerRemove,
+      uploadPastedFiles: props.uploadPastedFiles,
+      onPasteFileChange: onPasteFileChange,
     }));
 
     const dragProps: UploadDragEvents = {
@@ -187,7 +190,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-upload`}>
+      <div class={`${classPrefix.value}-upload`} onPaste={props.uploadPastedFiles && onPasteFileChange}>
         <input
           ref={inputRef}
           type="file"
