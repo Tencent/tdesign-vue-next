@@ -14,6 +14,8 @@ export const commonProps = {
   locale: Object as PropType<CommonDisplayFileProps['locale']>,
   sizeOverLimitMessage: String,
   autoUpload: Boolean,
+  uploadPastedFiles: Boolean,
+  onPasteFileChange: Function as PropType<CommonDisplayFileProps['onPasteFileChange']>,
   disabled: Boolean,
   uploading: Boolean,
   tipsClasses: [String, Array, Object] as PropType<CommonDisplayFileProps['tipsClasses']>,

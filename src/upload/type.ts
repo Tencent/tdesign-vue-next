@@ -173,6 +173,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   uploadAllFilesInOneRequest?: boolean;
   /**
+   * 是否允许粘贴上传剪贴板中的文件
+   * @default false
+   */
+  uploadPastedFiles?: boolean;
+  /**
    * 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。
    * @default true
    */
@@ -234,7 +239,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   onPreview?: (options: { file: UploadFile; index: number; e: MouseEvent }) => void;
   /**
-   * 上传进度变化时触发，真实进度和模拟进度都会触发。`type=real` 表示真实上传进度，`type=mock` 表示模拟上传进度
+   * 上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度
    */
   onProgress?: (options: ProgressContext) => void;
   /**
