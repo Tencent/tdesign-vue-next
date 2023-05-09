@@ -19,7 +19,7 @@
     </t-avatar-group>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { UserIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
 
 const icon = () => <UserIcon />;

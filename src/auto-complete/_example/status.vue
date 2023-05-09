@@ -56,7 +56,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value1 = ref('第一个默认联想词');
@@ -70,7 +70,7 @@ const timer = ref(null);
 const options = ref(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
-function onChange(value) {
+function onChange(value: string) {
   clearTimeout(timer.value);
   timer.value = setTimeout(() => {
     const text = '搜索联想词';

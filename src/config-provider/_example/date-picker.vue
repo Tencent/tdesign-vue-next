@@ -15,7 +15,7 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const DATE_PICK_CONFIGS = {
   placeholder: {
     date: 'select date',

@@ -5,7 +5,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const options = [
   { content: '操作一', value: 1 },
   { content: '操作二', value: 2 },

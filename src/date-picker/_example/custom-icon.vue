@@ -13,7 +13,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { BrowseIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 
 const renderPrefixIcon = () => <BrowseIcon />;

@@ -7,7 +7,7 @@
     </t-alert>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const handleOperation = () => {
   alert('operation clicked');
 };

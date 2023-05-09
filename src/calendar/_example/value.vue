@@ -20,7 +20,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = '1998-11-11'; // new Date(1998, 10, 11)

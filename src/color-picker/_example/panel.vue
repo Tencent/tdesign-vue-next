@@ -23,21 +23,24 @@
     /></t-space>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { ColorObject, ColorPickerChangeTrigger } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+type ColorPickerOnchangeValue = { value: string; context: { color: ColorObject; trigger: ColorPickerChangeTrigger } };
 
 const color = ref('#0052d9');
 const color2 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
 
-const handleChange = (value, context) => {
-  console.log(value, context);
+const handleChange = (val: ColorPickerOnchangeValue) => {
+  console.log(val.value, val.context);
 };
 
-const handlePaletteChange = (context) => {
-  console.log('色相面板改变', context);
+const handlePaletteChange = (val: ColorPickerOnchangeValue) => {
+  console.log('色相面板改变', val.context);
 };
 
-const handleRecentColorsChange = (value, context) => {
-  console.log('最近使用颜色改变', value, context);
+const handleRecentColorsChange = (val: ColorPickerOnchangeValue) => {
+  console.log('最近使用颜色改变', val.value, val.context);
 };
 </script>

@@ -4,7 +4,7 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
@@ -29,7 +29,7 @@ const globalConfig = merge(enConfig, {
     yearSelection: '{year}',
     // 1 表示周一；7 表示周日
     firstDayOfWeek: 7,
-    monthSelection: ({ month }) => MONTHS[month - 1],
+    monthSelection: ({ month }: { month: number }) => MONTHS[month - 1],
     yearRadio: 'Year',
     monthRadio: 'Month',
     hideWeekend: 'Hide Weekend',

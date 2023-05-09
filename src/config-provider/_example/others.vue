@@ -90,12 +90,17 @@
   </t-config-provider>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { VNode } from 'vue';
+import { ImageProps } from 'tdesign-vue-next';
+import { TransferValue } from 'tdesign-vue-next/es/transfer/type';
 
-const transferList = [];
+type TransferList = { value: string; label: string; disabled: boolean }[];
+
+const transferList: TransferList = [];
 for (let i = 0; i < 20; i++) {
   transferList.push({
     value: i.toString(),
@@ -108,8 +113,8 @@ for (let i = 0; i < 20; i++) {
 const globalConfig = merge(enConfig, {
   image: {
     // 全局替换图片地址
-    replaceImageSrc(params) {
-      console.log(params);
+    replaceImageSrc(params: ImageProps) {
+      console.log('img', params);
       return 'https://tdesign.gtimg.com/demo/demo-image-1.png';
     },
   },
@@ -123,12 +128,12 @@ const globalConfig = merge(enConfig, {
   },
   tree: {
     empty: 'Tree Empty Data',
-    folderIcon: (h) => h && <ChevronRightIcon size="18px" />,
+    folderIcon: (h: VNode) => h && <ChevronRightIcon size="18px" />,
   },
   select: {
     empty: 'Empty Data',
     loadingText: 'loading...',
-    clearIcon: (h) => h && <CloseIcon />,
+    clearIcon: (h: VNode) => h && <CloseIcon />,
   },
   treeSelect: {
     empty: 'Empty Data',
@@ -150,12 +155,12 @@ const globalConfig = merge(enConfig, {
     placeholder: 'select cascader data',
   },
   steps: {
-    errorIcon: (h) => h && <ErrorIcon />,
+    errorIcon: (h: VNode) => h && <ErrorIcon />,
   },
 });
 
-const transferChecked = [];
-const transferTargetValue = [];
+const transferChecked: TransferValue[] = [];
+const transferTargetValue: TransferValue[] = [];
 const options1 = [
   { label: 'Shanghai', value: 'shanghai' },
   { label: 'Beijing', value: 'beijing' },

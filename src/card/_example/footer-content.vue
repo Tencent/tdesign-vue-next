@@ -5,6 +5,6 @@
     </template>
   </t-card>
 </template>
-<script setup>
+<script setup lang="ts">
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

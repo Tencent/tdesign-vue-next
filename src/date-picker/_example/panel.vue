@@ -16,12 +16,19 @@
   </t-space>
 </template>
 
-<script setup>
-function handleChange(value) {
+<script setup lang="ts">
+import { Dayjs } from 'dayjs';
+import { DatePickerTriggerSource, DateValue } from 'tdesign-vue-next';
+
+type DatePickerOnchangeValue = {
+  value: DateValue;
+  context: { dayjsValue?: Dayjs; trigger?: DatePickerTriggerSource };
+};
+function handleChange(value: DatePickerOnchangeValue) {
   console.log('onChange value', value);
 }
 
-function handleCellClick(value) {
+function handleCellClick(value: DatePickerOnchangeValue) {
   console.log('onCellClick value', value);
 }
 </script>

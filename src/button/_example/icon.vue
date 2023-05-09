@@ -17,7 +17,7 @@
     <t-button variant="outline" :icon="renderIcon"> 搜索 </t-button>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { AddIcon, CloudUploadIcon, SearchIcon, CloudDownloadIcon, DiscountIcon } from 'tdesign-icons-vue-next';
 
 const renderIcon = () => {

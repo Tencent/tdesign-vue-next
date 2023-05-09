@@ -2,10 +2,20 @@
   <t-cascader v-model="value" :options="options" clearable @change="onChange" />
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { CascaderChangeContext, CascaderValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const options = [
+type CascaderOption = {
+  label: string;
+  value: string;
+  children: {
+    label: string;
+    value: string;
+  }[];
+};
+
+const options: CascaderOption[] = [
   {
     label: '选项一',
     value: '1',
@@ -42,8 +52,8 @@ const options = [
 
 const value = ref('1.1');
 
-const onChange = (e, context) => {
-  console.log(e);
+const onChange = (value: CascaderValue<CascaderOption>, context: CascaderChangeContext<CascaderOption>) => {
+  console.log(value);
   console.log(context);
 };
 </script>

@@ -14,7 +14,7 @@
     </t-alert>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const beforeClose = () => window.confirm('确认关闭吗？');
 
 const handleClosed = () => {

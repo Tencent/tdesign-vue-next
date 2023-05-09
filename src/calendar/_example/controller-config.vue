@@ -87,7 +87,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue';
 
 const controllerConfig = reactive({

@@ -16,31 +16,32 @@
     />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { DialogCloseContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const visible = ref(false);
-const onClick = (context) => {
-  console.log('点击了确认按钮，弹出弹窗', context);
+const onClick = () => {
+  console.log('点击了确认按钮，弹出弹窗');
   visible.value = true;
 };
-const onConfirmAnother = (context) => {
+const onConfirmAnother = (context: { e: MouseEvent }) => {
   console.log('点击了确认按钮', context);
   visible.value = false;
 };
-const close = (context) => {
+const close = (context: DialogCloseContext) => {
   console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发', context);
 };
-const onCancel = (context) => {
+const onCancel = (context: { e: MouseEvent }) => {
   console.log('点击了取消按钮', context);
 };
-const onEscKeydown = (context) => {
+const onEscKeydown = (context: { e: KeyboardEvent }) => {
   console.log('按下了ESC', context);
 };
-const onCloseBtnClick = (context) => {
+const onCloseBtnClick = (context: { e: MouseEvent }) => {
   console.log('点击了关闭按钮', context);
 };
-const onOverlayClick = (context) => {
+const onOverlayClick = (context: { e: MouseEvent }) => {
   console.log('点击了蒙层', context);
 };
 </script>

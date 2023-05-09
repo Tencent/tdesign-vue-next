@@ -23,12 +23,15 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
-import { ref, computed } from 'vue';
+<script setup lang="tsx">
+import { CheckboxGroupChangeContext, CheckboxGroupValue } from 'tdesign-vue-next';
+import { ref, computed, VNode } from 'vue';
+
+type CheckOnchangeValue = { value: CheckboxGroupValue; context: CheckboxGroupChangeContext };
 
 const options1 = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  { value: '选项一', label: (h) => <div>选项一</div> },
+  { value: '选项一', label: (h: VNode) => <div>选项一</div> },
   { value: '选项二', label: '选项二' },
   { value: '选项三', label: '选项三' },
 ];
@@ -37,7 +40,7 @@ const options2 = [
   { label: '全选', checkAll: true },
   { value: '选项一', label: '选项一' },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  { value: '选项二', label: (h) => <div>选项二</div> },
+  { value: '选项二', label: (h: VNode) => <div>选项二</div> },
   { value: '选项三', label: '选项三' },
 ];
 
@@ -49,17 +52,17 @@ const checkAll = computed(() => options1.length === value1.value.length);
 
 const indeterminate = computed(() => !!(options1.length > value1.value.length && value1.value.length));
 
-const handleSelectAll = (checked) => {
+const handleSelectAll = (checked: boolean) => {
   value1.value = checked ? ['选项一', '选项二', '选项三'] : [];
 };
 
-const onChange1 = (val) => {
+const onChange1 = (val: CheckOnchangeValue) => {
   console.log(value1.value, val);
 };
-const onChange2 = (val) => {
+const onChange2 = (val: CheckOnchangeValue) => {
   console.log(value2.value, val);
 };
-const onChange3 = (val) => {
+const onChange3 = (val: CheckOnchangeValue) => {
   console.log(value3.value, val);
 };
 </script>

@@ -9,9 +9,7 @@
 <script setup lang="jsx">
 import { MessagePlugin } from 'tdesign-vue-next';
 
-const clickHandler = () => {
-  MessagePlugin.success('操作');
-};
+const clickHandler = () => MessagePlugin.success('操作');
 
 const title = '标题';
 const actions = '操作';

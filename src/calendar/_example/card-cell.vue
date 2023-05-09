@@ -20,17 +20,21 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { CalendarCell } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+type Theme = 'full' | 'card';
+type CellData = CalendarCell & { theme: Theme };
 
 const themeOptions = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
 ];
 
-const theme = ref('card');
+const theme = ref<Theme>('card');
 
-const getDateStr = (cellData) => {
+const getDateStr = (cellData: CellData) => {
   const y = cellData.date.getFullYear();
   const m = cellData.date.getMonth() + 1;
   const d = cellData.date.getDate();
@@ -43,7 +47,7 @@ const getDateStr = (cellData) => {
   return `${y}-${m}`;
 };
 
-const getCellAppendCls = (cellData) => ({
+const getCellAppendCls = (cellData: { mode: string; belongTo: number; isCurrent: boolean }) => ({
   belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
   activated: cellData.isCurrent,
 });

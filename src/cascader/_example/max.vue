@@ -2,7 +2,7 @@
   <t-cascader v-model="value" :options="options" multiple clearable :max="3" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const options = [

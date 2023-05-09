@@ -17,28 +17,29 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="ts">
 import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue';
+import { ScrollContainer } from 'tdesign-vue-next';
 
 const affixed = ref(false);
-const affixContainerRef = ref(null);
-const affixRef = ref(null);
+const affixContainerRef = ref<ScrollContainer>();
+const affixRef = ref<{ handleScroll: () => void | null }>();
 
 const getContainer = () => affixContainerRef.value;
 
-const handleFixedChange = (_affixed, { top }) => {
+const handleFixedChange = (_affixed: boolean, { top }: { top: number }) => {
   console.log('top', top);
   affixed.value = _affixed;
 };
 
 onMounted(() => {
   nextTick(() => {
-    window.addEventListener('scroll', affixRef.value.handleScroll);
+    window.addEventListener('scroll', affixRef.value?.handleScroll);
   });
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', affixRef.value.handleScroll);
+  window.removeEventListener('scroll', affixRef.value?.handleScroll);
 });
 </script>
 

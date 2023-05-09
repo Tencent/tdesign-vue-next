@@ -9,7 +9,7 @@
   </t-comment>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { NotifyPlugin } from 'tdesign-vue-next';
 

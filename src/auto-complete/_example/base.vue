@@ -29,17 +29,17 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="ts">
 import { ref } from 'vue';
 import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const value = ref('');
 const value2 = ref('');
 const options = ref(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);
-const timer = ref(null);
+const timer = ref<NodeJS.Timeout>(null);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
-function onChange(value) {
+function onChange(value: string) {
   clearTimeout(timer.value);
   timer.value = setTimeout(() => {
     const text = '搜索联想词';

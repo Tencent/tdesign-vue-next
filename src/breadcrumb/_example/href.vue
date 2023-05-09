@@ -12,7 +12,7 @@
     <div style="margin-top: 20px">点击计数器：{{ count }}</div>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const count = ref(0);

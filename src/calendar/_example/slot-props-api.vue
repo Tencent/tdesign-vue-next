@@ -2,11 +2,12 @@
   <t-calendar :head="renderHead" :cell="renderCell" />
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import dayjs from 'dayjs';
+import { CalendarCell, ControllerOptions } from 'tdesign-vue-next';
 
-const renderHead = (h, params) => {
-  let title = params.filterDate.getFullYear();
+const renderHead = (_h: any, params: ControllerOptions) => {
+  let title = params.filterDate.getFullYear().toString();
   if (params.mode === 'month') {
     title += `-${params.filterDate.getMonth() + 1}`;
   }
@@ -14,7 +15,7 @@ const renderHead = (h, params) => {
   return <div>{title}</div>;
 };
 
-const renderCell = (h, params) => {
+const renderCell = (_h: any, params: CalendarCell) => {
   const dataList = [
     {
       value: 'error',

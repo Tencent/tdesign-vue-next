@@ -22,7 +22,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const LIST = ['第一个 AutoComplete 默认联想词', '第二个 AutoComplete 默认联想词', '第三个 AutoComplete 默认联想词'];
@@ -31,7 +31,7 @@ const value1 = ref('');
 const value2 = ref('');
 const options = ref([...LIST]);
 
-function filterWords(keyword, option) {
+function filterWords(keyword: string, option: { text: string; label: string }) {
   const regExp = new RegExp(keyword);
   return regExp.test(option.text);
 }

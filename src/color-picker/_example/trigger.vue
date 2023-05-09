@@ -1,7 +1,7 @@
 <template>
   <t-color-picker v-model="color" :show-primary-color-preview="false" />
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const color = ref('#0052d9');

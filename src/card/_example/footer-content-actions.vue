@@ -12,13 +12,11 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
+<script setup lang="ts">
+import { DropdownOption, MessagePlugin } from 'tdesign-vue-next';
 import { MoreIcon } from 'tdesign-icons-vue-next';
 
-const clickHandler = (data) => {
-  MessagePlugin.success(`选中【${data.content}】`);
-};
+const clickHandler = (data: DropdownOption) => MessagePlugin.success(`选中【${data.content}】`);
 const options = [
   {
     content: '操作一',

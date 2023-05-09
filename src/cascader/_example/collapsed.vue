@@ -17,10 +17,20 @@
   </t-space>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { CascaderValue } from 'tdesign-vue-next';
 
-const options = [
+type CascaderOption = {
+  label: string;
+  value: string;
+  children: {
+    label: string;
+    value: string;
+  }[];
+};
+
+const options: CascaderOption[] = [
   {
     label: '选项一',
     value: '1',
@@ -57,11 +67,11 @@ const options = [
 
 const value = ref(['1.1', '1.2', '1.3']);
 
-const handleBlur = (e) => {
-  console.log(e);
+const handleBlur = (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => {
+  console.log(context);
 };
 
-const collapsedItems = (h, { value, count }) => {
+const collapsedItems = (_h: any, { value, count }: { value: CascaderOption[]; count: number }) => {
   if (!(value instanceof Array) || !count) return;
   return (
     <t-popup

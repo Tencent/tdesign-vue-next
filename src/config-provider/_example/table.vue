@@ -16,10 +16,11 @@
   </t-config-provider>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { VNode } from 'vue';
 
 const columns = [
   {
@@ -48,7 +49,7 @@ const data = [
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const expandedRow = (h) => {
+const expandedRow = (h: VNode) => {
   return <div>This is expanded row info</div>;
 };
 
@@ -58,8 +59,8 @@ const globalConfig = merge(enConfig, {
     empty: 'Empty Data',
     // empty can also be a function
     // empty: (h) => h && <div class='custom-empty-content'>Empty Data</div>,
-    expandIcon: (h) => h && <ChevronRightIcon />,
-    sortIcon: (h) => h && <CaretDownSmallIcon size="18px" />,
+    expandIcon: (h: VNode) => h && <ChevronRightIcon />,
+    sortIcon: (h: VNode) => h && <CaretDownSmallIcon size="18px" />,
 
     // More config
     // filterIcon: () => <span>Filter</span>,

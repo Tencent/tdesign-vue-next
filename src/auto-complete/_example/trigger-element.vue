@@ -7,15 +7,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = ref('');
-const timer = ref(null);
+const timer = ref<NodeJS.Timeout>(null);
 const options = ref(['First AutoComplete Textarea', 'Second AutoComplete Textarea', 'Third AutoComplete Textarea']);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
-function onChange(value) {
+function onChange(value: string) {
   clearTimeout(timer.value);
   timer.value = setTimeout(() => {
     const text = 'AutoComplete Textarea';

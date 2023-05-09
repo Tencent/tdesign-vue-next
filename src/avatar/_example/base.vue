@@ -5,7 +5,7 @@
     <t-avatar>W</t-avatar>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { computed } from 'vue';
 import { UserIcon } from 'tdesign-icons-vue-next';
 

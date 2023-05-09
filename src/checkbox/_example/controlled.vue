@@ -12,7 +12,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const options = [
@@ -25,10 +25,10 @@ const options = [
 const checked1 = ref(true);
 const checked2 = ref([1]);
 
-const onChange1 = (val) => {
+const onChange1 = (val: { checked: boolean; context: { e: Event } }) => {
   console.log('change:', checked1.value, val);
 };
-const onChange2 = (value, context) => {
+const onChange2 = (value: boolean, context: { e: Event }) => {
   console.log('change: ', value, context);
 };
 </script>

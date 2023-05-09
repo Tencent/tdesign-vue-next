@@ -4,9 +4,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { DialogPlugin } from 'tdesign-vue-next';
+import { DialogEventSource, DialogPlugin } from 'tdesign-vue-next';
 
 const count = ref(0);
 const showDialog = () => {
@@ -20,7 +20,7 @@ const showDialog = () => {
       console.log(e);
       showDialog();
     },
-    onClose: ({ e, trigger }) => {
+    onClose: ({ e, trigger }: { e: MouseEvent | KeyboardEvent; trigger: DialogEventSource }) => {
       console.log('e: ', e);
       console.log('trigger: ', trigger);
       count.value -= 1;

@@ -15,16 +15,18 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
+
+type Theme = 'full' | 'card';
 
 const options = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
 ];
 
-const theme = ref('card');
-const myCalendar = ref('');
+const theme = ref<Theme>('card');
+const myCalendar = ref<{ toCurrent: () => void }>(null);
 const fillWithZero = ref(true);
 const toCurrent = () => {
   if (myCalendar.value) {

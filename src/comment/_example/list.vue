@@ -19,7 +19,7 @@
   </t-list>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const commentsData = [
   {
     id: 'A',

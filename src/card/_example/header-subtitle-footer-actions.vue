@@ -32,9 +32,9 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon } from 'tdesign-icons-vue-next';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { DropdownOption, MessagePlugin } from 'tdesign-vue-next';
 
 const title = '标题';
 
@@ -53,7 +53,5 @@ const options = [
   },
 ];
 
-const clickHandler = (data) => {
-  MessagePlugin.success(`选中【${data.content}】`);
-};
+const clickHandler = (data: DropdownOption) => MessagePlugin.success(`选中【${data.content}】`);
 </script>

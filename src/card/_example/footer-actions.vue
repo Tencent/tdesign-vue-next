@@ -63,9 +63,9 @@
     </t-card>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ThumbUpIcon, ChatIcon, ShareIcon, HeartIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { DropdownOption, MessagePlugin } from 'tdesign-vue-next';
 
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 
@@ -83,7 +83,6 @@ const options = [
   },
 ];
 
-const clickHandler = (data) => {
+const clickHandler = (data: { dropdownItem: DropdownOption; content: { e: MouseEvent } }) =>
   MessagePlugin.success(`选中【${data.content}】`);
-};
 </script>

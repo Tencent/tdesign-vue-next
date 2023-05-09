@@ -71,15 +71,15 @@
     </t-dialog>
   </div>
 </template>
-<script setup>
-import { ref, getCurrentInstance } from 'vue';
+<script setup lang="ts">
+import { ref, getCurrentInstance, ComponentInternalInstance } from 'vue';
 
 const visibleBody = ref(false);
 const visibleIdAttach = ref(false);
 const visibleFunctionAttach = ref(false);
 const visibleShowInAttachedElement = ref(false);
-const { ctx } = getCurrentInstance();
-const getAttach = () => ctx.$root.$el;
+const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+const getAttach = () => proxy.$root.$el;
 </script>
 <style scoped>
 .dialog-attach-wrap {

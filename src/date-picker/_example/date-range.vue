@@ -5,9 +5,12 @@
   </t-space>
 </template>
 
-<script setup>
-const onPick = (value, context) => console.log('onPick:', value, context);
-const onChange = (value, context) => {
+<script setup lang="ts">
+import { Dayjs } from 'dayjs';
+import { DatePickerTriggerSource, DateRangeValue, DateValue, PickContext } from 'tdesign-vue-next';
+
+const onPick = (value: DateValue, context: PickContext) => console.log('onPick:', value, context);
+const onChange = (value: DateRangeValue, context: { dayjsValue?: Dayjs[]; trigger?: DatePickerTriggerSource }) => {
   console.log('onChange:', value, context);
   console.log(
     'timestamp:',

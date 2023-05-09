@@ -7,7 +7,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const checked = ref(['选项二']);

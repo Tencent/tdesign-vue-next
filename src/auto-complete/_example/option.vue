@@ -29,7 +29,7 @@
 </template>
 
 <!-- lang="jsx" 重要  -->
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref, computed } from 'vue';
 import { HighlightOption as THighlightOption } from 'tdesign-vue-next';
 

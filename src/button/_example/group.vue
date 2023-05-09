@@ -20,7 +20,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { MoreIcon } from 'tdesign-icons-vue-next';
 </script>
 <style scoped>

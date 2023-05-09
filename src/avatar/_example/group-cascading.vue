@@ -17,7 +17,7 @@
     </div>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { UserIcon } from 'tdesign-icons-vue-next';
 
 const icon = () => <UserIcon />;

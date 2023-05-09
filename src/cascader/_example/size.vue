@@ -9,10 +9,20 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { CascaderValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const options = [
+type CascaderOption = {
+  label: string;
+  value: string;
+  children: {
+    label: string;
+    value: string;
+  }[];
+};
+
+const options: CascaderOption[] = [
   {
     label: '选项一',
     value: '1',
@@ -48,7 +58,7 @@ const options = [
 ];
 
 const value = ref('1.1');
-const handleValueChange = (e) => {
-  value.value = e;
+const handleValueChange = (value: CascaderValue<CascaderOption>) => {
+  value.value = value;
 };
 </script>

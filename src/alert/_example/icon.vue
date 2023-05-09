@@ -12,7 +12,7 @@
     </t-alert>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { Icon } from 'tdesign-icons-vue-next';
 
 const warningIcon = () => <Icon name="error-circle-filled" />;

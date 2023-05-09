@@ -46,7 +46,7 @@
     </t-dialog>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const visibleModal = ref(false);

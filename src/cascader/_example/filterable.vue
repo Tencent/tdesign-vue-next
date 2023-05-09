@@ -6,7 +6,8 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const options = [
@@ -48,7 +49,7 @@ const value = ref('');
 const value2 = ref(['1.1']);
 const value3 = ref('');
 
-const filterMethod = (search, node) => {
+const filterMethod = (search: string, node: TreeNodeModel) => {
   console.log('filter:', search, node.label);
   return node.label.indexOf(search) !== -1;
 };

@@ -63,7 +63,7 @@
     </t-dialog>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const visible1 = ref(false);
@@ -72,7 +72,7 @@ const visible3 = ref(false);
 const visible4 = ref(false);
 const visible5 = ref(false);
 
-const onClickConfirm = (context) => {
+const onClickConfirm = (context: { e: MouseEvent }) => {
   const { e } = context;
   visible1.value = false;
   visible2.value = false;

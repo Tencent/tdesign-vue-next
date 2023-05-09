@@ -14,7 +14,7 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const globalConfig = {
   dialog: {
     confirm: 'confirm',

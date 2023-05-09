@@ -10,10 +10,10 @@
   </t-space>
 </template>
 
-<script setup>
-import { computed, getCurrentInstance } from 'vue';
+<script setup lang="ts">
+import { computed, getCurrentInstance, ComponentInternalInstance } from 'vue';
 import get from 'lodash/get';
 
-const { ctx } = getCurrentInstance();
-const path = computed(() => get(ctx, '$route.path', ''));
+const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+const path = computed(() => get(proxy, '$route.path', ''));
 </script>

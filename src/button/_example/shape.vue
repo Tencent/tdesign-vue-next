@@ -26,6 +26,6 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { CalendarIcon } from 'tdesign-icons-vue-next';
 </script>

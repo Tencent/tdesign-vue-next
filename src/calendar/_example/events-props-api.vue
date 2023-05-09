@@ -29,31 +29,33 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { CalendarCell } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const preventCellContextmenu = ref(false);
 const histories = ref([]);
-const value = null;
+const value: String | Date = null;
 
-const appendHistories = (content, options) => {
+const appendHistories = (content: string, options: { cell: CalendarCell; e: MouseEvent }) => {
   histories.value.unshift(content);
   console.info(options);
 };
 
-const cellClick = (options) => {
+const cellClick = (options: { cell: CalendarCell; e: MouseEvent }) => {
   appendHistories(`鼠标左键单击单元格 ${options.cell.formattedDate}`, options);
 };
 
-const cellDoubleClick = (options) => {
+const cellDoubleClick = (options: { cell: CalendarCell; e: MouseEvent }) => {
   appendHistories(`鼠标双击单元格 ${options.cell.formattedDate}`, options);
 };
 
-const cellRightClick = (options) => {
+const cellRightClick = (options: { cell: CalendarCell; e: MouseEvent }) => {
   appendHistories(`鼠标右键点击元格 ${options.cell.formattedDate}`, options);
 };
 
-const controllerChange = (data) => {
+// error
+const controllerChange = (data: any) => {
   appendHistories('控件值变化', data);
 };
 </script>

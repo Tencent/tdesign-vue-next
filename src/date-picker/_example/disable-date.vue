@@ -11,7 +11,7 @@
         to: dayjs().add(3, 'day').format(),
       }"
     />
-    <t-date-picker placeholder="禁用所有周六" :disable-date="(date) => dayjs(date).day() === 6" />
+    <t-date-picker placeholder="禁用所有周六" :disable-date="(date: Date) => dayjs(date).day() === 6" />
     <t-date-picker
       placeholder="禁用最近 3 天外的日期"
       :disable-date="{
@@ -24,7 +24,7 @@
       enable-time-picker
       :disable-date="{ before: dayjs().subtract(1, 'day').format() }"
       :time-picker-props="timePickerProps"
-      @pick="onPick"
+      @pick="(date: Date) => (pickDate.value = dayjs(date).format('YYYY-MM-DD'))"
     />
     <t-date-range-picker
       placeholder="禁用最近 5 天外的日期"
@@ -36,7 +36,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
 
@@ -54,8 +54,4 @@ const timePickerProps = computed(() => {
     },
   };
 });
-
-const onPick = (date) => {
-  pickDate.value = dayjs(date).format('YYYY-MM-DD');
-};
 </script>
