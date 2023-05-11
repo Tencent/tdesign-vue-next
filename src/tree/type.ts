@@ -60,7 +60,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   disabled?: boolean;
   /**
-   * [开发中]节点是否可拖拽
+   * 节点是否可拖拽
    */
   draggable?: boolean;
   /**
@@ -183,17 +183,11 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
   /**
    * 节点激活时触发，泛型 `T` 表示树节点 TS 类型
    */
-  onActive?: (
-    value: Array<TreeNodeValue>,
-    context: { node: TreeNodeModel<T>; e?: MouseEvent; trigger: 'node-click' | 'setItem' },
-  ) => void;
+  onActive?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void;
   /**
    * 节点选中状态变化时触发，context.node 表示当前变化的选项，泛型 `T` 表示树节点 TS 类型
    */
-  onChange?: (
-    value: Array<TreeNodeValue>,
-    context: { node: TreeNodeModel<T>; e?: any; trigger: 'node-click' | 'setItem' },
-  ) => void;
+  onChange?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void;
   /**
    * 节点点击时触发，泛型 `T` 表示树节点 TS 类型
    */
