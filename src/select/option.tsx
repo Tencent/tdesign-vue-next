@@ -74,7 +74,7 @@ export default defineComponent({
     const labelText = computed(() => props.label || props.value);
 
     const handleClick = (e: MouseEvent | KeyboardEvent) => {
-      if (disabled.value) return;
+      if (props.disabled || disabled.value) return;
       if (props.multiple) {
         handleCheckboxClick(!isSelected.value, { e });
         e.preventDefault();
