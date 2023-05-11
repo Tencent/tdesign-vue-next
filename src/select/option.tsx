@@ -94,9 +94,10 @@ export default defineComponent({
           return;
         }
       }
-
+      const selectedOptions = selectProvider.value.getSelectedOptions(props.value);
       selectProvider.value.handleValueChange(props.value, {
-        selectedOptions: selectProvider.value.getSelectedOptions(props.value),
+        option: selectedOptions?.[0],
+        selectedOptions: selectedOptions,
         trigger: 'check',
         e,
       });
@@ -109,8 +110,11 @@ export default defineComponent({
         return;
       }
       const newValue = getNewMultipleValue(selectProvider.value.selectValue as SelectValue[], props.value);
+      const selectedOptions = selectProvider.value.getSelectedOptions(newValue.value);
+
       selectProvider.value.handleValueChange(newValue.value, {
-        selectedOptions: selectProvider.value.getSelectedOptions(newValue.value),
+        option: selectedOptions.find((v) => v.value === props.value),
+        selectedOptions,
         trigger: val ? 'check' : 'uncheck',
         e: context.e,
       });
