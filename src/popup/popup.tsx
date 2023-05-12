@@ -222,7 +222,7 @@ export default defineComponent({
 
     expose({
       update: updatePopper,
-      close: hide,
+      close: () => hide(),
       getOverlay() {
         return overlayEl.value;
       },
@@ -295,7 +295,7 @@ export default defineComponent({
       }, delay.value.show);
     }
 
-    function hide(ev: Event) {
+    function hide(ev?: Event) {
       clearAllTimeout();
       hideTimeout = setTimeout(() => {
         setVisible(false, { trigger: getTriggerType(ev) });
@@ -307,8 +307,8 @@ export default defineComponent({
       clearTimeout(hideTimeout);
     }
 
-    function getTriggerType(ev: Event) {
-      switch (ev.type) {
+    function getTriggerType(ev?: Event) {
+      switch (ev?.type) {
         case 'mouseenter':
         case 'mouseleave':
           return 'trigger-element-hover';
@@ -323,6 +323,8 @@ export default defineComponent({
           return 'keydown-esc';
         case 'mousedown':
           return 'document';
+        default:
+          return 'trigger-element-close';
       }
     }
 
