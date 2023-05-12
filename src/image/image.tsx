@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch, nextTick, watchEffect } from 'vue';
 import omit from 'lodash/omit';
 import isFunction from 'lodash/isFunction';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
@@ -8,7 +8,6 @@ import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import { TdImageProps } from './type';
 import props from './props';
 import Space from '../space';
-import { isServer } from '../utils/dom';
 
 export default defineComponent({
   name: 'TImage',
@@ -16,20 +15,25 @@ export default defineComponent({
   props,
 
   setup(props: TdImageProps) {
-    const imageRef = ref<HTMLElement>(null);
+    const divRef = ref<HTMLElement>(null);
+    const imgRef = ref<HTMLImageElement>(null);
     let io: IntersectionObserver = null;
 
     const renderTNodeJSX = useTNodeJSX();
 
     onMounted(() => {
-      if (!props.lazy || !imageRef.value) return;
+      //在nuxt3中img的onload事件会失效
+      if (imgRef.value?.complete && !props.lazy) {
+        triggerHandleLoad();
+      }
 
-      const ioObserver = observe(imageRef.value, null, handleLoadImage, 0);
+      if (!props.lazy || !divRef.value) return;
+
+      const ioObserver = observe(divRef.value, null, handleLoadImage, 0);
       io = ioObserver;
     });
-
     onUnmounted(() => {
-      imageRef.value && io && io.unobserve(imageRef.value);
+      divRef.value && io && io.unobserve(divRef.value);
     });
 
     const { classPrefix, globalConfig } = useConfig('image');
@@ -57,7 +61,14 @@ export default defineComponent({
       isLoaded.value = true;
       props.onLoad?.({ e });
     };
-
+    const triggerHandleLoad = () => {
+      const loadEvent = new Event('load');
+      Object.defineProperty(loadEvent, 'target', {
+        value: imgRef.value,
+        enumerable: true,
+      });
+      handleLoad(loadEvent);
+    };
     const hasError = ref(false);
     const handleError = (e: Event) => {
       hasError.value = true;
@@ -119,14 +130,23 @@ export default defineComponent({
     }
 
     function renderImage(url: string) {
-      return <img src={url} onError={handleError} onLoad={handleLoad} class={imageClasses.value} alt={props.alt} />;
+      return (
+        <img
+          ref={imgRef}
+          src={url}
+          onError={handleError}
+          onLoad={handleLoad}
+          class={imageClasses.value}
+          alt={props.alt}
+        />
+      );
     }
 
     const renderTNodDefault = useTNodeDefault();
 
     return () => (
       <div
-        ref={imageRef}
+        ref={divRef}
         class={[
           `${classPrefix.value}-image__wrapper`,
           `${classPrefix.value}-image__wrapper--shape-${props.shape}`,
@@ -158,7 +178,7 @@ export default defineComponent({
         {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
         {!(hasError.value || !shouldLoad.value) &&
           (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage(imageSrc.value))}
-        {!(hasError.value || !shouldLoad.value || isServer) && !isLoaded.value && (
+        {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
           <div class={`${classPrefix.value}-image__loading`}>
             {renderTNodeJSX('loading') || (
               <Space direction="vertical" size={8} align="center">
