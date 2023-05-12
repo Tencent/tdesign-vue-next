@@ -13,6 +13,11 @@ export default {
     type: String,
     default: '00:00:00',
   },
+  /** 时间选择器单独使用时生效 */
+  popupVisible: {
+    type: Boolean,
+    default: true,
+  },
   /** 点击日期单元格时触发 */
   onCellClick: Function as PropType<TdDatePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */
