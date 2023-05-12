@@ -83,7 +83,9 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
           <span
             class="t-tag--text"
           >
+            
             <!---->
+            
           </span>
           <svg
             class="t-icon t-icon-close t-tag__icon-close"
@@ -583,7 +585,9 @@ exports[`TreeSelect > :props > :multiple 1`] = `
           <span
             class="t-tag--text"
           >
+            
             <!---->
+            
           </span>
           <svg
             class="t-icon t-icon-close t-tag__icon-close"
@@ -1016,7 +1020,9 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
           <span
             class="t-tag--text"
           >
+            
             <!---->
+            
           </span>
           <svg
             class="t-icon t-icon-close t-tag__icon-close"
@@ -1348,7 +1354,9 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
           <span
             class="t-tag--text"
           >
+            
             <!---->
+            
           </span>
           <svg
             class="t-icon t-icon-close t-tag__icon-close"

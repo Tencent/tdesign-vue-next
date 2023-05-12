@@ -228,6 +228,10 @@ export default function useUpload(props: TdUploadProps) {
     onFileChange?.(e.dataTransfer.files);
   }
 
+  function onPasteFileChange(e: ClipboardEvent) {
+    onFileChange?.([...e.clipboardData.items].map((file: DataTransferItem) => file.getAsFile()) as any);
+  }
+
   /**
    * 上传文件。对外暴露方法，修改时需谨慎
    * @param toFiles 本地上传的文件列表
@@ -390,6 +394,7 @@ export default function useUpload(props: TdUploadProps) {
     onFileChange,
     onNormalFileChange,
     onDragFileChange,
+    onPasteFileChange,
     onInnerRemove,
     triggerUpload,
     cancelUpload,

@@ -45,7 +45,7 @@ export default defineComponent({
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
-      if (orgValue.value === undefined) {
+      if (orgValue.value === undefined || orgValue.value === '') {
         return props.multiple ? [] : undefined;
       }
       if (props.valueType === 'object') {
@@ -55,12 +55,12 @@ export default defineComponent({
       }
       return orgValue.value;
     });
-    const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], e) => {
+    const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
-          if (val === undefined) {
-            return undefined;
+          if (val === undefined || val === '') {
+            return '';
           }
           const option = optionsMap.value.get(val);
           return {
@@ -71,7 +71,10 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      setOrgValue(newVal, { selectedOptions: getSelectedOptions(newVal), trigger: e.trigger, e: e.e });
+      setOrgValue(newVal, {
+        selectedOptions: getSelectedOptions(newVal),
+        ...context,
+      });
     };
 
     const [innerInputValue, setInputValue] = useDefaultValue(
@@ -190,7 +193,9 @@ export default defineComponent({
             break;
           }
           if (!props.multiple) {
+            const selectedOptions = getSelectedOptions(optionsList.value[hoverIndex.value].value);
             setInnerValue(optionsList.value[hoverIndex.value].value, {
+              option: selectedOptions?.[0],
               selectedOptions: getSelectedOptions(optionsList.value[hoverIndex.value].value),
               trigger: 'check',
               e,
@@ -201,8 +206,10 @@ export default defineComponent({
             const optionValue = optionsList.value[hoverIndex.value]?.value;
             if (!optionValue) return;
             const newValue = getNewMultipleValue(innerValue.value, optionValue);
+            const selectedOptions = getSelectedOptions(newValue.value);
             setInnerValue(newValue.value, {
-              selectedOptions: getSelectedOptions(newValue.value),
+              option: selectedOptions.find((v) => v.value == optionValue),
+              selectedOptions,
               trigger: newValue.isCheck ? 'check' : 'uncheck',
               e,
             });
@@ -436,8 +443,9 @@ export default defineComponent({
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : undefined, {
-                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
+              setInnerValue(props.multiple ? [] : '', {
+                option: null,
+                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
                 trigger: 'clear',
                 e,
               });
