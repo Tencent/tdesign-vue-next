@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch, nextTick, watchEffect } from 'vue';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
 import omit from 'lodash/omit';
 import isFunction from 'lodash/isFunction';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
