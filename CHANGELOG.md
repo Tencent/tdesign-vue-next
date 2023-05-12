@@ -4,6 +4,25 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.3 `2023-05-12` 
+### 🚀 Features
+- `ColorPicker`: 新增`size` 和 `enableMultipleGradient` API @uyarn ([#2803](https://github.com/Tencent/tdesign-vue-next/pull/2803))
+- `Upload`: 组件支持 `uploadPastedFiles` 配置 ([issue #2686](https://github.com/Tencent/tdesign-vue-next/issues/2686)) @yanxugong ([#2814](https://github.com/Tencent/tdesign-vue-next/pull/2814))
+- `Select`: `onChange` 事件 `context` 新增`option`参数 用于获取选中项完整内容 @uyarn ([#2831](https://github.com/Tencent/tdesign-vue-next/pull/2831))
+- `Tree`:  `TreeItem` 新增`draggable`属性，允许某些节点不可拖拽 @decadef20 ([#2815](https://github.com/Tencent/tdesign-vue-next/pull/2815))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复 `1.3.2` 版本 控制台 warning 的异常 @uyarn ([#2809](https://github.com/Tencent/tdesign-vue-next/pull/2809))
+  - 限制可选数目无效 @AuYuHui ([#2828](https://github.com/Tencent/tdesign-vue-next/pull/2828))
+  - 超出最大限制后选项可点击 @Zz-ZzzZ ([#2829](https://github.com/Tencent/tdesign-vue-next/pull/2829))
+  - `clearable` 时 `value` 为 `undefined` 问题 @wangyang0210 ([#2678](https://github.com/Tencent/tdesign-vue-next/pull/2678))
+- `Popup`: 
+  - 修复`onScrollToBottom` 在部分windows环境下无法触发的问题 @uyarn ([#2834](https://github.com/Tencent/tdesign-vue-next/pull/2834))
+  - 修复调用 `popup` 组件暴露的`close()`时报错([issue #2835](https://github.com/Tencent/tdesign-vue-next/issues/2835)) @Zz-ZzzZ ([#2838](https://github.com/Tencent/tdesign-vue-next/pull/2838))
+- `Table`: 开启省略号 `ellipsis` 和虚拟滚动后，快速滚动控制台报读取 `null` 的属性异常 ([issue #2796](https://github.com/Tencent/tdesign-vue-next/issues/2796)) @nined9 ([#2799](https://github.com/Tencent/tdesign-vue-next/pull/2799))
+- `Image`:  修复 `nuxt3` 环境下 `onload` 无效 @liweijie0812 ([#2840](https://github.com/Tencent/tdesign-vue-next/pull/2840))
+- `Tree`: 修复展开操作的 demo 中无法切换数据的问题 @palmcivet ([#2806](https://github.com/Tencent/tdesign-vue-next/pull/2806))
+
 ## 🌈 1.3.2 `2023-04-28` 
 ### 🚀 Features
 - `Select`: 支持`panelTopContent`在虚拟滚动等需要滚动下拉框场景的使用 具体使用方式请看示例 @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
