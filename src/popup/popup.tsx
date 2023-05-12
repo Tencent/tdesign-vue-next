@@ -1,6 +1,7 @@
 import { createPopper, Placement } from '@popperjs/core';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
+import debounce from 'lodash/debounce';
 import isString from 'lodash/isString';
 import {
   computed,
@@ -221,7 +222,7 @@ export default defineComponent({
 
     expose({
       update: updatePopper,
-      close: hide,
+      close: () => hide(),
       getOverlay() {
         return overlayEl.value;
       },
@@ -294,7 +295,7 @@ export default defineComponent({
       }, delay.value.show);
     }
 
-    function hide(ev: Event) {
+    function hide(ev?: Event) {
       clearAllTimeout();
       hideTimeout = setTimeout(() => {
         setVisible(false, { trigger: getTriggerType(ev) });
@@ -306,8 +307,8 @@ export default defineComponent({
       clearTimeout(hideTimeout);
     }
 
-    function getTriggerType(ev: Event) {
-      switch (ev.type) {
+    function getTriggerType(ev?: Event) {
+      switch (ev?.type) {
         case 'mouseenter':
         case 'mouseleave':
           return 'trigger-element-hover';
@@ -322,6 +323,8 @@ export default defineComponent({
           return 'keydown-esc';
         case 'mousedown':
           return 'document';
+        default:
+          return 'trigger-element-close';
       }
     }
 
@@ -363,11 +366,17 @@ export default defineComponent({
     }
 
     const updateScrollTop = inject('updateScrollTop', undefined);
+
     function handleOnScroll(e: WheelEvent) {
       const { scrollTop, clientHeight, scrollHeight } = e.target as HTMLDivElement;
-      if (scrollHeight - scrollTop === clientHeight) {
+
+      // 防止多次触发添加截流
+      const debounceOnScrollBottom = debounce((e) => props.onScrollToBottom?.({ e }), 100);
+
+      // windows 下 scrollTop 会出现小数，这里取整
+      if (clientHeight + Math.floor(scrollTop) === scrollHeight) {
         // touch bottom
-        props.onScrollToBottom?.({ e });
+        debounceOnScrollBottom(e);
       }
       props.onScroll?.({ e });
     }
