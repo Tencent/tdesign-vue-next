@@ -39,13 +39,15 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const formData = reactive({
   name: 'TDesign',
   tel: '12345678910',
+  status: true,
+  gender: '1',
   course: ['1'],
 });
 const size = ref('medium');
@@ -60,12 +62,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Errors: ', validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 </script>

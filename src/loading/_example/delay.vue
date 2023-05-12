@@ -15,23 +15,23 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
 const loading = ref(true);
 const data = ref('');
 const delay = ref(500);
-const loadingData = (time) => {
+const loadingData = (time: number) => {
   loading.value = true;
   data.value = '';
   const timer = setTimeout(() => {
     loading.value = false;
     data.value = '数据加载完成，短时间的数据加载并未出现 loading';
     clearTimeout(timer);
-  }, time || 100);
+  }, time);
 };
 
 onMounted(() => {
-  loadingData();
+  loadingData(0);
 });
 </script>

@@ -16,7 +16,7 @@
           <div class="tdesign-demo-image-viewer__ui-image--footer">
             <span class="tdesign-demo-image-viewer__ui-image--title">{{ title }}</span>
             <span class="tdesign-demo-image-viewer__ui-image--icons">
-              <BrowseIcon @click="onOpen" />
+              <BrowseIcon />
               <t-popup
                 trigger="hover"
                 placement="right-bottom"
@@ -26,12 +26,7 @@
               >
                 <template #content>
                   <ul class="tdesign-demo-select__list">
-                    <li
-                      v-for="(image, i) in images"
-                      :key="i"
-                      class="tdesign-demo-selectdesign-demo-option"
-                      @click="onOpen(i)"
-                    >
+                    <li v-for="(image, i) in images" :key="i" class="tdesign-demo-selectdesign-demo-option">
                       <span>图片{{ i + 1 }}</span>
                     </li>
                   </ul>
@@ -46,7 +41,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { BrowseIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
 
@@ -55,15 +50,15 @@ const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
 const images = [img1, img2, img3];
 const visible = ref(false);
-const onOpen = (i) => {
-  typeof i === 'number' && onIndexChange(i);
+const onOpen = () => {
   visible.value = true;
 };
 const index = ref(0);
-const onIndexChange = (i) => {
+const onIndexChange = (i: number) => {
+  console.log(i);
   index.value = i;
 };
-const title = '相册封面标题';
+const title = '相册封面标题1';
 </script>
 
 <style scoped>

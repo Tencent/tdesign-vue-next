@@ -22,9 +22,9 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext, ValueType } from 'tdesign-vue-next';
 
 const formData = reactive({
   account: '',
@@ -50,7 +50,7 @@ const validateMessage = {
 
 const rules = {
   account: [{ required: true }, { min: 2 }, { max: 10, type: 'warning' }],
-  description: [{ validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' }],
+  description: [{ validator: (val: ValueType) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' }],
   password: [{ required: true }, { len: 8, message: '请输入 8 位密码' }],
 };
 
@@ -58,12 +58,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Errors: ', validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 

@@ -11,6 +11,6 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
 </script>

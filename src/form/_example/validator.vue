@@ -64,13 +64,14 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const form = ref(null);
 const formData = reactive({
   account: '',
+  description: '',
   password: '',
   email: '',
   age: undefined,
@@ -90,6 +91,10 @@ const rules = {
     { whitespace: true, message: '姓名不能为空' },
     { min: 3, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
     { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
+  ],
+  description: [
+    { required: true, message: '个人简介必填', type: 'error', trigger: 'blur' },
+    { required: true, message: '个人简介必填', type: 'error', trigger: 'change' },
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
   email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
@@ -133,13 +138,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError, e }) => {
-  e.preventDefault();
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 

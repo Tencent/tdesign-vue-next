@@ -20,9 +20,9 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext, ValueType } from 'tdesign-vue-next';
 
 const form = ref(null);
 const formData = reactive({
@@ -35,33 +35,33 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError, e }) => {
-  e.preventDefault();
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  context.e.preventDefault();
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Validate Errors: ', context.firstError, context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 
-const onValidate = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onValidate = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     console.log('Validate Success');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
+    console.log('Validate Errors: ', context.firstError, context.validateResult);
   }
 };
 
-const rePassword = (val) =>
+const customRePassword = (val: ValueType) =>
   new Promise((resolve) => {
     const timer = setTimeout(() => {
-      resolve(formData.value.password === val);
+      resolve(formData.password === val);
       clearTimeout(timer);
     });
   });
 
-const passwordValidator = (val) => {
+const passwordValidator = (val: ValueType) => {
   if (val.length > 0 && val.length <= 2) {
     return { result: false, message: '太简单了！再开动一下你的小脑筋吧！', type: 'error' };
   }
@@ -85,7 +85,7 @@ const rules = {
   rePassword: [
     // 自定义校验规则
     { required: true, message: '密码必填', type: 'error' },
-    { validator: rePassword, message: '两次密码不一致' },
+    { validator: customRePassword, message: '两次密码不一致' },
   ],
 };
 </script>

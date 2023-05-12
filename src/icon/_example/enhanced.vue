@@ -16,7 +16,7 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { Icon } from 'tdesign-icons-vue-next';
 
 const newSvgUrl = 'https://tdesign.gtimg.com/icon/default-demo/index.js';

@@ -81,9 +81,9 @@
     </t-form>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
   fail: '',
@@ -116,7 +116,7 @@ const addItem = () => {
   addlist.value.push({ id: addNum, name: `add${addNum}` });
   lastAddItem.value += 1;
 };
-const removeItem = (item, index) => {
+const removeItem = (item: { id: number; name: string }, index: number) => {
   delete INITIAL_DATA[`add${item.id}`];
   addlist.value.splice(index, 1);
 };
@@ -125,12 +125,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 

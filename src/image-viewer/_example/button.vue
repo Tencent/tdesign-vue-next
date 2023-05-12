@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="tsx">
-import { ref } from 'vue';
+import { VNode, ref } from 'vue';
 
 const visible = ref(false);
 
-const trigger = (h: any, { open }: { open: () => void }) => <t-button onClick={open}>预览单张图片</t-button>;
+const trigger = (h: VNode, { open }: { open: () => void }) => <t-button onClick={open}>预览单张图片</t-button>;
 </script>

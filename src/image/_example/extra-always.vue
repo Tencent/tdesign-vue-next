@@ -35,7 +35,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { PrintIcon } from 'tdesign-icons-vue-next';
 import { Tag } from 'tdesign-vue-next';
 

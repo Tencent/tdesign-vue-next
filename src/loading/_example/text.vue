@@ -12,7 +12,7 @@
     </t-loading>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 const renderText = () => {
   return <span>变量文字加载中...</span>;
 };

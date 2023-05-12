@@ -35,9 +35,9 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const FORM_RULES = { name: [{ required: true, message: '姓名必填' }] };
 
@@ -60,12 +60,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Validate Errors: ', context.firstError, context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 
@@ -104,7 +104,7 @@ const validateOnly = async () => {
 };
 
 // 禁用 Input 组件，按下 Enter 键时，触发 submit 事件
-const onEnter = (_, { e }) => {
+const onEnter = (_: string, { e }: { e: KeyboardEvent }) => {
   e.preventDefault();
 };
 </script>

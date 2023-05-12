@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 
 const protocolSelect = ref(() => (

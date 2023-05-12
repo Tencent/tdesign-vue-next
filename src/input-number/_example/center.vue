@@ -19,7 +19,7 @@
       @validate="onValidate"
       @focus="handleFocus"
       @blur="handleBlur"
-      @keydown-enter="handleKeydownEnter"
+      @enter="handleKeydownEnter"
       @keydown="handleKeydown"
       @keyup="handleKeyup"
       @keypress="handleKeypress"
@@ -27,7 +27,8 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { InputValue } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 
 const value1 = ref('');
@@ -41,29 +42,32 @@ const tips = computed(() => {
   return undefined;
 });
 
-const onValidate = (p) => {
+const onValidate = (p: { error?: 'exceed-maximum' | 'below-minimum' }) => {
   error.value = p.error;
 };
 
-const handleChange = (v, ctx) => {
-  console.info('change', v, ctx);
+const handleChange = (
+  value: InputValue,
+  context?: { e?: InputEvent | MouseEvent | CompositionEvent; trigger: 'input' | 'initial' | 'clear' },
+) => {
+  console.info('change', value, context);
 };
-const handleFocus = (v, ctx) => {
-  console.info('focus', v, ctx);
+const handleFocus = (value: InputValue, context: { e: FocusEvent }) => {
+  console.info('focus', value, context);
 };
-const handleBlur = (v, ctx) => {
-  console.info('blur', v, ctx);
+const handleBlur = (value: InputValue, context: { e: FocusEvent }) => {
+  console.info('blur', value, context);
 };
-const handleKeydownEnter = (v, ctx) => {
-  console.info('keydown-enter', v, ctx);
+const handleKeydownEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+  console.info('keydown-enter', value, context);
 };
-const handleKeydown = (v, ctx) => {
-  console.info('keydown', v, ctx);
+const handleKeydown = (value: InputValue, context: { e: KeyboardEvent }) => {
+  console.info('keydown', value, context);
 };
-const handleKeyup = (v, ctx) => {
-  console.info('keyup', v, ctx);
+const handleKeyup = (value: InputValue, context: { e: KeyboardEvent }) => {
+  console.info('keyup', value, context);
 };
-const handleKeypress = (v, ctx) => {
-  console.info('keypress', v, ctx);
+const handleKeypress = (value: InputValue, context: { e: KeyboardEvent }) => {
+  console.info('keypress', value, context);
 };
 </script>

@@ -13,9 +13,9 @@
     <template #valueDisplay><t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }}</template>
   </t-select>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { manifest } from 'tdesign-icons-vue-next';
+import { manifest } from 'tdesign-icons-vue-next/lib/manifest';
 // 获取全部图标的列表
 const options = ref(manifest);
 const value = ref('add');

@@ -24,9 +24,9 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const formData = reactive({
   layout: 'inline',
@@ -38,12 +38,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 </script>

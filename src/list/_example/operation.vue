@@ -50,7 +50,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { EditIcon, DownloadIcon } from 'tdesign-icons-vue-next';
 
 const avatarUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';

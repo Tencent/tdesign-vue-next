@@ -1,7 +1,8 @@
 <template>
   <t-input v-model="input" :status="inputStatus" :format="format" placeholder="请输入数字" :tips="tips" />
 </template>
-<script setup>
+<script setup lang="ts">
+import { InputFormatType } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 
 const input = ref('');
@@ -18,7 +19,7 @@ const tips = computed(() => {
   }
   return '请输入数字';
 });
-const format = (val) => {
+const format: InputFormatType = (val) => {
   const reg = /(\d)(?=(?:\d{3})+$)/g;
   const str = val.replace(reg, '$1,');
   return str;

@@ -12,7 +12,7 @@
     <t-link theme="warning" :suffix-icon="renderSuffixIcon" disabled> 跳转链接 </t-link>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { LinkIcon, JumpIcon } from 'tdesign-icons-vue-next';
 
 const renderPrefixIcon = () => <LinkIcon />;

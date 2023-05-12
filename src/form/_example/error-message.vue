@@ -83,9 +83,9 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext, ValueType } from 'tdesign-vue-next';
 
 const formData = reactive({
   account: '',
@@ -118,12 +118,12 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Errors: ', validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Errors: ', context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 
@@ -149,8 +149,8 @@ const rules = {
     { max: 10, type: 'warning' },
   ],
   description: [
-    { validator: (val) => val.length >= 5 },
-    { validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' },
+    { validator: (val: ValueType) => val.length >= 5 },
+    { validator: (val: ValueType) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' },
   ],
   password: [
     { required: true },
@@ -159,7 +159,10 @@ const rules = {
   ],
   email: [{ required: true }, { email: { ignore_max_length: true } }],
   gender: [{ required: true }],
-  course: [{ required: true }, { validator: (val) => val.length <= 2, message: '最多选择 2 门课程', type: 'warning' }],
+  course: [
+    { required: true },
+    { validator: (val: ValueType) => val.length <= 2, message: '最多选择 2 门课程', type: 'warning' },
+  ],
   'content.url': [
     { required: true },
     {

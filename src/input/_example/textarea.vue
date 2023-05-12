@@ -4,7 +4,7 @@
     <t-textarea v-model="value" placeholder="请输入内容"></t-textarea>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = ref('');

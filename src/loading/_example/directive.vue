@@ -7,7 +7,7 @@
     <t-button size="small" :disabled="loading2" @click="handleLoadingFullscreen">支持 fullscreen 修饰符</t-button>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const loading1 = ref(false);

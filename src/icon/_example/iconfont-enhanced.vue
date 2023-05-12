@@ -17,7 +17,7 @@
     <br />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { IconFont } from 'tdesign-icons-vue-next';
 
 const newIconfontUrl = 'https://tdesign.gtimg.com/icon/default-demo/index.css';

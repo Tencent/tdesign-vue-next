@@ -14,7 +14,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
 import { Loading } from 'tdesign-vue-next';

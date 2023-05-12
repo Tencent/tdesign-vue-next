@@ -4,6 +4,6 @@
   </t-list>
 </template>
 
-<script setup>
-const scrollHandler = (e) => console.log(e);
+<script setup lang="ts">
+const scrollHandler = (e: { e: Event | WheelEvent; scrollTop: number; scrollBottom: number }) => console.log(e);
 </script>

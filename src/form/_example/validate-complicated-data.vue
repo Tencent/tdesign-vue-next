@@ -55,17 +55,36 @@
     </t-tabs>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, computed, watch, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { FormValidateResult, MessagePlugin } from 'tdesign-vue-next';
 
 let id = 0;
-const getId = () => {
+
+type GetId = () => number;
+
+type FormData = {
+  courseType?: 'wenke' | 'like';
+  course?: [];
+  school: number;
+  students: {
+    id: number;
+    label: string;
+    name: string;
+    courseType: 'wenke' | 'like';
+    course: string[];
+    status?: boolean;
+  }[];
+};
+
+type COURSE_OPTIONS_Type = { label: string; value?: string; courseTypes?: ('wenke' | 'like')[]; checkAll?: boolean };
+
+const getId: GetId = () => {
   return ++id;
 };
 
 const studentTab = ref(1);
-const formData = reactive({
+const formData = reactive<FormData>({
   school: 1,
   students: [
     {
@@ -85,7 +104,7 @@ const formData = reactive({
   ],
 });
 
-const COURSE_OPTIONS = [
+const COURSE_OPTIONS: COURSE_OPTIONS_Type[] = [
   { label: '全部', checkAll: true },
   { label: '语文', value: '1', courseTypes: ['wenke', 'like'] },
   { label: '数学', value: '2', courseTypes: ['wenke', 'like'] },
@@ -110,7 +129,7 @@ const rules = {
 
 const courseOptions = computed(() =>
   COURSE_OPTIONS.filter((item) => {
-    if (!formData.courseType || !item.courseTypes) return true;
+    if (!formData.courseType || !item?.courseTypes) return true;
     return item.courseTypes.includes(formData.courseType);
   }),
 );
@@ -126,7 +145,13 @@ const onReset = () => {
   MessagePlugin.success('重置成功');
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit = ({
+  validateResult,
+  firstError,
+}: {
+  validateResult: FormValidateResult<FormData>;
+  firstError?: string;
+}) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {

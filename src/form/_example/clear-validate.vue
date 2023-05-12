@@ -57,9 +57,9 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { Data, MessagePlugin, SubmitContext } from 'tdesign-vue-next';
 
 const form = ref(null);
 const formData = reactive({
@@ -95,8 +95,8 @@ const rules = {
     { max: 10, message: '姓名字符长度超出' },
   ],
   description: [
-    { validator: (val) => val.length >= 5, message: '至少 5 个字，中文长度等于英文长度' },
-    { validator: (val) => val.length < 20, message: '不能超过 20 个字，中文长度等于英文长度' },
+    { validator: (val: String) => val.length >= 5, message: '至少 5 个字，中文长度等于英文长度' },
+    { validator: (val: String) => val.length < 20, message: '不能超过 20 个字，中文长度等于英文长度' },
   ],
   password: [
     { required: true, message: '密码必填' },
@@ -110,7 +110,7 @@ const rules = {
   gender: [{ required: true, message: '性别必填' }],
   course: [
     { required: true, message: '课程必填' },
-    { validator: (val) => val.length <= 2, message: '最多选择 2 门课程' },
+    { validator: (val: string) => val.length <= 2, message: '最多选择 2 门课程' },
   ],
   'content.url': [
     { required: true, message: '个人网站必填' },
@@ -126,15 +126,15 @@ const rules = {
 
 const onReset = () => {
   MessagePlugin.success('重置成功');
-  console.log('formData', formData.value);
+  console.log('formData', formData);
 };
 
-const onSubmit = ({ validateResult, firstError }) => {
-  if (validateResult === true) {
+const onSubmit = (context: SubmitContext<Data>) => {
+  if (context.validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Errors: ', validateResult);
-    MessagePlugin.warning(firstError);
+    console.log('Validate Errors: ', context.firstError, context.validateResult);
+    MessagePlugin.warning(context.firstError);
   }
 };
 

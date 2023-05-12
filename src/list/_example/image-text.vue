@@ -23,6 +23,6 @@
     </t-list>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const imageUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

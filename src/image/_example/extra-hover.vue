@@ -7,7 +7,7 @@
   />
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const renderMask = () => (
   <div
     style={{

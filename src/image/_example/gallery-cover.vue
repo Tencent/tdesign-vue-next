@@ -7,7 +7,7 @@
   />
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { Tag } from 'tdesign-vue-next';
 
 const label = () => (

@@ -6,7 +6,7 @@
     <t-switch v-model="loading" :custom-value="[true, false]" :label="['显示', '隐藏']" />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const loading = ref(false);

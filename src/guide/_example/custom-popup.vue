@@ -37,9 +37,15 @@
   </t-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import MyPopup from './my-popup.vue';
+
+type PrevStepClick = { e: MouseEvent; prev: number; current: number; total: number };
+type NextStepClick = { e: MouseEvent; next: number; current: number; total: number };
+type Finish = { e: MouseEvent; current: number; total: number };
+type Skip = { e: MouseEvent; current: number; total: number };
+type Change = { e: MouseEvent; total: number };
 
 const visible = ref(false);
 const current = ref(-1);
@@ -75,24 +81,24 @@ const handleClick = () => {
   }, 800);
 };
 
-const handleChange = (current, { e, total }) => {
+const handleChange = (current: number, { e, total }: Change) => {
   console.log(current, e, total);
 };
 
-const handlePrevStepClick = ({ e, prev, current, total }) => {
+const handlePrevStepClick = ({ e, prev, current, total }: PrevStepClick) => {
   console.log(e, prev, current, total);
 };
 
-const handleNextStepClick = ({ e, next, current, total }) => {
+const handleNextStepClick = ({ e, next, current, total }: NextStepClick) => {
   console.log(e, next, current, total);
 };
 
-const handleFinish = ({ e, current, total }) => {
+const handleFinish = ({ e, current, total }: Finish) => {
   visible.value = false;
   console.log(e, current, total);
 };
 
-const handleSkip = ({ e, current, total }) => {
+const handleSkip = ({ e, current, total }: Skip) => {
   visible.value = false;
   console.log(e, current, total);
 };

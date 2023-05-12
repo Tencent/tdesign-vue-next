@@ -13,7 +13,7 @@
     <!-- <t-loading :loading="loading" text="加载中..." attach="#alice" fullscreen /> -->
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue';
 
 const loading = ref(false);

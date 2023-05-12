@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ArrowUpIcon } from 'tdesign-icons-vue-next';
 
 defineProps({
