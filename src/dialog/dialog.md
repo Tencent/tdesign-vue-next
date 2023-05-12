@@ -2,14 +2,6 @@
 
 ### 插件函数式调用
 
-插件调用方式一：`this.$dialog(options)`
-
-插件调用方式二：`this.$dialog.confirm(options)`
-
-插件调用方式三：`this.$dialog.alert(options)`
-
-<br />
-
 函数调用方式一：`DialogPlugin(options)`
 
 函数调用方式二：`DialogPlugin.confirm(options)`

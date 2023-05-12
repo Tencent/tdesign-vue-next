@@ -1,113 +1,99 @@
 <template>
-  <t-space>
-    <t-button theme="primary" @click="showDialog">dialog</t-button>
-    <t-button theme="primary" @click="handleDN">handleDialogNode</t-button>
-    <t-button theme="primary" @click="onConfirm">confirm</t-button>
-    <t-button theme="primary" @click="onAlert">alert</t-button>
-    <t-button theme="primary" @click="onDialogPluginConfirm">DialogPlugin.confirm</t-button>
+  <t-space direction="vertical">
+    <p>使用函数调用方式一:</p>
+    <t-space>
+      <t-button theme="primary" @click="createInstanceDialogPlugin">create-InstanceDialogPlugin</t-button>
+      <t-button theme="primary" @click="showInstanceDialogPlugin">show-instanceDialogPlugin</t-button>
+    </t-space>
+  </t-space>
+  <br />
+
+  <t-space direction="vertical">
+    <p>函数调用方式二:</p>
+    <t-space>
+      <t-button theme="primary" @click="confirmDialog">confirm-dialog</t-button>
+    </t-space>
+  </t-space>
+  <br />
+
+  <t-space direction="vertical">
+    <p>函数调用方式三:</p>
+    <t-space>
+      <t-button theme="primary" @click="alertDialog">alert-dialog</t-button>
+    </t-space>
   </t-space>
 </template>
-<script>
-import { defineComponent } from 'vue';
-import { DialogPlugin } from 'tdesign-vue-next';
+<script setup lang="ts">
+import { IconFont } from 'tdesign-icons-vue-next';
+import { Button, DialogInstance, DialogPlugin, MessagePlugin } from 'tdesign-vue-next';
+import { VNode } from 'vue';
 
-export default defineComponent({
-  data() {
-    return {
-      mydialog: '',
-    };
-  },
-  methods: {
-    showDialog() {
-      if (this.myDialog) {
-        this.myDialog.show();
-        return;
-      }
-      this.myDialog = this.$dialog({
-        header: 'Dialog-Plugin',
-        body: 'Plugin 方式创建新弹窗',
-        className: 't-dialog-new-class1 t-dialog-new-class2',
-        style: 'color: rgba(0, 0, 0, 0.6)',
-        onConfirm: () => {
-          this.myDialog.hide();
-        },
-      });
-    },
-    handleDN() {
-      const dialogNode = this.$dialog({
-        header: 'Dialog-Plugin',
-        body: 'Hi, darling! Do you want to be my lover?',
-      });
-      // 更新弹框内容
-      dialogNode.update({
-        header: 'Updated-Dialog-Plugin',
-        cancelBtn: '',
-        onConfirm: ({ e }) => {
-          console.log('confirm button has been clicked!');
-          console.log('e: ', e);
-          // 隐藏弹框
-          dialogNode.hide();
-        },
-      });
-    },
-    onConfirm() {
-      const confirmDia = this.$dialog.confirm({
-        header: 'Dialog-Confirm-Plugin',
-        body: 'Are you sure to delete it?',
-        confirmBtn: 'ok',
-        cancelBtn: 'cancel',
-        onConfirm: ({ e }) => {
-          console.log('confirm button has been clicked!');
-          console.log('e: ', e);
-          // 请求成功后，销毁弹框
-          confirmDia.destroy();
-        },
-        onClose: ({ e, trigger }) => {
-          console.log('e: ', e);
-          console.log('trigger: ', trigger);
-          confirmDia.hide();
-        },
-      });
-    },
-    onAlert() {
-      const alertDia = this.$dialog.alert({
-        header: 'Dialog-Alert-Plugin',
-        body: 'Notice: Your balance is going to be empty.',
+// 函数调用方式一
+let instanceDialogPluginOne: DialogInstance;
+
+/**
+ * 创建弹窗实例
+ * 更新弹窗信息
+ */
+const createInstanceDialogPlugin = () => {
+  instanceDialogPluginOne = DialogPlugin({
+    header: 'Base-DialogPlugin',
+    body: '使用 DialogPlugin创建实例,手动更新弹窗信息。',
+    confirmBtn: '更新数据',
+    onConfirm: (context: { e: MouseEvent | KeyboardEvent }) => {
+      console.log(context);
+      instanceDialogPluginOne.update({
+        body: '数据已更新！',
         confirmBtn: {
-          content: 'Got it!',
-          variant: 'base',
+          content: '已禁止',
+          disabled: true,
+        },
+        cancelBtn: {
+          content: '销毁实例',
           theme: 'danger',
-        },
-        onConfirm: ({ e }) => {
-          console.log('confirm e: ', e);
-          alertDia.hide();
-        },
-        onClose: ({ e, trigger }) => {
-          console.log('close e: ', e);
-          console.log('trigger: ', trigger);
-          alertDia.hide();
+          onClick: () => {
+            instanceDialogPluginOne.destroy();
+            instanceDialogPluginOne = null;
+          },
         },
       });
     },
+  });
+};
 
-    onDialogPluginConfirm() {
-      const confirmDia = DialogPlugin({
-        header: 'Dialog-Confirm-Plugin',
-        body: 'Are you sure to delete it?',
-        confirmBtn: 'ok',
-        cancelBtn: 'cancel',
-        onConfirm: ({ e }) => {
-          console.log('confirm button has been clicked!');
-          console.log('e: ', e);
-          confirmDia.hide();
-        },
-        onClose: ({ e, trigger }) => {
-          console.log('e: ', e);
-          console.log('trigger: ', trigger);
-          confirmDia.hide();
-        },
-      });
+// 手动展示已创建的弹窗实例
+const showInstanceDialogPlugin = () => {
+  console.log(instanceDialogPluginOne);
+  if (!instanceDialogPluginOne) {
+    MessagePlugin.error('还未创建弹窗实例');
+    return;
+  }
+  instanceDialogPluginOne.show();
+};
+
+// 函数调用方式二
+const confirmDialog = () => {
+  const instanceDialogPluginTwo = DialogPlugin.confirm({
+    header: 'Confirm-DialogPlugin',
+    body: '使用 DialogPlugin.confirm打开弹窗',
+    closeBtn: (h: (type: any, children: { name: string }) => VNode) => h(IconFont, { name: 'close-circle' }),
+    confirmBtn: (h: (type: any, children: { content: string; theme: string; onClick: () => void }) => VNode) =>
+      h(Button, { content: '关闭弹窗', theme: 'warning', onClick: () => instanceDialogPluginTwo.hide() }),
+    onConfirm: (context: { e: MouseEvent | KeyboardEvent }) => {
+      console.log(context);
+      instanceDialogPluginTwo.hide();
     },
-  },
-});
+  });
+};
+
+// 函数调用方式三
+const alertDialog = () => {
+  const instanceDialogPluginThree = DialogPlugin.alert({
+    header: 'Alert-DialogPlugin',
+    body: '使用 DialogPlugin.alert打开弹窗',
+    onConfirm: () => {
+      instanceDialogPluginThree.hide();
+    },
+  });
+};
 </script>
